@@ -512,7 +512,6 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 125	Interessebrev Media Markt	Media Markt	3	2	Ingen
 113	Java-utvikler	EVRY Financial Services	2	2	2017-07-28
 115	Nyutdannet med interesse for både kommunikasjonsteknologi og programmering?	GET via Academic Work	2	4	2017-07-18
-119	Systemutvecklare C# / .NET	ÅF AB	5	1	2017-09-03
 121	Utvecklare inom .NET (C# & VB)	Lämneå Bruk via Xamera	16	1	2017-09-15
 123	Bli IT-konsult på 12 veckor	Academy via Academic Work	5	4	2017-08-28
 126	Interessebrev Media Markt	Media Markt	4	2	Ingen
@@ -573,6 +572,7 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 149	Junior utvecklare till företag i Göteborg	Crepido via Framtiden	3	2	2017-09-01
 150	Inhouse .Net-utvikler	MODIS Norge	17	2	2017-09-01
 153	Javautvikler innen bank og finans	EVRY Financial Service	2	2	2017-09-01
+119	Systemutvecklare C# / .NET	ÅF AB	5	2	2017-09-03
 166	Junior Backendutvecklare till internationalt IT-konsultbolag	Framtiden AB	18	1	2017-09-08
 169	Programmerare	ALcontrol Laboratories via Industrikompetens i Östergötland	5	1	2017-09-22
 170	.Net utvecklare	Contribe Göteborg	3	1	2018-01-17
@@ -620,6 +620,8 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 204	Java-utvecklare	HiQ Göteborg AB	3	1	2017-09-17
 89	Fullstackutvecklare (.NET)	Ezy via Dfind IT	3	4	2017-08-30
 205	Norwegian speaking Technical Support Professional to our Nordic team	Apsis International AB	18	2	2017-09-29
+206	Junior utvecklare	IDP	3	2	2017-10-15
+207	Junior systemutvecklare till ett trygt företag i Malmö	Framtiden AB	18	2	2017-09-22
 \.
 
 
@@ -627,7 +629,7 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 -- Name: soknadid_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
 --
 
-SELECT pg_catalog.setval('soknadid_seq', 205, true);
+SELECT pg_catalog.setval('soknadid_seq', 207, true);
 
 
 --
