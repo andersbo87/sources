@@ -1,0 +1,1 @@
+# Kildekode til diverse prosjekter
