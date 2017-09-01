@@ -1,0 +1,83 @@
+==========================
+NOTATER TIL FORELESNING 12
+==========================
+Davide Roverso, Chief Analytics Officer, eSmart
+
+Big Data facts
+-More data has ben created in the past 2 years than in the entire previous
+history of mankind
+
+-By the year 2020, about 1.7 MB new nre information will be reated evert second…
+-Facebook useres send on av 31.25 million messages…
+-Within 5 yrs there will be over 50b smart connected devices in the world,
+all developed to collect analyze and share data
+
+
+Big Data Analysis Process
+-Exploratory Data Analysis /Visualization
+-Machine Learning / Data Mining
+
+
+
+Visualisation / Exploratory Data Analysis
+Common first step in data analysis
+Get familiar with the data
+Helps understand the character of the data
+Helps identifying major problems with the data
+
+
+
+Machine Learning / Data Mining
+-Hva er det?
+--Algoritmer som lager informative modeller av data
+--Kjenne igjen, oppdage, foreslå,
+--discover/associate, recognize, forecast
+
+machine learning model types
+-Monitor/Detection
+-Fault detection
+-Abnormality detection
+-Identify faces in pictures
+
+classification
+-Er X av type A, B, eller C?
+-Classify credit card transactions as legitmate or "fraudolate" (eller noe sånt)
+
+Estimation/Regression
+-Gitt a, b, og se, hva er verdien til X?
+-Estimating emissions
+-Power Disaggregation
+-Power Outdage Risk estimation
+
+Prediction/Forecast
+-Hva vil verdien til X bli?
+-Når vil hendelse H hende?
+-Load Forecasting
+-Predictin time-to-time-failure
+
+Clustering/Segmentation
+-Kan vi gruppere "the subjects"?
+-What differentiates groups?
+-User profiling
+
+Control
+-Hvilken handling X gir best resultater?
+
+Examples
+How-Old.net (face identification, gender classification, age estimation)
+Googles selvkjørende bil (hva den førerløse bilen ser foran seg, skanner omgivelsene i real time og avgjør om det er trygt å kjøre videre, leser trafikkskilt, etc)
+
+Machine Learning studios:
+rapidminer
+orabge
+mahout
+spark MLlib
+azure machine learning
+amazon machine learning
+goolge cloud platform
+
+get a free azure ml account (påkrevet, minst en konto per gruppe)
+trenger en MS-konto
+opprett en med @hiof.no-e-post
+utforsk tilgjengelig Azure-dokumentasjon, tutorials (frivillig)
+Ta med PC-en til neste time (minst én PC per gruppe)

@@ -1,0 +1,124 @@
+datavarehus
+hva?
+et datavarehus er en samling av data lagret slik at de egner seg for analyse.
+f.eks.:
+ * trendanalyse. konkurranseanalyse, kundenalyse og annen form for
+   markedsanalyse (mest vanlig bruk)
+ * analyse, f.eks. i forbindelse med forsikring -og premier
+ * data f.eks. i forbindelse med geologiske data, etc.
+kort sagt: beslutningsstltte på en eller annen måte.
+
+karakteristika
+ofte mye data
+samlet opp over lengre tidsrom
+fra ulike kilder
+summer er ofte viktigere enn enkeltdata
+separat fra den vanlige databasen
+
+
+NB! Warehouse = lagerhus, ikke "supermarked"
+
+Bruk av data kan deles i data for transaksjonsbruk og data for analusebruk:
+OLTP - On Line Transaction Processing
+OLAP - On Line Analytical Processing. Det er her datavarehus kommer inn.
+
+dimmensjonsmodellering
+En del faktorer innen dimmensjonsmodellering
+må ofte ta hensyn til tidligere strukturer
+må ta hensyn til endringer i fremtiden
+må ofte ta hensyn til ulike kilder, f.eks fra sammenslåtte firmaer
+inkommensurable størrelser, evt. konvertering av størrelser
+granulariteten av data
+det skal stadig fylles på med date, ingen data skal bort, men må muligehns aggregeres etter hvert. Er nyere data viktigere enn gamle?
+Bruken av data blir vikrig, f.eks. skal man ha me dsalgssted med i et databaserhus?
+
+hvordan arbeide med et datavarehus?
+
+kilde 1 (ofte fra  ---------\    |ekstrasjon
+operasjonelle data)	     \-->|rensing
+	      			 |transformasjon (gjerne til
+				 |fakta- og dimensjonstabeller,-->|datavarehus
+kilde 2	------------------------>|summering, etc)		    |
+      			   /   	 |lasting    			    |
+kilde 3 -------------------	 				    |
+								    v
+							       |Analyse
+				Ad-hoc-spørringer------------->|
+				Spørreparametere-------------->|
+
+Organieringformer for data
+ROLAP …
+
+MOLAP Multidimensjonal OLAP (datakuber)
+Dataene lagres som kuber (dvs. på samme måte som 2-,3- eller
+flerdimensjonale arrays i programmeringsspråk.
+Bruker spesialsrpåk i kombinasjon med SQL
+Kan godt være 4 eller flere dimensjoner, selv om det ikke kan tegnes-
+Tilsvarer multivariat analyse i statistikk
+Lite effektivt med glisne data
+
+HOLAP - Hybrid OLAP
+
+Noen variasjoner og begrep
+Datavarehus og datamarked
+
+Et datamarked (data mart) er en minivariant av et datavarehus
+
+Data Staging Area (stage = plattform, stillas)
+
+* istedenfor å kjøre data rett over i et datavarehus, lager man en tradisjonell,
+  normalisert relasjonsdatabase som inneholder alle data som skal inn i
+  datavarehuset. Denne brukes så til å lage datavarehus (DW)
+  eller data marts (DM).
+* Dermed lettere å lage DW og DM
+
+Data mining:
+bruk at datavarehus til å oppdate skjulte sammenhenger, ofte ved å bruke
+statististiske og/eller heuristiske metoder.
+
+Verktøy for DW, OLAP, BI…
+Det finnes en rekke verktøy på området:
+Intergrert eller som tilleggsverktøy til databasesystemer
+f.eks. Oracle Data Warehouse, OLAP, Data Mining. features (C & B):
+** Summary management
+** analytical functions
+** bitmapped indexes
+** advanced join methods
+** sophisticated SQL optimizer
+** resource management
+
+* Egne kommersielle verktøy som ofte vanligvis lagrer data i andre kilder,
+e.g. et vanlig databasesystem (e.g. SAS Institute, www.sas.com)
+* Gratisverktøy, se f.eks. http://butleranalytics.com/free-clap-tools
+  Men OBS: mange "gratisverktøy" er "free download", ikke "freeware"
+  Pentaho er blant de mest kjente freebare.
+* Regnearksystemer har også en god del analysefunksjoner for OLAP,
+  datamining, etc
+NB! Viktig å skille mellom lastemåte, lagreingsmåte og presentasjonsmåte.
+Kan jo e.g. lagre data som kube, relasjonelt, glissent/sparse, invertert,…
+men presentasjonen kan være på en helt annen form.
+
+Typisk bruk av datavarehus:
+Multivariant analyse
+Tidsserieanalyse (se på utvikling over tid, e.g. over de siste 30 dagene)
+"Datadrilling" (drill down)
+"Oppsummering" (drill up)
+
+God struktur på datavarehuset kan være avgjørende
+for et firmas suksess eller ikke.
+
+OLTP   	      	      Data Warehouse systems
+Holds current data    Holds historical data
+Stores detailed data  Stores detailed, lightly and highly summarized data
+Data is dynamic	      Data is largely dynamic
+Repetetive processing Ad-hoc, unstructured, and heuristic processing
+High level of	      Medium to low level of trancaction thoroughput
+transaction	      
+throughput	      
+Transaction-driven    Analysis-driven
+Application oriented  Subject-oriented
+Supports day-to-day   Supports strategic decicions	
+decicions
+Serves large number   Serves relatively low number of managerial users
+clerical/operational
+users

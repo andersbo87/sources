@@ -1,0 +1,127 @@
+==========================
+NOTATER TIL FORELESNING 16
+==========================
+
+Merk at noe av dette KAN overlappe med tidligere forelesninger
+
+Modellering
+Oppgavetyper
+-"Supervised Learning" (det er dette vi skal fokusere mest på)
+--"Regression"
+--Klassifisering
+-"Unsupervised Learning"
+--"Clustering"
+--"Feature Learning"
+
+-"Reinforcement Learning"
+--"Control"
+
+
+Supervised Learning
+Viktige konsepter
+-Generaliseringsfeil
+-"Overfitting" problem
+-"Bias & Variance tradeoff"
+-Kryssvalidering
+-"Class imbalance problem"
+-"Ensemble modeling"
+
+Generaliseringsfeil
+===================
+-Måler hvor godt maskinlæringsmodellen "generaliseres"
+-Måler hvor god ytelse det blir på data den ikke har vært borti før
+-Kan bli målt spesifikt for et nytt datasett ("test error")
+-Kan bli estimert for usett data (se kryssvalidering)
+
+Overfitting
+============
+(HER ANBEFALER JEG Å SE PÅ LÆRERS PDF, DA DETTE INNEHOLDER GRAFISKE BILDER
+SOM ILLUSTRERER "OVERFITTING".
+)
+Det er to grunner til "overfitting"
+-For lite data
+-Modellen er for kompleks (for mange frie parametere)
+
+Noen løsninger på overfitting
+
+-Øk datamengden
+-Bruk en enklere modell eller mink antall parametere som skal tilpasses ("train")
+-Ikke overtilpass parameterne
+-Integrer over flere "prediktorer"
+
+Sitat fra en (katolsk eller ortodoks) prest som heter Occam (1287-1347):
+"Blant konkurrerende hypoteser bør man velge den med færrest antakelser."
+For å gjøre det relevant til dette temaet, kan man tolke sitatet slik:
+"Velg den enkleste modellen (den med færre parametere) som fortsatt gir
+nok ytelse på dataen som er tilgjengelig"
+Leonardo da Vinci hadde en lignende tankegang:
+"Enkelhet er den ultimate sofistikering"
+("Simplicity is the ultimate sophistication")
+Sitat fra Albert Einstein:
+"Alt bør gjøres så enkelt som mulig, men ikke enklere" (enn det).
+
+REGULARISERING
+=============
+-Forsøker å implementere Occam's razor automatisk
+-Straffer komplekse modeller:
+--Definerer en straffefunksjon for å "kvantifisere" modellens kompleksitet
+---dvs. antallet frie parametere
+--Siden de fleste treningsalgoritmene vanligvis er optimiseringsproblemer
+  hvor modellen er minimert, legger man til en "complexity penalty term"
+  og minimerer hele regresjonen.
+---f.eks. minimere feil og antall parameter samtidig
+
+BIAS AND VARIACNCE
+==================
+Se lærers forelesningsnotater
+
+KRYSSVALIDERING
+===============
+
+-Metode som antar generaliseringsfeilen til en maskinlæringsalgoritme/-modell
+-Lager flere kopier på ulike subsett av tilgjengelig data
+-Gjennomsnittsmåler testresultatene for å produsere et estimat av
+ generaliseringsfeilen.
+
+10-foldet kryssvalidering
+=========================
+(se lærers forelesningsnotater)
+
+CLASS IMBALANCE PROBLEM
+=======================
+(se lærers notater for eksempel på dette problemet)
+
+Noen løsninger til "class imbalance problem"
+--------------------------------------------
+
+-"Downsampling"
+--Velger et subsett av A eksempler slik at størrelsen matcher
+  settet med B eksempler
+-"Upsampling"
+--Produser kunstige B eksempler inntil dette settet matcher
+  settet med A eksmpler
+--SMOTE (Synthetic Minority Over-sampling Technique)
+-Asymmetric training
+
+Ensemble modelling
+==================
+
+-Reduserer effektivt variasjonen av modellestimatet
+-Migrerer "overtilpasning"
+-Nøkkelen er mangfoldet i den individuelle modellen
+
+Ensemble learning methods
+-------------------------
+
+-Bagging
+--Hver modell er "trent" på et subsett av data
+--Gjennomsnittlig
+
+-Boosting
+--Legger til nye modeller inkrementelt
+--Data som tidligere er unøyaktig estimert eller klassifisert gis en høyere
+  "vekt" i den nye modellen som skal legges til esemblet
+
+-Stacking (ikke mye brukt)
+--Hver modell "trenes" på et tilfeldig subsett av dataene.
+--En ny modell "veier" bidraget til hver enkel modell

@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Browser Check</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var useragent = navigator.userAgent.toLoverCase();
+      var Browser = {
+        Version: (userAgent.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/) || [])[1],
+        Chrome: /chrome/.test(userAgent),
+        Safari: /safari/.test(userAgent),
+        Opera: /opera/.test(userAgent),
+        IE: /msie/.test(userAgent),
+        lynx: /lynx/.test(iserAgent),
+      };
+      if(Browser.lynx)
+        <h1>"You are using lynx.\n"</h1>
+    </script>
+  </body>
+</html>

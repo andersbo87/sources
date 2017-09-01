@@ -1,0 +1,158 @@
+BESVARELSE I OBLIG 1 FOR ANDERS BOLT-EVENSEN
+
+Oppgave 1a)
+Det gir alle alle tupler, hvilket vil si 19*420*7000*40=2234400000
+Det gir alle attributter: 2+3+4+2=11
+
+b)
+(pi)stedsnavn, stedskodeid((sigma)kommunenr=1005(sted))
+
+c)
+(pi)kommunenavn,stedsnavn,fylkesnavn((sigma)fylkesnavn="Østfold"(sted(join)kommune(join)fylke))
+
+
+d)
+(sigma)kodenavn="Øy",fylkesnavn="Østfold" (fylke*kommune*sted*stedstype)
+
+e)
+Πkodenavn="Øy"^Fylkesnavn="Østfold"(Fylke(join)kommune(join)Sted(join)Stedstype)
+
+
+f)
+(pi)kodenavn, stedsnavn, kommunenavn, fylkenavn((sigma)fylke.fylkenavn="Østfold"((sigma)kodenavn="Øy"(natural-join-tegn(sted, kommune, fylke))))
+
+g)
+R1:=(sigma)fylkesnavn="Østfold"
+R2:=Kommune(join)(R1)
+R3:=(sigma)kodenavn="Øy"(stedstype)
+R4:=Sted(join)(R3)
+R5:=R2(join)R4
+
+h)
+((pi)stedkodeid(STED) - (pi)stedkodeid(STEDSTYPE))(join)STED
+
+i)
+(pi)fylkenr, fylkenavn(fylke)(semijoin)(pi)kommunenr(kommune)(sigma)kommune.fylkenr=fylke.fylkenr(semijoin)(pi)stedkodeid(sted)(sigma)sted.kommunenr=kommune.kommunenr AND stedkodeid=1
+
+Her forutsetter jeg at stedkodeid 1 er "Øyer".
+
+j)
+Nei.
+Semijoin (i alle fall i SQL) fungerer slik at kun de med minst ett "treff" skrives ut. Likvel, når SQL finner elementer med mer enn ett treff, skrives likevel bare ett treff. Har man en liste over øyer i Østfold og man bruker semijoin for å finne fylker med 1 eller flere øyer, vil bare Østfold skrives ut én gang, selv om det er flere øyer i Østfold.
+
+k)
+Bru:		Sarpsbrua
+		Sandesundbrua
+		Rolvsøysund bru
+Fjell	    	Ingen
+Innsjøer	Isevann
+		Tunevannet
+Øyer		Ullerøy
+
+l)
+(pi)kommunenavn(kommune)(right-join)((sigma)kodenavn='fjell'(stedstype))
+
+m)
+sted(join)(rho)kodenavn <> "Fjell" (stedstype) blir feil fordi …
+
+n)
+(pi)kommunenavn((sigma)fylkesnavn='Østfold'(fylke)(union)fylkesnavn='Akershus(fylke))
+
+o)
+kommune (join)((pi)stedkodeid(sted)/(pi)stedkodeid(stedstype))
+
+p)
+fylkenavn (join)((pi)stedkodeid,kodenavn(stedstype)/(pi)stedkodeid(sted))
+
+q)
+Ved en full join kjøres først en inner join, som fungerer slik: For hver rad R1 av T1, har den joinede tabellen en rad for hver rad i T1 som oppfyller joinkravet med R1. Så, for hver rad i T1 som ikke oppfyller kravene i T2, legges det til en ny rad med nullverdier i T2s kolonner. Det samme gjelder for hver rad i T2 som ikke oppfyller kravene til T1.
+Med andre ord: Det er de tupler som finnes enten i kommune, sted eller stedstype og dessuten de som finnes i alle tre relasjonene.
+
+r)
+Sammenligner vi med oppgave q), ser vi at i motsetning til full join, så vises kun de feltene hvor kravene til selve joiningen oppfylles. Med andre ord så er det ingen tomme felter, i motsetning til full join (se oppgave q).
+
+s)
+(pi)fylkesnavn(right-join)stedtype-(pi)kodenavn(stedstype)
+
+t)
+
+
+u)
+
+
+
+OPPGAVE 2)
+Ansatt:
+Ansattnr	Etternavn	Fornavn
+1		Hansen		Arne
+2		Jensen		Kine
+3		Nordby		Espen
+4		Jansen		Laura
+5		Evensen		Jan
+6		Moen		Henriette
+
+Prosjekt:
+Prosjektnr	Prosjektnavn
+1		Spillutvikling
+2		C-programmering
+3		Java-programmering
+
+ProsjektArbeide
+Prosjektnr	Ansattnr	Timetall
+1		5		20
+2		2		20
+3		3		15
+2		3		5
+1		3		5
+2		5		10
+3		2		10
+2		1		20
+3		4		10
+2		6		25
+2		4		10
+1		4		10
+
+
+a)
+Hva heter de som jobber i prosjekt 3 til etternavn, hva heter prosjektet og hvor stort er timetallet for hver ansatt?
+(pi)etternavn(ansatt)(join)((sigma)prosjektnr=3(prosjekt)(join)((pi)timetall(prosjektarbeide)))
+
+b) Hvilke ansattnr har jobbet med et prosjekt i 10 eller flere timer?
+Πansattnr(ansatt(join)prosjektarbeide(sigma)timetall>20)
+
+
+c) Π((sigma)timetall>20)(prosjektarbeie(join)ansatt)
+
+d) Skriv ut for- og etternavn til de ansatte og hvilke prosjekt(er) de tilhører.
+(pi)fornavn, etternavn(ansatt)(left outer join)(pi)prosjektnr((sigma)prosjektarbeide.ansattnr=ansatt.ansattnr)(prosjektarbeide)
+
+e) Hva heter prosjektet til de ansatte med timetall >20?
+(pi)prosjektnavn(prosjekt)(semijoin)(sigma)timetall>20(prosjektarbeide)
+
+f) 
+
+g) Hva heter de ansatte som ikke er tilknyttet noen prosjekter?
+(pi)fornavn, etternavn(ansatt)(join)((sigma)prosjektnr-ansattnr(prosjektarbeide))
+
+h) 
+
+
+DEL B:
+a) Jeg valgte å bruke godbiten på Fronter. Siden jeg bruker PostgreSQL istedenfor MySQL, måtte jeg installere et verktøy som oversetter SQL-filen fra MySQL til PostgreSQL:
+$ cd /usr/ports/databases/mysql2pgsql
+$ sudo make install clean.
+Deretter la jeg inn pgAdmin 3 (den nyeste som finnes på operativsystemet jeg bruker til skolearbeid (FreeBSD)) på samme måten som ovenfor.
+
+For å få filen "oversatt" til PostgreSQL, brukte jeg programmet mysql2pgsql slik:
+$ mysql2pgsql mod_veritas20120917.sql psql_mod_veritas20120917.sql.
+Deretter forsøkte jeg å kjøre kommandoen psql -f psql_mod_veritas20120917.sql, hvilket mislyktes da PostgreSQL ikke godtok "IF NOT EXISTS <dbname>". Da den aktuelle linjen ble fjernet, kjørte jeg kommandoen
+$ createdb mod_veritas && psql -d mod_veritas -f psql_mod_veritas20120917.sql.
+Etter en del prøving og feiling (fjernet en del binære data, noe som ikke løste problemet), endte det opp med at jeg fikk fjernet \0-karakterer og "DROP TABLE <tabell> CASCADE". Først da fikk jeg lagt inn det som sto i psql_mod_veritas20120917.sql inn i selve databasen. Det skal riktignok sies at systemet ikke registrerte noen primær- eller fremmednøkler under oppsetting og innlegging av data.
+
+Operasjonen med å lese fra filen, opprette tabeller og sette inn data (med hjelp av kommandoen psql -d mod_veritas -f psql_mod_veritas20120917.sql tok 17:42.452 (17 min og 42 sek). 
+
+Ettersom at du skrev at denne databasen inneholdt en tabell med mer enn 1 million rader, var jeg ivrig etter å se hvor lang tid systemet brukte på å hente de dataene.
+
+Jeg åpnet pgadmin3, koblet til den aktuelle databasen, fant frem til artsfunnkopi, åpnet et vindu hvor jeg kunne skrive inn SQL-spørringer, og skrev "select * from artsfunnkopi" og utførte denne spørringen. Samtlige 1,2 millioner rader ble funnet i løpet av 39,780 sekunder.
+Deretter tok jeg på en måte utgangspunkt i en deloppgave i del A som tok opp det
+med full join, og kjørte SQL-spørringen "select * from artsfunnkopi full join art on (art.artsindeks=artsfunnkopi.artsindeks)". Helt ærlig, så trodde jeg denne spørringen ville ta MYE lenger tid enn den gjorde: 165832 millisekunder, eller 2 minutter og 45,832 sekunder.

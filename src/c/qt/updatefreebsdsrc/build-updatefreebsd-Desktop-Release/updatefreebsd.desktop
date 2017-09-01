@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Oppdater FreeBSD og installerte programmer
+Comment=GUI for å oppdatere FreeBSD og installerte programmer
+Exec=/usr/local/bin/sudo /usr/local/sbin/updatefreebsd
+Terminal=False
+Icon=freebsd.png
+Type=Application
+Encoding=UTF-8
+Categories=Network

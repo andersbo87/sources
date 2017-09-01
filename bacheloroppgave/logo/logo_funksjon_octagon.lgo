@@ -1,0 +1,4 @@
+TO OCTAGON :lengde
+REPEAT 8 [forward :lengde left 45]
+END
+

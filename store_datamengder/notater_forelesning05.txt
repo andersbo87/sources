@@ -1,0 +1,65 @@
+FORELESNINGSNOTATER FORELESNING 5:
+
+Plusse to naturlige tall og få et naturlig tall tilbake
+Multiplisere to naturlige tall og få et naturlig tall tilbake
+Trekke fra to naturlige tall gir ikke nødvendigvis et naturlig tall (negative tall er ikke naturlige).
+Divider to naturlige tall gir ikke nødvendigvis et naturlig tall, da vi ikke alltid får et heltall til svar.
+
+Likhet +   -  *  /
+N      J   N  J  N
+Z      J   J  J	 N
+Q*     J   J  J	 N**	*)Q = koeffisient (brøk) **) Divisjon med brøk kan
+       	      	 	    		             bli til en divisjon på 0.
+
+Assosiativitet:
+
+Kommutativitet:
+Union og snitt er kommutative:
+R (union) S (kongruent) S (union) R og R (snitt) S (kongruent) S (snitt) R
+Det samme gjelder produkt og inner join.
+Det gjelder ikke mengdedifferanse og outer join.
+
+Optimalisering
+
+Hvordan gjennomføres en spørring?
+
+----------
+SQL-spørring
+---------
+  |
+  |
+  V
+-------  --
+Lag aksessplan/kompiler --- Optimalisering: Hvordan finne en god aksessplan?
+...........
+  |
+  |
+  V
+----------------
+Gjennomføring av aksessplanen
+---------------
+
+Tidkrevende/Store/Tune operasjoner:
+*Sortering (flettesortering er en god idé hvis ikke radikssortering fungerer)
+*Fjerning av duplikater
+*Gruppering
+	* Oftest lønnsomt å sortere først
+*Kobling (join)
+	 * Rå kraft
+	 * Sortering og sammenligning (evt. via fletting)
+	 * Sammenligning via indekser (fullt søk på en relasjon via indeks på den andre)
+	 * Hash-metodikk
+
+
+Hvordan optimalisere?
+*Vi bryter ned til enkeltoperasjoner og kanonisk form (bryte med til kobling, restrict, etc)
+*Analysering med omformulering i henhold til lovlige regler, bla ut fra:
+	     * Betingelser i where-setningen (= vs. >, etc)
+	     * Hvilke attributter som skal med i resultatet
+	     * Krav til sortering og gruppering
+	     * Antall tupler pr. relasjon
+	     * Antall bytes i attributter som skal kobles
+	     * Indekser som finnes (og om clustede, unike, ikke-unike)
+	     * Ideelt sett hvor dataene finnes (lokalt, på nettet, etc.)
+	     * Ideelt sett også variasjonsbredden i dataene.
+*Sammenstilling til en samlet aksessplan

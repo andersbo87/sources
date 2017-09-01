@@ -1,0 +1,11 @@
+LinkedList<type> ll = new LinkedList<type>();
+int []a = new int[10];
+for int i=0; i<10; i++)
+{
+  a[i]=noe
+}
+
+for (int j=0; j<10; j++)
+{
+	ll.push(i);
+}

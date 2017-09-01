@@ -1,0 +1,6 @@
+Programmene som skal løse oppgave 3 lar seg kompilere med Clang 3.6.0 i FreeBSD.
+Programmene lar seg ikke kompilere under GCC versjon 4.8 (det er mulig det fungerer under nyere utgaver av GCC). Problemet er at G++ ikke forstår seg på funksjonen stoi() som er en C++11-funksjon som konverterer en streng til et heltall.
+
+Uansett, for å kjøre programmet skriver du ett av følgende:
+bst fil1 eller bst fil1 fil2
+rbtre fil1 eller rbtre fil1 fil2.

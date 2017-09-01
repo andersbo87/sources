@@ -1,0 +1,97 @@
+NOTATER TIL FORELESNING 4.
+
+Henviser også til filen Relasjonsalgebra_15.pdf
+
+MENGDEDIVISJON
+
+R		S	T
+A|X		X	A
+A|Y		Z
+A|Z
+B|X
+B|Y
+
+A matcher med X og Z.
+B matcher med X.
+Her er A det eneste som har full match.
+
+TxS=R
+
+15/3=5, fordi 5*3=15.
+
+
+R	S     T
+a|x	x     a
+a|y	z     b
+b|x
+b|y
+
+SxT=R
+x X a a|x
+y   b a|y
+      b|x
+      b|y
+
+Kundenavn	Varenr.
+Olsen		1
+Olsen		2
+Olsen		3
+Jensen		3
+Jensen		2
+Hansen		1
+Jensen		1
+Andersen	1
+-----------------
+Hansen		2
+Hansen		3
+Hvem har kjøpt alle varer?
+
+Olsen? Ja
+Jensen? Ja
+Hansen? Ja
+Andersen? Nei
+
+
+Olsen
+Jensen
+---------
+Hansen
+
+Person
+1	Skalle	Skurk
+2	Halle	Hulk
+3	Ding	Dong	
+4	Ying	Yang
+
+Gruppe
+SK	Ski
+HÅ	Håndball
+FO	Fotball
+
+PiG
+3	HÅ
+2	HÅ
+4	FO
+3	FO
+2	SK
+4	SK
+2	FO
+3	SK
+1	FO
+1	SK
+
+Hvordan formulere slikt på relasjonsalgebra?
+((pi)pig,gruppeid(PiG)/(pi)GruppeID(Gruppe))|><| Person
+
+Finn gruppenavn for grupper som har alle personer
+Ski
+Fotball
+
+1) Finn GruppeID for disse:
+   PiG (PersonID, GruppeID)/PERSON(PersID) --> GRUPPE(GruppeID),
+   dvs de gruppene som har alle personer. I relasjonsalgebra:
+
+2) Vi må ha med gruppene for å hente gruppenavn:
+
+   
+

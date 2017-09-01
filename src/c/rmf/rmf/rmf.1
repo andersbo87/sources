@@ -1,0 +1,83 @@
+.\" © 2009 Anders Bolt-Evensen
+
+.TH RMF 1 "19. september 2009" "rmf" "Generelle brukerkommandoer"
+.SH NAVN
+.br
+rmf -- fjerner filer og/eller mapper fra datamaskinen.
+
+.SH SYNOPICS
+.B rmf
+fil/mappe
+
+.SH BESKRIVELSE
+.br
+rmf(1) er et program som skal fjerne filer og mapper rekursivt fra datamaskinen. Når programmet
+starter opp, skal det spørre brukeren om h*n virkelig vil fjerne filen fra mappen, tilsvarende
+rm -i, men med den forskjellen at rmf kun spør brukeren én gang, i motsetning til rm -i som spør
+brukeren for hver eneste fil som skal slettes. Programmet benytter seg av funksjonen removefile(3)
+som ble introdusert i Mac OS X 10.5 ("Leopard").
+
+.SH EKSEMPEL
+.br
+Nedenfor ser du noen eksempler på hvordan rmf fungerer:
+.br
+$ rmf /Users/user/testfolder
+.br
+Vil du virkelig slette mappen "/Users/user/testfolder" og hele dens innhold? Du kan ikke angre på dette(j,n)!
+.br
+j
+.br
+Forbereder fjerning av filer
+.br
+Fjerner filer… Dette kan ta noen minutter.
+.br
+$ rmf /Users/user/testfolder
+.br
+Vil du virkelig slette mappen "/Users/user/testfolder" og hele dens innhold? Du kan ikke angre på dette(j,n)!
+.br
+n
+.br
+Operasjonen ble avbrutt av brukeren.
+.br
+$ rmf /Users/user/testfolder
+.br
+Vil du virkelig slette filen "/Users/user/testfil"? Du kan ikke angre på dette(j,n)!
+.br
+j
+Forbereder fjerning av filer
+.br
+Fjerner filer… Dette kan ta noen minutter.
+.br
+Svarer du feil, verken j eller n, skriver programmet ut feilmeldinga
+.br
+"Svar j for ja eller n for nei"
+
+.SH FEIL
+.br
+Programmet mangler mulighet til "verbose mode", som skriver ut hver enkelt fil etterhvert som
+de slettes (tilsvarer rm -v). Funksjonaliteten som programmet bruker, virker foreløpig
+.BI kun
+i Mac OS X 10.5 eller nyere, og
+.BI ikke
+andre UNIX-baserte operativsystemer (som BSD, Linux, Solaris, etc).
+.br
+Det ekprimenteres med
+
+.SH RETURVERDIER
+.b
+Programmet returnerer 0 ved suksess, 1 hvis filen/mappen ikke finnes og  mindre enn 0 hvis 
+noe gikk galt i removefile
+
+.SH HISTORIE
+.br
+Kommandoen rmf kom i Mac OS X 10.6.
+.br
+removefile(3) ble introdusert i Mac OS X 10.5.
+
+.SH FORFATTER
+.br
+Denne manualen er skrevet av Anders Bolt-Evensen
+
+.SH ANDRE LIKNENDE KOMMANDOER OG BIBLIOTEKER
+.br
+rm(1), removefile(3)

@@ -1,0 +1,110 @@
+=====================================
+FORELESNINGSNOTATER TIL FORELESNING 8
+=====================================
+
+Viktige kriterier for valg av konfigurasjon
+Nødvendighet av å ha 100 % oppdaterte data
+* øyeblikkelig
+* på kort tid
+* f.eks. etter et døgn
+stabilitet av data
+bruk av data (f.eks. registrering, enkeltavgjørelser, statistikk)
+bruk av tellere (f.eks. ved nyregistrering)
+koblinger og andre "tunge" operasjoner bør ikke skje distribuert.
+
+Det finnes flere eksempler på konfigurasjoner:
+* Tabeller med helt stabile data (kodetabeller, etc)
+legges lokalt slik at de andre hentes fra sentralt sted,
+dvs. svært liten grad av distribusjon.
+* Data overføres fra et sentralt sted til de andre nodene i løpet av natta,
+lesing av de fleste data kan skje lokalt
+(data er "nesten" oppdaterte til enhver tid).
+Endring skjer til sentral database.
+Eks.: Kan likke en markør sentralt på når data sist var endret på personen.
+Hvis ikke endret etter replikering: les alt lokalt.
+* Sentralisering i LAN, fragmentering og/eller replikering i WAN.
+* Flerbruk med full fragmentering eller replikering.
+* Sentralbord eller sentralbordløst.
+
+Ønsker for en distribuert/replikert database:
+
+En distribuert database bør være transparent i forhold ti:
+* Hvordan data er fragmentert
+* Hvor data ligger
+* evt. replikering
+* transasksjoner (kommentar: skal være like enten databasen er distribuert eller ikke)
+* Ytelse (kommentar: neppe oppnåelig i praksis, Noe blir raskere, noe tregere)
+* Hvilken maskinvare som brukes i de ulike nodene (kommentar: og hvilke nettverksprotokoller)
+* Hvilke(t) databasesystem som brukes (kommentar: inkl. om forskjellige system(er) i de ulike nodene)
+* Serialisering
+* Låsing (kommentar: inkl. oppdagelse av vranglås)
+* Gjenoppretting/recovery
+
+Det meste av dette er vanskeligere å håndtere i et distribuert miljø.
+
+Kort sagt ønsket:
+Databasemiljøet skal oppføre seg som om det ikke var distribuert…
+
+Gjennomføring av alt OK:
+
+(1)Skriv til loggfil
+|-----------------------|                   |-----------|
+|			|(2)Alt OK?         |		|
+|			|------------------>|		|
+|(4)Gjør endelig i egen	|(3) Alle: JA	    |		|
+|loggfil		|<------------------|		| Fase 1
+===================================================================	
+|			|(5)"Gjør endelig"  |           | Fase 2
+|			|------------------>|		|
+|			|(6)OK		    |		|
+|			|<------------------|		|
+|			|		    |		|
+------------------------		    ------------
+
+Gjennomføring av feil en eller flere steder:
+(1)Skriv til loggfil
+|-----------------------|                      |-----------|
+|			|(2)Alt OK?            |	   |
+|			|--------------------->|	   |
+|			|(3) Ikke alle ja      |	   |
+|(4)Gjør avbryt i egen 	| eller manglende svar |	   |
+|loggfil		|<---------------------|	   | Fase 1
+===================================================================	
+|			|(5)"Avbryt"           |           | Fase 2
+|			|--------------------->|	   |
+|			|(6)OK		       |	   |
+|			|<---------------------|	   |
+|			|		       |	   |
+------------------------		       ------------
+Resultat: Ingen endringer på noen steder
+
+PC vil rulle tilbake transaksjoner dersom en node er nede,
+dvs. én fjerntliggende node kan ødelegge for alle de andre.
+
+Tendens til å gå over fra 2OC til replikering på de steder som er tilkoblet
+for øyeblikket, de andre replikeres så fort de kommer opp.
+
+evt:
+Kan bruke 3-fase-gjennomføring, 3PC-protokollen, inneholder en "pre-commit" i
+tillegg. Krever ikke at alle noder er oppe.
+
+Skyen, replikering, m.m.
+Egentlig ikke noen ny idé, web og e-post har vært i skya hele tida.
+
+E-post:
+	* POP3: e-post ble hentet fra skyen til lokal maskin, behold kopi i
+	  skyen hvis du ønsker (--> data kan hentes flere ganger). Statisk,
+	  ingen aktiv replikering.
+	* IMAP: hentes fra skya, sammenlignes med lokal kopi og samordnes -->
+	  kan ha lokale kopier, samtidig som de up-to-date. Dermed: standard
+	  replikering. NB! Ikke sikkert at kladd replikeres.
+
+Dropbox som eksempel:
+* Replikering:
+  * PC/OS X/Linux: Normalt vilkårlig mange kopier, med full replikering.
+    Kan utelukke enkeltmapper fra replikering
+  * Telefoner/tablets: Kun sentral lagring
+  * Rask, men ikke umiddelbar replikasjon.
+  * Master er alltid i skyen
+* "Optimistisk låsning", risikerer "$navn conflicted copy …", flere kopier
+hvor ikke alle er like.

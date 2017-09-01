@@ -1,0 +1,71 @@
+==============================
+NOTATER TIL FORELESNING 6
+==============================
+
+TRIGGERE OG LAGREDE PROSEDYRER
+
+En trigger er en snutt av "programvare" som kjøres automatisk hvis en bestemt
+tilstand finnes i databasen, gjerne før eller etter innsetting, endring
+eller sletting. Vi har INGEN kontroll på når en trigger kjøres.
+En trigger tilsvarer en void-funksjon.
+
+Eks:
+CREATE TRIGGER triggernavn BEFORE DELETE ON tabell BEGIN … END
+CREATE TRIGGER triggernavn AFTER DELETE ON tabell BEGIN … END
+CREATE TRIGGER triggernavn BEFORE INSERT ON tabell BEGIN … END
+CREATE TRIGGER triggernavn AFTER INSERT ON tabell BEGIN … END
+CREATE TRIGGER triggernavn BEFORE UPDATE ON tabell BEGIN … END
+CREATE TRIGGER triggernavn AFTER UPDATE ON tabell BEGIN … END
+
+En lagret funksjon er en programsnutt som kalles av oss,
+og som returnerer en verdi.
+
+Betegnes ofte som databasesystemets programmeringsspråk
+* parametere
+* mulighet for å lagre lokale variable
+* kontrollstruktur (if/case/while/repeat/loop, etc…)
+* Kan skrive meldinger til skjerm, e.l.
+* kan også referere til eksterne biblioteket, f.eks. et API.
+
+Lagrede funksjoner
+
+Funksjoner returnerer en verdi (eller flere) av en gitt datatype.
+
+Lagrede prosedyrer
+
+Prosedyrer kan ha parametere som er IN, OUT, eller INOUT.
+Må kalles eksplisitt som, som
+CALL <navn>; evt med parametere.
+
+UT: strengen, men med blank mellom hvert tegn.
+
+create procedure reindekser()
+begin
+	drop index art_i from art;
+	create index art_i(artsindeks) on art;
+end
+
+call reindekser;
+
+Fordeler med triggere:
+Kan formulere ting som ikke lar seg formulere i SQL
+Spesielt: hendelsesstyrte forhold
+Kan beskrive fundamentale regler for databasen ETT sted ==> behøver ikke å beskrive det i alle applikasjonene som jobber mot databasen.
+Regler kan ikke omgås.
+
+Noen bruksområder:
+* Mer komplisert sjekk av inndata før innsetting
+* Mer komplisert sjekk av datatilstander før sletting/endring
+* Fullstendig logging av gitte endringer i databasen. Man ønsker at alle endringer av gitte tabeller skal logged, med tidspunkt, dato, etc, slik at man siden kan se hvem og hva som er gjort med dataene (f.eks. i et saksbehandingssystem).
+* Sørge for konsistensen i avkledde data. Vi ønsker f.eks. å lagre en sum fysisk i databasen, f.eks. av ytelseshensyn. Legg en trigger som reagerer på alle endringer i data som innvirker på denne summen.
+* Sørge for konsistens ved denormalisering
+* Mer kompliserte integritetssjekker
+
+* Passe på overgangs- og forretningsregler av ulike typer, f.eks.:
+** En person kan ikke endre status fra gift til ugift
+** Varen må ha status "på lager" før den kan sendes
+** Personen som skal bli sjef for avdelingen, må selv jobbe i avdelingen
+** IF målt_verdi > grenseverdi THEN skriv feilmelding
+
+Lurt å angi i triggernavnet om triggeren skal kjøre før eller etter endring:
+"create trigger before_delete_customer BEFORE DELETE ON customer;"

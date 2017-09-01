@@ -1,0 +1,7 @@
+I would like to know if there are any plans whatsoever to add driver support for AMD Radeon HD6700M for FreeBSD. I'm on a MacBook Pro 17 inch with Mac OS, Windows 7 and FreeBSD.
+I CAN get X to work if I use the VESA driver, but the graphics on screen looks awful in a stretches 4:3 resolution (only 1600x1200 seems to be working). When I use Mac OS or Windows, my screen displays everything perfectly in a 1920x1200 resolution. 
+
+Therefore, I would like to know if there are any (or rather some) plans to add driver support for FreeBSD in addition to Linux, Mac OS X and Windows, or would it be up to the FreeBSD developers to add such support?
+
+Output of "uname -a":
+FreeBSD andersbo-mac 10.0-CURRENT FreeBSD 10.0-CURRENT #1: Tue Jan 15 10:36:10 CET 2013     root@andersbo-mac:/usr/obj/usr/src/sys/ANDERSBO-MAC  amd64

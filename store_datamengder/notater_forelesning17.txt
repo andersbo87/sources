@@ -1,0 +1,92 @@
+
+NOTATER TIL FORELESNING 17
+
+Linear regiression
+tries to model the oytpyt variable (target) as a linear combination of the input variables (features).
+
+Linear finds the line that best fits the data points
+There are actually a number of different definition of best fit and therefore a number of …
+
+Linear Regression in Azure ML
+-----------------------------
+-Ordinary Least Squares + en til
+
+Logistic regression
+-------------------
+-In a classification problem, the output is binary rather than numeric.
+-We can imagine doing a linear regression and then compressing the numeric output into a 0…1 range using the sigmoid (logit) function.
+
+Logistic Regression in Azure ML
+------------------------------
+-Two-Class-Logistic regression
+-Multiclass Logistic regression
+
+k-Nearest-Neighbors - kNN
+-------------------------
+-This is also called instance-based learning because it doesn't even learn a
+ single model
+-The training process involves memorizing all the training data
+-The voting can also be weithgtet among the K-neighbors based on their distance…
+
+
+Effect of K
+-----------
+Larger K produces smoother boundary effetct and can reduce the impact of class label noise
+But when K is too large, say K=n, we always predict the majority class
+
+k-Nearest Neighbors in Azure ML
+-------------------------------
+Not available
+It does not scale well to Big Data!
+fordi modellen må "huske" all dataen.
+
+Decicion trees
+--------------
+-Based on a tree of decicion nodes,
+ the learning appraoach is to progressively divide the training data into
+ buckets of as homogeneous member as possible thru the most discriminative
+ dividing criteria possible.
+-The training process stops when there is no significant gain in purity after
+ further splitting the tree
+
+Tree ensembles in Azure ML
+--------------------------
+
+-Decicion trees are prone to overfitting
+-Common to use ensembles of decicion trees
+--Bagging
+---Each model is trained on a random subset of the data
+---Averaged
+--Boosting
+
+Neural Network
+-A Neural Network emulates the structure of a human brain as a network of
+ neurons that are interconnected to each other
+-Each neuron is (usually) equivalent to a logistic regression unit.
+
+in azure:
+-classification
+--2-class
+--multiclass
+-regression
+the default neural network is defined as follows:
+the neural network has one hidden layer
+…
+
+Support Vector Machine
+
+-A Support Vector Machine provides a binary classification mechanism based on
+ finding a hyperplane between a set of samples with maximum separation.
+-Assumes the data is linearly separable.
+
+If the data distribution is non-linear, the trick is to transofrm the data to a higher dimension where the data…
+
+Why "Support Vector"?
+---------------------
+-The closest data point are called the support vectors
+-The are the points that defines the boundary between the classes.
+
+
+
+
+

@@ -1,0 +1,27 @@
+Regner med at vi ikke kan bruke SQL for å løse disse oppgavene. :/
+
+Oppgave 1
+a) (pi)studnr, studnavn, ((sigma)postnr=9000(sigma)student.studnr(student)
+b) (pi)studnr, studnavn, ((sigma)kursnr=345(sigma)student.studnr(student*kurs))
+c) (pi)studnr, studnavn, kursnr ((sigma)kursnr != NULL(sigma)student.studnr, kurs.kursnr(student*kurs)) Mulig dette (i likhet med de to andre) er feil. Jeg forutsetter at de studentene som ikke har tatt noe kurs, har kursnr lik NULL.
+d) (pi)studnr, studnavn, kursnr ((sigma)student.studnr(student*kurs))
+e) (pi)studnr, studnavn, kursnr, kursnavn((sigma)student.studnr(studnt*kurs))
+f) (pi)studnr, studnavn, kursnr, kursnavn((sigma)postnr=9000((sigma)nivå=3(sigma)student.studnr(student*kurs)))
+g) (pi)studnr, kursnr, gangnr((sigma)eksamen.studnr=student.studnr((sigma)kurs.kursnr=eksamen.kursnr((sigma)eksamen.gangnr>1(eksamen*kurs*student))))
+
+
+h) Da ville jeg opprettet en helt ny tabell, høyskole, med "høyskolenr" som primærnøkkel (heltall) og "høyskolenavn" som en vanlig tekststreng. Deretter ville jeg satt inn et nytt felt, "høyskolenr" som en fremmednøkkel (heltall) i tabellen student. Alternativt kunne man bare legge til et nytt felt i tabellen student med navn "høyskole".
+i) Med utgangspunkt i det siste "forslaget":
+(pi)studnr, studnavn, høyskole((sigma)høyskole=H1((sigma)høyskole=H2(student)))
+Med utgangspunkt i det første forslaget:
+(pi)studnr, studnavn, høyskolenr, høyskolenavn((sigma)høyskole.høyskolenr=1((sigma)høyskole.høyskolenr=2(student*høyskole)))
+j) (pi)studnr, studnavn, adresse, postnr((sigma)kursnr!=100(sigma)student.studnr(student*kurs))
+k) studentnr (semijoin) (sigma)kursnr!=100 (kurs)
+
+Oppgave 2)
+a) La oss kalle den nye relasjonen for "nykurs". Da får vi:
+NYKURS=((sigma)kursnr, kursnavn(KURS))
+b) La oss igjen kalle den nye relasjonen for "nykurs". Denne gang får vi:
+NYKURS=((rho)kursnr, kursnavn)((pi)kursnr, kursnavn(KURS))
+c)
+d) (pi)gangnr,((sigma)student.studnr(eksamen*student))

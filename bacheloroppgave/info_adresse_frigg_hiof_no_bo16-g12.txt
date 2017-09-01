@@ -1,0 +1,2 @@
+﻿koble til skolens disknettverk:
+\\frigg.hiof.no\bo16-g12

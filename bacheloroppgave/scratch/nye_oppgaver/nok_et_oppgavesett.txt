@@ -1,0 +1,123 @@
+Dette settet består av 12 oppgaver hvorav alle bortsett fra oppgave 4
+dreier seg om konvertering mellom ulike enheter.
+Oppgavesettet er laget over en tredagers periode mellom 26.01. og 28.01.2016
+
+Oppgave 1:
+La oss lage et program som (igjen) konverterer fra en enhet til
+en annen, men med den vrien at brukeren selv må regne litt
+for å sjekke om rett svar blir angitt.
+Sett at du har gått N engelske mil og vil finne ut av hvor mange
+kilometer du har gått. Lag et interaktivt program hvor eleven
+selv må regne ut hvor mange kilometer personen har gått.
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96347389/
+
+Oppgave 2:
+Vi har en mengde med væske, målt i gallons. Vi vil nå
+vite hva det tilsvarende antallet er i liter.
+Regn ut hvor mangle liter det er i for eksempel 5 gallon.
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96347545/
+
+Oppgave 3:
+Hvor mange kilogram og hektogram er det i 3469 gram?
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96347602/
+
+Oppgave 4:
+Mulig denne oppgaven er irrelevant mtp. emnet for barneskolen,
+men vi har en trekant med sidene A = 0,6 dm og B = 0,05 m.
+Hvor lang er side C i cm?
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96347690/
+
+Oppgave 5:
+Vi skal ut og seile.
+Avstanden vi skal seile, måles vanligvis i nautiske mil.
+Oppgi hvor langt vi seiler i nautiske mil, og regn deretter ut
+hvor mange meter dette blir.
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96347742/
+
+Oppgave 6:
+Du bestiller en vare på internett som sendes internasjonalt via post.
+Når du mottar den varen, står det at den veier et antall pund og
+et antall ounces. En ounce er 1/16 pund og et halvt pund er 0,227 kg.
+Hvor mange gram veier denne varen? 
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96347783/
+
+Oppgave 7:
+En stafett foregår over f.eks. 15,9 km og består av 4 etapper.
+Hvor mange meter lang er hver etappe?
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96347881/
+
+Oppgave 8:
+Ei jente skal dele en pose med løsvektsgodteri på et antall venner
+og venninner. Brukeren skal selv angi hvor mange hektogram med
+godterier det er i den aktuelle posen og hvor mange venner/
+venninner det skal deles på. Hvor mange gram godterier blir det per
+person?
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96348003/
+
+Endret utgave hvor brukeren kan ha en feilmargin på 10 gram
+kan ses her: 
+
+Oppgave 9:
+I denne oppgaven skal vi finne gjennomsnittsfarten til en bil
+som kjører fra punkt A til punkt B.
+Brukeren skal selv angi hvor lang det er (i meter) mellom disse
+to punktene. Så skal brukeren angi hvor mange sekunder det tok å 
+kjøre mellom disse to punktene.
+Deretter skal brukeren regne ut gjennomsnittsfarten
+i kilometer per time. 
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96348055/
+
+Oppgave 10:
+En familie består av mor, far og ett barn.
+Brukeren skal selv bestemme hvilken årsinntekt mor og far har,
+og hvor mye barnet får av foreldrene i måneden.
+For å få noe "realisme" i oppgaven, er det en nedre årsinntektsgrense
+for foreldrene på 100 000 kr.
+a) Hvor mye får faren i måneden?
+b) Hvor mye får mora i måneden?
+c) Hvor mye får alle 3 til sammen i måneden?
+
+Oppgavene kan løses her: https://scratch.mit.edu/projects/96348125/
+
+Oppgave 11 (denne oppgaven har noen fellestrekk med oppgave 1 og 2):
+a) En bil kan kjøre 47 miles på én gallon.
+   Hvor mange liter med bensin bruker den per 100 km?
+   Husk at 1 britisk gallon er ca 4,546 liter og en mile ca 1,609 km
+   (den nøyaktige formelen er lagt inn i løsningsforslaget).
+
+b) Angi selv et antall miles per gallon og regn ut hva det tilsvarende
+   blir i liter per 100 km. Det antallet du oppgir må være mellom
+   30 og 60 miles per gallon.
+
+Oppgavene kan løses her: https://scratch.mit.edu/projects/96348201/
+
+Oppgave 12:
+Denne oppgaven har noen likhetstrekk med oppgave 10.
+En person har jobbet noen år i en bedrift i Australia.
+Mens han jobbet der, hadde han en årslønn på et antall 
+australske dollar (AUD).
+Brukeren må selv angi hvor mange AUD han tjener i året,
+men lønna må være større enn eller lik AUD 16000.
+Hvor mye tjente han da i norske kroner per måned?
+Per 28.01.2016 er AUD 1 = NOK 6,1327919
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96348258/
+
+Oppgave 13:
+En person skal på ferie nedover i Europa og skal ta ut noen
+euro. Du skal angi hvor mye som skal tas ut i norske kroner
+for så å regne ut hvor mye det blir i Euro (litt motsatt
+tankegang i forhold til oppgave 12 hvor du skulle regne ut 
+i norske kroner).
+Hint: Per 28.01.2016 er NOK 1 = EUR 0.1056
+
+Oppgaven kan løses her: https://scratch.mit.edu/projects/96348304/

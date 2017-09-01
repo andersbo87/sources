@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4511DD01-1517-49B2-8100-439E22B462C6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>newbst</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0B8FE741-D059-4B8D-8187-9777553B2B75</key>
+		<string>https://andersbo87.unfuddle.com/svn/andersbo87_src</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>trunk/src/c++/newbst/newbst.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0B8FE741-D059-4B8D-8187-9777553B2B75</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://andersbo87.unfuddle.com/svn/andersbo87_src/trunk/src/c++/newbst/newbst.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0B8FE741-D059-4B8D-8187-9777553B2B75</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0B8FE741-D059-4B8D-8187-9777553B2B75</string>
+			<key>IDESourceControlWCCName</key>
+			<string>newbst</string>
+		</dict>
+	</array>
+</dict>
+</plist>

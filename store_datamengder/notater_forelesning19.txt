@@ -1,0 +1,166 @@
+==========================
+NOTATER TIL FORELESNING 19
+==========================
+
+Regression Model Evaluation
+===========================
+
+MAE = Mean Absolute Error - Forskjeller mellom faktisk data og estimert data.
+RMSE = Root Mean Squared Error
+RAE = Relative Absolute Error
+RSE = Relative Squared Error
+R^2 = Koeffisient av determinering
+
+MAE - Mean Absolute Error
+=========================
+
+-Gjennomsnitt av den absolutte forskjellen mellom antakelser og sanne verdier
+-Tar absolutt data, slik at positive og negative feil behandles likt.
+-Hvis vi bare tar den gjennomsnittlige forskjellen mellom antakelser og sanne
+ verdier, måler vi bare biaskomponenten av feilen (som kan være 0 selv om
+ modellen gjør store feil hvis de distribueres likt mellom positive og
+ negative feil).
+-Skaleringsavhengig -> Kan ikke bli brukt til å sammenligne ytelse på
+ ulike variabler.
+
+RMSE - Root Mean Square Error
+=============================
+
+-Måler gjennomsnittet av "squares" av feilene, og tar deretter roten av verdien
+-Tar kvadratene av feilene slik at positive og negative feil behandles likt.
+-Tar roten av dette for å reversere "kvadratiseringen" (squaring)
+-Sammenlignet med MAE gir den større vekt på større feil enn mindre feil.
+-Skaleringsavhengig -> Kan ikke bli brukt til å sammenligne ytelse på ulike
+ variabler.
+
+RAE - Relative Absolute Error
+=============================
+-Tar den totale absolutte feilen og normaliserer denne ved å dividere den totale
+ absolutte avviket fra "mean."
+-Derhvor MAE måler hvor langt antakelsen er fra sannheten i absolutte verdier,
+ representerer RAE feilen som en fraksjon av den sanne verdien (eller som
+ prosent hvis du mulitipliserer talle med 100).
+-Skaleringsuavhengig -> Kan brukes til å sammenligne ytelse på ulike variabler.
+
+RSE - Relative Squared Error
+============================
+
+-Tar den totale "squared" feilen og normaliserer denne ved å dividere den på
+ den totale opphøyede (squared) avviket fra "mean" (variance)
+-Sammenlignet med RAE gir den større vekt på større feil enn på mindre feil.
+-Skaleringsuavhengig -> Kan brukes til å sammenligne ytelse på ulike variabler.
+
+R² - Coefficient of Determination
+==================================
+
+-R² beskriver proporsjonen av avviket av målvariabelen som forklart av
+ regresjonsmodellen. Hvis regresjonsmodellen er perfekt, er SSE 0 og R² er 1.
+ Hvis regresjonsmodellen er totalt mislykket, er SSE lik SST, ingen variasjon
+ forklares av regresjonen og R² = 0.
+-Skaleringsuavhengig -> Kan brukes til å sammenligne ytelsen på ulike variabler.
+
+Classification Model Evaluation
+===============================
+
+Classification
+--------------
+
+Confusion Matrix
+Accuracy
+Precision
+Recall
+F-score
+ROC
+Precision/Recall
+Lift
+
+Two-Class Classification Model Evaluation
+=========================================
+
+Confusion Matrix
+-----------------
+-En confusion Matrix er en tabell som ofte brukes til å beskrive ytelsen av en
+ klassifiseringsmodell på en mengede data hvor den sanne verdien er kjent.
+-TP = true Positive, TN = True Negative, FP = False Positive,
+ FN = False Negative
+Nøyaktighet = (TP+TN)/Total
+(hvor ofte klassifiseringsmodellen vanligvis er korrekt)
+Presisjon = TP / (TP+FP) = TP / Antatt positiv
+Når den forutsier "ja", hvor ofte er den korrekt?
+Fokus på falske positive
+"Recall" = TP /(TP+FN) = TP / Faktisk positiv
+-Når den faktisk "sier ja", hvor ofte forutsier den "ja"?
+-Fokus på falske negative
+F1 Score = 2*(Presisjon * Recall)/(Presisjon + Recall)
+-F1 Score kan tolkes som et vektet gjennomsnitt av presisjonen og "tilbakekalle"
+ (recall), der en F1 Score har sin beste verdi på 1 og værste på 0.
+
+ROC Curve - Receiver Operation Characteristic Curve
+-En grafisk "plott" som illustrerer ytelsen til et binært klassifiseringssystem
+ da diskrimineringsterskelen varieres.
+-Kurven opprettes ved å plitte den sanne, positive raten mot den falske positive
+ raten ved ulike "innstillinger" for terskelen.
+-ROC-kurven ble først utviklet i løpet av andre verdenskrig av elektrikere og
+ "radar engineers" for å oppdage fiendtlige objekter på slagmarkene.
+
+Precision/Recall Curve
+-En grafisk "plott" som illustrerer ytelsen til et binært klassifiseringssystem
+ siden diskrimineringsterskelen varieres.
+-Kurven opprettes ved å plotte presisjonen mot "recall" ved ulike
+ "terskelinnstillinger"
+-Presisjon = TP/(TP+FP) = TP / Antatt positiv
+--Når den forutsier ja, hvor ofte er det korrekt?
+--Fokus på falske positive
+-"Recall" = TP/(TP+FN) = TP / Faktisk positiv
+--Når det faktisk er "ja", hvor ofte forutsies "ja"?
+--Fokus på falske negative.
+
+Multiclass Classification Model Evaluation
+==========================================
+Micro vs Macro
+--------------
+
+Macro er gjennomsnittet av presisjon/"recall" som måles separat for hver klasse.
+Derfor er det et gjennomsnitt av klassene.
+
+Mikro er på sin side et gjennomsnitt over forekomster.
+Derfor gis klasser med mange forekomster mer "viktighet".
+
+Makro:
+presisjon(X)=   TP(X)
+             -----------
+             TP(X)+FP(X)
+
+recall(x) =    tp(x)
+	    -----------
+	    tp(x)+fn(x)
+3 klasser, A, B og C:
+macro averaged precision=precision(a)+precision(b)+precision(c)
+			 --------------------------------------
+                                           3
+
+macro averaged overall=recall(a)+recall(b)+recall(c)
+		       -----------------------------
+					3
+
+Mikro:
+presisjon(x):   tp(x)
+             -----------
+	     tp(x)+fn(x)
+
+recall(x)=    tp(x)
+           -----------
+	   tp(x)+fn(x)
+
+3 klasser, a, b og c:
+micro averaged precision:    tp(a,b,c)
+			 -------------------
+			 tp(a,b,c)+fp(a,b,c)
+
+micro averaged recall:     tp(a,b,c)
+                      -------------------
+		      tp(a,b,c)+fn(a,b,c)
+
+micro averaged precision = micro averaged recall = overall accuracy.
+
+Se ellers lærers forelesningsnotater: "2015-11-05 Big Data Anlaysis.pdf"

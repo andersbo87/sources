@@ -1,0 +1,15 @@
+To install updateports, type "make install."
+To deinstall or uninstall updateports, type "make deinstall" or
+"make uninstall respectively." Note that deinstalling and uninstalling
+does exactly the same thing.
+
+This script supports the following operating systems:
+Darwin (Mac OS X)
+FreeBSD
+Linux
+NetBSD
+OpenBSD
+SunOS (Solaris).
+
+You are free to use and distribute this script under the terms of the 3-clause
+BSD license.

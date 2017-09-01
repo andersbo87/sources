@@ -1,0 +1,215 @@
+===========================
+NOTATER TIL FORELESNING 9
+===========================
+
+Tre retninger:
+<---------------------------------------------------------------------------------------->
+Behold relasjonsmodellen	Integrer de to modellene	Forkast relasjonsmodellen
+Med noen få utvidelser		Objekt-relasjonell (ORDBMS)	Ny modell:
+(RDBMS)    	    					   	Objektorienterte databaser
+								(OODB)
+
+OODB:
+Hvert objekt har
+      *) Identitet (typisk via en intern peker, OID = object identify),
+      	 IKKE VIA PRIMÆRNØKLER, SYSTEMGENERERT
+      *) Tilstand (verdier på variabler) - dvs. som verdier i en relasjonsdatabase
+      *) Oppførsel ("hva kan objektet gjøre?") - triggere er noe av det samme, men ikke
+         helt gjennomført.
+I stedet for domener defineres det objektklasser.
+Arv av objektklasser (sub- og supertyper)
+Sen binding, polymorfisme, etc.
+
+Fordeler:
+*)Hastighet
+*)Passer bedre med OO programmeringsspråk (slipper å konvertere mellom relasjonell
+  organisering på disk og objektorientert organisering i programmet/minnet).
+  Kort sagt: data lagres også som objekter.
+*)Bedre til å håndtere komplekse strukturer
+
+Vesentlige utfordringer:
+*)Er det logisk at en database skal innkapsle sine data?
+*)Hvordan lagre objekter på disk, og hva skal være persistent
+  og hva som ikke trenger å være det.
+*)Hvordan beholde entydige pekere mellom minne og (muligens flere store) disker.
+  Ulike metoder finnes, bl.a. koverteringstabeller av ulike slag.
+*)Hvordan håndtere transaksjoner?
+*)Hvordan håndtere skjemaevolusjon (dvs. at metadata endres over tid),
+  versjoner av de samme data og metadata.
+*)Et godt spørrespråk som er mest mulig likt SQL. OQL (Object Query Language) er foreslått
+  og ser temmelig likt ut, men noe av dette er bare overflatisk likhet.
+  Det arbeides med samordning SQL-OQL.
+*)Hvordan få en standard (OMG - Object Management Group har forslagene, men ikke implementert
+  noen standard).
+*)Hvordan få til en god teori?
+Alternativet er bl.a. et objektorientert lag rundt RDBMS-et, e.g. mellomvare.
+
+Egenskaper:
+	  |Samme type|Sortert|Unik|Indeksert|Navngitt|
+Set	  |	X    |	     | X  |	    |	     |
+Bag	  |	X    |	     | 	  |	    |	     |
+List	  |	X    |	 X   |	  |	    |	     |
+Array	  |	X    |	 X   |	  |    X    |	     |
+Dictionary|	X    |	     | X  |    	    |	     |
+Structure |	     |	     | 	  |	    | X	     |
+
+
+ORDB:
+Utvidelse av relasjonsmodellen i objektorientert retning.
+Det vil si at vi kan beholde nåværende applikasjoner, etc.
+
+Vesentlige momenter:
+*) Komplekse datatyper (dvs. objektklasser) med arb
+*) Det betyr at en rad kan inneholde et komplekst, strukturert element
+*) Metoder
+*) Utvidet SQL til å kunne takle dette (vesentlige ingredienser i SQL3), bl.a. for å
+   behandle komplekse data, for å håndtere arv (skal man plukke data bare fra dette nivået
+   i arven, eller skal alle underliggende også plukkes?)
+*) Mulig å referere til et objekt direkte via en REF, ikke bare via primærnøkler.
+   Det tilsvarer OID-er i en OODB.
+*) Kolleksjonstyper
+*) Avanserte typer indekser (f.eks. som romlige data)
+
+Det lagres automatisk:
+for hvert attributt:
+en observatorfunksjon/get-funksjon (les verdien)
+en mutator-funksjon/set-funksjon   (endre verdien)
+
+for hver tabell
+en konstruktør			   (lag nye verdier)
+Disse kan redefineres og dermed skreddersy kontroller, etc.
+for dens lesning hhv. endring hhv. for lagring av nye instanser.
+
+ORDB - kort eksempel i Oracle, I:
+Generell syntaks - typer:
+[…] er frivillige elementer
+
+rottyper:
+create [or replace] type <navn> os object(<attributt- og metodedefinisjon>);
+
+typer som arver
+create [or replace] type <navn> under <eksisterende objekttype>(
+<attributt- og metodedefinisjon, evt. basert på tidligere definerte typer>);
+
+Mellom ) og ; kan man definere
+[[NOT]INSTANSABLE] - abstrakt datatype - kan ikke lage instanser av denne.
+INSTANSABLE er standard.
+[[NOT]FINAL] kan/kan ikke la denne være grunnlag for videre arv. FINAL er standard.
+
+Tabeller basert på typer:
+create table $navn of $type (evt. med flere attributter eller deklarasjoner, ect.
+basert på de definerte typene som datatyper).
+
+Array-typer:
+Enten som fast antall, array($elementer) of $datatype
+Eller som et variabelt antall varray($maksElementer) of $datatype
+
+Vi ser at disse typene vi ikke langer har automatiske verdier, vi har mao (Not First Normal Form)^2, eller (NF)^2
+
+Kort eksempel i Oracle, II:
+
+Eksempel - arv og sammensatte typer:
+create or replace type adresse_t as object(gateadresse varchar(30), postnr varchar(10)) not final instantiable
+Create or replace type kunde_t as object(kundenr integer, kundenavn varchar (40), adresse adresse_t) not final instantiable;
+Create or replace type utenlandskunde_t under kunde_t (landsnavn varchar(40)) final instantiable; 
+Create or replace type venner_t under adresse_t (vennid integer) final instantiable;
+
+Eksempel - metoder:
+Create or replace type vare_t as object(varenr integer,paalager integer,ibestilling integer,Member function kanlevere (paalager integer,ibestilling integer) return integer)
+instantiable not final;
+
+Create or replace type body vare_t as
+Member function kanlevere return integer is
+Begin
+Return paalager + ibestilling;
+End;
+End;
+create table vare of vare_t;
+insert into vare values (1,54,100);
+insert into vare values (2,10,500);
+
+
+========================================
+SKRANKER I DATABASER, HVILKE ER VIKTIGE?
+========================================
+
+Ulike typer nøkler:
+Supernøkkel: Unik, men kan inneholde "for mange kolonner"
+Kandidatnøkkel* : Irredusibel -- verdiene må være unike
+Primærnøkkel*   : En utvalgt blant evt flere kolonner som er unike
+
+*) Navn slik det er brukt i relasjonsdatabaser
+
+I SQL i praksis: PRIMARY KEY og UNIQUE
+
+Verdinødvendighet:
+I SQL i praksis: NOT null eller ikke
+
+Konklusjon 1 (se PDF for bilder): Kombinasjone av de 4 mulighetene av
+verdinødvendighet (J/N) og Uikhet (J/N) gir de vanlige strukturene
+for datamodeller og det er en isometri mellom disse og datamodellstrukturene.
+Konklusjon 2: De viktigste egenskapene er Verdinødvendighet og Unikhet,
+ikke primærnøkkel.
+
+UNIKHETSBEGREPET er uklart og kan bety:
+UNN (unik og NOT NULL), "sterk unikhet"
+NoU (NULL eller UNIK), kan altså tillate mange NULL på unik, "svak unikhet"
+    (hvor unikt er dette?)
+Unik, med et begrenset antall NULL, slik at entydighet fremdeles beholdes,
+"minimalkravs unikhet"
+	* Hvis enkel unik: ÉN verdi kan være null
+	* Hvis kombinasjon av 2: Har vi n rader, kan vi tillate 2n-1 NULLer
+	* etc
+
+Hva er de viktigste begrepene?
+Lærers påstand: de viktigste er
+NoU
+NN (not null)
+blant annet fordi disse er uavhengige (ortogonale), og spenner ut de andre.
+
+NoU ∩ NN --> UNN
+NoU ∪ NN --> ingen krav
+
+Trenger vi primærnøkkelbegrepet?
+I prinsippet ikke, en FK kan referere til andre "sterke unike" enn PK.
+Likevel praktisk, vi velger ut en blant de flere mulige kandidatnøkler
+(som må være sterke unike), slik at den ene "representerer" tabellen,
+m.a.o. den vi kaller primærnøkkelen.
+
+Trenger vi fremmednøkler?
+Alternativer:
+Liste opp verdier fra mange-siden på 1-siden (Avdelingas ansatte: 1,4,7,3,…,),
+men det blir ikke-atomisk, som ikke er tillatt i relasjonsdatabaser.
+En pekerkjede som peker på en og en verdi på mange-siden, men pekere er ikke
+tillatt i relasjonsdatabaser.
+
+Konklusjon: Fremmednøkler er måten å implementere 1:m (og 1:1) på i
+relasjonsdatabaser. De implementerer også referanseintegritet.
+
+4 typer data:
+Vanlige data
+Data som beskriver data
+  Vanlige metadata
+  Formateringsdata
+
+Data som er instruksjoner
+Data som peker til data
+
+-------------------|                    peker på ----------------
+Metadata/	   |<----------------------------|Pekere til data|
+data som beskriver |			          ---------------       
+data 	 	   |\		       /<-------/	  |
+-------------------  \		      /	Peker på	  |Peker på
+	/\ beskriver  \		     /			  |
+	| og gir       \Vanlige data/			  |
+	| skranker for	       	/\			  |
+	|			|			  |
+	\			|Tar ofte som input og	  /
+	 \			|gir ofte som output	 /
+	  \			|			/
+	   \		 ---------------------------   /
+	    -------------|data som er instruksjoner|<--
+	                 ---------------------------
+	  trenger ofte data
+	  som beskriver data
+	  for å tolke (vanlige) data.

@@ -1,0 +1,90 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = AA7F043B1372DD0F0036602F /* X11lek */;
+		activeTarget = 8DD76FA90486AB0100D96B5E /* X11lek */;
+		addToTargets = (
+			8DD76FA90486AB0100D96B5E /* X11lek */,
+		);
+		codeSenseManager = AA7F04401372DD310036602F /* Code sense */;
+		executables = (
+			AA7F043B1372DD0F0036602F /* X11lek */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 326294799;
+			PBXWorkspaceStateSaveDate = 326294799;
+		};
+		sourceControlManager = AA7F043F1372DD310036602F /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {768, 481}}";
+			sepNavSelRange = "{853, 0}";
+			sepNavVisRange = "{385, 483}";
+		};
+	};
+	8DD76FA90486AB0100D96B5E /* X11lek */ = {
+		activeExec = 0;
+		executables = (
+			AA7F043B1372DD0F0036602F /* X11lek */,
+		);
+	};
+	AA7F043B1372DD0F0036602F /* X11lek */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = X11lek;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	AA7F043F1372DD310036602F /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	AA7F04401372DD310036602F /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	AA7F04411372E2430036602F /* xwindow.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {589, 403}}";
+			sepNavSelRange = "{461, 0}";
+			sepNavVisRange = "{187, 429}";
+		};
+	};
+	AA7F04441372E4E00036602F /* window2.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {589, 1508}}";
+			sepNavSelRange = "{293, 0}";
+			sepNavVisRange = "{141, 396}";
+		};
+	};
+}

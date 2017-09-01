@@ -1,0 +1,21 @@
+UNAME_S = $(shell uname)
+make:
+	cc -o updateports updateports.c
+install: updateports
+#ifneq ($(UNAME_S), Linux)
+	install -o root -g wheel updateports /usr/local/sbin/updateports
+	install -o root -g wheel rmoldpackages_updateports.sh /usr/local/sbin/rmoldpackages_updateports
+	install -o root -g wheel updateports.8 /usr/local/man/man8/updateports.8
+#else
+#	install -o root -g root updateports /usr/local/sbin/updateports
+#endif
+clean:
+	rm -f updateports
+uninstall:
+	rm -f /usr/local/sbin/updateports
+	rm -f /usr/local/sbin/rmoldpackages_updateports
+	rm -f /usr/local/man/man8/updateports.8
+deinstall:
+	rm -f /usr/local/sbin/updateports
+	rm -f /usr/local/sbin/rmoldpackages_updateports
+	rm -f /usr/local/man/man8/updateports.8

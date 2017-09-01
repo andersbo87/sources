@@ -1,0 +1,143 @@
+==========================
+NOTATER TIL FORELESNING 11
+==========================
+Stor økning av digitale data, spess. fra år 2000 og frem til i dag.
+Stor nedgang i analoge data (bøker, etc).
+Spør større økning i skydata, og større nedgang med mobiler.
+Googles selvkjørende bil er et ledende eksempel på big data.
+
+Strømlesere som nå leses annenhver måned skal bli smartere og
+leses hver time isteden. Dette skal visstnok skje innen 2018/19.
+
+Hvordan løse dette?
+Med relasjonsdatabase som er skalert for den store oppgaven.
+Dokumentdatabaser
+Grafdatabaser
+Key-Value databaser
+Wide Column Store
+Hadoop
+
+Hvorfor kom big-data-løsninger?
+- Håndtere ustrukturerte data
+- Håndtere større mengder data
+- Gjøre analyse på alle data
+- Økonomi
+  -- Lagring koster ingenting
+  -- Skalerer ut og ikke opp
+- Utviklet på 2000-tallet.
+  -- Relasjonsdatabaser ble utviklet på 1970-tallet
+
+Hva er big data?
+- Ingen eksakt definisjon.
+- "Big data is a broad term for data sets so large or complex that
+  traditional data processing application are inaquedate." -- Wikipedia
+- Challenges include analysis capture, data curation, search, sharing, storage,
+  transfer, visualization, and information privacy
+- The term often refers simply to the use of predictive analytics or other
+  certain advanced methods to extract value from data, and seldom to
+  a particular size of data sets.
+
+Big Datas fire V-er
+- Volume (data at rest)
+- Veloctiy (data i bevegelse)
+- Variety (data i mange former)
+- Veracity (sannhetsgehalt)
+
+Eksempler på bruk av big data
+- Fraud detection Oppdage unormal oppførsel på f.eks. kredittkort
+- E-handel-forslag: Hva har du sett på? Hva er det sannsynlig at du kjøper?
+  F. eks. Amazon
+- Analyse av sosiale medier - "Canary in a coal mine" eks. restaurantbransjen
+- Preventivt vedlikehold - Hvor lenge går det til denne vaieren ryker og bør
+  byttes? Utføre vedlikehold før deler ryker.
+
+Big Data-teknologier
+- NoSQL databaser
+- Hadoop
+- Realtime Analytics
+- Machine Learning
+- Business Inteligence
+- Visualisering
+
+NoSQL-teknologier: 
+- Dokumentdatabaser
+  -- En nøkkel har en tilhørende, kompleks datastruktur - et dokument
+  -- Dokumenter kan inneholde forskjellige key-value pairs,
+  key-array-pairs eller dokumenter
+- Grafdatabaser
+  -- Innehioder nettverksinformasjon e.eks. koblinger i sosiale medier
+- Key-Value stores
+  -- Enkleste form for NoSQL. En nøkkel og en verdi
+- Kolonne-baserte databaser
+  -- Lagrer data som kolonner istedenfor rader.
+  -- Optimalisert for enorme datamengder.
+
+Apache Hadoop
+- Open Source
+- Eget filsystem: HDFS (Hadoop File System)
+- Bruk av "commpdoty hardware" for avansert analyse
+- Opprinnelig batch-orientert
+- Map/Reduce
+- Flere programmeringsspråk og påbygg
+- Kontinuerlig utvikling
+- Typiske leverandører:
+  -- Cloudera
+  -- Hortonworks
+  -- MapR
+
+Hadoop er indisk for en "elefantgjeter."
+
+Realtime Analytics
+- Analyse av data i bevelgelse
+- Kan tirgge hendelser eller alarmer
+- Produktbefaling i online shopping
+- Flere teknologier:
+  -- Microsoft Azure Stream Analytics
+  -- Apache Storm
+
+Machine Learning
+- Avansert programmering
+- Algoritmer som forbedrer seg selv
+- Ufarliggjort gjennom bl.a. Microsoft Azure Machine Learning
+- Vi skal se mye på dette fremover.
+
+Business Integlligence
+- Høynivå verktøy for dataanalyser
+- Ofte veldig kostbare
+- Ofte krevende innføringsprosjekter
+- Ofte veldig kraftige verktøy
+- Typiske leverandører:
+  -- Pentaho
+  -- QlikView
+  -- sas
+  -- Tableau
+
+Cloud/Sky
+- Hvorfor hører sky og big data sammen?
+- Lagring
+- Skalering
+- Kosteffektivt
+- Administrasjon
+
+IoT og Big Data
+- Kombinerer kilder for å se hele bildet
+- Smart Meters
+- Smart sensors
+- Weather
+- Geografi
+- Power grid and network topology
+- Thermal images and video
+- Customer Information
+- Market Information
+- etc …
+
+
+
+
+
+
+
+
+
+
+

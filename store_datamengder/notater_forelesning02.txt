@@ -1,0 +1,46 @@
+RELASJONSALGEBRA
+
+Horisontalt utplukk (sigma)
+
+select studnr, studnavn from student, eksamen where studnr = eksamen, studnr and kursnr = '0017'
+
+Vertikalt utplukk kalles også for projeksjon.
+Et eksempel er å holde en hånd (3 dimensjoner over en lysende "prosjektor".
+Det som vises på veggen, vises i 2 dimensjoner.
+På samme måte kan man ta en tabell i 3 dimensjoner og skalere det ned til
+2 dimensjoner). Dette tilsvarer funksjonen pi.
+
+select …
+from student inner joint eksamen on student.stdnr = eksamen.studnr
+where kursnr = '0017'
+
+f(g(x)) -- en funksjon som inneholder en annen funksjon som må utføres og produsere et lovlig resultat før den ytre funksjonen kjører.
+
+
+===============================================================================
+
+y=(student(eksamen(x)))
+
+y=((sigma)student.studnr((pi)eksamen.studnr(kursnr='0017')))
+
+y=((pi)studnr, studnavn ((sigma)kursnr='0017'(sigma))student.studnr (student*eksamen))
+
+Måten dette er skrevet på ovenfor, kalles for en relasjonsalgebra.
+
+===============================================================================
+
+
+INNER JOIN
+
+Slår sammen og kobler sammen på en bedre måte.
+
+… student inner join student.studnr = eksamen.studnr …
+
+((sigma)kursnr = '0017' (pi)student.studnr=eksamen.studnr)
+Sammenkoblingen er utført av inner-join-operasjonen og trengs derfor ikke
+å tas igjen.
+
+Union (A U B):	  Det som finnes i det ene eller det andre.
+Snitt (A ∩ B):    Det som finnes i begge, men ikke hver for seg.
+Differanse (A\B): Det som finnes i det ene, men ikke det andre eller begge.
+Differansen kan også skrives A-B.

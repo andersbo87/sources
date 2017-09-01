@@ -1,0 +1,95 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ *
+ * @author andersbo
+ * Created on a MacBook Pro running FreeBSD 11-CURRENT.
+ */
+public class oppgave3 {
+
+    public String[] readLines(String filename) throws IOException
+    {
+        FileReader fr = new FileReader(filename);
+        BufferedReader br = new BufferedReader(fr);
+        List<String> lines = new ArrayList<String>();
+        String line = null;
+        while((line=br.readLine()) != null)
+        {
+            lines.add(line);
+        }
+        br.close();
+        return lines.toArray(new String[lines.size()]);
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        if(args.length != 1)
+        {
+            System.err.println("usage: program file1");
+            return;
+        }
+        oppgave3 ob = new oppgave3();
+        try
+        {
+           String[] lines = ob.readLines(args[0]);
+	   int noe = Integer.parseInt(lines[0]);
+	   System.out.println("noe: " + noe);
+           Matrix a = new Matrix(Integer.parseInt(lines[0]));
+           System.out.println("Matrise a: " + a.toString());
+           int i=0,j = 0,k=0;
+           for(String line : lines)
+           {
+               /*
+               Forsøker å lage en mellomromsseparert liste
+               */
+	       if(i!=0){
+		   String s[] = line.split(" ");
+		   k=0;
+		   for(String res : s)
+		   {
+		       a.set(j,k, Integer.parseInt(res));
+		       k++;
+		   }
+		   j++;
+	       }
+	       i++;
+	   }
+           System.out.println("Matrise a etter innsetting: " + a.toString());
+	   
+        }
+        catch(Exception e) // In case FreeBSD or some other OS decides to make a noob move (never the user's fault... ;) )
+        {
+            System.err.println(e.toString());
+            //e.printStackTrace();
+            //System.exit(1);
+        }
+    }
+    
+    /*Matrix squareMatrixMultiplyRecursive(Matrix a, Matrix b)
+    {
+        int n = a.m.length;
+        Matrix c = a.partition();
+        if(n == 1)
+        {
+            c.set(0, 0, (a.get(0, 0))*b.get(0, 0));
+        }
+        else
+        {
+            c.set(0, 0, squareMatrixMultiplyRecursive(a.get(0,0), b.get(0, 0))+squareMatrixMultiplyRecursive(a.get(0, 1), b.get(1, 0)));
+            c.set(0,1, squareMatrixMultiplyRecursive(a.get(0, 0), b.get(0, 1))+squareMatrixMultiplyRecursive(a.get(0, 1), b.get(1, 1)));
+            c.set(1,0, squareMatrixMultiplyRecursive(a.get(1, 0), b.get(0, 0))+squareMatrixMultiplyRecursive(a.get(1, 0), b.get(0, 1)));
+            c.set(1,1, squareMatrixMultiplyRecursive(a.get(1,0), b.get(0, 1))+squareMatrixMultiplyRecursive(a.get(1, 1), b.get(1,1)));
+        }
+        return c;
+	}*/
+    
+}

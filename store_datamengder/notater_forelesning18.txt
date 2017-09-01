@@ -1,0 +1,162 @@
+NOTATER TIL FORELESNING 18
+==========================
+    1 GB/s	    30-55 MB/s
+CPU ------> MEMORY -------------> Disk
+
+
+Tradisjonell dataanalyse og maskinlæringsalgoritmer:
+last all påkrevd data fra disk til minne
+Kjør alle algoritmer i minnet
+
+Googles problem
+Over 20 mrd sider
+Hver side er over 20KB
+
+    1 GB/s	    30-55 MB/s    400TB?
+CPU ------> MEMORY -------------> Disk
+
+Kan vi bruke en superdatamaskin?
+Vanskelig å legge til kapasitet
+Dyrt å bygge
+
+Distribuere data og "computation" over et stort "cluster"
+	switch
+     /    |   \
+    /	  |    \
+   /	  |     \
+  /	  |      \
+cpu	cpu	cpu
+  |	  |	  |
+minne	minne	minne
+  |	  |	  |
+disk	disk	disk
+
+cluster of consumer-grade hardware
+many desktoplike Linux servers
+ Lett å legge til kapasistet
+ Billigere per CPU/disk
+
+Hver node er en linux-server
+Lett å legge til kapasitet
+Lett å erstatte
+
+I 2011 ble det antatt at Google hadde 1 million maskiner
+
+Problemer med billig hardware
+ Maskinen kan feile
+ En server kan være oppe i 3 år (1000 dager)
+ Med 1 mill maskiner vil 1000 servere feile hver dag!
+
+Ujevn ytelse
+ Disse maskinene feiler ikke, men jobber saktere enn normalt (et enda større problem)
+
+Nettverkshastighet er tregere enn delt minne:
+ Det å kopiere data over nettverk tar tid
+
+Distribuert programmering er vanskelig! Vi trenger en enkel modell som skjuler mesteparten av kompleksiteten.
+
+Idé og løsning:
+Idé:
+ Lagre data "redundantly" på flere noder for bedre tilgjengelighet og pålitelighet
+ Flytte "computation" nærmere data for å minimere databevegelsen
+ Enkel programmeringsmodell for å skjule magiens kopmpleksitet
+
+MapReduse adresserer disse problemene:
+Storage Infrastructure...
+
+Distribuert filsystem
+Eksempler: HDFS, GFS
+ Støtte "redundancy" og tilgjengelighet
+Typisk bruk:
+ Store filer (opptil flere TB)
+
+Data som er i biter ("chunks") spres over flere maskiner
+Hver bit replikeres på ulike maskiner
+"Chunk" servers fungerer også som dataservere --> Vi kan gjøre beregning om til data ("bring computing to data")
+
+Chunk Servers:
+Filen splittes inn i flere biter (16-64MB)
+Hver bit replikeres (2 eller 3 ganger)
+Prøv å holde en replika i en annen maskin
+
+Master Node:
+Name node i Hadoops HDFS
+Lagrer metadata om hvor filene er lagret
+Kan replikeres (men blir vanligvis ikke replikert)
+
+Klientbibliotek for å få tilgang
+Snakker med master for å finne chunk-serveren
+
+Programmeringsmodell: M/R
+Klassisk motiveringseksempel:
+Du har et stort tekstdokument
+Telle hvor mange ganger et gitt ord dukkker opp i filen
+
+Mulige applikasjoner:
+-Analyser logfiler på webservere for å finne populære URL-er
+-Lage en "ordsky"
+
+Enkel tilnærming: Bruk en hashtabell
+Hashtabell er en datastruktur som "mapper" nøkler til verdier.
+
+Hvis dokumentet er stort, splittes dokumentet i flere biter på flere maskiner som så jobber med en hashtabell som tar seg av deler av dokumentet.
+Men hva med et stort dokument og en flaskehals på en gitt maskin?
+Splittes mellom maskinene.
+
+For å gjøre ting raskere kan man bruke nøkler som kan dupliseres istedenfor en hash-tabell på hver maskin. 
+Man må gruppere dem etter nøkkel senere, så man ikke gjør det flere ganger.
+
+Hvorfor bygge M/R for "cluster programming model?
+=================================================
+Når en algoritme/program er uttrykt som M/R-operasjoner, er det enkelt å bygge en motor som:
+Optimiserer begregnings-schedule
+Tar seg av "feilinger"
+Optimiserer intermaskinkommunisering
+Det er kraftig nok til å uttrykke de fleste datamanipuleringsjobber
+ALle verb kan uttrykkes i form av M/R
+...
+
+Koordinering: master
+====================
+Masternoden tar seg av koordinering (idle, in-process, fullført)
+Idle-oppgaver planlegges når "arbeidere" blir tilgjengelige
+
+Introduksjon til Apache Spark
+=============================
+
+Spark motivation
+----------------
+Prøver å beholde mer data i minnet
+Støtter bedre programmeringsgrensesnitt
+Oppretter en ny og bedre distribuert utførelsesmotor
+Lavere pris betyr at man kan sette inn mer minne i hver server
+
+Bruk minne istedenfor disk
+--------------------------
+Minnet er 10-100 ganger raskere enn disk.
+
+Verktøy i Spark
+Spark SQL
+Spark Streaming
+MLib (machine learning)
+GraphX (graph)
+Apache Spark
+
+Spark SQL: Kar den spørre strukturert data enten ved SQL ekller DF APO. Kan kobel til mange kilder: CSV, JSON, etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

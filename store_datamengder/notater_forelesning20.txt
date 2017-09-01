@@ -1,0 +1,41 @@
+﻿==========================
+NOTATER TIL FORELESNING 20
+==========================
+
+Stream Analytics
+================
+
+Skal snakke om Azure Stream Analytics
+Tilsvarende Store i Hadoop. 
+Skybasert data
+"Event data is already in the cloud"
+"Not all data is local" (bring the processing to the data, not data to the processing)
+"Event data is globally distributed"
+
+Behovet for real-time prossessering:
+fraud detection, connected car og mye annet.
+
+Kan brukes til ting som å oppdage trafikkulykker og varsle førere lenger bak på
+samme vei, oppdage vannlekasjer og mange andre nyttige ting.
+
+Trenger infrastruktur (maskinvare) for å bygge løsningen, skrive kode for å hente, prossessere og gi fra deg koden og deretter lage en robust løsning for å ta seg av ting som feil på hardware, må kunne skaleres hvis tjenesten er en suksess, mao. en omfattende prosess hvis du vil lage slike ting selv.
+
+event hubs --> stream analytics --> database --> presentere data
+                                --> dokumentdatabaser --> presentere data
+…
+
+
+temporal windows
+-tumbling windows
+vinduer etter hverandre og en viss periode
+Select system.timestamp as outtime, tollid, count…
+
+hopping windows
+-Overlapper hverandre (tar med samme element i flere vinduer)
+sliding windows
+-endres avhengig av dataene du jobber med
+
+
+
+
+

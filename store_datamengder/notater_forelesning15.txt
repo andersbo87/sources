@@ -1,0 +1,38 @@
+﻿==========================
+NOTATER TIL FORELESNING 15
+==========================
+
+Smart Grid Case Study
+
+
+Oversikt
+
+
+Hva endres
+-Innføring av AMS
+-Lokal produksjon
+-Nye typer laster med høy effekt
+-Flere sensorer
+-Mer sanntidshåndtering
+-Elhub
+-Leverandørsentrisk modell
+-Større fokus på miljø
+
+Hva er smart?
+-Egentlig ingenting, ikke smart i seg selv
+-Men vi har masse data vi kan gjøre smarte ting med
+
+Utfordringer for netteieren
+
+
+Utfordringer for kraftleverandøren
+
+Frykt for Big Data
+-Personvern?
+-Hva med avisenes interesser?
+
+
+Innføring i PowerBI
+
+
+

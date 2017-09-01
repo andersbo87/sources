@@ -1,0 +1,6 @@
+STORE DATAMENGDER:
+- "Big data": et nytt begrep innenfor det som kalles for "Not only SQL".
+- Hvordan lage raske spørringer på store datamengder
+- Se hvordan et "SQL-statement" er oppbygd og optimalisere dette
+- Lage prosedyrer og triggere
+- Frivillig hvilket databasesystem som skal brukes. I fjor prøvde man å "tvinge" inn Oracles system, men det ble det bare krøll av. Må gjerne bruke det, men kan også prøve MySQL (også Oracle) eller MariaDB (utviklet av de samme svenskene som opprinnelig utviklet MySQL før de solgte MySQL til Oracle).

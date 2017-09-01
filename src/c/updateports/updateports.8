@@ -1,0 +1,70 @@
+.\"Modified from man(1) of FreeBSD, the NetBSD mdoc.template, and mdoc.samples.
+.\"See Also:
+.\"man mdoc.samples for a complete listing of options
+.\"man mdoc for the short list of editing options
+.\"/usr/share/misc/mdoc.template
+.Dd 4/28/13               \" DATE 
+.Dt updateports 8      \" Program name and manual section number 
+.Os FreeBSD 11.0
+.Sh NAME                 \" Section Header - required - don't modify 
+.Nm updateports
+.\" The following lines are read in generating the apropos(man -k) database. Use only key
+.\" words here as the database is built based on the words here and in the .ND line. 
+.\" Use .Nm macro to designate other names for the documented program.
+.Nd Tool to simplify updating of ports on SunOS (Solaris), Linux, Darwin (macOS), FreeBSD, NetBSD, OpenBSD.
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm
+.Op Fl v
+.Oo
+.Fl p
+.Op Fl i
+.Oc
+.Op Fl P
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+.Nm
+is a script designed to update installed ports on a variety of UNIX and UNIX-like operating systems.
+Depending on which operating system you are running, the script calls one or several other tools (like apt-get on Linux, portsnap and then Portmaster or Portupgrade on FreeBSD) and executes those. 
+.Nm
+is an interactive script (except for Linux and SunOS) which might ask several questions during the execution.
+.Pp
+If the user is running FreeBSD and does not use any of the options below,
+.Nm
+uses the FreeBSD version of pkg(8) when updating ports.
+.Pp
+.Sh OPTIONS
+Depending on the operating system, one or more of the following options may be used:
+.Bl -tag -width -indent
+.It Fl v
+Verbose mode. Valid on macOS, since MacPorts is a port tool that provides a verbose option. The
+.Fl v
+flag can also be used on FreeBSD if the user specifies the
+.Fl P
+(Portupgrade(1)) option. Portupgrade will be slightly more verbose than normal.
+.It Fl p
+Uses Portmaster(8), if installed, when updating installed ports. This option is only valid on FreeBSD.
+.It Fl P
+Uses Portupgrade(8), if installed, when updating installed ports. This option is only valid on FreeBSD.
+.It Fl i
+If the
+.Fl p
+or the
+.Fl P
+option is specified, tell Portmaster(8) or Portupgrade(1) to use be more interactive during execution. This option is useful if you only want to update certain ports. This option is only valid on FreeBSD.
+
+.El
+.Nm
+on Linux, NetBSD, OpenBSD and Solaris does not accept any of the options listed above.
+.Sh SEE ALSO 
+.\" List links in ascending order by section, alphabetically within a section.
+.\" Please do not reference files that do not exist without filing a bug report
+.Xr apt-get 1 (Linux),
+.Xr pkg 1 (SunOS/Solaris),
+.Xr port 1 (Darwin/macOS),
+.Xr portupgrade 1 (FreeBSD),
+.Xr pkg 8 (FreeBSD),
+.Xr portmaster 8 (FreeBSD),
+.Xr portsnap 8 (FreeBSD)
+.\" .Sh BUGS              \" Document known, unremedied bugs 
+.Sh HISTORY           \" Document history if command behaves in a unique manner
+.Nm
+first appeared on Mac OS X 10.8.3 and FreeBSD 9.1. It was then extended to support the latest versions of OpenBSD, NetBSD, Linux and Solaris.

@@ -1,0 +1,67 @@
+NOTATER TIL FORELESNING 3 I "STORE DATAMENGDER …"
+
+Produkt	    		R x S	   	       "alle-mot-alle"
+			R r.dato > s.dato      =,<>, >, >=, <, <=
+"Joining" for ukjent
+data			(theta)		       "svak betingelse"
+
+Eksempel:
+R er ansatt i avdeling S.
+Vi kan da si "Skriv ut alle som ikke begynte å jobbe der samtidig som avdelinga ble opprettet."
+Vi har en dato for når S ble opprettet og en dataegenskap i ansettelsesdb.
+Vi kan da skrive ut dato for ansettelsesdato > datoen da S ble opprettet.
+
+eqi-join  	    (theta)==
+Natural joing = eqi-join, med fjerning av unødig duplikat.
+
+R	      		  S
+avdnr navn		  ansnr. e f avdnr
+3     ngoe		  100    n x 3
+4     gme		  101    m y 4
+      			  102    o z 4
+
+3 ngoe 100 n x 3
+4 gme 101 m y 4
+4 gme 102 o z 4
+
+I natural join, så slettes den siste raden (3 4 4)
+
+SQL-eksempel på natural join:
+select * from avd, ans where avd.avdnr = ans.avdnr and avdnavn='Sko'
+
+(sigma)avdnavn="Sko" (Avd (kobling)(senket:)Avd.Avdnr = Ans.avdnr (normal:)Ans)
+(sigma)avdnavn="Sko" (Avd) (kobling)(senket:)Avd.Avdnr = Ans.avdnr (normal:)Ans
+Den siste delen er en smartere måte å gjennomføre en spørring på,
+da antall treff vil reduseres, og dermed mer relevant.
+Begge vil fungere, men den første vil også ta mye lengre tid enn siste spørring.
+
+Outer join:
+alle i R, samt alle fra S som oppfyller koblingbetingelsen
+Outer join kommer i 2 varianter: left outer join og right outer join
+
+Full join (finnes ikke i de fleste DB-systemer):
+Alle i R, alle i S, samnt alle som oppfyller koblingsbetingelse
+
+Skriv ut ansatte i skoavdelingen.
+Hans (kobling) avdeling
+
+(sigma)avdnavn = "Sko"(Ans (kobling) Avd)
+
+
+
+Skriv ut alt om de ansatte i skoavdelingen.
+(pi)ansnr, e, f, avdnr(Ans (kobling)(sigma)avdnavn = "Sko"(Avd)
+
+Semijoin:
+De i R som tilfredsstiller R join $betingelse S
+
+Ans (semijoin) (sigma)avdnavn="Sko"(avd)
+
+SELECT ans.avdnr, e, f, ansnr
+FROM avd, ans
+WHERE ans.avdnr = avd.avdnr AND avdnavn="Sko";
+
+Med semijoin:
+SELECT *
+FROM ans
+WHERE avdnr in (select avdnr from avd where avdnavn = "Sko");

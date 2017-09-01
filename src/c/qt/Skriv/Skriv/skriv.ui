@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Skriv</class>
+ <widget class="QMainWindow" name="Skriv">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>497</width>
+    <height>368</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Skriv</string>
+  </property>
+  <property name="locale">
+   <locale language="NorwegianBokmal" country="Norway"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0" colspan="2">
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="comboBox">
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFontComboBox" name="fontComboBox"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>497</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFil">
+    <property name="title">
+     <string>Fil</string>
+    </property>
+    <addaction name="actionLagre"/>
+    <addaction name="actionLagre_som"/>
+    <addaction name="action_pne"/>
+    <addaction name="actionSkriv_ut"/>
+    <addaction name="actionAvslutt"/>
+   </widget>
+   <widget class="QMenu" name="menuRediger">
+    <property name="title">
+     <string>Rediger</string>
+    </property>
+    <addaction name="actionAngre"/>
+    <addaction name="actionGj_r_om"/>
+    <addaction name="actionFet"/>
+    <addaction name="actionKursiv"/>
+    <addaction name="actionUnderstrek"/>
+    <addaction name="actionKlipp_ut"/>
+    <addaction name="actionKopier"/>
+    <addaction name="actionLim_inn"/>
+   </widget>
+   <addaction name="menuFil"/>
+   <addaction name="menuRediger"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAngre"/>
+   <addaction name="actionGj_r_om"/>
+   <addaction name="actionFet"/>
+   <addaction name="actionKursiv"/>
+   <addaction name="actionUnderstrek"/>
+   <addaction name="actionKlipp_ut"/>
+   <addaction name="actionKopier"/>
+   <addaction name="actionLim_inn"/>
+  </widget>
+  <action name="actionLagre">
+   <property name="text">
+    <string>Lagre</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionLagre_som">
+   <property name="text">
+    <string>Lagre som</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="action_pne">
+   <property name="text">
+    <string>Åpne</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSkriv_ut">
+   <property name="text">
+    <string>Skriv ut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionAvslutt">
+   <property name="text">
+    <string>Avslutt</string>
+   </property>
+  </action>
+  <action name="actionAngre">
+   <property name="text">
+    <string>Angre</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionGj_r_om">
+   <property name="text">
+    <string>Gjør om</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionFet">
+   <property name="text">
+    <string>Fet</string>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionKursiv">
+   <property name="text">
+    <string>Kursiv</string>
+   </property>
+   <property name="font">
+    <font>
+     <italic>true</italic>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionUnderstrek">
+   <property name="text">
+    <string>Understrek</string>
+   </property>
+   <property name="font">
+    <font>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionKlipp_ut">
+   <property name="text">
+    <string>Klipp ut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionKopier">
+   <property name="text">
+    <string>Kopier</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionLim_inn">
+   <property name="text">
+    <string>Lim inn</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionSkrifttype">
+   <property name="text">
+    <string>Skrifttype</string>
+   </property>
+  </action>
+  <action name="actionEt_eller_annet">
+   <property name="text">
+    <string>Et-eller-annet</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>comboBox</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>369</x>
+     <y>67</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Skriv</sender>
+   <signal>windowShown()</signal>
+   <receiver>Skriv</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>windowShown()</signal>
+ </slots>
+</ui>

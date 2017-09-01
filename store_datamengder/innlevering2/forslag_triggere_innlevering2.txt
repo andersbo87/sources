@@ -1,0 +1,337 @@
+FORSLAG TIL TRIGGERE FOR Å LØSE FLERE OPPGAVER I INNLEVERING 2.
+
+BEMERK AT DISSE TRIGGERNE ER SKREVET I POSTGRESQL, OG AT SYNTAKSEN HER
+IKKE NØDVENDIGVIS FUNGERER I MYSQL.
+
+Følgende er en eksempeltrigger som ikke er relatert til oppgaven:
+create function mintest() returns trigger as $$begin
+raise notice 'Satt inn et nytt sted i stedstabellen.'; return new;
+end;
+$$ language plpgsql;
+
+create trigger mintest_trigger after insert on sted execute procedure mintest();
+
+
+DEL 1)
+NIVÅ 1)
+OPPG 1) Vi skal ha en trigger som setter inn en standardverdi inn i en tabell.
+Denne standardverdien hentes fra en verdi i en annen tabell.
+
+create function insertStdValue() returns trigger as $$
+begin
+update ordrelinje set aktuell_pris = vare.veil_pris from vare
+where vare.veil_pris = (select vare.veil_pris from vare where vare.varenr = ordrelinje.varenr);
+return NEW;
+end;
+$$ language plpgsql;
+
+create trigger insertStd after insert on ordrelinje execute procedure insertStdValue();
+
+====
+EGET EKSEMPEL
+====
+create function settInnFilmSalgsPris() returns trigger as $$
+begin
+update filmordre set salgspris = film.pris from film where film.pris = (select film.pris from film where film.filmnr = filmordre.filmnr);
+return new;
+end;
+$$ language 'plpgsql';
+create trigger settInnSalgsPris after insert on filmordre execute procedure settInnSlagsPris();
+
+
+OPPG 2) Her skal vi ha flere triggere. En av disse skal hindre brukeren i å
+endre postnummer i stedtabellen.
+
+create function hindrePostnrBytte() returns trigger as $$
+begin
+if (OLD.postnr != NEW.postnr) then
+-- sjekke om man endrer på postnummeret. I så fall, skriv en feilmelding
+raise exception 'Du kan ikke endre på postnummeret.';
+END IF;
+RETURN NEW;
+end;
+$$ language plpgsql;
+
+create trigger hindrepostnrbytte_trigger before update on post for each row execute procedure hindrePostnrBytte();
+
+En annen trigger skal se til at verdiene for postnr, poststed i ansatt stemmer
+overens med verdiene til postnr og poststed i posttabellen.
+
+create function sjekkPostnr() returns trigger as $$
+declare
+ANSPOSTNR int;
+POSTNR int;
+begin
+-- Triggeren må sjekke om postnummeret som ble angitt i ansatt finnes i stedstabellen. Hvis ikke, skriv en feilmelding.
+ANSPOSTNR:=NEW.postnr FROM ansatt where ansatt.postnr = NEW.postnr;
+POSTNR:=(select post.postnr from post where post.postnr = ANSPOSTNR);
+raise notice 'ANSPOSTNR: % POSTNR: %', ANSPOSTNR, POSTNR;
+if (POSTNR IS NULL) then
+raise exception 'Postnummeret eksisterer ikke.';
+end if;
+return NEW;
+end;
+$$ language plpgsql;
+
+create trigger sjekkAnsPostnr before insert on ansatt for each row execute procedure sjekkPostnr();
+
+create function sjekkPoststed() returns trigger as $$
+declare
+ANSSTED varchar(25);
+POSTSTED varchar(25);
+begin
+ANSSTED:=NEW.poststed FROM ansatt where ansatt.poststed = NEW.poststed;
+POSTSTED:=(select post.poststed from post WHERE post.postnr = NEW.postnr);
+if(ANSSTED != POSTSTED) then
+raise notice 'Poststedene stemmer ikke overens. Oppdaterer poststed i ansatt-tabellen med korrekt poststed fra posttabellen.';
+update ansatt set poststed = post.poststed from post
+where post.poststed = (select post.poststed from post where post.postnr = ansatt.postnr);
+return new;
+end if;
+end;
+$$ language plpgsql;
+
+create trigger sjekkAnsPoststed after insert on ansatt for each row execute procedure sjekkPoststed();
+
+create function sjekkAns() returns trigger as $$
+declare
+ANSPOSTNR int;
+POSTNR int;
+ANSSTED varchar(25);
+POSTSTED varchar(25);
+begin
+-- Triggeren må sjekke om postnummeret som ble angitt i ansatt finnes i stedstabellen. Hvis ikke, skriv en feilmelding.
+ANSPOSTNR:=NEW.postnr FROM ansatt where ansatt.postnr = NEW.postnr;
+POSTNR:=(select post.postnr from post where post.postnr = ANSPOSTNR);
+if (POSTNR IS NULL) then
+raise exception 'Postnummeret eksisterer ikke.';
+end if;
+ANSSTED:=NEW.poststed FROM ansatt where ansatt.poststed = NEW.poststed;
+POSTSTED:=(select post.poststed from post WHERE post.postnr = NEW.postnr);
+if(ANSSTED != POSTSTED) then
+raise notice 'Poststedene stemmer ikke overens. Oppdaterer poststed i ansatt-tabellen med korrekt poststed fra posttabellen.';
+update ansatt set poststed = post.poststed from post
+where post.poststed = (select post.poststed from post where post.postnr = ansatt.postnr);
+return new;
+end if;
+return new;
+end;
+$$ language plpgsql;
+create trigger trig_sjekkAns after insert on ansatt for each row execute procedure sjekkAns();
+
+====
+TRIGGERE FOR EGET EKSEMPEL I OPPGAVE 2
+====
+create function hindreKommuneNrBytte() returns trigger as $$
+begin
+   if (OLD.kommunenr != NEW.kommunenr) then
+      raise exception 'Kan ikke endre kommunenummeret.';
+   end if;
+   return NEW;
+end;
+$$ language 'plpgsql';
+create trigger trigger_hindreKommuneNrBytte before update on kommune for each row execute procedure hindreKommuneNrBytte();
+
+create function sjekkKommune() returns trigger as $$
+declare
+  KOMMUNENR_PERSON int;
+  KOMMUNENR_KOMMUNE int;
+  KOMMUNENAVN_PERSON varchar(30);
+  KOMMUNENAVN_KOMMUNE varchar(30);
+begin
+  KOMMUNENR_PERSON:=NEW.kommunenr FROM Person where Person.Kommunenr = NEW.kommunenr;
+  KOMMUNENR_KOMMUNE:=(select kommune.kommunenr from kommune where kommune.kommunenr = KOMMUNENR_PERSON);
+  if (KOMMUNENR_KOMMUNE IS NULL) then
+     raise exception 'Du anga et kommunenr som ikke eksisterer.';
+  end if;
+  KOMMUNENAVN_PERSON:=NEW.kommunenavn FROM Person where Person.kommunenavn = NEW.kommunenavn;
+  KOMMUNENAVN_KOMMUNE:=(select Kommune.kommunenavn from Kommune WHERE Kommune.kommunenr = NEW.kommunenr);
+  if (KOMMUNENAVN_PERSON != KOMMUNENAVN_KOMMUNE) then
+     raise notice 'Kommunenavnene stemmer ikke overens. Oppdaterer kommunenavn i Person med korrekt kommunenavn fra Kommune.';
+     UPDATE Person set kommunenavn = Kommune.kommunenavn from Kommune
+     WHERE Kommune.kommunenavn = (SELECT Kommune.kommunenavn FROM Kommune WHERE Kommune.kommunenr = Person.kommunenr);
+     return NEW;
+  end if;
+return NEW;
+end;
+$$ language 'plpgsql';
+create trigger trigger_sjekkKommune after insert on Person for each row execute procedure sjekkKommune();
+
+
+======
+OPPG 3)
+======
+
+create function tilfeldigeTallArr(integer[]) returns integer[] as $$
+declare
+i int;
+nyData real; 
+begin
+i:=1;
+while i < 3000000 loop
+nyData:=(select random()*99+1);
+insert into mindata values(i, nyData);
+i=i+1;
+end loop;
+end;
+$$ language plpgsql;
+
+create function medianverdi(integer[]) returns integer as $$
+ SELECT AVG(data)
+ FROM(
+   SELECT data
+   FROM tilfeldigetall($1) data
+   ORDER BY 1
+   LIMIT 2 - MOD(array_upper($1, 1), 2)
+   OFFSET CEIL(array_upper($1, 1)/2.0) -1
+ ) sub;
+$$ language 'sql' IMMUTABLE;
+
+CREATE AGGREGATE median(integer)(
+  SFUNC=array_append,
+  STYPE=integer[],
+  FINALFUNC=medianverdi,
+  INITCOND='{}'
+);
+
+
+NIVÅ 2)
+OPPG 4)
+create function foersteFunksjon() returns trigger as $$
+begin
+insert into second values(NEW.id, NEW.message);
+return new;
+end;
+$$ language 'plpgsql';
+create trigger foersteTrigger after insert on first for each row execute procedure foersteFunksjon();
+
+create function andreFunksjon() returns trigger as $$
+begin
+insert into first values(NEW.nyid+1, NEW.nymessage);
+return new;
+end;
+$$ language 'plpgsql';
+create trigger andreTrigger after insert on second for each row execute procedure andreFunksjon();
+
+==================
+OPPG 5)
+==================
+
+create function sjekkEndretBrukerID() returns trigger as $$
+begin
+-- Sjekke om brukerID-en er forandret under en kjøring av UPDATE.
+if (OLD.kundenr != NEW.kundenr) then
+raise exception 'Du kan ikke endre på kundenummeret.';
+end if;
+return new;
+end;
+$$ language 'plpgsql';
+create trigger trigger_sjekkEndretBrukerID before update on kunde for each row execute procedure sjekkEndretBrukerID();
+
+create function stoppDistributørEndring() returns trigger as $$
+begin
+if (TG_OP = 'DELETE') then
+raise exception 'Du kan ikke fjerne rader fra distributørtabellen';
+elsif (TG_OP = 'UPDATE') then
+  if(OLD.distributørnr != NEW.distributørnr) then
+    raise exception 'Du kan ikke endre distributørnr';
+  end if;
+end if;
+return NEW;
+end;
+$$ language 'plpgsql';
+create trigger trigger_stoppDistributørEndring before update or delete on distributør for each row execute procedure stoppDistributørEndring();
+
+create function stoppKategoriEndring() returns trigger as $$
+begin
+if (TG_OP = 'DELETE') then
+   raise exception 'Du kan ikke slette verdier fra kategori.';
+elsif (TG_OP = 'UPDATE') then
+      if(OLD.kategorinr != NEW.kategorinr) then
+         raise exception 'Du kan ikke endre kategorinr';
+      end if;
+end if;
+return new;
+end;
+$$ language 'plpgsql';
+create trigger trigger_stoppKategoriEndring before update or delete on kategori for each row execute procedure stoppKategoriEndring();
+
+create function stoppSpillEndring() returns trigger as $$
+begin
+if (TG_OP = 'DELETE') then
+   raise exception 'Du kan ikke slette spill fra databasen.';
+elsif (TG_OP = 'UPDATE') then
+   if(OLD.spillnr != NEW.spillnr) then
+      raise exception 'Du kan ikke endre på spillID-en til eksisterende spill.';
+   end if;
+end if;
+return new;
+end;
+$$ language 'plpgsql';
+create trigger trigger_stoppSpillEndring before update or delete on spill for each row execute procedure stoppSpillEndring();
+
+create function stoppHandelEndring() returns trigger as $$
+begin
+if (TG_OP = 'DELETE') then
+   raise exception 'Du kan ikke slette elementer fra kundehandel.';
+elsif (TG_OP = 'UPDATE') then
+   if (OLD.id != NEW.id) then
+      raise exception 'Du kan ikke endre på eksisterende ordre.';
+   elsif (OLD.kundenr != NEW.kundenr) then
+   	 raise exception 'Du kan ikke endre på eksisterende ordre.';
+   elsif (OLD.spillid != NEW.spillid) then
+   	 raise exception 'Du kan ikke endre på eksisterende ordre.';
+   elsif (OLD.kortnr != NEW.kortnr) then
+   	 raise exception 'Du kan ikke endre på eksisterende ordre.';
+   end if;
+end if;
+return OLD; -- returnerer den gamle veriden, da vi ikke er interesserte i noen endringer.
+end;
+$$ language 'plpgsql';
+create trigger trigger_stoppHandelEndring before update or delete on distributør for each row execute procedure stoppHandelEndring();
+
+Neste trigger skal ta seg av det å beregne gjenstående saldo.
+Dette for å stoppe handelen dersom det ikke er nok "penger" på kortet.
+create function saldoOperasjon() returns trigger as $$
+declare
+PRIS int;
+SALDO int;
+begin
+-- La oss først oppdatere prisen på produktet.
+update kundehandel set pris=spill.pris from spill
+where spill.pris = (select spill.pris from spill where spill.spillnr = NEW.spillnr);
+raise notice 'nåværende pris: %', (select kundehandel.pris from kundehandel where id=NEW.id);
+--return new;
+-- La oss så se om vi har nok penger…
+SALDO:=(select kort.dekning from kort where kort.kortnr=NEW.kortnr);
+PRIS:=(select kundehandel.pris from kundehandel where kundehandel.id = NEW.id);
+--PRIS:=NEW.pris from kundehandel where kundehandel.id = NEW.id;
+raise notice 'saldo: %, pris: %', SALDO, PRIS;
+if (SALDO-PRIS < 0) then
+raise exception 'Du har ikke nok penger.';
+else
+SALDO=SALDO-PRIS;
+update kort set dekning=SALDO where kortnr=NEW.kortnr;
+end if;
+return new;
+end;
+$$ language 'plpgsql';
+create trigger trigger_saldoOperasjon after insert on kundeHandel for each row execute procedure saldoOperasjon();
+
+create function kortKundeSjekk() returns trigger as $$
+begin
+if (TG_OP = 'DELETE') then
+   -- I dette tilfellet ville jeg heller ha sjekket om kortet virkelig tilhører kunden.
+   -- Jeg kommer ikke på noen god måte å gjøre det på, så avbryter heller slettingsprosessen.
+   raise exception 'Kortet kan ikke slettes';
+elsif (TG_OP = 'UPDATE') then
+   if (NEW.kundenr != OLD.kundenr) then
+      raise exception 'Kortet kan ikke bytte eier.';
+   else
+      return new;
+   end if;
+end if;
+end;
+$$ language 'plpgsql';
+create trigger trigger_kortKundeSjekk before update on kort for each row execute procedure kortKundeSjekk();
+

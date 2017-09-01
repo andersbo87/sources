@@ -1,0 +1,43 @@
+Oppgave 1:
+Sett at man er i en butikk og kjøper noen epler.
+Lag et program som konverterer vekta fra hektogram til gram og kilo.
+
+Oppgave 2:
+a)
+Du har en samtale med en brite, og i løpet av denne samtalen
+forteller du hvor langt det er å gå til skolen.
+Lag et program som omregner den avstanden fra kilometer til 
+engelske mil ("miles"). Hint: 1 km = 0,621 miles.
+
+b)
+Lag et program som konverterer fra engelske mil ("miles") til km.
+Hint: 1 mile = 1,609 km
+
+Oppgave 3:
+Lag et program som konverterer fra fot til centimeter.
+Hint: en internasjonal fot = 30.48 cm.
+
+Oppgave 4:
+I et litermål heller du oppi en gitt mengde med væske, målt i antall
+liter. Lag et program som konverterer den mengden fra liter til 
+centiliter.
+
+Oppgave 5:
+En person skal på ferie nedover i Europa og skal ta ut noen euro før avreise.
+Han bestemmer seg for å ta ut n euro. Hvor mye blir det i norske kroner?
+Lag et program som konverterer fra euro til norske kroner.
+Hint 1 euro er verdt 9,4630 kr da oppgaven ble laget.
+
+For økt vanskelighet kan man: 
+*) lage løsningene på oppgavene som 
+   samtaler mellom f. eks. 2 figurer istedenfor bare én 
+   (se løsningsforslag til oppgave 3).
+*) ta med noen sjekker for å se om brukeren skrev inn tall eller
+   tekst (se løsningsforslag til oppgave 2b og 5):
+   euroTilKrInklSjekker (oppgave 5)
+   milesTilKmInklSjekker (oppgave 2b)
+
+MERK: For å kunne åpne milesToKmInklSjekker.sb2
+og euroTilKronerInklSjekker.sb2 offline kreves Scratch versjon
+2.0 eller senere, da dette programmet bruker funksjoner som ikke
+er tilgjengelige i versjon 1.X

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hotspot_log version='160 1' process='33231' time_ms='1333095100543'>
+<vm_version>
+<name>
+OpenJDK 64-Bit Server VM
+</name>
+<release>
+20.0-b12-jvmg
+</release>
+<info>
+OpenJDK 64-Bit Server VM (20.0-b12-jvmg) for bsd-amd64 JRE (1.6.0_30-debug-b24), built on Mar 26 2012 16:18:55 by &quot;root&quot; with gcc 4.2.1 20070831 patched [FreeBSD]
+</info>
+</vm_version>
+<vm_arguments>
+<args>
+-Xms40m -Xmx384m -Dorg.eclipse.equinox.p2.reconciler.dropins.directory=/usr/local/share/eclipse/dropins -XX:MaxPermSize=256m 
+</args>
+<command>
+/usr/local/lib/eclipse//plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar -os freebsd -ws gtk -arch x86_64 -showsplash -launcher /usr/local/lib/eclipse/eclipse -name Eclipse --launcher.library /usr/local/lib/eclipse/plugins/org.eclipse.equinox.launcher.gtk.freebsd.x86_64_1.0.200.201112051906/eclipse_1312.so -startup /usr/local/lib/eclipse//plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar -exitdata 10014 -vm /usr/local/openjdk6/bin/java -vmargs -Xms40m -Xmx384m -Dorg.eclipse.equinox.p2.reconciler.dropins.directory=/usr/local/share/eclipse/dropins -XX:MaxPermSize=256m -jar /usr/local/lib/eclipse//plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar
+</command>
+<launcher>
+SUN_STANDARD
+</launcher>
+<properties>
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.version=20.0-b12-jvmg
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vm.info=mixed mode, sharing
+java.ext.dirs=/usr/local/openjdk6/jre/lib/ext:/usr/java/packages/lib/ext
+java.endorsed.dirs=/usr/local/openjdk6/jre/lib/endorsed
+sun.boot.library.path=/usr/local/openjdk6/jre/lib/amd64
+java.library.path=/usr/local/openjdk6/jre/lib/amd64/server:/usr/local/openjdk6/jre/lib/amd64:/usr/local/openjdk6/jre/../lib/amd64:/usr/java/packages/lib/amd64:/lib:/usr/lib:/usr/local/lib
+java.home=/usr/local/openjdk6/jre
+java.class.path=/usr/local/lib/eclipse//plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar
+sun.boot.class.path=/usr/local/openjdk6/jre/lib/resources.jar:/usr/local/openjdk6/jre/lib/rt.jar:/usr/local/openjdk6/jre/lib/sunrsasign.jar:/usr/local/openjdk6/jre/lib/jsse.jar:/usr/local/openjdk6/jre/lib/jce.jar:/usr/local/openjdk6/jre/lib/charsets.jar:/usr/local/openjdk6/jre/lib/modules/jdk.boot.jar:/usr/local/openjdk6/jre/classes
+java.vm.specification.vendor=Sun Microsystems Inc.
+java.vm.specification.version=1.0
+java.vm.vendor=Sun Microsystems Inc.
+org.eclipse.equinox.p2.reconciler.dropins.directory=/usr/local/share/eclipse/dropins
+sun.java.command=/usr/local/lib/eclipse//plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar -os freebsd -ws gtk -arch x86_64 -showsplash -launcher /usr/local/lib/eclipse/eclipse -name Eclipse --launcher.library /usr/local/lib/eclipse/plugins/org.eclipse.equinox.launcher.gtk.freebsd.x86_64_1.0.200.201112051906/eclipse_1312.so -startup /usr/local/lib/eclipse//plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar -exitdata 10014 -vm /usr/local/openjdk6/bin/java -vmargs -Xms40m -Xmx384m -Dorg.eclipse.equinox.p2.reconciler.dropins.directory=/usr/local/share/eclipse/dropins -XX:MaxPermSize=256m -jar /usr/local/lib/eclipse//plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar
+sun.java.launcher=SUN_STANDARD
+</properties>
+</vm_arguments>
+<tty>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376546304'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='com/ibm/icu/impl/ICUBinaryStream' stamp='17.305'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376546304'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='38.407'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='38.407'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='38.407'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='38.407'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='38.407'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376546304'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='org/eclipse/jface/viewers/StyledString$StyleRunList' stamp='44.186'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='org/eclipse/jface/viewers/StyledString$StyleRunList' stamp='44.187'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='org/eclipse/jface/viewers/StyledString$StyleRunList' stamp='44.187'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>
+<writer thread='34376822784'/>
+<writer thread='34376823808'/>

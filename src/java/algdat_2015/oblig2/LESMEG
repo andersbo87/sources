@@ -1,0 +1,19 @@
+Programmene jeg har skrevet for å løse programmeringsbitene i oppgave 1, tar én enkelt inputfil og sorterer den med enten quicksort eller randomizeQuicksort, avhengig av hvilket program du vil bruke. Mao, hvis du vil bruke quicksort, skriver du:
+java quicksort fil1
+Hvis du vil bruke randomizeQuicksort, skriver du:
+java randomizeQuicksort fil1
+
+Du kan også bruke det alternative QuickSort-programmet som er skrevet i C++:
+qs fil1
+Det samme gjelder for randomized QuickSort:
+rqs fil1
+
+Programmet i oppgave 2 tar derimot 2 argumenter: en fil og ett heltall.
+Heltallet er ment til å være verdien til R, der R skal være antall bits per siffer, slik det står nevnt i oppgaven. Vil du kjøre programmet med R = 8, skriver du
+java radixSort fil1 8
+eller, hvis du vil bruke C++-utgaven, skriver du:
+radixsort fil1 8
+
+Vil du selv lage en fil med usorterte tall som så skal sorteres av enten quicksort/randomizedQuicksort (oppgave 1) eller radixsort (oppgave 2), MÅ DET FØRSTE TALLET VÆRE DET SAMME SOM LENGDEN PÅ TABELLEN. Det vil si at om man vil sortere tallene mellom 1 og 10, må man skrive det slik:
+10 3 6 8 9 2 1 4 5 7 10
+der det første 10-tallet er lengden på tabellen.

@@ -1,0 +1,71 @@
+NOTATER TIL FORELESNING 14
+
+Big Data Analysis Process
+-Formell "old school"
+--Semma
+--Crisp-DM
+-Informaol data science practice
+--Ad-hoc processes
+--Case dependent
+
+Hovedsteg i "Big Data analysis"
+-Datatilgang
+--Data at Rest
+---Inaktive data som ikke forandres og som er lagret fysisk på en hvilken som
+   helst digital form
+---Historisk data
+--Data i bevegelse
+---"Streaming data"
+---Videostrøm
+---Meldingsstrøm (f.eks. Twitter)
+---Sensordata
+--Datatilgang gjennom maskinlæring krever stort sett data i ro
+--"Streaming analytics" kan tilby noe begrenset "on-the-fly"-analyse, men
+  ekskluderer vanligvis modellering
+-Preprosessering av data/"rengjøring" av data
+--Savnet data
+---Fjerne rad
+---Bytt ut med rett verdi
+---Bytt ut med gjennomsnittlig (median)verdi
+---Bytt ut med den mest sannsynlige verdien
+--I denne prosessen bruker man noe som kalles Outliers (se lærers notater)
+-"Overføring"/manipulering av data
+--Filtering
+---Gjennomsnittlig (evt. bevegelig gjennomsnitt)
+--Skalering/normalisering (skaler ned til samme rekkevidde)
+--Sampling/Synkronisering
+---Nedskalering 
+----Decimation
+---Oppskalering (sørge for at data har samme frekvens)
+----Interpolation
+-"Feature selection"
+--Dimensjonell redusering
+---Lineær
+----PCA - Principal Component Analysis
+---Ikke-lineær
+----"Manifold learning"
+-----ISOMAP
+------Isomap seeks a lower dimensional mapping which maintains
+      geodesic distances between all points
+-----t-SNE (t-distributed Stochastic Neighbor Embedding)
+------Models each high-dimensional object by a two-dimensional point
+      in such a way that similar objects are modeled by nearby points and
+      dissimilar objects are modeled by distant points
+---"Feature selection"
+----Flitermetode
+-----Fjerne flere relaterte variabler
+---Wrappermetoder
+   (Søk etter "feature subset" basert på den valgte dataanalyseringsalgoritmens
+   ytelse
+----Utvalg fremover
+-----Legg til beste verdi til vi er fornøyde
+----Eliminering bakover
+-----Fjern den verste "verdien" til vi er fornøyde
+----Globalt søk
+-----Genetiske algoritmer
+-----Boruta-algoritmen
+---"Embedding"
+-"Feature extraction"
+--Bygg nye "ting" fra ting som eksisterer fra før
+--Lær nye "featutures"
+-"Feature engineering"

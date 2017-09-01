@@ -1,0 +1,82 @@
+==========================
+NOTATER TIL FORELESNING 13
+==========================
+
+Timen dreier seg om Hadoop (Hadoops logo er en elefant)
+It does look similar, but this one is powered by Hadoop.
+
+Utfordringer med big data
+Tregt å prosessere, dårlig skalering
+Mye jobb mot disk
+Ikke lagringsplassen, men hastigheten på datatilgangen som er flaskehalsen
+
+
+Pålitelighet
+Småfeil må ikke gi full stopp
+Noen må ta over hvis enheter feiler
+Skalering, legge til en ressurs må gi forbedret kapasitet
+
+Håpet: Distributed Computing
+Dette er heller ikke lett
+  ressursdeling: tilgang til data og utnytte CPU-ressurser
+
+Hadoops bakgrunn
+Apache Hadoop er et rammeverk som tillater distribuert prosessering av store
+datasett over clustere av ordinære hardware.
+Skal ha en enkel programmeringsmodell
+
+Hadoops designprinsipper
+-Ytelse, datalagring og prosessering skal foregå lineært.
+-Prosessering skal skje der hvor dataene er.
+-Enkel kjerne, moduler og utvidbar
+-Man forventer at ting går galt.
+-Håndterbart og selvhelbredende.
+-Skal kjøre på ordinær hardware.
+
+
+Bygget på to uavhengige rammeverk
+HDFS
+--Hadoop File System er et pålitelig distribuert filsystem som gir rask tilgang
+  til data
+-MapReduce
+--MapReduce er et rammeverk for å gjøre høy-ytelses, distribuert prosessering
+  vha. splitt og aggreger-programmering
+
+Name Nodes er master. Den vedlikeholder kataloger og filer og holder rede på hvilke datablokker som ligger hvor.
+Datanoder er slavene som holder data og er distribuert i clusteret.
+
+Kjører tilsvarende "merge sort" i programmering
+
+Spørringer mot Hadoop
+-HiveQL
+--SQL-lignende spørrespråk
+--Generer MapReduce i bakgrunnen
+-Pig
+--Høynivå scriptspråk
+--Generer MapReduce i bakgrunnen
+
+Er Hadoop et alternativ til RDBMs?
+Hadoop kan ikke erstatte relasjonsdatabaser, men er heller et supplement
+Den har ingen relasjoner, bruker key-value pairs
+Den håndterer ustrukturert (tekst) og semi-strukturert (xml)
+Går fint sammen med relasjonsdatabaser. Hadoop brukes ofte til å gjøre store
+mengder med data om til noe håndterbart.
+
+Hvem skriver Hadoop?
+Open Source fra Apache
+Ingen strategisk agenda
+Community driver software fremover
+Tillater konkurrende prosjekter
+Ingen kan kjøpe Hadoop
+Organisasjoner som bidrar: Adobe, Facebook, Yahoo!, LinkedIn, Apple, etc.
+
+Hva brukes Hadoop til?
+Søk (Yahoo, Amazon)
+Loggprosessering (Facebook, Yahoo, last.fm)
+Anbefalingssystemer (Facebook)
+Datavarehus (Facebook, AOL)
+Video- og bildeanalyse (NY Times)
+
+
+
+

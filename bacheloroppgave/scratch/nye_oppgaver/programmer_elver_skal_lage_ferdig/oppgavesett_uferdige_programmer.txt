@@ -1,0 +1,112 @@
+Oppgave 1:
+Vi har et program i Scratch som nesten er ferdig.
+Programmet skal regne om de ulike målenhetene for lengde:
+mm, cm, dm, m, km.
+Du som elev må sette inn de korrekte verdiene slik at programmet
+kan regne riktig uansett hvilken verdi man setter inn i en hvilken som helst rute.
+
+For å løse denne oppgaven: Klikk på knappen "Se inni".
+På høyre side vil du se en masse "Hvis enhet lik..."
+Hvis vi kikker på blokk nr 5, vil du se "Hvis enhet = km".
+På linje 2 i denne blokken og nedover ser du at det står sett m til 0.
+Under Skript klikker du på Operatorer. Dra ut operatoren du mener skal brukes
+og plasser den over 0-tallet i boksen hvor det står "Sett m til 0". 
+Deretter klikker du på "Data" under Skript og drar "km" og setter denne
+i det tomme, venstre feltet i den grønne delen av boksen.
+I det tomme, høyre feltet i den grønne delen av boksen skriver du inn det tallet
+som antallet kilometer må adderes, subtraheres, multipliseres eller divideres med
+for å få antall meter.
+
+Denne prosedyren gjentar du i hvert eneste felt i hver eneste hvis-blokk.
+Husk at det er 1000 meter i en km og 1000 millimeter i 1 meter.
+
+Du finner programmet her: https://scratch.mit.edu/projects/96834699/
+
+Oppgave 2:
+I løpet av ukas tre første dager har noen personer vært ute og gått en tur hver dag.
+Avstanden de har gått varierte fra dag til dag.
+
+	| Mandag | Tirsdag | Onsdag  | Totalt
+--------|--------|---------|------------------
+Per	| 2,5 km | 950 m   | 1,5 mil | 18,4
+Kine	| 4 km   | 1400 m  | 0,5 mil | 10,4
+Sigurd	| 3150 m | 5 km    | 2 mil   | 28,1
+Silje	| 5400 m | 3,1 km  | 1 mil   | 
+
+A) Fullfør programmet ved å sette de ulike, løse variablene (de oransje
+som ikke er plassert i noen grønne brikker) i de tomme, hvite feltene med grønn bakgrunn.
+Når du har gjort det, flytter du den øverste grønne til det hvite feltet til høyre for sett korrektKm,
+den midterste av de grønne setter du i det tomme, hvite feltet til høyre for sett korrektMeter,
+og den nederste grønne setter du til høyre for sett korrektMil.
+Det er viktig at du tar med deg hele den grønne blokka i ett klikk. 
+
+B) Hvor langt har hver av dem gått til sammen (Det kan være lurt å løse
+oppgaven på papir først)? 
+Oppgi svaret i
+1) km
+2) m
+3) mil
+
+C) Hvem av dem har gått lengst?
+
+Programmet finner du her: https://scratch.mit.edu/projects/96835059/
+
+Oppgave 3:
+En person skal fylle en kjele med vann.
+Personen fyller først på 250 ml og deretter 7,2 dl. 
+Hvor mange cl med vann har denne personen helt oppi kjelen?
+Regn ut svaret på papir (og sjekk at svaret er korrekt) og fullfør
+deretter programmet på samme måte som i de forrige oppgavene.
+
+HJELP TIL Å FULLFØRE PROGRAMMET
+For å fullføre dette programmet, klikker du på "Se inni."
+Det første vi skal gjøre, er å regne ut fasitsvaret.
+For å hjelpe deg i gang med dette, vil jeg at du skal klikke på
+"Data" under "Skript." Der skal det være en blokk hvor det står
+"Sett <navn> til" med 0 i en hvit tekstboks, for eksempel "Sett svar til 0".
+Dra ut denne boksen og plasser den på det store, grå feltet hvor det
+er en del andre bokser med ulik farge. Siden vi skal regne om til
+centliliter, burde klikke på pila til høyre for "svar" i boksen
+du nettopp dro ut og velge "cl" i lista som dukker opp.
+Så klikker du på "operatorer" og velger den grønne med en pluss.
+Den plasserer du der hvor det står "0" i den orange boksen du dro ut
+tidligere. På den ene siden av plusstegnet regner du om fra
+desiliter til milliliter og på den andre siden regner du fra
+centiliter til milliliter. På den måten kan utregninga foregå i én operasjon.
+Så må du velge hvilken operator du vil bruke, dra denne ut, klikk på "Data"
+og drar f. eks. ut variabelen "dl" (boks nr 2 under knappen "Lag en variabel")
+og plasserer den i det tomme, hvite feltet til venstre for den valgte operatoren.
+På høyre side av den valgte operatoren (pluss, minus, gange eller dele), skriver du inn
+det tallet du vil legge til, trekke fra, gange eller dele med "dl".
+Så plasserer du denne grønne boksen med valgt operator i det tomme, hvite feltet til venstre for pluss-tegnet.
+Det samme gjør du når du skal regne fra ml til cl, men da på den 
+andre siden av pluss-tegnet.
+Til slutt kobler du sammen
+alle boksene slik at den blå boksen kommer under den oransje som du dro ut tidligere. 
+Disse skal du igjen sette sammen med de tre øverste slik at "Sett cl til" kommer under "Sett dl til 7.2".
+Så klikker på det grønne flagget for å kjøre programmet.
+
+Du finner programmet her: https://scratch.mit.edu/projects/96835300/
+
+Oppgave 4:
+Vi har til sammen 6 blokker:
+Blokk 1 veier 250 g
+Blokk 2 veier 4 hg
+Blokk 3 veier 1,5 kg
+Blokk 4 veier 0,8 kg
+Blokk 5 veier 300 g
+Blokk 6 veier 6 hg
+
+Her kan du finne et delvis ferdig program:
+Dette programmet skal lages ferdig slik at du kan svare på følgende spørsmål:
+A) Hvor mye veier disse blokkene til sammen, målt i gram?
+b) Målt i hektogram, hvor mye veier blokk 1, 4 og 6 til sammen?
+
+Du finner programmet her: https://scratch.mit.edu/projects/96835398/
+
+Ekstraoppgave
+La oss si at du er på bilferie i England og får høre at nærmeste by
+er 10 miles unna.
+Fullfør dette programmet: 
+1 mile = 1,6 km.
+

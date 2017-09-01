@@ -1,0 +1,220 @@
+// !$*UTF8*$!
+{
+	256AC3D80F4B6AC300CF3369 /* mysqlappAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {568, 245}}";
+			sepNavSelRange = "{44, 0}";
+			sepNavVisRange = "{0, 327}";
+		};
+	};
+	256AC3D90F4B6AC300CF3369 /* mysqlappAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {732, 468}}";
+			sepNavSelRange = "{670, 39}";
+			sepNavVisRange = "{399, 322}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = AA7A3F6A123CC4E30023B650 /* mysqlapp */;
+		activeTarget = 8D1107260486CEB800E47090 /* mysqlapp */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* mysqlapp */,
+		);
+		codeSenseManager = AA7A3F74123CC4E90023B650 /* Code sense */;
+		executables = (
+			AA7A3F6A123CC4E30023B650 /* mysqlapp */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					749,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					301,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 306429092;
+			PBXWorkspaceStateSaveDate = 306429092;
+		};
+		perUserProjectItems = {
+			AA7A3FA5123CCCA40023B650 /* PBXTextBookmark */ = AA7A3FA5123CCCA40023B650 /* PBXTextBookmark */;
+			AA7A4028123CDC550023B650 /* PBXTextBookmark */ = AA7A4028123CDC550023B650 /* PBXTextBookmark */;
+			AA7A4094123CE0960023B650 /* PBXTextBookmark */ = AA7A4094123CE0960023B650 /* PBXTextBookmark */;
+			AA7A412B123CF1D00023B650 /* PBXTextBookmark */ = AA7A412B123CF1D00023B650 /* PBXTextBookmark */;
+			AA7A416A123CFFEB0023B650 /* PBXTextBookmark */ = AA7A416A123CFFEB0023B650 /* PBXTextBookmark */;
+			AA9FD3BB1243BEB8006896E6 /* PBXTextBookmark */ = AA9FD3BB1243BEB8006896E6 /* PBXTextBookmark */;
+		};
+		sourceControlManager = AA7A3F73123CC4E90023B650 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 245}}";
+			sepNavSelRange = "{299, 0}";
+			sepNavVisRange = "{0, 361}";
+		};
+	};
+	8D1107260486CEB800E47090 /* mysqlapp */ = {
+		activeExec = 0;
+		executables = (
+			AA7A3F6A123CC4E30023B650 /* mysqlapp */,
+		);
+	};
+	AA7A3F6A123CC4E30023B650 /* mysqlapp */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = mysqlapp;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		startupPath = "<<ProjectDirectory>>";
+	};
+	AA7A3F73123CC4E90023B650 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	AA7A3F74123CC4E90023B650 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	AA7A3FA5123CCCA40023B650 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 15";
+		rLen = 0;
+		rLoc = 299;
+		rType = 0;
+		vrLen = 361;
+		vrLoc = 0;
+	};
+	AA7A3FAE123CCE530023B650 /* ButtonsAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {927, 507}}";
+			sepNavSelRange = "{453, 0}";
+			sepNavVisRange = "{91, 541}";
+		};
+	};
+	AA7A3FAF123CCE530023B650 /* ButtonsAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {927, 871}}";
+			sepNavSelRange = "{742, 0}";
+			sepNavVisRange = "{543, 648}";
+		};
+	};
+	AA7A4028123CDC550023B650 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* mysqlappAppDelegate.h */;
+		name = "mysqlappAppDelegate.h: 4";
+		rLen = 0;
+		rLoc = 44;
+		rType = 0;
+		vrLen = 327;
+		vrLoc = 0;
+	};
+	AA7A4094123CE0960023B650 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* mysqlappAppDelegate.m */;
+		name = "mysqlappAppDelegate.m: 32";
+		rLen = 39;
+		rLoc = 670;
+		rType = 0;
+		vrLen = 322;
+		vrLoc = 399;
+	};
+	AA7A412B123CF1D00023B650 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA7A3FAE123CCE530023B650 /* ButtonsAppDelegate.h */;
+		name = "ButtonsAppDelegate.h: 22";
+		rLen = 0;
+		rLoc = 453;
+		rType = 0;
+		vrLen = 541;
+		vrLoc = 91;
+	};
+	AA7A416A123CFFEB0023B650 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA7A3FAF123CCE530023B650 /* ButtonsAppDelegate.m */;
+		name = "ButtonsAppDelegate.m: 31";
+		rLen = 0;
+		rLoc = 742;
+		rType = 0;
+		vrLen = 731;
+		vrLoc = 543;
+	};
+	AA9FD3BB1243BEB8006896E6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AA7A3FAF123CCE530023B650 /* ButtonsAppDelegate.m */;
+		name = "ButtonsAppDelegate.m: 31";
+		rLen = 0;
+		rLoc = 742;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 543;
+	};
+}

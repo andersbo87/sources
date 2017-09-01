@@ -1,0 +1,333 @@
+Oppgave 1: Ruter:
+void makeA4(String name)
+{
+  float sfactor = 28.4; // pixels per centimeter
+  scale(sfactor,sfactor);
+  strokeWeight(1/sfactor);
+  textSize(18/sfactor);
+  fill(0);
+  textAlign(RIGHT);
+  text(name,20,1);
+  textAlign(LEFT);
+  fill(255);
+}
+
+void draw()
+{
+  makeA4("Anders");
+  translate(1,1);
+  drawSquare();
+}
+
+void setup()
+{
+  size(596,843);
+  frameRate(30);
+}
+
+void drawSquare()
+{
+  float side1;
+  float side2;
+  rect(0,0,side1,side1);
+  translate(0,side1+1);
+  rect(0,0,side2,side2);
+}
+
+Oppgave 2: Terning 1
+void makeA4(String name)
+{
+  float sfactor = 28.4; // pixels per centimeter
+  scale(sfactor,sfactor);
+  strokeWeight(1/sfactor);
+  textSize(18/sfactor);
+  fill(0);
+  textAlign(RIGHT);
+  text(name,20,1);
+  textAlign(LEFT);
+  fill(255);
+}
+
+void draw()
+{
+  makeA4("Anders");
+  translate(1,1);
+  drawDice();
+}
+
+void setup()
+{
+  size(596,843);
+  frameRate(30);
+}
+
+void drawDice()
+{
+  translate(5,5);
+  rect(0,0,5,5);
+  translate(0,5);
+  rect(0,0,5,5);
+  translate(-5,0);
+  rect(0,0,5,5);
+  translate(10,0);
+  rect(0,0,5,5);
+  translate(-5,5);
+  rect(0,0,5,5);
+  translate(0,5);
+  rect(0,0,5,5);
+}
+
+Oppgave 3: Terning 2. I min løsning valgte jeg å bruke en parameter i
+drawDice, i motsetning til oppgave 2.
+
+void makeA4(String name)
+{
+  float sfactor = 28.4; // pixels per centimeter
+  scale(sfactor,sfactor);
+  strokeWeight(1/sfactor);
+  textSize(18/sfactor);
+  fill(0);
+  textAlign(RIGHT);
+  text(name,20,1);
+  textAlign(LEFT);
+  fill(255);
+}
+
+void draw()
+{
+  makeA4("Anders");
+  translate(1,1);
+  drawDice(220/6); // Tallet må deles på 6, siden det er 6 rektangler i en terning.
+}
+
+void setup()
+{
+  size(596,843);
+  frameRate(30);
+}
+
+void drawDice(float o)
+{
+  
+  float side = sqrt(o);
+  translate(side,0);
+  rect(0,0,side,side);
+  translate(-side,side);
+  rect(0,0,side,side);
+  translate(side,0);
+  rect(0,0,side,side);
+  translate(side,0);
+  rect(0,0,side,side);
+  translate(-side,side);
+  rect(0,0,side,side);
+  translate(0,side);
+  rect(0,0,side,side);
+}
+
+Oppgave 4: Eske 1
+/*
+v = volum
+h = høyde
+l = lengde
+b = bredde
+Alle verdier i cm.
+*/
+float v = 170;
+float h = 2;
+float l = 8;
+// del 1:
+float b = v/(h*l);
+
+// del 2:
+void makeA4(String name)
+{
+  float sfactor = 28.4; // pixels per centimeter
+  scale(sfactor,sfactor);
+  strokeWeight(1/sfactor);
+  textSize(18/sfactor);
+  fill(0);
+  textAlign(RIGHT);
+  text(name,20,1);
+  textAlign(LEFT);
+  fill(255);
+}
+
+void draw()
+{
+  makeA4("Anders");
+  translate(1,1);
+  drawBox(170, 2, 8);
+}
+
+void setup()
+{
+  size(596,843);
+  frameRate(30);
+}
+
+void drawBox(float v, float h, float l)
+{
+  float b = v/(l*h);
+  rect(0, 0, h, b);
+  rect(h, 0, l, b);
+  rect(h + l, 0, h, b);
+  translate(h, b);
+  rect(0, 0, l, h);
+  translate(0, h);
+  rect(0, 0, l, b);
+  translate(0, b);
+  rect(0, 0, l, h);
+}
+
+Oppgave 5: Sylinder
+void makeA4(String name)
+{
+  float sfactor = 28.4; // pixels per centimeter
+  scale(sfactor,sfactor);
+  strokeWeight(1/sfactor);
+  textSize(18/sfactor);
+  fill(0);
+  textAlign(RIGHT);
+  text(name,20,1);
+  textAlign(LEFT);
+  fill(255);
+}
+
+void draw()
+{
+  makeA4("Anders");
+  translate(1,1);
+  drawCylinder(3,3); 
+}
+
+void setup()
+{
+  size(596,843);
+  frameRate(30);
+}
+
+/*
+d = diameter
+l = length
+*/
+void drawCylinder(float d, float l)
+{
+  /*
+  r = radius
+  o = omkrets
+  l = lengde 
+  */
+  float r = d / 2, o = d * PI, l = v /(r * r * PI);
+  // tegner herligheten:
+  ellipse(10, d / 2, d, d);
+  rect(10 - o / 2, d, o, l);
+  ellipse(10, d + l + d / 2, d, d);
+}
+
+Oppgave 6: Flagg (fasitsvar)
+
+void makeA4(String name)
+{
+  float sfactor = 28.4; // pixels per centimeter
+  scale(sfactor,sfactor);
+  strokeWeight(1/sfactor);
+  textSize(18/sfactor);
+  fill(0);
+  textAlign(RIGHT);
+  text(name,20,1);
+  textAlign(LEFT);
+  fill(255);
+}
+
+void draw()
+{
+  makeA4("Anders");
+  translate(1,1);
+  drawFlag();
+}
+
+void setup()
+{
+  size(596,843);
+  frameRate(30);
+}
+
+void drawFlag(float lengde)
+{
+  float enhet=lengde/22;
+  float hoyde=enhet*16;
+  
+  // alt det røde
+  fill(255,0,0);
+  stroke(0);
+  rect(0,0,lengde,hoyde);
+  
+  // alt det hvite
+  fill(255);
+  stroke(255);
+  rect(0,6*enhet,lengde,4*enhet);
+  rect(6*enhet,0,4*enhet,16*enhet);
+  
+  // alt det blå
+  fill(0,0,255);
+  stroke(0,0,255);
+  rect(0,7*enhet,lengde,2*enhet);
+  rect(7*enhet,0,2*enhet,16*enhet);
+  
+  // marker kant
+  noFill();
+  stroke(0);
+  rect(0,0,lengde,hoyde);
+}
+
+Oppgave 7: Trekanter
+
+void makeA4(String name)
+{
+  float sfactor = 28.4; // pixels per centimeter
+  scale(sfactor,sfactor);
+  strokeWeight(1/sfactor);
+  textSize(18/sfactor);
+  fill(0);
+  textAlign(RIGHT);
+  text(name,20,1);
+  textAlign(LEFT);
+  fill(255);
+}
+
+void draw()
+{
+  makeA4("Anders");
+  translate(1,1);
+  drawTriangles(7.5);
+}
+
+void setup()
+{
+  size(596,843);
+  frameRate(30);
+}
+
+// a er den nederste linja i trekanten
+void drawTriangles(float a)
+{
+  // bruker verdien til a for å flytte origo nedover Y-aksen
+  translate(1, a);
+  // h = høyde
+  float h = a * sin(TWO_PI/6); // På den måten blir (visst) vinkelen 60 grader.
+  fill(205, 92, 92);
+  stroke(205, 92, 92);
+  triangle(0, 0, a, 0, a / 2, -h);
+  
+  translate(1, 6);
+  h = a * sin(TWO_PI/12); // 30 graders vinkel
+  fill(255, 140, 0);
+  stroke(255, 140, 0);
+  triangle(0, 0, a, 0, a / 2, -h);
+  
+  translate(1,6);
+  h = a / 2;
+  fill(128, 128, 0);
+  stroke(128, 128, 0);
+  triangle(0, 0, a, 0, a / 4, -h);
+}

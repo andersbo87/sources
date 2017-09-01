@@ -1,0 +1,18 @@
+=============================
+NOTATER TIL FORELESNING NR 21
+=============================
+
+MODEL DEPLOYMENT
+================
+Ved å bruke en trent modell i Azure ML:
+-Lagre en trent modell
+-Bygg et scoringseksperiment
+-Sett inn modellen i dataen
+-Eksporter resultatene
+
+Ved å bruke en modell utenfor Azure ML
+-Bygg et forutseende eksperiment
+-Publiser et forutseende eksperiment som en webservice
+-Bruk webservice (f.eks. i Excel)
+
+SE OGSÅ LÆRERS FORELESNINGSNOTATER ("2015-11-12 Big Data Analysis.pdf") OG FORSØK Å GJØRE DET SOM GJØRES PÅ MANGE AV BILDENE SELV!

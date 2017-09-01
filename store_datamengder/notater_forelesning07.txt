@@ -1,0 +1,155 @@
+===============================================================================
+NOTATER TIL FORELESNING 7 I STORE DATAMENGDER
+===============================================================================
+
+Fortsettelse av triggere og prosedyrer
+
+Indirekte, ved at man til slutt trigger tilbake til opprinnelig tabell.
+create trigger før_A_innsettes before insert on A
+begin
+insert .... into B;
+end;
+create trigger før_B_innsettes before insert on B
+begin
+insert ..... into A;
+end;
+
+Ved innsetting for A, skal man sette inn i B.
+Før innsetting i B, så skal man sette inn i A.
+Dette tilsvarer en uendelig rekursjon i programmering.
+
+Triggere og referanseintegritet.
+(ikke viktig i seg selv, men viser eksempel på mulighet for automatisk generering og
+tilpasning)
+Triggere kan også brukes til å definere referanseintegritet, men som regel mer
+effektivt og enklere å gjøre det deklarativt ( ... FOREIGN KEY .....
+REFERENCES .......). Kan imidlertid være lurt hvis man skal gjøre noe
+spesielt før sletting el.l.
+Eksempel på trigger for referanseintegritet (skrevet for MS SQL server),
+automatisk generert.
+Ansatt er relatert til en avdeling og muligens mange kursdeltagelser.
+CREATE TRIGGER ansatt_upd
+
+ON ansatt
+for update as
+/*Hvis du oppdaterer ansatt:*/
+/* At 1-side: Primary key may not be changed if still having members */
+/* At m-side: Foreign key may not be changed if the new value does */
+/*
+not match an owner.
+*/
+if update(ansnr )			--Hvis du vil oppdatere ansattnr:
+   					--Nekt hvis det fremdeles finnes
+begin					--tilhørende kursdeltagelser.
+ if exists (select *
+ from kursdeltagelse, deleted
+ where kursdeltagelse.ansnr = deleted.ansnr) 
+ begin
+  raiserror 25004 "Det finnes fremdeles relaterte kursdeltagelse(er)"
+  rollback transaction
+  return
+ end
+end
+if update(avdnr)
+begin
+ if not exists
+ (select *
+ from avdeling, inserted
+ where avdeling.avdnr = inserted.avdnr)     --Hvis du oppdaterer avdnr: Ny
+ begin    		       		   --avdnr må matche med en
+					   --eksisterende avdnr i avd.
+  raiserror 25003 "Finnes ingen tilsvarende avdeling." 
+  rollback transaction
+  return
+ end
+end
+end
+
+
+Må ta en "runde" og se hvilke triggere som trengs, hvis noen.
+
+Bruk av markør eller "cursor"
+
+Både lagrede prosedyrer, funksjoner og triggere gir mulighet til å bruke såkalte
+markører/cursors som gjør at vi kan gå gjennom én og én rad i tabellen.
+Markøren "peker på" en bestemt rad i tabellen/evt. SQL-spørringen, slik at du
+kan hente data og gjøre en detaljert behanding av disse utover det som er
+mulig i et spørrespråk.
+
+Mange systemer har begrensninger med hensyn til bruk av cursorer.
+
+Typisk bruk av cursor:
+
+<definer cursoren og bind den til en tabell/spørring>
+<åpne den, her finnes det ulike modus i noen språk (for les/skriv)>
+<hent (fetch) første rad>
+while <flere igjen>
+  <behandle denne raden (<-- kalles ofte current of record) >
+  <hent neste>
+elihw
+<lukk cursoren>
+
+Her er et eksempel på cursor:
+Her lager vi en prosedyre, xte_beste som tar inn en verdi (finn_for_plass) som vi er plasseringen, f.eks. xte_beste (3). Vi trenger bl.a. en cursor (la oss kalle den toppbunn) som går gjennom rad for rad, og status som sier om vi er ferdig eller ikke.
+
+drop procedure xte_best;
+delimiter //
+create procedure xte_best (finn_for_plass integer)
+begin
+  declare ferdig int default false;
+  declare denneverdi int; --brukes til å rulle over verdier som skal sammnenlignes
+  declare posisjon integer;
+  declare toppbunn cursor for SELECT verdi FROM resultat ORDER BY verdi;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET ferdig = TRUE;
+  open toppbunn;
+  fetch toppbunn into denneverdi; -- 1. kolonne i denne raden.
+  set posisjon = |;
+  while not ferdig do
+    if posisjon = finn_for_plass then
+      select * from resultat where verdi = denneverdi;
+    end if;
+    fetch toppbunn into denneverdi;
+    set posisjon = posisjon +1;
+  end while;
+  close toppbunn;
+end//
+
+ effektiviteten er ikke på topp, men som en demo burde dette holde lenge.
+
+Distribuerte databaser
+Logisk relaterte DATA som er fysisk DELT på FLERE STEDER i et nettverk.
+
+NB! En sentralisert flerbrukerdatabase er ikke en distribuert database - men kan ha distribuert prosessering
+
+Distribuert databasesystem
+--------------------------
+Databasesystem som håndterer en distribuert database og gjør distribusjonen transparent for brukeren
+
+Paralellprosessert databasesystem
+---------------------------------
+Databasesystem med flere prosessorer og disker i parallell slik at de utnytter prallellprosessering
+
+Fordeler:
+* Mer lik organisasjonsstrukturen
+* Mer tilgjengelig - i alle fall de lokale data
+* Raskere i mange tilfeller
+* Kan gro distribuert
+* Hvis full replikering: automatisk sikkerhetskopi for hverandre.
+
+Ulemper:
+* Større kompleksitet
+* Integritetssjekkene blir vanskeligere
+* Skjemaevolusjon (endring av struktur) blir mer komplisert
+* Tregere i noen tilfeller, bl.a. fører en join på distribuerte tabeller til mye nettverkstrafikk
+* Manglende standarder
+* Gjerne dyrere
+
+Grad av fragmentering og replikering
+Ingen dobbeltlagring		Endel dobbeltlagring	Alt lagres overalt
+--------------------		--------------------	------------------
+Fullt fragmentert		Kombinasjon av		Fullt replikert
+(evt. fullt sentralisert)	fragmentering,
+      	    			replikering,
+				sentralisering
+
+Hastigheten blir større ved å lagre alt overalt.

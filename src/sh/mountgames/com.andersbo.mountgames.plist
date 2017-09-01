@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.andersbo.mountgames</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/sh</string>
+      <string>/Users/Shared/mountgames</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true />
+    <key>StandardOutPath</key>
+    <string>/var/root/mountgames.out</string>
+    <key>StandardErrorPath</key>
+    <string>/var/root/mountgames.err</string>
+  </dict>
+</plist>
