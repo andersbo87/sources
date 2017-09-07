@@ -1,0 +1,14 @@
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.csprojResolveAssemblyReference.cache
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.Form1.resources
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.Properties.Resources.resources
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.randomNumbersGenerator.resources
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.csproj.GenerateResource.Cache
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Debug\Sorteringsprogram.exe.config
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Debug\Sorteringsprogram.exe
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Debug\Sorteringsprogram.pdb
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.exe
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.pdb
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.MergeSortGUI.resources
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.QuicksortGUI.resources
+d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.reversedSortedNumbersGenerator.resources
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.InsertionSortGUI.resources

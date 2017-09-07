@@ -1,0 +1,11 @@
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Release\Sorteringsprogram.exe.config
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Release\Sorteringsprogram.exe
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Release\Sorteringsprogram.pdb
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.Form1.resources
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.MergeSortGUI.resources
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.Properties.Resources.resources
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.RandomNumbersGenerator.resources
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.csproj.GenerateResource.Cache
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.exe
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.pdb
+d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Release\Sorteringsprogram.csprojResolveAssemblyReference.cache
