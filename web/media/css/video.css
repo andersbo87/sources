@@ -1,0 +1,88 @@
+﻿a:link
+{
+	color: rgb(255,204,0);
+	font-weight: 700;
+}
+a:visited
+{
+	color: rgb(255,255,153); 
+} 
+a:active 
+{
+	color: rgb(255,51,0);
+	font-style: inherit;
+}
+body
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	background-color: #00ff55;
+	color: #000000;
+	//internet explorer spesifikke funksjoner...
+	scrollbar-3dlight-color:yellow;
+	scrollbar-arrow-color:yellow;
+	scrollbar-base-color:yellow;
+	scrollbar-darkshadow-color:yellow;
+	scrollbar-highlight-color: yellow;
+	scrollbar-face-color:blue;
+	scroolbar-shadow-color:yellow;
+	scrollbar-track-color: yellow;
+	//mac os spesifikke funksjoner
+	overflow-x: visible;
+	overflow-y: visible;
+}
+table
+{
+	table-border-color-light: rgb(255,255,102);
+	table-border-color-dark: rgb(0,0,0); 
+}
+h6
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+h5
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+h4
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+h3
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+h3
+{
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+h2
+{
+	font-family: "Verdana";
+h1
+{
+	color: rgb(255", 204, "0);
+	text-align: center;
+	width: 816px;
+	height: 47px;
+}
+h2
+{
+	color: rgb(255,255,255); 
+}
+h3
+{
+	color: rgb(204,51,0); 
+}
+h4
+{
+	color: rgb(255,255,153);
+}
+h5
+{
+	color: rgb(255,255,0);
+}
+h6
+{
+	color: rgb(255,255,255);
+}
