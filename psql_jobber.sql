@@ -2,11 +2,12 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.9
--- Dumped by pg_dump version 9.5.9
+-- Dumped from database version 9.6.3
+-- Dumped by pg_dump version 9.6.3
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -14,7 +15,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: jobber; Type: COMMENT; Schema: -; Owner: andersbo
+-- Name: jobber; Type: COMMENT; Schema: -; Owner: a-bol
 --
 
 COMMENT ON DATABASE jobber IS 'En liten database med oversikt over ulike jobber, inkl hvor de er, søknadsfrister, statuser, etc.';
@@ -37,197 +38,197 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- Name: nylandid(); Type: FUNCTION; Schema: public; Owner: andersbo
+-- Name: nylandid(); Type: FUNCTION; Schema: public; Owner: a-bol
 --
 
 CREATE FUNCTION nylandid() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid;
-RETURN NEW;
-END;
+    AS $$
+BEGIN
+RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid;
+RETURN NEW;
+END;
 $$;
 
 
-ALTER FUNCTION public.nylandid() OWNER TO andersbo;
+ALTER FUNCTION public.nylandid() OWNER TO "a-bol";
 
 --
--- Name: nysoknadid(); Type: FUNCTION; Schema: public; Owner: andersbo
+-- Name: nysoknadid(); Type: FUNCTION; Schema: public; Owner: a-bol
 --
 
 CREATE FUNCTION nysoknadid() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-RAISE NOTICE
-'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid;
-RETURN NEW;
-END;
+    AS $$
+BEGIN
+RAISE NOTICE
+'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid;
+RETURN NEW;
+END;
 $$;
 
 
-ALTER FUNCTION public.nysoknadid() OWNER TO andersbo;
+ALTER FUNCTION public.nysoknadid() OWNER TO "a-bol";
 
 --
--- Name: nystedid(); Type: FUNCTION; Schema: public; Owner: andersbo
+-- Name: nystedid(); Type: FUNCTION; Schema: public; Owner: a-bol
 --
 
 CREATE FUNCTION nystedid() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid;
-RETURN NEW;
-END;
+    AS $$
+BEGIN
+RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid;
+RETURN NEW;
+END;
 $$;
 
 
-ALTER FUNCTION public.nystedid() OWNER TO andersbo;
+ALTER FUNCTION public.nystedid() OWNER TO "a-bol";
 
 --
--- Name: updatesoknad(); Type: FUNCTION; Schema: public; Owner: andersbo
+-- Name: updatesoknad(); Type: FUNCTION; Schema: public; Owner: a-bol
 --
 
 CREATE FUNCTION updatesoknad() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$DECLARE
-counter_ integer := 0;
-tablename_ text := 'temptable';
-oldStatus text;
-newStatus text;
-max int;
-updated boolean := false;
-BEGIN
- begin
-        --raise notice 'Creating table %', tablename_;
-        execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop';
-        execute 'insert into ' || tablename_ || ' (counter) values(0)';
-        execute 'select counter from ' || tablename_ into counter_;
-        --raise notice 'Actual value for counter= [%]', counter_;
-    exception
-        when duplicate_table then
-        null;
-    end;
-
-
-execute 'select counter from ' || tablename_ into counter_;
-    execute 'update ' || tablename_ || ' set counter = counter + 1';
-   --raise notice 'updating';
-    execute 'select counter from ' || tablename_ into counter_;
-    --raise notice 'Actual value for counter= [%]', counter_;
-    max := count(soknadid) from soknad;
-    if counter_ = max then
-        raise exception 'Kan ikke oppdatere mer enn én rad om gangen.';
-    end if;
-if NEW.soknadid != OLD.soknadid
-then
-raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid;
-updated = true;
-end if;
-if NEW.tittel != OLD.tittel
-then
-raise notice 'Søknaden med ID % har fått endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel;
-updated=true;
-end if;
-
-if NEW.bedrift != OLD.bedrift
-then
-raise notice 'Søknaden med ID % har fått endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift;
-
-updated=true;
-end if;
-
-if NEW.stedid != OLD.stedid
-then
-raise notice 'Søknaden med ID % har fått endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid;
-updated=true;
-end if;
-
-if NEW.soknadsfrist != OLD.soknadsfrist
-then
-raise notice 'Søknaden med ID % har fått endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist;
-updated = true;
-end if;
-
-
-if NEW.statusid != OLD.statusid
-then
-if OLD.statusid = 1
-then
-oldStatus = 'Registrert';
-elsif OLD.statusid = 2
-then
-oldStatus = 'Sendt';
-elsif OLD.statusid = 3
-then
-oldStatus = 'Interessert, mulig intervju';
-elsif OLD.statusid = 4
-then
-oldStatus = 'Avvist';
-elsif OLD.statusid = 5
-then
-oldStatus = 'Søknad skrevet, men ikke sendt';
-elsif OLD.statusid = 6
-then
-oldStatus = 'Godtatt, klar for jobb';
-end if;
-if NEW.statusid = 1
-then
-newStatus = 'Registrert';
-elsif NEW.statusid = 2
-then
-newStatus = 'Sendt';
-elsif NEW.statusid = 3
-then
-newStatus = 'Interessert, mulig intervju';
-elsif NEW.statusid = 4
-then
-newStatus = 'Avvist';
-elsif NEW.statusid = 5
-then
-newStatus = 'Søknad skrevet, men ikke sendt';
-elsif NEW.statusid = 6
-then
-newStatus = 'Godtatt, klar for jobb';
-end if;
-raise notice 'Søknaden med ID % har fått endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus;
-elsif NEW.statusid = OLD.statusid
-then
-if updated = false
-then
-if OLD.statusid = 1
-then
-oldStatus = 'Registrert';
-elsif OLD.statusid = 2
-then
-oldStatus = 'Sendt';
-elsif OLD.statusid = 3
-then
-oldStatus = 'Interessert, mulig intervju';
-elsif OLD.statusid = 4
-then
-oldStatus = 'Avvist';
-elsif OLD.statusid = 5
-then
-oldStatus = 'Søknad skrevet, men ikke sendt';
-elsif OLD.statusid = 6
-then
-oldStatus = 'Godtatt, klar for jobb';
-end if;
-raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus;
-end if;
-end if;
-RETURN NEW;
-END;
-
+    AS $$DECLARE
+counter_ integer := 0;
+tablename_ text := 'temptable';
+oldStatus text;
+newStatus text;
+max int;
+updated boolean := false;
+BEGIN
+ begin
+        --raise notice 'Creating table %', tablename_;
+        execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop';
+        execute 'insert into ' || tablename_ || ' (counter) values(0)';
+        execute 'select counter from ' || tablename_ into counter_;
+        --raise notice 'Actual value for counter= [%]', counter_;
+    exception
+        when duplicate_table then
+        null;
+    end;
+
+
+execute 'select counter from ' || tablename_ into counter_;
+    execute 'update ' || tablename_ || ' set counter = counter + 1';
+   --raise notice 'updating';
+    execute 'select counter from ' || tablename_ into counter_;
+    --raise notice 'Actual value for counter= [%]', counter_;
+    max := count(soknadid) from soknad;
+    if counter_ = max then
+        raise exception 'Kan ikke oppdatere mer enn én rad om gangen.';
+    end if;
+if NEW.soknadid != OLD.soknadid
+then
+raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid;
+updated = true;
+end if;
+if NEW.tittel != OLD.tittel
+then
+raise notice 'Søknaden med ID % har fått endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel;
+updated=true;
+end if;
+
+if NEW.bedrift != OLD.bedrift
+then
+raise notice 'Søknaden med ID % har fått endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift;
+
+updated=true;
+end if;
+
+if NEW.stedid != OLD.stedid
+then
+raise notice 'Søknaden med ID % har fått endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid;
+updated=true;
+end if;
+
+if NEW.soknadsfrist != OLD.soknadsfrist
+then
+raise notice 'Søknaden med ID % har fått endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist;
+updated = true;
+end if;
+
+
+if NEW.statusid != OLD.statusid
+then
+if OLD.statusid = 1
+then
+oldStatus = 'Registrert';
+elsif OLD.statusid = 2
+then
+oldStatus = 'Sendt';
+elsif OLD.statusid = 3
+then
+oldStatus = 'Interessert, mulig intervju';
+elsif OLD.statusid = 4
+then
+oldStatus = 'Avvist';
+elsif OLD.statusid = 5
+then
+oldStatus = 'Søknad skrevet, men ikke sendt';
+elsif OLD.statusid = 6
+then
+oldStatus = 'Godtatt, klar for jobb';
+end if;
+if NEW.statusid = 1
+then
+newStatus = 'Registrert';
+elsif NEW.statusid = 2
+then
+newStatus = 'Sendt';
+elsif NEW.statusid = 3
+then
+newStatus = 'Interessert, mulig intervju';
+elsif NEW.statusid = 4
+then
+newStatus = 'Avvist';
+elsif NEW.statusid = 5
+then
+newStatus = 'Søknad skrevet, men ikke sendt';
+elsif NEW.statusid = 6
+then
+newStatus = 'Godtatt, klar for jobb';
+end if;
+raise notice 'Søknaden med ID % har fått endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus;
+elsif NEW.statusid = OLD.statusid
+then
+if updated = false
+then
+if OLD.statusid = 1
+then
+oldStatus = 'Registrert';
+elsif OLD.statusid = 2
+then
+oldStatus = 'Sendt';
+elsif OLD.statusid = 3
+then
+oldStatus = 'Interessert, mulig intervju';
+elsif OLD.statusid = 4
+then
+oldStatus = 'Avvist';
+elsif OLD.statusid = 5
+then
+oldStatus = 'Søknad skrevet, men ikke sendt';
+elsif OLD.statusid = 6
+then
+oldStatus = 'Godtatt, klar for jobb';
+end if;
+raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus;
+end if;
+end if;
+RETURN NEW;
+END;
+
 $$;
 
 
-ALTER FUNCTION public.updatesoknad() OWNER TO andersbo;
+ALTER FUNCTION public.updatesoknad() OWNER TO "a-bol";
 
 --
--- Name: landid_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: landid_seq; Type: SEQUENCE; Schema: public; Owner: a-bol
 --
 
 CREATE SEQUENCE landid_seq
@@ -238,14 +239,14 @@ CREATE SEQUENCE landid_seq
     CACHE 1;
 
 
-ALTER TABLE landid_seq OWNER TO andersbo;
+ALTER TABLE landid_seq OWNER TO "a-bol";
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: land; Type: TABLE; Schema: public; Owner: andersbo
+-- Name: land; Type: TABLE; Schema: public; Owner: a-bol
 --
 
 CREATE TABLE land (
@@ -254,10 +255,10 @@ CREATE TABLE land (
 );
 
 
-ALTER TABLE land OWNER TO andersbo;
+ALTER TABLE land OWNER TO "a-bol";
 
 --
--- Name: soknadid_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: soknadid_seq; Type: SEQUENCE; Schema: public; Owner: a-bol
 --
 
 CREATE SEQUENCE soknadid_seq
@@ -268,10 +269,10 @@ CREATE SEQUENCE soknadid_seq
     CACHE 1;
 
 
-ALTER TABLE soknadid_seq OWNER TO andersbo;
+ALTER TABLE soknadid_seq OWNER TO "a-bol";
 
 --
--- Name: soknad; Type: TABLE; Schema: public; Owner: andersbo
+-- Name: soknad; Type: TABLE; Schema: public; Owner: a-bol
 --
 
 CREATE TABLE soknad (
@@ -284,10 +285,10 @@ CREATE TABLE soknad (
 );
 
 
-ALTER TABLE soknad OWNER TO andersbo;
+ALTER TABLE soknad OWNER TO "a-bol";
 
 --
--- Name: statusid_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: statusid_seq; Type: SEQUENCE; Schema: public; Owner: a-bol
 --
 
 CREATE SEQUENCE statusid_seq
@@ -298,10 +299,10 @@ CREATE SEQUENCE statusid_seq
     CACHE 1;
 
 
-ALTER TABLE statusid_seq OWNER TO andersbo;
+ALTER TABLE statusid_seq OWNER TO "a-bol";
 
 --
--- Name: status; Type: TABLE; Schema: public; Owner: andersbo
+-- Name: status; Type: TABLE; Schema: public; Owner: a-bol
 --
 
 CREATE TABLE status (
@@ -310,10 +311,10 @@ CREATE TABLE status (
 );
 
 
-ALTER TABLE status OWNER TO andersbo;
+ALTER TABLE status OWNER TO "a-bol";
 
 --
--- Name: stedid_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: stedid_seq; Type: SEQUENCE; Schema: public; Owner: a-bol
 --
 
 CREATE SEQUENCE stedid_seq
@@ -324,10 +325,10 @@ CREATE SEQUENCE stedid_seq
     CACHE 1;
 
 
-ALTER TABLE stedid_seq OWNER TO andersbo;
+ALTER TABLE stedid_seq OWNER TO "a-bol";
 
 --
--- Name: sted; Type: TABLE; Schema: public; Owner: andersbo
+-- Name: sted; Type: TABLE; Schema: public; Owner: a-bol
 --
 
 CREATE TABLE sted (
@@ -337,10 +338,10 @@ CREATE TABLE sted (
 );
 
 
-ALTER TABLE sted OWNER TO andersbo;
+ALTER TABLE sted OWNER TO "a-bol";
 
 --
--- Name: user_id_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: user_id_seq; Type: SEQUENCE; Schema: public; Owner: a-bol
 --
 
 CREATE SEQUENCE user_id_seq
@@ -351,10 +352,10 @@ CREATE SEQUENCE user_id_seq
     CACHE 1;
 
 
-ALTER TABLE user_id_seq OWNER TO andersbo;
+ALTER TABLE user_id_seq OWNER TO "a-bol";
 
 --
--- Name: view_soknad; Type: VIEW; Schema: public; Owner: andersbo
+-- Name: view_soknad; Type: VIEW; Schema: public; Owner: a-bol
 --
 
 CREATE VIEW view_soknad AS
@@ -375,10 +376,10 @@ CREATE VIEW view_soknad AS
   ORDER BY soknad.soknadid;
 
 
-ALTER TABLE view_soknad OWNER TO andersbo;
+ALTER TABLE view_soknad OWNER TO "a-bol";
 
 --
--- Name: view_sted; Type: VIEW; Schema: public; Owner: andersbo
+-- Name: view_sted; Type: VIEW; Schema: public; Owner: a-bol
 --
 
 CREATE VIEW view_sted AS
@@ -390,10 +391,10 @@ CREATE VIEW view_sted AS
      JOIN land ON ((land.landid = sted.landid)));
 
 
-ALTER TABLE view_sted OWNER TO andersbo;
+ALTER TABLE view_sted OWNER TO "a-bol";
 
 --
--- Data for Name: land; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: land; Type: TABLE DATA; Schema: public; Owner: a-bol
 --
 
 COPY land (landid, land) FROM stdin;
@@ -404,14 +405,14 @@ COPY land (landid, land) FROM stdin;
 
 
 --
--- Name: landid_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: landid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
 --
 
 SELECT pg_catalog.setval('landid_seq', 3, true);
 
 
 --
--- Data for Name: soknad; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: soknad; Type: TABLE DATA; Schema: public; Owner: a-bol
 --
 
 COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM stdin;
@@ -592,7 +593,6 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 177	Systemutvecklare till framträdande IT-koncern	Framtiden AB	5	2	2017-08-25
 186	Konsulent	SuperOffice Norge AS	2	1	2017-10-02
 187	Kodeknekker	SnapTV AS	2	3	Snarest
-188	Nyfiken och driven .Net utvecklare mot web	Framtiden AB	3	1	2017-09-22
 145	.NET Systemutvikler	Easybank ASA	2	4	2017-08-18
 191	Junior systemutvecklare	ESAB via Experis	3	1	2017-09-24
 193	Nyexad utvecklare med fokus på backend	Axis Communications via Academic Work	21	1	2017-09-25
@@ -618,7 +618,6 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 190	Backend/Full-stack Developer	Cloud Insurance AS	2	2	2017-09-03
 194	.Net utvikler med ønske om nye utfordringer	Visma Consulting AS	2	2	2017-09-04
 199	Systemutvikler	Azets People AS Oslo	2	4	2017-09-05
-208	PHP-programmerare	Webbhuset via Academic Work	3	2	2017-10-02
 209	Är du en systemutvecklare som vill utvecklas	PAf Rekrytering AB	3	2	2017-11-03
 167	Webutvikler	OXX AS	2	4	2017-08-27
 210	Junior utvikler	Bouvet via Academic Work	2	2	Snarest
@@ -630,18 +629,23 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 213	Javautvecklare sökes till innovativt företag i Göteborg	Framtiden AB	3	2	2017-09-29
 214	Junior Fullstack-utvecklare	Creditsafe via Sigma IT Consulting	3	2	2017-10-31
 215	Systemutvikler .NET	IT People4you	2	2	Snarest
+188	Nyfiken och driven .Net utvecklare mot web	Framtiden AB	3	4	2017-09-22
+208	PHP-programmerare	Webbhuset via Academic Work	3	4	2017-10-02
+216	C#-utvecklare	BILIA via Academic Work	3	2	2017-10-08
+217	Junior .NET utvecklare	Framtiden AB	3	2	2017-10-06
+218	Junior utvecklare i JavaScript med intresse för IT och Teknik	Academic Work	21	2	2017-10-08
 \.
 
 
 --
--- Name: soknadid_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: soknadid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
 --
 
-SELECT pg_catalog.setval('soknadid_seq', 215, true);
+SELECT pg_catalog.setval('soknadid_seq', 218, true);
 
 
 --
--- Data for Name: status; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: status; Type: TABLE DATA; Schema: public; Owner: a-bol
 --
 
 COPY status (statusid, status) FROM stdin;
@@ -655,14 +659,14 @@ COPY status (statusid, status) FROM stdin;
 
 
 --
--- Name: statusid_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: statusid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
 --
 
 SELECT pg_catalog.setval('statusid_seq', 4, true);
 
 
 --
--- Data for Name: sted; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: sted; Type: TABLE DATA; Schema: public; Owner: a-bol
 --
 
 COPY sted (stedid, stedsnavn, landid) FROM stdin;
@@ -691,21 +695,21 @@ COPY sted (stedid, stedsnavn, landid) FROM stdin;
 
 
 --
--- Name: stedid_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: stedid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
 --
 
 SELECT pg_catalog.setval('stedid_seq', 21, true);
 
 
 --
--- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
 --
 
 SELECT pg_catalog.setval('user_id_seq', 1, false);
 
 
 --
--- Name: land_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: land land_pkey; Type: CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY land
@@ -713,7 +717,7 @@ ALTER TABLE ONLY land
 
 
 --
--- Name: soknad_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: soknad soknad_pkey; Type: CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY soknad
@@ -721,7 +725,7 @@ ALTER TABLE ONLY soknad
 
 
 --
--- Name: status_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: status status_pkey; Type: CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY status
@@ -729,7 +733,7 @@ ALTER TABLE ONLY status
 
 
 --
--- Name: sted_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: sted sted_pkey; Type: CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY sted
@@ -737,7 +741,7 @@ ALTER TABLE ONLY sted
 
 
 --
--- Name: unik_status; Type: CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: status unik_status; Type: CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY status
@@ -745,7 +749,7 @@ ALTER TABLE ONLY status
 
 
 --
--- Name: unikt_land; Type: CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: land unikt_land; Type: CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY land
@@ -753,7 +757,7 @@ ALTER TABLE ONLY land
 
 
 --
--- Name: unikt_sted; Type: CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: sted unikt_sted; Type: CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY sted
@@ -761,35 +765,35 @@ ALTER TABLE ONLY sted
 
 
 --
--- Name: trg_nysoknad; Type: TRIGGER; Schema: public; Owner: andersbo
+-- Name: soknad trg_nysoknad; Type: TRIGGER; Schema: public; Owner: a-bol
 --
 
 CREATE TRIGGER trg_nysoknad AFTER INSERT ON soknad FOR EACH ROW EXECUTE PROCEDURE nysoknadid();
 
 
 --
--- Name: trg_nyttland; Type: TRIGGER; Schema: public; Owner: andersbo
+-- Name: land trg_nyttland; Type: TRIGGER; Schema: public; Owner: a-bol
 --
 
 CREATE TRIGGER trg_nyttland AFTER INSERT ON land FOR EACH ROW EXECUTE PROCEDURE nylandid();
 
 
 --
--- Name: trg_nyttsted; Type: TRIGGER; Schema: public; Owner: andersbo
+-- Name: sted trg_nyttsted; Type: TRIGGER; Schema: public; Owner: a-bol
 --
 
 CREATE TRIGGER trg_nyttsted AFTER INSERT ON sted FOR EACH ROW EXECUTE PROCEDURE nystedid();
 
 
 --
--- Name: trg_oppdatersoknad; Type: TRIGGER; Schema: public; Owner: andersbo
+-- Name: soknad trg_oppdatersoknad; Type: TRIGGER; Schema: public; Owner: a-bol
 --
 
 CREATE TRIGGER trg_oppdatersoknad AFTER UPDATE ON soknad FOR EACH ROW EXECUTE PROCEDURE updatesoknad();
 
 
 --
--- Name: soknad_statusid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: soknad soknad_statusid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY soknad
@@ -797,7 +801,7 @@ ALTER TABLE ONLY soknad
 
 
 --
--- Name: soknad_stedid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: soknad soknad_stedid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY soknad
@@ -805,21 +809,11 @@ ALTER TABLE ONLY soknad
 
 
 --
--- Name: sted_landid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: andersbo
+-- Name: sted sted_landid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: a-bol
 --
 
 ALTER TABLE ONLY sted
     ADD CONSTRAINT sted_landid_fkey FOREIGN KEY (landid) REFERENCES land(landid);
-
-
---
--- Name: public; Type: ACL; Schema: -; Owner: pgsql
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM pgsql;
-GRANT ALL ON SCHEMA public TO pgsql;
-GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --
