@@ -376,7 +376,7 @@ void printInfo(int currentNode, int allNodes)
 		fprintf(stdout, "Setter inn node %d av %d.\n", currentNode, allNodes);
 	}
 	else if(status.compare("sletting") == 0)
-	fprint(stdout, "Sletter node %d av %d.\n", currentNode, allNodes);
+	fprintf(stdout, "Sletter node %d av %d.\n", currentNode, allNodes);
 }
 void catch_siginfo(int sig_num)
 {

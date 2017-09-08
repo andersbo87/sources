@@ -6,7 +6,7 @@ _gpp=`which g++`
 
 if [ "$_cpp" != "" ]
 then
-    $_cpp bst.cpp -o fbst
+    $_cpp bst.cpp -o bst
     $_cpp RBTre.cpp -o rbtre
 elif [ "$_gpp" != "" ]
 then
