@@ -1,0 +1,77 @@
+﻿a:link {
+    color: #0000FF;
+    font-weight: 700;
+}
+
+a:visited {
+    color: #FFFF99;
+}
+
+a:active {
+    color: #FF3300;
+    font-style: inherit;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+    background-color: #00FF00;
+    color: #000000;
+    scrollbar-arrow-color: yellow;
+    scrollbar-base-color: yellow;
+    scrollbar-darkshadow-color: yellow;
+    scrollbar-highlight-color: yellow;
+    scrollbar-face-color: blue;
+    scrollbar-track-color: yellow;
+    overflow-y: visible;
+}
+
+h6 {
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+h5 {
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+h4 {
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+h3 {
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+h3 {
+    font-family: Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+h2 {
+    font-family: "Verdana";
+}
+
+h1 {
+    color: #FFFFFF;
+    text-align: center;
+    width: 816px;
+    height: 47px;
+}
+
+h2 {
+    color: #FFFFFF;
+}
+
+h3 {
+    color: #FF00FF;
+}
+
+h4 {
+    color: #FFFFFF;
+}
+
+h5 {
+    color: #FF0000;
+}
+
+h6 {
+    color: #FFFFFF;
+}
