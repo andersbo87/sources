@@ -3,6 +3,6 @@ Dette er et program som på mange måter oppfører seg som et skallprogram/shell
 
 Updateports fungerer på FreeBSD, OpenBSD (via Pkgsrc), NetBSD (via Pkgsrc), macOS (via MacPorts), Linux og SunOS (Solaris samt "åpne" systemer som OpenIndiana som bygger på OpenSolaris).
 
-Man installerer dette programmet ved å kjøre kommandoene ("#" betyr rotbruker)
-$ make
-# make install clean
+Man installerer dette programmet ved å kjøre kommandoene
+make
+make install clean
