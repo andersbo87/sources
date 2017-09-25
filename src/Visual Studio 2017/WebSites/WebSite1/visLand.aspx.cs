@@ -23,9 +23,23 @@ public partial class registrerteLand : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack)
+        if (p == null)
         {
-            if(checkCookies())
+            if (checkCookies())
+            {
+                p = new psql();
+                p.SetUsername(hc.Values["brukernavn"]);
+                p.SetPassword(hc.Values["passord"]);
+                p.SetServer("localhost");
+            }
+            else
+            {
+                Response.Redirect("~/login.aspx");
+            }
+        }
+        if (!IsPostBack)
+        {
+            if (checkCookies())
             {
                 p = new psql();
                 p.SetUsername(hc.Values["brukernavn"]);
@@ -101,6 +115,11 @@ public partial class registrerteLand : System.Web.UI.Page
     {
         try
         {
+            checkCookies();
+            /*p.SetUsername(hc.Values["brukernavn"]);
+            p.SetPassword(hc.Values["passord"]);
+            p.SetServer("localhost");*/
+            errorLabel.Text = p.getServer();
             List<string> country = p.GetCountries(index);
             labelCountryValue.Text = country.ElementAt(1);
             dropDownLandID.Text = index.ToString();
@@ -108,7 +127,7 @@ public partial class registrerteLand : System.Web.UI.Page
         catch (Exception ex)
         {
             errorLabel.Visible = true;
-            errorLabel.Text = ex.Message;
+            errorLabel.Text = ex.ToString();
         }
     }
     protected void dropDownLandID_SelectedIndexChanged(object sender, EventArgs e)

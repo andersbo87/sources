@@ -66,3 +66,4 @@ C:\Users\a-bol\ownCloud\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.ViewTown
 C:\Users\a-bol\ownCloud\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.csproj.GenerateResource.Cache
 C:\Users\a-bol\ownCloud\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.exe.manifest
 C:\Users\a-bol\ownCloud\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.application
+C:\Users\a-bol\git\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.csproj.CoreCompileInputs.cache

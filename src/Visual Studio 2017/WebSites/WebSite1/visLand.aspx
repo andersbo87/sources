@@ -40,7 +40,7 @@
                 </td>
                 <td style="vertical-align:top;" class="auto-style2">
                     Her finner du ei liste over land som er registrert i databasen. Merk at du ikke kan endre på disse dataene.<br />
-                    <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Visible="false" Text="Feil"></asp:Label>
+                    <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Text="Feil"></asp:Label>
 &nbsp;<table border="0">
                         <tr>
                             <td style="vertical-align:top;">

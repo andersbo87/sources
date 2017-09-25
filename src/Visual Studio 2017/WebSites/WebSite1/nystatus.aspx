@@ -33,7 +33,26 @@
                     <a href="nysøknad.aspx">Ny søknad</a><br />
                 </td>
                 <td style="vertical-align:top;" class="auto-style2">
-                    Her vil det etter hvert dukke opp en tekst.
+                    Her kan du legge inn en ny status i databasen. Merk at de fleste mulige statuser allerede er lagt inn i systemet.<br />
+                    <br />
+                    <asp:Label ID="errorLabel" runat="server" Visible="false" ForeColor="Red" Text="Feil" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="successLabel" runat="server" Visible="false" ForeColor="Green" Font-Bold="true"></asp:Label>
+                    <table border="0">
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="statusNameLabel" runat="server" Text="Status"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:TextBox ID="statusName" runat="server" OnTextChanged="statusName_TextChanged"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Button ID="btnInsertNewStatus" runat="server" Text="Sett inn" OnClick="btnInsertNewStatus_Click"/>
+                                <asp:Button ID="btnClear" runat="server" Text="Angre" OnClick="btnClear_Click"/>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>

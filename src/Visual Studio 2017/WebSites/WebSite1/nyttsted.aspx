@@ -33,7 +33,36 @@
                     <a href="nysøknad.aspx">Ny søknad</a><br />
                 </td>
                 <td style="vertical-align:top;" class="auto-style2">
-                    Her vil det etter hvert dukke opp en tekst.
+                    Skal du lete etter jobber i en ny by? Legg den nye byen inn i systemet her.
+                    <br />
+                    <br />
+                    <asp:Label ID="successLabel" runat="server" Visible="false" ForeColor="Green" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="errorLabel" runat="server" Visible="false" ForeColor="Red" Font-Bold="true"></asp:Label>
+                    <table border="0">
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="cityLabel" runat="server" Text="Stedsnavn"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:TextBox ID="cityName" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="countryIDLabel" runat="server" Text="LandID"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:DropDownList ID="dropDownCountryID" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dropDownLandID_SelectedIndexChanged"></asp:DropDownList>
+                                <asp:Label ID="labelCountryValue" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Button ID="btnSubmit" runat="server" Text="Sett inn" OnClick="btnSubmit_Click" />
+                                <asp:Button ID="btnClear" runat="server" Text="Fjern tekst" OnClick="btnClear_Click" />
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>

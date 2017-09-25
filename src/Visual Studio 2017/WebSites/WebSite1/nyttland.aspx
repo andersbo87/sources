@@ -33,7 +33,27 @@
                     <a href="nysøknad.aspx">Ny søknad</a><br />
                 </td>
                 <td style="vertical-align:top;" class="auto-style2">
-                    Her vil det etter hvert dukke opp en tekst.
+                    Hvis du skal søke i et nytt land, kan du legge inn dette landet i databasen på denne siden.
+                    <br />
+                    <br />
+                    <asp:Label ID="successLabel" runat="server" Font-Bold="true" ForeColor="Green" Visible="false"></asp:Label>
+                    <asp:Label ID="errorLabel" runat="server" Font-Bold="true" ForeColor="Red" Visible="false"></asp:Label>
+                    <table border="0">
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="countryLabel" runat="server" Text="Landnavn"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:TextBox ID="countryName" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Button ID="btnSubmit" runat="server" Text="Sett inn" OnClick="btnSubmit_Click" />
+                                <asp:Button ID="btnClear" runat="server" Text="Fjern tekst" OnClick="btnClear_Click" />
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>

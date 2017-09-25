@@ -23,7 +23,21 @@ public partial class registrerteStatuser : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack)
+        if (p == null)
+        {
+            if (checkCookies())
+            {
+                p = new psql();
+                p.SetUsername(hc.Values["brukernavn"]);
+                p.SetPassword(hc.Values["passord"]);
+                p.SetServer("localhost");
+            }
+            else
+            {
+                Response.Redirect("~/login.aspx");
+            }
+        }
+        if (!IsPostBack)
         {
             if(checkCookies())
             {

@@ -20,6 +20,7 @@ public class psql
     private NpgsqlCommand cmd;
     private NpgsqlDataReader reader;
     private String username, password;
+    private HttpCookie hc;
     private List<string> data;
     private string server, database = "jobber";
     public string[] colNames;
@@ -324,6 +325,10 @@ public class psql
     {
         server = newServer;
     }
+    public string getServer()
+    {
+        return server;
+    }
 
     /// <summary>
     /// Inserts a new status to the database.
@@ -332,13 +337,14 @@ public class psql
     /// <returns>True if the insert succeeds and false if it fails</returns>
     public bool InsertStatus(string status)
     {
-        try
-        {
+        //try
+        //{
             Init();
             cmd = new NpgsqlCommand("INSERT INTO status (status) VALUES('" + status + "');", conn);
             cmd.ExecuteNonQuery();
+            
             return true;
-        }
+        /*}
         catch (NpgsqlException ne)
         {
             setError(ne.Message);
@@ -352,7 +358,7 @@ public class psql
         finally
         {
             conn.Close();
-        }
+        }*/
     }
 
     /// <summary>
@@ -481,6 +487,12 @@ public class psql
             return null;
         }*/
     }
+
+    /// <summary>
+    /// Henter alle registrerte statuser i databasen basert på statusid.
+    /// </summary>
+    /// <param name="index">ID-en til den aktuelle statusen.</param>
+    /// <returns>Informasjon om den aktuelle statusen: StatusID og navnet på statusen.</returns>
     public List<string> GetStatuses(int index)
     {
         Init();
@@ -497,6 +509,12 @@ public class psql
         conn.Close();
         return data;
     }
+
+    /// <summary>
+    /// Henter all data om en innlagt by i databasen basert på stedid.
+    /// </summary>
+    /// <param name="index">ID-en til det aktuelle stedet.</param>
+    /// <returns>Informasjon om den aktuelle byen, stedid, navn, landid og landnavn i liste.</returns>
     public List<string> GetCities(int index)
     {
         Init();
@@ -515,22 +533,48 @@ public class psql
         conn.Close();
         return data;
     }
+
+    /// <summary>
+    /// Henter en liste over land som er innlagt i databasen
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns>Liste over alle land i databasen</string></returns>
     public List<string> GetCountries(int index)
     {
-        Init();
         List<string> data = new List<string>();
-        cmd = new NpgsqlCommand();
-        cmd.Connection = conn;
-        cmd.CommandText = "SELECT * FROM land WHERE landid = " + index;
-        reader = cmd.ExecuteReader();
+        using(NpgsqlConnection loconn = new NpgsqlConnection("Host=localhost;Username=" + username + ";Password=" + password + ";Database=" + database))
+        {
+            loconn.Open();
+            NpgsqlCommand nc = new NpgsqlCommand("SELECT * FROM land WHERE landid = " + index, loconn);
+            //cmd.CommandText = "SELECT * FROM land WHERE landid = " + index;
+            reader = nc.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(reader.GetString(0));
+                data.Add(reader.GetString(1));
+            }
+            reader.Close();
+        }
+        /*Init();
+        List<string> data = new List<string>();
+        cmd = new NpgsqlCommand("SELECT * FROM land WHERE landid = " + index, conn);
+        /*cmd.Connection = conn;
+        cmd.CommandText = "SELECT * FROM land WHERE landid = " + index;*/
+        /*reader = cmd.ExecuteReader();
         while (reader.Read())
         {
             data.Add(reader.GetString(0));
             data.Add(reader.GetString(1));
         }
-        conn.Close();
+        conn.Close();*/
         return data;
     }
+
+    /// <summary>
+    /// Henter StedID basert på angitt søknadid.
+    /// </summary>
+    /// <param name="index">ID-en til søknaden som inneholder den korrekte StedID.</param>
+    /// <returns>StedID (heltall) basert på angitt søknadid.</returns>
     public int GetCityID(int index)
     {
         int ans = 0;
@@ -544,6 +588,43 @@ public class psql
         conn.Close();
         return ans;
     }
+
+    /// <summary>
+    /// Henter bynavnet basert på angitt stedid.
+    /// </summary>
+    /// <param name="index">ID-en til det aktuelle stedet.</param>
+    /// <returns>Bynavnet basert på den angitte ID-en</returns>
+    public string getCityName(int index)
+    {
+        string res = "";
+        Init();
+        cmd = new NpgsqlCommand("SELECT stedsnavn FROM sted WHERE stedid=" + index + " ORDER BY stedid asc;", conn);
+        reader = cmd.ExecuteReader();
+        while (reader.Read())
+            res = reader.GetString(0);
+        return res;
+    }
+    /// <summary>
+    /// Henter statusen basert på angitt statusid
+    /// </summary>
+    /// <param name="index">ID-en til statusen brukeren er ute etter</param>
+    /// <returns>Statusnavnet basert på statusID-en</returns>
+    public string getStatusName(int index)
+    {
+        string res = "";
+        Init();
+        cmd = new NpgsqlCommand("SELECT status FROM status WHERE statusid=" + index + " ORDER BY statusid asc;", conn);
+        reader = cmd.ExecuteReader();
+        while (reader.Read())
+            res = reader.GetString(0);
+        return res;
+    }
+
+    /// <summary>
+    /// Henter ID-en til det aktuelle landet.
+    /// </summary>
+    /// <param name="index">ID-en til søknaden som inneholder LandID-en</param>
+    /// <returns>LandID-en basert på søknadsID-en</returns>
     public int GetCountryID(int index)
     {
         int ans = 0;
@@ -557,6 +638,12 @@ public class psql
         conn.Close();
         return ans;
     }
+
+    /// <summary>
+    /// Henter navnet til det aktuelle landet
+    /// </summary>
+    /// <param name="index">ID-en til landet brukeren er ute etter</param>
+    /// <returns>Navnet til det aktuelle landet.</returns>
     public string GetCountryName(int index)
     {
         string res = "";
@@ -579,6 +666,12 @@ public class psql
             conn.Close();
         }
     }
+
+    /// <summary>
+    /// Henter statusID-en for gjeldende søknad.
+    /// </summary>
+    /// <param name="index">Gjeldende søknadID.</param>
+    /// <returns>StatusID-for gjeldende søknad</returns>
     public int GetStatusID(int index)
     {
         int ans = 0;
@@ -688,15 +781,46 @@ public class psql
             cmd.ExecuteNonQuery();
             return true;
         }
-        catch (NpgsqlOperationInProgressException)
+        catch (NpgsqlOperationInProgressException noipex)
         {
+            setError(noipex.Message);
             return false;
         }
-        catch (NpgsqlException)
+        catch (NpgsqlException ne)
         {
+            setError(ne.Message);
             return false;
         }
 
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    /// <summary>
+    /// Updates information about a registered country.
+    /// </summary>
+    /// <param name="countryID">The old ID of the country to be updated</param>
+    /// <param name="newCountryID">The new ID of the country to be updated. Must be unique.</param>
+    /// <param name="countryName">The new country name</param>
+    /// <returns>True on success and false on failure</returns>
+    public bool updateCountry(int countryID, int newCountryID, string countryName)
+    {
+        try
+        {
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "UPDATE land SET landid=" + newCountryID + ", land='" + countryName + "' WHERE landid=" + countryID;
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        catch(Exception ex)
+        {
+            setError(ex.Message);
+            return false;
+        }
         finally
         {
             conn.Close();
