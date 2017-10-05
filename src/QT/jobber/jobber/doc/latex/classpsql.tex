@@ -1,0 +1,377 @@
+\hypertarget{classpsql}{}\section{psql Class Reference}
+\label{classpsql}\index{psql@{psql}}
+
+
+The psql class.  
+
+
+
+
+{\ttfamily \#include $<$psql.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{classpsql_aecc9fd93dc5ca0c4f4a63d445a36d166}{get\+Username} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_aecc9fd93dc5ca0c4f4a63d445a36d166}{psql\+::get\+Username}\+: Gets the username \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_a817e5a88f877cac6f843c1e743aec096}{get\+Password} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a817e5a88f877cac6f843c1e743aec096}{psql\+::get\+Password}\+: Gets the user password \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_a95d06ee661db0b9cf72605b983b04613}{get\+Host} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a95d06ee661db0b9cf72605b983b04613}{psql\+::get\+Host}\+: Gets the IP address of the host \end{DoxyCompactList}\item 
+void \hyperlink{classpsql_a1488a9e4909abd172651b7be240342cb}{set\+Username} (Q\+String new\+User)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a1488a9e4909abd172651b7be240342cb}{psql\+::set\+Username}\+: Sets the new username \end{DoxyCompactList}\item 
+void \hyperlink{classpsql_a6c29350037550b7e5a5bb8f439c405f3}{set\+Password} (Q\+String new\+Password)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a6c29350037550b7e5a5bb8f439c405f3}{psql\+::set\+Password}\+: Sets the new password \end{DoxyCompactList}\item 
+void \hyperlink{classpsql_a96b3b9483f1a642c026d4b5cf505eb75}{set\+Host} (Q\+String new\+Host)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a96b3b9483f1a642c026d4b5cf505eb75}{psql\+::set\+Host}\+: Sets the IP address of the new host \end{DoxyCompactList}\item 
+bool \hyperlink{classpsql_a767b85014d9df3eac148730f18888d6d}{insert\+City} (Q\+String city\+Name, int country\+ID)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a767b85014d9df3eac148730f18888d6d}{psql\+::insert\+City} Inserts a new city to the database \end{DoxyCompactList}\item 
+bool \hyperlink{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}{update\+Application} (Q\+String title, Q\+String company, int city\+ID, int status\+ID, Q\+String date, int id)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}{psql\+::update\+Application}\+: Updates the current job application \end{DoxyCompactList}\item 
+bool \hyperlink{classpsql_a4073d4f70f2ae6211ba0328c2008407c}{insert\+Application} (Q\+String title, Q\+String company, int city\+ID, int status\+ID, Q\+String date)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a4073d4f70f2ae6211ba0328c2008407c}{psql\+::insert\+Application} Inserts a new job application to the database. \end{DoxyCompactList}\item 
+bool \hyperlink{classpsql_ada485c933df77453629e3821ab19fa4c}{connect\+Database} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ada485c933df77453629e3821ab19fa4c}{psql\+::connect\+Database} Connects to the Postgre\+S\+QL database. \end{DoxyCompactList}\item 
+Q\+Linked\+List$<$ int $>$ \hyperlink{classpsql_ad5ac3722cffd31587435b1bee640a5e2}{fill\+List} (const char $\ast$sql\+Sporring)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ad5ac3722cffd31587435b1bee640a5e2}{psql\+::fill\+List} \char`\"{}\+Fills\char`\"{} a Q\+Linked\+List with integers based on the results of an S\+QL query. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}{get\+Status\+Name} (int s)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}{psql\+::get\+Status\+Name} Returns the current status name \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_ada9e3be3e0866011edf53e30ec510afc}{get\+Title} (int application\+ID)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ada9e3be3e0866011edf53e30ec510afc}{psql\+::get\+Title} Returns the application title based on the ID provided by the user \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_a09745cd03f09ffb2dacacaab4281915f}{get\+Company} (int application\+ID)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a09745cd03f09ffb2dacacaab4281915f}{psql\+::get\+Company} Gets the company name based on the application ID provided by the user. \end{DoxyCompactList}\item 
+int \hyperlink{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}{get\+City\+ID} (int application\+ID)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}{psql\+::get\+City\+ID} Gets the city ID of the application based on the application ID prvoided by the user. \end{DoxyCompactList}\item 
+int \hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{get\+Status\+ID} (int application\+ID)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{psql\+::get\+Status\+ID} Returns the status ID of the application based on the application ID provided by the user. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_a561f96bfe7e9d092077712dd6b186af8}{get\+Date} (int application\+ID)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a561f96bfe7e9d092077712dd6b186af8}{psql\+::get\+Date} Gets the application deadline based on the application ID provided by the user. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_a7acc18034ef60c8a1e69b0e1a15d8ab2}{get\+City\+Name} (int city\+Number)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a7acc18034ef60c8a1e69b0e1a15d8ab2}{psql\+::get\+City\+Name} Gets the name of the city based on the city number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The psql class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpsql_ada485c933df77453629e3821ab19fa4c}\label{classpsql_ada485c933df77453629e3821ab19fa4c}} 
+\index{psql@{psql}!connect\+Database@{connect\+Database}}
+\index{connect\+Database@{connect\+Database}!psql@{psql}}
+\subsubsection{\texorpdfstring{connect\+Database()}{connectDatabase()}}
+{\footnotesize\ttfamily bool psql\+::connect\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_ada485c933df77453629e3821ab19fa4c}{psql\+::connect\+Database} Connects to the Postgre\+S\+QL database. 
+
+\begin{DoxyReturn}{Returns}
+True on successful connection and false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ad5ac3722cffd31587435b1bee640a5e2}\label{classpsql_ad5ac3722cffd31587435b1bee640a5e2}} 
+\index{psql@{psql}!fill\+List@{fill\+List}}
+\index{fill\+List@{fill\+List}!psql@{psql}}
+\subsubsection{\texorpdfstring{fill\+List()}{fillList()}}
+{\footnotesize\ttfamily Q\+Linked\+List$<$ int $>$ psql\+::fill\+List (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sql\+Sporring }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_ad5ac3722cffd31587435b1bee640a5e2}{psql\+::fill\+List} \char`\"{}\+Fills\char`\"{} a Q\+Linked\+List with integers based on the results of an S\+QL query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sql\+Sporring} & The S\+QL query to be executed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}\label{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}} 
+\index{psql@{psql}!get\+City\+ID@{get\+City\+ID}}
+\index{get\+City\+ID@{get\+City\+ID}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+City\+I\+D()}{getCityID()}}
+{\footnotesize\ttfamily int psql\+::get\+City\+ID (\begin{DoxyParamCaption}\item[{int}]{application\+ID }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}{psql\+::get\+City\+ID} Gets the city ID of the application based on the application ID prvoided by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application\+ID} & The application ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The city ID on success and 0 on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a7acc18034ef60c8a1e69b0e1a15d8ab2}\label{classpsql_a7acc18034ef60c8a1e69b0e1a15d8ab2}} 
+\index{psql@{psql}!get\+City\+Name@{get\+City\+Name}}
+\index{get\+City\+Name@{get\+City\+Name}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+City\+Name()}{getCityName()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+City\+Name (\begin{DoxyParamCaption}\item[{int}]{city\+Number }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a7acc18034ef60c8a1e69b0e1a15d8ab2}{psql\+::get\+City\+Name} Gets the name of the city based on the city number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city\+Number} & the number of the city to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The city name on success and \char`\"{}\+Error\char`\"{} on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a09745cd03f09ffb2dacacaab4281915f}\label{classpsql_a09745cd03f09ffb2dacacaab4281915f}} 
+\index{psql@{psql}!get\+Company@{get\+Company}}
+\index{get\+Company@{get\+Company}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Company()}{getCompany()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Company (\begin{DoxyParamCaption}\item[{int}]{application\+ID }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a09745cd03f09ffb2dacacaab4281915f}{psql\+::get\+Company} Gets the company name based on the application ID provided by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application\+ID} & The application ID provided by the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the company name on success and \char`\"{}\+Error\char`\"{} on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a561f96bfe7e9d092077712dd6b186af8}\label{classpsql_a561f96bfe7e9d092077712dd6b186af8}} 
+\index{psql@{psql}!get\+Date@{get\+Date}}
+\index{get\+Date@{get\+Date}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Date()}{getDate()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Date (\begin{DoxyParamCaption}\item[{int}]{application\+ID }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a561f96bfe7e9d092077712dd6b186af8}{psql\+::get\+Date} Gets the application deadline based on the application ID provided by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application\+ID} & The application ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the application ID on success and 0 on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a95d06ee661db0b9cf72605b983b04613}\label{classpsql_a95d06ee661db0b9cf72605b983b04613}} 
+\index{psql@{psql}!get\+Host@{get\+Host}}
+\index{get\+Host@{get\+Host}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Host()}{getHost()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Host (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a95d06ee661db0b9cf72605b983b04613}{psql\+::get\+Host}\+: Gets the IP address of the host 
+
+\begin{DoxyReturn}{Returns}
+The host\textquotesingle{}s IP address 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a817e5a88f877cac6f843c1e743aec096}\label{classpsql_a817e5a88f877cac6f843c1e743aec096}} 
+\index{psql@{psql}!get\+Password@{get\+Password}}
+\index{get\+Password@{get\+Password}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Password()}{getPassword()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a817e5a88f877cac6f843c1e743aec096}{psql\+::get\+Password}\+: Gets the user password 
+
+\begin{DoxyReturn}{Returns}
+The user\textquotesingle{}s password 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a9c02c92c09cb60c35d24375673b7df06}\label{classpsql_a9c02c92c09cb60c35d24375673b7df06}} 
+\index{psql@{psql}!get\+Status\+ID@{get\+Status\+ID}}
+\index{get\+Status\+ID@{get\+Status\+ID}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Status\+I\+D()}{getStatusID()}}
+{\footnotesize\ttfamily int psql\+::get\+Status\+ID (\begin{DoxyParamCaption}\item[{int}]{application\+ID }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{psql\+::get\+Status\+ID} Returns the status ID of the application based on the application ID provided by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application\+ID} & The application ID provided by the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the application ID on success and 0 on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}\label{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}} 
+\index{psql@{psql}!get\+Status\+Name@{get\+Status\+Name}}
+\index{get\+Status\+Name@{get\+Status\+Name}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Status\+Name()}{getStatusName()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Status\+Name (\begin{DoxyParamCaption}\item[{int}]{s }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}{psql\+::get\+Status\+Name} Returns the current status name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the status ID to be used in an S\+QL query within the method \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the status name on success and \char`\"{}\+Error\char`\"{} on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ada9e3be3e0866011edf53e30ec510afc}\label{classpsql_ada9e3be3e0866011edf53e30ec510afc}} 
+\index{psql@{psql}!get\+Title@{get\+Title}}
+\index{get\+Title@{get\+Title}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Title()}{getTitle()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Title (\begin{DoxyParamCaption}\item[{int}]{application\+ID }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_ada9e3be3e0866011edf53e30ec510afc}{psql\+::get\+Title} Returns the application title based on the ID provided by the user 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application\+ID} & The application ID to be provided by the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the application title on success and \char`\"{}\+Error\char`\"{} on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_aecc9fd93dc5ca0c4f4a63d445a36d166}\label{classpsql_aecc9fd93dc5ca0c4f4a63d445a36d166}} 
+\index{psql@{psql}!get\+Username@{get\+Username}}
+\index{get\+Username@{get\+Username}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Username()}{getUsername()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_aecc9fd93dc5ca0c4f4a63d445a36d166}{psql\+::get\+Username}\+: Gets the username 
+
+\begin{DoxyReturn}{Returns}
+the username 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a4073d4f70f2ae6211ba0328c2008407c}\label{classpsql_a4073d4f70f2ae6211ba0328c2008407c}} 
+\index{psql@{psql}!insert\+Application@{insert\+Application}}
+\index{insert\+Application@{insert\+Application}!psql@{psql}}
+\subsubsection{\texorpdfstring{insert\+Application()}{insertApplication()}}
+{\footnotesize\ttfamily bool psql\+::insert\+Application (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{company,  }\item[{int}]{city\+ID,  }\item[{int}]{status\+ID,  }\item[{Q\+String}]{date }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a4073d4f70f2ae6211ba0328c2008407c}{psql\+::insert\+Application} Inserts a new job application to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title of the new job. \\
+\hline
+{\em company} & The employer company \\
+\hline
+{\em city\+ID} & The ID of the city where the job is located. \\
+\hline
+{\em status\+ID} & The status of the new job. Can be (in Norwegian) 1 (registrert), 2 (sendt), 3 (interessert, mulig intervju), 4 (avvist) \\
+\hline
+{\em date} & The deadline of the new job application \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success and false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a767b85014d9df3eac148730f18888d6d}\label{classpsql_a767b85014d9df3eac148730f18888d6d}} 
+\index{psql@{psql}!insert\+City@{insert\+City}}
+\index{insert\+City@{insert\+City}!psql@{psql}}
+\subsubsection{\texorpdfstring{insert\+City()}{insertCity()}}
+{\footnotesize\ttfamily bool psql\+::insert\+City (\begin{DoxyParamCaption}\item[{Q\+String}]{city\+Name,  }\item[{int}]{country\+ID }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a767b85014d9df3eac148730f18888d6d}{psql\+::insert\+City} Inserts a new city to the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city\+Name} & The name of the new city \\
+\hline
+{\em country\+ID} & The ID of the country in which the city is located \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the insertion is successful and false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a96b3b9483f1a642c026d4b5cf505eb75}\label{classpsql_a96b3b9483f1a642c026d4b5cf505eb75}} 
+\index{psql@{psql}!set\+Host@{set\+Host}}
+\index{set\+Host@{set\+Host}!psql@{psql}}
+\subsubsection{\texorpdfstring{set\+Host()}{setHost()}}
+{\footnotesize\ttfamily void psql\+::set\+Host (\begin{DoxyParamCaption}\item[{Q\+String}]{new\+Host }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a96b3b9483f1a642c026d4b5cf505eb75}{psql\+::set\+Host}\+: Sets the IP address of the new host 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Host} & The new IP address \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpsql_a6c29350037550b7e5a5bb8f439c405f3}\label{classpsql_a6c29350037550b7e5a5bb8f439c405f3}} 
+\index{psql@{psql}!set\+Password@{set\+Password}}
+\index{set\+Password@{set\+Password}!psql@{psql}}
+\subsubsection{\texorpdfstring{set\+Password()}{setPassword()}}
+{\footnotesize\ttfamily void psql\+::set\+Password (\begin{DoxyParamCaption}\item[{Q\+String}]{new\+Password }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a6c29350037550b7e5a5bb8f439c405f3}{psql\+::set\+Password}\+: Sets the new password 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Password} & The new password \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpsql_a1488a9e4909abd172651b7be240342cb}\label{classpsql_a1488a9e4909abd172651b7be240342cb}} 
+\index{psql@{psql}!set\+Username@{set\+Username}}
+\index{set\+Username@{set\+Username}!psql@{psql}}
+\subsubsection{\texorpdfstring{set\+Username()}{setUsername()}}
+{\footnotesize\ttfamily void psql\+::set\+Username (\begin{DoxyParamCaption}\item[{Q\+String}]{new\+User }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a1488a9e4909abd172651b7be240342cb}{psql\+::set\+Username}\+: Sets the new username 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+User} & The new username \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}\label{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}} 
+\index{psql@{psql}!update\+Application@{update\+Application}}
+\index{update\+Application@{update\+Application}!psql@{psql}}
+\subsubsection{\texorpdfstring{update\+Application()}{updateApplication()}}
+{\footnotesize\ttfamily bool psql\+::update\+Application (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{company,  }\item[{int}]{city\+ID,  }\item[{int}]{status\+ID,  }\item[{Q\+String}]{date,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}{psql\+::update\+Application}\+: Updates the current job application 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The new title \\
+\hline
+{\em company} & The new job company \\
+\hline
+{\em city\+ID} & The ID of the new city where the job is located \\
+\hline
+{\em status\+ID} & The status of the new job \\
+\hline
+{\em date} & The new job application deadline \\
+\hline
+{\em id} & The job ID to be updated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success and false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+psql.\+h\item 
+\hyperlink{psql_8cpp}{psql.\+cpp}\end{DoxyCompactItemize}

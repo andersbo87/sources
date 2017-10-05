@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewCity</class>
+ <widget class="QMainWindow" name="NewCity">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>309</width>
+    <height>132</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Legg til nytt sted</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="labelCityName">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="locale">
+     <locale language="NorwegianBokmal" country="Norway"/>
+    </property>
+    <property name="text">
+     <string>Stedsnavn</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelCountryID">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="locale">
+     <locale language="NorwegianBokmal" country="Norway"/>
+    </property>
+    <property name="text">
+     <string>Landnummer</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelCountryName">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>60</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="locale">
+     <locale language="NorwegianBokmal" country="Norway"/>
+    </property>
+    <property name="text">
+     <string>$land</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditCityName">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>30</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>60</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDialogButtonBox" name="buttonBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>166</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="locale">
+     <locale language="NorwegianBokmal" country="Norway"/>
+    </property>
+    <property name="standardButtons">
+     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
