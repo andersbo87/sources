@@ -31,6 +31,7 @@ public:
 private:
     Ui::MainWindow *ui;
     psql *p;
+    QString progName;
 private slots:
     void btn_newJob_Click();
     void btn_showJobs_Click();
@@ -38,7 +39,8 @@ private slots:
     void btn_NewStatus_Click();
     void btn_ShowCities_Click();
     void btn_ShowStatuses_Click();
-
+    void btn_NewCountry_Click();
+    void btn_ShowCountries_Click();
 };
 
 #endif // MAINWINDOW_H

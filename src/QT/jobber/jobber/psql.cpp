@@ -62,6 +62,38 @@ void psql::setHost(QString newHost)
     host = newHost;
 }
 
+/**
+ * @brief psql::insertCountry Inserts a new country into the database
+ * @param countryName The name of the new country.
+ * @return True on success and false on failure.
+ */
+bool psql::insertCountry(QString countryName)
+{
+    try
+    {
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string stmt = "";
+        QString insertStmt = "INSERT INTO land (land) VALUES('";
+        ostringstream oss;
+        oss << stmt << insertStmt.toStdString();
+        oss << stmt << countryName.toStdString();
+        oss << stmt << "')";
+        pqxx::work wk(conn);
+        wk.exec(oss.str());
+        wk.commit();
+        conn.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle("Jobber");
+        msg.setText("Noe er galt: " + QString::fromStdString(e.what()));
+        msg.exec();
+        return false;
+    }
+}
 
 /**
  * @brief psql::insertCity Inserts a new city to the database
@@ -94,6 +126,92 @@ bool psql::insertCity(QString cityName, int countryID)
         msg.setIcon(msg.Information);
         msg.setWindowTitle("Jobber");
         msg.setText(e.what());
+        msg.exec();
+        return false;
+    }
+}
+
+bool psql::updateCountry(QString countryName, int countryID)
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString insertStatement = "UPDATE land SET land = '";
+        ostringstream oss;
+        oss << statement << insertStatement.toStdString();
+        oss << statement << countryName.toStdString();
+        oss << statement << "' where landid = ";
+        oss << statement << countryID;
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(exception &e){
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle("Jobber");
+        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
+        msg.exec();
+        return false;
+    }
+}
+
+bool psql::updateStatus(QString statusname, int statusID)
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString insertStatement = "UPDATE status SET status = '";
+        ostringstream oss;
+        oss << statement << insertStatement.toStdString();
+        oss << statement << statusname.toStdString();
+        oss << statement << "' where statusid = ";
+        oss << statement << statusID;
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(exception &e){
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle("Jobber");
+        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
+        msg.exec();
+        return false;
+    }
+}
+
+bool psql::updateCity(QString cityName, int countryID, int id)
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString insertStatement = "UPDATE sted SET stedsnavn = '";
+        ostringstream oss;
+        oss << statement << insertStatement.toStdString();
+        oss << statement << cityName.toStdString();
+        oss << statement << "', landid = ";
+        oss << statement << countryID;
+        oss << statement << " where stedid = ";
+        oss << statement << id;
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(exception &e){
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle("Jobber");
+        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
         msg.exec();
         return false;
     }
@@ -394,6 +512,28 @@ int psql::getCityID(int applicationID)
         }
         oss.clear();
         C.disconnect();
+        return res;
+    }
+    return res;
+}
+
+int psql::getCountryID(int countryID)
+{
+    int res = 0;
+    pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+    if(conn.is_open())
+    {
+        pqxx::nontransaction nt(conn);
+        string statement = "SELECT landid FROM sted WHERE stedid = ";
+        ostringstream oss;
+        oss << statement << countryID;
+        pqxx::result re(nt.exec(oss.str()));
+        for (pqxx::result::const_iterator ci = re.begin(); ci != re.end(); ++ci)
+        {
+            res = QString::fromUtf8(ci[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        conn.disconnect();
         return res;
     }
     return res;

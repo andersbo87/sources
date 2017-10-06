@@ -12,6 +12,7 @@ connectPsql::connectPsql(QWidget *parent) :
     ui(new Ui::connectPsql)
 {
     ui->setupUi(this);
+    setFixedSize(size());
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Koble til");
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));

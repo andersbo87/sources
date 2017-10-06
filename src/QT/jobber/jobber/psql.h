@@ -20,23 +20,39 @@ public:
     QString getUsername();
     QString getPassword();
     QString getHost();
-    void setUsername(QString newUser);
-    void setPassword(QString newPassword);
+
+    // Funksjoner som angir parametere for å koble til databasen:
     void setHost(QString newHost);
-    bool insertCity(QString cityName, int countryID);
-    bool updateApplication(QString title, QString company, int cityID, int statusID, QString date, int id);
-    bool insertApplication(QString title, QString company, int cityID, int statusID, QString date);
-    bool insertStatus(QString statusName);
+    void setPassword(QString newPassword);
+    void setUsername(QString newUser);
+
+    // Koble til databasen:
     bool connectDatabase();
+
+    // Metoder som setter inn ny data i databasen:
+    bool insertApplication(QString title, QString company, int cityID, int statusID, QString date);
+    bool insertCity(QString cityName, int countryID);
+    bool insertCountry(QString countryName);
+    bool insertStatus(QString statusName);
+
+    // Metoder som oppdaterer eksisterende data
+    bool updateApplication(QString title, QString company, int cityID, int statusID, QString date, int id);
+    bool updateCity(QString cityName, int countryID, int id);
+    bool updateCountry(QString countryName, int countryID);
+    bool updateStatus(QString statusname, int statusID);
+
+    // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
+    int getCityID(int applicationID);
+    int getCountryID(int countryID);
+    int getStatusID(int applicationID);
     QLinkedList<int> fillList(const char *sqlSporring);
+    QString getCityName(int cityNumber);
+    QString getCompany(int applicationID);
+    QString getCountryName(int countryID);
+    QString getDate(int applicationID);
     QString getStatusName(int s);
     QString getTitle(int applicationID);
-    QString getCompany(int applicationID);
-    int getCityID(int applicationID);
-    int getStatusID(int applicationID);
-    QString getDate(int applicationID);
-    QString getCityName(int cityNumber);
-    QString getCountryName(int countryID);
+
 
 private:
     QString username, host, password;

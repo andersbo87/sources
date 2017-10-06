@@ -5,8 +5,10 @@
 #include "newjob.h"
 #include "viewjobs.h"
 #include "newcity.h"
+#include "newcountry.h"
 #include "newstatus.h"
 #include "showcities.h"
+#include "showcountries.h"
 #include "showstatuses.h"
 #include "psql.h"
 #include <pqxx/pqxx>
@@ -21,10 +23,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btn_newJob, SIGNAL(clicked()), this, SLOT(btn_newJob_Click()));
     connect(ui->btn_ShowJobs, SIGNAL(clicked()), this, SLOT(btn_showJobs_Click()));
     connect(ui->btn_NewCity, SIGNAL(clicked(bool)), this, SLOT(btn_NewCity_Click()));
+    connect(ui->btn_NewCountry, SIGNAL(clicked(bool)), this, SLOT(btn_NewCountry_Click()));
     connect(ui->btn_NewStatus, SIGNAL(clicked(bool)), this, SLOT(btn_NewStatus_Click()));
     connect(ui->btn_ShowCities, SIGNAL(clicked(bool)), this, SLOT(btn_ShowCities_Click()));
+    connect(ui->btn_showCountries, SIGNAL(clicked(bool)), this, SLOT(btn_ShowCountries_Click()));
     connect(ui->btn_ShowStatuses, SIGNAL(clicked(bool)), this, SLOT(btn_ShowStatuses_Click()));
     cp = new connectPsql();
+    progName = "Jobber";
     p = cp->p; // Kanskje ikke verdens smarteste idé, men lar den likevel peke på psql-objektet i klassen "connectpsql" inntil videre.
     cp->exec();
     if(cp->result() == cp->Rejected)
@@ -33,21 +38,33 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 }
 
+void MainWindow::btn_NewCountry_Click()
+{
+    NewCountry *ncty = new NewCountry(progName, p, this);
+    ncty->show();
+}
+
+void MainWindow::btn_ShowCountries_Click()
+{
+    ShowCountries *scty = new ShowCountries(progName,p, this);
+    scty->show();
+}
+
 void MainWindow::btn_NewStatus_Click()
 {
-    NewStatus *ns = new NewStatus(p, this);
+    NewStatus *ns = new NewStatus(progName,p, this);
     ns->show();
 }
 
 void MainWindow::btn_ShowCities_Click()
 {
-    ShowCities *sc = new ShowCities(p, this);
+    ShowCities *sc = new ShowCities(progName, p, this);
     sc->show();
 }
 
 void MainWindow::btn_ShowStatuses_Click()
 {
-    ShowStatuses *ss = new ShowStatuses(p, this);
+    ShowStatuses *ss = new ShowStatuses(progName, p, this);
     ss->show();
 }
 

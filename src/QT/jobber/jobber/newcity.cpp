@@ -12,6 +12,7 @@ NewCity::NewCity(psql *pg, QWidget *parent) :
     close = false;
     changed = false;
     ui->setupUi(this);
+    setFixedSize(size());
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(OKButtonClicked()));

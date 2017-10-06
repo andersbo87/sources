@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Jobber
+Comment=QT 5 Front-end av PosgtreSQL-databasen jobber
+Exec=/usr/local/bin/jobber
+Terminal=False
+Type=Application
+Encoding=UFT-8
+Categories=Accessories

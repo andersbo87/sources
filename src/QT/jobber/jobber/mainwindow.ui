@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>238</width>
-    <height>155</height>
+    <height>169</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
+      <y>70</y>
       <width>80</width>
       <height>23</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>70</y>
+      <y>100</y>
       <width>80</width>
       <height>23</height>
      </rect>
@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>40</y>
+      <y>70</y>
       <width>80</width>
       <height>23</height>
      </rect>
@@ -83,13 +83,39 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>70</y>
+      <y>100</y>
       <width>80</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>Vis statuser</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_NewCountry">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nytt land</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_showCountries">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>40</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Vis land</string>
     </property>
    </widget>
   </widget>

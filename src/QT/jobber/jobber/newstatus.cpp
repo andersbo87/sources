@@ -2,12 +2,20 @@
 #include "ui_newstatus.h"
 #include <QPushButton>
 
-NewStatus::NewStatus(psql *pg, QWidget *parent) :
+/**
+ * @brief NewStatus NewStatus class constructor
+ * @param windowTitle The title to be used with message boxes (QMessageBox)
+ * @param pg A pointer to the PostgreSQL database class
+ * @param parent
+ */
+NewStatus::NewStatus(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewStatus)
 {
     p = pg;
     ui->setupUi(this);
+    title = windowTitle;
+    setFixedSize(size());
     close = false;
     changed = false;
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
@@ -17,6 +25,10 @@ NewStatus::NewStatus(psql *pg, QWidget *parent) :
     connect(ui->lineEditStatusName, SIGNAL(textChanged(QString)), this, SLOT(lineEditStatusNameChanged()));
 }
 
+/**
+ * @brief NewStatus::canSave Checks if the changes can be saved
+ * @return True if the changes can be saved and false otherwise.
+ */
 bool NewStatus::canSave()
 {
     if(status.length() == 0)
@@ -26,16 +38,27 @@ bool NewStatus::canSave()
     return close;
 }
 
+/**
+ * @brief NewStatus::setStatus Sets the new status name
+ * @param newStatus the name of the new status
+ */
 void NewStatus::setStatus(QString newStatus)
 {
     status = newStatus;
 }
-
+/**
+ * @brief NewStatus::getStatus Gets the current status name
+ * @return The status name to be returned.
+ */
 QString NewStatus::getStatus()
 {
     return status;
 }
 
+/**
+ * @brief closeEvent Code to be executed when the window closes
+ * @param event This pointer points to the QCloseEvent class that contains functions to prvent the window from closing.
+ */
 void NewStatus::closeEvent(QCloseEvent *event)
 {
     if(canSave())
@@ -44,7 +67,7 @@ void NewStatus::closeEvent(QCloseEvent *event)
         if(changed)
         {
             QMessageBox msg;
-            msg.setWindowTitle("Jobber");
+            msg.setWindowTitle(title);
             msg.setStandardButtons(msg.Yes);
             msg.addButton(msg.Cancel);
             msg.addButton(msg.No);
@@ -57,19 +80,11 @@ void NewStatus::closeEvent(QCloseEvent *event)
                 {
                     // Lukker vinduet.
                     QMessageBox msg;
-                    msg.setWindowTitle("Jobber");
+                    msg.setWindowTitle(title);
                     msg.setIcon(msg.Information);
                     msg.setText("Den nye statuse ble lagt inn med følgende data:\nStatus: " + getStatus());
                     msg.exec();
                     event->accept();
-                }
-                else
-                {
-                    QMessageBox msg;
-                    msg.setIcon(msg.Warning);
-                    msg.setWindowTitle("Jobber");
-                    msg.setText("Noe har gått galt.");
-                    msg.exec();
                 }
             }
             else if(res==QMessageBox::No)
@@ -83,7 +98,7 @@ void NewStatus::closeEvent(QCloseEvent *event)
             {
                 // Lukker vinduet.
                 QMessageBox msg;
-                msg.setWindowTitle("Jobber");
+                msg.setWindowTitle(title);
                 msg.setIcon(msg.Information);
                 msg.setText("Den nye statuse ble lagt inn med følgende data:\nStatus: " + getStatus());
                 msg.exec();
@@ -107,7 +122,7 @@ void NewStatus::OKButtonClicked()
         {
             // Lukker vinduet.
             QMessageBox msg;
-            msg.setWindowTitle("Jobber");
+            msg.setWindowTitle(title);
             msg.setIcon(msg.Information);
             msg.setText("Den nye statuse ble lagt inn med følgende data:\nStatus: " + getStatus());
             msg.exec();
@@ -117,7 +132,7 @@ void NewStatus::OKButtonClicked()
     else
     {
         QMessageBox msg;
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(title);
         msg.setIcon(msg.Warning);
         msg.setText("Alle felt må fylles ut.");
         msg.exec();
