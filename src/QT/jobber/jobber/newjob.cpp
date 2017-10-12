@@ -6,7 +6,7 @@ NewJob::NewJob(psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewJob)
 {
-    setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowCloseButtonHint));
+    //setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowCloseButtonHint));
     ui->setupUi(this);
     setFixedSize(size());
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
