@@ -737,7 +737,7 @@ distdir: FORCE
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
-
+	-$(DEL_FILE) jobber
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
@@ -12778,7 +12778,7 @@ else
 	install -o root -g root -m 555 jobber.desktop /usr/share/applications/jobber.desktop
 endif
 	@echo "Jobber has been installed to /usr/local/bin/jobber. Make sure /usr/local/bin is in your PATH."
-uninstall:  FORCE
+uninstall:
 ifneq ($(UNAME_S), Linux)
 ifeq ($(UNAME_S), SunOS)
 	rm /usr/share/applications/jobber.desktop
@@ -12790,5 +12790,5 @@ else
 endif
 	rm /usr/local/bin/jobber
 
-FORCE:
+FORCE: jobber
 
