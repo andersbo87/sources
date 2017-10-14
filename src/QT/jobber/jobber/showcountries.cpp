@@ -1,3 +1,27 @@
+/*
+Copyright (c) 2017, Anders Bolt-Evensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDERS BOLT-EVENSEN BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #include "showcountries.h"
 #include "ui_showcountries.h"
 
@@ -12,9 +36,10 @@ ShowCountries::ShowCountries(QString windowTitle, psql *pg, QWidget *parent) :
     ui(new Ui::ShowCountries)
 {
     ui->setupUi(this);
-    setFixedSize(size());
+    setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
+    setFixedHeight(height());
     p = pg;
-    title = windowTitle;
+    winTitle = windowTitle;
     connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()));
     connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()));
     connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()));
@@ -83,7 +108,7 @@ void ShowCountries::getCountry(int countryID)
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle(title);
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }
@@ -108,7 +133,7 @@ void ShowCountries::getCountries()
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle(title);
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }
@@ -143,7 +168,7 @@ void ShowCountries::checkChanges()
     {
         // Spør om endringer skal lagres.
         QMessageBox msg;
-        msg.setWindowTitle(title);
+        msg.setWindowTitle(winTitle);
         msg.setIcon(msg.Question);
         msg.setStandardButtons(msg.Yes);
         msg.addButton(msg.No);
@@ -156,7 +181,7 @@ void ShowCountries::checkChanges()
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
-                msg2.setWindowTitle(title);
+                msg2.setWindowTitle(winTitle);
                 msg2.setText("Landet ble oppdatert og har følgende verdier:\nLandid: " + QString::number(getCountryID()) + "\nLandnavn: " + getCountryName());
                 msg2.exec();
             }
@@ -259,7 +284,7 @@ void ShowCountries::closeEvent(QCloseEvent *event)
     {
         event->ignore();
         QMessageBox msg;
-        msg.setWindowTitle(title);
+        msg.setWindowTitle(winTitle);
         msg.setStandardButtons(msg.Yes);
         msg.addButton(msg.Cancel);
         msg.addButton(msg.No);
@@ -273,7 +298,7 @@ void ShowCountries::closeEvent(QCloseEvent *event)
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
-                msg2.setWindowTitle(title);
+                msg2.setWindowTitle(winTitle);
                 msg2.setText("Landet ble oppdatert og har følgende verdier:\nLandid: " + QString::number(getCountryID()) + "\nLandnavn: " + getCountryName());
                 msg2.exec();
             }

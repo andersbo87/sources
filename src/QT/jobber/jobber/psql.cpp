@@ -1,12 +1,36 @@
+/*
+Copyright (c) 2017, Anders Bolt-Evensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDERS BOLT-EVENSEN BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 /**
   @file psql.cpp
 */
 
 #include "psql.h"
 
-psql::psql()
+psql::psql(QString windowTitle)
 {
-
+    winTitle = windowTitle;
 }
 
 /**
@@ -88,7 +112,7 @@ bool psql::insertCountry(QString countryName)
     {
         QMessageBox msg;
         msg.setIcon(msg.Information);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText("Noe er galt: " + QString::fromStdString(e.what()));
         msg.exec();
         return false;
@@ -124,7 +148,7 @@ bool psql::insertCity(QString cityName, int countryID)
     {
         QMessageBox msg;
         msg.setIcon(msg.Information);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
         return false;
@@ -152,7 +176,7 @@ bool psql::updateCountry(QString countryName, int countryID)
     catch(exception &e){
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
         msg.exec();
         return false;
@@ -180,7 +204,7 @@ bool psql::updateStatus(QString statusname, int statusID)
     catch(exception &e){
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
         msg.exec();
         return false;
@@ -210,7 +234,7 @@ bool psql::updateCity(QString cityName, int countryID, int id)
     catch(exception &e){
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
         msg.exec();
         return false;
@@ -258,7 +282,7 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
     catch(exception &e){
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
         msg.exec();
         return false;
@@ -291,7 +315,7 @@ bool psql::insertStatus(QString statusName)
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
         msg.exec();
         return false;
@@ -337,7 +361,7 @@ bool psql::insertApplication(QString title, QString company, int cityID, int sta
     {
         QMessageBox msg;
         msg.setIcon(msg.Information);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
         return false;
@@ -366,7 +390,7 @@ bool psql::connectDatabase()
     catch(const std::exception &e){
         QMessageBox msg;
         msg.setIcon(msg.Information);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
         return false;
@@ -405,12 +429,29 @@ QLinkedList<int> psql::fillList(const char *sqlSporring)
     {
         QMessageBox msg;
         msg.setIcon(msg.Information);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
         exit(EXIT_FAILURE);
         //return NULL;
     }
+}
+int psql::getRows(string query)
+{
+    int res = 0;
+    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+    if(C.is_open())
+    {
+        pqxx::nontransaction N(C);
+        //string statement = "SELECT status FROM status WHERE statusid = ";
+        ostringstream oss;
+        oss << query;
+        pqxx::result R(N.exec(oss.str()));
+        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
+            res++;
+        }
+    }
+    return res;
 }
 
 /**
@@ -516,6 +557,8 @@ int psql::getCityID(int applicationID)
     }
     return res;
 }
+
+
 
 int psql::getCountryID(int countryID)
 {

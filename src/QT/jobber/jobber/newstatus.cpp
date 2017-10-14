@@ -1,3 +1,27 @@
+/*
+Copyright (c) 2017, Anders Bolt-Evensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDERS BOLT-EVENSEN BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #include "newstatus.h"
 #include "ui_newstatus.h"
 #include <QPushButton>
@@ -14,11 +38,13 @@ NewStatus::NewStatus(QString windowTitle, psql *pg, QWidget *parent) :
 {
     p = pg;
     ui->setupUi(this);
-    title = windowTitle;
-    setFixedSize(size());
+    winTitle = windowTitle;
+    setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
+    setFixedHeight(height());
     close = false;
     changed = false;
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
     connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(OKButtonClicked()));
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
@@ -67,7 +93,7 @@ void NewStatus::closeEvent(QCloseEvent *event)
         if(changed)
         {
             QMessageBox msg;
-            msg.setWindowTitle(title);
+            msg.setWindowTitle(winTitle);
             msg.setStandardButtons(msg.Yes);
             msg.addButton(msg.Cancel);
             msg.addButton(msg.No);
@@ -80,7 +106,7 @@ void NewStatus::closeEvent(QCloseEvent *event)
                 {
                     // Lukker vinduet.
                     QMessageBox msg;
-                    msg.setWindowTitle(title);
+                    msg.setWindowTitle(winTitle);
                     msg.setIcon(msg.Information);
                     msg.setText("Den nye statuse ble lagt inn med følgende data:\nStatus: " + getStatus());
                     msg.exec();
@@ -98,7 +124,7 @@ void NewStatus::closeEvent(QCloseEvent *event)
             {
                 // Lukker vinduet.
                 QMessageBox msg;
-                msg.setWindowTitle(title);
+                msg.setWindowTitle(winTitle);
                 msg.setIcon(msg.Information);
                 msg.setText("Den nye statuse ble lagt inn med følgende data:\nStatus: " + getStatus());
                 msg.exec();
@@ -111,7 +137,8 @@ void NewStatus::closeEvent(QCloseEvent *event)
 void NewStatus::lineEditStatusNameChanged()
 {
     setStatus(ui->lineEditStatusName->text());
-    changed = true;
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+    changed = canSave();
 }
 
 void NewStatus::OKButtonClicked()
@@ -122,7 +149,7 @@ void NewStatus::OKButtonClicked()
         {
             // Lukker vinduet.
             QMessageBox msg;
-            msg.setWindowTitle(title);
+            msg.setWindowTitle(winTitle);
             msg.setIcon(msg.Information);
             msg.setText("Den nye statuse ble lagt inn med følgende data:\nStatus: " + getStatus());
             msg.exec();
@@ -132,7 +159,7 @@ void NewStatus::OKButtonClicked()
     else
     {
         QMessageBox msg;
-        msg.setWindowTitle(title);
+        msg.setWindowTitle(winTitle);
         msg.setIcon(msg.Warning);
         msg.setText("Alle felt må fylles ut.");
         msg.exec();

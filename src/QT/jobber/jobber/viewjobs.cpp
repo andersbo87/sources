@@ -1,15 +1,41 @@
+/*
+Copyright (c) 2017, Anders Bolt-Evensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDERS BOLT-EVENSEN BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #include "viewjobs.h"
 #include "ui_viewjobs.h"
 
-ViewJobs::ViewJobs(psql *pg, QWidget *parent) :
+ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ViewJobs)
 {
+    setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
     ui->setupUi(this);
-    setFixedSize(size());
+    setFixedHeight(height());
     p = pg;
     changed = false;
     soknadIDChanged = false;
+    winTitle = windowTitle;
     getApplications();
     getCityIDs();
     getStatusIDs();
@@ -24,6 +50,7 @@ ViewJobs::ViewJobs(psql *pg, QWidget *parent) :
     connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()));
     connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()));
     connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()));
+    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()));
 }
 
 ViewJobs::~ViewJobs()
@@ -46,13 +73,14 @@ bool ViewJobs::isChanged()
  */
 void ViewJobs::setChanged(bool change)
 {
+    ui->btnSave->setEnabled(change);
     changed = change;
 }
 
 void ViewJobs::comboBoxStatusIDChanged()
 {
     setStatusID(ui->comboBoxStatusID->currentText().toInt());
-    ui->labelStatus->setText(p->getStatusName(getStatusID()));
+    ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
     if(!soknadIDChanged)
         setChanged(true);
 }
@@ -60,7 +88,7 @@ void ViewJobs::comboBoxStatusIDChanged()
 void ViewJobs::comboBoxCityIDChanged()
 {
     setCityID(ui->comboBoxTownID->currentText().toInt());
-    ui->labelSted->setText(p->getCityName(getCityID()));
+    ui->labelCityValue->setText(p->getCityName(getCityID()));
     if(!soknadIDChanged)
         setChanged(true);
 }
@@ -96,7 +124,7 @@ void ViewJobs::closeEvent(QCloseEvent *event)
     {
         event->ignore();
         QMessageBox msg;
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setStandardButtons(msg.Yes);
         msg.addButton(msg.Cancel);
         msg.addButton(msg.No);
@@ -109,7 +137,7 @@ void ViewJobs::closeEvent(QCloseEvent *event)
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
-                msg2.setWindowTitle("Jobber");
+                msg2.setWindowTitle(winTitle);
                 msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
                 msg2.exec();
             }
@@ -128,7 +156,7 @@ void ViewJobs::checkChanges()
     {
         // Spør om endringer skal lagres.
         QMessageBox msg;
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setIcon(msg.Question);
         msg.setStandardButtons(msg.Yes);
         msg.addButton(msg.No);
@@ -140,13 +168,27 @@ void ViewJobs::checkChanges()
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
-                msg2.setWindowTitle("Jobber");
+                msg2.setWindowTitle(winTitle);
                 msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
                 msg2.exec();
             }
         }
         setChanged(false);
     }
+}
+
+void ViewJobs::buttonSaveClicked()
+{
+    if(p->updateApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getApplicationID()))
+    {
+        QMessageBox msg2;
+        msg2.setIcon(msg2.Information);
+        msg2.setWindowTitle(winTitle);
+        msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
+        msg2.exec();
+        setChanged(false);
+    }
+
 }
 
 void ViewJobs::buttonFirstClicked()
@@ -248,7 +290,7 @@ void ViewJobs::getCityIDs()
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }
@@ -274,7 +316,7 @@ void ViewJobs::getStatusIDs()
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }
@@ -295,7 +337,7 @@ int ViewJobs::getApplicationID()
  */
 QString ViewJobs::getTitle()
 {
-    return title;
+    return jobTitle;
 }
 
 /**
@@ -349,7 +391,7 @@ void ViewJobs::setApplicationID(int newID)
  */
 void ViewJobs::setTitle(QString newTitle)
 {
-    title = newTitle;
+    jobTitle = newTitle;
 }
 
 /**
@@ -408,7 +450,7 @@ void ViewJobs::getApplications()
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }
@@ -434,14 +476,14 @@ void ViewJobs::getApplication(int appID)
         setCityID(ui->comboBoxTownID->currentText().toInt());
         setStatusID(ui->comboBoxStatusID->currentText().toInt());
         setDate(ui->lineEditDeadline->text());
-        ui->labelSted->setText(p->getCityName(getCityID()));
-        ui->labelStatus->setText(p->getStatusName(getStatusID()));
+        ui->labelCityValue->setText(p->getCityName(getCityID()));
+        ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
     }
     catch(std::exception &e)
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }

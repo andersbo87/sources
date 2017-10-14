@@ -1,3 +1,27 @@
+/*
+Copyright (c) 2017, Anders Bolt-Evensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDERS BOLT-EVENSEN BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #include "newcountry.h"
 #include "ui_newcountry.h"
 #include <QPushButton>
@@ -13,12 +37,14 @@ NewCountry::NewCountry(QString windowTitle, psql *pg, QWidget *parent) :
     ui(new Ui::NewCountry)
 {
     ui->setupUi(this);
-    setFixedSize(size());
-    title = windowTitle;
+    setFixedHeight(height());
+    setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
+    winTitle = windowTitle;
     p = pg;
     close = false;
     changed = false;
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
     connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(OKButtonClicked()));
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
@@ -77,7 +103,7 @@ void NewCountry::closeEvent(QCloseEvent *event)
         if(changed)
         {
             QMessageBox msg;
-            msg.setWindowTitle(title);
+            msg.setWindowTitle(winTitle);
             msg.setStandardButtons(msg.Yes);
             msg.addButton(msg.Cancel);
             msg.addButton(msg.No);
@@ -90,7 +116,7 @@ void NewCountry::closeEvent(QCloseEvent *event)
                 {
                     // Lukker vinduet.
                     QMessageBox msg;
-                    msg.setWindowTitle(title);
+                    msg.setWindowTitle(winTitle);
                     msg.setIcon(msg.Information);
                     msg.setText("Det nye landet ble lagret med følgende verdier:\nLandnavn: " + getCountry());
                     msg.exec();
@@ -108,7 +134,7 @@ void NewCountry::closeEvent(QCloseEvent *event)
             {
                 // Lukker vinduet.
                 QMessageBox msg;
-                msg.setWindowTitle(title);
+                msg.setWindowTitle(winTitle);
                 msg.setIcon(msg.Information);
                 msg.setText("Det nye landet ble lagret med følgende verdier:\nLandnavn: " + getCountry());
                 msg.exec();
@@ -122,7 +148,8 @@ void NewCountry::closeEvent(QCloseEvent *event)
 void NewCountry::lineEditCountryNameChanged()
 {
     setCountry(ui->lineEditCountryName->text());
-    changed = true;
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+    changed = canSave();
 }
 
 void NewCountry::OKButtonClicked()
@@ -133,7 +160,7 @@ void NewCountry::OKButtonClicked()
         {
             // Lukker vinduet.
             QMessageBox msg;
-            msg.setWindowTitle(title);
+            msg.setWindowTitle(winTitle);
             msg.setIcon(msg.Information);
             msg.setText("Det nye landet ble lagret med følgende verdier:\nLandnavn: " + getCountry());
             msg.exec();
@@ -143,7 +170,7 @@ void NewCountry::OKButtonClicked()
     else
     {
         QMessageBox msg;
-        msg.setWindowTitle(title);
+        msg.setWindowTitle(winTitle);
         msg.setIcon(msg.Warning);
         msg.setText("Alle felt må fylles ut.");
         msg.exec();

@@ -736,7 +736,7 @@ distdir: FORCE
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
-
+	-$(DEL_FILE) jobber
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
@@ -12766,9 +12766,9 @@ install:  FORCE
 	install -o root -g wheel -m 555 jobber /usr/local/bin/jobber
 	install -o root -g wheel -m 555 jobber.desktop /usr/local/share/applications/jobber.desktop
 	@echo "Jobber has been installed to /usr/local/bin/jobber. Make sure /usr/local/bin is in your PATH."
-uninstall:  FORCE
+uninstall:
 	rm /usr/local/share/applications/jobber.desktop
 	rm /usr/local/bin/jobber
 
-FORCE:
+FORCE: jobber
 

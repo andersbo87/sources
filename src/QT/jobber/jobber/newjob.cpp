@@ -1,19 +1,45 @@
+/*
+Copyright (c) 2017, Anders Bolt-Evensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDERS BOLT-EVENSEN BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #include "newjob.h"
 #include "ui_newjob.h"
 
 // Konstruktør
-NewJob::NewJob(psql *pg, QWidget *parent) :
+NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewJob)
 {
-    //setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowCloseButtonHint));
+    setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
     ui->setupUi(this);
-    setFixedSize(size());
+    setFixedHeight(height());
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
     p = pg;
     close = false;
     changed = false;
+    winTitle = windowTitle;
     connect(ui->lineEditTittel, SIGNAL(textChanged(QString)), this, SLOT(titleTextChanged()));
     connect(ui->lineEditBedrift, SIGNAL(textChanged(QString)), this, SLOT(companyTextChanged()));
     connect(ui->comboBoxStedID, SIGNAL(currentTextChanged(QString)), this, SLOT(cityIDchanged()));
@@ -40,7 +66,7 @@ void NewJob::OKButtonClicked()
         {
             // Lukker vinduet.
             QMessageBox msg;
-            msg.setWindowTitle("Jobber");
+            msg.setWindowTitle(winTitle);
             msg.setIcon(msg.Information);
             msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
             msg.exec();
@@ -51,7 +77,7 @@ void NewJob::OKButtonClicked()
     else
     {
         QMessageBox msg;
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setIcon(msg.Warning);
         msg.setText("Alle felt må fylles ut.");
         msg.exec();
@@ -85,7 +111,7 @@ void NewJob::getCityIDs()
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }
@@ -111,7 +137,7 @@ void NewJob::getStatusIDs()
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText(e.what());
         msg.exec();
     }
@@ -123,7 +149,8 @@ void NewJob::getStatusIDs()
 void NewJob::titleTextChanged()
 {
     setTitle(ui->lineEditTittel->text());
-    changed = true;
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+    changed = canSave();
 }
 
 /**
@@ -132,7 +159,8 @@ void NewJob::titleTextChanged()
 void NewJob::companyTextChanged()
 {
     setCompany(ui->lineEditBedrift->text());
-    changed = true;
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+    changed = canSave();
 }
 
 /**
@@ -141,8 +169,8 @@ void NewJob::companyTextChanged()
 void NewJob::cityIDchanged()
 {
     setCityID(ui->comboBoxStedID->currentText().toInt());
-    ui->labelSted->setText(p->getCityName(getCityID()));
-    changed = true;
+    ui->labelCityValue->setText(p->getCityName(getCityID()));
+    changed = canSave();
 }
 
 /**
@@ -151,8 +179,8 @@ void NewJob::cityIDchanged()
 void NewJob::statusIDchanged()
 {
     setStatusID(ui->comboBoxStatusID->currentText().toInt());
-    ui->labelStatus->setText(p->getStatusName(getStatusID()));
-    changed = true;
+    ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
+    changed = canSave();
 }
 
 /**
@@ -161,7 +189,8 @@ void NewJob::statusIDchanged()
 void NewJob::dateChanged()
 {
     setDate(ui->lineEditSoknadsfrist->text());
-    changed = true;
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+    changed = canSave();
 }
 
 /**
@@ -170,7 +199,7 @@ void NewJob::dateChanged()
  */
 bool NewJob::canSave()
 {
-    if(title.length() == 0)
+    if(jobTitle.length() == 0)
         close = false;
     else if(company.length() == 0)
         close = false;
@@ -193,7 +222,7 @@ void NewJob::closeEvent(QCloseEvent *event)
         if(changed)
         {
             QMessageBox msg;
-            msg.setWindowTitle("Jobber");
+            msg.setWindowTitle(winTitle);
             msg.setStandardButtons(msg.Yes);
             msg.addButton(msg.Cancel);
             msg.addButton(msg.No);
@@ -207,7 +236,7 @@ void NewJob::closeEvent(QCloseEvent *event)
                 {
                     // Lukker vinduet.
                     QMessageBox msg;
-                    msg.setWindowTitle("Jobber");
+                    msg.setWindowTitle(winTitle);
                     msg.setIcon(msg.Information);
                     msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
                     msg.exec();
@@ -226,7 +255,7 @@ void NewJob::closeEvent(QCloseEvent *event)
             {
                 // Lukker vinduet.
                 QMessageBox msg;
-                msg.setWindowTitle("Jobber");
+                msg.setWindowTitle(winTitle);
                 msg.setIcon(msg.Information);
                 msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
                 msg.exec();
@@ -245,7 +274,7 @@ void NewJob::closeEvent(QCloseEvent *event)
  */
 void NewJob::setTitle(QString newTitle)
 {
-    title = newTitle;
+    jobTitle = newTitle;
 }
 
 /**
@@ -294,7 +323,7 @@ void NewJob::setDate(QString newDate)
  */
 QString NewJob::getTitle()
 {
-    return title;
+    return jobTitle;
 }
 
 /**

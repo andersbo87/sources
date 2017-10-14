@@ -1,3 +1,27 @@
+/*
+Copyright (c) 2017, Anders Bolt-Evensen
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ANDERS BOLT-EVENSEN BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #include "connectpsql.h"
 #include "ui_connectpsql.h"
 #include "mainwindow.h"
@@ -7,12 +31,14 @@
  * @brief connectPsql::connectPsql
  * @param parent
  */
-connectPsql::connectPsql(QWidget *parent) :
+connectPsql::connectPsql(QString windowTitle, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::connectPsql)
 {
+    winTitle = windowTitle;
+    p = new psql(winTitle); // Ikke verdens beste idé å gjøre denne "offentlig", men for enkelthetens skyld, i og med at jeg er ny…
     ui->setupUi(this);
-    setFixedSize(size());
+    setFixedHeight(height());
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Koble til");
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
@@ -22,7 +48,7 @@ connectPsql::connectPsql(QWidget *parent) :
     ui->lineEdit_Host->setFocusPolicy(Qt::StrongFocus);
     ui->lineEdit_Host->setFocus();
     this->setMinimumSize(400,185);
-    this->setMaximumSize(400,185);
+    //this->setMaximumSize(400,185);
 }
 
 void connectPsql::accept()
@@ -35,7 +61,7 @@ void connectPsql::accept()
     {
         QMessageBox msg;
         msg.setIcon(msg.Information);
-        msg.setWindowTitle("Jobber");
+        msg.setWindowTitle(winTitle);
         msg.setText("Oppkoblingen til databasen mislyktes.");
         msg.exec();
     }
