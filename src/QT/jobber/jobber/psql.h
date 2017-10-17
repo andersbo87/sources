@@ -66,12 +66,18 @@ public:
     bool updateCountry(QString countryName, int countryID);
     bool updateStatus(QString statusname, int statusID);
 
+    // Metoder som sletter data fra databasen
+    bool deleteApplication(int applicationID);
+    bool deleteCity(int cityID);
+    bool deleteCountry(int countryID);
+    bool deleteStatus(int statusID);
+
     // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
     int getApplicationID(QString qry);
     int getCityID(int applicationID);
     int getCountryID(int countryID);
     int getStatusID(int applicationID);
-    QLinkedList<int> fillList(const char *sqlSporring);
+    QList<int> fillList(const char *sqlSporring);
     QString getCityName(int cityNumber);
     QString getCompany(int applicationID);
     QString getCountryName(int countryID);

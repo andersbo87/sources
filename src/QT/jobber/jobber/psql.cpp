@@ -86,26 +86,43 @@ void psql::setHost(QString newHost)
     host = newHost;
 }
 
+/*
+ * Metoder som setter data inn i databasen:
+*/
+
 /**
- * @brief psql::insertCountry Inserts a new country into the database
- * @param countryName The name of the new country.
+ * @brief psql::insertApplication Inserts a new job application to the database.
+ * @param title The title of the new job.
+ * @param company The employer company
+ * @param cityID The ID of the city where the job is located.
+ * @param statusID The status of the new job. Can be (in Norwegian) 1 (registrert), 2 (sendt), 3 (interessert, mulig intervju), 4 (avvist)
+ * @param date The deadline of the new job application
  * @return True on success and false on failure.
  */
-bool psql::insertCountry(QString countryName)
+bool psql::insertApplication(QString title, QString company, int cityID, int statusID, QString date)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        string stmt = "";
-        QString insertStmt = "INSERT INTO land (land) VALUES('";
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString insertStatement = "INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist) VALUES('";
         ostringstream oss;
-        oss << stmt << insertStmt.toStdString();
-        oss << stmt << countryName.toStdString();
-        oss << stmt << "')";
-        pqxx::work wk(conn);
-        wk.exec(oss.str());
-        wk.commit();
-        conn.disconnect();
+        oss << statement << insertStatement.toStdString();
+        oss << statement << title.toStdString();
+        oss << statement << "', '";
+        oss << statement << company.toStdString();
+        oss << statement << "', ";
+        oss << statement << cityID;
+        oss << statement << ", ";
+        oss << statement << statusID;
+        oss << statement << ", '";
+        oss << statement << date.toStdString();
+        oss << statement << "')";
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
         return true;
     }
     catch(std::exception &e)
@@ -113,7 +130,7 @@ bool psql::insertCountry(QString countryName)
         QMessageBox msg;
         msg.setIcon(msg.Information);
         msg.setWindowTitle(winTitle);
-        msg.setText("Noe er galt: " + QString::fromStdString(e.what()));
+        msg.setText(e.what());
         msg.exec();
         return false;
     }
@@ -155,25 +172,63 @@ bool psql::insertCity(QString cityName, int countryID)
     }
 }
 
-bool psql::updateCountry(QString countryName, int countryID)
+/**
+ * @brief psql::insertCountry Inserts a new country into the database
+ * @param countryName The name of the new country.
+ * @return True on success and false on failure.
+ */
+bool psql::insertCountry(QString countryName)
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        string statement = "";
-        QString insertStatement = "UPDATE land SET land = '";
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string stmt = "";
+        QString insertStmt = "INSERT INTO land (land) VALUES('";
         ostringstream oss;
-        oss << statement << insertStatement.toStdString();
-        oss << statement << countryName.toStdString();
-        oss << statement << "' where landid = ";
-        oss << statement << countryID;
-        pqxx::work W(C);
-        W.exec(oss.str());
-        W.commit();
-        C.disconnect();
+        oss << stmt << insertStmt.toStdString();
+        oss << stmt << countryName.toStdString();
+        oss << stmt << "')";
+        pqxx::work wk(conn);
+        wk.exec(oss.str());
+        wk.commit();
+        conn.disconnect();
         return true;
     }
-    catch(exception &e){
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Noe er galt: " + QString::fromStdString(e.what()));
+        msg.exec();
+        return false;
+    }
+}
+
+/**
+ * @brief psql::insertStatus Inserts a new status to the database.
+ * @param statusName The new status name
+ * @return True on success and false on failure
+ */
+bool psql::insertStatus(QString statusName)
+{
+    try
+    {
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString insertStatement = "INSERT INTO status (status) values('";
+        ostringstream oss;
+        oss << statement << insertStatement.toStdString(); // Konverterer teksten i $insertStatement fra QString til std::string
+        oss << statement << statusName.toStdString();
+        oss << statement << "')";
+        pqxx::work wk(conn);
+        wk.exec(oss.str());
+        wk.commit();
+        conn.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
         msg.setWindowTitle(winTitle);
@@ -183,63 +238,9 @@ bool psql::updateCountry(QString countryName, int countryID)
     }
 }
 
-bool psql::updateStatus(QString statusname, int statusID)
-{
-    try
-    {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        string statement = "";
-        QString insertStatement = "UPDATE status SET status = '";
-        ostringstream oss;
-        oss << statement << insertStatement.toStdString();
-        oss << statement << statusname.toStdString();
-        oss << statement << "' where statusid = ";
-        oss << statement << statusID;
-        pqxx::work W(C);
-        W.exec(oss.str());
-        W.commit();
-        C.disconnect();
-        return true;
-    }
-    catch(exception &e){
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
-        msg.exec();
-        return false;
-    }
-}
-
-bool psql::updateCity(QString cityName, int countryID, int id)
-{
-    try
-    {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        string statement = "";
-        QString insertStatement = "UPDATE sted SET stedsnavn = '";
-        ostringstream oss;
-        oss << statement << insertStatement.toStdString();
-        oss << statement << cityName.toStdString();
-        oss << statement << "', landid = ";
-        oss << statement << countryID;
-        oss << statement << " where stedid = ";
-        oss << statement << id;
-        pqxx::work W(C);
-        W.exec(oss.str());
-        W.commit();
-        C.disconnect();
-        return true;
-    }
-    catch(exception &e){
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
-        msg.exec();
-        return false;
-    }
-}
+/*
+ * Metoder som oppdaterer data i databasen:
+*/
 
 /**
  * @brief psql::updateApplication: Updates the current job application
@@ -289,30 +290,27 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
     }
 }
 
-/**
- * @brief psql::insertStatus Inserts a new status to the database.
- * @param statusName The new status name
- * @return True on success and false on failure
- */
-bool psql::insertStatus(QString statusName)
+bool psql::updateCity(QString cityName, int countryID, int id)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         string statement = "";
-        QString insertStatement = "INSERT INTO status (status) values('";
+        QString insertStatement = "UPDATE sted SET stedsnavn = '";
         ostringstream oss;
-        oss << statement << insertStatement.toStdString(); // Konverterer teksten i $insertStatement fra QString til std::string
-        oss << statement << statusName.toStdString();
-        oss << statement << "')";
-        pqxx::work wk(conn);
-        wk.exec(oss.str());
-        wk.commit();
-        conn.disconnect();
+        oss << statement << insertStatement.toStdString();
+        oss << statement << cityName.toStdString();
+        oss << statement << "', landid = ";
+        oss << statement << countryID;
+        oss << statement << " where stedid = ";
+        oss << statement << id;
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
         return true;
     }
-    catch(std::exception &e)
-    {
+    catch(exception &e){
         QMessageBox msg;
         msg.setIcon(msg.Warning);
         msg.setWindowTitle(winTitle);
@@ -323,47 +321,201 @@ bool psql::insertStatus(QString statusName)
 }
 
 /**
- * @brief psql::insertApplication Inserts a new job application to the database.
- * @param title The title of the new job.
- * @param company The employer company
- * @param cityID The ID of the city where the job is located.
- * @param statusID The status of the new job. Can be (in Norwegian) 1 (registrert), 2 (sendt), 3 (interessert, mulig intervju), 4 (avvist)
- * @param date The deadline of the new job application
+ * @brief psql::updateCountry Updates an existing country.
+ * @param countryName The new country name.
+ * @param countryID The ID of the country to be updated.
  * @return True on success and false on failure.
  */
-bool psql::insertApplication(QString title, QString company, int cityID, int statusID, QString date)
+bool psql::updateCountry(QString countryName, int countryID)
 {
     try
     {
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         string statement = "";
-        QString insertStatement = "INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist) VALUES('";
+        QString insertStatement = "UPDATE land SET land = '";
         ostringstream oss;
         oss << statement << insertStatement.toStdString();
-        oss << statement << title.toStdString();
-        oss << statement << "', '";
-        oss << statement << company.toStdString();
-        oss << statement << "', ";
-        oss << statement << cityID;
-        oss << statement << ", ";
-        oss << statement << statusID;
-        oss << statement << ", '";
-        oss << statement << date.toStdString();
-        oss << statement << "')";
-
+        oss << statement << countryName.toStdString();
+        oss << statement << "' where landid = ";
+        oss << statement << countryID;
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
         C.disconnect();
         return true;
     }
+    catch(exception &e){
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
+        msg.exec();
+        return false;
+    }
+}
+
+/**
+ * @brief psql::updateStatus Updates an existing status.
+ * @param statusname The new status name.
+ * @param statusID The ID of the status to be updated.
+ * @return True on success and false on failure.
+ */
+bool psql::updateStatus(QString statusname, int statusID)
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString insertStatement = "UPDATE status SET status = '";
+        ostringstream oss;
+        oss << statement << insertStatement.toStdString();
+        oss << statement << statusname.toStdString();
+        oss << statement << "' where statusid = ";
+        oss << statement << statusID;
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(exception &e){
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
+        msg.exec();
+        return false;
+    }
+}
+
+/*
+ * Meotder som sletter data fra databasen.
+*/
+
+/**
+ * @brief psql::deleteApplication Removes an application from the database.
+ * @param applicationID The ID of the application to be removed.
+ * @return True on successful removal and false otherwise.
+ */
+bool psql::deleteApplication(int applicationID)
+{
+    try
+    {
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string SQL;
+        QString stmt="DELETE FROM soknad WHERE soknadid=";
+        ostringstream oss;
+        oss << SQL << stmt.toStdString();
+        oss << SQL << applicationID;
+        pqxx::work wk(conn);
+        wk.exec(oss.str());
+        wk.commit();
+        conn.disconnect();
+        return true;
+    }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
+        QMessageBox error;
+        error.setIcon(error.Warning);
+        error.setWindowTitle(winTitle);
+        error.setText(e.what());
+        error.exec();
+        return false;
+    }
+}
+
+/**
+ * @brief psql::deleteCity Deletes an existing city from the database.
+ * @param cityID The unique identification number of the city to be removed.
+ * @return True on successful removal and false otherwise.
+ */
+bool psql::deleteCity(int cityID)
+{
+    try
+    {
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string SQL;
+        QString stmt = "DELETE FROM sted WHERE stedid=";
+        ostringstream oss;
+        oss << SQL << stmt.toStdString();
+        oss << SQL << cityID;
+        pqxx::work wk(conn);
+        wk.exec(oss.str());
+        wk.commit();
+        conn.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox error;
+        error.setIcon(error.Warning);
+        error.setWindowTitle(winTitle);
+        error.setText(e.what());
+        error.exec();
+        return false;
+    }
+}
+
+/**
+ * @brief psql::deleteCountry Deletes an existing country from the database.
+ * @param countryID The unique number of the country in question.
+ * @return True on successful removal and false otherwise.
+ */
+bool psql::deleteCountry(int countryID)
+{
+    try
+    {
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string SQL;
+        QString stmt = "DELETE FROM land WHERE landid=";
+        ostringstream oss;
+        oss << SQL << stmt.toStdString();
+        oss << SQL << countryID;
+        pqxx::work wk(conn);
+        wk.exec(oss.str());
+        wk.commit();
+        conn.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox error;
+        error.setIcon(error.Warning);
+        error.setWindowTitle(winTitle);
+        error.setText(e.what());
+        error.exec();
+        return false;
+    }
+}
+
+/**
+ * @brief psql::deleteStatus Deletes an existing status from the database.
+ * @param statusID The identification number of the status to be deleted.
+ * @return True on successful removal and false otherwise.
+ */
+bool psql::deleteStatus(int statusID)
+{
+    try
+    {
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string SQL;
+        QString stmt = "DELETE FROM status WHERE statusid=";
+        ostringstream oss;
+        oss << SQL << stmt.toStdString();
+        oss << SQL << statusID;
+        pqxx::work wk(conn);
+        wk.exec(oss.str());
+        wk.commit();
+        conn.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox error;
+        error.setIcon(error.Warning);
+        error.setWindowTitle(winTitle);
+        error.setText(e.what());
+        error.exec();
         return false;
     }
 }
@@ -402,12 +554,12 @@ bool psql::connectDatabase()
  * @param sqlSporring The SQL query to be executed.
  * @return
  */
-QLinkedList<int> psql::fillList(const char *sqlSporring)
+QList<int> psql::fillList(const char *sqlSporring)
 {
     try
     {
-        QLinkedList<int> list;// = new QLinkedList<int>();
-        QLinkedList<int>::iterator iterator;
+        QList<int> list;// = new QLinkedList<int>();
+        QList<int>::iterator iterator;
 
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         if(C.is_open())
@@ -417,8 +569,12 @@ QLinkedList<int> psql::fillList(const char *sqlSporring)
             int i = 1;
             for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c)
             {
-                list.append(i);
-                i++;
+                for(pqxx::result::tuple::const_iterator field = c.begin(); field != c.end(); ++field)
+                {
+                    QString s = QString::fromStdString(field.c_str());
+                    list.insert(i,s.toInt());
+                    i++;
+                }
             }
             C.disconnect();
             return list;
