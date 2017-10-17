@@ -77,6 +77,8 @@ private slots:
     void buttonPreviousClicked();
     void buttonNextClicked();
     void buttonLastClicked();
+    void buttonSaveClicked();
+    void buttonDeleteClicked();
 };
 
 #endif // SHOWCITIES_H

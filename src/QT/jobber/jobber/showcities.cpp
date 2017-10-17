@@ -41,6 +41,8 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->comboBoxCityID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCityIDChanged()));
     connect(ui->comboBoxCountryID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCountryIDChanged()));
     connect(ui->lineEditCityName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCityNameChanged()));
+    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()));
+    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()));
     getCities();
     getCountryIDs();
     getCity(1);
@@ -104,7 +106,7 @@ void ShowCities::getCountryIDs()
 {
     try
     {
-        QLinkedList<int> list;
+        QList<int> list;
         list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
         for(int i=0; i < list.count(); i++)
         {
@@ -125,11 +127,12 @@ void ShowCities::getCities()
 {
     try
     {
-        QLinkedList<int> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
-        int i;
-        for(i= 0; i < list.count(); i++)
+        QList<int> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        int i = 0;
+        for(QList<int>::iterator iter = list.begin(); iter != list.end(); iter++)
         {
-            ui->comboBoxCityID->addItem(QString::number(i+1));
+            ui->comboBoxCityID->addItem(QString::number(list.value(i)));
+            i++;
         }
         lastID = i;
     }
@@ -186,6 +189,54 @@ void ShowCities::checkChanges()
     }
 }
 
+void ShowCities::buttonDeleteClicked()
+{
+    QMessageBox confirm;
+    confirm.setWindowTitle(winTitle);
+    confirm.setIcon(confirm.Question);
+    confirm.setStandardButtons(confirm.Yes);
+    confirm.addButton(confirm.No);
+    confirm.setDefaultButton(confirm.Yes);
+    confirm.setText("Du er i ferd med å fjerne " + getCityName() + " fra databasen. Dette kan ikke angres. Vil du fortsette?");
+    if(confirm.exec() == QMessageBox::Yes)
+    {
+        if(p->deleteCity(getCityID()))
+        {
+            QMessageBox success;
+            success.setWindowTitle(winTitle);
+            success.setIcon(success.Information);
+            success.setText("Byen " + getCityName() + " ble fjernet fra databasen.");
+            success.exec();
+            ui->comboBoxCityID->removeItem(ui->comboBoxCityID->currentIndex());
+            setCityID(ui->comboBoxCityID->currentText().toInt());
+            lastID = lastID -1;
+            if(ui->comboBoxCityID->currentText().toInt() == lastID)
+            {
+                ui->btnNext->setEnabled(false);
+                ui->btnLast->setEnabled(false);
+            }
+            if(getCityID() == 1)
+            {
+                ui->btnFirst->setEnabled(false);
+                ui->btnPrev->setEnabled(false);
+            }
+        }
+        setChanged(false);
+    }
+}
+
+void ShowCities::buttonSaveClicked()
+{
+    if(p->updateCity(getCityName(), getCountryID(), getCityID()))
+    {
+        QMessageBox success;
+        success.setWindowTitle(winTitle);
+        success.setIcon(success.Information);
+        success.setText("Stedet ble oppdatert og har følgende verdier:\nStedid: " + QString::number(getCityID()) + "\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
+        success.exec();
+    }
+}
+
 void ShowCities::buttonFirstClicked()
 {
     checkChanges();
@@ -199,7 +250,8 @@ void ShowCities::buttonFirstClicked()
 void ShowCities::buttonLastClicked()
 {
     checkChanges();
-    getCity(lastID);
+    ui->comboBoxCityID->setCurrentIndex(ui->comboBoxCityID->count() -1);
+    getCity(ui->comboBoxCityID->currentText().toInt());
     ui->btnFirst->setEnabled(true);
     ui->btnLast->setEnabled(false);
     ui->btnNext->setEnabled(false);
@@ -209,8 +261,12 @@ void ShowCities::buttonLastClicked()
 void ShowCities::buttonNextClicked()
 {
     checkChanges();
-    int currentCity = getCityID();
-    getCity(currentCity +1);
+    int currentCity = getCityID(), counter = 1;
+    while(QString::compare(p->getCityName(currentCity - counter), "", Qt::CaseSensitive) == 0)
+    {
+        counter ++;
+    }
+    getCity(currentCity + counter);
     ui->btnFirst->setEnabled(true);
     ui->btnPrev->setEnabled(true);
     if(currentCity + 1 == lastID)
@@ -223,8 +279,12 @@ void ShowCities::buttonNextClicked()
 void ShowCities::buttonPreviousClicked()
 {
     checkChanges();
-    int currentCity = getCityID();
-    getCity(currentCity -1);
+    int currentCity = getCityID(), counter=1;
+    while(QString::compare(p->getCityName(currentCity - counter), "", Qt::CaseSensitive) == 0)
+    {
+        counter ++;
+    }
+    getCity(currentCity -counter);
     ui->btnLast->setEnabled(true);
     ui->btnNext->setEnabled(true);
     if(currentCity - 1 == 1)

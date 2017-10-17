@@ -46,6 +46,8 @@ ShowStatuses::ShowStatuses(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()));
     connect(ui->comboBoxStatusID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxStatusIDChanged()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(lineEditStatusnameChanged()));
+    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()));
+    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(btnSaveClicked()));
     getStatuses();
     getStatus(1);
     changed = false;
@@ -121,14 +123,66 @@ void ShowStatuses::getStatuses()
 {
     try
     {
-        QLinkedList<int> list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
+        QList<int> list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
         int i = 0;
-        while(i < list.count())
+        QList<int>::iterator iter = list.begin();
+        i = 0;
+        while(iter != list.end())
         {
-            ui->comboBoxStatusID->addItem(QString::number(i+1));
+            ui->comboBoxStatusID->addItem(QString::number(list.value(i)));
             i++;
+            iter++;
         }
         lastID = i;
+        /*while(i <= list.count())
+        {
+            QString s = p->getStatusName(i);
+            // Tar høyde for at brukeren kan ha fjernet ett eller flere elementer midt i lista:
+            if(QString::compare(s, "",Qt::CaseSensitive) != 0)
+            {
+                ui->comboBoxStatusID->addItem(QString::number(i),QString::number(i));
+            }
+            else
+            {
+                while(QString::compare(p->getStatusName(i), "",Qt::CaseSensitive) == 0)
+                {
+                     // Dersom brukeren har fjernet ett eller flere elementer i lista, slik at den for eksempel er
+                     // 1, 2, 4, 5, 8, 9, øker vi telleren for hvert "tomme element". Når vi kommer til 3, øker vi telleren slik
+                     // at systemet går rett til 4. Kommer vi til element 6, øker vi slik at systemet går rett til element 8.
+
+                    i++;
+                }
+                ui->comboBoxStatusID->addItem(QString::number(i),QString::number(i));
+            }
+            i++;
+        }
+
+        int itmsIncomboBox = ui->comboBoxStatusID->count();
+        fprintf(stdout, "itmsIncomboBox: %d\ni: %d\n", itmsIncomboBox, i);
+        if(i-itmsIncomboBox == 1)
+            lastID = itmsIncomboBox;
+        else
+            lastID = i;
+        //lst.value(lst.last());
+        // Følgende linjer burde være unødvendig, men har opplevd at siste element i databasetabellen ikke ble tatt med.
+        //if(QString::compare(p->getStatusName(list.value(list.last())), "",Qt::CaseSensitive) != 0)
+        //{
+        //    ui->comboBoxStatusID->addItem(QString::number(list.value(list.last())), list.value(list.last()));
+            //ui->comboBoxStatusID->addItem(QString::number(list.value(list.last()),QString::number(list.value(list.last()))));
+        //}
+        //ui->comboBoxStatusID->addItem(QString::number(list.last()));
+
+
+
+        QList<int>::iterator iter = list.begin();
+        int j=0;
+        while(iter != list.end())
+        {
+            fprintf(stdout, "%d\n",list.value(j));
+            j++;
+            iter++;
+        }*/
+
     }
     catch(std::exception &e)
     {
@@ -192,6 +246,7 @@ bool ShowStatuses::isChanged()
  */
 void ShowStatuses::setChanged(bool change)
 {
+    ui->btnSave->setEnabled(change);
     changed = change;
 }
 
@@ -213,11 +268,11 @@ void ShowStatuses::checkChanges()
         {
             if(p->updateStatus(getStatusName(), getStatusID()))
             {
-                QMessageBox msg2;
-                msg2.setWindowTitle(winTitle);
-                msg2.setIcon(msg2.Information);
-                msg2.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
-                msg2.exec();
+                QMessageBox success;
+                success.setWindowTitle(winTitle);
+                success.setIcon(success.Information);
+                success.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
+                success.exec();
             }
         }
         setChanged(false);
@@ -225,20 +280,70 @@ void ShowStatuses::checkChanges()
 }
 
 // Metoder definert under "private slots":
+void ShowStatuses::btnSaveClicked()
+{
+    if(p->updateStatus(getStatusName(), getStatusID()))
+    {
+        QMessageBox msg;
+        msg.setWindowTitle(winTitle);
+        msg.setIcon(msg.Information);
+        msg.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
+        msg.exec();
+    }
+    setChanged(false);
+}
+
+void ShowStatuses::btnDeleteClicked()
+{
+    QMessageBox confirm;
+    confirm.setWindowTitle(winTitle);
+    confirm.setIcon(confirm.Question);
+    confirm.setStandardButtons(confirm.Yes);
+    confirm.addButton(confirm.No);
+    confirm.setDefaultButton(confirm.Yes);
+    confirm.setText("Du er i ferd med å fjerne statusen \"" + ui->lineEdit->text() + "\". Denne handlingen kan ikke angres. Er du sikker på at du vil fortsette?");
+    if(confirm.exec() == QMessageBox::Yes)
+    {
+        if(p->deleteStatus(getStatusID()))
+        {
+            QMessageBox success;
+            success.setWindowTitle(winTitle);
+            success.setIcon(success.Information);
+            success.setText("Statusen \"" + getStatusName() + "\" ble fjernet fra databasen.");
+            success.exec();
+            ui->comboBoxStatusID->removeItem(ui->comboBoxStatusID->currentIndex());
+            lastID = lastID -1;
+            setStatusID(ui->comboBoxStatusID->currentText().toInt());
+            if(ui->comboBoxStatusID->currentText().toInt() == lastID)
+            {
+                ui->btnNext->setEnabled(false);
+                ui->btnLast->setEnabled(false);
+            }
+            if(getStatusID() == 1)
+            {
+                ui->btnFirst->setEnabled(false);
+                ui->btnPrev->setEnabled(false);
+            }
+        }
+        setChanged(false);
+    }
+}
+
 void ShowStatuses::buttonFirstClicked()
 {
     checkChanges();
     getStatus(1);
     ui->btnFirst->setEnabled(false);
-    ui->btnLast->setEnabled(false);
+    ui->btnLast->setEnabled(true);
     ui->btnNext->setEnabled(true);
-    ui->btnPrev->setEnabled(true);
+    ui->btnPrev->setEnabled(false);
 }
 
 void ShowStatuses::buttonLastClicked()
 {
     checkChanges();
-    getStatus(lastID);
+    ui->comboBoxStatusID->setCurrentIndex(ui->comboBoxStatusID->count()-1);
+    getStatus(ui->comboBoxStatusID->currentText().toInt());
     ui->btnFirst->setEnabled(true);
     ui->btnLast->setEnabled(false);
     ui->btnNext->setEnabled(false);
@@ -248,8 +353,13 @@ void ShowStatuses::buttonLastClicked()
 void ShowStatuses::buttonNextClicked()
 {
     checkChanges();
-    int currStatus = getStatusID();
-    getStatus(currStatus +1);
+    int currStatus = getStatusID(), counter = 1;
+    while(QString::compare(p->getStatusName(currStatus + counter), "", Qt::CaseSensitive) == 0)
+    {
+        fprintf(stdout, "Må gå enda lenger. Teller: %d\n", counter);
+        counter++;
+    }
+    getStatus(currStatus +counter);
     ui->btnFirst->setEnabled(true);
     ui->btnPrev->setEnabled(true);
     if(currStatus +1 == lastID)
@@ -261,9 +371,15 @@ void ShowStatuses::buttonNextClicked()
 
 void ShowStatuses::buttonPreviousClicked()
 {
+    int counter =1;
     checkChanges();
     int currStatus = getStatusID();
-    getStatus(currStatus -1);
+    while(QString::compare(p->getStatusName(currStatus - counter), "", Qt::CaseSensitive) == 0)
+    {
+        fprintf(stdout, "Må gå enda lenger. Teller: %d\n", counter);
+        counter++;
+    }
+    getStatus(currStatus-counter);
     ui->btnLast->setEnabled(true);
     ui->btnNext->setEnabled(true);
     if(currStatus-1 == 1)
@@ -288,7 +404,7 @@ void ShowStatuses::comboboxStatusIDChanged()
         ui->btnPrev->setEnabled(false);
 
     }
-    else if(currID == lastID)
+    else if(currID == lastID || ui->comboBoxStatusID->currentIndex() == ui->comboBoxStatusID->count()-1)
     {
         ui->btnFirst->setEnabled(true);
         ui->btnLast->setEnabled(false);

@@ -6,44 +6,34 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>356</width>
+    <width>377</width>
     <height>150</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>377</width>
+    <height>150</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Vis innlagte statuser</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" colspan="5">
-     <widget class="QLabel" name="labelInfo">
-      <property name="text">
-       <string>Her kan du se de ulike statusene som er registrert i systemet. Vil du endre på ID-en til en status, må det gjøres i kommandolinja.</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="2">
+    <item row="1" column="0">
      <widget class="QLabel" name="labelStatusID">
       <property name="text">
        <string>StatusID</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="2" colspan="2">
-     <widget class="QComboBox" name="comboBoxStatusID"/>
-    </item>
-    <item row="2" column="0" colspan="2">
+    <item row="2" column="0">
      <widget class="QLabel" name="labelStatus">
       <property name="text">
        <string>Status</string>
       </property>
      </widget>
-    </item>
-    <item row="2" column="2" colspan="3">
-     <widget class="QLineEdit" name="lineEdit"/>
     </item>
     <item row="3" column="0">
      <widget class="QPushButton" name="btnFirst">
@@ -55,7 +45,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="1" colspan="2">
+    <item row="3" column="1">
      <widget class="QPushButton" name="btnPrev">
       <property name="enabled">
        <bool>false</bool>
@@ -65,19 +55,52 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="3">
+    <item row="3" column="2">
      <widget class="QPushButton" name="btnNext">
       <property name="text">
        <string>&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="4">
+    <item row="3" column="3">
      <widget class="QPushButton" name="btnLast">
       <property name="text">
        <string>&gt;&gt;</string>
       </property>
      </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QPushButton" name="btnSave">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Lagre</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="5">
+     <widget class="QPushButton" name="btnDelete">
+      <property name="text">
+       <string>Slett</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="5">
+     <widget class="QLabel" name="labelInfo">
+      <property name="text">
+       <string>Her kan du se de ulike statusene som er registrert i systemet. Vil du endre på ID-en til en status, må det gjøres i kommandolinja.</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="3">
+     <widget class="QComboBox" name="comboBoxStatusID"/>
+    </item>
+    <item row="2" column="1" colspan="3">
+     <widget class="QLineEdit" name="lineEdit"/>
     </item>
    </layout>
   </widget>

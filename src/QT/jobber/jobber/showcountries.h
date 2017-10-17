@@ -72,6 +72,8 @@ private slots:
     void buttonPreviousClicked();
     void comboboxCountryIDChanged();
     void lineEditCountrynameChanged();
+    void btnSaveClicked();
+    void btnDeleteClicked();
 };
 
 #endif // SHOWCOUNTRIES_H

@@ -83,6 +83,8 @@ private slots:
     void buttonPreviousClicked();
     void comboboxStatusIDChanged();
     void lineEditStatusnameChanged();
+    void btnSaveClicked();
+    void btnDeleteClicked();
 };
 
 #endif // SHOWSTATUSES_H

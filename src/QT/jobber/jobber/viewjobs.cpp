@@ -51,6 +51,7 @@ ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()));
     connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()));
     connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()));
+    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()));
 }
 
 ViewJobs::~ViewJobs()
@@ -188,8 +189,8 @@ void ViewJobs::buttonSaveClicked()
         msg2.exec();
         setChanged(false);
     }
-
 }
+
 
 void ViewJobs::buttonFirstClicked()
 {
@@ -201,10 +202,48 @@ void ViewJobs::buttonFirstClicked()
     ui->btnLast->setEnabled(true);
 }
 
+void ViewJobs::buttonDeleteClicked()
+{
+    QMessageBox confirm;
+    confirm.setWindowTitle(winTitle);
+    confirm.setIcon(confirm.Question);
+    confirm.setStandardButtons(confirm.Yes);
+    confirm.addButton(confirm.No);
+    confirm.setDefaultButton(confirm.Yes);
+    confirm.setText("Du er i ferd med å slette jobbsøknaden med ID " + QString::number(getApplicationID()) + " fra databasen. Denne handlingen kan ikke angres. Er du sikker på at du vil fortsette?");
+    if(confirm.exec() == QMessageBox::Yes)
+    {
+        if(p->deleteApplication(getApplicationID()))
+        {
+            QMessageBox success;
+            success.setWindowTitle(winTitle);
+            success.setIcon(success.Information);
+            success.setText("Søknaden med ID " + QString::number(getApplicationID()) + " ble fjernet fra databasen.");
+            success.exec();
+            ui->comboBoxApplicationID->removeItem(ui->comboBoxApplicationID->currentIndex());
+            lastid = lastid-1;
+            setApplicationID(ui->comboBoxApplicationID->currentText().toInt());
+            if(ui->comboBoxApplicationID->currentText().toInt() == lastid)
+            {
+                ui->btnNext->setEnabled(false);
+                ui->btnLast->setEnabled(false);
+                //ui->comboBoxApplicationID->set
+            }
+            if(getApplicationID() == 1)
+            {
+                ui->btnFirst->setEnabled(false);
+                ui->btnPrev->setEnabled(false);
+            }
+        }
+        setChanged(false);
+    }
+}
+
 void ViewJobs::buttonLastClicked()
 {
     checkChanges();
-    getApplication(lastid);
+    ui->comboBoxApplicationID->setCurrentIndex(ui->comboBoxApplicationID->count()-1);
+    getApplication(ui->comboBoxApplicationID->currentText().toInt());
     ui->btnFirst->setEnabled(true);
     ui->btnLast->setEnabled(false);
     ui->btnNext->setEnabled(false);
@@ -214,8 +253,12 @@ void ViewJobs::buttonLastClicked()
 void ViewJobs::buttonNextClicked()
 {
     checkChanges();
-    int currentApplication = getApplicationID();
-    getApplication(currentApplication + 1);
+    int currentApplication = getApplicationID(), counter = 1;
+    while(QString::compare(p->getCompany(currentApplication + counter), "", Qt::CaseSensitive) == 0)
+    {
+        counter++;
+    }
+    getApplication(currentApplication + counter);
     ui->btnFirst->setEnabled(true);
     ui->btnPrev->setEnabled(true);
     if(currentApplication + 1 == lastid)
@@ -228,8 +271,12 @@ void ViewJobs::buttonNextClicked()
 void ViewJobs::buttonPreviousClicked()
 {
     checkChanges();
-    int currentApplication = getApplicationID();
-    getApplication(currentApplication - 1);
+    int currentApplication = getApplicationID(), counter = 1;
+    while(QString::compare(p->getCompany(currentApplication - counter), "", Qt::CaseSensitive) == 0)
+    {
+        counter++;
+    }
+    getApplication(currentApplication - counter);
     ui->btnLast->setEnabled(true);
     ui->btnNext->setEnabled(true);
     if(currentApplication -1 == 1)
@@ -254,7 +301,7 @@ void ViewJobs::comboboxApplicationIDChanged()
         ui->btnLast->setEnabled(true);
         ui->btnNext->setEnabled(true);
     }
-    else if(id == lastid)
+    else if(ui->comboBoxApplicationID->currentIndex() == ui->comboBoxApplicationID->count()-1)
     {
         ui->btnFirst->setEnabled(true);
         ui->btnPrev->setEnabled(true);
@@ -277,7 +324,7 @@ void ViewJobs::getCityIDs()
 {
     try
     {
-        QLinkedList<int> list;// = new QLinkedList<int>();
+        QList<int> list;// = new QLinkedList<int>();
         list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
         int i = 0;
         while(i < list.count())
@@ -303,7 +350,7 @@ void ViewJobs::getStatusIDs()
 {
     try
     {
-        QLinkedList<int> list;
+        QList<int> list;
         list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
         int i = 0;
         while(i < list.count())
@@ -437,12 +484,15 @@ void ViewJobs::getApplications()
 {
     try
     {
-        QLinkedList<int> list;
+        QList<int> list;
         list = p->fillList("SELECT soknadid FROM soknad ORDER BY soknadid ASC");
-        int i;
-        for(i = 0; i < list.count(); i++)
+        int i = 0;
+        QList<int>::iterator iter = list.begin();
+        while(iter != list.end())
         {
-            ui->comboBoxApplicationID->addItem(QString::number(i+1));
+            ui->comboBoxApplicationID->addItem(QString::number(list.value(i)));
+            i++;
+            iter++;
         }
         lastid = i;
     }

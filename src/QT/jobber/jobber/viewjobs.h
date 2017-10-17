@@ -88,6 +88,7 @@ private slots:
     void buttonNextClicked();
     void buttonLastClicked();
     void buttonSaveClicked();
+    void buttonDeleteClicked();
 };
 
 #endif // VIEWJOBS_H
