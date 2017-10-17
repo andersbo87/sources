@@ -98,7 +98,7 @@ void NewJob::getCityIDs()
 {
     try
     {
-        QLinkedList<int> list;// = new QLinkedList<int>();
+        QList<int> list;// = new QLinkedList<int>();
         list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
         int i = 0;
         while(i < list.count())
@@ -124,7 +124,7 @@ void NewJob::getStatusIDs()
 {
     try
     {
-        QLinkedList<int> list;
+        QList<int> list;
         list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
         int i = 0;
         while(i < list.count())

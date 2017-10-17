@@ -59,7 +59,7 @@ void NewCity::getCountryIDs()
 {
     try
     {
-        QLinkedList<int> list;
+        QList<int> list;
         list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
         int i = 0;
         while(i < list.count())
