@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Jobber: NewStatus Class Reference</title>
+<title>jobber: NewStatus Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Jobber
+   <div id="projectname">jobber
    </div>
   </td>
  </tr>
@@ -81,15 +81,21 @@ Inheritance diagram for NewStatus:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a57acfb5d07cc3a3d1e33cd00a7c2ed72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_new_status.html#a57acfb5d07cc3a3d1e33cd00a7c2ed72">NewStatus</a> (<a class="el" href="classpsql.html">psql</a> *pg, QWidget *parent=0)</td></tr>
-<tr class="memdesc:a57acfb5d07cc3a3d1e33cd00a7c2ed72"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_new_status.html" title="The NewStatus class. ">NewStatus</a> <a class="el" href="class_new_status.html" title="The NewStatus class. ">NewStatus</a> class constructor.  <a href="#a57acfb5d07cc3a3d1e33cd00a7c2ed72">More...</a><br /></td></tr>
-<tr class="separator:a57acfb5d07cc3a3d1e33cd00a7c2ed72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a09743191f617f006bc89e4b35984bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_new_status.html#a5a09743191f617f006bc89e4b35984bf">NewStatus</a> (QString windowTitle, <a class="el" href="classpsql.html">psql</a> *pg, QWidget *parent=0)</td></tr>
+<tr class="memdesc:a5a09743191f617f006bc89e4b35984bf"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_new_status.html" title="The NewStatus class. ">NewStatus</a> <a class="el" href="class_new_status.html" title="The NewStatus class. ">NewStatus</a> class constructor.  <a href="#a5a09743191f617f006bc89e4b35984bf">More...</a><br /></td></tr>
+<tr class="separator:a5a09743191f617f006bc89e4b35984bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a861326c3b5c45040b933e4e65a4646e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_new_status.html#a861326c3b5c45040b933e4e65a4646e2">setStatus</a> (QString newStatus)</td></tr>
+<tr class="memdesc:a861326c3b5c45040b933e4e65a4646e2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_new_status.html#a861326c3b5c45040b933e4e65a4646e2" title="NewStatus::setStatus Sets the new status name. ">NewStatus::setStatus</a> Sets the new status name.  <a href="#a861326c3b5c45040b933e4e65a4646e2">More...</a><br /></td></tr>
+<tr class="separator:a861326c3b5c45040b933e4e65a4646e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ea744ad1645c5954000983d50947154"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_new_status.html#a7ea744ad1645c5954000983d50947154">getStatus</a> ()</td></tr>
+<tr class="memdesc:a7ea744ad1645c5954000983d50947154"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_new_status.html#a7ea744ad1645c5954000983d50947154" title="NewStatus::getStatus Gets the current status name. ">NewStatus::getStatus</a> Gets the current status name.  <a href="#a7ea744ad1645c5954000983d50947154">More...</a><br /></td></tr>
+<tr class="separator:a7ea744ad1645c5954000983d50947154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_new_status.html" title="The NewStatus class. ">NewStatus</a> class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a57acfb5d07cc3a3d1e33cd00a7c2ed72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57acfb5d07cc3a3d1e33cd00a7c2ed72">&#9670;&nbsp;</a></span>NewStatus()</h2>
+<a id="a5a09743191f617f006bc89e4b35984bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a09743191f617f006bc89e4b35984bf">&#9670;&nbsp;</a></span>NewStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -100,6 +106,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">NewStatus::NewStatus </td>
           <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>windowTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="classpsql.html">psql</a> *&#160;</td>
           <td class="paramname"><em>pg</em>, </td>
         </tr>
@@ -125,8 +137,56 @@ Public Member Functions</h2></td></tr>
 <p><a class="el" href="class_new_status.html" title="The NewStatus class. ">NewStatus</a> <a class="el" href="class_new_status.html" title="The NewStatus class. ">NewStatus</a> class constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pg</td><td>A pointer to the PostgreSQL database </td></tr>
+    <tr><td class="paramname">windowTitle</td><td>The title to be used with message boxes (QMessageBox) </td></tr>
+    <tr><td class="paramname">pg</td><td>A pointer to the PostgreSQL database class </td></tr>
     <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7ea744ad1645c5954000983d50947154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ea744ad1645c5954000983d50947154">&#9670;&nbsp;</a></span>getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString NewStatus::getStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_new_status.html#a7ea744ad1645c5954000983d50947154" title="NewStatus::getStatus Gets the current status name. ">NewStatus::getStatus</a> Gets the current status name. </p>
+<dl class="section return"><dt>Returns</dt><dd>The status name to be returned. </dd></dl>
+
+</div>
+</div>
+<a id="a861326c3b5c45040b933e4e65a4646e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a861326c3b5c45040b933e4e65a4646e2">&#9670;&nbsp;</a></span>setStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NewStatus::setStatus </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>newStatus</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_new_status.html#a861326c3b5c45040b933e4e65a4646e2" title="NewStatus::setStatus Sets the new status name. ">NewStatus::setStatus</a> Sets the new status name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newStatus</td><td>the name of the new status </td></tr>
   </table>
   </dd>
 </dl>

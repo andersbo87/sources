@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Jobber: psql Class Reference</title>
+<title>jobber: psql Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Jobber
+   <div id="projectname">jobber
    </div>
   </td>
  </tr>
@@ -73,6 +73,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aaff5fe0931dce097850982e44e6361af"><td class="memItemLeft" align="right" valign="top"><a id="aaff5fe0931dce097850982e44e6361af"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>psql</b> (QString windowTitle)</td></tr>
+<tr class="separator:aaff5fe0931dce097850982e44e6361af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecc9fd93dc5ca0c4f4a63d445a36d166"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#aecc9fd93dc5ca0c4f4a63d445a36d166">getUsername</a> ()</td></tr>
 <tr class="memdesc:aecc9fd93dc5ca0c4f4a63d445a36d166"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#aecc9fd93dc5ca0c4f4a63d445a36d166" title="psql::getUsername: Gets the username ">psql::getUsername</a>: Gets the username  <a href="#aecc9fd93dc5ca0c4f4a63d445a36d166">More...</a><br /></td></tr>
 <tr class="separator:aecc9fd93dc5ca0c4f4a63d445a36d166"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -82,51 +85,114 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a95d06ee661db0b9cf72605b983b04613"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a95d06ee661db0b9cf72605b983b04613">getHost</a> ()</td></tr>
 <tr class="memdesc:a95d06ee661db0b9cf72605b983b04613"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a95d06ee661db0b9cf72605b983b04613" title="psql::getHost: Gets the IP address of the host ">psql::getHost</a>: Gets the IP address of the host  <a href="#a95d06ee661db0b9cf72605b983b04613">More...</a><br /></td></tr>
 <tr class="separator:a95d06ee661db0b9cf72605b983b04613"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1488a9e4909abd172651b7be240342cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a1488a9e4909abd172651b7be240342cb">setUsername</a> (QString newUser)</td></tr>
-<tr class="memdesc:a1488a9e4909abd172651b7be240342cb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a1488a9e4909abd172651b7be240342cb" title="psql::setUsername: Sets the new username ">psql::setUsername</a>: Sets the new username  <a href="#a1488a9e4909abd172651b7be240342cb">More...</a><br /></td></tr>
-<tr class="separator:a1488a9e4909abd172651b7be240342cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c29350037550b7e5a5bb8f439c405f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a6c29350037550b7e5a5bb8f439c405f3">setPassword</a> (QString newPassword)</td></tr>
-<tr class="memdesc:a6c29350037550b7e5a5bb8f439c405f3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a6c29350037550b7e5a5bb8f439c405f3" title="psql::setPassword: Sets the new password ">psql::setPassword</a>: Sets the new password  <a href="#a6c29350037550b7e5a5bb8f439c405f3">More...</a><br /></td></tr>
-<tr class="separator:a6c29350037550b7e5a5bb8f439c405f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aefa56fba453cffe18c3ae9d94af092"><td class="memItemLeft" align="right" valign="top"><a id="a3aefa56fba453cffe18c3ae9d94af092"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getRows</b> (string query)</td></tr>
+<tr class="separator:a3aefa56fba453cffe18c3ae9d94af092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96b3b9483f1a642c026d4b5cf505eb75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a96b3b9483f1a642c026d4b5cf505eb75">setHost</a> (QString newHost)</td></tr>
 <tr class="memdesc:a96b3b9483f1a642c026d4b5cf505eb75"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a96b3b9483f1a642c026d4b5cf505eb75" title="psql::setHost: Sets the IP address of the new host ">psql::setHost</a>: Sets the IP address of the new host  <a href="#a96b3b9483f1a642c026d4b5cf505eb75">More...</a><br /></td></tr>
 <tr class="separator:a96b3b9483f1a642c026d4b5cf505eb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a767b85014d9df3eac148730f18888d6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a767b85014d9df3eac148730f18888d6d">insertCity</a> (QString cityName, int countryID)</td></tr>
-<tr class="memdesc:a767b85014d9df3eac148730f18888d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a767b85014d9df3eac148730f18888d6d" title="psql::insertCity Inserts a new city to the database ">psql::insertCity</a> Inserts a new city to the database  <a href="#a767b85014d9df3eac148730f18888d6d">More...</a><br /></td></tr>
-<tr class="separator:a767b85014d9df3eac148730f18888d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a9c4c858ae22eac8a9a4572b16500f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9a9c4c858ae22eac8a9a4572b16500f5">updateApplication</a> (QString title, QString company, int cityID, int statusID, QString date, int id)</td></tr>
-<tr class="memdesc:a9a9c4c858ae22eac8a9a4572b16500f5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9a9c4c858ae22eac8a9a4572b16500f5" title="psql::updateApplication: Updates the current job application ">psql::updateApplication</a>: Updates the current job application  <a href="#a9a9c4c858ae22eac8a9a4572b16500f5">More...</a><br /></td></tr>
-<tr class="separator:a9a9c4c858ae22eac8a9a4572b16500f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4073d4f70f2ae6211ba0328c2008407c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a4073d4f70f2ae6211ba0328c2008407c">insertApplication</a> (QString title, QString company, int cityID, int statusID, QString date)</td></tr>
-<tr class="memdesc:a4073d4f70f2ae6211ba0328c2008407c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a4073d4f70f2ae6211ba0328c2008407c" title="psql::insertApplication Inserts a new job application to the database. ">psql::insertApplication</a> Inserts a new job application to the database.  <a href="#a4073d4f70f2ae6211ba0328c2008407c">More...</a><br /></td></tr>
-<tr class="separator:a4073d4f70f2ae6211ba0328c2008407c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c29350037550b7e5a5bb8f439c405f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a6c29350037550b7e5a5bb8f439c405f3">setPassword</a> (QString newPassword)</td></tr>
+<tr class="memdesc:a6c29350037550b7e5a5bb8f439c405f3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a6c29350037550b7e5a5bb8f439c405f3" title="psql::setPassword: Sets the new password ">psql::setPassword</a>: Sets the new password  <a href="#a6c29350037550b7e5a5bb8f439c405f3">More...</a><br /></td></tr>
+<tr class="separator:a6c29350037550b7e5a5bb8f439c405f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1488a9e4909abd172651b7be240342cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a1488a9e4909abd172651b7be240342cb">setUsername</a> (QString newUser)</td></tr>
+<tr class="memdesc:a1488a9e4909abd172651b7be240342cb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a1488a9e4909abd172651b7be240342cb" title="psql::setUsername: Sets the new username ">psql::setUsername</a>: Sets the new username  <a href="#a1488a9e4909abd172651b7be240342cb">More...</a><br /></td></tr>
+<tr class="separator:a1488a9e4909abd172651b7be240342cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada485c933df77453629e3821ab19fa4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ada485c933df77453629e3821ab19fa4c">connectDatabase</a> ()</td></tr>
 <tr class="memdesc:ada485c933df77453629e3821ab19fa4c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ada485c933df77453629e3821ab19fa4c" title="psql::connectDatabase Connects to the PostgreSQL database. ">psql::connectDatabase</a> Connects to the PostgreSQL database.  <a href="#ada485c933df77453629e3821ab19fa4c">More...</a><br /></td></tr>
 <tr class="separator:ada485c933df77453629e3821ab19fa4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5ac3722cffd31587435b1bee640a5e2"><td class="memItemLeft" align="right" valign="top">QLinkedList&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ad5ac3722cffd31587435b1bee640a5e2">fillList</a> (const char *sqlSporring)</td></tr>
-<tr class="memdesc:ad5ac3722cffd31587435b1bee640a5e2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ad5ac3722cffd31587435b1bee640a5e2" title="psql::fillList &quot;Fills&quot; a QLinkedList with integers based on the results of an SQL query...">psql::fillList</a> "Fills" a QLinkedList with integers based on the results of an SQL query.  <a href="#ad5ac3722cffd31587435b1bee640a5e2">More...</a><br /></td></tr>
-<tr class="separator:ad5ac3722cffd31587435b1bee640a5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4073d4f70f2ae6211ba0328c2008407c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a4073d4f70f2ae6211ba0328c2008407c">insertApplication</a> (QString title, QString company, int cityID, int statusID, QString date)</td></tr>
+<tr class="memdesc:a4073d4f70f2ae6211ba0328c2008407c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a4073d4f70f2ae6211ba0328c2008407c" title="psql::insertApplication Inserts a new job application to the database. ">psql::insertApplication</a> Inserts a new job application to the database.  <a href="#a4073d4f70f2ae6211ba0328c2008407c">More...</a><br /></td></tr>
+<tr class="separator:a4073d4f70f2ae6211ba0328c2008407c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a767b85014d9df3eac148730f18888d6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a767b85014d9df3eac148730f18888d6d">insertCity</a> (QString cityName, int countryID)</td></tr>
+<tr class="memdesc:a767b85014d9df3eac148730f18888d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a767b85014d9df3eac148730f18888d6d" title="psql::insertCity Inserts a new city to the database ">psql::insertCity</a> Inserts a new city to the database  <a href="#a767b85014d9df3eac148730f18888d6d">More...</a><br /></td></tr>
+<tr class="separator:a767b85014d9df3eac148730f18888d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b5934ce3fbc4be1730d990d4142893"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ab3b5934ce3fbc4be1730d990d4142893">insertCountry</a> (QString countryName)</td></tr>
+<tr class="memdesc:ab3b5934ce3fbc4be1730d990d4142893"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ab3b5934ce3fbc4be1730d990d4142893" title="psql::insertCountry Inserts a new country into the database ">psql::insertCountry</a> Inserts a new country into the database  <a href="#ab3b5934ce3fbc4be1730d990d4142893">More...</a><br /></td></tr>
+<tr class="separator:ab3b5934ce3fbc4be1730d990d4142893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a601ee0bdc9430b1d674a857f7c94b767"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a601ee0bdc9430b1d674a857f7c94b767">insertStatus</a> (QString statusName)</td></tr>
+<tr class="memdesc:a601ee0bdc9430b1d674a857f7c94b767"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a601ee0bdc9430b1d674a857f7c94b767" title="psql::insertStatus Inserts a new status to the database. ">psql::insertStatus</a> Inserts a new status to the database.  <a href="#a601ee0bdc9430b1d674a857f7c94b767">More...</a><br /></td></tr>
+<tr class="separator:a601ee0bdc9430b1d674a857f7c94b767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9c4c858ae22eac8a9a4572b16500f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9a9c4c858ae22eac8a9a4572b16500f5">updateApplication</a> (QString title, QString company, int cityID, int statusID, QString date, int id)</td></tr>
+<tr class="memdesc:a9a9c4c858ae22eac8a9a4572b16500f5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9a9c4c858ae22eac8a9a4572b16500f5" title="psql::updateApplication: Updates the current job application ">psql::updateApplication</a>: Updates the current job application  <a href="#a9a9c4c858ae22eac8a9a4572b16500f5">More...</a><br /></td></tr>
+<tr class="separator:a9a9c4c858ae22eac8a9a4572b16500f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6adf2ba381783e520c03fe5324dcb010"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a6adf2ba381783e520c03fe5324dcb010">updateCity</a> (QString cityName, int countryID, int id)</td></tr>
+<tr class="memdesc:a6adf2ba381783e520c03fe5324dcb010"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a6adf2ba381783e520c03fe5324dcb010" title="psql::updateCity Updates information of an existing city. ">psql::updateCity</a> Updates information of an existing city.  <a href="#a6adf2ba381783e520c03fe5324dcb010">More...</a><br /></td></tr>
+<tr class="separator:a6adf2ba381783e520c03fe5324dcb010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae662278c5fb8ff3471ee1442e69482e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ae662278c5fb8ff3471ee1442e69482e2">updateCountry</a> (QString countryName, int countryID)</td></tr>
+<tr class="memdesc:ae662278c5fb8ff3471ee1442e69482e2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ae662278c5fb8ff3471ee1442e69482e2" title="psql::updateCountry Updates an existing country. ">psql::updateCountry</a> Updates an existing country.  <a href="#ae662278c5fb8ff3471ee1442e69482e2">More...</a><br /></td></tr>
+<tr class="separator:ae662278c5fb8ff3471ee1442e69482e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620364c99c98e20720908deb045536a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a620364c99c98e20720908deb045536a0">updateStatus</a> (QString statusname, int statusID)</td></tr>
+<tr class="memdesc:a620364c99c98e20720908deb045536a0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a620364c99c98e20720908deb045536a0" title="psql::updateStatus Updates an existing status. ">psql::updateStatus</a> Updates an existing status.  <a href="#a620364c99c98e20720908deb045536a0">More...</a><br /></td></tr>
+<tr class="separator:a620364c99c98e20720908deb045536a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a999ee8e2d813892411ef502ebc055a79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a999ee8e2d813892411ef502ebc055a79">deleteApplication</a> (int applicationID)</td></tr>
+<tr class="memdesc:a999ee8e2d813892411ef502ebc055a79"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a999ee8e2d813892411ef502ebc055a79" title="psql::deleteApplication Removes an application from the database. ">psql::deleteApplication</a> Removes an application from the database.  <a href="#a999ee8e2d813892411ef502ebc055a79">More...</a><br /></td></tr>
+<tr class="separator:a999ee8e2d813892411ef502ebc055a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaffd42b26b635d9881daaf5fbf4fd62f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#aaffd42b26b635d9881daaf5fbf4fd62f">deleteCity</a> (int cityID)</td></tr>
+<tr class="memdesc:aaffd42b26b635d9881daaf5fbf4fd62f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#aaffd42b26b635d9881daaf5fbf4fd62f" title="psql::deleteCity Deletes an existing city from the database. ">psql::deleteCity</a> Deletes an existing city from the database.  <a href="#aaffd42b26b635d9881daaf5fbf4fd62f">More...</a><br /></td></tr>
+<tr class="separator:aaffd42b26b635d9881daaf5fbf4fd62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a914bf8701fbed4ff80edcd0d09c7c3fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a914bf8701fbed4ff80edcd0d09c7c3fd">deleteCountry</a> (int countryID)</td></tr>
+<tr class="memdesc:a914bf8701fbed4ff80edcd0d09c7c3fd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a914bf8701fbed4ff80edcd0d09c7c3fd" title="psql::deleteCountry Deletes an existing country from the database. ">psql::deleteCountry</a> Deletes an existing country from the database.  <a href="#a914bf8701fbed4ff80edcd0d09c7c3fd">More...</a><br /></td></tr>
+<tr class="separator:a914bf8701fbed4ff80edcd0d09c7c3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26fc592cfb9f484e1bee62af527f2b95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a26fc592cfb9f484e1bee62af527f2b95">deleteStatus</a> (int statusID)</td></tr>
+<tr class="memdesc:a26fc592cfb9f484e1bee62af527f2b95"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a26fc592cfb9f484e1bee62af527f2b95" title="psql::deleteStatus Deletes an existing status from the database. ">psql::deleteStatus</a> Deletes an existing status from the database.  <a href="#a26fc592cfb9f484e1bee62af527f2b95">More...</a><br /></td></tr>
+<tr class="separator:a26fc592cfb9f484e1bee62af527f2b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13f28a96fa9f79076ecae7d86280008f"><td class="memItemLeft" align="right" valign="top"><a id="a13f28a96fa9f79076ecae7d86280008f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getApplicationID</b> (QString qry)</td></tr>
+<tr class="separator:a13f28a96fa9f79076ecae7d86280008f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3462a12dc106e0ca8df4fa8fcf28436"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#af3462a12dc106e0ca8df4fa8fcf28436">getCityID</a> (int applicationID)</td></tr>
+<tr class="memdesc:af3462a12dc106e0ca8df4fa8fcf28436"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#af3462a12dc106e0ca8df4fa8fcf28436" title="psql::getCityID Gets the city ID of the application based on the application ID prvoided by the user...">psql::getCityID</a> Gets the city ID of the application based on the application ID prvoided by the user.  <a href="#af3462a12dc106e0ca8df4fa8fcf28436">More...</a><br /></td></tr>
+<tr class="separator:af3462a12dc106e0ca8df4fa8fcf28436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d02dc0350ba11d90257914078ba432"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a81d02dc0350ba11d90257914078ba432">getCountryID</a> (int cityID)</td></tr>
+<tr class="memdesc:a81d02dc0350ba11d90257914078ba432"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a81d02dc0350ba11d90257914078ba432" title="psql::getCountryID Get the country ID of table sted based on given stedid. ">psql::getCountryID</a> Get the country ID of table sted based on given stedid.  <a href="#a81d02dc0350ba11d90257914078ba432">More...</a><br /></td></tr>
+<tr class="separator:a81d02dc0350ba11d90257914078ba432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c02c92c09cb60c35d24375673b7df06"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06">getStatusID</a> (int applicationID)</td></tr>
+<tr class="memdesc:a9c02c92c09cb60c35d24375673b7df06"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06" title="psql::getStatusID Returns the status ID of the application based on the application ID provided by th...">psql::getStatusID</a> Returns the status ID of the application based on the application ID provided by the user.  <a href="#a9c02c92c09cb60c35d24375673b7df06">More...</a><br /></td></tr>
+<tr class="separator:a9c02c92c09cb60c35d24375673b7df06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a3082a159c962dfcd84e23930f5619b"><td class="memItemLeft" align="right" valign="top">QList&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9a3082a159c962dfcd84e23930f5619b">fillList</a> (const char *sqlSporring)</td></tr>
+<tr class="memdesc:a9a3082a159c962dfcd84e23930f5619b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9a3082a159c962dfcd84e23930f5619b" title="psql::fillList &quot;Fills&quot; a QList with integers based on the results of an SQL query. ">psql::fillList</a> "Fills" a QList with integers based on the results of an SQL query.  <a href="#a9a3082a159c962dfcd84e23930f5619b">More...</a><br /></td></tr>
+<tr class="separator:a9a3082a159c962dfcd84e23930f5619b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae262aec447273444deeda34113361e21"><td class="memItemLeft" align="right" valign="top">QList&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ae262aec447273444deeda34113361e21">getSpecificApplicationIDs</a> (string jobTitle, string companyName, string cityName, string status, string deadline)</td></tr>
+<tr class="memdesc:ae262aec447273444deeda34113361e21"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ae262aec447273444deeda34113361e21" title="psql::getSpecificApplicationIDs Builds a list of application IDs based on search criteria. ">psql::getSpecificApplicationIDs</a> Builds a list of application IDs based on search criteria.  <a href="#ae262aec447273444deeda34113361e21">More...</a><br /></td></tr>
+<tr class="separator:ae262aec447273444deeda34113361e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b208d687607bd78a6502444cecced8"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a62b208d687607bd78a6502444cecced8">getSpecificJobNames</a> (string jobTitle, string companyName, string cityName, string status, string deadline)</td></tr>
+<tr class="memdesc:a62b208d687607bd78a6502444cecced8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a62b208d687607bd78a6502444cecced8" title="psql::getSpecificJobNames Builds list of job titles based on search criteria. ">psql::getSpecificJobNames</a> Builds list of job titles based on search criteria.  <a href="#a62b208d687607bd78a6502444cecced8">More...</a><br /></td></tr>
+<tr class="separator:a62b208d687607bd78a6502444cecced8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47a1c719a9014f94706fdce665fdf21c"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a47a1c719a9014f94706fdce665fdf21c">getSpecificCompanyNames</a> (string jobTitle, string companyName, string cityName, string status, string deadline)</td></tr>
+<tr class="memdesc:a47a1c719a9014f94706fdce665fdf21c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a47a1c719a9014f94706fdce665fdf21c" title="psql::getSpecificCompanyNames Builds a list with name of job company/companies based on search criter...">psql::getSpecificCompanyNames</a> Builds a list with name of job company/companies based on search criteria.  <a href="#a47a1c719a9014f94706fdce665fdf21c">More...</a><br /></td></tr>
+<tr class="separator:a47a1c719a9014f94706fdce665fdf21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae337317b29abd16f3a52467d978b04ea"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ae337317b29abd16f3a52467d978b04ea">getSpecificCityNames</a> (string jobTitle, string companyName, string cityName, string status, string deadline)</td></tr>
+<tr class="memdesc:ae337317b29abd16f3a52467d978b04ea"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ae337317b29abd16f3a52467d978b04ea" title="psql::getSpecificCityNames Builds a list of city names in one or more applications based on search cr...">psql::getSpecificCityNames</a> Builds a list of city names in one or more applications based on search criteria.  <a href="#ae337317b29abd16f3a52467d978b04ea">More...</a><br /></td></tr>
+<tr class="separator:ae337317b29abd16f3a52467d978b04ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7635c79a1991c8271c813dbf02f7d123"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a7635c79a1991c8271c813dbf02f7d123">getSpecificStatuses</a> (string jobTitle, string companyName, string cityName, string status, string deadline)</td></tr>
+<tr class="memdesc:a7635c79a1991c8271c813dbf02f7d123"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a7635c79a1991c8271c813dbf02f7d123" title="psql::getSpecificStatuses Builds a list of statuses based on the search criteria. ...">psql::getSpecificStatuses</a> Builds a list of statuses based on the search criteria.  <a href="#a7635c79a1991c8271c813dbf02f7d123">More...</a><br /></td></tr>
+<tr class="separator:a7635c79a1991c8271c813dbf02f7d123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880551e9e539e52143a35dee2b07bff6"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a880551e9e539e52143a35dee2b07bff6">getSpecificDeadlines</a> (string jobTitle, string companyName, string cityName, string status, string deadline)</td></tr>
+<tr class="memdesc:a880551e9e539e52143a35dee2b07bff6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a880551e9e539e52143a35dee2b07bff6" title="psql::getSpecificDeadlines Builds a list of application deadlines based on search criteria ...">psql::getSpecificDeadlines</a> Builds a list of application deadlines based on search criteria  <a href="#a880551e9e539e52143a35dee2b07bff6">More...</a><br /></td></tr>
+<tr class="separator:a880551e9e539e52143a35dee2b07bff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ee0cf90055ba6a7a6f564cf04d8bb8"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a42ee0cf90055ba6a7a6f564cf04d8bb8">getCityNames</a> ()</td></tr>
+<tr class="memdesc:a42ee0cf90055ba6a7a6f564cf04d8bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a42ee0cf90055ba6a7a6f564cf04d8bb8" title="psql::getCityNames Builds a list of strings that cointain name of all cities in the database...">psql::getCityNames</a> Builds a list of strings that cointain name of all cities in the database.  <a href="#a42ee0cf90055ba6a7a6f564cf04d8bb8">More...</a><br /></td></tr>
+<tr class="separator:a42ee0cf90055ba6a7a6f564cf04d8bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14854d28aabc7e658aea87a7b8b52e5c"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a14854d28aabc7e658aea87a7b8b52e5c">getStatuses</a> ()</td></tr>
+<tr class="memdesc:a14854d28aabc7e658aea87a7b8b52e5c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a14854d28aabc7e658aea87a7b8b52e5c" title="psql::getStatuses Builds a list of all statuses registered in the database. ">psql::getStatuses</a> Builds a list of all statuses registered in the database.  <a href="#a14854d28aabc7e658aea87a7b8b52e5c">More...</a><br /></td></tr>
+<tr class="separator:a14854d28aabc7e658aea87a7b8b52e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7acc18034ef60c8a1e69b0e1a15d8ab2"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a7acc18034ef60c8a1e69b0e1a15d8ab2">getCityName</a> (int cityNumber)</td></tr>
+<tr class="memdesc:a7acc18034ef60c8a1e69b0e1a15d8ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a7acc18034ef60c8a1e69b0e1a15d8ab2" title="psql::getCityName Gets the name of the city based on the city number. ">psql::getCityName</a> Gets the name of the city based on the city number.  <a href="#a7acc18034ef60c8a1e69b0e1a15d8ab2">More...</a><br /></td></tr>
+<tr class="separator:a7acc18034ef60c8a1e69b0e1a15d8ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09745cd03f09ffb2dacacaab4281915f"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a09745cd03f09ffb2dacacaab4281915f">getCompany</a> (int applicationID)</td></tr>
+<tr class="memdesc:a09745cd03f09ffb2dacacaab4281915f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a09745cd03f09ffb2dacacaab4281915f" title="psql::getCompany Gets the company name based on the application ID provided by the user...">psql::getCompany</a> Gets the company name based on the application ID provided by the user.  <a href="#a09745cd03f09ffb2dacacaab4281915f">More...</a><br /></td></tr>
+<tr class="separator:a09745cd03f09ffb2dacacaab4281915f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5724e9992e6a5c98524ab73b98f4202d"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a5724e9992e6a5c98524ab73b98f4202d">getCountryName</a> (int countryID)</td></tr>
+<tr class="memdesc:a5724e9992e6a5c98524ab73b98f4202d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a5724e9992e6a5c98524ab73b98f4202d" title="psql::getCountryName Gets the name of a country based on its ID. ">psql::getCountryName</a> Gets the name of a country based on its ID.  <a href="#a5724e9992e6a5c98524ab73b98f4202d">More...</a><br /></td></tr>
+<tr class="separator:a5724e9992e6a5c98524ab73b98f4202d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a561f96bfe7e9d092077712dd6b186af8"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a561f96bfe7e9d092077712dd6b186af8">getDate</a> (int applicationID)</td></tr>
+<tr class="memdesc:a561f96bfe7e9d092077712dd6b186af8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a561f96bfe7e9d092077712dd6b186af8" title="psql::getDate Gets the application deadline based on the application ID provided by the user...">psql::getDate</a> Gets the application deadline based on the application ID provided by the user.  <a href="#a561f96bfe7e9d092077712dd6b186af8">More...</a><br /></td></tr>
+<tr class="separator:a561f96bfe7e9d092077712dd6b186af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c2a64419a68a258071fd1f9a37c7c09"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a5c2a64419a68a258071fd1f9a37c7c09">getStatusName</a> (int s)</td></tr>
 <tr class="memdesc:a5c2a64419a68a258071fd1f9a37c7c09"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a5c2a64419a68a258071fd1f9a37c7c09" title="psql::getStatusName Returns the current status name ">psql::getStatusName</a> Returns the current status name  <a href="#a5c2a64419a68a258071fd1f9a37c7c09">More...</a><br /></td></tr>
 <tr class="separator:a5c2a64419a68a258071fd1f9a37c7c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada9e3be3e0866011edf53e30ec510afc"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ada9e3be3e0866011edf53e30ec510afc">getTitle</a> (int applicationID)</td></tr>
 <tr class="memdesc:ada9e3be3e0866011edf53e30ec510afc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ada9e3be3e0866011edf53e30ec510afc" title="psql::getTitle Returns the application title based on the ID provided by the user ...">psql::getTitle</a> Returns the application title based on the ID provided by the user  <a href="#ada9e3be3e0866011edf53e30ec510afc">More...</a><br /></td></tr>
 <tr class="separator:ada9e3be3e0866011edf53e30ec510afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09745cd03f09ffb2dacacaab4281915f"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a09745cd03f09ffb2dacacaab4281915f">getCompany</a> (int applicationID)</td></tr>
-<tr class="memdesc:a09745cd03f09ffb2dacacaab4281915f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a09745cd03f09ffb2dacacaab4281915f" title="psql::getCompany Gets the company name based on the application ID provided by the user...">psql::getCompany</a> Gets the company name based on the application ID provided by the user.  <a href="#a09745cd03f09ffb2dacacaab4281915f">More...</a><br /></td></tr>
-<tr class="separator:a09745cd03f09ffb2dacacaab4281915f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3462a12dc106e0ca8df4fa8fcf28436"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#af3462a12dc106e0ca8df4fa8fcf28436">getCityID</a> (int applicationID)</td></tr>
-<tr class="memdesc:af3462a12dc106e0ca8df4fa8fcf28436"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#af3462a12dc106e0ca8df4fa8fcf28436" title="psql::getCityID Gets the city ID of the application based on the application ID prvoided by the user...">psql::getCityID</a> Gets the city ID of the application based on the application ID prvoided by the user.  <a href="#af3462a12dc106e0ca8df4fa8fcf28436">More...</a><br /></td></tr>
-<tr class="separator:af3462a12dc106e0ca8df4fa8fcf28436"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c02c92c09cb60c35d24375673b7df06"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06">getStatusID</a> (int applicationID)</td></tr>
-<tr class="memdesc:a9c02c92c09cb60c35d24375673b7df06"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06" title="psql::getStatusID Returns the status ID of the application based on the application ID provided by th...">psql::getStatusID</a> Returns the status ID of the application based on the application ID provided by the user.  <a href="#a9c02c92c09cb60c35d24375673b7df06">More...</a><br /></td></tr>
-<tr class="separator:a9c02c92c09cb60c35d24375673b7df06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a561f96bfe7e9d092077712dd6b186af8"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a561f96bfe7e9d092077712dd6b186af8">getDate</a> (int applicationID)</td></tr>
-<tr class="memdesc:a561f96bfe7e9d092077712dd6b186af8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a561f96bfe7e9d092077712dd6b186af8" title="psql::getDate Gets the application deadline based on the application ID provided by the user...">psql::getDate</a> Gets the application deadline based on the application ID provided by the user.  <a href="#a561f96bfe7e9d092077712dd6b186af8">More...</a><br /></td></tr>
-<tr class="separator:a561f96bfe7e9d092077712dd6b186af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7acc18034ef60c8a1e69b0e1a15d8ab2"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a7acc18034ef60c8a1e69b0e1a15d8ab2">getCityName</a> (int cityNumber)</td></tr>
-<tr class="memdesc:a7acc18034ef60c8a1e69b0e1a15d8ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a7acc18034ef60c8a1e69b0e1a15d8ab2" title="psql::getCityName Gets the name of the city based on the city number. ">psql::getCityName</a> Gets the name of the city based on the city number.  <a href="#a7acc18034ef60c8a1e69b0e1a15d8ab2">More...</a><br /></td></tr>
-<tr class="separator:a7acc18034ef60c8a1e69b0e1a15d8ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The psql class. </p>
@@ -151,14 +217,122 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad5ac3722cffd31587435b1bee640a5e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ac3722cffd31587435b1bee640a5e2">&#9670;&nbsp;</a></span>fillList()</h2>
+<a id="a999ee8e2d813892411ef502ebc055a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a999ee8e2d813892411ef502ebc055a79">&#9670;&nbsp;</a></span>deleteApplication()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QLinkedList&lt; int &gt; psql::fillList </td>
+          <td class="memname">bool psql::deleteApplication </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>applicationID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a999ee8e2d813892411ef502ebc055a79" title="psql::deleteApplication Removes an application from the database. ">psql::deleteApplication</a> Removes an application from the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">applicationID</td><td>The ID of the application to be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on successful removal and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="aaffd42b26b635d9881daaf5fbf4fd62f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaffd42b26b635d9881daaf5fbf4fd62f">&#9670;&nbsp;</a></span>deleteCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::deleteCity </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cityID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#aaffd42b26b635d9881daaf5fbf4fd62f" title="psql::deleteCity Deletes an existing city from the database. ">psql::deleteCity</a> Deletes an existing city from the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cityID</td><td>The unique identification number of the city to be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on successful removal and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a914bf8701fbed4ff80edcd0d09c7c3fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a914bf8701fbed4ff80edcd0d09c7c3fd">&#9670;&nbsp;</a></span>deleteCountry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::deleteCountry </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>countryID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a914bf8701fbed4ff80edcd0d09c7c3fd" title="psql::deleteCountry Deletes an existing country from the database. ">psql::deleteCountry</a> Deletes an existing country from the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">countryID</td><td>The unique number of the country in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on successful removal and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a26fc592cfb9f484e1bee62af527f2b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26fc592cfb9f484e1bee62af527f2b95">&#9670;&nbsp;</a></span>deleteStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::deleteStatus </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>statusID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a26fc592cfb9f484e1bee62af527f2b95" title="psql::deleteStatus Deletes an existing status from the database. ">psql::deleteStatus</a> Deletes an existing status from the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">statusID</td><td>The identification number of the status to be deleted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on successful removal and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a9a3082a159c962dfcd84e23930f5619b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a3082a159c962dfcd84e23930f5619b">&#9670;&nbsp;</a></span>fillList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; int &gt; psql::fillList </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>sqlSporring</em></td><td>)</td>
@@ -167,7 +341,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#ad5ac3722cffd31587435b1bee640a5e2" title="psql::fillList &quot;Fills&quot; a QLinkedList with integers based on the results of an SQL query...">psql::fillList</a> "Fills" a QLinkedList with integers based on the results of an SQL query. </p>
+<p><a class="el" href="classpsql.html#a9a3082a159c962dfcd84e23930f5619b" title="psql::fillList &quot;Fills&quot; a QList with integers based on the results of an SQL query. ">psql::fillList</a> "Fills" a QList with integers based on the results of an SQL query. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sqlSporring</td><td>The SQL query to be executed. </td></tr>
@@ -232,6 +406,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a42ee0cf90055ba6a7a6f564cf04d8bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42ee0cf90055ba6a7a6f564cf04d8bb8">&#9670;&nbsp;</a></span>getCityNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QString &gt; psql::getCityNames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a42ee0cf90055ba6a7a6f564cf04d8bb8" title="psql::getCityNames Builds a list of strings that cointain name of all cities in the database...">psql::getCityNames</a> Builds a list of strings that cointain name of all cities in the database. </p>
+<dl class="section return"><dt>Returns</dt><dd>On success, return the mentioned list of strings. </dd></dl>
+
+</div>
+</div>
 <a id="a09745cd03f09ffb2dacacaab4281915f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09745cd03f09ffb2dacacaab4281915f">&#9670;&nbsp;</a></span>getCompany()</h2>
 
@@ -256,6 +450,60 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the company name on success and "Error" on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a81d02dc0350ba11d90257914078ba432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81d02dc0350ba11d90257914078ba432">&#9670;&nbsp;</a></span>getCountryID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int psql::getCountryID </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cityID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a81d02dc0350ba11d90257914078ba432" title="psql::getCountryID Get the country ID of table sted based on given stedid. ">psql::getCountryID</a> Get the country ID of table sted based on given stedid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cityID</td><td>The ID of the city in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The country ID of the city in question. </dd></dl>
+
+</div>
+</div>
+<a id="a5724e9992e6a5c98524ab73b98f4202d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5724e9992e6a5c98524ab73b98f4202d">&#9670;&nbsp;</a></span>getCountryName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString psql::getCountryName </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>countryID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a5724e9992e6a5c98524ab73b98f4202d" title="psql::getCountryName Gets the name of a country based on its ID. ">psql::getCountryName</a> Gets the name of a country based on its ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">countryID</td><td>The ID of the country in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>On success, return the name of the country. </dd></dl>
 
 </div>
 </div>
@@ -323,6 +571,380 @@ Public Member Functions</h2></td></tr>
 
 <p><a class="el" href="classpsql.html#a817e5a88f877cac6f843c1e743aec096" title="psql::getPassword: Gets the user password ">psql::getPassword</a>: Gets the user password </p>
 <dl class="section return"><dt>Returns</dt><dd>The user's password </dd></dl>
+
+</div>
+</div>
+<a id="ae262aec447273444deeda34113361e21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae262aec447273444deeda34113361e21">&#9670;&nbsp;</a></span>getSpecificApplicationIDs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; int &gt; psql::getSpecificApplicationIDs </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jobTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>companyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>cityName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>deadline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ae262aec447273444deeda34113361e21" title="psql::getSpecificApplicationIDs Builds a list of application IDs based on search criteria. ">psql::getSpecificApplicationIDs</a> Builds a list of application IDs based on search criteria. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jobTitle</td><td>The job title to be included in the search </td></tr>
+    <tr><td class="paramname">companyName</td><td>The name of the company to be included </td></tr>
+    <tr><td class="paramname">cityName</td><td>The name of the city where the job is located. </td></tr>
+    <tr><td class="paramname">status</td><td>The status of the application(s) in question. </td></tr>
+    <tr><td class="paramname">deadline</td><td>The deadline of the application(s) in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of integers containing the application ID(s). </dd></dl>
+
+</div>
+</div>
+<a id="ae337317b29abd16f3a52467d978b04ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae337317b29abd16f3a52467d978b04ea">&#9670;&nbsp;</a></span>getSpecificCityNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QString &gt; psql::getSpecificCityNames </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jobTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>companyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>cityName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>deadline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ae337317b29abd16f3a52467d978b04ea" title="psql::getSpecificCityNames Builds a list of city names in one or more applications based on search cr...">psql::getSpecificCityNames</a> Builds a list of city names in one or more applications based on search criteria. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jobTitle</td><td>The job title to be included in the search </td></tr>
+    <tr><td class="paramname">companyName</td><td>The name of the company to be included </td></tr>
+    <tr><td class="paramname">cityName</td><td>The name of the city where the job is located. </td></tr>
+    <tr><td class="paramname">status</td><td>The status of the application(s) in question. </td></tr>
+    <tr><td class="paramname">deadline</td><td>The deadline of the application(s) in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of strings containing the city name(s) that matched the search. </dd></dl>
+
+</div>
+</div>
+<a id="a47a1c719a9014f94706fdce665fdf21c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47a1c719a9014f94706fdce665fdf21c">&#9670;&nbsp;</a></span>getSpecificCompanyNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QString &gt; psql::getSpecificCompanyNames </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jobTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>companyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>cityName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>deadline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a47a1c719a9014f94706fdce665fdf21c" title="psql::getSpecificCompanyNames Builds a list with name of job company/companies based on search criter...">psql::getSpecificCompanyNames</a> Builds a list with name of job company/companies based on search criteria. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jobTitle</td><td>The job title to be included in the search </td></tr>
+    <tr><td class="paramname">companyName</td><td>The name of the company to be included </td></tr>
+    <tr><td class="paramname">cityName</td><td>The name of the city where the job is located. </td></tr>
+    <tr><td class="paramname">status</td><td>The status of the application(s) in question. </td></tr>
+    <tr><td class="paramname">deadline</td><td>The deadline of the application(s) in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of strings containing the job companies that matched the search. </dd></dl>
+
+</div>
+</div>
+<a id="a880551e9e539e52143a35dee2b07bff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a880551e9e539e52143a35dee2b07bff6">&#9670;&nbsp;</a></span>getSpecificDeadlines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QString &gt; psql::getSpecificDeadlines </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jobTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>companyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>cityName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>deadline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a880551e9e539e52143a35dee2b07bff6" title="psql::getSpecificDeadlines Builds a list of application deadlines based on search criteria ...">psql::getSpecificDeadlines</a> Builds a list of application deadlines based on search criteria </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jobTitle</td><td>The job title to be included in the search </td></tr>
+    <tr><td class="paramname">companyName</td><td>The name of the company to be included </td></tr>
+    <tr><td class="paramname">cityName</td><td>The name of the city where the job is located. </td></tr>
+    <tr><td class="paramname">status</td><td>The status of the application(s) in question. </td></tr>
+    <tr><td class="paramname">deadline</td><td>The deadline of the application(s) in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of strings containing the application deadlines that matched the search. </dd></dl>
+
+</div>
+</div>
+<a id="a62b208d687607bd78a6502444cecced8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b208d687607bd78a6502444cecced8">&#9670;&nbsp;</a></span>getSpecificJobNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QString &gt; psql::getSpecificJobNames </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jobTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>companyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>cityName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>deadline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a62b208d687607bd78a6502444cecced8" title="psql::getSpecificJobNames Builds list of job titles based on search criteria. ">psql::getSpecificJobNames</a> Builds list of job titles based on search criteria. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jobTitle</td><td>The job title to be included in the search </td></tr>
+    <tr><td class="paramname">companyName</td><td>The name of the company to be included </td></tr>
+    <tr><td class="paramname">cityName</td><td>The name of the city where the job is located. </td></tr>
+    <tr><td class="paramname">status</td><td>The status of the application(s) in question. </td></tr>
+    <tr><td class="paramname">deadline</td><td>The deadline of the application(s) in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of strings containing the job names that matched the search. </dd></dl>
+
+</div>
+</div>
+<a id="a7635c79a1991c8271c813dbf02f7d123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7635c79a1991c8271c813dbf02f7d123">&#9670;&nbsp;</a></span>getSpecificStatuses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QString &gt; psql::getSpecificStatuses </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jobTitle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>companyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>cityName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>deadline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a7635c79a1991c8271c813dbf02f7d123" title="psql::getSpecificStatuses Builds a list of statuses based on the search criteria. ...">psql::getSpecificStatuses</a> Builds a list of statuses based on the search criteria. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jobTitle</td><td>The job title to be included in the search </td></tr>
+    <tr><td class="paramname">companyName</td><td>The name of the company to be included </td></tr>
+    <tr><td class="paramname">cityName</td><td>The name of the city where the job is located. </td></tr>
+    <tr><td class="paramname">status</td><td>The status of the application(s) in question. </td></tr>
+    <tr><td class="paramname">deadline</td><td>The deadline of the application(s) in question. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of strings containing the status names that matched the search. </dd></dl>
+
+</div>
+</div>
+<a id="a14854d28aabc7e658aea87a7b8b52e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14854d28aabc7e658aea87a7b8b52e5c">&#9670;&nbsp;</a></span>getStatuses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; QString &gt; psql::getStatuses </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a14854d28aabc7e658aea87a7b8b52e5c" title="psql::getStatuses Builds a list of all statuses registered in the database. ">psql::getStatuses</a> Builds a list of all statuses registered in the database. </p>
+<dl class="section return"><dt>Returns</dt><dd>On success, return the mentioned list of strings. </dd></dl>
 
 </div>
 </div>
@@ -524,6 +1146,60 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ab3b5934ce3fbc4be1730d990d4142893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b5934ce3fbc4be1730d990d4142893">&#9670;&nbsp;</a></span>insertCountry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::insertCountry </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>countryName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ab3b5934ce3fbc4be1730d990d4142893" title="psql::insertCountry Inserts a new country into the database ">psql::insertCountry</a> Inserts a new country into the database </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">countryName</td><td>The name of the new country. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a601ee0bdc9430b1d674a857f7c94b767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a601ee0bdc9430b1d674a857f7c94b767">&#9670;&nbsp;</a></span>insertStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::insertStatus </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>statusName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a601ee0bdc9430b1d674a857f7c94b767" title="psql::insertStatus Inserts a new status to the database. ">psql::insertStatus</a> Inserts a new status to the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">statusName</td><td>The new status name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
 <a id="a96b3b9483f1a642c026d4b5cf505eb75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96b3b9483f1a642c026d4b5cf505eb75">&#9670;&nbsp;</a></span>setHost()</h2>
 
@@ -665,6 +1341,127 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True on success and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a6adf2ba381783e520c03fe5324dcb010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6adf2ba381783e520c03fe5324dcb010">&#9670;&nbsp;</a></span>updateCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::updateCity </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>cityName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>countryID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a6adf2ba381783e520c03fe5324dcb010" title="psql::updateCity Updates information of an existing city. ">psql::updateCity</a> Updates information of an existing city. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cityName</td><td>The new name of the city </td></tr>
+    <tr><td class="paramname">countryID</td><td>The new country ID, the ID of the country where the city is located. </td></tr>
+    <tr><td class="paramname">id</td><td>the ID of the city to be updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ae662278c5fb8ff3471ee1442e69482e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae662278c5fb8ff3471ee1442e69482e2">&#9670;&nbsp;</a></span>updateCountry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::updateCountry </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>countryName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>countryID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ae662278c5fb8ff3471ee1442e69482e2" title="psql::updateCountry Updates an existing country. ">psql::updateCountry</a> Updates an existing country. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">countryName</td><td>The new country name. </td></tr>
+    <tr><td class="paramname">countryID</td><td>The ID of the country to be updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a620364c99c98e20720908deb045536a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a620364c99c98e20720908deb045536a0">&#9670;&nbsp;</a></span>updateStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::updateStatus </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>statusname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>statusID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a620364c99c98e20720908deb045536a0" title="psql::updateStatus Updates an existing status. ">psql::updateStatus</a> Updates an existing status. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">statusname</td><td>The new status name. </td></tr>
+    <tr><td class="paramname">statusID</td><td>The ID of the status to be updated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure. </dd></dl>
 
 </div>
 </div>

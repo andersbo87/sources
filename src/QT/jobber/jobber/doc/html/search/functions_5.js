@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['newcity',['NewCity',['../class_new_city.html#a79afb3ddc8406719c6fb58e16dbe2953',1,'NewCity']]],
-  ['newjob',['NewJob',['../class_new_job.html#a8a989ea2877d88189001ab4d9acf70cb',1,'NewJob']]],
-  ['newstatus',['NewStatus',['../class_new_status.html#a57acfb5d07cc3a3d1e33cd00a7c2ed72',1,'NewStatus']]]
+  ['mainwindow',['MainWindow',['../class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db',1,'MainWindow']]]
 ];
