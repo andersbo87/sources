@@ -290,6 +290,13 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
     }
 }
 
+/**
+ * @brief psql::updateCity Updates information of an existing city.
+ * @param cityName The new name of the city
+ * @param countryID The new country ID, the ID of the country where the city is located.
+ * @param id the ID of the city to be updated.
+ * @return
+ */
 bool psql::updateCity(QString cityName, int countryID, int id)
 {
     try
@@ -548,9 +555,486 @@ bool psql::connectDatabase()
         return false;
     }
 }
+/**
+ * @brief psql::getSpecificJobNames Builds list of job titles based on search criteria.
+ * @param jobTitle The job title to be included in the search
+ * @param companyName The name of the company to be included
+ * @param cityName The name of the city where the job is located.
+ * @param status The status of the application(s) in question.
+ * @param deadline The deadline of the application(s) in question.
+ * @return A list of strings containing the job names that matched the search.
+ */
+QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline)
+{
+    try
+    {
+        QList<QString> list;
+        //QList<int>::iterator iterator;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            QString stmt = "SELECT tittel FROM view_soknad WHERE tittel like '%";
+            string sql;
+            stringstream oss;
+            oss << sql << stmt.toStdString();
+            oss << sql << jobTitle;
+            oss << sql << "%' and bedrift like '%";
+            oss << sql << companyName;
+            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and stedsnavn like '%";
+                oss << sql << cityName;
+            }
+            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and status like '%";
+                oss << sql << status;
+            }
+            oss << sql << "%' and soknadsfrist like '%";
+            oss << sql << deadline;
+            oss << sql << "%';";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(oss.str()));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s);
+                    i++;
+                }
+            }
+            conn.disconnect();
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
+/**
+ * @brief psql::getSpecificCompanyNames Builds a list with name of job company/companies based on search criteria.
+ * @param jobTitle The job title to be included in the search
+ * @param companyName The name of the company to be included
+ * @param cityName The name of the city where the job is located.
+ * @param status The status of the application(s) in question.
+ * @param deadline The deadline of the application(s) in question.
+ * @return A list of strings containing the job companies that matched the search.
+ */
+QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline)
+{
+    try
+    {
+        QList<QString> list;
+        //QList<int>::iterator iterator;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            QString stmt = "SELECT bedrift FROM view_soknad WHERE tittel like '%";
+            string sql;
+            stringstream oss;
+            oss << sql << stmt.toStdString();
+            oss << sql << jobTitle;
+            oss << sql << "%' and bedrift like '%";
+            oss << sql << companyName;
+            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and stedsnavn like '%";
+                oss << sql << cityName;
+            }
+            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and status like '%";
+                oss << sql << status;
+            }
+            oss << sql << "%' and soknadsfrist like '%";
+            oss << sql << deadline;
+            oss << sql << "%';";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(oss.str()));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s);
+                    i++;
+                }
+            }
+            conn.disconnect();
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
+/**
+ * @brief psql::getSpecificDeadlines Builds a list of application deadlines based on search criteria
+ * @param jobTitle The job title to be included in the search
+ * @param companyName The name of the company to be included
+ * @param cityName The name of the city where the job is located.
+ * @param status The status of the application(s) in question.
+ * @param deadline The deadline of the application(s) in question.
+ * @return A list of strings containing the application deadlines that matched the search.
+ */
+QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, string cityName, string status, string deadline)
+{
+    try
+    {
+        QList<QString> list;
+        //QList<int>::iterator iterator;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            QString stmt = "SELECT soknadsfrist FROM view_soknad WHERE tittel like '%";
+            string sql;
+            stringstream oss;
+            oss << sql << stmt.toStdString();
+            oss << sql << jobTitle;
+            oss << sql << "%' and bedrift like '%";
+            oss << sql << companyName;
+            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and stedsnavn like '%";
+                oss << sql << cityName;
+            }
+            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and status like '%";
+                oss << sql << status;
+            }
+            oss << sql << "%' and soknadsfrist like '%";
+            oss << sql << deadline;
+            oss << sql << "%';";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(oss.str()));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s);
+                    i++;
+                }
+            }
+            conn.disconnect();
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
+/**
+ * @brief psql::getSpecificCityNames Builds a list of city names in one or more applications based on search criteria.
+ * @param jobTitle The job title to be included in the search
+ * @param companyName The name of the company to be included
+ * @param cityName The name of the city where the job is located.
+ * @param status The status of the application(s) in question.
+ * @param deadline The deadline of the application(s) in question.
+ * @return A list of strings containing the city name(s) that matched the search.
+ */
+QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, string cityName, string status, string deadline)
+{
+    try
+    {
+        QList<QString> list;
+        //QList<int>::iterator iterator;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            QString stmt = "SELECT stedsnavn FROM view_soknad WHERE tittel like '%";
+            string sql;
+            stringstream oss;
+            oss << sql << stmt.toStdString();
+            oss << sql << jobTitle;
+            oss << sql << "%' and bedrift like '%";
+            oss << sql << companyName;
+            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and stedsnavn like '%";
+                oss << sql << cityName;
+            }
+            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and status like '%";
+                oss << sql << status;
+            }
+            oss << sql << "%' and soknadsfrist like '%";
+            oss << sql << deadline;
+            oss << sql << "%';";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(oss.str()));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s);
+                    i++;
+                }
+            }
+            conn.disconnect();
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
+/**
+ * @brief psql::getSpecificStatuses Builds a list of statuses based on the search criteria.
+ * @param jobTitle The job title to be included in the search
+ * @param companyName The name of the company to be included
+ * @param cityName The name of the city where the job is located.
+ * @param status The status of the application(s) in question.
+ * @param deadline The deadline of the application(s) in question.
+ * @return A list of strings containing the status names that matched the search.
+ */
+QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, string cityName, string status, string deadline)
+{
+    try
+    {
+        QList<QString> list;
+        //QList<int>::iterator iterator;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            QString stmt = "SELECT status FROM view_soknad WHERE tittel like '%";
+            string sql;
+            stringstream oss;
+            oss << sql << stmt.toStdString();
+            oss << sql << jobTitle;
+            oss << sql << "%' and bedrift like '%";
+            oss << sql << companyName;
+            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and stedsnavn like '%";
+                oss << sql << cityName;
+            }
+            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and status like '%";
+                oss << sql << status;
+            }
+            oss << sql << "%' and soknadsfrist like '%";
+            oss << sql << deadline;
+            oss << sql << "%';";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(oss.str()));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s);
+                    i++;
+                }
+            }
+            conn.disconnect();
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
+/**
+ * @brief psql::getSpecificApplicationIDs Builds a list of application IDs based on search criteria.
+ * @param jobTitle The job title to be included in the search
+ * @param companyName The name of the company to be included
+ * @param cityName The name of the city where the job is located.
+ * @param status The status of the application(s) in question.
+ * @param deadline The deadline of the application(s) in question.
+ * @return A list of integers containing the application ID(s).
+ */
+QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline)
+{
+    try
+    {
+        QList<int> list;
+        QList<int>::iterator iterator;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            QString stmt = "SELECT soknadid FROM view_soknad WHERE tittel like '%";
+            string sql;
+            stringstream oss;
+            oss << sql << stmt.toStdString();
+            oss << sql << jobTitle;
+            oss << sql << "%' and bedrift like '%";
+            oss << sql << companyName;
+            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and stedsnavn like '%";
+                oss << sql << cityName;
+            }
+            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+            {
+                oss << sql << "%' and status like '%";
+                oss << sql << status;
+            }
+            oss << sql << "%' and soknadsfrist like '%";
+            oss << sql << deadline;
+            oss << sql << "%';";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(oss.str()));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s.toInt());
+                    i++;
+                }
+            }
+            conn.disconnect();
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
+/**
+ * @brief psql::getCityNames Builds a list of strings that cointain name of all cities in the database.
+ * @return On success, return the mentioned list of strings.
+ */
+QList<QString> psql::getCityNames()
+{
+    try
+    {
+        QList<QString> list;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            string query = "SELECT stedsnavn FROM sted ORDER BY stedid ASC";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(query));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s);
+                    i++;
+                }
+            }
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
 
 /**
- * @brief psql::fillList "Fills" a QLinkedList with integers based on the results of an SQL query.
+ * @brief psql::getStatuses Builds a list of all statuses registered in the database.
+ * @return On success, return the mentioned list of strings.
+ */
+QList<QString> psql::getStatuses()
+{
+    try
+    {
+        QList<QString> list;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        if(conn.is_open())
+        {
+            string query = "SELECT status FROM status ORDER BY statusid ASC";
+            pqxx::nontransaction nt(conn);
+            pqxx::result res(nt.exec(query));
+            int i = 1;
+            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            {
+                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+                {
+                    QString s = QString::fromStdString(tci.c_str());
+                    list.insert(i, s);
+                    i++;
+                }
+            }
+            return list;
+        }
+        exit(EXIT_FAILURE);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+        exit(EXIT_FAILURE);
+        //return NULL;
+    }
+}
+
+/**
+ * @brief psql::fillList "Fills" a QList with integers based on the results of an SQL query.
  * @param sqlSporring The SQL query to be executed.
  * @return
  */
@@ -591,23 +1075,6 @@ QList<int> psql::fillList(const char *sqlSporring)
         exit(EXIT_FAILURE);
         //return NULL;
     }
-}
-int psql::getRows(string query)
-{
-    int res = 0;
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
-    {
-        pqxx::nontransaction N(C);
-        //string statement = "SELECT status FROM status WHERE statusid = ";
-        ostringstream oss;
-        oss << query;
-        pqxx::result R(N.exec(oss.str()));
-        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
-            res++;
-        }
-    }
-    return res;
 }
 
 /**
@@ -714,9 +1181,12 @@ int psql::getCityID(int applicationID)
     return res;
 }
 
-
-
-int psql::getCountryID(int countryID)
+/**
+ * @brief psql::getCountryID Get the country ID of table sted based on given stedid.
+ * @param cityID The ID of the city in question.
+ * @return The country ID of the city in question.
+ */
+int psql::getCountryID(int cityID)
 {
     int res = 0;
     pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
@@ -725,7 +1195,7 @@ int psql::getCountryID(int countryID)
         pqxx::nontransaction nt(conn);
         string statement = "SELECT landid FROM sted WHERE stedid = ";
         ostringstream oss;
-        oss << statement << countryID;
+        oss << statement << cityID;
         pqxx::result re(nt.exec(oss.str()));
         for (pqxx::result::const_iterator ci = re.begin(); ci != re.end(); ++ci)
         {
@@ -790,6 +1260,11 @@ QString psql::getDate(int applicationID)
     return "Error";
 }
 
+/**
+ * @brief psql::getCountryName Gets the name of a country based on its ID.
+ * @param countryID The ID of the country in question.
+ * @return On success, return the name of the country.
+ */
 QString psql::getCountryName(int countryID)
 {
     QString res = "";

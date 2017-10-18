@@ -75,16 +75,24 @@ public:
     // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
     int getApplicationID(QString qry);
     int getCityID(int applicationID);
-    int getCountryID(int countryID);
+    int getCountryID(int cityID);
     int getStatusID(int applicationID);
     QList<int> fillList(const char *sqlSporring);
+    QList<int> getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline);
+    QList<QString> getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline);
+    QList<QString> getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline);
+    QList<QString> getSpecificCityNames(string jobTitle, string companyName, string cityName, string status, string deadline);
+    QList<QString> getSpecificStatuses(string jobTitle, string companyName, string cityName, string status, string deadline);
+    QList<QString> getSpecificDeadlines(string jobTitle, string companyName, string cityName, string status, string deadline);
+    QList<QString> getCityNames();
+    QList<QString> getStatuses();
     QString getCityName(int cityNumber);
     QString getCompany(int applicationID);
     QString getCountryName(int countryID);
     QString getDate(int applicationID);
     QString getStatusName(int s);
     QString getTitle(int applicationID);
-    int getSpecificApplications(); // Returnerer antall søknader
+    //int getSpecificApplications(); // Returnerer antall søknader
 
 private:
     QString username, host, password, winTitle; // winTitle: Tittelen på meldinger i meldingsbokser
