@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = jobber1.0.0
-DISTDIR = /home/andersbo/jobber/jobber/linux/.tmp/jobber1.0.0
+DISTDIR = /home/andersbo/git/src/QT/jobber/jobber/linux/.tmp/jobber1.0.0
 LINK          = clang++
 LFLAGS        = -ccc-gcc-name g++
 LIBS          = $(SUBLIBS) -L/usr/local/lib -lpqxx -lpq -L/usr/lib/x86_64-linux-gnu -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -59,7 +59,8 @@ SOURCES       = ../main.cpp \
 		../viewjobs.cpp \
 		../newjob.cpp \
 		../newcountry.cpp \
-		../showcountries.cpp moc_mainwindow.cpp \
+		../showcountries.cpp \
+		../spesificjobs.cpp moc_mainwindow.cpp \
 		moc_connectpsql.cpp \
 		moc_newcity.cpp \
 		moc_newstatus.cpp \
@@ -68,7 +69,8 @@ SOURCES       = ../main.cpp \
 		moc_viewjobs.cpp \
 		moc_newjob.cpp \
 		moc_newcountry.cpp \
-		moc_showcountries.cpp
+		moc_showcountries.cpp \
+		moc_spesificjobs.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		connectpsql.o \
@@ -81,6 +83,7 @@ OBJECTS       = main.o \
 		newjob.o \
 		newcountry.o \
 		showcountries.o \
+		spesificjobs.o \
 		moc_mainwindow.o \
 		moc_connectpsql.o \
 		moc_newcity.o \
@@ -90,7 +93,8 @@ OBJECTS       = main.o \
 		moc_viewjobs.o \
 		moc_newjob.o \
 		moc_newcountry.o \
-		moc_showcountries.o
+		moc_showcountries.o \
+		moc_spesificjobs.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -160,7 +164,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../viewjobs.h \
 		../newjob.h \
 		../newcountry.h \
-		../showcountries.h ../main.cpp \
+		../showcountries.h \
+		../spesificjobs.h ../main.cpp \
 		../mainwindow.cpp \
 		../connectpsql.cpp \
 		../psql.cpp \
@@ -171,7 +176,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../viewjobs.cpp \
 		../newjob.cpp \
 		../newcountry.cpp \
-		../showcountries.cpp
+		../showcountries.cpp \
+		../spesificjobs.cpp
 QMAKE_TARGET  = jobber
 DESTDIR       = 
 TARGET        = jobber
@@ -180,7 +186,7 @@ TARGET        = jobber
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h ui_spesificjobs.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../jobber.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -324,9 +330,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../mainwindow.h ../connectpsql.h ../psql.h ../newcity.h ../newstatus.h ../showcities.h ../showstatuses.h ../viewjobs.h ../newjob.h ../newcountry.h ../showcountries.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../main.cpp ../mainwindow.cpp ../connectpsql.cpp ../psql.cpp ../newcity.cpp ../newstatus.cpp ../showcities.cpp ../showstatuses.cpp ../viewjobs.cpp ../newjob.cpp ../newcountry.cpp ../showcountries.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../mainwindow.ui ../connectpsql.ui ../newcity.ui ../newstatus.ui ../showcities.ui ../showstatuses.ui ../viewjobs.ui ../newjob.ui ../newcountry.ui ../showcountries.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../mainwindow.h ../connectpsql.h ../psql.h ../newcity.h ../newstatus.h ../showcities.h ../showstatuses.h ../viewjobs.h ../newjob.h ../newcountry.h ../showcountries.h ../spesificjobs.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../main.cpp ../mainwindow.cpp ../connectpsql.cpp ../psql.cpp ../newcity.cpp ../newstatus.cpp ../showcities.cpp ../showstatuses.cpp ../viewjobs.cpp ../newjob.cpp ../newcountry.cpp ../showcountries.cpp ../spesificjobs.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../mainwindow.ui ../connectpsql.ui ../newcity.ui ../newstatus.ui ../showcities.ui ../showstatuses.ui ../viewjobs.ui ../newjob.ui ../newcountry.ui ../showcountries.ui ../spesificjobs.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -351,65 +357,70 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp moc_spesificjobs.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp moc_spesificjobs.cpp
 moc_mainwindow.cpp: ../psql.h \
 		../connectpsql.h \
 		../mainwindow.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../mainwindow.h -o moc_mainwindow.cpp
 
 moc_connectpsql.cpp: ../psql.h \
 		../connectpsql.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../connectpsql.h -o moc_connectpsql.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../connectpsql.h -o moc_connectpsql.cpp
 
 moc_newcity.cpp: ../psql.h \
 		../newcity.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newcity.h -o moc_newcity.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newcity.h -o moc_newcity.cpp
 
 moc_newstatus.cpp: ../psql.h \
 		../newstatus.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newstatus.h -o moc_newstatus.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newstatus.h -o moc_newstatus.cpp
 
 moc_showcities.cpp: ../psql.h \
 		../showcities.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../showcities.h -o moc_showcities.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../showcities.h -o moc_showcities.cpp
 
 moc_showstatuses.cpp: ../psql.h \
 		../showstatuses.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../showstatuses.h -o moc_showstatuses.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../showstatuses.h -o moc_showstatuses.cpp
 
 moc_viewjobs.cpp: ../psql.h \
 		../viewjobs.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../viewjobs.h -o moc_viewjobs.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../viewjobs.h -o moc_viewjobs.cpp
 
 moc_newjob.cpp: ../psql.h \
 		../newjob.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newjob.h -o moc_newjob.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newjob.h -o moc_newjob.cpp
 
 moc_newcountry.cpp: ../psql.h \
 		../newcountry.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newcountry.h -o moc_newcountry.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../newcountry.h -o moc_newcountry.cpp
 
 moc_showcountries.cpp: ../psql.h \
 		../showcountries.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../showcountries.h -o moc_showcountries.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../showcountries.h -o moc_showcountries.cpp
+
+moc_spesificjobs.cpp: ../psql.h \
+		../spesificjobs.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include ../spesificjobs.h -o moc_spesificjobs.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h
+compiler_uic_make_all: ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h ui_spesificjobs.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h
+	-$(DEL_FILE) ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h ui_spesificjobs.h
 ui_mainwindow.h: ../mainwindow.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../mainwindow.ui -o ui_mainwindow.h
@@ -450,6 +461,10 @@ ui_showcountries.h: ../showcountries.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../showcountries.ui -o ui_showcountries.h
 
+ui_spesificjobs.h: ../spesificjobs.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../spesificjobs.ui -o ui_spesificjobs.h
+
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -476,7 +491,8 @@ mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		../newstatus.h \
 		../showcities.h \
 		../showcountries.h \
-		../showstatuses.h
+		../showstatuses.h \
+		../spesificjobs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../mainwindow.cpp
 
 connectpsql.o: ../connectpsql.cpp ../connectpsql.h \
@@ -528,6 +544,11 @@ showcountries.o: ../showcountries.cpp ../showcountries.h \
 		ui_showcountries.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o showcountries.o ../showcountries.cpp
 
+spesificjobs.o: ../spesificjobs.cpp ../spesificjobs.h \
+		../psql.h \
+		ui_spesificjobs.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o spesificjobs.o ../spesificjobs.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
@@ -558,14 +579,19 @@ moc_newcountry.o: moc_newcountry.cpp
 moc_showcountries.o: moc_showcountries.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_showcountries.o moc_showcountries.cpp
 
+moc_spesificjobs.o: moc_spesificjobs.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_spesificjobs.o moc_spesificjobs.cpp
+
 ####### Install
 
 install:  FORCE
 	install -o root -g root -m 555 jobber /usr/local/bin/jobber
 	install -o root -g root -m 555 jobber.desktop /usr/share/applications/jobber.desktop
 	@echo "Jobber ble installert til /usr/local/bin/jobber. Vennligst se til at /usr/local/bin ligger i din PATH-variabel."
-uninstall:  
+
+uninstall:
 	-${DEL_FILE} /usr/local/bin/jobber
 	-${DEL_FILE} /usr/share/applications/jobber.desktop
+
 FORCE: jobber
 
