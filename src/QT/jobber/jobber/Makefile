@@ -59,7 +59,8 @@ SOURCES       = main.cpp \
 		viewjobs.cpp \
 		newjob.cpp \
 		newcountry.cpp \
-		showcountries.cpp moc_mainwindow.cpp \
+		showcountries.cpp \
+		spesificjobs.cpp moc_mainwindow.cpp \
 		moc_connectpsql.cpp \
 		moc_newcity.cpp \
 		moc_newstatus.cpp \
@@ -68,7 +69,8 @@ SOURCES       = main.cpp \
 		moc_viewjobs.cpp \
 		moc_newjob.cpp \
 		moc_newcountry.cpp \
-		moc_showcountries.cpp
+		moc_showcountries.cpp \
+		moc_spesificjobs.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		connectpsql.o \
@@ -81,6 +83,7 @@ OBJECTS       = main.o \
 		newjob.o \
 		newcountry.o \
 		showcountries.o \
+		spesificjobs.o \
 		moc_mainwindow.o \
 		moc_connectpsql.o \
 		moc_newcity.o \
@@ -90,7 +93,8 @@ OBJECTS       = main.o \
 		moc_viewjobs.o \
 		moc_newjob.o \
 		moc_newcountry.o \
-		moc_showcountries.o
+		moc_showcountries.o \
+		moc_spesificjobs.o
 DIST          = /usr/local/lib/qt5/mkspecs/features/spec_pre.prf \
 		/usr/local/lib/qt5/mkspecs/common/unix.conf \
 		/usr/local/lib/qt5/mkspecs/common/bsd/bsd.conf \
@@ -296,7 +300,8 @@ DIST          = /usr/local/lib/qt5/mkspecs/features/spec_pre.prf \
 		viewjobs.h \
 		newjob.h \
 		newcountry.h \
-		showcountries.h main.cpp \
+		showcountries.h \
+		spesificjobs.h main.cpp \
 		mainwindow.cpp \
 		connectpsql.cpp \
 		psql.cpp \
@@ -307,7 +312,8 @@ DIST          = /usr/local/lib/qt5/mkspecs/features/spec_pre.prf \
 		viewjobs.cpp \
 		newjob.cpp \
 		newcountry.cpp \
-		showcountries.cpp
+		showcountries.cpp \
+		spesificjobs.cpp
 QMAKE_TARGET  = jobber
 DESTDIR       = 
 TARGET        = jobber
@@ -316,7 +322,7 @@ TARGET        = jobber
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h ui_spesificjobs.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: jobber.pro /usr/local/lib/qt5/mkspecs/freebsd-clang/qmake.conf /usr/local/lib/qt5/mkspecs/features/spec_pre.prf \
@@ -732,15 +738,15 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h connectpsql.h psql.h newcity.h newstatus.h showcities.h showstatuses.h viewjobs.h newjob.h newcountry.h showcountries.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp connectpsql.cpp psql.cpp newcity.cpp newstatus.cpp showcities.cpp showstatuses.cpp viewjobs.cpp newjob.cpp newcountry.cpp showcountries.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui connectpsql.ui newcity.ui newstatus.ui showcities.ui showstatuses.ui viewjobs.ui newjob.ui newcountry.ui showcountries.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h connectpsql.h psql.h newcity.h newstatus.h showcities.h showstatuses.h viewjobs.h newjob.h newcountry.h showcountries.h spesificjobs.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp connectpsql.cpp psql.cpp newcity.cpp newstatus.cpp showcities.cpp showstatuses.cpp viewjobs.cpp newjob.cpp newcountry.cpp showcountries.cpp spesificjobs.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui connectpsql.ui newcity.ui newstatus.ui showcities.ui showstatuses.ui viewjobs.ui newjob.ui newcountry.ui showcountries.ui spesificjobs.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
-
+	-$(DEL_FILE) jobber
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
@@ -760,9 +766,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp moc_spesificjobs.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_connectpsql.cpp moc_newcity.cpp moc_newstatus.cpp moc_showcities.cpp moc_showstatuses.cpp moc_viewjobs.cpp moc_newjob.cpp moc_newcountry.cpp moc_showcountries.cpp moc_spesificjobs.cpp
 moc_mainwindow.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/QApplication \
 		/usr/local/include/qt5/QtWidgets/qapplication.h \
@@ -8096,11 +8102,742 @@ moc_showcountries.cpp: /usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/lib/qt5/bin/moc
 	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include showcountries.h -o moc_showcountries.cpp
 
+moc_spesificjobs.cpp: psql.h \
+		/usr/local/include/qt5/QtWidgets/QApplication \
+		/usr/local/include/qt5/QtWidgets/qapplication.h \
+		/usr/local/include/qt5/QtCore/qcoreapplication.h \
+		/usr/local/include/qt5/QtCore/qglobal.h \
+		/usr/local/include/qt5/QtCore/qconfig.h \
+		/usr/local/include/qt5/QtCore/qconfig-modules.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-network.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-dbus.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-gui.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-widgets.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-quick.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/qfeatures.h \
+		/usr/local/include/qt5/QtCore/qsystemdetection.h \
+		/usr/local/include/qt5/QtCore/qprocessordetection.h \
+		/usr/local/include/qt5/QtCore/qcompilerdetection.h \
+		/usr/local/include/qt5/QtCore/qtypeinfo.h \
+		/usr/local/include/qt5/QtCore/qtypetraits.h \
+		/usr/local/include/qt5/QtCore/qisenum.h \
+		/usr/local/include/qt5/QtCore/qsysinfo.h \
+		/usr/local/include/qt5/QtCore/qlogging.h \
+		/usr/local/include/qt5/QtCore/qflags.h \
+		/usr/local/include/qt5/QtCore/qatomic.h \
+		/usr/local/include/qt5/QtCore/qbasicatomic.h \
+		/usr/local/include/qt5/QtCore/qatomic_bootstrap.h \
+		/usr/local/include/qt5/QtCore/qgenericatomic.h \
+		/usr/local/include/qt5/QtCore/qatomic_cxx11.h \
+		/usr/local/include/qt5/QtCore/qatomic_msvc.h \
+		/usr/local/include/qt5/QtCore/qglobalstatic.h \
+		/usr/local/include/qt5/QtCore/qmutex.h \
+		/usr/local/include/qt5/QtCore/qnumeric.h \
+		/usr/local/include/qt5/QtCore/qversiontagging.h \
+		/usr/local/include/qt5/QtCore/qstring.h \
+		/usr/local/include/qt5/QtCore/qchar.h \
+		/usr/local/include/qt5/QtCore/qbytearray.h \
+		/usr/local/include/qt5/QtCore/qrefcount.h \
+		/usr/local/include/qt5/QtCore/qnamespace.h \
+		/usr/local/include/qt5/QtCore/qarraydata.h \
+		/usr/local/include/qt5/QtCore/qstringbuilder.h \
+		/usr/local/include/qt5/QtCore/qobject.h \
+		/usr/local/include/qt5/QtCore/qobjectdefs.h \
+		/usr/local/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/local/include/qt5/QtCore/qlist.h \
+		/usr/local/include/qt5/QtCore/qalgorithms.h \
+		/usr/local/include/qt5/QtCore/qiterator.h \
+		/usr/local/include/qt5/QtCore/qhashfunctions.h \
+		/usr/local/include/qt5/QtCore/qpair.h \
+		/usr/local/include/qt5/QtCore/qbytearraylist.h \
+		/usr/local/include/qt5/QtCore/qstringlist.h \
+		/usr/local/include/qt5/QtCore/qregexp.h \
+		/usr/local/include/qt5/QtCore/qstringmatcher.h \
+		/usr/local/include/qt5/QtCore/qcoreevent.h \
+		/usr/local/include/qt5/QtCore/qscopedpointer.h \
+		/usr/local/include/qt5/QtCore/qmetatype.h \
+		/usr/local/include/qt5/QtCore/qvarlengtharray.h \
+		/usr/local/include/qt5/QtCore/qcontainerfwd.h \
+		/usr/local/include/qt5/QtCore/qobject_impl.h \
+		/usr/local/include/qt5/QtCore/qeventloop.h \
+		/usr/local/include/qt5/QtGui/qwindowdefs.h \
+		/usr/local/include/qt5/QtGui/qwindowdefs_win.h \
+		/usr/local/include/qt5/QtCore/qpoint.h \
+		/usr/local/include/qt5/QtCore/qsize.h \
+		/usr/local/include/qt5/QtGui/qcursor.h \
+		/usr/local/include/qt5/QtWidgets/qdesktopwidget.h \
+		/usr/local/include/qt5/QtWidgets/qwidget.h \
+		/usr/local/include/qt5/QtCore/qmargins.h \
+		/usr/local/include/qt5/QtGui/qpaintdevice.h \
+		/usr/local/include/qt5/QtCore/qrect.h \
+		/usr/local/include/qt5/QtGui/qpalette.h \
+		/usr/local/include/qt5/QtGui/qcolor.h \
+		/usr/local/include/qt5/QtGui/qrgb.h \
+		/usr/local/include/qt5/QtGui/qrgba64.h \
+		/usr/local/include/qt5/QtGui/qbrush.h \
+		/usr/local/include/qt5/QtCore/qvector.h \
+		/usr/local/include/qt5/QtGui/qmatrix.h \
+		/usr/local/include/qt5/QtGui/qpolygon.h \
+		/usr/local/include/qt5/QtGui/qregion.h \
+		/usr/local/include/qt5/QtCore/qdatastream.h \
+		/usr/local/include/qt5/QtCore/qiodevice.h \
+		/usr/local/include/qt5/QtCore/qline.h \
+		/usr/local/include/qt5/QtGui/qtransform.h \
+		/usr/local/include/qt5/QtGui/qpainterpath.h \
+		/usr/local/include/qt5/QtGui/qimage.h \
+		/usr/local/include/qt5/QtGui/qpixelformat.h \
+		/usr/local/include/qt5/QtGui/qpixmap.h \
+		/usr/local/include/qt5/QtCore/qsharedpointer.h \
+		/usr/local/include/qt5/QtCore/qshareddata.h \
+		/usr/local/include/qt5/QtCore/qhash.h \
+		/usr/local/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/local/include/qt5/QtGui/qfont.h \
+		/usr/local/include/qt5/QtGui/qfontmetrics.h \
+		/usr/local/include/qt5/QtGui/qfontinfo.h \
+		/usr/local/include/qt5/QtWidgets/qsizepolicy.h \
+		/usr/local/include/qt5/QtGui/qkeysequence.h \
+		/usr/local/include/qt5/QtGui/qevent.h \
+		/usr/local/include/qt5/QtCore/qvariant.h \
+		/usr/local/include/qt5/QtCore/qmap.h \
+		/usr/local/include/qt5/QtCore/qdebug.h \
+		/usr/local/include/qt5/QtCore/qtextstream.h \
+		/usr/local/include/qt5/QtCore/qlocale.h \
+		/usr/local/include/qt5/QtCore/qset.h \
+		/usr/local/include/qt5/QtCore/qcontiguouscache.h \
+		/usr/local/include/qt5/QtCore/qurl.h \
+		/usr/local/include/qt5/QtCore/qurlquery.h \
+		/usr/local/include/qt5/QtCore/qfile.h \
+		/usr/local/include/qt5/QtCore/qfiledevice.h \
+		/usr/local/include/qt5/QtGui/qvector2d.h \
+		/usr/local/include/qt5/QtGui/qtouchdevice.h \
+		/usr/local/include/qt5/QtGui/qguiapplication.h \
+		/usr/local/include/qt5/QtGui/qinputmethod.h \
+		/usr/local/include/qt5/QtCore/QLinkedList \
+		/usr/local/include/qt5/QtCore/qlinkedlist.h \
+		/usr/local/include/qt5/QtWidgets/QMessageBox \
+		/usr/local/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/local/include/qt5/QtWidgets/qdialog.h \
+		/usr/local/include/qt5/QtCore/QException \
+		/usr/local/include/qt5/QtCore/qexception.h \
+		/usr/local/include/pqxx/pqxx \
+		/usr/local/include/pqxx/binarystring \
+		/usr/local/include/pqxx/binarystring.hxx \
+		/usr/local/include/pqxx/compiler-public.hxx \
+		/usr/local/include/boost/smart_ptr.hpp \
+		/usr/local/include/boost/scoped_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/scoped_ptr.hpp \
+		/usr/local/include/boost/config.hpp \
+		/usr/local/include/boost/config/user.hpp \
+		/usr/local/include/boost/config/detail/select_compiler_config.hpp \
+		/usr/local/include/boost/config/compiler/nvcc.hpp \
+		/usr/local/include/boost/config/compiler/gcc_xml.hpp \
+		/usr/local/include/boost/config/compiler/cray.hpp \
+		/usr/local/include/boost/config/compiler/common_edg.hpp \
+		/usr/local/include/boost/config/compiler/comeau.hpp \
+		/usr/local/include/boost/config/compiler/pathscale.hpp \
+		/usr/local/include/boost/config/compiler/clang.hpp \
+		/usr/local/include/boost/config/compiler/intel.hpp \
+		/usr/local/include/boost/config/compiler/visualc.hpp \
+		/usr/local/include/boost/config/compiler/gcc.hpp \
+		/usr/local/include/boost/config/compiler/digitalmars.hpp \
+		/usr/local/include/boost/config/compiler/kai.hpp \
+		/usr/local/include/boost/config/compiler/sgi_mipspro.hpp \
+		/usr/local/include/boost/config/compiler/compaq_cxx.hpp \
+		/usr/local/include/boost/config/compiler/greenhills.hpp \
+		/usr/local/include/boost/config/compiler/codegear.hpp \
+		/usr/local/include/boost/config/compiler/borland.hpp \
+		/usr/local/include/boost/config/compiler/metrowerks.hpp \
+		/usr/local/include/boost/config/compiler/sunpro_cc.hpp \
+		/usr/local/include/boost/config/compiler/hp_acc.hpp \
+		/usr/local/include/boost/config/compiler/mpw.hpp \
+		/usr/local/include/boost/config/compiler/xlcpp_zos.hpp \
+		/usr/local/include/boost/config/compiler/xlcpp.hpp \
+		/usr/local/include/boost/config/compiler/vacpp.hpp \
+		/usr/local/include/boost/config/compiler/pgi.hpp \
+		/usr/local/include/boost/config/detail/select_stdlib_config.hpp \
+		/usr/local/include/boost/config/stdlib/stlport.hpp \
+		/usr/local/include/boost/config/stdlib/libcomo.hpp \
+		/usr/local/include/boost/config/no_tr1/utility.hpp \
+		/usr/local/include/boost/config/stdlib/roguewave.hpp \
+		/usr/local/include/boost/config/stdlib/libcpp.hpp \
+		/usr/local/include/boost/config/stdlib/libstdcpp3.hpp \
+		/usr/local/include/boost/config/stdlib/sgi.hpp \
+		/usr/local/include/boost/config/stdlib/msl.hpp \
+		/usr/local/include/boost/config/detail/posix_features.hpp \
+		/usr/local/include/boost/config/stdlib/xlcpp_zos.hpp \
+		/usr/local/include/boost/config/stdlib/vacpp.hpp \
+		/usr/local/include/boost/config/stdlib/modena.hpp \
+		/usr/local/include/boost/config/stdlib/dinkumware.hpp \
+		/usr/local/include/boost/config/detail/select_platform_config.hpp \
+		/usr/local/include/boost/config/platform/linux.hpp \
+		/usr/local/include/boost/config/platform/bsd.hpp \
+		/usr/local/include/boost/config/platform/solaris.hpp \
+		/usr/local/include/boost/config/platform/irix.hpp \
+		/usr/local/include/boost/config/platform/hpux.hpp \
+		/usr/local/include/boost/config/platform/cygwin.hpp \
+		/usr/local/include/boost/config/platform/win32.hpp \
+		/usr/local/include/boost/config/platform/beos.hpp \
+		/usr/local/include/boost/config/platform/macos.hpp \
+		/usr/local/include/boost/config/platform/zos.hpp \
+		/usr/local/include/boost/config/platform/aix.hpp \
+		/usr/local/include/boost/config/platform/amigaos.hpp \
+		/usr/local/include/boost/config/platform/qnxnto.hpp \
+		/usr/local/include/boost/config/platform/vxworks.hpp \
+		/usr/local/include/boost/config/platform/symbian.hpp \
+		/usr/local/include/boost/config/platform/cray.hpp \
+		/usr/local/include/boost/config/platform/vms.hpp \
+		/usr/local/include/boost/config/detail/suffix.hpp \
+		/usr/local/include/boost/assert.hpp \
+		/usr/local/include/boost/current_function.hpp \
+		/usr/local/include/boost/checked_delete.hpp \
+		/usr/local/include/boost/core/checked_delete.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_nullptr_t.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_noexcept.hpp \
+		/usr/local/include/boost/detail/workaround.hpp \
+		/usr/local/include/boost/config/workaround.hpp \
+		/usr/local/include/boost/smart_ptr/detail/operator_bool.hpp \
+		/usr/local/include/boost/scoped_array.hpp \
+		/usr/local/include/boost/smart_ptr/scoped_array.hpp \
+		/usr/local/include/boost/shared_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/shared_ptr.hpp \
+		/usr/local/include/boost/config/no_tr1/memory.hpp \
+		/usr/local/include/boost/throw_exception.hpp \
+		/usr/local/include/boost/exception/exception.hpp \
+		/usr/local/include/boost/smart_ptr/detail/shared_count.hpp \
+		/usr/local/include/boost/smart_ptr/bad_weak_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_has_sync.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_nt.hpp \
+		/usr/local/include/boost/detail/sp_typeinfo.hpp \
+		/usr/local/include/boost/core/typeinfo.hpp \
+		/usr/local/include/boost/core/demangle.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_std_atomic.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_spin.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_pool.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_std_atomic.hpp \
+		/usr/local/include/boost/smart_ptr/detail/yield_k.hpp \
+		/usr/local/include/boost/predef.h \
+		/usr/local/include/boost/predef/language.h \
+		/usr/local/include/boost/predef/language/stdc.h \
+		/usr/local/include/boost/predef/version_number.h \
+		/usr/local/include/boost/predef/make.h \
+		/usr/local/include/boost/predef/detail/test.h \
+		/usr/local/include/boost/predef/language/stdcpp.h \
+		/usr/local/include/boost/predef/language/objc.h \
+		/usr/local/include/boost/predef/architecture.h \
+		/usr/local/include/boost/predef/architecture/alpha.h \
+		/usr/local/include/boost/predef/architecture/arm.h \
+		/usr/local/include/boost/predef/architecture/blackfin.h \
+		/usr/local/include/boost/predef/architecture/convex.h \
+		/usr/local/include/boost/predef/architecture/ia64.h \
+		/usr/local/include/boost/predef/architecture/m68k.h \
+		/usr/local/include/boost/predef/architecture/mips.h \
+		/usr/local/include/boost/predef/architecture/parisc.h \
+		/usr/local/include/boost/predef/architecture/ppc.h \
+		/usr/local/include/boost/predef/architecture/pyramid.h \
+		/usr/local/include/boost/predef/architecture/rs6k.h \
+		/usr/local/include/boost/predef/architecture/sparc.h \
+		/usr/local/include/boost/predef/architecture/superh.h \
+		/usr/local/include/boost/predef/architecture/sys370.h \
+		/usr/local/include/boost/predef/architecture/sys390.h \
+		/usr/local/include/boost/predef/architecture/x86.h \
+		/usr/local/include/boost/predef/architecture/x86/32.h \
+		/usr/local/include/boost/predef/architecture/x86/64.h \
+		/usr/local/include/boost/predef/architecture/z.h \
+		/usr/local/include/boost/predef/compiler.h \
+		/usr/local/include/boost/predef/compiler/borland.h \
+		/usr/local/include/boost/predef/detail/comp_detected.h \
+		/usr/local/include/boost/predef/compiler/clang.h \
+		/usr/local/include/boost/predef/compiler/comeau.h \
+		/usr/local/include/boost/predef/compiler/compaq.h \
+		/usr/local/include/boost/predef/compiler/diab.h \
+		/usr/local/include/boost/predef/compiler/digitalmars.h \
+		/usr/local/include/boost/predef/compiler/dignus.h \
+		/usr/local/include/boost/predef/compiler/edg.h \
+		/usr/local/include/boost/predef/compiler/ekopath.h \
+		/usr/local/include/boost/predef/compiler/gcc_xml.h \
+		/usr/local/include/boost/predef/compiler/gcc.h \
+		/usr/local/include/boost/predef/compiler/greenhills.h \
+		/usr/local/include/boost/predef/compiler/hp_acc.h \
+		/usr/local/include/boost/predef/compiler/iar.h \
+		/usr/local/include/boost/predef/compiler/ibm.h \
+		/usr/local/include/boost/predef/compiler/intel.h \
+		/usr/local/include/boost/predef/compiler/kai.h \
+		/usr/local/include/boost/predef/compiler/llvm.h \
+		/usr/local/include/boost/predef/compiler/metaware.h \
+		/usr/local/include/boost/predef/compiler/metrowerks.h \
+		/usr/local/include/boost/predef/compiler/microtec.h \
+		/usr/local/include/boost/predef/compiler/mpw.h \
+		/usr/local/include/boost/predef/compiler/palm.h \
+		/usr/local/include/boost/predef/compiler/pgi.h \
+		/usr/local/include/boost/predef/compiler/sgi_mipspro.h \
+		/usr/local/include/boost/predef/compiler/sunpro.h \
+		/usr/local/include/boost/predef/compiler/tendra.h \
+		/usr/local/include/boost/predef/compiler/visualc.h \
+		/usr/local/include/boost/predef/compiler/watcom.h \
+		/usr/local/include/boost/predef/library.h \
+		/usr/local/include/boost/predef/library/c.h \
+		/usr/local/include/boost/predef/library/c/_prefix.h \
+		/usr/local/include/boost/predef/detail/_cassert.h \
+		/usr/local/include/boost/predef/library/c/gnu.h \
+		/usr/local/include/boost/predef/library/c/uc.h \
+		/usr/local/include/boost/predef/library/c/vms.h \
+		/usr/local/include/boost/predef/library/c/zos.h \
+		/usr/local/include/boost/predef/library/std.h \
+		/usr/local/include/boost/predef/library/std/_prefix.h \
+		/usr/local/include/boost/predef/detail/_exception.h \
+		/usr/local/include/boost/predef/library/std/cxx.h \
+		/usr/local/include/boost/predef/library/std/dinkumware.h \
+		/usr/local/include/boost/predef/library/std/libcomo.h \
+		/usr/local/include/boost/predef/library/std/modena.h \
+		/usr/local/include/boost/predef/library/std/msl.h \
+		/usr/local/include/boost/predef/library/std/roguewave.h \
+		/usr/local/include/boost/predef/library/std/sgi.h \
+		/usr/local/include/boost/predef/library/std/stdcpp3.h \
+		/usr/local/include/boost/predef/library/std/stlport.h \
+		/usr/local/include/boost/predef/library/std/vacpp.h \
+		/usr/local/include/boost/predef/os.h \
+		/usr/local/include/boost/predef/os/aix.h \
+		/usr/local/include/boost/predef/detail/os_detected.h \
+		/usr/local/include/boost/predef/os/amigaos.h \
+		/usr/local/include/boost/predef/os/android.h \
+		/usr/local/include/boost/predef/os/beos.h \
+		/usr/local/include/boost/predef/os/bsd.h \
+		/usr/local/include/boost/predef/os/macos.h \
+		/usr/local/include/boost/predef/os/ios.h \
+		/usr/local/include/boost/predef/os/bsd/bsdi.h \
+		/usr/local/include/boost/predef/os/bsd/dragonfly.h \
+		/usr/local/include/boost/predef/os/bsd/free.h \
+		/usr/local/include/boost/predef/os/bsd/open.h \
+		/usr/local/include/boost/predef/os/bsd/net.h \
+		/usr/local/include/boost/predef/os/cygwin.h \
+		/usr/local/include/boost/predef/os/haiku.h \
+		/usr/local/include/boost/predef/os/hpux.h \
+		/usr/local/include/boost/predef/os/irix.h \
+		/usr/local/include/boost/predef/os/linux.h \
+		/usr/local/include/boost/predef/os/os400.h \
+		/usr/local/include/boost/predef/os/qnxnto.h \
+		/usr/local/include/boost/predef/os/solaris.h \
+		/usr/local/include/boost/predef/os/unix.h \
+		/usr/local/include/boost/predef/os/vms.h \
+		/usr/local/include/boost/predef/os/windows.h \
+		/usr/local/include/boost/predef/other.h \
+		/usr/local/include/boost/predef/other/endian.h \
+		/usr/local/include/boost/predef/platform.h \
+		/usr/local/include/boost/predef/platform/mingw.h \
+		/usr/local/include/boost/predef/detail/platform_detected.h \
+		/usr/local/include/boost/predef/platform/windows_desktop.h \
+		/usr/local/include/boost/predef/platform/windows_store.h \
+		/usr/local/include/boost/predef/platform/windows_phone.h \
+		/usr/local/include/boost/predef/platform/windows_runtime.h \
+		/usr/local/include/boost/predef/platform/ios.h \
+		/usr/local/include/boost/predef/hardware.h \
+		/usr/local/include/boost/predef/hardware/simd.h \
+		/usr/local/include/boost/predef/hardware/simd/x86.h \
+		/usr/local/include/boost/predef/hardware/simd/x86/versions.h \
+		/usr/local/include/boost/predef/hardware/simd/x86_amd.h \
+		/usr/local/include/boost/predef/hardware/simd/x86_amd/versions.h \
+		/usr/local/include/boost/predef/hardware/simd/arm.h \
+		/usr/local/include/boost/predef/hardware/simd/arm/versions.h \
+		/usr/local/include/boost/predef/hardware/simd/ppc.h \
+		/usr/local/include/boost/predef/hardware/simd/ppc/versions.h \
+		/usr/local/include/boost/predef/version.h \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_sync.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_pt.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_gcc_arm.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_w32.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_interlocked.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_nt.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_pt.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_clang.hpp \
+		/usr/local/include/boost/cstdint.hpp \
+		/usr/local/include/boost/limits.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_snc_ps3.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_acc_ia64.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_ia64.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_vacpp_ppc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_cw_ppc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_ppc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_mips.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_sync.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_sparc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_w32.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_aix.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_impl.hpp \
+		/usr/local/include/boost/core/addressof.hpp \
+		/usr/local/include/boost/smart_ptr/detail/quick_allocator.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lightweight_mutex.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lwm_nop.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lwm_pthreads.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lwm_win32_cs.hpp \
+		/usr/local/include/boost/type_traits/type_with_alignment.hpp \
+		/usr/local/include/boost/type_traits/alignment_of.hpp \
+		/usr/local/include/boost/type_traits/intrinsics.hpp \
+		/usr/local/include/boost/type_traits/detail/config.hpp \
+		/usr/local/include/boost/version.hpp \
+		/usr/local/include/boost/type_traits/is_same.hpp \
+		/usr/local/include/boost/type_traits/integral_constant.hpp \
+		/usr/local/include/boost/type_traits/is_reference.hpp \
+		/usr/local/include/boost/type_traits/is_lvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/is_rvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/is_volatile.hpp \
+		/usr/local/include/boost/type_traits/is_void.hpp \
+		/usr/local/include/boost/type_traits/is_pod.hpp \
+		/usr/local/include/boost/type_traits/is_scalar.hpp \
+		/usr/local/include/boost/type_traits/is_arithmetic.hpp \
+		/usr/local/include/boost/type_traits/is_integral.hpp \
+		/usr/local/include/boost/type_traits/is_floating_point.hpp \
+		/usr/local/include/boost/type_traits/is_enum.hpp \
+		/usr/local/include/boost/type_traits/add_reference.hpp \
+		/usr/local/include/boost/type_traits/is_convertible.hpp \
+		/usr/local/include/boost/type_traits/detail/yes_no_type.hpp \
+		/usr/local/include/boost/type_traits/is_array.hpp \
+		/usr/local/include/boost/type_traits/is_abstract.hpp \
+		/usr/local/include/boost/static_assert.hpp \
+		/usr/local/include/boost/type_traits/is_class.hpp \
+		/usr/local/include/boost/type_traits/is_union.hpp \
+		/usr/local/include/boost/type_traits/is_function.hpp \
+		/usr/local/include/boost/type_traits/detail/is_function_ptr_helper.hpp \
+		/usr/local/include/boost/type_traits/detail/is_function_ptr_tester.hpp \
+		/usr/local/include/boost/type_traits/is_polymorphic.hpp \
+		/usr/local/include/boost/type_traits/add_lvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/add_rvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/remove_reference.hpp \
+		/usr/local/include/boost/type_traits/declval.hpp \
+		/usr/local/include/boost/type_traits/is_pointer.hpp \
+		/usr/local/include/boost/type_traits/is_member_pointer.hpp \
+		/usr/local/include/boost/type_traits/is_member_function_pointer.hpp \
+		/usr/local/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp \
+		/usr/local/include/boost/type_traits/remove_cv.hpp \
+		/usr/local/include/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp \
+		/usr/local/include/boost/type_traits/conditional.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_convertible.hpp \
+		/usr/local/include/boost/smart_ptr/detail/local_sp_deleter.hpp \
+		/usr/local/include/boost/smart_ptr/detail/local_counted_base.hpp \
+		/usr/local/include/boost/shared_array.hpp \
+		/usr/local/include/boost/smart_ptr/shared_array.hpp \
+		/usr/local/include/boost/weak_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/weak_ptr.hpp \
+		/usr/local/include/boost/intrusive_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/intrusive_ptr.hpp \
+		/usr/local/include/boost/config/no_tr1/functional.hpp \
+		/usr/local/include/boost/enable_shared_from_this.hpp \
+		/usr/local/include/boost/smart_ptr/enable_shared_from_this.hpp \
+		/usr/local/include/boost/make_shared.hpp \
+		/usr/local/include/boost/smart_ptr/make_shared.hpp \
+		/usr/local/include/boost/smart_ptr/make_shared_object.hpp \
+		/usr/local/include/boost/move/core.hpp \
+		/usr/local/include/boost/move/detail/config_begin.hpp \
+		/usr/local/include/boost/move/detail/workaround.hpp \
+		/usr/local/include/boost/move/detail/type_traits.hpp \
+		/usr/local/include/boost/move/detail/meta_utils.hpp \
+		/usr/local/include/boost/move/detail/meta_utils_core.hpp \
+		/usr/local/include/boost/move/detail/config_end.hpp \
+		/usr/local/include/boost/move/utility_core.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_forward.hpp \
+		/usr/local/include/boost/smart_ptr/make_shared_array.hpp \
+		/usr/local/include/boost/smart_ptr/allocate_shared_array.hpp \
+		/usr/local/include/boost/type_traits/has_trivial_assign.hpp \
+		/usr/local/include/boost/type_traits/is_const.hpp \
+		/usr/local/include/boost/type_traits/is_assignable.hpp \
+		/usr/local/include/boost/type_traits/has_trivial_constructor.hpp \
+		/usr/local/include/boost/type_traits/is_default_constructible.hpp \
+		/usr/local/include/boost/type_traits/has_trivial_destructor.hpp \
+		/usr/local/include/boost/type_traits/is_destructible.hpp \
+		/usr/local/include/pqxx/config-public-compiler.h \
+		/usr/local/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/include/pqxx/result \
+		/usr/local/include/pqxx/result.hxx \
+		/usr/local/include/pqxx/internal/result_data.hxx \
+		/usr/local/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/include/pqxx/except \
+		/usr/local/include/pqxx/except.hxx \
+		/usr/local/include/pqxx/util \
+		/usr/local/include/pqxx/util.hxx \
+		/usr/local/include/pqxx/strconv \
+		/usr/local/include/pqxx/strconv.hxx \
+		/usr/local/include/pqxx/compiler-internal-post.hxx \
+		/usr/local/include/pqxx/field \
+		/usr/local/include/pqxx/field.hxx \
+		/usr/local/include/pqxx/tuple \
+		/usr/local/include/pqxx/tuple.hxx \
+		/usr/local/include/pqxx/connection \
+		/usr/local/include/pqxx/connection.hxx \
+		/usr/local/include/pqxx/connectionpolicy \
+		/usr/local/include/pqxx/connectionpolicy.hxx \
+		/usr/local/include/pqxx/basic_connection \
+		/usr/local/include/pqxx/basic_connection.hxx \
+		/usr/local/include/pqxx/connection_base \
+		/usr/local/include/pqxx/connection_base.hxx \
+		/usr/local/include/pqxx/errorhandler \
+		/usr/local/include/pqxx/errorhandler.hxx \
+		/usr/local/include/pqxx/prepared_statement \
+		/usr/local/include/pqxx/prepared_statement.hxx \
+		/usr/local/include/pqxx/internal/statement_parameters.hxx \
+		/usr/local/include/pqxx/cursor \
+		/usr/local/include/pqxx/cursor.hxx \
+		/usr/local/include/pqxx/transaction_base \
+		/usr/local/include/pqxx/transaction_base.hxx \
+		/usr/local/include/pqxx/isolation \
+		/usr/local/include/pqxx/isolation.hxx \
+		/usr/local/include/pqxx/largeobject \
+		/usr/local/include/pqxx/largeobject.hxx \
+		/usr/local/include/pqxx/dbtransaction \
+		/usr/local/include/pqxx/dbtransaction.hxx \
+		/usr/local/include/pqxx/nontransaction \
+		/usr/local/include/pqxx/nontransaction.hxx \
+		/usr/local/include/pqxx/notification \
+		/usr/local/include/pqxx/notification.hxx \
+		/usr/local/include/pqxx/notify-listen \
+		/usr/local/include/pqxx/notify-listen.hxx \
+		/usr/local/include/pqxx/pipeline \
+		/usr/local/include/pqxx/pipeline.hxx \
+		/usr/local/include/pqxx/robusttransaction \
+		/usr/local/include/pqxx/robusttransaction.hxx \
+		/usr/local/include/pqxx/subtransaction \
+		/usr/local/include/pqxx/subtransaction.hxx \
+		/usr/local/include/pqxx/tablereader \
+		/usr/local/include/pqxx/tablereader.hxx \
+		/usr/local/include/pqxx/tablestream \
+		/usr/local/include/pqxx/tablestream.hxx \
+		/usr/local/include/pqxx/tablewriter \
+		/usr/local/include/pqxx/tablewriter.hxx \
+		/usr/local/include/pqxx/transaction \
+		/usr/local/include/pqxx/transaction.hxx \
+		/usr/local/include/pqxx/transactor \
+		/usr/local/include/pqxx/transactor.hxx \
+		/usr/local/include/pqxx/version \
+		/usr/local/include/pqxx/version.hxx \
+		/usr/local/include/qt5/QtGui/QtGui \
+		/usr/local/include/qt5/QtGui/QtGuiDepends \
+		/usr/local/include/qt5/QtCore/QtCore \
+		/usr/local/include/qt5/QtCore/QtCoreDepends \
+		/usr/local/include/qt5/QtCore/qabstractanimation.h \
+		/usr/local/include/qt5/QtCore/qanimationgroup.h \
+		/usr/local/include/qt5/QtCore/qparallelanimationgroup.h \
+		/usr/local/include/qt5/QtCore/qpauseanimation.h \
+		/usr/local/include/qt5/QtCore/qpropertyanimation.h \
+		/usr/local/include/qt5/QtCore/qvariantanimation.h \
+		/usr/local/include/qt5/QtCore/qeasingcurve.h \
+		/usr/local/include/qt5/QtCore/qsequentialanimationgroup.h \
+		/usr/local/include/qt5/QtCore/qtextcodec.h \
+		/usr/local/include/qt5/QtCore/qendian.h \
+		/usr/local/include/qt5/QtCore/qlibraryinfo.h \
+		/usr/local/include/qt5/QtCore/qdatetime.h \
+		/usr/local/include/qt5/QtCore/qbuffer.h \
+		/usr/local/include/qt5/QtCore/qdir.h \
+		/usr/local/include/qt5/QtCore/qfileinfo.h \
+		/usr/local/include/qt5/QtCore/qdiriterator.h \
+		/usr/local/include/qt5/QtCore/qfileselector.h \
+		/usr/local/include/qt5/QtCore/QObject \
+		/usr/local/include/qt5/QtCore/QStringList \
+		/usr/local/include/qt5/QtCore/qfilesystemwatcher.h \
+		/usr/local/include/qt5/QtCore/qlockfile.h \
+		/usr/local/include/qt5/QtCore/qloggingcategory.h \
+		/usr/local/include/qt5/QtCore/qprocess.h \
+		/usr/local/include/qt5/QtCore/qresource.h \
+		/usr/local/include/qt5/QtCore/qsavefile.h \
+		/usr/local/include/qt5/QtCore/qsettings.h \
+		/usr/local/include/qt5/QtCore/qstandardpaths.h \
+		/usr/local/include/qt5/QtCore/qstorageinfo.h \
+		/usr/local/include/qt5/QtCore/qtemporarydir.h \
+		/usr/local/include/qt5/QtCore/QScopedPointer \
+		/usr/local/include/qt5/QtCore/qtemporaryfile.h \
+		/usr/local/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/local/include/qt5/QtCore/qabstractproxymodel.h \
+		/usr/local/include/qt5/QtCore/qidentityproxymodel.h \
+		/usr/local/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/local/include/qt5/QtCore/qsortfilterproxymodel.h \
+		/usr/local/include/qt5/QtCore/qstringlistmodel.h \
+		/usr/local/include/qt5/QtCore/qjsonarray.h \
+		/usr/local/include/qt5/QtCore/qjsonvalue.h \
+		/usr/local/include/qt5/QtCore/qjsondocument.h \
+		/usr/local/include/qt5/QtCore/qjsonobject.h \
+		/usr/local/include/qt5/QtCore/qabstracteventdispatcher.h \
+		/usr/local/include/qt5/QtCore/qabstractnativeeventfilter.h \
+		/usr/local/include/qt5/QtCore/qbasictimer.h \
+		/usr/local/include/qt5/QtCore/qmath.h \
+		/usr/local/include/qt5/QtCore/qmetaobject.h \
+		/usr/local/include/qt5/QtCore/qmimedata.h \
+		/usr/local/include/qt5/QtCore/qobjectcleanuphandler.h \
+		/usr/local/include/qt5/QtCore/qpointer.h \
+		/usr/local/include/qt5/QtCore/qsharedmemory.h \
+		/usr/local/include/qt5/QtCore/qsignalmapper.h \
+		/usr/local/include/qt5/QtCore/qsocketnotifier.h \
+		/usr/local/include/qt5/QtCore/qsystemsemaphore.h \
+		/usr/local/include/qt5/QtCore/qtimer.h \
+		/usr/local/include/qt5/QtCore/qtranslator.h \
+		/usr/local/include/qt5/QtCore/qwineventnotifier.h \
+		/usr/local/include/qt5/QtCore/qmimedatabase.h \
+		/usr/local/include/qt5/QtCore/qmimetype.h \
+		/usr/local/include/qt5/QtCore/qfactoryinterface.h \
+		/usr/local/include/qt5/QtCore/qlibrary.h \
+		/usr/local/include/qt5/QtCore/qplugin.h \
+		/usr/local/include/qt5/QtCore/qpluginloader.h \
+		/usr/local/include/qt5/QtCore/quuid.h \
+		/usr/local/include/qt5/QtCore/qabstractstate.h \
+		/usr/local/include/qt5/QtCore/qabstracttransition.h \
+		/usr/local/include/qt5/QtCore/qeventtransition.h \
+		/usr/local/include/qt5/QtCore/qfinalstate.h \
+		/usr/local/include/qt5/QtCore/qhistorystate.h \
+		/usr/local/include/qt5/QtCore/qsignaltransition.h \
+		/usr/local/include/qt5/QtCore/qstate.h \
+		/usr/local/include/qt5/QtCore/qstatemachine.h \
+		/usr/local/include/qt5/QtCore/qfuture.h \
+		/usr/local/include/qt5/QtCore/qfutureinterface.h \
+		/usr/local/include/qt5/QtCore/qrunnable.h \
+		/usr/local/include/qt5/QtCore/qresultstore.h \
+		/usr/local/include/qt5/QtCore/qfuturesynchronizer.h \
+		/usr/local/include/qt5/QtCore/qfuturewatcher.h \
+		/usr/local/include/qt5/QtCore/qreadwritelock.h \
+		/usr/local/include/qt5/QtCore/qsemaphore.h \
+		/usr/local/include/qt5/QtCore/qthread.h \
+		/usr/local/include/qt5/QtCore/qthreadpool.h \
+		/usr/local/include/qt5/QtCore/qthreadstorage.h \
+		/usr/local/include/qt5/QtCore/qwaitcondition.h \
+		/usr/local/include/qt5/QtCore/qarraydataops.h \
+		/usr/local/include/qt5/QtCore/qarraydatapointer.h \
+		/usr/local/include/qt5/QtCore/qbitarray.h \
+		/usr/local/include/qt5/QtCore/qbytearraymatcher.h \
+		/usr/local/include/qt5/QtCore/qcache.h \
+		/usr/local/include/qt5/QtCore/qcollator.h \
+		/usr/local/include/qt5/QtCore/qcommandlineoption.h \
+		/usr/local/include/qt5/QtCore/qcommandlineparser.h \
+		/usr/local/include/qt5/QtCore/qcryptographichash.h \
+		/usr/local/include/qt5/QtCore/qelapsedtimer.h \
+		/usr/local/include/qt5/QtCore/qmessageauthenticationcode.h \
+		/usr/local/include/qt5/QtCore/qqueue.h \
+		/usr/local/include/qt5/QtCore/qregularexpression.h \
+		/usr/local/include/qt5/QtCore/qscopedvaluerollback.h \
+		/usr/local/include/qt5/QtCore/qstack.h \
+		/usr/local/include/qt5/QtCore/qtextboundaryfinder.h \
+		/usr/local/include/qt5/QtCore/qtimeline.h \
+		/usr/local/include/qt5/QtCore/qtimezone.h \
+		/usr/local/include/qt5/QtCore/qversionnumber.h \
+		/usr/local/include/qt5/QtCore/qxmlstream.h \
+		/usr/local/include/qt5/QtCore/qtcoreversion.h \
+		/usr/local/include/qt5/QtGui/qaccessible.h \
+		/usr/local/include/qt5/QtGui/qaccessiblebridge.h \
+		/usr/local/include/qt5/QtGui/qaccessibleobject.h \
+		/usr/local/include/qt5/QtGui/qaccessibleplugin.h \
+		/usr/local/include/qt5/QtGui/qbitmap.h \
+		/usr/local/include/qt5/QtGui/qicon.h \
+		/usr/local/include/qt5/QtGui/qiconengine.h \
+		/usr/local/include/qt5/QtGui/qiconengineplugin.h \
+		/usr/local/include/qt5/QtGui/qimageiohandler.h \
+		/usr/local/include/qt5/QtGui/qimagereader.h \
+		/usr/local/include/qt5/QtGui/qimagewriter.h \
+		/usr/local/include/qt5/QtGui/qmovie.h \
+		/usr/local/include/qt5/QtGui/qpicture.h \
+		/usr/local/include/qt5/QtGui/qpictureformatplugin.h \
+		/usr/local/include/qt5/QtGui/qpixmapcache.h \
+		/usr/local/include/qt5/QtGui/qstandarditemmodel.h \
+		/usr/local/include/qt5/QtGui/qclipboard.h \
+		/usr/local/include/qt5/QtGui/qdrag.h \
+		/usr/local/include/qt5/QtGui/qgenericplugin.h \
+		/usr/local/include/qt5/QtGui/qgenericpluginfactory.h \
+		/usr/local/include/qt5/QtGui/qoffscreensurface.h \
+		/usr/local/include/qt5/QtGui/qsurface.h \
+		/usr/local/include/qt5/QtGui/qsurfaceformat.h \
+		/usr/local/include/qt5/QtGui/qopenglcontext.h \
+		/usr/local/include/qt5/QtGui/QSurfaceFormat \
+		/usr/local/include/qt5/QtGui/qopengl.h \
+		/usr/local/include/qt5/QtCore/qt_windows.h \
+		/usr/local/include/GLES3/gl31.h \
+		/usr/local/include/GLES3/gl3platform.h \
+		/usr/local/include/KHR/khrplatform.h \
+		/usr/local/include/GLES3/gl3.h \
+		/usr/local/include/GLES2/gl2.h \
+		/usr/local/include/GLES2/gl2platform.h \
+		/usr/local/include/qt5/QtGui/qopengles2ext.h \
+		/usr/local/include/GL/gl.h \
+		/usr/local/include/GL/gl_mangle.h \
+		/usr/local/include/GL/glext.h \
+		/usr/local/include/qt5/QtGui/qopenglext.h \
+		/usr/local/include/qt5/QtGui/qopenglversionfunctions.h \
+		/usr/local/include/qt5/QtGui/qopenglwindow.h \
+		/usr/local/include/qt5/QtGui/QPaintDeviceWindow \
+		/usr/local/include/qt5/QtGui/qpaintdevicewindow.h \
+		/usr/local/include/qt5/QtGui/QWindow \
+		/usr/local/include/qt5/QtGui/qwindow.h \
+		/usr/local/include/qt5/QtCore/QEvent \
+		/usr/local/include/qt5/QtCore/QMargins \
+		/usr/local/include/qt5/QtCore/QRect \
+		/usr/local/include/qt5/QtGui/QPaintDevice \
+		/usr/local/include/qt5/QtGui/QOpenGLContext \
+		/usr/local/include/qt5/QtGui/QImage \
+		/usr/local/include/qt5/QtGui/qrasterwindow.h \
+		/usr/local/include/qt5/QtGui/qscreen.h \
+		/usr/local/include/qt5/QtCore/QList \
+		/usr/local/include/qt5/QtCore/QSize \
+		/usr/local/include/qt5/QtCore/QSizeF \
+		/usr/local/include/qt5/QtGui/QTransform \
+		/usr/local/include/qt5/QtGui/qsessionmanager.h \
+		/usr/local/include/qt5/QtGui/qstylehints.h \
+		/usr/local/include/qt5/QtGui/qgenericmatrix.h \
+		/usr/local/include/qt5/QtGui/qmatrix4x4.h \
+		/usr/local/include/qt5/QtGui/qvector3d.h \
+		/usr/local/include/qt5/QtGui/qvector4d.h \
+		/usr/local/include/qt5/QtGui/qquaternion.h \
+		/usr/local/include/qt5/QtGui/qopenglbuffer.h \
+		/usr/local/include/qt5/QtGui/qopengldebug.h \
+		/usr/local/include/qt5/QtGui/qopenglextrafunctions.h \
+		/usr/local/include/qt5/QtGui/qopenglfunctions.h \
+		/usr/local/include/qt5/QtGui/qopenglframebufferobject.h \
+		/usr/local/include/qt5/QtGui/qopenglpaintdevice.h \
+		/usr/local/include/qt5/QtGui/qopenglpixeltransferoptions.h \
+		/usr/local/include/qt5/QtCore/QSharedDataPointer \
+		/usr/local/include/qt5/QtGui/qopenglshaderprogram.h \
+		/usr/local/include/qt5/QtGui/qopengltexture.h \
+		/usr/local/include/qt5/QtGui/qopengltimerquery.h \
+		/usr/local/include/qt5/QtGui/qopenglvertexarrayobject.h \
+		/usr/local/include/qt5/QtGui/qbackingstore.h \
+		/usr/local/include/qt5/QtGui/qpagedpaintdevice.h \
+		/usr/local/include/qt5/QtGui/qpagelayout.h \
+		/usr/local/include/qt5/QtGui/qpagesize.h \
+		/usr/local/include/qt5/QtGui/qpaintengine.h \
+		/usr/local/include/qt5/QtGui/qpainter.h \
+		/usr/local/include/qt5/QtGui/qtextoption.h \
+		/usr/local/include/qt5/QtGui/qpen.h \
+		/usr/local/include/qt5/QtGui/qpdfwriter.h \
+		/usr/local/include/qt5/QtGui/qabstracttextdocumentlayout.h \
+		/usr/local/include/qt5/QtGui/qtextlayout.h \
+		/usr/local/include/qt5/QtGui/qtextformat.h \
+		/usr/local/include/qt5/QtGui/qglyphrun.h \
+		/usr/local/include/qt5/QtGui/qrawfont.h \
+		/usr/local/include/qt5/QtGui/qfontdatabase.h \
+		/usr/local/include/qt5/QtGui/qtextcursor.h \
+		/usr/local/include/qt5/QtGui/qtextdocument.h \
+		/usr/local/include/qt5/QtGui/qstatictext.h \
+		/usr/local/include/qt5/QtGui/qsyntaxhighlighter.h \
+		/usr/local/include/qt5/QtGui/qtextobject.h \
+		/usr/local/include/qt5/QtGui/qtextdocumentfragment.h \
+		/usr/local/include/qt5/QtGui/qtextdocumentwriter.h \
+		/usr/local/include/qt5/QtGui/qtextlist.h \
+		/usr/local/include/qt5/QtGui/qtexttable.h \
+		/usr/local/include/qt5/QtGui/qdesktopservices.h \
+		/usr/local/include/qt5/QtGui/qvalidator.h \
+		/usr/local/include/qt5/QtGui/qtguiversion.h \
+		/usr/local/include/qt5/QtWidgets/QMainWindow \
+		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
+		spesificjobs.h \
+		/usr/local/lib/qt5/bin/moc
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include spesificjobs.h -o moc_spesificjobs.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h
+compiler_uic_make_all: ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h ui_spesificjobs.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h
+	-$(DEL_FILE) ui_mainwindow.h ui_connectpsql.h ui_newcity.h ui_newstatus.h ui_showcities.h ui_showstatuses.h ui_viewjobs.h ui_newjob.h ui_newcountry.h ui_showcountries.h ui_spesificjobs.h
 ui_mainwindow.h: mainwindow.ui \
 		/usr/local/lib/qt5/bin/uic
 	/usr/local/lib/qt5/bin/uic mainwindow.ui -o ui_mainwindow.h
@@ -8140,6 +8877,10 @@ ui_newcountry.h: newcountry.ui \
 ui_showcountries.h: showcountries.ui \
 		/usr/local/lib/qt5/bin/uic
 	/usr/local/lib/qt5/bin/uic showcountries.ui -o ui_showcountries.h
+
+ui_spesificjobs.h: spesificjobs.ui \
+		/usr/local/lib/qt5/bin/uic
+	/usr/local/lib/qt5/bin/uic spesificjobs.ui -o ui_spesificjobs.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -9627,27 +10368,6 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/local/include/qt5/QtGui/QCloseEvent \
 		ui_mainwindow.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/QStatusBar \
-		/usr/local/include/qt5/QtWidgets/qstatusbar.h \
-		/usr/local/include/qt5/QtWidgets/QWidget \
 		newjob.h \
 		viewjobs.h \
 		newcity.h \
@@ -10391,32 +11111,10 @@ connectpsql.o: connectpsql.cpp connectpsql.h \
 		/usr/local/include/qt5/QtGui/qvalidator.h \
 		/usr/local/include/qt5/QtGui/qtguiversion.h \
 		ui_connectpsql.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QDialogButtonBox \
-		/usr/local/include/qt5/QtWidgets/qdialogbuttonbox.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
 		mainwindow.h \
 		/usr/local/include/qt5/QtWidgets/QMainWindow \
-		/usr/local/include/qt5/QtWidgets/qmainwindow.h
+		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/local/include/qt5/QtWidgets/qtabwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o connectpsql.o connectpsql.cpp
 
 psql.o: psql.cpp psql.h \
@@ -11875,35 +12573,6 @@ newcity.o: newcity.cpp newcity.h \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		ui_newcity.h \
-		/usr/local/include/qt5/QtCore/QLocale \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QComboBox \
-		/usr/local/include/qt5/QtWidgets/qcombobox.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/QDialogButtonBox \
-		/usr/local/include/qt5/QtWidgets/qdialogbuttonbox.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QWidget \
 		/usr/local/include/qt5/QtWidgets/QPushButton \
 		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/local/include/qt5/QtWidgets/qabstractbutton.h
@@ -12639,32 +13308,6 @@ newstatus.o: newstatus.cpp newstatus.h \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		ui_newstatus.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QDialogButtonBox \
-		/usr/local/include/qt5/QtWidgets/qdialogbuttonbox.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QWidget \
 		/usr/local/include/qt5/QtWidgets/QPushButton \
 		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/local/include/qt5/QtWidgets/qabstractbutton.h
@@ -13399,36 +14042,7 @@ showcities.o: showcities.cpp showcities.h \
 		/usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
-		ui_showcities.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QComboBox \
-		/usr/local/include/qt5/QtWidgets/qcombobox.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QPushButton \
-		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/local/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/local/include/qt5/QtWidgets/QWidget
+		ui_showcities.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o showcities.o showcities.cpp
 
 showstatuses.o: showstatuses.cpp showstatuses.h \
@@ -14160,36 +14774,7 @@ showstatuses.o: showstatuses.cpp showstatuses.h \
 		/usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
-		ui_showstatuses.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QComboBox \
-		/usr/local/include/qt5/QtWidgets/qcombobox.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QPushButton \
-		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/local/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/local/include/qt5/QtWidgets/QWidget
+		ui_showstatuses.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o showstatuses.o showstatuses.cpp
 
 viewjobs.o: viewjobs.cpp viewjobs.h \
@@ -14921,36 +15506,7 @@ viewjobs.o: viewjobs.cpp viewjobs.h \
 		/usr/local/include/qt5/QtGui/qdesktopservices.h \
 		/usr/local/include/qt5/QtGui/qvalidator.h \
 		/usr/local/include/qt5/QtGui/qtguiversion.h \
-		ui_viewjobs.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QComboBox \
-		/usr/local/include/qt5/QtWidgets/qcombobox.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QPushButton \
-		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/local/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/local/include/qt5/QtWidgets/QWidget
+		ui_viewjobs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o viewjobs.o viewjobs.cpp
 
 newjob.o: newjob.cpp newjob.h \
@@ -15685,35 +16241,7 @@ newjob.o: newjob.cpp newjob.h \
 		/usr/local/include/qt5/QtWidgets/QPushButton \
 		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/local/include/qt5/QtWidgets/qabstractbutton.h \
-		ui_newjob.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QComboBox \
-		/usr/local/include/qt5/QtWidgets/qcombobox.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/QDialogButtonBox \
-		/usr/local/include/qt5/QtWidgets/qdialogbuttonbox.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QWidget
+		ui_newjob.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o newjob.o newjob.cpp
 
 newcountry.o: newcountry.cpp newcountry.h \
@@ -16446,32 +16974,6 @@ newcountry.o: newcountry.cpp newcountry.h \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		ui_newcountry.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QDialogButtonBox \
-		/usr/local/include/qt5/QtWidgets/qdialogbuttonbox.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QWidget \
 		/usr/local/include/qt5/QtWidgets/QPushButton \
 		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/local/include/qt5/QtWidgets/qabstractbutton.h
@@ -17206,37 +17708,738 @@ showcountries.o: showcountries.cpp showcountries.h \
 		/usr/local/include/qt5/QtGui/qdesktopservices.h \
 		/usr/local/include/qt5/QtGui/qvalidator.h \
 		/usr/local/include/qt5/QtGui/qtguiversion.h \
-		ui_showcountries.h \
-		/usr/local/include/qt5/QtCore/QVariant \
-		/usr/local/include/qt5/QtWidgets/QAction \
-		/usr/local/include/qt5/QtWidgets/qaction.h \
-		/usr/local/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/local/include/qt5/QtWidgets/QButtonGroup \
-		/usr/local/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/local/include/qt5/QtWidgets/QComboBox \
-		/usr/local/include/qt5/QtWidgets/qcombobox.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/local/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/local/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/local/include/qt5/QtWidgets/qslider.h \
-		/usr/local/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/local/include/qt5/QtWidgets/qstyle.h \
-		/usr/local/include/qt5/QtWidgets/qtabbar.h \
-		/usr/local/include/qt5/QtWidgets/qrubberband.h \
-		/usr/local/include/qt5/QtWidgets/qframe.h \
-		/usr/local/include/qt5/QtWidgets/QHeaderView \
-		/usr/local/include/qt5/QtWidgets/qheaderview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/local/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/local/include/qt5/QtWidgets/QLabel \
-		/usr/local/include/qt5/QtWidgets/qlabel.h \
-		/usr/local/include/qt5/QtWidgets/QLineEdit \
-		/usr/local/include/qt5/QtWidgets/qlineedit.h \
-		/usr/local/include/qt5/QtWidgets/QPushButton \
-		/usr/local/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/local/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/local/include/qt5/QtWidgets/QWidget
+		ui_showcountries.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o showcountries.o showcountries.cpp
+
+spesificjobs.o: spesificjobs.cpp spesificjobs.h \
+		psql.h \
+		/usr/local/include/qt5/QtWidgets/QApplication \
+		/usr/local/include/qt5/QtWidgets/qapplication.h \
+		/usr/local/include/qt5/QtCore/qcoreapplication.h \
+		/usr/local/include/qt5/QtCore/qglobal.h \
+		/usr/local/include/qt5/QtCore/qconfig.h \
+		/usr/local/include/qt5/QtCore/qconfig-modules.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-network.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-dbus.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-gui.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-widgets.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-quick.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/qfeatures.h \
+		/usr/local/include/qt5/QtCore/qsystemdetection.h \
+		/usr/local/include/qt5/QtCore/qprocessordetection.h \
+		/usr/local/include/qt5/QtCore/qcompilerdetection.h \
+		/usr/local/include/qt5/QtCore/qtypeinfo.h \
+		/usr/local/include/qt5/QtCore/qtypetraits.h \
+		/usr/local/include/qt5/QtCore/qisenum.h \
+		/usr/local/include/qt5/QtCore/qsysinfo.h \
+		/usr/local/include/qt5/QtCore/qlogging.h \
+		/usr/local/include/qt5/QtCore/qflags.h \
+		/usr/local/include/qt5/QtCore/qatomic.h \
+		/usr/local/include/qt5/QtCore/qbasicatomic.h \
+		/usr/local/include/qt5/QtCore/qatomic_bootstrap.h \
+		/usr/local/include/qt5/QtCore/qgenericatomic.h \
+		/usr/local/include/qt5/QtCore/qatomic_cxx11.h \
+		/usr/local/include/qt5/QtCore/qatomic_msvc.h \
+		/usr/local/include/qt5/QtCore/qglobalstatic.h \
+		/usr/local/include/qt5/QtCore/qmutex.h \
+		/usr/local/include/qt5/QtCore/qnumeric.h \
+		/usr/local/include/qt5/QtCore/qversiontagging.h \
+		/usr/local/include/qt5/QtCore/qstring.h \
+		/usr/local/include/qt5/QtCore/qchar.h \
+		/usr/local/include/qt5/QtCore/qbytearray.h \
+		/usr/local/include/qt5/QtCore/qrefcount.h \
+		/usr/local/include/qt5/QtCore/qnamespace.h \
+		/usr/local/include/qt5/QtCore/qarraydata.h \
+		/usr/local/include/qt5/QtCore/qstringbuilder.h \
+		/usr/local/include/qt5/QtCore/qobject.h \
+		/usr/local/include/qt5/QtCore/qobjectdefs.h \
+		/usr/local/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/local/include/qt5/QtCore/qlist.h \
+		/usr/local/include/qt5/QtCore/qalgorithms.h \
+		/usr/local/include/qt5/QtCore/qiterator.h \
+		/usr/local/include/qt5/QtCore/qhashfunctions.h \
+		/usr/local/include/qt5/QtCore/qpair.h \
+		/usr/local/include/qt5/QtCore/qbytearraylist.h \
+		/usr/local/include/qt5/QtCore/qstringlist.h \
+		/usr/local/include/qt5/QtCore/qregexp.h \
+		/usr/local/include/qt5/QtCore/qstringmatcher.h \
+		/usr/local/include/qt5/QtCore/qcoreevent.h \
+		/usr/local/include/qt5/QtCore/qscopedpointer.h \
+		/usr/local/include/qt5/QtCore/qmetatype.h \
+		/usr/local/include/qt5/QtCore/qvarlengtharray.h \
+		/usr/local/include/qt5/QtCore/qcontainerfwd.h \
+		/usr/local/include/qt5/QtCore/qobject_impl.h \
+		/usr/local/include/qt5/QtCore/qeventloop.h \
+		/usr/local/include/qt5/QtGui/qwindowdefs.h \
+		/usr/local/include/qt5/QtGui/qwindowdefs_win.h \
+		/usr/local/include/qt5/QtCore/qpoint.h \
+		/usr/local/include/qt5/QtCore/qsize.h \
+		/usr/local/include/qt5/QtGui/qcursor.h \
+		/usr/local/include/qt5/QtWidgets/qdesktopwidget.h \
+		/usr/local/include/qt5/QtWidgets/qwidget.h \
+		/usr/local/include/qt5/QtCore/qmargins.h \
+		/usr/local/include/qt5/QtGui/qpaintdevice.h \
+		/usr/local/include/qt5/QtCore/qrect.h \
+		/usr/local/include/qt5/QtGui/qpalette.h \
+		/usr/local/include/qt5/QtGui/qcolor.h \
+		/usr/local/include/qt5/QtGui/qrgb.h \
+		/usr/local/include/qt5/QtGui/qrgba64.h \
+		/usr/local/include/qt5/QtGui/qbrush.h \
+		/usr/local/include/qt5/QtCore/qvector.h \
+		/usr/local/include/qt5/QtGui/qmatrix.h \
+		/usr/local/include/qt5/QtGui/qpolygon.h \
+		/usr/local/include/qt5/QtGui/qregion.h \
+		/usr/local/include/qt5/QtCore/qdatastream.h \
+		/usr/local/include/qt5/QtCore/qiodevice.h \
+		/usr/local/include/qt5/QtCore/qline.h \
+		/usr/local/include/qt5/QtGui/qtransform.h \
+		/usr/local/include/qt5/QtGui/qpainterpath.h \
+		/usr/local/include/qt5/QtGui/qimage.h \
+		/usr/local/include/qt5/QtGui/qpixelformat.h \
+		/usr/local/include/qt5/QtGui/qpixmap.h \
+		/usr/local/include/qt5/QtCore/qsharedpointer.h \
+		/usr/local/include/qt5/QtCore/qshareddata.h \
+		/usr/local/include/qt5/QtCore/qhash.h \
+		/usr/local/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/local/include/qt5/QtGui/qfont.h \
+		/usr/local/include/qt5/QtGui/qfontmetrics.h \
+		/usr/local/include/qt5/QtGui/qfontinfo.h \
+		/usr/local/include/qt5/QtWidgets/qsizepolicy.h \
+		/usr/local/include/qt5/QtGui/qkeysequence.h \
+		/usr/local/include/qt5/QtGui/qevent.h \
+		/usr/local/include/qt5/QtCore/qvariant.h \
+		/usr/local/include/qt5/QtCore/qmap.h \
+		/usr/local/include/qt5/QtCore/qdebug.h \
+		/usr/local/include/qt5/QtCore/qtextstream.h \
+		/usr/local/include/qt5/QtCore/qlocale.h \
+		/usr/local/include/qt5/QtCore/qset.h \
+		/usr/local/include/qt5/QtCore/qcontiguouscache.h \
+		/usr/local/include/qt5/QtCore/qurl.h \
+		/usr/local/include/qt5/QtCore/qurlquery.h \
+		/usr/local/include/qt5/QtCore/qfile.h \
+		/usr/local/include/qt5/QtCore/qfiledevice.h \
+		/usr/local/include/qt5/QtGui/qvector2d.h \
+		/usr/local/include/qt5/QtGui/qtouchdevice.h \
+		/usr/local/include/qt5/QtGui/qguiapplication.h \
+		/usr/local/include/qt5/QtGui/qinputmethod.h \
+		/usr/local/include/qt5/QtCore/QLinkedList \
+		/usr/local/include/qt5/QtCore/qlinkedlist.h \
+		/usr/local/include/qt5/QtWidgets/QMessageBox \
+		/usr/local/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/local/include/qt5/QtWidgets/qdialog.h \
+		/usr/local/include/qt5/QtCore/QException \
+		/usr/local/include/qt5/QtCore/qexception.h \
+		/usr/local/include/pqxx/pqxx \
+		/usr/local/include/pqxx/binarystring \
+		/usr/local/include/pqxx/binarystring.hxx \
+		/usr/local/include/pqxx/compiler-public.hxx \
+		/usr/local/include/boost/smart_ptr.hpp \
+		/usr/local/include/boost/scoped_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/scoped_ptr.hpp \
+		/usr/local/include/boost/config.hpp \
+		/usr/local/include/boost/config/user.hpp \
+		/usr/local/include/boost/config/detail/select_compiler_config.hpp \
+		/usr/local/include/boost/config/compiler/nvcc.hpp \
+		/usr/local/include/boost/config/compiler/gcc_xml.hpp \
+		/usr/local/include/boost/config/compiler/cray.hpp \
+		/usr/local/include/boost/config/compiler/common_edg.hpp \
+		/usr/local/include/boost/config/compiler/comeau.hpp \
+		/usr/local/include/boost/config/compiler/pathscale.hpp \
+		/usr/local/include/boost/config/compiler/clang.hpp \
+		/usr/local/include/boost/config/compiler/intel.hpp \
+		/usr/local/include/boost/config/compiler/visualc.hpp \
+		/usr/local/include/boost/config/compiler/gcc.hpp \
+		/usr/local/include/boost/config/compiler/digitalmars.hpp \
+		/usr/local/include/boost/config/compiler/kai.hpp \
+		/usr/local/include/boost/config/compiler/sgi_mipspro.hpp \
+		/usr/local/include/boost/config/compiler/compaq_cxx.hpp \
+		/usr/local/include/boost/config/compiler/greenhills.hpp \
+		/usr/local/include/boost/config/compiler/codegear.hpp \
+		/usr/local/include/boost/config/compiler/borland.hpp \
+		/usr/local/include/boost/config/compiler/metrowerks.hpp \
+		/usr/local/include/boost/config/compiler/sunpro_cc.hpp \
+		/usr/local/include/boost/config/compiler/hp_acc.hpp \
+		/usr/local/include/boost/config/compiler/mpw.hpp \
+		/usr/local/include/boost/config/compiler/xlcpp_zos.hpp \
+		/usr/local/include/boost/config/compiler/xlcpp.hpp \
+		/usr/local/include/boost/config/compiler/vacpp.hpp \
+		/usr/local/include/boost/config/compiler/pgi.hpp \
+		/usr/local/include/boost/config/detail/select_stdlib_config.hpp \
+		/usr/local/include/boost/config/stdlib/stlport.hpp \
+		/usr/local/include/boost/config/stdlib/libcomo.hpp \
+		/usr/local/include/boost/config/no_tr1/utility.hpp \
+		/usr/local/include/boost/config/stdlib/roguewave.hpp \
+		/usr/local/include/boost/config/stdlib/libcpp.hpp \
+		/usr/local/include/boost/config/stdlib/libstdcpp3.hpp \
+		/usr/local/include/boost/config/stdlib/sgi.hpp \
+		/usr/local/include/boost/config/stdlib/msl.hpp \
+		/usr/local/include/boost/config/detail/posix_features.hpp \
+		/usr/local/include/boost/config/stdlib/xlcpp_zos.hpp \
+		/usr/local/include/boost/config/stdlib/vacpp.hpp \
+		/usr/local/include/boost/config/stdlib/modena.hpp \
+		/usr/local/include/boost/config/stdlib/dinkumware.hpp \
+		/usr/local/include/boost/config/detail/select_platform_config.hpp \
+		/usr/local/include/boost/config/platform/linux.hpp \
+		/usr/local/include/boost/config/platform/bsd.hpp \
+		/usr/local/include/boost/config/platform/solaris.hpp \
+		/usr/local/include/boost/config/platform/irix.hpp \
+		/usr/local/include/boost/config/platform/hpux.hpp \
+		/usr/local/include/boost/config/platform/cygwin.hpp \
+		/usr/local/include/boost/config/platform/win32.hpp \
+		/usr/local/include/boost/config/platform/beos.hpp \
+		/usr/local/include/boost/config/platform/macos.hpp \
+		/usr/local/include/boost/config/platform/zos.hpp \
+		/usr/local/include/boost/config/platform/aix.hpp \
+		/usr/local/include/boost/config/platform/amigaos.hpp \
+		/usr/local/include/boost/config/platform/qnxnto.hpp \
+		/usr/local/include/boost/config/platform/vxworks.hpp \
+		/usr/local/include/boost/config/platform/symbian.hpp \
+		/usr/local/include/boost/config/platform/cray.hpp \
+		/usr/local/include/boost/config/platform/vms.hpp \
+		/usr/local/include/boost/config/detail/suffix.hpp \
+		/usr/local/include/boost/assert.hpp \
+		/usr/local/include/boost/current_function.hpp \
+		/usr/local/include/boost/checked_delete.hpp \
+		/usr/local/include/boost/core/checked_delete.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_nullptr_t.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_noexcept.hpp \
+		/usr/local/include/boost/detail/workaround.hpp \
+		/usr/local/include/boost/config/workaround.hpp \
+		/usr/local/include/boost/smart_ptr/detail/operator_bool.hpp \
+		/usr/local/include/boost/scoped_array.hpp \
+		/usr/local/include/boost/smart_ptr/scoped_array.hpp \
+		/usr/local/include/boost/shared_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/shared_ptr.hpp \
+		/usr/local/include/boost/config/no_tr1/memory.hpp \
+		/usr/local/include/boost/throw_exception.hpp \
+		/usr/local/include/boost/exception/exception.hpp \
+		/usr/local/include/boost/smart_ptr/detail/shared_count.hpp \
+		/usr/local/include/boost/smart_ptr/bad_weak_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_has_sync.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_nt.hpp \
+		/usr/local/include/boost/detail/sp_typeinfo.hpp \
+		/usr/local/include/boost/core/typeinfo.hpp \
+		/usr/local/include/boost/core/demangle.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_std_atomic.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_spin.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_pool.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_std_atomic.hpp \
+		/usr/local/include/boost/smart_ptr/detail/yield_k.hpp \
+		/usr/local/include/boost/predef.h \
+		/usr/local/include/boost/predef/language.h \
+		/usr/local/include/boost/predef/language/stdc.h \
+		/usr/local/include/boost/predef/version_number.h \
+		/usr/local/include/boost/predef/make.h \
+		/usr/local/include/boost/predef/detail/test.h \
+		/usr/local/include/boost/predef/language/stdcpp.h \
+		/usr/local/include/boost/predef/language/objc.h \
+		/usr/local/include/boost/predef/architecture.h \
+		/usr/local/include/boost/predef/architecture/alpha.h \
+		/usr/local/include/boost/predef/architecture/arm.h \
+		/usr/local/include/boost/predef/architecture/blackfin.h \
+		/usr/local/include/boost/predef/architecture/convex.h \
+		/usr/local/include/boost/predef/architecture/ia64.h \
+		/usr/local/include/boost/predef/architecture/m68k.h \
+		/usr/local/include/boost/predef/architecture/mips.h \
+		/usr/local/include/boost/predef/architecture/parisc.h \
+		/usr/local/include/boost/predef/architecture/ppc.h \
+		/usr/local/include/boost/predef/architecture/pyramid.h \
+		/usr/local/include/boost/predef/architecture/rs6k.h \
+		/usr/local/include/boost/predef/architecture/sparc.h \
+		/usr/local/include/boost/predef/architecture/superh.h \
+		/usr/local/include/boost/predef/architecture/sys370.h \
+		/usr/local/include/boost/predef/architecture/sys390.h \
+		/usr/local/include/boost/predef/architecture/x86.h \
+		/usr/local/include/boost/predef/architecture/x86/32.h \
+		/usr/local/include/boost/predef/architecture/x86/64.h \
+		/usr/local/include/boost/predef/architecture/z.h \
+		/usr/local/include/boost/predef/compiler.h \
+		/usr/local/include/boost/predef/compiler/borland.h \
+		/usr/local/include/boost/predef/detail/comp_detected.h \
+		/usr/local/include/boost/predef/compiler/clang.h \
+		/usr/local/include/boost/predef/compiler/comeau.h \
+		/usr/local/include/boost/predef/compiler/compaq.h \
+		/usr/local/include/boost/predef/compiler/diab.h \
+		/usr/local/include/boost/predef/compiler/digitalmars.h \
+		/usr/local/include/boost/predef/compiler/dignus.h \
+		/usr/local/include/boost/predef/compiler/edg.h \
+		/usr/local/include/boost/predef/compiler/ekopath.h \
+		/usr/local/include/boost/predef/compiler/gcc_xml.h \
+		/usr/local/include/boost/predef/compiler/gcc.h \
+		/usr/local/include/boost/predef/compiler/greenhills.h \
+		/usr/local/include/boost/predef/compiler/hp_acc.h \
+		/usr/local/include/boost/predef/compiler/iar.h \
+		/usr/local/include/boost/predef/compiler/ibm.h \
+		/usr/local/include/boost/predef/compiler/intel.h \
+		/usr/local/include/boost/predef/compiler/kai.h \
+		/usr/local/include/boost/predef/compiler/llvm.h \
+		/usr/local/include/boost/predef/compiler/metaware.h \
+		/usr/local/include/boost/predef/compiler/metrowerks.h \
+		/usr/local/include/boost/predef/compiler/microtec.h \
+		/usr/local/include/boost/predef/compiler/mpw.h \
+		/usr/local/include/boost/predef/compiler/palm.h \
+		/usr/local/include/boost/predef/compiler/pgi.h \
+		/usr/local/include/boost/predef/compiler/sgi_mipspro.h \
+		/usr/local/include/boost/predef/compiler/sunpro.h \
+		/usr/local/include/boost/predef/compiler/tendra.h \
+		/usr/local/include/boost/predef/compiler/visualc.h \
+		/usr/local/include/boost/predef/compiler/watcom.h \
+		/usr/local/include/boost/predef/library.h \
+		/usr/local/include/boost/predef/library/c.h \
+		/usr/local/include/boost/predef/library/c/_prefix.h \
+		/usr/local/include/boost/predef/detail/_cassert.h \
+		/usr/local/include/boost/predef/library/c/gnu.h \
+		/usr/local/include/boost/predef/library/c/uc.h \
+		/usr/local/include/boost/predef/library/c/vms.h \
+		/usr/local/include/boost/predef/library/c/zos.h \
+		/usr/local/include/boost/predef/library/std.h \
+		/usr/local/include/boost/predef/library/std/_prefix.h \
+		/usr/local/include/boost/predef/detail/_exception.h \
+		/usr/local/include/boost/predef/library/std/cxx.h \
+		/usr/local/include/boost/predef/library/std/dinkumware.h \
+		/usr/local/include/boost/predef/library/std/libcomo.h \
+		/usr/local/include/boost/predef/library/std/modena.h \
+		/usr/local/include/boost/predef/library/std/msl.h \
+		/usr/local/include/boost/predef/library/std/roguewave.h \
+		/usr/local/include/boost/predef/library/std/sgi.h \
+		/usr/local/include/boost/predef/library/std/stdcpp3.h \
+		/usr/local/include/boost/predef/library/std/stlport.h \
+		/usr/local/include/boost/predef/library/std/vacpp.h \
+		/usr/local/include/boost/predef/os.h \
+		/usr/local/include/boost/predef/os/aix.h \
+		/usr/local/include/boost/predef/detail/os_detected.h \
+		/usr/local/include/boost/predef/os/amigaos.h \
+		/usr/local/include/boost/predef/os/android.h \
+		/usr/local/include/boost/predef/os/beos.h \
+		/usr/local/include/boost/predef/os/bsd.h \
+		/usr/local/include/boost/predef/os/macos.h \
+		/usr/local/include/boost/predef/os/ios.h \
+		/usr/local/include/boost/predef/os/bsd/bsdi.h \
+		/usr/local/include/boost/predef/os/bsd/dragonfly.h \
+		/usr/local/include/boost/predef/os/bsd/free.h \
+		/usr/local/include/boost/predef/os/bsd/open.h \
+		/usr/local/include/boost/predef/os/bsd/net.h \
+		/usr/local/include/boost/predef/os/cygwin.h \
+		/usr/local/include/boost/predef/os/haiku.h \
+		/usr/local/include/boost/predef/os/hpux.h \
+		/usr/local/include/boost/predef/os/irix.h \
+		/usr/local/include/boost/predef/os/linux.h \
+		/usr/local/include/boost/predef/os/os400.h \
+		/usr/local/include/boost/predef/os/qnxnto.h \
+		/usr/local/include/boost/predef/os/solaris.h \
+		/usr/local/include/boost/predef/os/unix.h \
+		/usr/local/include/boost/predef/os/vms.h \
+		/usr/local/include/boost/predef/os/windows.h \
+		/usr/local/include/boost/predef/other.h \
+		/usr/local/include/boost/predef/other/endian.h \
+		/usr/local/include/boost/predef/platform.h \
+		/usr/local/include/boost/predef/platform/mingw.h \
+		/usr/local/include/boost/predef/detail/platform_detected.h \
+		/usr/local/include/boost/predef/platform/windows_desktop.h \
+		/usr/local/include/boost/predef/platform/windows_store.h \
+		/usr/local/include/boost/predef/platform/windows_phone.h \
+		/usr/local/include/boost/predef/platform/windows_runtime.h \
+		/usr/local/include/boost/predef/platform/ios.h \
+		/usr/local/include/boost/predef/hardware.h \
+		/usr/local/include/boost/predef/hardware/simd.h \
+		/usr/local/include/boost/predef/hardware/simd/x86.h \
+		/usr/local/include/boost/predef/hardware/simd/x86/versions.h \
+		/usr/local/include/boost/predef/hardware/simd/x86_amd.h \
+		/usr/local/include/boost/predef/hardware/simd/x86_amd/versions.h \
+		/usr/local/include/boost/predef/hardware/simd/arm.h \
+		/usr/local/include/boost/predef/hardware/simd/arm/versions.h \
+		/usr/local/include/boost/predef/hardware/simd/ppc.h \
+		/usr/local/include/boost/predef/hardware/simd/ppc/versions.h \
+		/usr/local/include/boost/predef/version.h \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_sync.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_pt.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_gcc_arm.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_w32.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_interlocked.hpp \
+		/usr/local/include/boost/smart_ptr/detail/spinlock_nt.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_pt.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_clang.hpp \
+		/usr/local/include/boost/cstdint.hpp \
+		/usr/local/include/boost/limits.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_snc_ps3.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_acc_ia64.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_ia64.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_vacpp_ppc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_cw_ppc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_ppc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_mips.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_sync.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_gcc_sparc.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_w32.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_base_aix.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_counted_impl.hpp \
+		/usr/local/include/boost/core/addressof.hpp \
+		/usr/local/include/boost/smart_ptr/detail/quick_allocator.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lightweight_mutex.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lwm_nop.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lwm_pthreads.hpp \
+		/usr/local/include/boost/smart_ptr/detail/lwm_win32_cs.hpp \
+		/usr/local/include/boost/type_traits/type_with_alignment.hpp \
+		/usr/local/include/boost/type_traits/alignment_of.hpp \
+		/usr/local/include/boost/type_traits/intrinsics.hpp \
+		/usr/local/include/boost/type_traits/detail/config.hpp \
+		/usr/local/include/boost/version.hpp \
+		/usr/local/include/boost/type_traits/is_same.hpp \
+		/usr/local/include/boost/type_traits/integral_constant.hpp \
+		/usr/local/include/boost/type_traits/is_reference.hpp \
+		/usr/local/include/boost/type_traits/is_lvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/is_rvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/is_volatile.hpp \
+		/usr/local/include/boost/type_traits/is_void.hpp \
+		/usr/local/include/boost/type_traits/is_pod.hpp \
+		/usr/local/include/boost/type_traits/is_scalar.hpp \
+		/usr/local/include/boost/type_traits/is_arithmetic.hpp \
+		/usr/local/include/boost/type_traits/is_integral.hpp \
+		/usr/local/include/boost/type_traits/is_floating_point.hpp \
+		/usr/local/include/boost/type_traits/is_enum.hpp \
+		/usr/local/include/boost/type_traits/add_reference.hpp \
+		/usr/local/include/boost/type_traits/is_convertible.hpp \
+		/usr/local/include/boost/type_traits/detail/yes_no_type.hpp \
+		/usr/local/include/boost/type_traits/is_array.hpp \
+		/usr/local/include/boost/type_traits/is_abstract.hpp \
+		/usr/local/include/boost/static_assert.hpp \
+		/usr/local/include/boost/type_traits/is_class.hpp \
+		/usr/local/include/boost/type_traits/is_union.hpp \
+		/usr/local/include/boost/type_traits/is_function.hpp \
+		/usr/local/include/boost/type_traits/detail/is_function_ptr_helper.hpp \
+		/usr/local/include/boost/type_traits/detail/is_function_ptr_tester.hpp \
+		/usr/local/include/boost/type_traits/is_polymorphic.hpp \
+		/usr/local/include/boost/type_traits/add_lvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/add_rvalue_reference.hpp \
+		/usr/local/include/boost/type_traits/remove_reference.hpp \
+		/usr/local/include/boost/type_traits/declval.hpp \
+		/usr/local/include/boost/type_traits/is_pointer.hpp \
+		/usr/local/include/boost/type_traits/is_member_pointer.hpp \
+		/usr/local/include/boost/type_traits/is_member_function_pointer.hpp \
+		/usr/local/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp \
+		/usr/local/include/boost/type_traits/remove_cv.hpp \
+		/usr/local/include/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp \
+		/usr/local/include/boost/type_traits/conditional.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_convertible.hpp \
+		/usr/local/include/boost/smart_ptr/detail/local_sp_deleter.hpp \
+		/usr/local/include/boost/smart_ptr/detail/local_counted_base.hpp \
+		/usr/local/include/boost/shared_array.hpp \
+		/usr/local/include/boost/smart_ptr/shared_array.hpp \
+		/usr/local/include/boost/weak_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/weak_ptr.hpp \
+		/usr/local/include/boost/intrusive_ptr.hpp \
+		/usr/local/include/boost/smart_ptr/intrusive_ptr.hpp \
+		/usr/local/include/boost/config/no_tr1/functional.hpp \
+		/usr/local/include/boost/enable_shared_from_this.hpp \
+		/usr/local/include/boost/smart_ptr/enable_shared_from_this.hpp \
+		/usr/local/include/boost/make_shared.hpp \
+		/usr/local/include/boost/smart_ptr/make_shared.hpp \
+		/usr/local/include/boost/smart_ptr/make_shared_object.hpp \
+		/usr/local/include/boost/move/core.hpp \
+		/usr/local/include/boost/move/detail/config_begin.hpp \
+		/usr/local/include/boost/move/detail/workaround.hpp \
+		/usr/local/include/boost/move/detail/type_traits.hpp \
+		/usr/local/include/boost/move/detail/meta_utils.hpp \
+		/usr/local/include/boost/move/detail/meta_utils_core.hpp \
+		/usr/local/include/boost/move/detail/config_end.hpp \
+		/usr/local/include/boost/move/utility_core.hpp \
+		/usr/local/include/boost/smart_ptr/detail/sp_forward.hpp \
+		/usr/local/include/boost/smart_ptr/make_shared_array.hpp \
+		/usr/local/include/boost/smart_ptr/allocate_shared_array.hpp \
+		/usr/local/include/boost/type_traits/has_trivial_assign.hpp \
+		/usr/local/include/boost/type_traits/is_const.hpp \
+		/usr/local/include/boost/type_traits/is_assignable.hpp \
+		/usr/local/include/boost/type_traits/has_trivial_constructor.hpp \
+		/usr/local/include/boost/type_traits/is_default_constructible.hpp \
+		/usr/local/include/boost/type_traits/has_trivial_destructor.hpp \
+		/usr/local/include/boost/type_traits/is_destructible.hpp \
+		/usr/local/include/pqxx/config-public-compiler.h \
+		/usr/local/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/include/pqxx/result \
+		/usr/local/include/pqxx/result.hxx \
+		/usr/local/include/pqxx/internal/result_data.hxx \
+		/usr/local/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/include/pqxx/except \
+		/usr/local/include/pqxx/except.hxx \
+		/usr/local/include/pqxx/util \
+		/usr/local/include/pqxx/util.hxx \
+		/usr/local/include/pqxx/strconv \
+		/usr/local/include/pqxx/strconv.hxx \
+		/usr/local/include/pqxx/compiler-internal-post.hxx \
+		/usr/local/include/pqxx/field \
+		/usr/local/include/pqxx/field.hxx \
+		/usr/local/include/pqxx/tuple \
+		/usr/local/include/pqxx/tuple.hxx \
+		/usr/local/include/pqxx/connection \
+		/usr/local/include/pqxx/connection.hxx \
+		/usr/local/include/pqxx/connectionpolicy \
+		/usr/local/include/pqxx/connectionpolicy.hxx \
+		/usr/local/include/pqxx/basic_connection \
+		/usr/local/include/pqxx/basic_connection.hxx \
+		/usr/local/include/pqxx/connection_base \
+		/usr/local/include/pqxx/connection_base.hxx \
+		/usr/local/include/pqxx/errorhandler \
+		/usr/local/include/pqxx/errorhandler.hxx \
+		/usr/local/include/pqxx/prepared_statement \
+		/usr/local/include/pqxx/prepared_statement.hxx \
+		/usr/local/include/pqxx/internal/statement_parameters.hxx \
+		/usr/local/include/pqxx/cursor \
+		/usr/local/include/pqxx/cursor.hxx \
+		/usr/local/include/pqxx/transaction_base \
+		/usr/local/include/pqxx/transaction_base.hxx \
+		/usr/local/include/pqxx/isolation \
+		/usr/local/include/pqxx/isolation.hxx \
+		/usr/local/include/pqxx/largeobject \
+		/usr/local/include/pqxx/largeobject.hxx \
+		/usr/local/include/pqxx/dbtransaction \
+		/usr/local/include/pqxx/dbtransaction.hxx \
+		/usr/local/include/pqxx/nontransaction \
+		/usr/local/include/pqxx/nontransaction.hxx \
+		/usr/local/include/pqxx/notification \
+		/usr/local/include/pqxx/notification.hxx \
+		/usr/local/include/pqxx/notify-listen \
+		/usr/local/include/pqxx/notify-listen.hxx \
+		/usr/local/include/pqxx/pipeline \
+		/usr/local/include/pqxx/pipeline.hxx \
+		/usr/local/include/pqxx/robusttransaction \
+		/usr/local/include/pqxx/robusttransaction.hxx \
+		/usr/local/include/pqxx/subtransaction \
+		/usr/local/include/pqxx/subtransaction.hxx \
+		/usr/local/include/pqxx/tablereader \
+		/usr/local/include/pqxx/tablereader.hxx \
+		/usr/local/include/pqxx/tablestream \
+		/usr/local/include/pqxx/tablestream.hxx \
+		/usr/local/include/pqxx/tablewriter \
+		/usr/local/include/pqxx/tablewriter.hxx \
+		/usr/local/include/pqxx/transaction \
+		/usr/local/include/pqxx/transaction.hxx \
+		/usr/local/include/pqxx/transactor \
+		/usr/local/include/pqxx/transactor.hxx \
+		/usr/local/include/pqxx/version \
+		/usr/local/include/pqxx/version.hxx \
+		/usr/local/include/qt5/QtGui/QtGui \
+		/usr/local/include/qt5/QtGui/QtGuiDepends \
+		/usr/local/include/qt5/QtCore/QtCore \
+		/usr/local/include/qt5/QtCore/QtCoreDepends \
+		/usr/local/include/qt5/QtCore/qabstractanimation.h \
+		/usr/local/include/qt5/QtCore/qanimationgroup.h \
+		/usr/local/include/qt5/QtCore/qparallelanimationgroup.h \
+		/usr/local/include/qt5/QtCore/qpauseanimation.h \
+		/usr/local/include/qt5/QtCore/qpropertyanimation.h \
+		/usr/local/include/qt5/QtCore/qvariantanimation.h \
+		/usr/local/include/qt5/QtCore/qeasingcurve.h \
+		/usr/local/include/qt5/QtCore/qsequentialanimationgroup.h \
+		/usr/local/include/qt5/QtCore/qtextcodec.h \
+		/usr/local/include/qt5/QtCore/qendian.h \
+		/usr/local/include/qt5/QtCore/qlibraryinfo.h \
+		/usr/local/include/qt5/QtCore/qdatetime.h \
+		/usr/local/include/qt5/QtCore/qbuffer.h \
+		/usr/local/include/qt5/QtCore/qdir.h \
+		/usr/local/include/qt5/QtCore/qfileinfo.h \
+		/usr/local/include/qt5/QtCore/qdiriterator.h \
+		/usr/local/include/qt5/QtCore/qfileselector.h \
+		/usr/local/include/qt5/QtCore/QObject \
+		/usr/local/include/qt5/QtCore/QStringList \
+		/usr/local/include/qt5/QtCore/qfilesystemwatcher.h \
+		/usr/local/include/qt5/QtCore/qlockfile.h \
+		/usr/local/include/qt5/QtCore/qloggingcategory.h \
+		/usr/local/include/qt5/QtCore/qprocess.h \
+		/usr/local/include/qt5/QtCore/qresource.h \
+		/usr/local/include/qt5/QtCore/qsavefile.h \
+		/usr/local/include/qt5/QtCore/qsettings.h \
+		/usr/local/include/qt5/QtCore/qstandardpaths.h \
+		/usr/local/include/qt5/QtCore/qstorageinfo.h \
+		/usr/local/include/qt5/QtCore/qtemporarydir.h \
+		/usr/local/include/qt5/QtCore/QScopedPointer \
+		/usr/local/include/qt5/QtCore/qtemporaryfile.h \
+		/usr/local/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/local/include/qt5/QtCore/qabstractproxymodel.h \
+		/usr/local/include/qt5/QtCore/qidentityproxymodel.h \
+		/usr/local/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/local/include/qt5/QtCore/qsortfilterproxymodel.h \
+		/usr/local/include/qt5/QtCore/qstringlistmodel.h \
+		/usr/local/include/qt5/QtCore/qjsonarray.h \
+		/usr/local/include/qt5/QtCore/qjsonvalue.h \
+		/usr/local/include/qt5/QtCore/qjsondocument.h \
+		/usr/local/include/qt5/QtCore/qjsonobject.h \
+		/usr/local/include/qt5/QtCore/qabstracteventdispatcher.h \
+		/usr/local/include/qt5/QtCore/qabstractnativeeventfilter.h \
+		/usr/local/include/qt5/QtCore/qbasictimer.h \
+		/usr/local/include/qt5/QtCore/qmath.h \
+		/usr/local/include/qt5/QtCore/qmetaobject.h \
+		/usr/local/include/qt5/QtCore/qmimedata.h \
+		/usr/local/include/qt5/QtCore/qobjectcleanuphandler.h \
+		/usr/local/include/qt5/QtCore/qpointer.h \
+		/usr/local/include/qt5/QtCore/qsharedmemory.h \
+		/usr/local/include/qt5/QtCore/qsignalmapper.h \
+		/usr/local/include/qt5/QtCore/qsocketnotifier.h \
+		/usr/local/include/qt5/QtCore/qsystemsemaphore.h \
+		/usr/local/include/qt5/QtCore/qtimer.h \
+		/usr/local/include/qt5/QtCore/qtranslator.h \
+		/usr/local/include/qt5/QtCore/qwineventnotifier.h \
+		/usr/local/include/qt5/QtCore/qmimedatabase.h \
+		/usr/local/include/qt5/QtCore/qmimetype.h \
+		/usr/local/include/qt5/QtCore/qfactoryinterface.h \
+		/usr/local/include/qt5/QtCore/qlibrary.h \
+		/usr/local/include/qt5/QtCore/qplugin.h \
+		/usr/local/include/qt5/QtCore/qpluginloader.h \
+		/usr/local/include/qt5/QtCore/quuid.h \
+		/usr/local/include/qt5/QtCore/qabstractstate.h \
+		/usr/local/include/qt5/QtCore/qabstracttransition.h \
+		/usr/local/include/qt5/QtCore/qeventtransition.h \
+		/usr/local/include/qt5/QtCore/qfinalstate.h \
+		/usr/local/include/qt5/QtCore/qhistorystate.h \
+		/usr/local/include/qt5/QtCore/qsignaltransition.h \
+		/usr/local/include/qt5/QtCore/qstate.h \
+		/usr/local/include/qt5/QtCore/qstatemachine.h \
+		/usr/local/include/qt5/QtCore/qfuture.h \
+		/usr/local/include/qt5/QtCore/qfutureinterface.h \
+		/usr/local/include/qt5/QtCore/qrunnable.h \
+		/usr/local/include/qt5/QtCore/qresultstore.h \
+		/usr/local/include/qt5/QtCore/qfuturesynchronizer.h \
+		/usr/local/include/qt5/QtCore/qfuturewatcher.h \
+		/usr/local/include/qt5/QtCore/qreadwritelock.h \
+		/usr/local/include/qt5/QtCore/qsemaphore.h \
+		/usr/local/include/qt5/QtCore/qthread.h \
+		/usr/local/include/qt5/QtCore/qthreadpool.h \
+		/usr/local/include/qt5/QtCore/qthreadstorage.h \
+		/usr/local/include/qt5/QtCore/qwaitcondition.h \
+		/usr/local/include/qt5/QtCore/qarraydataops.h \
+		/usr/local/include/qt5/QtCore/qarraydatapointer.h \
+		/usr/local/include/qt5/QtCore/qbitarray.h \
+		/usr/local/include/qt5/QtCore/qbytearraymatcher.h \
+		/usr/local/include/qt5/QtCore/qcache.h \
+		/usr/local/include/qt5/QtCore/qcollator.h \
+		/usr/local/include/qt5/QtCore/qcommandlineoption.h \
+		/usr/local/include/qt5/QtCore/qcommandlineparser.h \
+		/usr/local/include/qt5/QtCore/qcryptographichash.h \
+		/usr/local/include/qt5/QtCore/qelapsedtimer.h \
+		/usr/local/include/qt5/QtCore/qmessageauthenticationcode.h \
+		/usr/local/include/qt5/QtCore/qqueue.h \
+		/usr/local/include/qt5/QtCore/qregularexpression.h \
+		/usr/local/include/qt5/QtCore/qscopedvaluerollback.h \
+		/usr/local/include/qt5/QtCore/qstack.h \
+		/usr/local/include/qt5/QtCore/qtextboundaryfinder.h \
+		/usr/local/include/qt5/QtCore/qtimeline.h \
+		/usr/local/include/qt5/QtCore/qtimezone.h \
+		/usr/local/include/qt5/QtCore/qversionnumber.h \
+		/usr/local/include/qt5/QtCore/qxmlstream.h \
+		/usr/local/include/qt5/QtCore/qtcoreversion.h \
+		/usr/local/include/qt5/QtGui/qaccessible.h \
+		/usr/local/include/qt5/QtGui/qaccessiblebridge.h \
+		/usr/local/include/qt5/QtGui/qaccessibleobject.h \
+		/usr/local/include/qt5/QtGui/qaccessibleplugin.h \
+		/usr/local/include/qt5/QtGui/qbitmap.h \
+		/usr/local/include/qt5/QtGui/qicon.h \
+		/usr/local/include/qt5/QtGui/qiconengine.h \
+		/usr/local/include/qt5/QtGui/qiconengineplugin.h \
+		/usr/local/include/qt5/QtGui/qimageiohandler.h \
+		/usr/local/include/qt5/QtGui/qimagereader.h \
+		/usr/local/include/qt5/QtGui/qimagewriter.h \
+		/usr/local/include/qt5/QtGui/qmovie.h \
+		/usr/local/include/qt5/QtGui/qpicture.h \
+		/usr/local/include/qt5/QtGui/qpictureformatplugin.h \
+		/usr/local/include/qt5/QtGui/qpixmapcache.h \
+		/usr/local/include/qt5/QtGui/qstandarditemmodel.h \
+		/usr/local/include/qt5/QtGui/qclipboard.h \
+		/usr/local/include/qt5/QtGui/qdrag.h \
+		/usr/local/include/qt5/QtGui/qgenericplugin.h \
+		/usr/local/include/qt5/QtGui/qgenericpluginfactory.h \
+		/usr/local/include/qt5/QtGui/qoffscreensurface.h \
+		/usr/local/include/qt5/QtGui/qsurface.h \
+		/usr/local/include/qt5/QtGui/qsurfaceformat.h \
+		/usr/local/include/qt5/QtGui/qopenglcontext.h \
+		/usr/local/include/qt5/QtGui/QSurfaceFormat \
+		/usr/local/include/qt5/QtGui/qopengl.h \
+		/usr/local/include/qt5/QtCore/qt_windows.h \
+		/usr/local/include/GLES3/gl31.h \
+		/usr/local/include/GLES3/gl3platform.h \
+		/usr/local/include/KHR/khrplatform.h \
+		/usr/local/include/GLES3/gl3.h \
+		/usr/local/include/GLES2/gl2.h \
+		/usr/local/include/GLES2/gl2platform.h \
+		/usr/local/include/qt5/QtGui/qopengles2ext.h \
+		/usr/local/include/GL/gl.h \
+		/usr/local/include/GL/gl_mangle.h \
+		/usr/local/include/GL/glext.h \
+		/usr/local/include/qt5/QtGui/qopenglext.h \
+		/usr/local/include/qt5/QtGui/qopenglversionfunctions.h \
+		/usr/local/include/qt5/QtGui/qopenglwindow.h \
+		/usr/local/include/qt5/QtGui/QPaintDeviceWindow \
+		/usr/local/include/qt5/QtGui/qpaintdevicewindow.h \
+		/usr/local/include/qt5/QtGui/QWindow \
+		/usr/local/include/qt5/QtGui/qwindow.h \
+		/usr/local/include/qt5/QtCore/QEvent \
+		/usr/local/include/qt5/QtCore/QMargins \
+		/usr/local/include/qt5/QtCore/QRect \
+		/usr/local/include/qt5/QtGui/QPaintDevice \
+		/usr/local/include/qt5/QtGui/QOpenGLContext \
+		/usr/local/include/qt5/QtGui/QImage \
+		/usr/local/include/qt5/QtGui/qrasterwindow.h \
+		/usr/local/include/qt5/QtGui/qscreen.h \
+		/usr/local/include/qt5/QtCore/QList \
+		/usr/local/include/qt5/QtCore/QSize \
+		/usr/local/include/qt5/QtCore/QSizeF \
+		/usr/local/include/qt5/QtGui/QTransform \
+		/usr/local/include/qt5/QtGui/qsessionmanager.h \
+		/usr/local/include/qt5/QtGui/qstylehints.h \
+		/usr/local/include/qt5/QtGui/qgenericmatrix.h \
+		/usr/local/include/qt5/QtGui/qmatrix4x4.h \
+		/usr/local/include/qt5/QtGui/qvector3d.h \
+		/usr/local/include/qt5/QtGui/qvector4d.h \
+		/usr/local/include/qt5/QtGui/qquaternion.h \
+		/usr/local/include/qt5/QtGui/qopenglbuffer.h \
+		/usr/local/include/qt5/QtGui/qopengldebug.h \
+		/usr/local/include/qt5/QtGui/qopenglextrafunctions.h \
+		/usr/local/include/qt5/QtGui/qopenglfunctions.h \
+		/usr/local/include/qt5/QtGui/qopenglframebufferobject.h \
+		/usr/local/include/qt5/QtGui/qopenglpaintdevice.h \
+		/usr/local/include/qt5/QtGui/qopenglpixeltransferoptions.h \
+		/usr/local/include/qt5/QtCore/QSharedDataPointer \
+		/usr/local/include/qt5/QtGui/qopenglshaderprogram.h \
+		/usr/local/include/qt5/QtGui/qopengltexture.h \
+		/usr/local/include/qt5/QtGui/qopengltimerquery.h \
+		/usr/local/include/qt5/QtGui/qopenglvertexarrayobject.h \
+		/usr/local/include/qt5/QtGui/qbackingstore.h \
+		/usr/local/include/qt5/QtGui/qpagedpaintdevice.h \
+		/usr/local/include/qt5/QtGui/qpagelayout.h \
+		/usr/local/include/qt5/QtGui/qpagesize.h \
+		/usr/local/include/qt5/QtGui/qpaintengine.h \
+		/usr/local/include/qt5/QtGui/qpainter.h \
+		/usr/local/include/qt5/QtGui/qtextoption.h \
+		/usr/local/include/qt5/QtGui/qpen.h \
+		/usr/local/include/qt5/QtGui/qpdfwriter.h \
+		/usr/local/include/qt5/QtGui/qabstracttextdocumentlayout.h \
+		/usr/local/include/qt5/QtGui/qtextlayout.h \
+		/usr/local/include/qt5/QtGui/qtextformat.h \
+		/usr/local/include/qt5/QtGui/qglyphrun.h \
+		/usr/local/include/qt5/QtGui/qrawfont.h \
+		/usr/local/include/qt5/QtGui/qfontdatabase.h \
+		/usr/local/include/qt5/QtGui/qtextcursor.h \
+		/usr/local/include/qt5/QtGui/qtextdocument.h \
+		/usr/local/include/qt5/QtGui/qstatictext.h \
+		/usr/local/include/qt5/QtGui/qsyntaxhighlighter.h \
+		/usr/local/include/qt5/QtGui/qtextobject.h \
+		/usr/local/include/qt5/QtGui/qtextdocumentfragment.h \
+		/usr/local/include/qt5/QtGui/qtextdocumentwriter.h \
+		/usr/local/include/qt5/QtGui/qtextlist.h \
+		/usr/local/include/qt5/QtGui/qtexttable.h \
+		/usr/local/include/qt5/QtGui/qdesktopservices.h \
+		/usr/local/include/qt5/QtGui/qvalidator.h \
+		/usr/local/include/qt5/QtGui/qtguiversion.h \
+		/usr/local/include/qt5/QtWidgets/QMainWindow \
+		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/local/include/qt5/QtWidgets/qtabwidget.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o spesificjobs.o spesificjobs.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -17268,11 +18471,20 @@ moc_newcountry.o: moc_newcountry.cpp
 moc_showcountries.o: moc_showcountries.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_showcountries.o moc_showcountries.cpp
 
+moc_spesificjobs.o: moc_spesificjobs.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_spesificjobs.o moc_spesificjobs.cpp
+
 ####### Install
 
 install:  FORCE
+	mkdir -p /usr/local/bin
+	install -o root -g wheel -m 555 jobber /usr/local/bin/jobber
+	install -o root -g wheel -m 555 jobber.desktop /usr/local/share/applications/jobber.desktop
+	@echo "Jobber has been installed to /usr/local/bin/jobber. Make sure /usr/local/bin is in your PATH."
 
-uninstall:  FORCE
+uninstall:  
+	-$(DEL_FILE) /usr/local/share/applications/jobber.desktop
+	-$(DEL_FILE) /usr/local/bin/jobber
 
-FORCE:
+FORCE: jobber
 

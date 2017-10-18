@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     viewjobs.cpp \
     newjob.cpp \
     newcountry.cpp \
-    showcountries.cpp
+    showcountries.cpp \
+    spesificjobs.cpp
 
 HEADERS  += mainwindow.h \
     connectpsql.h \
@@ -47,7 +48,8 @@ HEADERS  += mainwindow.h \
     viewjobs.h \
     newjob.h \
     newcountry.h \
-    showcountries.h
+    showcountries.h \
+    spesificjobs.h
 
 FORMS    += mainwindow.ui \
     connectpsql.ui \
@@ -58,4 +60,5 @@ FORMS    += mainwindow.ui \
     viewjobs.ui \
     newjob.ui \
     newcountry.ui \
-    showcountries.ui
+    showcountries.ui \
+    spesificjobs.ui
