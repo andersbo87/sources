@@ -65,6 +65,7 @@ private slots:
     void btn_ShowStatuses_Click();
     void btn_NewCountry_Click();
     void btn_ShowCountries_Click();
+    void on_btnSpecificJobs_clicked();
 };
 
 #endif // MAINWINDOW_H

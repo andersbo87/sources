@@ -34,6 +34,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "showcities.h"
 #include "showcountries.h"
 #include "showstatuses.h"
+#include "spesificjobs.h"
 #include "psql.h"
 #include <pqxx/pqxx>
 
@@ -123,3 +124,9 @@ MainWindow::~MainWindow()
 }
 
 
+
+void MainWindow::on_btnSpecificJobs_clicked()
+{
+    SpesificJobs *sj = new SpesificJobs(progName, p, this);
+    sj->show();
+}
