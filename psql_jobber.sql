@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.3
--- Dumped by pg_dump version 9.6.3
+-- Dumped from database version 10.0
+-- Dumped by pg_dump version 10.0
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -43,11 +43,11 @@ SET search_path = public, pg_catalog;
 
 CREATE FUNCTION nylandid() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid;
-RETURN NEW;
-END;
+    AS $$
+BEGIN
+RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid;
+RETURN NEW;
+END;
 $$;
 
 
@@ -59,12 +59,12 @@ ALTER FUNCTION public.nylandid() OWNER TO "a-bol";
 
 CREATE FUNCTION nysoknadid() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-RAISE NOTICE
-'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid;
-RETURN NEW;
-END;
+    AS $$
+BEGIN
+RAISE NOTICE
+'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid;
+RETURN NEW;
+END;
 $$;
 
 
@@ -76,11 +76,11 @@ ALTER FUNCTION public.nysoknadid() OWNER TO "a-bol";
 
 CREATE FUNCTION nystedid() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$
-BEGIN
-RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid;
-RETURN NEW;
-END;
+    AS $$
+BEGIN
+RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid;
+RETURN NEW;
+END;
 $$;
 
 
@@ -92,136 +92,136 @@ ALTER FUNCTION public.nystedid() OWNER TO "a-bol";
 
 CREATE FUNCTION updatesoknad() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$DECLARE
-counter_ integer := 0;
-tablename_ text := 'temptable';
-oldStatus text;
-newStatus text;
-max int;
-updated boolean := false;
-BEGIN
- begin
-        --raise notice 'Creating table %', tablename_;
-        execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop';
-        execute 'insert into ' || tablename_ || ' (counter) values(0)';
-        execute 'select counter from ' || tablename_ into counter_;
-        --raise notice 'Actual value for counter= [%]', counter_;
-    exception
-        when duplicate_table then
-        null;
-    end;
-
-
-execute 'select counter from ' || tablename_ into counter_;
-    execute 'update ' || tablename_ || ' set counter = counter + 1';
-   --raise notice 'updating';
-    execute 'select counter from ' || tablename_ into counter_;
-    --raise notice 'Actual value for counter= [%]', counter_;
-    max := count(soknadid) from soknad;
-    if counter_ = max then
-        raise exception 'Kan ikke oppdatere mer enn én rad om gangen.';
-    end if;
-if NEW.soknadid != OLD.soknadid
-then
-raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid;
-updated = true;
-end if;
-if NEW.tittel != OLD.tittel
-then
-raise notice 'Søknaden med ID % har fått endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel;
-updated=true;
-end if;
-
-if NEW.bedrift != OLD.bedrift
-then
-raise notice 'Søknaden med ID % har fått endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift;
-
-updated=true;
-end if;
-
-if NEW.stedid != OLD.stedid
-then
-raise notice 'Søknaden med ID % har fått endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid;
-updated=true;
-end if;
-
-if NEW.soknadsfrist != OLD.soknadsfrist
-then
-raise notice 'Søknaden med ID % har fått endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist;
-updated = true;
-end if;
-
-
-if NEW.statusid != OLD.statusid
-then
-if OLD.statusid = 1
-then
-oldStatus = 'Registrert';
-elsif OLD.statusid = 2
-then
-oldStatus = 'Sendt';
-elsif OLD.statusid = 3
-then
-oldStatus = 'Interessert, mulig intervju';
-elsif OLD.statusid = 4
-then
-oldStatus = 'Avvist';
-elsif OLD.statusid = 5
-then
-oldStatus = 'Søknad skrevet, men ikke sendt';
-elsif OLD.statusid = 6
-then
-oldStatus = 'Godtatt, klar for jobb';
-end if;
-if NEW.statusid = 1
-then
-newStatus = 'Registrert';
-elsif NEW.statusid = 2
-then
-newStatus = 'Sendt';
-elsif NEW.statusid = 3
-then
-newStatus = 'Interessert, mulig intervju';
-elsif NEW.statusid = 4
-then
-newStatus = 'Avvist';
-elsif NEW.statusid = 5
-then
-newStatus = 'Søknad skrevet, men ikke sendt';
-elsif NEW.statusid = 6
-then
-newStatus = 'Godtatt, klar for jobb';
-end if;
-raise notice 'Søknaden med ID % har fått endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus;
-elsif NEW.statusid = OLD.statusid
-then
-if updated = false
-then
-if OLD.statusid = 1
-then
-oldStatus = 'Registrert';
-elsif OLD.statusid = 2
-then
-oldStatus = 'Sendt';
-elsif OLD.statusid = 3
-then
-oldStatus = 'Interessert, mulig intervju';
-elsif OLD.statusid = 4
-then
-oldStatus = 'Avvist';
-elsif OLD.statusid = 5
-then
-oldStatus = 'Søknad skrevet, men ikke sendt';
-elsif OLD.statusid = 6
-then
-oldStatus = 'Godtatt, klar for jobb';
-end if;
-raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus;
-end if;
-end if;
-RETURN NEW;
-END;
-
+    AS $$DECLARE
+counter_ integer := 0;
+tablename_ text := 'temptable';
+oldStatus text;
+newStatus text;
+max int;
+updated boolean := false;
+BEGIN
+ begin
+        --raise notice 'Creating table %', tablename_;
+        execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop';
+        execute 'insert into ' || tablename_ || ' (counter) values(0)';
+        execute 'select counter from ' || tablename_ into counter_;
+        --raise notice 'Actual value for counter= [%]', counter_;
+    exception
+        when duplicate_table then
+        null;
+    end;
+
+
+execute 'select counter from ' || tablename_ into counter_;
+    execute 'update ' || tablename_ || ' set counter = counter + 1';
+   --raise notice 'updating';
+    execute 'select counter from ' || tablename_ into counter_;
+    --raise notice 'Actual value for counter= [%]', counter_;
+    max := count(soknadid) from soknad;
+    if counter_ = max then
+        raise exception 'Kan ikke oppdatere mer enn én rad om gangen.';
+    end if;
+if NEW.soknadid != OLD.soknadid
+then
+raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid;
+updated = true;
+end if;
+if NEW.tittel != OLD.tittel
+then
+raise notice 'Søknaden med ID % har fått endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel;
+updated=true;
+end if;
+
+if NEW.bedrift != OLD.bedrift
+then
+raise notice 'Søknaden med ID % har fått endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift;
+
+updated=true;
+end if;
+
+if NEW.stedid != OLD.stedid
+then
+raise notice 'Søknaden med ID % har fått endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid;
+updated=true;
+end if;
+
+if NEW.soknadsfrist != OLD.soknadsfrist
+then
+raise notice 'Søknaden med ID % har fått endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist;
+updated = true;
+end if;
+
+
+if NEW.statusid != OLD.statusid
+then
+if OLD.statusid = 1
+then
+oldStatus = 'Registrert';
+elsif OLD.statusid = 2
+then
+oldStatus = 'Sendt';
+elsif OLD.statusid = 3
+then
+oldStatus = 'Interessert, mulig intervju';
+elsif OLD.statusid = 4
+then
+oldStatus = 'Avvist';
+elsif OLD.statusid = 5
+then
+oldStatus = 'Søknad skrevet, men ikke sendt';
+elsif OLD.statusid = 6
+then
+oldStatus = 'Godtatt, klar for jobb';
+end if;
+if NEW.statusid = 1
+then
+newStatus = 'Registrert';
+elsif NEW.statusid = 2
+then
+newStatus = 'Sendt';
+elsif NEW.statusid = 3
+then
+newStatus = 'Interessert, mulig intervju';
+elsif NEW.statusid = 4
+then
+newStatus = 'Avvist';
+elsif NEW.statusid = 5
+then
+newStatus = 'Søknad skrevet, men ikke sendt';
+elsif NEW.statusid = 6
+then
+newStatus = 'Godtatt, klar for jobb';
+end if;
+raise notice 'Søknaden med ID % har fått endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus;
+elsif NEW.statusid = OLD.statusid
+then
+if updated = false
+then
+if OLD.statusid = 1
+then
+oldStatus = 'Registrert';
+elsif OLD.statusid = 2
+then
+oldStatus = 'Sendt';
+elsif OLD.statusid = 3
+then
+oldStatus = 'Interessert, mulig intervju';
+elsif OLD.statusid = 4
+then
+oldStatus = 'Avvist';
+elsif OLD.statusid = 5
+then
+oldStatus = 'Søknad skrevet, men ikke sendt';
+elsif OLD.statusid = 6
+then
+oldStatus = 'Godtatt, klar for jobb';
+end if;
+raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus;
+end if;
+end if;
+RETURN NEW;
+END;
+
 $$;
 
 
@@ -405,13 +405,6 @@ COPY land (landid, land) FROM stdin;
 
 
 --
--- Name: landid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
---
-
-SELECT pg_catalog.setval('landid_seq', 3, true);
-
-
---
 -- Data for Name: soknad; Type: TABLE DATA; Schema: public; Owner: a-bol
 --
 
@@ -470,10 +463,8 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 76	Junior programmerare till framtida uppdrag	StudentConsulting	3	4	2017-06-30
 46	Systemutvecklare till Holmen	Academic Work	4	2	2017-04-20
 61	Systemutvikler	Oslo Universitetssykehus	2	2	2017-05-21
-62	Systemutvikler	Kredinor via Academic Work	2	3	2017-05-18
 65	Juniora systemutvecklare	Netgain via Framtiden	4	2	2017-05-13
 51	Softwareutvikler	Prediktor AS	9	4	2017-05-14
-66	Webbutvecklare	Svenskalag.se	4	2	2017-06-01
 42	Testare (mjukvara) och testansvarig i Linköping	Avenda Solutions AB	5	1	2017-03-14
 60	Briljant systemutvecklare	Briljant (via Academic Work)	4	4	2017-06-02
 59	Systemutvecklare	Combitech AB	5	2	2017-05-28
@@ -506,7 +497,6 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 92	Junior .NET utvecklare till StroedeRalton	Academic Work	5	4	2017-07-29
 88	Relationsfokuserad backendutvecklare	Per & Per via Academic Work	5	4	2017-07-24
 2	Systemutvecklare	Briljant (via Academic Work)	4	4	2016-12-10
-1	Utvecklare	Proactive Gaming	4	4	2016-11-01
 80	Junior Javautvecklare till Rejlers Embriq	Academic Work	3	4	2017-07-17
 96	Webutvikler, front-end	Questback via Academic Work	2	4	2017-07-31
 125	Interessebrev Media Markt	Media Markt	3	2	Ingen
@@ -518,99 +508,72 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 127	Interessebrev Media Markt	Media Markt	5	2	Ingen
 106	Juniora utvecklare	Sigma IT Consulting	3	2	2017-08-05
 114	Utvikler	Deichmanske bibliotek	2	2	2017-08-04
-100	Systemutvecklare/Programmerare ("Sundahus söker någon som knäcker koden")	Academic Work	5	2	2017-08-04
 109	.NET-utvecklare till Sigma IT Consulting	Sigma IT Consulting VÄST	3	2	2017-08-07
 117	Nyutdannet webutvikler	Epinova via Academic Work	2	4	2017-07-28
 112	Junior/nyexaminerad utvecklare (Norrköping)	Cryptica AB	4	2	2017-08-08
-133	Utvikler i Norges mest interessante teknologimiljø	SpareBank 1	2	1	Snarest
-134	Frontendutvecklare Angular/React	ÅF AB Göteborg	3	1	2017-09-21
 136	Grym utvecklare som älskar systemintegration	Human IT Göteborg	3	2	2017-08-12
 85	Systemutvecklare - frontend	Regionalt Cancercentrum	3	2	2017-08-13
 118	Systemutvikler .NET	Sopra Steria	2	2	2017-08-14
-132	Junior fullstack developer	Pexip via Academic Work	2	2	2017-08-14
 139	Systemutvecklare	Star Republic	3	2	2017-08-14
-140	.NET-utvecklare	PAf Rekrytering AB	3	1	2017-09-17
-141	Frontend utvecklare	PAf Rekrytering AB	3	1	2017-09-17
-142	C# utvecklare	Diadrom via PAf Rekrytering AB	3	1	2017-09-17
 97	Mjukvaruutvecklare	Conmore Ingenjörsbyrå	3	4	2017-08-11
 120	Programmerare	Indentive via Academic Work	5	2	2017-08-18
 116	Systemutvikler	Norsvin	15	2	2017-08-20
 131	Systemutviklere	UKE - Utviklings- og kompetanseetaten	2	2	2017-08-20
-147	Webbutvecklare	Euronetics via Academic Work	5	1	2017-09-15
-148	Junior utvecklare inom C och C++	Tieto via Academic Work	10	1	2017-09-15
-152	Junior eller senior systemutvecklare	KFX HR-partner Syd AB	18	1	2017-09-30
-154	1-4 systemutvecklare	Linköpings universitet\n	5	1	2017-09-14
-155	1-2 frontend-utvecklare	Linköpings universitet	5	1	2017-09-14
 157	.NET-utvecklare	Netadmin Systems via Dfind IT	5	1	2017-10-31
-159	.NET-utvecklare till webbyrå med välkända kunder	Webbyrån Petras via Academic Work	19	1	2017-09-17
-160	Systemutvecklare till kommande uppdrag	Dfind IT	18	1	2017-09-17
-122	Junior Java-utvecklare till molntjänst i Linköping	TaxiCaller Nordic AB	5	2	2017-08-22
 107	.NET/C# utvecklare	HiQ Accelerated Concept Evaluation AB	5	2	2017-08-20
-164	Junior programmerare	ALcontrol via Xamera	5	1	2017-10-18
 111	Front-End utvecklare	Infor via Academic Work	5	4	2017-08-10
 101	Utvikler med 1-2 års erfaring	Skog-Data AS	2	4	2017-07-28
 95	Systemutvecklare C#/.NET	LIMAB AB	3	2	2017-08-28
 129	Utvikler - IKT	Utlendingsnemnda	2	2	2017-08-28
-165	C# utvecklare mot webb med enterprenörsanda	Framtiden AB	3	1	2017-09-13
+220	Junior webbutvecklare	Provide IT Sweden AB	3	2	2017-09-18
 137	Systemutvecklare	Experis IT	3	4	2017-08-30
 124	.NET-utvecklare	HiQ Göteborg	3	4	2017-08-28
 158	Frontend Developer	SKF	3	2	2017-08-30
-103	Fullstackutvecklare .NET till Combitechs utvecklingsteam i Linköping	Combitech AB	5	2	2017-08-31
 104	Fullstackutvecklare .NET till Combitechs utvecklingsteam i Norrköping	Combitech AB	4	2	2017-08-31
 161	IT-konsulent	Rygge kommune	20	2	2017-08-31
-146	Datavarehusutvikler	Skatteetaten	2	2	2017-08-31
-98	Software Engineer	IFS	5	2	2017-08-31
 105	Junior utvecklare	Decerno	3	2	2017-08-31
 110	Utvecklare/programmerare molnbaserade tjänster	EXSENS AB	3	2	2017-08-31
 138	.Net Utvecklare	Lifeplan via Benify AB Göteborg	3	4	2017-08-31
 135	Linuxspecialist	Human IT Göteborg	3	4	2017-08-18
 150	Inhouse .Net-utvikler	MODIS Norge	17	2	2017-09-01
 153	Javautvikler innen bank og finans	EVRY Financial Service	2	2	2017-09-01
-119	Systemutvecklare C# / .NET	ÅF AB	5	2	2017-09-03
-169	Programmerare	ALcontrol Laboratories via Industrikompetens i Östergötland	5	1	2017-09-22
 156	Junior utvecklare! (C#)	Framtiden AB	5	2	2017-09-07
 130	Er du en kreativ systemutvikler som liker varierte oppgaver?	Data Nova AS	2	2	2017-09-08
 162	Front-endutvecklare med intresse för helheter	Framtiden AB	5	2	2017-09-08
-163	Javautvecklare	Schoolsoft via Bravura	5	2	2017-09-08
 166	Junior Backendutvecklare till internationalt IT-konsultbolag	Framtiden AB	18	2	2017-09-08
 149	Junior utvecklare till företag i Göteborg	Crepido via Framtiden	3	4	2017-09-01
 170	.Net utvecklare	Contribe Göteborg	3	1	2018-01-17
-171	Junior C-utvecklare som vill jobba med nyutveckling	Axis via Academic Work	21	1	2017-09-19
-172	.Net utvecklare	Contribe Malmö	18	1	2017-09-17
+98	Software Engineer	IFS	5	4	2017-08-31
 173	JavaDeveloper	Contribe Malmö	18	1	2018-01-17
+155	1-2 frontend-utvecklare	Linköpings universitet	5	2	2017-09-14
+154	1-4 systemutvecklare	Linköpings universitet\n	5	4	2017-09-14
 143	Javautvikler	IT People4you	2	2	2017-08-22
 144	Frontendutvikler	Drofus AS	2	2	2017-08-22
+141	Frontend utvecklare	PAf Rekrytering AB	3	2	2017-09-17
+142	C# utvecklare	Diadrom via PAf Rekrytering AB	3	2	2017-09-17
 68	Mjukvaruutvecklare	Ericsson via Academic Work	5	4	Snarest
+160	Systemutvecklare till kommande uppdrag	Dfind IT	18	4	2017-09-17
+172	.Net utvecklare	Contribe Malmö	18	4	2017-09-17
 178	Junior applikationsutvecklare med ett öga för problemlösning	Apetan via Xamera AB	5	1	2017-09-15
-179	Programvaruutvecklare	i3tex	3	1	2017-09-22
-181	Junior Business Intelligence Administrator till framgångsrikt bolag	Dfind IT	18	1	2017-09-17
-183	Mjukvaruutvecklare med intresse för produktionssystem	Axis Communications	21	1	2017-09-10
-174	.NET utvecklare	Stratsys	3	1	2017-09-13
-182	Junior programmerare till framtida uppdrag	Studentconsulting	3	1	2017-09-14
-185	Junior webbutvecklare inom C#	Directkonsult via Academic Work	3	1	2017-09-23
+103	Fullstackutvecklare .NET till Combitechs utvecklingsteam i Linköping	Combitech AB	5	4	2017-08-31
+134	Frontendutvecklare Angular/React	ÅF AB Göteborg	3	4	2017-09-21
 168	Systemutvikler	NettPost AS	2	2	2017-08-24
-176	Systemutvecklare till växande IT-konsultföretag	Framtiden AB	4	2	2017-08-25
-177	Systemutvecklare till framträdande IT-koncern	Framtiden AB	5	2	2017-08-25
-186	Konsulent	SuperOffice Norge AS	2	1	2017-10-02
-187	Kodeknekker	SnapTV AS	2	3	Snarest
+132	Junior fullstack developer	Pexip via Academic Work	2	4	2017-08-14
+177	Systemutvecklare till framträdande IT-koncern	Framtiden AB	5	4	2017-08-25
+152	Junior eller senior systemutvecklare	KFX HR-partner Syd AB	18	2	2017-09-30
+186	Konsulent	SuperOffice Norge AS	2	2	2017-10-02
+148	Junior utvecklare inom C och C++	Tieto via Academic Work	10	2	2017-10-24
 145	.NET Systemutvikler	Easybank ASA	2	4	2017-08-18
-191	Junior systemutvecklare	ESAB via Experis	3	1	2017-09-24
-193	Nyexad utvecklare med fokus på backend	Axis Communications via Academic Work	21	1	2017-09-25
 195	Systemutvikler .Net	dRofus AS	2	1	Snarest
 196	Systemutvecklare	Lindorff via Dfind IT	3	1	2017-10-25
-197	Junior fullstackutvecklare till expansiv digitalbyrå	Framtiden	3	1	2017-09-22
-198	Junior utvecklare	WSP via Academic Work	19	1	2017-09-26
+1	Utvecklare	Proactive Gaming	4	4	2016-11-01
 180	Javautvikler	UBConnect	2	2	2017-08-29
 184	Junior frontend-utvecklare	Provide IT Sweden AB	3	2	2017-08-29
+146	Datavarehusutvikler	Skatteetaten	2	4	2017-08-31
 128	IT-tekniker onsite till kommande uppdrag	Infocare	4	4	2017-08-30
 108	Javautvecklare med schyssta variabler	HiQ Accelerated Concept Evaluation AB	5	4	2017-08-20
-192	Är du duktig på PHP och söker ett härligt team att ingå i?	Human IT	18	2	2017-08-31
 175	Fullstack utvikler	Glasspaper People AS	2	2	2017-09-01
-189	Front-end utvikler	Distribution Innovations AS	2	2	2017-09-01
-201	Programmerare i molnet	Axis Communications	21	1	2017-09-22
 202	Problemlösande PHP-utvecklare	JGL via Xamera	5	1	2017-10-30
-203	Utvecklare inom C/C++, .NET, C#, Java, etc	Q Bemanning & Rekrytering	5	1	2017-09-28
-204	Java-utvecklare	HiQ Göteborg AB	3	1	2017-09-17
 89	Fullstackutvecklare (.NET)	Ezy via Dfind IT	3	4	2017-08-30
 205	Norwegian speaking Technical Support Professional to our Nordic team	Apsis International AB	18	2	2017-09-29
 206	Junior utvecklare	IDP	3	2	2017-10-15
@@ -620,28 +583,93 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 199	Systemutvikler	Azets People AS Oslo	2	4	2017-09-05
 209	Är du en systemutvecklare som vill utvecklas	PAf Rekrytering AB	3	2	2017-11-03
 167	Webutvikler	OXX AS	2	4	2017-08-27
-210	Junior utvikler	Bouvet via Academic Work	2	2	Snarest
 211	JAVA	Technogarden Norge	2	2	Snarest
 151	Frontend-utvecklare till växande företag	Framtiden	3	4	2017-09-05
 200	Har du lyst til å lage brukervennlige og moderne webapps?	Posten Norge AS	2	2	2017-09-06
 212	Frontend/Backend systemutvikler	Etterretningstjenesten	2	2	2017-09-22
 78	Junior webbutvecklare (WordPress, PHP & JavaScript	Angry Creative AB	4	4	2017-07-31
-213	Javautvecklare sökes till innovativt företag i Göteborg	Framtiden AB	3	2	2017-09-29
 214	Junior Fullstack-utvecklare	Creditsafe via Sigma IT Consulting	3	2	2017-10-31
 215	Systemutvikler .NET	IT People4you	2	2	Snarest
 188	Nyfiken och driven .Net utvecklare mot web	Framtiden AB	3	4	2017-09-22
 208	PHP-programmerare	Webbhuset via Academic Work	3	4	2017-10-02
-216	C#-utvecklare	BILIA via Academic Work	3	2	2017-10-08
 217	Junior .NET utvecklare	Framtiden AB	3	2	2017-10-06
-218	Junior utvecklare i JavaScript med intresse för IT och Teknik	Academic Work	21	2	2017-10-08
+165	C# utvecklare mot webb med enterprenörsanda	Framtiden AB	3	2	2017-09-13
+163	Javautvecklare	Schoolsoft via Bravura	5	4	2017-09-08
+223	Utvikler - Etterretning og internasjonalt samarbeid	Politiet	2	2	2017-10-09
+222	Systemutvikler/interaksjonsdesigner	Etterretningstjenesten	2	2	2017-10-01
+192	Är du duktig på PHP och söker ett härligt team att ingå i?	Human IT	18	4	2017-08-31
+66	Webbutvecklare	Svenskalag.se	4	4	2017-06-01
+224	Lidenskapelige nyutdannede utviklere	SpareBank 1	2	2	2017-09-30
+182	Junior programmerare till framtida uppdrag	Studentconsulting	3	2	2017-09-14
+140	.NET-utvecklare	PAf Rekrytering AB	3	4	2017-09-17
+204	Java-utvecklare	HiQ Göteborg AB	3	2	2017-09-17
+159	.NET-utvecklare till webbyrå med välkända kunder	Webbyrån Petras via Academic Work	19	4	2017-09-17
+181	Junior Business Intelligence Administrator till framgångsrikt bolag	Dfind IT	18	4	2017-09-17
+185	Junior webbutvecklare inom C#	Direktkonsult via Academic Work	3	4	2017-09-23
+119	Systemutvecklare C# / .NET	ÅF AB	5	4	2017-09-03
+189	Front-end utvikler	Distribution Innovations AS	2	4	2017-09-01
+229	Junior Webbutvecklare	WooCommerce via Framtiden AB	3	1	2017-10-17
+226	Plattform Utvikler	Viju/Technogarden	2	4	Snarest
+147	Webbutvecklare	Euronetics via Academic Work	5	4	2017-09-15
+210	Junior utvikler	Bouvet via Academic Work	2	4	Snarest
+197	Junior fullstackutvecklare till expansiv digitalbyrå	Framtiden	3	2	2017-09-22
+191	Junior systemutvecklare	ESAB via Experis	3	4	2017-09-24
+193	Nyexad utvecklare med fokus på backend	Axis Communications via Academic Work	21	2	2017-09-25
+100	Systemutvecklare/Programmerare ("Sundahus söker någon som knäcker koden")	Academic Work	5	4	2017-08-04
+219	Front-Endutvikler	Arena Data via Academic Work	2	4	2017-09-18
+176	Systemutvecklare till växande IT-konsultföretag	Framtiden AB	4	4	2017-08-25
+233	.NET-utvecklare	Yalta via Academic Work	3	1	2017-10-23
+228	Dyktig backendutvikler til spennende rolle i agile team	Glasspaper People	2	2	2017-09-26
+198	Junior utvecklare	WSP via Academic Work	19	4	2017-09-26
+171	Junior C-utvecklare som vill jobba med nyutveckling	Axis via Academic Work	21	4	2017-09-19
+174	.NET utvecklare	Stratsys	3	4	2017-09-13
+133	Utvikler i Norges mest interessante teknologimiljø	SpareBank 1	2	4	Snarest
+203	Utvecklare inom C/C++, .NET, C#, Java, etc	Q Bemanning & Rekrytering	5	2	2017-09-28
+227	Utvikler, konsulent til webapplikasjonsteam	TalentCo AS	2	2	2017-09-28
+201	Programmerare i molnet	Axis Communications	21	4	2017-09-22
+236	Traineeprogram	GeoData	2	2	2017-10-15
+179	Programvaruutvecklare	i3tex	3	4	2017-09-22
+169	Programmerare	ALcontrol Laboratories via Industrikompetens i Östergötland	5	4	2017-09-22
+235	PHP-utvecklare	Shopcorn	3	2	2017-10-04
+239	Junior .Net-utvecklare	Spinit via Framtiden	3	1	2017-10-25
+240	Inhouse utvikler	Svea Finans via Veksthuset	2	2	Snarest
+238	Systemutvecklare, 100%, tillsvidareanställning	Karlstads universitet	10	2	2017-10-26
+221	Junior C/C# utvecklare för arbete inom Industriell IT	Framtiden AB	3	4	2017-10-03
+241	Javautvikler i Vestfold	People4you	2	2	Snarest
+231	Systemutvikler .NET	OXX via Academic Work	2	4	2017-09-29
+218	Junior utvecklare i JavaScript med intresse för IT och Teknik	Academic Work	21	4	2017-10-08
+234	Frontend Utvikler	Personal Finance AS	2	2	2017-10-10
+213	Javautvecklare sökes till innovativt företag i Göteborg	Framtiden AB	3	4	2017-09-29
+242	Frontendutvikler PHP	Vendo AS	22	2	2017-11-01
+243	Junior utvecklare till internationellt företag	Framtiden AB	3	2	2017-10-31
+225	Systemadministratör inom Linux/Unix	ELITS	5	4	2018-03-02
+232	Vassa Java och .NET utvecklare	Skill	3	2	2017-10-06
+244	Nyfiken systemutvecklare	Dfind IT	3	2	2017-11-06
+245	Utvikler i et nyskapende kommunikasjonsnettverk	Dentsu via Academic Work	2	2	2017-10-11
+246	Junior systemutvecklare av spännande IT-lösningar för samhällsbyggnad	Framtiden AB	3	2	2017-10-25
+230	Systemutvikler	Schenker AS	2	2	2017-10-08
+62	Systemutvikler	Kredinor via Academic Work	2	4	2017-05-18
+187	Kodeknekker	SnapTV AS	2	4	Snarest
+247	Programmerer, Frontend	Unicornis	2	2	2017-10-20
+248	Junior .Net utvecklare	Dynamic Smartsourcing via Framtiden	3	2	2017-11-06
+252	Programvareutvikler - embedded	Steinsvik AS	23	1	2017-10-22
+250	Utvikler innen .Net/C#	Acando	2	4	2017-10-18
+249	Nyutdannet systemutvikler	Ciber	2	2	2017-10-17
+254	Javautvikler	ITX Norge	24	2	Snarest
+255	.NET utvikler	CGI Norge	2	1	2017-11-12
+164	Junior programmerare	ALcontrol via Xamera	5	4	2017-10-18
+251	Junior Java-utvikler	Skatteetaten	2	2	2017-10-30
+183	Mjukvaruutvecklare med intresse för produktionssystem	Axis Communications	21	4	2017-09-10
+256	Inhouse utvikler med kommersielt gen	Konsentra AS	2	2	2017-10-31
+257	Programvareutvikler .net	CGI Norge	1	2	2017-10-18
+253	Interesse for programmering i Java og/eller Python?	Conmodo	2	2	2017-10-18
+258	Traineeprogram	StudentCounsulting	2	2	Snarest
+216	C#-utvecklare	BILIA via Academic Work	3	4	2017-10-08
+237	Inhouse .Net-utvikler	Columbus Norway AS	2	2	2017-10-20
+260	Webutvikler/Fullstackutvikler	Vitec Software Group	2	2	Snarest
+261	Applikasjonsutvikler/Java erfaring og kompetanse innen relasjonsdatabaser?	Bisnode Norge AS	2	2	Snarest
+259	Utvikler/Vil du jobbe som utvikler i et selskap der du kan påvirke teknologivalg?	Dentsu Aegis Network Norge via Academic Work	2	2	2017-10-27
 \.
-
-
---
--- Name: soknadid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
---
-
-SELECT pg_catalog.setval('soknadid_seq', 218, true);
 
 
 --
@@ -656,13 +684,6 @@ COPY status (statusid, status) FROM stdin;
 6	Godtatt, klar for jobb
 5	Søknad skrevet, men ikke sendt
 \.
-
-
---
--- Name: statusid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
---
-
-SELECT pg_catalog.setval('statusid_seq', 4, true);
 
 
 --
@@ -691,14 +712,38 @@ COPY sted (stedid, stedsnavn, landid) FROM stdin;
 19	Helsingborg	2
 20	Rygge	1
 21	Lund	2
+22	Tønsberg	1
+23	Tysvær	1
+24	Sandefjord	1
 \.
+
+
+--
+-- Name: landid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
+--
+
+SELECT pg_catalog.setval('landid_seq', 3, true);
+
+
+--
+-- Name: soknadid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
+--
+
+SELECT pg_catalog.setval('soknadid_seq', 261, true);
+
+
+--
+-- Name: statusid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
+--
+
+SELECT pg_catalog.setval('statusid_seq', 7, false);
 
 
 --
 -- Name: stedid_seq; Type: SEQUENCE SET; Schema: public; Owner: a-bol
 --
 
-SELECT pg_catalog.setval('stedid_seq', 21, true);
+SELECT pg_catalog.setval('stedid_seq', 24, true);
 
 
 --
@@ -738,6 +783,14 @@ ALTER TABLE ONLY status
 
 ALTER TABLE ONLY sted
     ADD CONSTRAINT sted_pkey PRIMARY KEY (stedid);
+
+
+--
+-- Name: soknad unik_soknad; Type: CONSTRAINT; Schema: public; Owner: a-bol
+--
+
+ALTER TABLE ONLY soknad
+    ADD CONSTRAINT unik_soknad UNIQUE (tittel, bedrift, stedid);
 
 
 --
