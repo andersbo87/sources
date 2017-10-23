@@ -519,12 +519,14 @@ namespace jobb
             List<string> data = new List<string>();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT * FROM sted WHERE stedid = " + index;
+            cmd.CommandText = "SELECT * FROM view_sted WHERE stedid = " + index;
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 data.Add(reader.GetString(0));
                 data.Add(reader.GetString(1));
+                data.Add(reader.GetString(2));
+                data.Add(reader.GetString(3));
             }
             conn.Close();
             return data;
@@ -558,13 +560,45 @@ namespace jobb
             conn.Close();
             return ans;
         }
-        public int GetCountryID(int index)
+
+        /// <summary>
+        /// Gets the name of a city based on the qunique city ID.
+        /// </summary>
+        /// <param name="index">The index of the city in question</param>
+        /// <returns>The name of the city as a string.</returns>
+        public string getCityName(int index)
+        {
+            string res = "";
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT stedsnavn FROM STED where stedid=" + index;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res = reader.GetString(0);
+            conn.Close();
+            return res;
+        }
+        public int GetApplicationCountryID(int index)
         {
             int ans = 0;
             Init();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM view_soknad WHERE soknadid=" + index;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                ans = reader.GetInt32(0);
+            conn.Close();
+            return ans;
+        }
+        public int GetCityCountryID(int index)
+        {
+            int ans = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT landid FROM view_sted WHERE stedid=" + index;
             reader = cmd.ExecuteReader();
             while (reader.Read())
                 ans = reader.GetInt32(0);
@@ -610,29 +644,49 @@ namespace jobb
         }
 
         /// <summary>
+        /// Gets the name of a status based on the parameter provided by the user.
+        /// </summary>
+        /// <param name="idx">The ID of the status in question.</param>
+        /// <returns>A string containing the status name.</returns>
+        public string getStatusName(int idx)
+        {
+            string res = "";
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT status FROM status WHERE statusid=" + idx;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res = reader.GetString(0);
+            conn.Close();
+            return res;
+        }
+
+        /// <summary>
         /// Updates a record in the database
         /// </summary>
         /// <param name="table">Name of the table where the update is to take place</param>
         /// <param name="columnToBeUpdated">Name of the column where the update is to take place</param>
         /// <param name="value">The new value</param>
-        /// <param name="tableID">The column with the primary key of the table (stedid, landid, statusid)</param>
+        /// <param name="primaryKey">The column with the primary key of the table (stedid, landid, statusid)</param>
         /// <param name="index">The primary key index where the update is to take place</param>
-        public void UpdateDatabase(string table, string columnToBeUpdated, int value, string tableID, int index)
+        public void UpdateDatabase(string table, string columnToBeUpdated, int value, string primaryKey, int index)
         {
             try
             {
                 Init();
                 cmd.Connection = conn;
-                cmd.CommandText = "UPDATE " + table + " SET " + columnToBeUpdated + " = " + value + " WHERE " + tableID + " = " + index;
+                cmd.CommandText = "UPDATE " + table + " SET " + columnToBeUpdated + " = " + value + " WHERE " + primaryKey + " = " + index;
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Endringen ble lagret. Ny verdi for " + columnToBeUpdated + " er " + value + ".", Program.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (NpgsqlOperationInProgressException noipe)
             {
-                MessageBox.Show("Kan ikke fjerne elementet: " + noipe.ToString(), Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("Kan ikke fjerne elementet: " + ne.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception e)
             {
@@ -651,24 +705,25 @@ namespace jobb
         /// <param name="table">Name of the table where the update is to take place</param>
         /// <param name="columnToBeUpdated">Name of the column where the update is to take place</param>
         /// <param name="value">The new value</param>
-        /// <param name="tableID">The column with primary key of the table (stedid, landid, statusid)</param>
+        /// <param name="primaryKey">The column with primary key of the table (stedid, landid, statusid)</param>
         /// <param name="index">The primary index where the update is to take place</param>
-        public void UpdateDatabase(string table, string columnToBeUpdated, string value, string tableID, int index)
+        public void UpdateDatabase(string table, string columnToBeUpdated, string value, string primaryKey, int index)
         {
             try { 
                 Init();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "UPDATE " + table + " SET " + columnToBeUpdated + " = '" + value + "' WHERE " + tableID + " = " + index;
+                cmd.CommandText = "UPDATE " + table + " SET " + columnToBeUpdated + " = '" + value + "' WHERE " + primaryKey + " = " + index;
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Endringen ble lagret. Ny verdi for " + columnToBeUpdated + " er " + value + ".", Program.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (NpgsqlOperationInProgressException noipe)
             {
-                MessageBox.Show("Kan ikke fjerne elementet: " + noipe.ToString(), Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("Kan ikke fjerne elementet: " + ne.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch(Exception e)
             {
