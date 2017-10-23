@@ -61,12 +61,12 @@ namespace jobb
                     i++;
                 }
                 max = Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString());
-                //comboBoxTownID.Text = "1";
                 if (c == 0)
                 {
                     getData(Int32.Parse(comboBoxTownID.Items[0].ToString()));
                     c++;
                 }
+                getCountries(int.Parse(comboBoxTownID.Items[0].ToString()));
                 if (Int32.Parse(comboBoxTownID.Text) == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
                 {
                     buttonNext.Enabled = false;
@@ -86,7 +86,6 @@ namespace jobb
         private void buttonFirst_Click(object sender, EventArgs e)
         {
             getData(1);
-            //getCities(1);
             comboBoxTownID.Text = "1";
             buttonPrevious.Enabled = false;
             buttonFirst.Enabled = false;
@@ -103,7 +102,6 @@ namespace jobb
                 if (idx >= 1)
                 {
                     getData(idx);
-                    //getCities(idx);
                     comboBoxTownID.Text = idx.ToString();
                     if (idx == Int32.Parse(comboBoxTownID.Items[0].ToString()))
                     {
@@ -133,7 +131,7 @@ namespace jobb
                 // Fjern gjeldende element fra databasen
                 try
                 {
-                    if(p.DeleteItem("sted", "stedid", Int32.Parse(comboBoxTownID.Text)))
+                    if (p.DeleteItem("sted", "stedid", Int32.Parse(comboBoxTownID.Text)))
                     {
                         MessageBox.Show("Stedet med stedid " + Int32.Parse(comboBoxTownID.Text) + " ble fjernet fra databasen.", Program.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         int item = Int32.Parse(comboBoxTownID.SelectedItem.ToString());
@@ -145,23 +143,13 @@ namespace jobb
                             buttonFirst.Enabled = false;
                         }
                         if (!getNext(Int32.Parse(comboBoxTownID.Text)))
+                        {
                             if (!getPrev(Int32.Parse(comboBoxTownID.Text)))
                             {
                                 MessageBox.Show("Det siste elementet har blitt fjernet. Vinduet vil nå lukkes.", Program.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Close();
                             }
-                        /*int idx = Int32.Parse(comboBoxTownID.Text) + 1;
-                        buttonPrevious.Enabled = true;
-                        if (idx <= max)
-                        {
-                            getData(idx);
-                            //getCities(idx);
-                            if (idx == max)
-                            {
-                                buttonNext.Enabled = false;
-                            }
                         }
-                        comboBoxTownID.Text = idx.ToString();*/
                     }
                 }
                 catch(Exception ex)
@@ -175,13 +163,11 @@ namespace jobb
         {
             int idx = Int32.Parse(comboBoxTownID.Text);
             getData(idx);
-            //getCities(idx);
             comboBoxTownID.Text = idx.ToString();
         }
         bool getNext(int index)
         {
             int idx = index;
-            
             try
             {
                 if (Int32.Parse(comboBoxTownID.Text) != Int32.Parse(comboBoxTownID.Items[0].ToString()))
@@ -193,7 +179,6 @@ namespace jobb
                 {
                     getData(idx);
                     comboBoxTownID.Text = idx.ToString();
-                    //if (comboBoxTownID.Text.Equals(max.ToString()))
                     if(idx == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count-1].ToString()))
                     {
                         buttonNext.Enabled = false;
@@ -227,43 +212,27 @@ namespace jobb
             buttonNext.Enabled = false;
             buttonLast.Enabled = false;
         }
-        private void getCities(int index)
+        private void getCountries(int index)
         {
-            List<string> cityList = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
+            List<string> countryList = p.GetData("SELECT landid FROM land ORDER BY landid ASC",0);
             int i = 0;
-            if (comboBoxTownID.Items.Count == 0)
+            if (comboBoxCountryID.Items.Count == 0)
             {
-                while (i < cityList.Count)
+                while(i < countryList.Count)
                 {
-                    comboBoxTownID.Items.Add(cityList.ElementAt(i));
+                    comboBoxCountryID.Items.Add(countryList.ElementAt(i));
                     i++;
                 }
             }
-            comboBoxTownID.SelectedIndex = p.GetCityID(index) - 1;
+            comboBoxCountryID.Text = p.GetCityCountryID(index).ToString();
         }
-
+        
         private void comboBoxTownID_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!opening)
             {
-                //int idx = comboBoxTownID.SelectedIndex + 1;
                 int idx = Int32.Parse(comboBoxTownID.Text);
                 getData(idx);
-                //getCities(idx);
-                /*if (idx == max)
-                {
-                    buttonLast.Enabled = false;
-                    buttonNext.Enabled = false;
-                    buttonPrevious.Enabled = true;
-                    buttonFirst.Enabled = true;
-                }
-                else if (idx == 1)
-                {
-                    buttonFirst.Enabled = false;
-                    buttonPrevious.Enabled = false;
-                    buttonNext.Enabled = true;
-                    buttonLast.Enabled = true;
-                }*/
                 if (idx == Int32.Parse(comboBoxTownID.Items[0].ToString()))
                 {
                     buttonPrevious.Enabled = false;
@@ -296,6 +265,46 @@ namespace jobb
             comboBoxTownID.Text = idx.ToString();
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            p.UpdateDatabase("sted", "landid", comboBoxCountryID.Text, "stedid", int.Parse(comboBoxTownID.Text));
+        }
+
+        private void comboBoxCountryID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            labelCountryValue.Text = p.GetCountryName(int.Parse(comboBoxCountryID.Text));
+        }
+
+        private void buttonFirst_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonFirst, "Går til det første elementet i databasen.");
+        }
+
+        private void buttonPrevious_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonPrevious, "Går til det forrige elementet i databasen.");
+        }
+
+        private void buttonDelete_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonDelete, "Fjerner det gjeldende elementet fra databasen. Merk at dette ikke kan angres.");
+        }
+
+        private void buttonRefresh_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonRefresh, "Henter lagret informasjon om elementet på nytt fra databasen.");
+        }
+
+        private void buttonNext_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonNext, "Går til neste element i databasen.");
+        }
+
+        private void buttonLast_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonLast, "Går til siste element i databasen.");
+        }
+
         private void linkLabelUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             p.UpdateDatabase("sted", "stedsnavn", textBoxTownName.Text, "stedid", Int32.Parse(comboBoxTownID.Text));
@@ -305,6 +314,8 @@ namespace jobb
         {
             List<string> cityData = p.GetCities(index);
             textBoxTownName.Text = cityData.ElementAt(1);
+            comboBoxCountryID.Text = cityData.ElementAt(2);
+            labelCountryValue.Text = cityData.ElementAt(3);
             comboBoxTownID.Text = index.ToString();
         }
     }

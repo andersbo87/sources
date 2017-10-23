@@ -255,14 +255,40 @@ namespace jobb
             comboBoxCountryID.Text = idx.ToString();
         }
 
+        private void buttonRefresh_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonRefresh, "Oppdater innhold.");
+        }
+
+        private void buttonLast_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonLast, "Går frem til siste element.");
+        }
+
+        private void buttonNext_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonNext, "Går til neste element.");
+        }
+
+        private void buttonDelete_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonDelete, "Sletter dette elementet fra databasen.");
+        }
+
+        private void buttonPrevious_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonPrevious, "Går tilbake til forrige element.");
+        }
+
+        private void buttonFirst_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(buttonFirst, "Går til det første elementet i databasen.");
+        }
+
         private void buttonLast_Click(object sender, EventArgs e)
         {
             int idx = max;
-            //int idx = Int32.Parse(comboBoxTownID.Text);
             getData(idx);
-            //getCities(idx);
-            //comboBoxTownID.Text = idx.ToString();
-            //comboBoxCountryID.SelectedIndex = idx - 1;
             comboBoxCountryID.Text = comboBoxCountryID.Items[comboBoxCountryID.Items.Count - 1].ToString();
             buttonNext.Enabled = false;
             buttonLast.Enabled = false;
