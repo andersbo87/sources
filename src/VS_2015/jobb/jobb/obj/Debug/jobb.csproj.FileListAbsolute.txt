@@ -67,3 +67,38 @@ C:\Users\a-bol\ownCloud\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.csproj.G
 C:\Users\a-bol\ownCloud\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.exe.manifest
 C:\Users\a-bol\ownCloud\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.application
 C:\Users\a-bol\git\src\Visual Studio 2015\jobb\jobb\obj\Debug\jobb.csproj.CoreCompileInputs.cache
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\jobb.exe.config
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\jobb.exe.manifest
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\jobb.application
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\jobb.exe
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\jobb.pdb
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Npgsql.dll
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\Npgsql.xml
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.csprojResolveAssemblyReference.cache
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.Form1.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.InsertSoknad.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.NewCountry.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.NewStatus.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.NewTown.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.Properties.Resources.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.PsqlLogin.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.SQLCommands.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.ViewApplications.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.ViewCountries.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.ViewStatuses.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.ViewTowns.resources
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.csproj.GenerateResource.Cache
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.csproj.CoreCompileInputs.cache
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.exe.manifest
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.application
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.exe
+C:\Users\a-bol\git\src\VS_2015\jobb\jobb\obj\Debug\jobb.pdb

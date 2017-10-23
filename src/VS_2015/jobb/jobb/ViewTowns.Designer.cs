@@ -53,6 +53,7 @@ namespace jobb
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,6 +66,12 @@ namespace jobb
             this.buttonPrevious = new System.Windows.Forms.Button();
             this.buttonFirst = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.labelCountryID = new System.Windows.Forms.Label();
+            this.comboBoxCountryID = new System.Windows.Forms.ComboBox();
+            this.labelCountry = new System.Windows.Forms.Label();
+            this.labelCountryValue = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // labelInfo
@@ -104,6 +111,7 @@ namespace jobb
             // 
             // comboBoxTownID
             // 
+            this.comboBoxTownID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTownID.FormattingEnabled = true;
             this.comboBoxTownID.Location = new System.Drawing.Point(78, 41);
             this.comboBoxTownID.Name = "comboBoxTownID";
@@ -116,79 +124,138 @@ namespace jobb
             this.linkLabelUpdate.AutoSize = true;
             this.linkLabelUpdate.Location = new System.Drawing.Point(206, 74);
             this.linkLabelUpdate.Name = "linkLabelUpdate";
-            this.linkLabelUpdate.Size = new System.Drawing.Size(51, 13);
+            this.linkLabelUpdate.Size = new System.Drawing.Size(34, 13);
             this.linkLabelUpdate.TabIndex = 5;
             this.linkLabelUpdate.TabStop = true;
-            this.linkLabelUpdate.Text = "Oppdater";
+            this.linkLabelUpdate.Text = "Lagre";
             this.linkLabelUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelUpdate_LinkClicked);
             // 
             // buttonLast
             // 
-            this.buttonLast.Location = new System.Drawing.Point(190, 105);
+            this.buttonLast.Location = new System.Drawing.Point(191, 142);
             this.buttonLast.Name = "buttonLast";
             this.buttonLast.Size = new System.Drawing.Size(30, 23);
             this.buttonLast.TabIndex = 11;
             this.buttonLast.Text = ">>";
             this.buttonLast.UseVisualStyleBackColor = true;
             this.buttonLast.Click += new System.EventHandler(this.buttonLast_Click);
+            this.buttonLast.MouseHover += new System.EventHandler(this.buttonLast_MouseHover);
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(154, 105);
+            this.buttonNext.Location = new System.Drawing.Point(155, 142);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(30, 23);
             this.buttonNext.TabIndex = 10;
             this.buttonNext.Text = ">";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            this.buttonNext.MouseHover += new System.EventHandler(this.buttonNext_MouseHover);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(83, 105);
+            this.buttonDelete.Location = new System.Drawing.Point(84, 142);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(30, 23);
             this.buttonDelete.TabIndex = 8;
             this.buttonDelete.Text = "X";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.buttonDelete.MouseHover += new System.EventHandler(this.buttonDelete_MouseHover);
             // 
             // buttonPrevious
             // 
             this.buttonPrevious.Enabled = false;
-            this.buttonPrevious.Location = new System.Drawing.Point(47, 105);
+            this.buttonPrevious.Location = new System.Drawing.Point(48, 142);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(30, 23);
             this.buttonPrevious.TabIndex = 7;
             this.buttonPrevious.Text = "<";
             this.buttonPrevious.UseVisualStyleBackColor = true;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
+            this.buttonPrevious.MouseHover += new System.EventHandler(this.buttonPrevious_MouseHover);
             // 
             // buttonFirst
             // 
             this.buttonFirst.Enabled = false;
-            this.buttonFirst.Location = new System.Drawing.Point(11, 105);
+            this.buttonFirst.Location = new System.Drawing.Point(12, 142);
             this.buttonFirst.Name = "buttonFirst";
             this.buttonFirst.Size = new System.Drawing.Size(30, 23);
             this.buttonFirst.TabIndex = 6;
             this.buttonFirst.Text = "<<";
             this.buttonFirst.UseVisualStyleBackColor = true;
             this.buttonFirst.Click += new System.EventHandler(this.buttonFirst_Click);
+            this.buttonFirst.MouseHover += new System.EventHandler(this.buttonFirst_MouseHover);
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(119, 105);
+            this.buttonRefresh.Location = new System.Drawing.Point(120, 142);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(30, 23);
             this.buttonRefresh.TabIndex = 12;
             this.buttonRefresh.Text = "R";
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            this.buttonRefresh.MouseHover += new System.EventHandler(this.buttonRefresh_MouseHover);
+            // 
+            // labelCountryID
+            // 
+            this.labelCountryID.AutoSize = true;
+            this.labelCountryID.Location = new System.Drawing.Point(12, 95);
+            this.labelCountryID.Name = "labelCountryID";
+            this.labelCountryID.Size = new System.Drawing.Size(42, 13);
+            this.labelCountryID.TabIndex = 13;
+            this.labelCountryID.Text = "LandID";
+            // 
+            // comboBoxCountryID
+            // 
+            this.comboBoxCountryID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCountryID.FormattingEnabled = true;
+            this.comboBoxCountryID.Location = new System.Drawing.Point(78, 95);
+            this.comboBoxCountryID.Name = "comboBoxCountryID";
+            this.comboBoxCountryID.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCountryID.TabIndex = 14;
+            this.comboBoxCountryID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCountryID_SelectedIndexChanged);
+            // 
+            // labelCountry
+            // 
+            this.labelCountry.AutoSize = true;
+            this.labelCountry.Location = new System.Drawing.Point(13, 122);
+            this.labelCountry.Name = "labelCountry";
+            this.labelCountry.Size = new System.Drawing.Size(55, 13);
+            this.labelCountry.TabIndex = 15;
+            this.labelCountry.Text = "Landnavn";
+            // 
+            // labelCountryValue
+            // 
+            this.labelCountryValue.AutoSize = true;
+            this.labelCountryValue.Location = new System.Drawing.Point(78, 122);
+            this.labelCountryValue.Name = "labelCountryValue";
+            this.labelCountryValue.Size = new System.Drawing.Size(35, 13);
+            this.labelCountryValue.TabIndex = 16;
+            this.labelCountryValue.Text = "label3";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(205, 98);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(34, 13);
+            this.linkLabel1.TabIndex = 17;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Lagre";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // ViewTowns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 145);
+            this.ClientSize = new System.Drawing.Size(270, 177);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.labelCountryValue);
+            this.Controls.Add(this.labelCountry);
+            this.Controls.Add(this.comboBoxCountryID);
+            this.Controls.Add(this.labelCountryID);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonLast);
             this.Controls.Add(this.buttonNext);
@@ -227,5 +294,11 @@ namespace jobb
         private System.Windows.Forms.Button buttonPrevious;
         private System.Windows.Forms.Button buttonFirst;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Label labelCountryID;
+        private System.Windows.Forms.ComboBox comboBoxCountryID;
+        private System.Windows.Forms.Label labelCountry;
+        private System.Windows.Forms.Label labelCountryValue;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

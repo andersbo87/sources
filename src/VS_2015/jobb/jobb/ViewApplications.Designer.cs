@@ -71,7 +71,6 @@ namespace jobb
             this.label10 = new System.Windows.Forms.Label();
             this.comboBoxApplicationID = new System.Windows.Forms.ComboBox();
             this.comboBoxCityID = new System.Windows.Forms.ComboBox();
-            this.comboBoxCountryID = new System.Windows.Forms.ComboBox();
             this.comboBoxStatusID = new System.Windows.Forms.ComboBox();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.textBoxCompany = new System.Windows.Forms.TextBox();
@@ -81,16 +80,16 @@ namespace jobb
             this.linkLabelTitleUpdate = new System.Windows.Forms.LinkLabel();
             this.linkLabelCompanyUpdate = new System.Windows.Forms.LinkLabel();
             this.linkLabelCityIDUpdate = new System.Windows.Forms.LinkLabel();
-            this.linkLabelCountryIDUpdate = new System.Windows.Forms.LinkLabel();
             this.linkLabelStatusIDUpdate = new System.Windows.Forms.LinkLabel();
             this.linkLabelDateUpdate = new System.Windows.Forms.LinkLabel();
             this.textBoxDate = new System.Windows.Forms.TextBox();
+            this.labelCountryID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonFirst
             // 
             this.buttonFirst.Enabled = false;
-            this.buttonFirst.Location = new System.Drawing.Point(12, 323);
+            this.buttonFirst.Location = new System.Drawing.Point(12, 288);
             this.buttonFirst.Name = "buttonFirst";
             this.buttonFirst.Size = new System.Drawing.Size(75, 23);
             this.buttonFirst.TabIndex = 0;
@@ -101,7 +100,7 @@ namespace jobb
             // buttonPrevious
             // 
             this.buttonPrevious.Enabled = false;
-            this.buttonPrevious.Location = new System.Drawing.Point(93, 323);
+            this.buttonPrevious.Location = new System.Drawing.Point(93, 288);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(75, 23);
             this.buttonPrevious.TabIndex = 1;
@@ -111,7 +110,7 @@ namespace jobb
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(176, 323);
+            this.buttonDelete.Location = new System.Drawing.Point(176, 288);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 2;
@@ -121,7 +120,7 @@ namespace jobb
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(257, 323);
+            this.buttonUpdate.Location = new System.Drawing.Point(257, 288);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
             this.buttonUpdate.TabIndex = 3;
@@ -131,7 +130,7 @@ namespace jobb
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(338, 323);
+            this.buttonNext.Location = new System.Drawing.Point(338, 288);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 4;
@@ -141,7 +140,7 @@ namespace jobb
             // 
             // buttonLast
             // 
-            this.buttonLast.Location = new System.Drawing.Point(419, 323);
+            this.buttonLast.Location = new System.Drawing.Point(419, 288);
             this.buttonLast.Name = "buttonLast";
             this.buttonLast.Size = new System.Drawing.Size(75, 23);
             this.buttonLast.TabIndex = 5;
@@ -244,7 +243,7 @@ namespace jobb
             this.comboBoxApplicationID.FormattingEnabled = true;
             this.comboBoxApplicationID.Location = new System.Drawing.Point(93, 6);
             this.comboBoxApplicationID.Name = "comboBoxApplicationID";
-            this.comboBoxApplicationID.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxApplicationID.Size = new System.Drawing.Size(317, 21);
             this.comboBoxApplicationID.TabIndex = 16;
             this.comboBoxApplicationID.SelectedIndexChanged += new System.EventHandler(this.comboBoxApplicationID_SelectedIndexChanged);
             // 
@@ -253,37 +252,29 @@ namespace jobb
             this.comboBoxCityID.FormattingEnabled = true;
             this.comboBoxCityID.Location = new System.Drawing.Point(93, 90);
             this.comboBoxCityID.Name = "comboBoxCityID";
-            this.comboBoxCityID.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxCityID.Size = new System.Drawing.Size(317, 21);
             this.comboBoxCityID.TabIndex = 17;
-            // 
-            // comboBoxCountryID
-            // 
-            this.comboBoxCountryID.FormattingEnabled = true;
-            this.comboBoxCountryID.Location = new System.Drawing.Point(93, 142);
-            this.comboBoxCountryID.Name = "comboBoxCountryID";
-            this.comboBoxCountryID.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxCountryID.TabIndex = 18;
             // 
             // comboBoxStatusID
             // 
             this.comboBoxStatusID.FormattingEnabled = true;
             this.comboBoxStatusID.Location = new System.Drawing.Point(93, 196);
             this.comboBoxStatusID.Name = "comboBoxStatusID";
-            this.comboBoxStatusID.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxStatusID.Size = new System.Drawing.Size(317, 21);
             this.comboBoxStatusID.TabIndex = 19;
             // 
             // textBoxTitle
             // 
             this.textBoxTitle.Location = new System.Drawing.Point(93, 39);
             this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(200, 20);
+            this.textBoxTitle.Size = new System.Drawing.Size(317, 20);
             this.textBoxTitle.TabIndex = 21;
             // 
             // textBoxCompany
             // 
             this.textBoxCompany.Location = new System.Drawing.Point(93, 66);
             this.textBoxCompany.Name = "textBoxCompany";
-            this.textBoxCompany.Size = new System.Drawing.Size(200, 20);
+            this.textBoxCompany.Size = new System.Drawing.Size(317, 20);
             this.textBoxCompany.TabIndex = 22;
             // 
             // labelCity
@@ -316,7 +307,7 @@ namespace jobb
             // linkLabelTitleUpdate
             // 
             this.linkLabelTitleUpdate.AutoSize = true;
-            this.linkLabelTitleUpdate.Location = new System.Drawing.Point(300, 39);
+            this.linkLabelTitleUpdate.Location = new System.Drawing.Point(416, 39);
             this.linkLabelTitleUpdate.Name = "linkLabelTitleUpdate";
             this.linkLabelTitleUpdate.Size = new System.Drawing.Size(51, 13);
             this.linkLabelTitleUpdate.TabIndex = 26;
@@ -327,7 +318,7 @@ namespace jobb
             // linkLabelCompanyUpdate
             // 
             this.linkLabelCompanyUpdate.AutoSize = true;
-            this.linkLabelCompanyUpdate.Location = new System.Drawing.Point(300, 69);
+            this.linkLabelCompanyUpdate.Location = new System.Drawing.Point(416, 69);
             this.linkLabelCompanyUpdate.Name = "linkLabelCompanyUpdate";
             this.linkLabelCompanyUpdate.Size = new System.Drawing.Size(51, 13);
             this.linkLabelCompanyUpdate.TabIndex = 27;
@@ -338,7 +329,7 @@ namespace jobb
             // linkLabelCityIDUpdate
             // 
             this.linkLabelCityIDUpdate.AutoSize = true;
-            this.linkLabelCityIDUpdate.Location = new System.Drawing.Point(300, 93);
+            this.linkLabelCityIDUpdate.Location = new System.Drawing.Point(416, 93);
             this.linkLabelCityIDUpdate.Name = "linkLabelCityIDUpdate";
             this.linkLabelCityIDUpdate.Size = new System.Drawing.Size(51, 13);
             this.linkLabelCityIDUpdate.TabIndex = 28;
@@ -346,21 +337,10 @@ namespace jobb
             this.linkLabelCityIDUpdate.Text = "Oppdater";
             this.linkLabelCityIDUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCityIDUpdate_LinkClicked);
             // 
-            // linkLabelCountryIDUpdate
-            // 
-            this.linkLabelCountryIDUpdate.AutoSize = true;
-            this.linkLabelCountryIDUpdate.Location = new System.Drawing.Point(300, 145);
-            this.linkLabelCountryIDUpdate.Name = "linkLabelCountryIDUpdate";
-            this.linkLabelCountryIDUpdate.Size = new System.Drawing.Size(51, 13);
-            this.linkLabelCountryIDUpdate.TabIndex = 29;
-            this.linkLabelCountryIDUpdate.TabStop = true;
-            this.linkLabelCountryIDUpdate.Text = "Oppdater";
-            this.linkLabelCountryIDUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCountryIDUpdate_LinkClicked);
-            // 
             // linkLabelStatusIDUpdate
             // 
             this.linkLabelStatusIDUpdate.AutoSize = true;
-            this.linkLabelStatusIDUpdate.Location = new System.Drawing.Point(300, 196);
+            this.linkLabelStatusIDUpdate.Location = new System.Drawing.Point(416, 196);
             this.linkLabelStatusIDUpdate.Name = "linkLabelStatusIDUpdate";
             this.linkLabelStatusIDUpdate.Size = new System.Drawing.Size(51, 13);
             this.linkLabelStatusIDUpdate.TabIndex = 30;
@@ -371,7 +351,7 @@ namespace jobb
             // linkLabelDateUpdate
             // 
             this.linkLabelDateUpdate.AutoSize = true;
-            this.linkLabelDateUpdate.Location = new System.Drawing.Point(300, 253);
+            this.linkLabelDateUpdate.Location = new System.Drawing.Point(416, 253);
             this.linkLabelDateUpdate.Name = "linkLabelDateUpdate";
             this.linkLabelDateUpdate.Size = new System.Drawing.Size(51, 13);
             this.linkLabelDateUpdate.TabIndex = 31;
@@ -383,18 +363,27 @@ namespace jobb
             // 
             this.textBoxDate.Location = new System.Drawing.Point(93, 253);
             this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(200, 20);
+            this.textBoxDate.Size = new System.Drawing.Size(317, 20);
             this.textBoxDate.TabIndex = 32;
+            // 
+            // labelCountryID
+            // 
+            this.labelCountryID.AutoSize = true;
+            this.labelCountryID.Location = new System.Drawing.Point(93, 144);
+            this.labelCountryID.Name = "labelCountryID";
+            this.labelCountryID.Size = new System.Drawing.Size(76, 13);
+            this.labelCountryID.TabIndex = 33;
+            this.labelCountryID.Text = "labelCountryID";
             // 
             // ViewApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 358);
+            this.ClientSize = new System.Drawing.Size(503, 321);
+            this.Controls.Add(this.labelCountryID);
             this.Controls.Add(this.textBoxDate);
             this.Controls.Add(this.linkLabelDateUpdate);
             this.Controls.Add(this.linkLabelStatusIDUpdate);
-            this.Controls.Add(this.linkLabelCountryIDUpdate);
             this.Controls.Add(this.linkLabelCityIDUpdate);
             this.Controls.Add(this.linkLabelCompanyUpdate);
             this.Controls.Add(this.linkLabelTitleUpdate);
@@ -404,7 +393,6 @@ namespace jobb
             this.Controls.Add(this.textBoxCompany);
             this.Controls.Add(this.textBoxTitle);
             this.Controls.Add(this.comboBoxStatusID);
-            this.Controls.Add(this.comboBoxCountryID);
             this.Controls.Add(this.comboBoxCityID);
             this.Controls.Add(this.comboBoxApplicationID);
             this.Controls.Add(this.label10);
@@ -452,7 +440,6 @@ namespace jobb
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBoxApplicationID;
         private System.Windows.Forms.ComboBox comboBoxCityID;
-        private System.Windows.Forms.ComboBox comboBoxCountryID;
         private System.Windows.Forms.ComboBox comboBoxStatusID;
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.TextBox textBoxCompany;
@@ -462,9 +449,9 @@ namespace jobb
         private System.Windows.Forms.LinkLabel linkLabelTitleUpdate;
         private System.Windows.Forms.LinkLabel linkLabelCompanyUpdate;
         private System.Windows.Forms.LinkLabel linkLabelCityIDUpdate;
-        private System.Windows.Forms.LinkLabel linkLabelCountryIDUpdate;
         private System.Windows.Forms.LinkLabel linkLabelStatusIDUpdate;
         private System.Windows.Forms.LinkLabel linkLabelDateUpdate;
         private System.Windows.Forms.TextBox textBoxDate;
+        private System.Windows.Forms.Label labelCountryID;
     }
 }

@@ -163,7 +163,6 @@ namespace jobb
 
         private void ViewApplications_Load(object sender, EventArgs e)
         {
-            //dateTimePicker1.CustomFormat = "yyyy-MM-dd"; // mm = minutes, MM = months.
             opening = true;
             p = f.p;
             List<string> l = p.GetData("SELECT soknadid FROM view_soknad ORDER BY soknadid asc", 0);
@@ -173,15 +172,12 @@ namespace jobb
                 comboBoxApplicationID.Items.Add(l.ElementAt(i));
                 i++;
             }
-            //max = l.Count;
             max = Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString());
-            //comboBoxApplicationID.Text = "1";
             if(c == 0) { 
                 getData(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
                 c++;
             }
             getCities(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-            getCountries(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
             getStatuses(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
             if (Int32.Parse(comboBoxApplicationID.Text) == Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString()))
             {
@@ -197,7 +193,6 @@ namespace jobb
             {
                 getData(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
                 getCities(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-                getCountries(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
                 comboBoxApplicationID.Text = comboBoxApplicationID.Items[0].ToString();
                 getStatuses(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
             }
@@ -216,7 +211,6 @@ namespace jobb
                 buttonPrevious.Enabled = false;
                 buttonFirst.Enabled = false;
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -249,37 +243,13 @@ namespace jobb
                             buttonFirst.Enabled = false;
                         }
                         if (!getNext(Int32.Parse(comboBoxApplicationID.Text)))
-                            if(!getPrev(Int32.Parse(comboBoxApplicationID.Text)))
+                        {
+                            if (!getPrev(Int32.Parse(comboBoxApplicationID.Text)))
                             {
                                 MessageBox.Show("Det siste elementet har blitt fjernet. Vinduet vil nå lukkes.", Program.title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Close();
                             }
-                        /*int idx = Int32.Parse(comboBoxApplicationID.Text) + 1;
-                        buttonPrevious.Enabled = true;
-                        if (idx < max)
-                        {
-                            getData(idx);
-                            getCities(idx);
-                            getCountries(idx);
-                            getStatuses(idx);
-                            comboBoxApplicationID.Text = idx.ToString();
-                            
                         }
-                        else if(idx == max)
-                        {
-                            buttonNext.Enabled = false;
-                            buttonLast.Enabled = false;
-                            idx = Int32.Parse(comboBoxApplicationID.Text) - 1;
-                            getData(idx);
-                            getCities(idx);
-                            getCountries(idx);
-                            getStatuses(idx);
-                            comboBoxApplicationID.Text = idx.ToString();
-                            if (idx == max)
-                            {
-                                buttonNext.Enabled = false;
-                            }
-                        }*/
                     }
                 }
                 catch (Exception ex)
@@ -296,7 +266,6 @@ namespace jobb
                 int idx = Int32.Parse(comboBoxApplicationID.Text);
                 getData(idx);
                 getCities(idx);
-                getCountries(idx);
                 getStatuses(idx);
                 comboBoxApplicationID.Text = idx.ToString();
             }
@@ -321,14 +290,8 @@ namespace jobb
                 {
                     getData(idx);
                     getCities(idx);
-                    getCountries(idx);
                     getStatuses(idx);
                     comboBoxApplicationID.Text = idx.ToString();
-                    /*if (comboBoxApplicationID.Text.Equals(max.ToString()))
-                    {
-                        buttonNext.Enabled = false;
-                        buttonLast.Enabled = false;
-                    }*/
                     if (idx == Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString()))
                     {
                         buttonLast.Enabled = false;
@@ -340,10 +303,6 @@ namespace jobb
                     return false;
                 }
             }
-            /*catch (IndexOutOfRangeException)
-            {
-                comboBoxApplicationID.SelectedIndex = idx - 1;
-            }*/
             catch (SocketException)
             {
                 return false;
@@ -353,10 +312,6 @@ namespace jobb
                 MessageBox.Show("En PostgreSQL-feil har oppstått: " + ne.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            /*catch (Exception)
-            {
-                return getNext(idx + 1);
-            }*/
         }
         bool getPrev(int index)
         {
@@ -368,7 +323,6 @@ namespace jobb
                 if (idx >= 1)
                 {
                     getData(idx);
-                    //getCities(idx);
                     comboBoxApplicationID.Text = idx.ToString();
                     if (idx == 1 || idx == Int32.Parse(comboBoxApplicationID.Items[0].ToString()))
                     {
@@ -411,7 +365,6 @@ namespace jobb
                 int idx = Int32.Parse(comboBoxApplicationID.Text);
                 getData(idx);
                 getCities(idx);
-                getCountries(idx);
                 getStatuses(idx);
                 if(idx == Int32.Parse(comboBoxApplicationID.Items[0].ToString()))
                 {
@@ -445,9 +398,7 @@ namespace jobb
                 int idx = max;
                 getData(idx);
                 getCities(idx);
-                getCountries(idx);
                 getStatuses(idx);
-                //comboBoxApplicationID.Text = idx.ToString();
                 comboBoxApplicationID.Text = comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString();
             }
             catch(SocketException se)
@@ -469,37 +420,31 @@ namespace jobb
 
         private void linkLabelTitleUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //p.updateDatabase("UPDATE soknad SET tittel='" + textBoxTitle.Text + "' WHERE soknadid=" + comboBoxApplicationID.Text);
             p.UpdateDatabase(table, "tittel", textBoxTitle.Text, primaryKey, Int32.Parse(comboBoxApplicationID.Text));
         }
 
         private void linkLabelCompanyUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //p.updateDatabase("UPDATE soknad SET bedrift='" + textBoxCompany.Text + "' WHERE soknadid=" + comboBoxApplicationID.Text);
             p.UpdateDatabase(table, "bedrift", textBoxCompany.Text, primaryKey, Int32.Parse(comboBoxApplicationID.Text));
         }
 
         private void linkLabelCityIDUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //p.updateDatabase("UPDATE soknad SET stedid=" + comboBoxCityID.Text + " WHERE soknadid=" + comboBoxApplicationID.Text);
             p.UpdateDatabase(table, "stedid", Int32.Parse(comboBoxCityID.Text), primaryKey, Int32.Parse(comboBoxApplicationID.Text));
         }
 
         private void linkLabelCountryIDUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //p.updateDatabase("UPDATE soknad SET landid=" + comboBoxCountryID.Text + " WHERE soknadid=" + comboBoxApplicationID.Text);
-            p.UpdateDatabase(table, "landid", Int32.Parse(comboBoxCountryID.Text), primaryKey, Int32.Parse(comboBoxApplicationID.Text));
+            p.UpdateDatabase(table, "landid", Int32.Parse(labelCountryID.Text), primaryKey, Int32.Parse(comboBoxApplicationID.Text));
         }
 
         private void linkLabelStatusIDUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //p.updateDatabase("UPDATE soknad SET statusid=" + comboBoxStatusID.Text + " WHERE soknadid=" + comboBoxApplicationID.Text);
             p.UpdateDatabase(table, "statusid", Int32.Parse(comboBoxStatusID.Text), primaryKey, Int32.Parse(comboBoxApplicationID.Text));
         }
 
         private void linkLabelDateUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //p.updateDatabase("UPDATE soknad SET soknadsfrist='" + dateTimePicker1.Text + "' WHERE soknadid=" + comboBoxApplicationID.Text);
             p.UpdateDatabase(table, "soknadsfrist", textBoxDate.Text, primaryKey, Int32.Parse(comboBoxApplicationID.Text));
         }
 
@@ -515,22 +460,7 @@ namespace jobb
                     i++;
                 }
             }
-            //comboBoxCityID.SelectedIndex = p.GetCityID(index)-1;
             comboBoxCityID.Text = p.GetCityID(index).ToString();
-        }
-        private void getCountries(int index)
-        {
-            List<string> countryList = p.GetData("SELECT landid FROM land ORDER BY landid asc", 0);
-            int i = 0;
-            if (comboBoxCountryID.Items.Count == 0)
-            {
-                while (i < countryList.Count)
-                {
-                    comboBoxCountryID.Items.Add(countryList.ElementAt(i));
-                    i++;
-                }
-            }
-            comboBoxCountryID.Text = p.GetCountryID(index).ToString();
         }
 
         private void getStatuses(int index)
@@ -547,22 +477,27 @@ namespace jobb
             }
             comboBoxStatusID.Text = p.GetStatusID(index).ToString();
         }
+
+        /// <summary>
+        /// Fills the labels, comboboxes and text boxes with information about current application based on the application ID.
+        /// </summary>
+        /// <param name="index">The identification number of the job application in question.</param>
         private void getData(int index)
         {
-            try{ 
-            List<string> applicationData = p.GetApplications(index);
-            textBoxTitle.Text = applicationData.ElementAt(0);
-            textBoxCompany.Text = applicationData.ElementAt(1);
-            labelCity.Text = applicationData.ElementAt(3);
-            labelCountry.Text = applicationData.ElementAt(5);
-            labelStatus.Text = applicationData.ElementAt(7);
-            textBoxDate.Text = applicationData.ElementAt(8);
-            comboBoxApplicationID.Text = index.ToString();
+            try
+            { 
+                List<string> applicationData = p.GetApplications(index);
+                textBoxTitle.Text = applicationData.ElementAt(0);
+                textBoxCompany.Text = applicationData.ElementAt(1);
+                labelCity.Text = applicationData.ElementAt(3);
+                labelCountryID.Text = applicationData.ElementAt(4);
+                labelCountry.Text = applicationData.ElementAt(5);
+                labelStatus.Text = applicationData.ElementAt(7);
+                textBoxDate.Text = applicationData.ElementAt(8);
+                comboBoxApplicationID.Text = index.ToString();
             }
             catch(InvalidOperationException)
             {
-                //MessageBox.Show(e.Message);
-                //getData(index+1);
                 return;
             }
             catch(System.FormatException)

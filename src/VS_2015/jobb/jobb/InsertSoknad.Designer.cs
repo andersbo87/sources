@@ -67,6 +67,8 @@ namespace jobb
             this.buttonClose = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDate = new System.Windows.Forms.TextBox();
+            this.labelCityName = new System.Windows.Forms.Label();
+            this.labelStatusName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -153,6 +155,7 @@ namespace jobb
             this.statuses.Name = "statuses";
             this.statuses.Size = new System.Drawing.Size(121, 21);
             this.statuses.TabIndex = 16;
+            this.statuses.SelectedIndexChanged += new System.EventHandler(this.statuses_SelectedIndexChanged);
             // 
             // buttonInsert
             // 
@@ -179,7 +182,7 @@ namespace jobb
             // 
             this.label8.Location = new System.Drawing.Point(12, 144);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(267, 55);
+            this.label8.Size = new System.Drawing.Size(308, 55);
             this.label8.TabIndex = 19;
             this.label8.Text = "Dersom det i annonsen ikke står oppgitt en søknadsfrist, bør du likevel oppgi en " +
     "eller annen dato. Dette fordi det oppstår en feil i programmet dersom datoen ikk" +
@@ -192,14 +195,34 @@ namespace jobb
             this.textBoxDate.Size = new System.Drawing.Size(121, 20);
             this.textBoxDate.TabIndex = 20;
             // 
+            // labelCityName
+            // 
+            this.labelCityName.AutoSize = true;
+            this.labelCityName.Location = new System.Drawing.Point(207, 61);
+            this.labelCityName.Name = "labelCityName";
+            this.labelCityName.Size = new System.Drawing.Size(46, 13);
+            this.labelCityName.TabIndex = 21;
+            this.labelCityName.Text = "labelCity";
+            // 
+            // labelStatusName
+            // 
+            this.labelStatusName.AutoSize = true;
+            this.labelStatusName.Location = new System.Drawing.Point(206, 91);
+            this.labelStatusName.Name = "labelStatusName";
+            this.labelStatusName.Size = new System.Drawing.Size(59, 13);
+            this.labelStatusName.TabIndex = 22;
+            this.labelStatusName.Text = "labelStatus";
+            // 
             // InsertSoknad
             // 
             this.AcceptButton = this.buttonInsert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(296, 234);
+            this.ClientSize = new System.Drawing.Size(332, 234);
             this.ControlBox = false;
+            this.Controls.Add(this.labelStatusName);
+            this.Controls.Add(this.labelCityName);
             this.Controls.Add(this.textBoxDate);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonClose);
@@ -240,5 +263,7 @@ namespace jobb
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxDate;
+        private System.Windows.Forms.Label labelCityName;
+        private System.Windows.Forms.Label labelStatusName;
     }
 }

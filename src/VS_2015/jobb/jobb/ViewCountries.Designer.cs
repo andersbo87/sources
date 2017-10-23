@@ -53,6 +53,7 @@ namespace jobb
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelCountryID = new System.Windows.Forms.Label();
             this.labelCountryName = new System.Windows.Forms.Label();
             this.textBoxCountry = new System.Windows.Forms.TextBox();
@@ -64,6 +65,7 @@ namespace jobb
             this.updateLabel = new System.Windows.Forms.LinkLabel();
             this.comboBoxCountryID = new System.Windows.Forms.ComboBox();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // labelCountryID
@@ -101,6 +103,7 @@ namespace jobb
             this.buttonFirst.Text = "<<";
             this.buttonFirst.UseVisualStyleBackColor = true;
             this.buttonFirst.Click += new System.EventHandler(this.buttonFirst_Click);
+            this.buttonFirst.MouseHover += new System.EventHandler(this.buttonFirst_MouseHover);
             // 
             // buttonPrevious
             // 
@@ -112,6 +115,7 @@ namespace jobb
             this.buttonPrevious.Text = "<";
             this.buttonPrevious.UseVisualStyleBackColor = true;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
+            this.buttonPrevious.MouseHover += new System.EventHandler(this.buttonPrevious_MouseHover);
             // 
             // buttonDelete
             // 
@@ -122,6 +126,7 @@ namespace jobb
             this.buttonDelete.Text = "X";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.buttonDelete.MouseHover += new System.EventHandler(this.buttonDelete_MouseHover);
             // 
             // buttonNext
             // 
@@ -132,6 +137,7 @@ namespace jobb
             this.buttonNext.Text = ">";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            this.buttonNext.MouseHover += new System.EventHandler(this.buttonNext_MouseHover);
             // 
             // buttonLast
             // 
@@ -142,20 +148,22 @@ namespace jobb
             this.buttonLast.Text = ">>";
             this.buttonLast.UseVisualStyleBackColor = true;
             this.buttonLast.Click += new System.EventHandler(this.buttonLast_Click);
+            this.buttonLast.MouseHover += new System.EventHandler(this.buttonLast_MouseHover);
             // 
             // updateLabel
             // 
             this.updateLabel.AutoSize = true;
             this.updateLabel.Location = new System.Drawing.Point(183, 37);
             this.updateLabel.Name = "updateLabel";
-            this.updateLabel.Size = new System.Drawing.Size(51, 13);
+            this.updateLabel.Size = new System.Drawing.Size(72, 13);
             this.updateLabel.TabIndex = 9;
             this.updateLabel.TabStop = true;
-            this.updateLabel.Text = "Oppdater";
+            this.updateLabel.Text = "Lagre endring";
             this.updateLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.updateLabel_LinkClicked);
             // 
             // comboBoxCountryID
             // 
+            this.comboBoxCountryID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCountryID.FormattingEnabled = true;
             this.comboBoxCountryID.Location = new System.Drawing.Point(74, 10);
             this.comboBoxCountryID.Name = "comboBoxCountryID";
@@ -172,6 +180,7 @@ namespace jobb
             this.buttonRefresh.Text = "R";
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            this.buttonRefresh.MouseHover += new System.EventHandler(this.buttonRefresh_MouseHover);
             // 
             // ViewCountries
             // 
@@ -213,5 +222,6 @@ namespace jobb
         private System.Windows.Forms.LinkLabel updateLabel;
         private System.Windows.Forms.ComboBox comboBoxCountryID;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
