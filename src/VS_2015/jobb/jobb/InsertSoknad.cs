@@ -110,9 +110,24 @@ namespace jobb
         private void InsertSoknad_Load(object sender, EventArgs e)
         {
             p = f.p;
-            GetStatuses();
-            GetCities();
+            if (statuses.Items.Count == 0)
+            {
+                statuses.Items.Add("Velg statusid");
+                labelCityName.Text = "";
+                GetStatuses();
+            }
+            if(cities.Items.Count == 0)
+            {
+                cities.Items.Add("Velg stedid");
+                labelStatusName.Text = "";
+                GetCities();
+            }
             buttonInsert.DialogResult = DialogResult.OK;
+            textBoxPositionTitle.Clear();
+            textBoxCompany.Clear();
+            textBoxDate.Clear();
+            cities.SelectedIndex = 0;
+            statuses.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -210,7 +225,31 @@ namespace jobb
 
         private void cities_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int selectedIndex = 0;
+            try
+            {
+                selectedIndex = int.Parse(cities.Text);
+            }
+            catch (Exception){}
+            if (selectedIndex != 0)
+                labelCityName.Text = p.getCityName(selectedIndex);
+            else
+                labelCityName.Text = "";
             textChanged = true;
+        }
+
+        private void statuses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selIndex = 0;
+            try
+            {
+                selIndex = int.Parse(statuses.Text);
+            }
+            catch (Exception){}
+            if (selIndex == 0)
+                labelStatusName.Text = "";
+            else
+                labelStatusName.Text = p.getStatusName(selIndex);
         }
 
         /// <summary>
