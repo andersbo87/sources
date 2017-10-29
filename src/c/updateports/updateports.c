@@ -36,6 +36,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <sys/utsname.h>
 #include <syslog.h>
 #include <sys/param.h>
+#include <errno.h>
 
 // Global variables
 char *prog_name;
@@ -1715,6 +1716,67 @@ void updateSunOS()
   }
 }
 
+void updateLinuxZypper()
+{
+  int status, res, err;
+  int zypperdup = fork();
+  if(zypperdup == 0){
+    char *zypper_dup_arglist[3];
+    zypper_dup_arglist[0] = "/usr/bin/zypper";
+    zypper_dup_arglist[1] = "dup";
+    zypper_dup_arglist[2] = NULL;
+    res = execvp(zypper_dup_arglist[0], zypper_dup_arglist);
+    if(res != 0){
+      exitApp(res);
+    }
+  }
+  else if(zypperdup >= 1)
+  {
+    waitpid(zypperdup, NULL, 0);
+    if(WIFEXITED(status)){
+      if(WEXITSTATUS(status) != 0){
+	fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
+	printf("\033]0;\007");
+	exit(status);
+      }
+    }
+  }
+  else
+  {
+    fprintf(stderr, "Failed to create zypper process.\n");
+    printf("\033]0;\007");
+    exit(-1);
+  }
+  int zypper = fork();
+  if(zypper == 0){
+    char *zypper_update_arglist[3];
+    zypper_update_arglist[0] = "/usr/bin/zypper";
+    zypper_update_arglist[1] = "update";
+    zypper_update_arglist[2] = NULL;
+    res = execvp(zypper_update_arglist[0], zypper_update_arglist);
+    if(res != 0){
+      exitApp(res);
+    }
+  }
+  else if(zypper >= 1)
+  {
+    waitpid(zypper, NULL, 0);
+    if(WIFEXITED(status)){
+      if(WEXITSTATUS(status) != 0){
+	fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
+	printf("\033]0;\007");
+	exit(status);
+      }
+    }
+  }
+  else
+  {
+    fprintf(stderr, "Failed to create zypper process.\n");
+    printf("\033]0;\007");
+    exit(-1);
+  }
+}
+
 void updateLinux()
 {
   // This assumes that the user uses apt-get.
@@ -1727,7 +1789,12 @@ void updateLinux()
     apt_update_arglist[0] = "/usr/bin/apt";
     apt_update_arglist[1] = "update";
     apt_update_arglist[2] = NULL;
-    execvp(apt_update_arglist[0], apt_update_arglist);
+    int res = execvp(apt_update_arglist[0], apt_update_arglist);
+    int err = errno;
+    if(err == 2){ // errno 2 betyr at fila eller mappa ikke finnes.
+      updateLinuxZypper();
+      return;
+    }	
   }
   else if(aptupdate >= 1)
   {
