@@ -86,7 +86,7 @@ namespace JobbWPF
         }
         private void comboBox_statusID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            setStatusID(int.Parse(comboBox_townID.SelectedValue.ToString()));
+            setStatusID(int.Parse(comboBox_statusID.SelectedValue.ToString()));
             lbl_statusName.Content = p.getStatusName(int.Parse(comboBox_statusID.SelectedValue.ToString()));
             setChanged(true);
         }

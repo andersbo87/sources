@@ -118,3 +118,7 @@ C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Debug\JobbWPF.csp
 C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Debug\JobbWPF.csproj.CoreCompileInputs.cache
 C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Debug\JobbWPF.exe
 C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Debug\JobbWPF.pdb
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\bin\Debug\JobbWPF.exe.manifest
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\bin\Debug\JobbWPF.application
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Debug\JobbWPF.exe.manifest
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Debug\JobbWPF.application
