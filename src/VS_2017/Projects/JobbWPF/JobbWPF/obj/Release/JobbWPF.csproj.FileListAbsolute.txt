@@ -51,3 +51,8 @@ C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\JobbWPF.c
 C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\JobbWPF.csproj.CoreCompileInputs.cache
 C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\JobbWPF.exe
 C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\JobbWPF.pdb
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\bin\Release\JobbWPF.exe.manifest
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\bin\Release\JobbWPF.application
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\JobbWPF.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\JobbWPF.exe.manifest
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\JobbWPF.application

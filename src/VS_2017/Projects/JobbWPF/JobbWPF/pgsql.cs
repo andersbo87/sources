@@ -1042,7 +1042,6 @@ namespace JobbWPF
                 if (string.Compare(status, "", false) != 0)
                     s = s + "and status like '%" + status + "%' ";
                 s = s + "and soknadsfrist like '%" + deadline + "%' order by soknadid;";
-                MessageBox.Show(s);
                 cmd.CommandText = s;
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
