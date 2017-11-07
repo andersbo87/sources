@@ -18479,12 +18479,13 @@ moc_spesificjobs.o: moc_spesificjobs.cpp
 install:  FORCE
 	mkdir -p /usr/local/bin
 	install -o root -g wheel -m 555 jobber /usr/local/bin/jobber
-	install -o root -g wheel -m 555 jobber.desktop /usr/local/share/applications/jobber.desktop
+	install -o root -g wheel -m 644 jobber.desktop /usr/local/share/applications/jobber.desktop
+	install -o root -g wheel -m 644 jobber.png /usr/local/pixmaps/jobber.png
 	@echo "Jobber has been installed to /usr/local/bin/jobber. Make sure /usr/local/bin is in your PATH."
 
 uninstall:  
 	-$(DEL_FILE) /usr/local/share/applications/jobber.desktop
 	-$(DEL_FILE) /usr/local/bin/jobber
-
+	-$(DEL_FILE) /usr/local/pixmaps/jobber.png
 FORCE: jobber
 

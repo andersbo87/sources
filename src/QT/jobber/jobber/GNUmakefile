@@ -18484,13 +18484,13 @@ ifeq ($(UNAME_S), SunOS)
 	install -c /usr/share/applications/ -m 755 -u root -g root jobber.desktop
 else
 	install -o root -g wheel -m 555 jobber /usr/local/bin/jobber
-	install -o root -g wheel -m 555 jobber.desktop /usr/local/share/applications/jobber.desktop
-	install -o root -g wheel -m 555 jobber.png /usr/local/share/pixmaps/freebsd.png
+	install -o root -g wheel -m 644 jobber.desktop /usr/local/share/applications/jobber.desktop
+	install -o root -g wheel -m 644 jobber.png /usr/local/share/pixmaps/freebsd.png
 endif
 else
 	install -o root -g root -m 555 jobber /usr/local/bin/jobber
-	install -o root -g root -m 555 jobber.desktop /usr/share/applications/jobber.desktop
-	install -o root -g root -m 555 jobber.png /usr/share/pixmaps/jobber.png
+	install -o root -g root -m 644 jobber.desktop /usr/share/applications/jobber.desktop
+	install -o root -g root -m 644 jobber.png /usr/share/pixmaps/jobber.png
 endif
 	@echo "Jobber has been installed to /usr/local/bin/jobber. Make sure /usr/local/bin is in your PATH."
 
