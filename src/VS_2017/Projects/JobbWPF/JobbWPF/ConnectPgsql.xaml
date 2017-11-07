@@ -1,0 +1,21 @@
+﻿<Window x:Class="JobbWPF.ConnectPgsql"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JobbWPF"
+        mc:Ignorable="d"
+        Title="Logg inn til PostgreSQL-database" Loaded="connectPgSql_Load" KeyDown="Window_KeyDown" Height="231.092" Width="359.664" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Server" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Brukernavn" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Passord" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="server" HorizontalAlignment="Left" Height="23" Margin="85,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="244" Focusable="True"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="85,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="244"/>
+        <PasswordBox x:Name="pwbox" HorizontalAlignment="Left" Margin="85,69,0,0" VerticalAlignment="Top" Width="244" Height="23" />
+        <Button x:Name="loginButton" Content="Logg inn" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Width="75" Click="loginButtonClicked"/>
+        <Button x:Name="cancelButton" Content="Avbryt" HorizontalAlignment="Left" Margin="90,101,0,0" VerticalAlignment="Top" Width="75" Click="cancelButtonClicked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="Wrap" Text="Dersom du kjører lokal PostgreSQL-server, kan du skrive 'localhost' i den øverste tekstboksen. Hvis ikke, skriver du inn IP-adressen til den aktuelle serveren." VerticalAlignment="Top" IsEnabled="False"/>
+
+    </Grid>
+</Window>

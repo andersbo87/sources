@@ -1,0 +1,25 @@
+﻿<Window x:Class="JobbWPF.ViewCountries"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JobbWPF"
+        mc:Ignorable="d"
+        Title="Vis land" Loaded="Window_Loaded" Height="150" Width="229.638" ResizeMode="CanMinimize">
+    <Grid>
+        <!--Statiske etiketter:-->
+        <Label Margin="10,10,0,0" Content="Her kan du vise alle registrerte land." HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Margin="10,30,0,0" Content="LandID" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Margin="10,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Landnavn" />
+
+        <!--Dynamiske elementer-->
+        <ComboBox Name="comboBoxCountryID" Margin="70,35" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="comboBoxCountryID_SelectionChanged" />
+        <TextBox Name="textBoxCountryName" Margin="70,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" TextChanged="textBoxCountryName_TextChanged" />
+        <Button Name="btnFirst" Margin="10,90,0,0" Content="&lt;&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnFirst_Click" IsEnabled="False" ToolTip="Første treff" />
+        <Button Name="btnPrev" Margin="40,90,0,0" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnPrev_Click" IsEnabled="False" ToolTip="Forrige treff" />
+        <Button Name="btnDelete" Margin="70,90,0,0" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnDelete_Click" ToolTip="Slett" />
+        <Button Name="btnUpdate" Margin="100,90,0,0" Content="O" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnUpdate_Click" ToolTip="Lagre endringer/Oppdater databasen" />
+        <Button Name="btnNext" Content="&gt;" Margin="130,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnNext_Click" ToolTip="Neste treff" />
+        <Button Name="btnLast" Content="&gt;&gt;" Margin="160,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnLast_Click" ToolTip="Siste treff" />
+    </Grid>
+</Window>

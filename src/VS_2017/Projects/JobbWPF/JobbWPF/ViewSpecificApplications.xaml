@@ -1,0 +1,35 @@
+﻿<Window x:Class="JobbWPF.ViewSpecificApplications"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JobbWPF"
+        mc:Ignorable="d"
+        Title="Vis spesifikke søknader" SizeChanged="Window_SizeChanged" Height="363.866" Width="367.269" MaxHeight="363.866" ResizeMode="CanResizeWithGrip">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Margin="10,10,0,0" IsEnabled="False" Text="Her kan du søke etter spesifikke registrerte jobber, basert på navn, bedrift, sted, status og søknadsfrist." Height="37" Width="272"/>
+        <Label Content="Tittel" Margin="10,40" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Bedrift" Margin="10,60" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label Content="Stedsnavn" Margin="10,80" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Status" Margin="10,100" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label Content="Søknadsfrist" Margin="10,120" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,45" Width="100" Name="textBoxJobTitle" TextChanged="textBoxJobTitle_TextChanged"/>
+        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="90,65" Name="textBoxCompanyName" TextChanged="textBoxCompanyName_TextChanged" />
+        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="90,85" Name="textBoxCityName" TextChanged="textBoxCityName_TextChanged"/>
+        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="90,105" Name="textBoxStatusName" TextChanged="textBoxStatusName_TextChanged"/>
+        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="90,125" Name="textBoxDeadline" TextChanged="textBoxDeadline_TextChanged"/>
+        <Button Name="btnSearch" Content="Søk!" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,150,0,0" Click="btnSearch_Click"/>
+        <DataGrid AutoGenerateColumns="False" Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="148" Margin="10,175,0,0" VerticalAlignment="Top" Width="340" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <!--Kodesnutten under, samt egenskapen AutoGenerateColumns i tagen over, er basert på koden som står her: http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Søknadid" Binding="{Binding applicationID}" />
+                <DataGridTextColumn Header="Tittel" Binding="{Binding jobTitle}" />
+                <DataGridTextColumn Header="Bedrift" Binding="{Binding company}" />
+                <DataGridTextColumn Header="Stedsnavn" Binding="{Binding cityName}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding statusName}" />
+                <DataGridTextColumn Header="Søknadsfrist" Binding="{Binding deadline}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

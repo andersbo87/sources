@@ -1,0 +1,17 @@
+﻿<Window x:Class="JobbWPF.NewCountry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JobbWPF"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="Legg til nytt land" Height="146.557" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Her kan du legge inn et nytt land i databasen." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Landnavn" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="landNavn" Height="23" Margin="76,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="landNavn_TextChanged"/>
+        <Button Content="Lagre" Name="btnSave" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+        <Button Content="Avbryt" Margin="95,75,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Name="btnCancel" Click="btnCancel_Click"/>
+    </Grid>
+</Window>
