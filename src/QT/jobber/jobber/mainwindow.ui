@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Jobber</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>jobber.png</normaloff>jobber.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="btn_newJob">
     <property name="geometry">

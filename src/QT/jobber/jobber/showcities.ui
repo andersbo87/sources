@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Vis innlagte byer og steder</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>jobber.png</normaloff>jobber.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="4" column="5">

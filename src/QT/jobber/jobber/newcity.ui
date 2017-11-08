@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Legg til nytt sted</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>jobber.png</normaloff>jobber.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QFormLayout" name="formLayout">
     <item row="0" column="0">

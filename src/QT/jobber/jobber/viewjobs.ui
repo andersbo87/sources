@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Vis innlagte jobber</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>jobber.png</normaloff>jobber.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0" colspan="6">
