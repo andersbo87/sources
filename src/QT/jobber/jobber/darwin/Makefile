@@ -636,7 +636,7 @@ jobber.app/Contents/PkgInfo:
 jobber.app/Contents/Resources/empty.lproj: 
 	@test -d jobber.app/Contents/Resources || mkdir -p jobber.app/Contents/Resources
 	@touch jobber.app/Contents/Resources/empty.lproj
-	
+
 jobber.app/Contents/Info.plist: 
 	@test -d jobber.app/Contents || mkdir -p jobber.app/Contents
 	@$(DEL_FILE) jobber.app/Contents/Info.plist
@@ -4221,5 +4221,5 @@ install:  FORCE
 
 uninstall:  
 	-$(DEL_FILE) -r /Applications/jobber.app/
-FORCE: 
+FORCE: all
 
