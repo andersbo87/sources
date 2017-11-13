@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.0
--- Dumped by pg_dump version 10.0
+-- Dumped from database version 10.1
+-- Dumped by pg_dump version 10.1
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -426025,7 +426025,8 @@ COPY soknad (soknadid, tittel, bedrift, stedid, statusid, soknadsfrist) FROM std
 268	Vi søker både erfarne og nyutdannede systemutviklere med bachelorgrad innen IT	Sopra Steria	2	2	2017-12-13
 269	Systemutvikler	Bouvet	2	4	Snarest
 241	.NET utvikler	CGI Norge	2	2	2017-11-12
-270	Full-stack programmerer	Add Novatech	30	1	2017-11-19
+271	Systemutvikler .NET	PostNord AS	2	2	Snarest
+270	Full-stack programmerer	Add Novatech	30	2	2017-11-19
 \.
 
 
@@ -426092,7 +426093,7 @@ SELECT pg_catalog.setval('landid_seq', 3, true);
 -- Name: soknadid_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
 --
 
-SELECT pg_catalog.setval('soknadid_seq', 270, true);
+SELECT pg_catalog.setval('soknadid_seq', 271, true);
 
 
 --
