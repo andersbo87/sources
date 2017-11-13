@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>493</width>
-    <height>174</height>
+    <height>186</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -119,7 +119,7 @@
     <item row="2" column="2" colspan="4">
      <widget class="QLineEdit" name="lineEditCityName"/>
     </item>
-    <item row="0" column="0" colspan="6">
+    <item row="0" column="0" colspan="7">
      <widget class="QLabel" name="labelInfo">
       <property name="text">
        <string>Her kan du se stedene som er lagt inn i databasen. Vil du bytte ID-en til et sted, må dette gjøres via kommandolinja.</string>

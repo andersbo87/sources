@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = jobber1.0.0
-DISTDIR = /home/andersbo/ownCloud/src/QT/jobber/jobber/.tmp/jobber1.0.0
+DISTDIR = /home/andersbo/git/src/QT/jobber/jobber/.tmp/jobber1.0.0
 LINK          = clang++
 LFLAGS        = -pthread -Wl,-rpath,/usr/local/lib/qt5
 LIBS          = $(SUBLIBS) -L/usr/local/lib -lpqxx -lpq -L/usr/local/lib/qt5 -lQt5Widgets -lQt5Gui -lQt5Core -lGL 
@@ -746,7 +746,7 @@ distdir: FORCE
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
-	-$(DEL_FILE) jobber
+
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
@@ -784,8 +784,8 @@ moc_mainwindow.cpp: psql.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -1506,7 +1506,7 @@ moc_mainwindow.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		mainwindow.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 moc_connectpsql.cpp: /usr/local/include/qt5/QtWidgets/QApplication \
 		/usr/local/include/qt5/QtWidgets/qapplication.h \
@@ -1522,8 +1522,8 @@ moc_connectpsql.cpp: /usr/local/include/qt5/QtWidgets/QApplication \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -2241,7 +2241,7 @@ moc_connectpsql.cpp: /usr/local/include/qt5/QtWidgets/QApplication \
 		/usr/local/include/qt5/QtGui/qtguiversion.h \
 		connectpsql.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include connectpsql.h -o moc_connectpsql.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include connectpsql.h -o moc_connectpsql.cpp
 
 moc_newcity.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/QApplication \
@@ -2258,8 +2258,8 @@ moc_newcity.cpp: psql.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -2973,7 +2973,7 @@ moc_newcity.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		newcity.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newcity.h -o moc_newcity.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newcity.h -o moc_newcity.cpp
 
 moc_newstatus.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtGui/qevent.h \
@@ -2989,8 +2989,8 @@ moc_newstatus.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -3705,7 +3705,7 @@ moc_newstatus.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		newstatus.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newstatus.h -o moc_newstatus.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newstatus.h -o moc_newstatus.cpp
 
 moc_showcities.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtGui/qevent.h \
@@ -3721,8 +3721,8 @@ moc_showcities.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -4437,7 +4437,7 @@ moc_showcities.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		showcities.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include showcities.h -o moc_showcities.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include showcities.h -o moc_showcities.cpp
 
 moc_showstatuses.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtGui/qevent.h \
@@ -4453,8 +4453,8 @@ moc_showstatuses.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -5169,7 +5169,7 @@ moc_showstatuses.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		showstatuses.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include showstatuses.h -o moc_showstatuses.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include showstatuses.h -o moc_showstatuses.cpp
 
 moc_viewjobs.cpp: /usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
@@ -5186,8 +5186,8 @@ moc_viewjobs.cpp: /usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -5901,7 +5901,7 @@ moc_viewjobs.cpp: /usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtGui/qtguiversion.h \
 		viewjobs.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include viewjobs.h -o moc_viewjobs.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include viewjobs.h -o moc_viewjobs.cpp
 
 moc_newjob.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/QApplication \
@@ -5918,8 +5918,8 @@ moc_newjob.cpp: psql.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -6636,7 +6636,7 @@ moc_newjob.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/qabstractbutton.h \
 		newjob.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newjob.h -o moc_newjob.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newjob.h -o moc_newjob.cpp
 
 moc_newcountry.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtGui/qevent.h \
@@ -6652,8 +6652,8 @@ moc_newcountry.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -7368,7 +7368,7 @@ moc_newcountry.cpp: /usr/local/include/qt5/QtGui/QCloseEvent \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		newcountry.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newcountry.h -o moc_newcountry.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include newcountry.h -o moc_newcountry.cpp
 
 moc_showcountries.cpp: /usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
@@ -7385,8 +7385,8 @@ moc_showcountries.cpp: /usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -8100,7 +8100,7 @@ moc_showcountries.cpp: /usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtGui/qtguiversion.h \
 		showcountries.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include showcountries.h -o moc_showcountries.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include showcountries.h -o moc_showcountries.cpp
 
 moc_spesificjobs.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/QApplication \
@@ -8117,8 +8117,8 @@ moc_spesificjobs.cpp: psql.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -8831,7 +8831,7 @@ moc_spesificjobs.cpp: psql.h \
 		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
 		spesificjobs.h \
 		/usr/local/lib/qt5/bin/moc
-	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/ownCloud/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include spesificjobs.h -o moc_spesificjobs.cpp
+	/usr/local/lib/qt5/bin/moc $(DEFINES) -I/usr/local/lib/qt5/mkspecs/freebsd-clang -I/home/andersbo/git/src/QT/jobber/jobber -I/usr/local/include -I/usr/local/include/qt5 -I/usr/local/include/qt5/QtWidgets -I/usr/local/include/qt5/QtGui -I/usr/local/include/qt5/QtCore -I/usr/include/c++/v1 -I/usr/lib/clang/4.0.0/include -I/usr/include spesificjobs.h -o moc_spesificjobs.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -8908,8 +8908,8 @@ main.o: main.cpp mainwindow.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -9646,8 +9646,8 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -10375,7 +10375,8 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		newstatus.h \
 		showcities.h \
 		showcountries.h \
-		showstatuses.h
+		showstatuses.h \
+		spesificjobs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 connectpsql.o: connectpsql.cpp connectpsql.h \
@@ -10393,8 +10394,8 @@ connectpsql.o: connectpsql.cpp connectpsql.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -11132,8 +11133,8 @@ psql.o: psql.cpp psql.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -11859,8 +11860,8 @@ newcity.o: newcity.cpp newcity.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -12593,8 +12594,8 @@ newstatus.o: newstatus.cpp newstatus.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -13328,8 +13329,8 @@ showcities.o: showcities.cpp showcities.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -14060,8 +14061,8 @@ showstatuses.o: showstatuses.cpp showstatuses.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -14793,8 +14794,8 @@ viewjobs.o: viewjobs.cpp viewjobs.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -15525,8 +15526,8 @@ newjob.o: newjob.cpp newjob.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -16259,8 +16260,8 @@ newcountry.o: newcountry.cpp newcountry.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -16995,8 +16996,8 @@ showcountries.o: showcountries.cpp showcountries.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -17727,8 +17728,8 @@ spesificjobs.o: spesificjobs.cpp spesificjobs.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-printsupport.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-opengl.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-concurrent.h \
-		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/modules/qconfig-multimedia.h \
+		/usr/local/include/qt5/QtCore/modules/qconfig-core.h \
 		/usr/local/include/qt5/QtCore/qfeatures.h \
 		/usr/local/include/qt5/QtCore/qsystemdetection.h \
 		/usr/local/include/qt5/QtCore/qprocessordetection.h \
@@ -18438,7 +18439,8 @@ spesificjobs.o: spesificjobs.cpp spesificjobs.h \
 		/usr/local/include/qt5/QtGui/qtguiversion.h \
 		/usr/local/include/qt5/QtWidgets/QMainWindow \
 		/usr/local/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/local/include/qt5/QtWidgets/qtabwidget.h
+		/usr/local/include/qt5/QtWidgets/qtabwidget.h \
+		ui_spesificjobs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o spesificjobs.o spesificjobs.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
@@ -18477,15 +18479,8 @@ moc_spesificjobs.o: moc_spesificjobs.cpp
 ####### Install
 
 install:  FORCE
-	mkdir -p /usr/local/bin
-	install -o root -g wheel -m 555 jobber /usr/local/bin/jobber
-	install -o root -g wheel -m 644 jobber.desktop /usr/local/share/applications/jobber.desktop
-	install -o root -g wheel -m 644 jobber.png /usr/local/pixmaps/jobber.png
-	@echo "Jobber has been installed to /usr/local/bin/jobber. Make sure /usr/local/bin is in your PATH."
 
-uninstall:  
-	-$(DEL_FILE) /usr/local/share/applications/jobber.desktop
-	-$(DEL_FILE) /usr/local/bin/jobber
-	-$(DEL_FILE) /usr/local/pixmaps/jobber.png
-FORCE: jobber
+uninstall:  FORCE
+
+FORCE:
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>212</width>
+    <width>238</width>
     <height>211</height>
    </rect>
   </property>
@@ -40,7 +40,7 @@
    <widget class="QPushButton" name="btn_ShowJobs">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>131</x>
       <y>10</y>
       <width>91</width>
       <height>23</height>
@@ -79,7 +79,7 @@
    <widget class="QPushButton" name="btn_ShowCities">
     <property name="geometry">
      <rect>
-      <x>109</x>
+      <x>130</x>
       <y>70</y>
       <width>91</width>
       <height>23</height>
@@ -92,7 +92,7 @@
    <widget class="QPushButton" name="btn_ShowStatuses">
     <property name="geometry">
      <rect>
-      <x>109</x>
+      <x>130</x>
       <y>100</y>
       <width>91</width>
       <height>23</height>
@@ -118,7 +118,7 @@
    <widget class="QPushButton" name="btn_showCountries">
     <property name="geometry">
      <rect>
-      <x>109</x>
+      <x>130</x>
       <y>40</y>
       <width>91</width>
       <height>23</height>
