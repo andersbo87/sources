@@ -1380,20 +1380,11 @@ int updateBaseSystem()
 	  }
 	  int installUpdates = fork();
 	  if(installUpdates == 0){
-	    if(verbose == 1){
-	      char *installUpdates_arglist[3];
-	      installUpdates_arglist[0] = "/usr/sbin/softwareupdate";
-	      installUpdates_arglist[1] = "-iav";
-	      installUpdates_arglist[2] = NULL;
-	      execvp(installUpdates_arglist[0], installUpdates_arglist);
-	    }
-	    else{
-	      char *installUpdates_arglist[3];
-	      installUpdates_arglist[0] = "/usr/sbin/softwareupdate";
-	      installUpdates_arglist[1] = "-ia";
-	      installUpdates_arglist[2] = NULL;
-	      execvp(installUpdates_arglist[0], installUpdates_arglist);
-	    }
+	    char *installUpdates_arglist[3];
+	    installUpdates_arglist[0] = "/usr/sbin/softwareupdate";
+	    installUpdates_arglist[1] = "-ia";
+	    installUpdates_arglist[2] = NULL;
+	    execvp(installUpdates_arglist[0], installUpdates_arglist);
 	  }
 	  else if(installUpdates >= 1){
 	    setprogname("softwareupdate -ia");
