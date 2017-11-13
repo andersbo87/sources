@@ -139,7 +139,14 @@ namespace JobbWPF
             nt.ShowDialog();
             if(nt.DialogResult.HasValue && nt.DialogResult.Value)
             {
-
+                if(psql.InsertTown(nt.getTownName(), nt.getCountryID()))
+                {
+                    MessageBox.Show("Stedet med navnet " + nt.getTownName() + " ble lagret i databasen.", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Kunne ikke lagre stedet.", title, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

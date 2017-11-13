@@ -782,7 +782,6 @@ namespace JobbWPF
                 Init();
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE soknad SET tittel='" + newAppTitle + "', bedrift='" +newCompany + "', stedID=" + newTownID + ", statusID=" + newStatusID + ", soknadsfrist='" + newDeadline + "' where soknadid=" + appID + ";";
-                MessageBox.Show("UPDATE soknad SET tittel='" + newAppTitle + "', bedrift='" + newCompany + "', stedID=" + newTownID + ", statusID=" + newStatusID + ", soknadsfrist='" + newDeadline + "' where soknadid=" + appID + ";");
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + appID + ":\nTittel: " + newAppTitle + "\nBedrift: " + newCompany + "\nStedID: " + newTownID + "\nStatusID: " + newStatusID + "\nSøknadsfrist: " + newDeadline, title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
