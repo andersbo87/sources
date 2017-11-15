@@ -646,8 +646,8 @@ moc_spesificjobs.o: moc_spesificjobs.cpp
 install:  FORCE
 	mkdir -p /usr/local/bin
 	install -o root -g root -m 555 jobber /usr/local/bin/jobber
-	install -o root -g root -m 555 jobber.desktop /usr/share/applications/jobber.desktop
-	install -o root -g root -m 555 ../jobber.png /usr/share/icons/hicolor/256x256/apps/jobber.png
+	install -o root -g root -m 644 ../jobber.desktop /usr/share/applications/jobber.desktop
+	install -o root -g root -m 644 ../jobber.png /usr/share/icons/hicolor/256x256/apps/jobber.png
 	@echo "Jobber has been installed to /usr/local/bin/jobber. Make sure /usr/local/bin/jobber is in your PATH."
 uninstall:  
 	-$(DEL_FILE) /usr/local/bin/jobber
