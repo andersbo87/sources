@@ -83,6 +83,11 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_Host</tabstop>
+  <tabstop>lineEdit_User</tabstop>
+  <tabstop>lineEdit_Password</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
