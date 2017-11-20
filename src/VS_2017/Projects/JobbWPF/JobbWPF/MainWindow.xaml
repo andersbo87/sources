@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Jobber - hovedmeny" Height="168.627" Width="211.274" ResizeMode="NoResize" Loaded="formLoaded">
+        Title="Jobber" Height="176.185" Width="234.419" ResizeMode="CanMinimize" Loaded="formLoaded">
     <Grid>
         <Button Content="Legg til jobb" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" Name="btn_NewApplication" Click="newApplication_Click" />
         <Button Content="Legg til land" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="90" Name="btn_NewCountry" Click="btn_NewCountry_Click"/>

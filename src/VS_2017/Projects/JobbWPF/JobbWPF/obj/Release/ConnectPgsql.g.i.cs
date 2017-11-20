@@ -92,7 +92,7 @@ namespace JobbWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JobbWPF;component/connectpgsql.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Jobb;component/connectpgsql.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ConnectPgsql.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -116,7 +116,7 @@ namespace JobbWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JobbWPF;component/viewstatuses.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Jobb;component/viewstatuses.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ViewStatuses.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

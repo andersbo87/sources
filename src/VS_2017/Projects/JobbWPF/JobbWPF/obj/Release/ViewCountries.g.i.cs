@@ -116,7 +116,7 @@ namespace JobbWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JobbWPF;component/viewcountries.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Jobb;component/viewcountries.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ViewCountries.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
