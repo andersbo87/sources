@@ -42,7 +42,7 @@ namespace JobbWPF
             setCountryName(landNavn.Text);
             if (!p.InsertCountry(getCountryName()))
             {
-                MessageBox.Show("Kan ikke sette inn det nye landet.", title, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Kan ikke sette inn det nye landet. Feilmelding: " + p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {

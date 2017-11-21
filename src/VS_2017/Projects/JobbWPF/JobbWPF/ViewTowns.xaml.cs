@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -76,6 +77,12 @@ namespace JobbWPF
             {
                 return false;
             }
+            catch(Npgsql.NpgsqlException)
+            {
+                MessageBox.Show("Kan ikke utføre henteoperasjonen. Feilmelding: " + p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+                return false;
+            }
             catch (Exception)
             {
                 return false;
@@ -83,31 +90,37 @@ namespace JobbWPF
         }
         void changeTownID(int idx)
         {
-            getData(idx);
-            if (idx == Int32.Parse(comboBoxTownID.Items[0].ToString()))
+            if (getData(idx))
             {
-                btnPrev.IsEnabled = false;
-                btnFirst.IsEnabled = false;
-                btnNext.IsEnabled = true;
-                btnLast.IsEnabled = true;
-            }
-            else if (idx == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
-            {
-                btnNext.IsEnabled = false;
-                btnLast.IsEnabled = false;
-                btnFirst.IsEnabled = true;
-                btnPrev.IsEnabled = true;
+                if (idx == Int32.Parse(comboBoxTownID.Items[0].ToString()))
+                {
+                    btnPrev.IsEnabled = false;
+                    btnFirst.IsEnabled = false;
+                    btnNext.IsEnabled = true;
+                    btnLast.IsEnabled = true;
+                }
+                else if (idx == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
+                {
+                    btnNext.IsEnabled = false;
+                    btnLast.IsEnabled = false;
+                    btnFirst.IsEnabled = true;
+                    btnPrev.IsEnabled = true;
+                }
+                else
+                {
+                    // Mulig de fire neste linjene er unødige:
+                    btnNext.IsEnabled = true;
+                    btnLast.IsEnabled = true;
+                    btnPrev.IsEnabled = true;
+                    btnFirst.IsEnabled = true;
+                }
+                setTownID(idx);
+                setChanged(false);
             }
             else
             {
-                // Mulig de fire neste linjene er unødige:
-                btnNext.IsEnabled = true;
-                btnLast.IsEnabled = true;
-                btnPrev.IsEnabled = true;
-                btnFirst.IsEnabled = true;
+                MessageBox.Show("Kan ikke utføre henteoperasjonen: " + p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            setTownID(idx);
-            setChanged(false);
         }
 
 
@@ -135,28 +148,46 @@ namespace JobbWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            opening = true;
-            //reopen = false;
-            List<string> l = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
-            int i = 0;
-            while (i < l.Count)
+            try
             {
-                comboBoxTownID.Items.Add(l.ElementAt(i));
-                i++;
+                opening = true;
+                //reopen = false;
+                List<string> l = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
+                int i = 0;
+                while (i < l.Count)
+                {
+                    comboBoxTownID.Items.Add(l.ElementAt(i));
+                    i++;
+                }
+                max = Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString());
+                if (c == 0)
+                {
+                    getData(Int32.Parse(comboBoxTownID.Items[0].ToString()));
+                    c++;
+                }
+                if (Int32.Parse(comboBoxTownID.Text) == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
+                {
+                    btnNext.IsEnabled = false;
+                    btnLast.IsEnabled = false;
+                }
+                opening = false;
+                setChanged(false);
             }
-            max = Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString());
-            if (c == 0)
+            catch (TimeoutException te)
             {
-                getData(Int32.Parse(comboBoxTownID.Items[0].ToString()));
-                c++;
+                MessageBox.Show("En feil oppstod under henting av data. Er serveren fortsatt online? Feilmeldingen lyder slik: " + te.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
             }
-            if (Int32.Parse(comboBoxTownID.Text) == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
+            catch (SocketException se)
             {
-                btnNext.IsEnabled = false;
-                btnLast.IsEnabled = false;
+                MessageBox.Show("Kan ikke opprette forbindelse med den eksterne serveren. Feilmeldingen lyder: " + se.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
             }
-            opening = false;
-            setChanged(false);
+            catch (Exception ex)
+            {
+                MessageBox.Show("En feil har oppstått under henting av data. Feilmeldinga lyder: " + ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -172,7 +203,7 @@ namespace JobbWPF
                     vt1.Show();
                 }
                 else
-                    MessageBox.Show("Kunne ikke fjerne stedet fra databasen.", title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Kunne ikke fjerne stedet fra databasen. Feilmeldinga lyder som følger: " + p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
@@ -180,7 +211,12 @@ namespace JobbWPF
         {
             if (p.updateTown(getTownID(), getTownName()))
             {
+                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + ":\nStedsnavn: " + getTownName(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                 setChanged(false);
+            }
+            else
+            {
+                MessageBox.Show("En feil oppstod under oppdatering av byen: " + p.getError(), title, MessageBoxButton.OK);
             }
         }
 

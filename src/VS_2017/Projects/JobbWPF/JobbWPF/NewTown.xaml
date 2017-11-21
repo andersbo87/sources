@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Legg til et nytt sted" Closing="Window_Closing" Height="161.311" Width="300" ResizeMode="NoResize">
+        Title="Legg til et nytt sted" Loaded="Window_Loaded" Closing="Window_Closing" Height="161.311" Width="300" ResizeMode="NoResize">
     <Grid>
         <Label Margin="10,10,0,0" Content="Her kan du legge inn et nytt sted i databasen." HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Label Margin="10,35,0,0" Content="Stedsnavn" HorizontalAlignment="Left" VerticalAlignment="Top" />

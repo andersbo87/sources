@@ -31,12 +31,29 @@ namespace JobbWPF
         }
         void fillCountryIDList()
         {
-            List<string> countryList = p.GetData("SELECT landid FROM land ORDER BY landid ASC", 0);
-            int i = 0;
-            while (i < countryList.Count)
+            try
             {
-                landID.Items.Add(countryList.ElementAt(i));
-                ++i;
+                List<string> countryList = p.GetData("SELECT landid FROM land ORDER BY landid ASC", 0);
+                int i = 0;
+                while (i < countryList.Count)
+                {
+                    landID.Items.Add(countryList.ElementAt(i));
+                    ++i;
+                }
+            }
+            catch(TimeoutException te)
+            {
+                MessageBox.Show("Det ser ut som at operasjonen med å hente landID fra databasen timet ut. Er serveren fortsatt online? Feilmeldingen lyder: " + te.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+            }
+            catch(System.Net.Sockets.SocketException se)
+            {
+                MessageBox.Show("Kan ikke opprette forbindelse med den eksterne serveren. Feilmeldingen lyder: " + se.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+            }
+            catch(Npgsql.NpgsqlException ne)
+            {
+                MessageBox.Show("Kan ikke hente data. Feilmelding: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             //landID.Text = "1";
             //landID.SelectedIndex = 0;
@@ -73,7 +90,6 @@ namespace JobbWPF
             p = mw.ps;
             btnSaveClicked = false;
             title = newTitle;
-            fillCountryIDList();
         }
 
         void prepareToSave()
@@ -116,6 +132,11 @@ namespace JobbWPF
         private void townNameText_TextChanged(object sender, TextChangedEventArgs e)
         {
             setChanged(true);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fillCountryIDList();
         }
 
         private void landID_SelectionChanged(object sender, SelectionChangedEventArgs e)

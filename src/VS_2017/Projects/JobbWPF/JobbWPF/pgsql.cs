@@ -30,7 +30,8 @@ using Npgsql;
 using System.Threading;
 using System.Data;
 using System.Net.Sockets;
-using System.Windows;
+using System.IO;
+
 namespace JobbWPF
 {
     class pgsql
@@ -41,6 +42,7 @@ namespace JobbWPF
         private String username, password;
         private List<string> data;
         private string server, database = "jobber";
+        private int record;
         //public string[] colNames;
         private string title;
         public pgsql(string newTitle)
@@ -62,22 +64,32 @@ namespace JobbWPF
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("En PostgreSQL-feil har oppstått: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return false;
+                setError(ne.Message);
+                throw ne; // Kaster unntaket videre. Normalt sett vil dette kun påvirke koden i connectPgsql.cs
             }
             catch (SocketException se)
             {
-                MessageBox.Show("En feil har oppstått under oppkobling mot en ekstern server: " + se.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                //Application.Exit(); // Avslutter programmet (det er jo ikke noen forbindelse med serveren lenger, så hvorfor fortsette?)
-                return false;
+                setError(se.Message);
+                throw se; // Kaster unntaket videre. Normalt sett vil dette kun påvirke koden i connectPgsql.cs, med mindre den eksterne serveren kobles fra.
+            }
+            catch(TimeoutException te)
+            {
+                throw te;
             }
             catch (Exception e)
             {
-                MessageBox.Show("En feil har oppstått: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return false;
+                setError(e.Message);
+                throw e; // Kaster unntaket videre. Normalt sett vil dette kun påvirke koden i connectPgsql.cs, med mindre den eksterne serveren kobles fra.
             }
         }
-
+        public void setRecord(int newRecord)
+        {
+            record = newRecord;
+        }
+        public int getRecord()
+        {
+            return record;
+        }
         string errMsg;
         public string getError()
         {
@@ -111,14 +123,12 @@ namespace JobbWPF
                         {
                             if (i == reader.FieldCount - 1)
                             {
-                                //sb.Append(reader.GetName(i) + "\n");
                                 res[i] = reader.GetName(i) + "\n";
                                 j++;
                             }
                             else
                             {
                                 res[i] = reader.GetName(i) + "\t";
-                                //sb.Append(reader.GetName(i) + "\t");
                             }
 
                         }
@@ -132,7 +142,6 @@ namespace JobbWPF
 
         public string[] Exec(string sqlQuery)
         {
-            //ArrayList al = new ArrayList();
             StringBuilder sb = new StringBuilder();
             string[] res = null;
             Init();
@@ -144,7 +153,6 @@ namespace JobbWPF
             if (sqlQuery.ToLower().StartsWith("select"))
             {
                 reader = cmd.ExecuteReader();
-                //int i = 0;
                 while (reader.Read())
                 {
                     res = new string[rows];
@@ -172,15 +180,11 @@ namespace JobbWPF
                         if (i == reader.FieldCount - 1)
                         {
                             res[i] = reader.GetString(i) + "\n";
-                            //sb.AppendLine(reader.GetString(i) + "\n");
-                            //i++;
                         }
                         else
                         {
                             res[i] = reader.GetString(i) + "\t";
-                            //sb.Append(reader.GetString(i) + "\t");
                         }
-                        //res[i] = sb.ToString();
                         i++;
                     }
                     return res;
@@ -287,7 +291,7 @@ namespace JobbWPF
             }
             catch (NpgsqlException npe)
             {
-                return npe.Message; // Just return the error message (it gets printed to the text box in SQLCommands.cs anyway)...
+                return npe.Message;
             }
 
             finally
@@ -349,14 +353,24 @@ namespace JobbWPF
                 cmd.ExecuteNonQuery();
                 return true;
             }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke sette inn den nye statusen. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
+                return false;
+            }
             catch (NpgsqlException ne)
             {
-                setError(ne.Message);
+                setError("Kan ikke sette inn den nye statusen. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                setError(e.Message);
+                setError("Kan ikke sette inn den nye statusen. Feilmelding: " + e.Message);
                 return false;
             }
             finally
@@ -380,14 +394,24 @@ namespace JobbWPF
                 cmd.ExecuteNonQuery();
                 return true;
             }
+            catch(SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch(TimeoutException te)
+            {
+                setError("Kan ikke sette inn den nye byen/stedet. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
+                return false;
+            }
             catch (NpgsqlException ne)
             {
-                setError(ne.Message);
+                setError("Kan ikke sette inn den nye byen/stedet. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                setError(e.Message);
+                setError("Kan ikke sette inn den nye byen/stedet. Feilmelding: " + e.Message);
                 return false;
             }
             finally
@@ -410,14 +434,24 @@ namespace JobbWPF
                 cmd.ExecuteNonQuery();
                 return true;
             }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke sette inn det nye landet. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
+                return false;
+            }
             catch (NpgsqlException ne)
             {
-                setError(ne.Message);
+                setError("Kan ikke sette inn det nye landet. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                setError(e.Message);
+                setError("Kan ikke sette inn det nye landet. Feilmelding: " + e.Message);
                 return false;
             }
             finally
@@ -446,14 +480,24 @@ namespace JobbWPF
 
                 return true;
             }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke sette inn den nye søknaden. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
+                return false;
+            }
             catch (NpgsqlException ne)
             {
-                setError(ne.Message);
+                setError("Kan ikke sette inn den nye søknaden. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                setError(e.Message);
+                setError("Kan ikke sette inn den nye søknaden. Feilmelding: " + e.Message);
                 return false;
             }
             finally
@@ -469,8 +513,6 @@ namespace JobbWPF
         /// <returns>A list of string that contains all information about the current job.</returns>
         public List<string> GetApplications(int index)
         {
-            //try
-            //{
             Init();
             cmd = new NpgsqlCommand();
             List<string> data = new List<string>();
@@ -491,11 +533,6 @@ namespace JobbWPF
             }
             conn.Close();
             return data;
-            /*}
-            catch(NpgsqlException)
-            {
-                return null;
-            }*/
         }
 
         /// <summary>
@@ -545,21 +582,34 @@ namespace JobbWPF
         /// <returns>A list with all information about the city.</returns>
         public List<string> GetCities(int index)
         {
-            Init();
-            List<string> data = new List<string>();
-            cmd = new NpgsqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "SELECT * FROM view_sted WHERE stedid = " + index;
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                data.Add(reader.GetString(0));
-                data.Add(reader.GetString(1));
-                data.Add(reader.GetString(2));
-                data.Add(reader.GetString(3));
+                Init();
+                List<string> data = new List<string>();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT * FROM view_sted WHERE stedid = " + index;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    data.Add(reader.GetString(0));
+                    data.Add(reader.GetString(1));
+                    data.Add(reader.GetString(2));
+                    data.Add(reader.GetString(3));
+                }
+                conn.Close();
+                return data;
             }
-            conn.Close();
-            return data;
+            catch(NpgsqlException ne)
+            {
+                setError(ne.Message);
+                throw ne;
+            }
+            catch(Exception e)
+            {
+                setError(e.ToString());
+                throw e;
+            }
         }
 
         /// <summary>
@@ -727,44 +777,7 @@ namespace JobbWPF
             conn.Close();
             return res;
         }
-
-        /// <summary>
-        /// Updates a record in the database
-        /// </summary>
-        /// <param name="table">Name of the table where the update is to take place</param>
-        /// <param name="columnToBeUpdated">Name of the column where the update is to take place</param>
-        /// <param name="value">The new value</param>
-        /// <param name="primaryKey">The column with the primary key of the table (stedid, landid, statusid)</param>
-        /// <param name="index">The primary key index where the update is to take place</param>
-        public void UpdateDatabase(string table, string columnToBeUpdated, int value, string primaryKey, int index)
-        {
-            try
-            {
-                Init();
-                cmd.Connection = conn;
-                cmd.CommandText = "UPDATE " + table + " SET " + columnToBeUpdated + " = " + value + " WHERE " + primaryKey + " = " + index;
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Endringen ble lagret. Ny verdi for " + columnToBeUpdated + " er " + value + ".", title, MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (NpgsqlOperationInProgressException noipe)
-            {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            catch (NpgsqlException ne)
-            {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Noe har gått galt: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-
-            finally
-            {
-                conn.Close();
-            }
-        }
-
+        
         /// <summary>
         /// Updates an existing job application.
         /// </summary>
@@ -783,25 +796,37 @@ namespace JobbWPF
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE soknad SET tittel='" + newAppTitle + "', bedrift='" +newCompany + "', stedID=" + newTownID + ", statusID=" + newStatusID + ", soknadsfrist='" + newDeadline + "' where soknadid=" + appID + ";";
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + appID + ":\nTittel: " + newAppTitle + "\nBedrift: " + newCompany + "\nStedID: " + newTownID + "\nStatusID: " + newStatusID + "\nSøknadsfrist: " + newDeadline, title, MessageBoxButton.OK, MessageBoxImage.Information);
+                
             }
             catch (NpgsqlOperationInProgressException noipe)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                setError(noipe.Message);
                 conn.Close();
+                return false;
+            }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke oppdatere elementet. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
                 return false;
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Noe har gått galt: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + e.Message);
                 return false;
+            }
+            finally
+            {
+                conn.Close();
             }
             return true;
         }
@@ -820,25 +845,36 @@ namespace JobbWPF
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE land SET landnavn='" + newCountryName + "' where landid=" + countryID + ";";
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for landID " + countryID + ":\nLandnavn: " + newCountryName, title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (NpgsqlOperationInProgressException noipe)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                setError(noipe.Message);
                 conn.Close();
+                return false;
+            }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke oppdatere elementet. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
                 return false;
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Noe har gått galt: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + e.Message);
                 return false;
+            }
+            finally
+            {
+                conn.Close();
             }
             return true;
         }
@@ -857,25 +893,36 @@ namespace JobbWPF
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE status SET status='" + newStatusName + "' where statusid=" + statusID + ";";
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for statusID " + statusID + ":\nStatus: " + newStatusName, title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (NpgsqlOperationInProgressException noipe)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                setError(noipe.Message);
                 conn.Close();
+                return false;
+            }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke oppdatere elementet. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
                 return false;
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Noe har gått galt: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + e.Message);
                 return false;
+            }
+            finally
+            {
+                conn.Close();
             }
             return true;
         }
@@ -894,67 +941,39 @@ namespace JobbWPF
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE sted SET stedsnavn='" + newTownName + "' where stedid=" + townID + ";";
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + townID + ":\nStedsnavn: " + newTownName, title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (NpgsqlOperationInProgressException noipe)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                setError(noipe.Message);
                 conn.Close();
+                return false;
+            }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke oppdatere elementet. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
                 return false;
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + ne.Message);
                 return false;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Noe har gått galt: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                conn.Close();
+                setError("Kan ikke oppdatere elementet. Feilmelding: " + e.Message);
                 return false;
             }
-            return true;
-        }
-
-        /*/// <summary>
-        /// Updates a record in the database
-        /// </summary>
-        /// <param name="table">Name of the table where the update is to take place</param>
-        /// <param name="columnToBeUpdated">Name of the column where the update is to take place</param>
-        /// <param name="value">The new value</param>
-        /// <param name="primaryKey">The column with primary key of the table (stedid, landid, statusid)</param>
-        /// <param name="index">The primary index where the update is to take place</param>
-        public void UpdateDatabase(string table, string columnToBeUpdated, string value, string primaryKey, int index)
-        {
-            try
-            {
-                Init();
-                cmd = new NpgsqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "UPDATE " + table + " SET " + columnToBeUpdated + " = '" + value + "' WHERE " + primaryKey + " = " + index;
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Endringen ble lagret. Ny verdi for " + columnToBeUpdated + " er " + value + ".", title, MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (NpgsqlOperationInProgressException noipe)
-            {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            catch (NpgsqlException ne)
-            {
-                MessageBox.Show("Kan ikke oppdatere elementet: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Noe har gått galt: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-
             finally
             {
                 conn.Close();
             }
-        }*/
-
+            return true;
+        }
 
         /// <summary>
         /// Deletes an item from the database
@@ -975,12 +994,28 @@ namespace JobbWPF
             }
             catch (NpgsqlOperationInProgressException noipe)
             {
-                MessageBox.Show("Kan ikke fjerne elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                //MessageBox.Show("Kan ikke fjerne elementet: " + noipe.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                setError(noipe.Message);
+                return false;
+            }
+            catch (SocketException se)
+            {
+                setError("Kan ikke koble til serveren. Feilmelding: " + se.Message);
+                return false;
+            }
+            catch (TimeoutException te)
+            {
+                setError("Kan ikke fjerne elementet. Det tok for lang tid å etablere forbindelse med serveren. Feilmelding: " + te.Message);
                 return false;
             }
             catch (NpgsqlException ne)
             {
-                MessageBox.Show("Kan ikke fjerne elementet: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                setError("Kan ikke fjerne elementet. Feilmelding: " + ne.Message);
+                return false;
+            }
+            catch (Exception e)
+            {
+                setError("Kan ikke fjerne elementet. Feilmelding: " + e.Message);
                 return false;
             }
 
@@ -1014,6 +1049,11 @@ namespace JobbWPF
                 GetData(sqlQuery, index);
                 return null;
             }
+            catch(Npgsql.NpgsqlException npe)
+            {
+                setError(npe.Message);
+                throw npe;
+            }
 
             finally
             {
@@ -1035,6 +1075,7 @@ namespace JobbWPF
                 Init();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
+                int i = 0;
                 string s = "SELECT soknadid, tittel, bedrift, stedsnavn, status, soknadsfrist FROM view_soknad WHERE tittel like '%" + jobTitle + "%' and bedrift like '%" + companyName + "%' ";
                 if (string.Compare(cityName, "", false) != 0)
                     s = s + "and stedsnavn like '%" + cityName + "%' ";
@@ -1045,15 +1086,29 @@ namespace JobbWPF
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5) });
+                    if(i!= 0)
+                        data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5) });
+                    i++;
                 }
+                setRecord(i);
                 conn.Close();
                 return data;
             }
+            catch(TimeoutException te)
+            {
+                throw te;
+            }
+            catch(SocketException se)
+            {
+                throw se;
+            }
+            catch(NpgsqlException ne)
+            {
+                throw ne;
+            }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
-                return null;
+                throw e; // Kaster bare feilen videre.
             }
         }
     }

@@ -107,10 +107,6 @@ namespace JobbWPF
             title = newTitle;
             p = mw.ps;
             InitializeComponent();
-            getTownIDList();
-            getStatusIDList();
-            btnSavedClicked = false;
-            btnCancelClicked = false;
         }
 
         // Private "drivermetoder"
@@ -148,6 +144,31 @@ namespace JobbWPF
             }
             else
                 btnSavedClicked = false;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                getTownIDList();
+                getStatusIDList();
+                btnSavedClicked = false;
+                btnCancelClicked = false;
+            }
+            catch (TimeoutException te)
+            {
+                MessageBox.Show("Det ser ut som at operasjonen med å hente landID fra databasen timet ut. Er serveren fortsatt online? Feilmeldingen lyder: " + te.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+            }
+            catch (System.Net.Sockets.SocketException se)
+            {
+                MessageBox.Show("Kan ikke opprette forbindelse med den eksterne serveren. Feilmeldingen lyder: " + se.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+            }
+            catch (Npgsql.NpgsqlException ne)
+            {
+                MessageBox.Show("Kan ikke hente data. Feilmelding: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         /// <summary>

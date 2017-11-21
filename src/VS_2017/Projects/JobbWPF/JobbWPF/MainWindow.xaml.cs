@@ -58,8 +58,15 @@ namespace JobbWPF
             // Koden i testen under sjekker om brukeren har klikket OK.
             if (cp.DialogResult.HasValue && cp.DialogResult.Value)
             {
-                if (!psql.Init())
+                try
+                {
+                    psql.Init();
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Kan ikke koble til databasen: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
                     initialize();
+                }
             }
             else
             {
@@ -71,15 +78,15 @@ namespace JobbWPF
         {
             na = new NewApplication(title);
             na.ShowDialog();
-            if(na.DialogResult.HasValue && na.DialogResult.Value)
+            if (na.DialogResult.HasValue && na.DialogResult.Value)
             {
-                if(psql.InsertApplication(na.getJobTitle(),na.getCompany(), na.getTownID(), na.getStatusID(), na.getDeadline()))
+                if (psql.InsertApplication(na.getJobTitle(), na.getCompany(), na.getTownID(), na.getStatusID(), na.getDeadline()))
                 {
-                    MessageBox.Show("Jobben ble lagret med følgende data:\nTittel: " + na.getJobTitle() + "\nBedrift: " + na.getCompany() + "\nStedID: " + na.getTownID() + "\nStatusID: " +na.getStatusID() + "\nSøknadsfrist: " + na.getDeadline() + ".", title, MessageBoxButton.OK,MessageBoxImage.Information);
+                    MessageBox.Show("Jobben ble lagret med følgende data:\nTittel: " + na.getJobTitle() + "\nBedrift: " + na.getCompany() + "\nStedID: " + na.getTownID() + "\nStatusID: " + na.getStatusID() + "\nSøknadsfrist: " + na.getDeadline() + ".", title, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Kunne ikke lagre den nye jobben.", title, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Kunne ikke lagre den nye jobben. Feilmelding: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -92,7 +99,7 @@ namespace JobbWPF
             {
                 if(!psql.InsertCountry(nc.getCountryName()))
                 {
-                    MessageBox.Show("Kunne ikke lagre landet i databasen.", title, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Kunne ikke lagre landet i databasen. Feilmelding: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -137,15 +144,15 @@ namespace JobbWPF
         {
             nt = new NewTown(title);
             nt.ShowDialog();
-            if(nt.DialogResult.HasValue && nt.DialogResult.Value)
+            if (nt.DialogResult.HasValue && nt.DialogResult.Value)
             {
-                if(psql.InsertTown(nt.getTownName(), nt.getCountryID()))
+                if (psql.InsertTown(nt.getTownName(), nt.getCountryID()))
                 {
                     MessageBox.Show("Stedet med navnet " + nt.getTownName() + " ble lagret i databasen.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Kunne ikke lagre stedet.", title, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Kunne ikke lagre stedet. Feilmelding: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -158,7 +165,7 @@ namespace JobbWPF
             {
                 if(!psql.InsertStatus(ns.getStatus()))
                 {
-                    MessageBox.Show("Kan ikke sette inn den nye statusen.", title, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {

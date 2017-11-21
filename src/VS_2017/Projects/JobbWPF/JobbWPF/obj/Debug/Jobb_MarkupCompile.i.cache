@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Release\
+C:\Users\andersbo\git\src\VS_2017\Projects\JobbWPF\JobbWPF\obj\Debug\
 JobbWPF
 none
 false
-TRACE
+DEBUG;TRACE
 
 121868282417
 
-21-2012849100
+211391635681
 68934817397
 App.xaml;ConnectPgsql.xaml;MainWindow.xaml;NewCountry.xaml;NewApplication.xaml;NewStatus.xaml;NewTown.xaml;ViewApplications.xaml;ViewCountries.xaml;ViewSpecificApplications.xaml;ViewStatuses.xaml;ViewTowns.xaml;
 
-True
+False
 

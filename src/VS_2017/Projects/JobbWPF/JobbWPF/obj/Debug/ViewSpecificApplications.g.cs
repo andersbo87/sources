@@ -108,7 +108,7 @@ namespace JobbWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/JobbWPF;component/viewspecificapplications.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Jobb;component/viewspecificapplications.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ViewSpecificApplications.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

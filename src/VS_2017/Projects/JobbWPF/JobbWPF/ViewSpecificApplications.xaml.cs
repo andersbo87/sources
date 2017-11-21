@@ -101,8 +101,32 @@ namespace JobbWPF
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            List<jobb> titles = p.getSpecificJobs(getJobTitle(), getCompanyName(), getCityName(), getStatusName(), getDeadline());
-            dataGrid.ItemsSource = titles;
+            try
+            {
+                List<jobb> titles = p.getSpecificJobs(getJobTitle(), getCompanyName(), getCityName(), getStatusName(), getDeadline());
+                if (p.getRecord() == 0)
+                    MessageBox.Show("Søket returnerte ingen treff.", progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                dataGrid.ItemsSource = titles;
+                p.setRecord(0);
+            }
+            catch(System.Net.Sockets.SocketException se)
+            {
+                MessageBox.Show("Kan ikke koble til serveren. Feilmelding: " + se.Message, progTitle, MessageBoxButton.OK,MessageBoxImage.Error);
+                Close();
+            }
+            catch(TimeoutException te)
+            {
+                MessageBox.Show("Kan ikke gjennomføre søket fordi det tok for lang tid å kommunisere med serveren. Den er muligens frakoblet? Feilmelding: " + te.Message, progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+            }
+            catch(Npgsql.NpgsqlException ne)
+            {
+                MessageBox.Show("Noe gikk galt under søking i databasen: " + ne.Message, progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Noe gikk galt under søking i databasen: " + ex.Message, progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void textBoxCompanyName_TextChanged(object sender, TextChangedEventArgs e)

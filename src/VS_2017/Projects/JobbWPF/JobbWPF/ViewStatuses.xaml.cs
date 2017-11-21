@@ -191,41 +191,59 @@ namespace JobbWPF
                     vs1.Show();
                 }
                 else
-                    MessageBox.Show("Kunne ikke fjerne statusen fra databasen.", title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Kunne ikke fjerne statusen fra databasen: " + p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            opening = true;
-            //reopen = false;
-            List<string> l = p.GetData("SELECT statusid FROM status ORDER BY statusid asc", 0);
-            int i = 0;
-            while (i < l.Count)
+            try
             {
-                comboBoxStatusID.Items.Add(l.ElementAt(i));
-                i++;
+                opening = true;
+                //reopen = false;
+                List<string> l = p.GetData("SELECT statusid FROM status ORDER BY statusid asc", 0);
+                int i = 0;
+                while (i < l.Count)
+                {
+                    comboBoxStatusID.Items.Add(l.ElementAt(i));
+                    i++;
+                }
+                max = Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString());
+                if (c == 0)
+                {
+                    getData(Int32.Parse(comboBoxStatusID.Items[0].ToString()));
+                    c++;
+                }
+                if (Int32.Parse(comboBoxStatusID.Text) == Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString()))
+                {
+                    btnNext.IsEnabled = false;
+                    btnLast.IsEnabled = false;
+                }
+                opening = false;
+                setChanged(false);
             }
-            max = Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString());
-            if (c == 0)
+            catch (TimeoutException te)
             {
-                getData(Int32.Parse(comboBoxStatusID.Items[0].ToString()));
-                c++;
+                MessageBox.Show("En feil oppstod under henting av data. Er serveren fortsatt online? Feilmeldingen lyder slik: " + te.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
             }
-            if (Int32.Parse(comboBoxStatusID.Text) == Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString()))
+            catch (Exception ex)
             {
-                btnNext.IsEnabled = false;
-                btnLast.IsEnabled = false;
+                MessageBox.Show("En feil har oppstått under henting av data. Er serveren fortsatt online? Feilmeldinga lyder: " + ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
             }
-            opening = false;
-            setChanged(false);
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             if (p.updateStatus(getStatusID(), getStatusName()))
             {
+                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for statusID " + getStatusID() + ":\nStatus: " + getStatusName(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                 setChanged(false);
+            }
+            else
+            {
+                MessageBox.Show(p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 

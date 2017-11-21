@@ -30,12 +30,19 @@ namespace JobbWPF
         {
             if(server.Text.Length > 0 && username.Text.Length > 0 && pwbox.Password.Length > 0)
             {
-                mw = App.mw;
-                pg = mw.ps;
-                pg.SetPassword(pwbox.Password);
-                pg.SetServer(server.Text);
-                pg.SetUsername(username.Text);
-                DialogResult = true;
+                try
+                {
+                    mw = App.mw;
+                    pg = mw.ps;
+                    pg.SetPassword(pwbox.Password);
+                    pg.SetServer(server.Text);
+                    pg.SetUsername(username.Text);
+                    DialogResult = true;
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Kan ikke koble til databasen. Feilmelding: " + e.Message, "Jobber", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

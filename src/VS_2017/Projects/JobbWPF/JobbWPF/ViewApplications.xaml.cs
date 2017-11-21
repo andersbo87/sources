@@ -315,30 +315,43 @@ namespace JobbWPF
         // Automatisk genererte private metoder:
         private void viewApplications_Loaded(object sender, RoutedEventArgs e)
         {
-            opening = true;
-            reopen = false;
-            List<string> l = p.GetData("SELECT soknadid FROM view_soknad ORDER BY soknadid asc", 0);
-            int i = 0;
-            while (i < l.Count)
+            try
             {
-                comboBoxApplicationID.Items.Add(l.ElementAt(i));
-                i++;
+                opening = true;
+                reopen = false;
+                List<string> l = p.GetData("SELECT soknadid FROM view_soknad ORDER BY soknadid asc", 0);
+                int i = 0;
+                while (i < l.Count)
+                {
+                    comboBoxApplicationID.Items.Add(l.ElementAt(i));
+                    i++;
+                }
+                max = Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString());
+                if (c == 0)
+                {
+                    getData(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
+                    c++;
+                }
+                getCities(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
+                getStatuses(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
+                if (Int32.Parse(comboBoxApplicationID.Text) == Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString()))
+                {
+                    btnNext.IsEnabled = false;
+                    btnLast.IsEnabled = false;
+                }
+                opening = false;
+                setChanged(false);
             }
-            max = Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString());
-            if (c == 0)
+            catch (TimeoutException te)
             {
-                getData(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-                c++;
+                MessageBox.Show("En feil oppstod under henting av data. Er serveren fortsatt online? Feilmeldingen lyder slik: " + te.ToString(), progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
             }
-            getCities(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-            getStatuses(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-            if (Int32.Parse(comboBoxApplicationID.Text) == Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString()))
+            catch (Exception ex)
             {
-                btnNext.IsEnabled = false;
-                btnLast.IsEnabled = false;
+                MessageBox.Show("En feil har oppstått under henting av data. Er serveren fortsatt online? Feilmeldinga lyder: " + ex.Message, progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
             }
-            opening = false;
-            setChanged(false);
         }
 
         private void comboBoxApplicationID_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -432,18 +445,27 @@ namespace JobbWPF
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
-            p.DeleteItem(table, primaryKey, int.Parse(comboBoxApplicationID.Text));
-            reopen = true;
-            Close();
-            ViewApplications va1 = new ViewApplications(progTitle);
-            va1.Show();
+            if (p.DeleteItem(table, primaryKey, int.Parse(comboBoxApplicationID.Text)))
+            {
+                reopen = true;
+                Close();
+                ViewApplications va1 = new ViewApplications(progTitle);
+                va1.Show();
+            }
+            else
+                MessageBox.Show("Noe gikk galt uder sletting av søknad: " + p.getError(), progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             if(p.updateApplication(int.Parse(comboBoxApplicationID.Text), getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline()))
             {
+                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + int.Parse(comboBoxApplicationID.Text) + ":\nTittel: " + getJobTitle() + "\nBedrift: " + getCompany() + "\nStedID: " + getTownID() + "\nStatusID: " + getStatusID() + "\nSøknadsfrist: " + getDeadline(), progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
                 setChanged(false);
+            }
+            else
+            {
+                MessageBox.Show(p.getError(), progTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
