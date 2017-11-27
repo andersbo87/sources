@@ -69,21 +69,3 @@ make install clean
 ```
 
 Systemet vil da automatisk installere nødvendige programmer. Når dette er gjort, kan du følge instruksjonene over i avsnittet FreeBSD.
-
-## Avinstallering
-For å avinstallere programmet, gjør du følgende:
-### FreeBSD
-```
-cd freebsd
-sudo ./install.sh uninstall
-```
-### Linux
-```
-cd linux
-sudo ./install.sh uninstall
-```
-### macOS
-```
-cd darwin
-./install.sh uninstall
-```
