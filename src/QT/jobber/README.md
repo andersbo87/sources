@@ -7,33 +7,31 @@ Kildekoden ligger i mappen "jobber".
 ### Linux
 ```
 cd jobber/linux
-sudo make install clean
+sudo ./install.sh
 ```
 
 ### FreeBSD
 ```
-cd jobber
-sudo make install clean
-```
-eller
-```
-cd jobber
-sudo gmake install clean
+cd jobber/freebsd
+sudo ./install.sh
 ```
 
 ### MacOS
 Dersom QT er installert til /opt/local/Qt/5.9.2:
 ```
 cd jobber/darwin
-make install clean
+./install.sh
 ```
 Dersom du har installert en annen utgave av QT eller installert QT til et annet sted på disken:
 ```
 cd jobber/darwin
 qmake -o Makefile ../jobber.pro -spec macx-clang
+make
 cp -R jobber.app/ /Applications/jobber.app/
 ```
 Programmet vil da bli installert til /Applications/jobber.app.
+
+Skriptet install.sh generer Makefile automatisk og kjører deretter kommandoen make eller make install clean avhengig av operativsystem.
 
 ## Avhengighet og kompilering:
 For å kunne kompilere dette programmet, må QT5 være installert. Det samme gjelder for biblioteket libpqxx er installert.
@@ -70,4 +68,4 @@ cd /usr/ports/devel/qt5
 make install clean
 ```
 
-Systemet vil da automatisk installere nødvendige programmer. Når dette er gjort, kan du følge instruksjonene over i avsnittet FreeBSD
+Systemet vil da automatisk installere nødvendige programmer. Når dette er gjort, kan du følge instruksjonene over i avsnittet FreeBSD.
