@@ -1,0 +1,55 @@
+.TH "NewCity" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NewCity \- The \fBNewCity\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <newcity\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNewCity\fP (QString windowTitle, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBNewCity\fP The \fBNewCity\fP class constructor\&. "
+.ti -1c
+.RI "void \fBsetCountryID\fP (int newCountryID)"
+.br
+.ti -1c
+.RI "int \fBgetCountryID\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCityName\fP (QString name)"
+.br
+.ti -1c
+.RI "QString \fBgetCityName\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBNewCity\fP class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "NewCity::NewCity (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBNewCity\fP The \fBNewCity\fP class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpg\fP Pointer to the PostgreSQL database 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

@@ -1,0 +1,297 @@
+.TH "ViewJobs" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ViewJobs \- The \fBViewJobs\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <viewjobs\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBViewJobs\fP (QString windowTitle, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBViewJobs\fP The \fBViewJobs\fP class constructor\&. "
+.ti -1c
+.RI "void \fBgetApplications\fP ()"
+.br
+.RI "\fBViewJobs::getApplications\fP Fills the comboBoxApplicationID with all application IDs in the database\&. "
+.ti -1c
+.RI "void \fBgetApplication\fP (int appID)"
+.br
+.RI "\fBViewJobs::getApplication\fP Fills the window with information based on the application ID\&. "
+.ti -1c
+.RI "void \fBsetApplicationID\fP (int newID)"
+.br
+.RI "\fBViewJobs::setApplicationID\fP sets a new application ID\&. "
+.ti -1c
+.RI "void \fBsetTitle\fP (QString newTitle)"
+.br
+.RI "\fBViewJobs::setTitle\fP Sets a new job title\&. "
+.ti -1c
+.RI "void \fBsetCompany\fP (QString newCompany)"
+.br
+.RI "\fBViewJobs::setCompany\fP Sets a new employer company name\&. "
+.ti -1c
+.RI "void \fBsetCityID\fP (int newTownID)"
+.br
+.RI "\fBViewJobs::setCityID\fP Sets a new city ID\&. "
+.ti -1c
+.RI "void \fBsetStatusID\fP (int newStatusID)"
+.br
+.RI "\fBViewJobs::setStatusID\fP Sets a new status ID for the current job\&. "
+.ti -1c
+.RI "void \fBsetDate\fP (QString newDate)"
+.br
+.RI "\fBViewJobs::setDate\fP Sets a new application deadline for the job application\&. "
+.ti -1c
+.RI "int \fBgetApplicationID\fP ()"
+.br
+.RI "\fBViewJobs::getApplicationID\fP Gets the current application ID\&. "
+.ti -1c
+.RI "QString \fBgetTitle\fP ()"
+.br
+.RI "\fBViewJobs::getTitle\fP Gets the application ID\&. "
+.ti -1c
+.RI "QString \fBgetCompany\fP ()"
+.br
+.RI "\fBViewJobs::getCompany\fP Gets the current employer company\&. "
+.ti -1c
+.RI "int \fBgetCityID\fP ()"
+.br
+.RI "\fBViewJobs::getCityID\fP Gets the ID of the city where the job is located\&. "
+.ti -1c
+.RI "int \fBgetStatusID\fP ()"
+.br
+.RI "\fBViewJobs::getStatusID\fP Gets the current status ID of the job application\&. "
+.ti -1c
+.RI "QString \fBgetDate\fP ()"
+.br
+.RI "\fBViewJobs::getDate\fP Gets the current application's dealine\&. "
+.ti -1c
+.RI "void \fBgetCityIDs\fP ()"
+.br
+.RI "\fBViewJobs::getCityIDs\fP Fills the comboBoxTownID with all city IDs that exist in the databse\&. "
+.ti -1c
+.RI "void \fBgetStatusIDs\fP ()"
+.br
+.RI "\fBViewJobs::getStatusIDs\fP Fills the comboBoxStatusID with all status IDs that exist in the database\&. "
+.ti -1c
+.RI "bool \fBisChanged\fP ()"
+.br
+.RI "\fBViewJobs::isChanged\fP Checks if there have been any unsaved changes to the current record\&. "
+.ti -1c
+.RI "void \fBsetChanged\fP (bool change)"
+.br
+.RI "\fBViewJobs::setChanged\fP Sets the changed variable to true if there are unsaved changes, and false if those changes have been saved\&. "
+.ti -1c
+.RI "void \fBcloseEvent\fP (QCloseEvent *event) override"
+.br
+.RI "\fBViewJobs::closeEvent\fP Code to be executed when the user has ordered the window to be closed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBViewJobs\fP class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ViewJobs::ViewJobs (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBViewJobs\fP The \fBViewJobs\fP class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpg\fP A pointer to the PostgreSQL database class\&. 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ViewJobs::closeEvent (QCloseEvent * event)\fC [override]\fP"
+
+.PP
+\fBViewJobs::closeEvent\fP Code to be executed when the user has ordered the window to be closed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP No help available, sorry 
+.RE
+.PP
+
+.SS "void ViewJobs::getApplication (int appID)"
+
+.PP
+\fBViewJobs::getApplication\fP Fills the window with information based on the application ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIappID\fP the application ID to be used\&. 
+.RE
+.PP
+
+.SS "int ViewJobs::getApplicationID ()"
+
+.PP
+\fBViewJobs::getApplicationID\fP Gets the current application ID\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current application ID\&. 
+.RE
+.PP
+
+.SS "int ViewJobs::getCityID ()"
+
+.PP
+\fBViewJobs::getCityID\fP Gets the ID of the city where the job is located\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the ID of the city where the job is located\&. 
+.RE
+.PP
+
+.SS "QString ViewJobs::getCompany ()"
+
+.PP
+\fBViewJobs::getCompany\fP Gets the current employer company\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the current company\&. 
+.RE
+.PP
+
+.SS "QString ViewJobs::getDate ()"
+
+.PP
+\fBViewJobs::getDate\fP Gets the current application's dealine\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The deadline of the current application\&. 
+.RE
+.PP
+
+.SS "int ViewJobs::getStatusID ()"
+
+.PP
+\fBViewJobs::getStatusID\fP Gets the current status ID of the job application\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the application's current status ID\&. 
+.RE
+.PP
+
+.SS "QString ViewJobs::getTitle ()"
+
+.PP
+\fBViewJobs::getTitle\fP Gets the application ID\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the current title\&. 
+.RE
+.PP
+
+.SS "bool ViewJobs::isChanged ()"
+
+.PP
+\fBViewJobs::isChanged\fP Checks if there have been any unsaved changes to the current record\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if there are unsaved changes and false otherwise\&. 
+.RE
+.PP
+
+.SS "void ViewJobs::setApplicationID (int newID)"
+
+.PP
+\fBViewJobs::setApplicationID\fP sets a new application ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewID\fP the new ID\&. 
+.RE
+.PP
+
+.SS "void ViewJobs::setChanged (bool change)"
+
+.PP
+\fBViewJobs::setChanged\fP Sets the changed variable to true if there are unsaved changes, and false if those changes have been saved\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchange\fP true if a record has been changed and false if that record has been saved 
+.RE
+.PP
+
+.SS "void ViewJobs::setCityID (int newTownID)"
+
+.PP
+\fBViewJobs::setCityID\fP Sets a new city ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewTownID\fP the new city ID\&. 
+.RE
+.PP
+
+.SS "void ViewJobs::setCompany (QString newCompany)"
+
+.PP
+\fBViewJobs::setCompany\fP Sets a new employer company name\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCompany\fP the new company name\&. 
+.RE
+.PP
+
+.SS "void ViewJobs::setDate (QString newDate)"
+
+.PP
+\fBViewJobs::setDate\fP Sets a new application deadline for the job application\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDate\fP The new deadline for the current job application\&. 
+.RE
+.PP
+
+.SS "void ViewJobs::setStatusID (int newStatusID)"
+
+.PP
+\fBViewJobs::setStatusID\fP Sets a new status ID for the current job\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewStatusID\fP the ID of the application's updated status\&. 
+.RE
+.PP
+
+.SS "void ViewJobs::setTitle (QString newTitle)"
+
+.PP
+\fBViewJobs::setTitle\fP Sets a new job title\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewTitle\fP The new job/position title to be used\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

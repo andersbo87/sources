@@ -1,0 +1,73 @@
+.TH "ShowCities" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ShowCities \- The \fBShowCities\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <showcities\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBShowCities\fP (QString title, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBShowCities\fP The ShowCitis class constructor\&. "
+.ti -1c
+.RI "void \fBgetCities\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetCity\fP (int cityID)"
+.br
+.ti -1c
+.RI "void \fBsetCityID\fP (int newID)"
+.br
+.ti -1c
+.RI "void \fBsetCityName\fP (QString newName)"
+.br
+.ti -1c
+.RI "void \fBsetCountryID\fP (int newID)"
+.br
+.ti -1c
+.RI "int \fBgetCityID\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetCountryIDs\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetCountryID\fP ()"
+.br
+.ti -1c
+.RI "QString \fBgetCityName\fP ()"
+.br
+.ti -1c
+.RI "QString \fBgetCountryName\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBShowCities\fP class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ShowCities::ShowCities (QString title, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBShowCities\fP The ShowCitis class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpg\fP A pointer to the PostgreSQL database 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

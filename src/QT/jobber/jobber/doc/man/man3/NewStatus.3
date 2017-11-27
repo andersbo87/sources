@@ -1,0 +1,77 @@
+.TH "NewStatus" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NewStatus \- The \fBNewStatus\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <newstatus\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNewStatus\fP (QString windowTitle, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBNewStatus\fP \fBNewStatus\fP class constructor\&. "
+.ti -1c
+.RI "void \fBsetStatus\fP (QString newStatus)"
+.br
+.RI "\fBNewStatus::setStatus\fP Sets the new status name\&. "
+.ti -1c
+.RI "QString \fBgetStatus\fP ()"
+.br
+.RI "\fBNewStatus::getStatus\fP Gets the current status name\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBNewStatus\fP class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "NewStatus::NewStatus (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBNewStatus\fP \fBNewStatus\fP class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwindowTitle\fP The title to be used with message boxes (QMessageBox) 
+.br
+\fIpg\fP A pointer to the PostgreSQL database class 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QString NewStatus::getStatus ()"
+
+.PP
+\fBNewStatus::getStatus\fP Gets the current status name\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The status name to be returned\&. 
+.RE
+.PP
+
+.SS "void NewStatus::setStatus (QString newStatus)"
+
+.PP
+\fBNewStatus::setStatus\fP Sets the new status name\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewStatus\fP the name of the new status 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

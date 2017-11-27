@@ -8,6 +8,7 @@ var searchData=
   ['setcountryid',['setCountryID',['../class_show_countries.html#a751b9d3c6859102f48d3ecc254135906',1,'ShowCountries']]],
   ['setcountryname',['setCountryName',['../class_show_countries.html#aefa9daeff484f4028ea5a280b280dd36',1,'ShowCountries']]],
   ['setdate',['setDate',['../class_new_job.html#a0a1d9067e72f797ad3b1f01d44fedb0f',1,'NewJob::setDate()'],['../class_view_jobs.html#a7574794410eb40956f343976de97221f',1,'ViewJobs::setDate()']]],
+  ['seterror',['setError',['../classpsql.html#a9a0d5ba32aabe6018a36fb0bc185445b',1,'psql']]],
   ['sethost',['setHost',['../classpsql.html#a96b3b9483f1a642c026d4b5cf505eb75',1,'psql']]],
   ['setpassword',['setPassword',['../classpsql.html#a6c29350037550b7e5a5bb8f439c405f3',1,'psql']]],
   ['setstatus',['setStatus',['../class_new_status.html#a861326c3b5c45040b933e4e65a4646e2',1,'NewStatus']]],

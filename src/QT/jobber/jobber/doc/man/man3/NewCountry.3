@@ -1,0 +1,71 @@
+.TH "NewCountry" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NewCountry
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNewCountry\fP (QString windowTitle, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBNewCountry::NewCountry\fP \fBNewCountry\fP class constructor\&. "
+.ti -1c
+.RI "QString \fBgetCountry\fP ()"
+.br
+.RI "\fBNewCountry::getCountry\fP Gets the current country name\&. "
+.ti -1c
+.RI "void \fBsetCountry\fP (QString newCountry)"
+.br
+.RI "\fBNewCountry::setCountry\fP Sets the name of the country\&. "
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "NewCountry::NewCountry (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBNewCountry::NewCountry\fP \fBNewCountry\fP class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwindowTitle\fP The title to be used with message boxes (QMessageBox) 
+.br
+\fIpg\fP A pointer to the PostgreSQL database class 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QString NewCountry::getCountry ()"
+
+.PP
+\fBNewCountry::getCountry\fP Gets the current country name\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the country 
+.RE
+.PP
+
+.SS "void NewCountry::setCountry (QString newCountry)"
+
+.PP
+\fBNewCountry::setCountry\fP Sets the name of the country\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCountry\fP The new name of the country 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

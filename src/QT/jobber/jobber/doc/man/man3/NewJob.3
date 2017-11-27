@@ -1,0 +1,210 @@
+.TH "NewJob" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NewJob \- The \fBNewJob\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <newjob\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNewJob\fP (QString windowTitle, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBNewJob\fP The \fBNewJob\fP class constructor\&. "
+.ti -1c
+.RI "void \fBsetTitle\fP (QString newTitle)"
+.br
+.RI "\fBNewJob::setTitle\fP: Sets a new job title\&. "
+.ti -1c
+.RI "void \fBsetCompany\fP (QString newCompany)"
+.br
+.RI "\fBNewJob::setCompany\fP: Sets a new job company\&. "
+.ti -1c
+.RI "void \fBsetCityID\fP (int newCityID)"
+.br
+.RI "\fBNewJob::setCityID\fP: Sets the ID of the city in which the job is located\&. "
+.ti -1c
+.RI "void \fBsetStatusID\fP (int newStatusID)"
+.br
+.RI "\fBNewJob::setStatusID\fP: Sets the status ID of the job application\&. "
+.ti -1c
+.RI "void \fBsetDate\fP (QString newDate)"
+.br
+.RI "\fBNewJob::setDate\fP: Sets the deadline for when the job application has to be sent\&. "
+.ti -1c
+.RI "QString \fBgetTitle\fP ()"
+.br
+.RI "\fBNewJob::getTitle\fP: Gets the position title\&. "
+.ti -1c
+.RI "QString \fBgetCompany\fP ()"
+.br
+.RI "\fBNewJob::getCompany\fP: Gets the name of the company\&. "
+.ti -1c
+.RI "int \fBgetCityID\fP ()"
+.br
+.RI "\fBNewJob::getCityID\fP: Gets the ID of the city where the job is located\&. "
+.ti -1c
+.RI "int \fBgetStatusID\fP ()"
+.br
+.RI "\fBNewJob::getStatusID\fP: Gets the current status ID of the job\&. "
+.ti -1c
+.RI "QString \fBgetDate\fP ()"
+.br
+.RI "\fBNewJob::getDate\fP: Gets the job's current application deadline\&. "
+.ti -1c
+.RI "void \fBcloseEvent\fP (QCloseEvent *event) override"
+.br
+.RI "closeEvent Code to be executed when the window closes "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBNewJob\fP class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "NewJob::NewJob (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBNewJob\fP The \fBNewJob\fP class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpg\fP A pointer to the PostgreSQL database\&. 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void NewJob::closeEvent (QCloseEvent * event)\fC [override]\fP"
+
+.PP
+closeEvent Code to be executed when the window closes 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIevent\fP This pointer points to the QCloseEvent class that contains functions to prvent the window from closing\&. 
+.RE
+.PP
+
+.SS "int NewJob::getCityID ()"
+
+.PP
+\fBNewJob::getCityID\fP: Gets the ID of the city where the job is located\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the ID of the city where the job is located\&. 
+.RE
+.PP
+
+.SS "QString NewJob::getCompany ()"
+
+.PP
+\fBNewJob::getCompany\fP: Gets the name of the company\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the company 
+.RE
+.PP
+
+.SS "QString NewJob::getDate ()"
+
+.PP
+\fBNewJob::getDate\fP: Gets the job's current application deadline\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The deadline of the job 
+.RE
+.PP
+
+.SS "int NewJob::getStatusID ()"
+
+.PP
+\fBNewJob::getStatusID\fP: Gets the current status ID of the job\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the ID of the job's status 
+.RE
+.PP
+
+.SS "QString NewJob::getTitle ()"
+
+.PP
+\fBNewJob::getTitle\fP: Gets the position title\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The position title 
+.RE
+.PP
+
+.SS "void NewJob::setCityID (int newCityID)"
+
+.PP
+\fBNewJob::setCityID\fP: Sets the ID of the city in which the job is located\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCityID\fP the ID of the city in which the job is located\&. 
+.RE
+.PP
+
+.SS "void NewJob::setCompany (QString newCompany)"
+
+.PP
+\fBNewJob::setCompany\fP: Sets a new job company\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCompany\fP The new job company 
+.RE
+.PP
+
+.SS "void NewJob::setDate (QString newDate)"
+
+.PP
+\fBNewJob::setDate\fP: Sets the deadline for when the job application has to be sent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDate\fP The deadline of the new job\&. 
+.RE
+.PP
+
+.SS "void NewJob::setStatusID (int newStatusID)"
+
+.PP
+\fBNewJob::setStatusID\fP: Sets the status ID of the job application\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewStatusID\fP The new status ID of the job application 
+.RE
+.PP
+
+.SS "void NewJob::setTitle (QString newTitle)"
+
+.PP
+\fBNewJob::setTitle\fP: Sets a new job title\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewTitle\fP The new job title\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

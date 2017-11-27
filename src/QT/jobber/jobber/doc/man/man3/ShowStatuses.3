@@ -1,0 +1,134 @@
+.TH "ShowStatuses" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ShowStatuses \- The \fBShowStatuses\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <showstatuses\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBShowStatuses\fP (QString windowTitle, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBShowStatuses\fP The \fBShowStatuses\fP class constructor\&. "
+.ti -1c
+.RI "void \fBgetStatus\fP (int statusID)"
+.br
+.RI "\fBShowStatuses::getStatus\fP Fetches information from the database about the current status and fills the combobox and textbox with appropriate data\&. "
+.ti -1c
+.RI "void \fBgetStatuses\fP ()"
+.br
+.RI "\fBShowStatuses::getStatuses\fP Builds a list of all status IDs in the database\&. This list is then added to the comboBoxStatusID\&. "
+.ti -1c
+.RI "int \fBgetStatusID\fP ()"
+.br
+.RI "getStatusID Gets the ID of the current status "
+.ti -1c
+.RI "QString \fBgetStatusName\fP ()"
+.br
+.RI "\fBShowStatuses::getStatusName\fP Gets the name of the current status\&. "
+.ti -1c
+.RI "void \fBsetStatusID\fP (int newID)"
+.br
+.RI "\fBShowStatuses::setStatusID\fP Changes the current status ID\&. "
+.ti -1c
+.RI "void \fBsetStatusName\fP (QString newName)"
+.br
+.RI "\fBShowStatuses::setStatusName\fP Changes the name of the current status\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBShowStatuses\fP class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ShowStatuses::ShowStatuses (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBShowStatuses\fP The \fBShowStatuses\fP class constructor\&. \fBShowStatuses::ShowStatuses\fP The \fBShowStatuses\fP class constructor\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwindowTitle\fP The title to be used with message boxes (QMessageBox) 
+.br
+\fIpg\fP A pointer to the PostgreSQL database\&. 
+.br
+\fIparent\fP 
+.br
+\fIwindowTitle\fP The title to be used with message boxes (QMessageBox) 
+.br
+\fIpg\fP A pointer to the PostgreSQL database class\&. 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ShowStatuses::getStatus (int statusID)"
+
+.PP
+\fBShowStatuses::getStatus\fP Fetches information from the database about the current status and fills the combobox and textbox with appropriate data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstatusID\fP The identification number of the status in question\&. 
+.RE
+.PP
+
+.SS "int ShowStatuses::getStatusID ()"
+
+.PP
+getStatusID Gets the ID of the current status \fBShowStatuses::getStatusID\fP Gets the identification number of the current status\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The status identification number
+.PP
+The ID of the current status\&. 
+.RE
+.PP
+
+.SS "QString ShowStatuses::getStatusName ()"
+
+.PP
+\fBShowStatuses::getStatusName\fP Gets the name of the current status\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The current status name 
+.RE
+.PP
+
+.SS "void ShowStatuses::setStatusID (int newID)"
+
+.PP
+\fBShowStatuses::setStatusID\fP Changes the current status ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewID\fP The new status ID 
+.RE
+.PP
+
+.SS "void ShowStatuses::setStatusName (QString newName)"
+
+.PP
+\fBShowStatuses::setStatusName\fP Changes the name of the current status\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP The new status name\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

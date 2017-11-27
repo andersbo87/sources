@@ -1,0 +1,123 @@
+.TH "ShowCountries" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ShowCountries
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBShowCountries\fP (QString windowTitle, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBShowCountries\fP The \fBShowCountries\fP class constructor\&. "
+.ti -1c
+.RI "void \fBgetCountries\fP ()"
+.br
+.RI "\fBShowCountries::getCountries\fP Builds a QLinkedList of integers\&. This list is then added to the combobox\&. "
+.ti -1c
+.RI "void \fBgetCountry\fP (int countryID)"
+.br
+.RI "\fBShowCountries::getCountry\fP Fetches information about the current country and fills the combobox and textbox with the new information\&. "
+.ti -1c
+.RI "int \fBgetCountryID\fP ()"
+.br
+.RI "\fBShowCountries::getCountryID\fP Gets the ID of the current country\&. "
+.ti -1c
+.RI "QString \fBgetCountryName\fP ()"
+.br
+.RI "\fBShowCountries::getCountryName\fP Gets the name of the current country\&. "
+.ti -1c
+.RI "void \fBgetCountryIDs\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetCountryID\fP (int newID)"
+.br
+.RI "\fBShowCountries::setCountryID\fP Sets the current identification number of a country\&. "
+.ti -1c
+.RI "void \fBsetCountryName\fP (QString newName)"
+.br
+.RI "\fBShowCountries::setCountryName\fP Sets a new name of the current country\&. "
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ShowCountries::ShowCountries (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBShowCountries\fP The \fBShowCountries\fP class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwindowTitle\fP The title to be used with message boxes (QMessageBox) 
+.br
+\fIpg\fP A pointer to the PostgreSQL database class\&. 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ShowCountries::getCountry (int countryID)"
+
+.PP
+\fBShowCountries::getCountry\fP Fetches information about the current country and fills the combobox and textbox with the new information\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcountryID\fP The ID of the country in question\&. 
+.RE
+.PP
+
+.SS "int ShowCountries::getCountryID ()"
+
+.PP
+\fBShowCountries::getCountryID\fP Gets the ID of the current country\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The identification number to be returned 
+.RE
+.PP
+
+.SS "QString ShowCountries::getCountryName ()"
+
+.PP
+\fBShowCountries::getCountryName\fP Gets the name of the current country\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the country 
+.RE
+.PP
+
+.SS "void ShowCountries::setCountryID (int newID)"
+
+.PP
+\fBShowCountries::setCountryID\fP Sets the current identification number of a country\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewID\fP The new country ID 
+.RE
+.PP
+
+.SS "void ShowCountries::setCountryName (QString newName)"
+
+.PP
+\fBShowCountries::setCountryName\fP Sets a new name of the current country\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP The new name of the country 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

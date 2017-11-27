@@ -56,6 +56,10 @@ bool \hyperlink{classpsql_a914bf8701fbed4ff80edcd0d09c7c3fd}{delete\+Country} (i
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a914bf8701fbed4ff80edcd0d09c7c3fd}{psql\+::delete\+Country} Deletes an existing country from the database. \end{DoxyCompactList}\item 
 bool \hyperlink{classpsql_a26fc592cfb9f484e1bee62af527f2b95}{delete\+Status} (int status\+ID)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a26fc592cfb9f484e1bee62af527f2b95}{psql\+::delete\+Status} Deletes an existing status from the database. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_a5f51e254b67ff932f287df2184ccc043}{get\+Error} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a5f51e254b67ff932f287df2184ccc043}{psql\+::get\+Error} If an operation goes wrong, this method can be used to get the returned error message. \end{DoxyCompactList}\item 
+void \hyperlink{classpsql_a9a0d5ba32aabe6018a36fb0bc185445b}{set\+Error} (Q\+String msg)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a9a0d5ba32aabe6018a36fb0bc185445b}{psql\+::set\+Error} If an operation goes wrong, this method saves the contents of the error message. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classpsql_a13f28a96fa9f79076ecae7d86280008f}\label{classpsql_a13f28a96fa9f79076ecae7d86280008f}} 
 int {\bfseries get\+Application\+ID} (Q\+String qry)
 \item 
@@ -324,6 +328,19 @@ On success, return the name of the country.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 the application ID on success and 0 on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a5f51e254b67ff932f287df2184ccc043}\label{classpsql_a5f51e254b67ff932f287df2184ccc043}} 
+\index{psql@{psql}!get\+Error@{get\+Error}}
+\index{get\+Error@{get\+Error}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Error()}{getError()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a5f51e254b67ff932f287df2184ccc043}{psql\+::get\+Error} If an operation goes wrong, this method can be used to get the returned error message. 
+
+\begin{DoxyReturn}{Returns}
+The error message. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classpsql_a95d06ee661db0b9cf72605b983b04613}\label{classpsql_a95d06ee661db0b9cf72605b983b04613}} 
 \index{psql@{psql}!get\+Host@{get\+Host}}
@@ -669,6 +686,21 @@ True on success and false on failure.
 \begin{DoxyReturn}{Returns}
 True on success and false on failure 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a9a0d5ba32aabe6018a36fb0bc185445b}\label{classpsql_a9a0d5ba32aabe6018a36fb0bc185445b}} 
+\index{psql@{psql}!set\+Error@{set\+Error}}
+\index{set\+Error@{set\+Error}!psql@{psql}}
+\subsubsection{\texorpdfstring{set\+Error()}{setError()}}
+{\footnotesize\ttfamily void psql\+::set\+Error (\begin{DoxyParamCaption}\item[{Q\+String}]{msg }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_a9a0d5ba32aabe6018a36fb0bc185445b}{psql\+::set\+Error} If an operation goes wrong, this method saves the contents of the error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The error message to be saved. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classpsql_a96b3b9483f1a642c026d4b5cf505eb75}\label{classpsql_a96b3b9483f1a642c026d4b5cf505eb75}} 
 \index{psql@{psql}!set\+Host@{set\+Host}}
 \index{set\+Host@{set\+Host}!psql@{psql}}

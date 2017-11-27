@@ -13,6 +13,7 @@ var searchData=
   ['getcountryid',['getCountryID',['../classpsql.html#a81d02dc0350ba11d90257914078ba432',1,'psql::getCountryID()'],['../class_show_countries.html#a02956713871e89645487500f3c9b77b8',1,'ShowCountries::getCountryID()']]],
   ['getcountryname',['getCountryName',['../classpsql.html#a5724e9992e6a5c98524ab73b98f4202d',1,'psql::getCountryName()'],['../class_show_countries.html#afc6d5f6817bd4c9388aef3d52d09d768',1,'ShowCountries::getCountryName()']]],
   ['getdate',['getDate',['../class_new_job.html#abe92b6bce4e8e3485f59554a2cbad1bc',1,'NewJob::getDate()'],['../classpsql.html#a561f96bfe7e9d092077712dd6b186af8',1,'psql::getDate()'],['../class_view_jobs.html#af046f9201cc6031e070b4f9b613a35f9',1,'ViewJobs::getDate()']]],
+  ['geterror',['getError',['../classpsql.html#a5f51e254b67ff932f287df2184ccc043',1,'psql']]],
   ['gethost',['getHost',['../classpsql.html#a95d06ee661db0b9cf72605b983b04613',1,'psql']]],
   ['getpassword',['getPassword',['../classpsql.html#a817e5a88f877cac6f843c1e743aec096',1,'psql']]],
   ['getspecificapplicationids',['getSpecificApplicationIDs',['../classpsql.html#ae262aec447273444deeda34113361e21',1,'psql']]],

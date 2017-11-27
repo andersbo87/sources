@@ -1,0 +1,832 @@
+.TH "psql" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+psql \- The psql class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <psql\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpsql\fP (QString windowTitle)"
+.br
+.ti -1c
+.RI "QString \fBgetUsername\fP ()"
+.br
+.RI "\fBpsql::getUsername\fP: Gets the username "
+.ti -1c
+.RI "QString \fBgetPassword\fP ()"
+.br
+.RI "\fBpsql::getPassword\fP: Gets the user password "
+.ti -1c
+.RI "QString \fBgetHost\fP ()"
+.br
+.RI "\fBpsql::getHost\fP: Gets the IP address of the host "
+.ti -1c
+.RI "int \fBgetRows\fP (string query)"
+.br
+.ti -1c
+.RI "void \fBsetHost\fP (QString newHost)"
+.br
+.RI "\fBpsql::setHost\fP: Sets the IP address of the new host "
+.ti -1c
+.RI "void \fBsetPassword\fP (QString newPassword)"
+.br
+.RI "\fBpsql::setPassword\fP: Sets the new password "
+.ti -1c
+.RI "void \fBsetUsername\fP (QString newUser)"
+.br
+.RI "\fBpsql::setUsername\fP: Sets the new username "
+.ti -1c
+.RI "bool \fBconnectDatabase\fP ()"
+.br
+.RI "\fBpsql::connectDatabase\fP Connects to the PostgreSQL database\&. "
+.ti -1c
+.RI "bool \fBinsertApplication\fP (QString title, QString company, int cityID, int statusID, QString date)"
+.br
+.RI "\fBpsql::insertApplication\fP Inserts a new job application to the database\&. "
+.ti -1c
+.RI "bool \fBinsertCity\fP (QString cityName, int countryID)"
+.br
+.RI "\fBpsql::insertCity\fP Inserts a new city to the database "
+.ti -1c
+.RI "bool \fBinsertCountry\fP (QString countryName)"
+.br
+.RI "\fBpsql::insertCountry\fP Inserts a new country into the database "
+.ti -1c
+.RI "bool \fBinsertStatus\fP (QString statusName)"
+.br
+.RI "\fBpsql::insertStatus\fP Inserts a new status to the database\&. "
+.ti -1c
+.RI "bool \fBupdateApplication\fP (QString title, QString company, int cityID, int statusID, QString date, int id)"
+.br
+.RI "\fBpsql::updateApplication\fP: Updates the current job application "
+.ti -1c
+.RI "bool \fBupdateCity\fP (QString cityName, int countryID, int id)"
+.br
+.RI "\fBpsql::updateCity\fP Updates information of an existing city\&. "
+.ti -1c
+.RI "bool \fBupdateCountry\fP (QString countryName, int countryID)"
+.br
+.RI "\fBpsql::updateCountry\fP Updates an existing country\&. "
+.ti -1c
+.RI "bool \fBupdateStatus\fP (QString statusname, int statusID)"
+.br
+.RI "\fBpsql::updateStatus\fP Updates an existing status\&. "
+.ti -1c
+.RI "bool \fBdeleteApplication\fP (int applicationID)"
+.br
+.RI "\fBpsql::deleteApplication\fP Removes an application from the database\&. "
+.ti -1c
+.RI "bool \fBdeleteCity\fP (int cityID)"
+.br
+.RI "\fBpsql::deleteCity\fP Deletes an existing city from the database\&. "
+.ti -1c
+.RI "bool \fBdeleteCountry\fP (int countryID)"
+.br
+.RI "\fBpsql::deleteCountry\fP Deletes an existing country from the database\&. "
+.ti -1c
+.RI "bool \fBdeleteStatus\fP (int statusID)"
+.br
+.RI "\fBpsql::deleteStatus\fP Deletes an existing status from the database\&. "
+.ti -1c
+.RI "QString \fBgetError\fP ()"
+.br
+.RI "\fBpsql::getError\fP If an operation goes wrong, this method can be used to get the returned error message\&. "
+.ti -1c
+.RI "void \fBsetError\fP (QString msg)"
+.br
+.RI "\fBpsql::setError\fP If an operation goes wrong, this method saves the contents of the error message\&. "
+.ti -1c
+.RI "int \fBgetApplicationID\fP (QString qry)"
+.br
+.ti -1c
+.RI "int \fBgetCityID\fP (int applicationID)"
+.br
+.RI "\fBpsql::getCityID\fP Gets the city ID of the application based on the application ID prvoided by the user\&. "
+.ti -1c
+.RI "int \fBgetCountryID\fP (int cityID)"
+.br
+.RI "\fBpsql::getCountryID\fP Get the country ID of table sted based on given stedid\&. "
+.ti -1c
+.RI "int \fBgetStatusID\fP (int applicationID)"
+.br
+.RI "\fBpsql::getStatusID\fP Returns the status ID of the application based on the application ID provided by the user\&. "
+.ti -1c
+.RI "QList< int > \fBfillList\fP (const char *sqlSporring)"
+.br
+.RI "\fBpsql::fillList\fP 'Fills' a QList with integers based on the results of an SQL query\&. "
+.ti -1c
+.RI "QList< int > \fBgetSpecificApplicationIDs\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.br
+.RI "\fBpsql::getSpecificApplicationIDs\fP Builds a list of application IDs based on search criteria\&. "
+.ti -1c
+.RI "QList< QString > \fBgetSpecificJobNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.br
+.RI "\fBpsql::getSpecificJobNames\fP Builds list of job titles based on search criteria\&. "
+.ti -1c
+.RI "QList< QString > \fBgetSpecificCompanyNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.br
+.RI "\fBpsql::getSpecificCompanyNames\fP Builds a list with name of job company/companies based on search criteria\&. "
+.ti -1c
+.RI "QList< QString > \fBgetSpecificCityNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.br
+.RI "\fBpsql::getSpecificCityNames\fP Builds a list of city names in one or more applications based on search criteria\&. "
+.ti -1c
+.RI "QList< QString > \fBgetSpecificStatuses\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.br
+.RI "\fBpsql::getSpecificStatuses\fP Builds a list of statuses based on the search criteria\&. "
+.ti -1c
+.RI "QList< QString > \fBgetSpecificDeadlines\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.br
+.RI "\fBpsql::getSpecificDeadlines\fP Builds a list of application deadlines based on search criteria "
+.ti -1c
+.RI "QList< QString > \fBgetCityNames\fP ()"
+.br
+.RI "\fBpsql::getCityNames\fP Builds a list of strings that cointain name of all cities in the database\&. "
+.ti -1c
+.RI "QList< QString > \fBgetStatuses\fP ()"
+.br
+.RI "\fBpsql::getStatuses\fP Builds a list of all statuses registered in the database\&. "
+.ti -1c
+.RI "QString \fBgetCityName\fP (int cityNumber)"
+.br
+.RI "\fBpsql::getCityName\fP Gets the name of the city based on the city number\&. "
+.ti -1c
+.RI "QString \fBgetCompany\fP (int applicationID)"
+.br
+.RI "\fBpsql::getCompany\fP Gets the company name based on the application ID provided by the user\&. "
+.ti -1c
+.RI "QString \fBgetCountryName\fP (int countryID)"
+.br
+.RI "\fBpsql::getCountryName\fP Gets the name of a country based on its ID\&. "
+.ti -1c
+.RI "QString \fBgetDate\fP (int applicationID)"
+.br
+.RI "\fBpsql::getDate\fP Gets the application deadline based on the application ID provided by the user\&. "
+.ti -1c
+.RI "QString \fBgetStatusName\fP (int s)"
+.br
+.RI "\fBpsql::getStatusName\fP Returns the current status name "
+.ti -1c
+.RI "QString \fBgetTitle\fP (int applicationID)"
+.br
+.RI "\fBpsql::getTitle\fP Returns the application title based on the ID provided by the user "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The psql class\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "bool psql::connectDatabase ()"
+
+.PP
+\fBpsql::connectDatabase\fP Connects to the PostgreSQL database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True on successful connection and false on failure\&. 
+.RE
+.PP
+
+.SS "bool psql::deleteApplication (int applicationID)"
+
+.PP
+\fBpsql::deleteApplication\fP Removes an application from the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplicationID\fP The ID of the application to be removed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on successful removal and false otherwise\&. 
+.RE
+.PP
+
+.SS "bool psql::deleteCity (int cityID)"
+
+.PP
+\fBpsql::deleteCity\fP Deletes an existing city from the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcityID\fP The unique identification number of the city to be removed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on successful removal and false otherwise\&. 
+.RE
+.PP
+
+.SS "bool psql::deleteCountry (int countryID)"
+
+.PP
+\fBpsql::deleteCountry\fP Deletes an existing country from the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcountryID\fP The unique number of the country in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on successful removal and false otherwise\&. 
+.RE
+.PP
+
+.SS "bool psql::deleteStatus (int statusID)"
+
+.PP
+\fBpsql::deleteStatus\fP Deletes an existing status from the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstatusID\fP The identification number of the status to be deleted\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on successful removal and false otherwise\&. 
+.RE
+.PP
+
+.SS "QList< int > psql::fillList (const char * sqlSporring)"
+
+.PP
+\fBpsql::fillList\fP 'Fills' a QList with integers based on the results of an SQL query\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsqlSporring\fP The SQL query to be executed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "int psql::getCityID (int applicationID)"
+
+.PP
+\fBpsql::getCityID\fP Gets the city ID of the application based on the application ID prvoided by the user\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplicationID\fP The application ID 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The city ID on success and 0 on failure\&. 
+.RE
+.PP
+
+.SS "QString psql::getCityName (int cityNumber)"
+
+.PP
+\fBpsql::getCityName\fP Gets the name of the city based on the city number\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcityNumber\fP the number of the city to be returned\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The city name on success and 'Error' on failure\&. 
+.RE
+.PP
+
+.SS "QList< QString > psql::getCityNames ()"
+
+.PP
+\fBpsql::getCityNames\fP Builds a list of strings that cointain name of all cities in the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+On success, return the mentioned list of strings\&. 
+.RE
+.PP
+
+.SS "QString psql::getCompany (int applicationID)"
+
+.PP
+\fBpsql::getCompany\fP Gets the company name based on the application ID provided by the user\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplicationID\fP The application ID provided by the user\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the company name on success and 'Error' on failure\&. 
+.RE
+.PP
+
+.SS "int psql::getCountryID (int cityID)"
+
+.PP
+\fBpsql::getCountryID\fP Get the country ID of table sted based on given stedid\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcityID\fP The ID of the city in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The country ID of the city in question\&. 
+.RE
+.PP
+
+.SS "QString psql::getCountryName (int countryID)"
+
+.PP
+\fBpsql::getCountryName\fP Gets the name of a country based on its ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcountryID\fP The ID of the country in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+On success, return the name of the country\&. 
+.RE
+.PP
+
+.SS "QString psql::getDate (int applicationID)"
+
+.PP
+\fBpsql::getDate\fP Gets the application deadline based on the application ID provided by the user\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplicationID\fP The application ID\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the application ID on success and 0 on failure\&. 
+.RE
+.PP
+
+.SS "QString psql::getError ()"
+
+.PP
+\fBpsql::getError\fP If an operation goes wrong, this method can be used to get the returned error message\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The error message\&. 
+.RE
+.PP
+
+.SS "QString psql::getHost ()"
+
+.PP
+\fBpsql::getHost\fP: Gets the IP address of the host 
+.PP
+\fBReturns:\fP
+.RS 4
+The host's IP address 
+.RE
+.PP
+
+.SS "QString psql::getPassword ()"
+
+.PP
+\fBpsql::getPassword\fP: Gets the user password 
+.PP
+\fBReturns:\fP
+.RS 4
+The user's password 
+.RE
+.PP
+
+.SS "QList< int > psql::getSpecificApplicationIDs (string jobTitle, string companyName, string cityName, string status, string deadline)"
+
+.PP
+\fBpsql::getSpecificApplicationIDs\fP Builds a list of application IDs based on search criteria\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobTitle\fP The job title to be included in the search 
+.br
+\fIcompanyName\fP The name of the company to be included 
+.br
+\fIcityName\fP The name of the city where the job is located\&. 
+.br
+\fIstatus\fP The status of the application(s) in question\&. 
+.br
+\fIdeadline\fP The deadline of the application(s) in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of integers containing the application ID(s)\&. 
+.RE
+.PP
+
+.SS "QList< QString > psql::getSpecificCityNames (string jobTitle, string companyName, string cityName, string status, string deadline)"
+
+.PP
+\fBpsql::getSpecificCityNames\fP Builds a list of city names in one or more applications based on search criteria\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobTitle\fP The job title to be included in the search 
+.br
+\fIcompanyName\fP The name of the company to be included 
+.br
+\fIcityName\fP The name of the city where the job is located\&. 
+.br
+\fIstatus\fP The status of the application(s) in question\&. 
+.br
+\fIdeadline\fP The deadline of the application(s) in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of strings containing the city name(s) that matched the search\&. 
+.RE
+.PP
+
+.SS "QList< QString > psql::getSpecificCompanyNames (string jobTitle, string companyName, string cityName, string status, string deadline)"
+
+.PP
+\fBpsql::getSpecificCompanyNames\fP Builds a list with name of job company/companies based on search criteria\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobTitle\fP The job title to be included in the search 
+.br
+\fIcompanyName\fP The name of the company to be included 
+.br
+\fIcityName\fP The name of the city where the job is located\&. 
+.br
+\fIstatus\fP The status of the application(s) in question\&. 
+.br
+\fIdeadline\fP The deadline of the application(s) in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of strings containing the job companies that matched the search\&. 
+.RE
+.PP
+
+.SS "QList< QString > psql::getSpecificDeadlines (string jobTitle, string companyName, string cityName, string status, string deadline)"
+
+.PP
+\fBpsql::getSpecificDeadlines\fP Builds a list of application deadlines based on search criteria 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobTitle\fP The job title to be included in the search 
+.br
+\fIcompanyName\fP The name of the company to be included 
+.br
+\fIcityName\fP The name of the city where the job is located\&. 
+.br
+\fIstatus\fP The status of the application(s) in question\&. 
+.br
+\fIdeadline\fP The deadline of the application(s) in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of strings containing the application deadlines that matched the search\&. 
+.RE
+.PP
+
+.SS "QList< QString > psql::getSpecificJobNames (string jobTitle, string companyName, string cityName, string status, string deadline)"
+
+.PP
+\fBpsql::getSpecificJobNames\fP Builds list of job titles based on search criteria\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobTitle\fP The job title to be included in the search 
+.br
+\fIcompanyName\fP The name of the company to be included 
+.br
+\fIcityName\fP The name of the city where the job is located\&. 
+.br
+\fIstatus\fP The status of the application(s) in question\&. 
+.br
+\fIdeadline\fP The deadline of the application(s) in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of strings containing the job names that matched the search\&. 
+.RE
+.PP
+
+.SS "QList< QString > psql::getSpecificStatuses (string jobTitle, string companyName, string cityName, string status, string deadline)"
+
+.PP
+\fBpsql::getSpecificStatuses\fP Builds a list of statuses based on the search criteria\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobTitle\fP The job title to be included in the search 
+.br
+\fIcompanyName\fP The name of the company to be included 
+.br
+\fIcityName\fP The name of the city where the job is located\&. 
+.br
+\fIstatus\fP The status of the application(s) in question\&. 
+.br
+\fIdeadline\fP The deadline of the application(s) in question\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of strings containing the status names that matched the search\&. 
+.RE
+.PP
+
+.SS "QList< QString > psql::getStatuses ()"
+
+.PP
+\fBpsql::getStatuses\fP Builds a list of all statuses registered in the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+On success, return the mentioned list of strings\&. 
+.RE
+.PP
+
+.SS "int psql::getStatusID (int applicationID)"
+
+.PP
+\fBpsql::getStatusID\fP Returns the status ID of the application based on the application ID provided by the user\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplicationID\fP The application ID provided by the user\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the application ID on success and 0 on failure\&. 
+.RE
+.PP
+
+.SS "QString psql::getStatusName (int s)"
+
+.PP
+\fBpsql::getStatusName\fP Returns the current status name 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP the status ID to be used in an SQL query within the method 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the status name on success and 'Error' on failure\&. 
+.RE
+.PP
+
+.SS "QString psql::getTitle (int applicationID)"
+
+.PP
+\fBpsql::getTitle\fP Returns the application title based on the ID provided by the user 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplicationID\fP The application ID to be provided by the user\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the application title on success and 'Error' on failure\&. 
+.RE
+.PP
+
+.SS "QString psql::getUsername ()"
+
+.PP
+\fBpsql::getUsername\fP: Gets the username 
+.PP
+\fBReturns:\fP
+.RS 4
+the username 
+.RE
+.PP
+
+.SS "bool psql::insertApplication (QString title, QString company, int cityID, int statusID, QString date)"
+
+.PP
+\fBpsql::insertApplication\fP Inserts a new job application to the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItitle\fP The title of the new job\&. 
+.br
+\fIcompany\fP The employer company 
+.br
+\fIcityID\fP The ID of the city where the job is located\&. 
+.br
+\fIstatusID\fP The status of the new job\&. Can be (in Norwegian) 1 (registrert), 2 (sendt), 3 (interessert, mulig intervju), 4 (avvist) 
+.br
+\fIdate\fP The deadline of the new job application 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure\&. 
+.RE
+.PP
+
+.SS "bool psql::insertCity (QString cityName, int countryID)"
+
+.PP
+\fBpsql::insertCity\fP Inserts a new city to the database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcityName\fP The name of the new city 
+.br
+\fIcountryID\fP The ID of the country in which the city is located 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the insertion is successful and false otherwise 
+.RE
+.PP
+
+.SS "bool psql::insertCountry (QString countryName)"
+
+.PP
+\fBpsql::insertCountry\fP Inserts a new country into the database 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcountryName\fP The name of the new country\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure\&. 
+.RE
+.PP
+
+.SS "bool psql::insertStatus (QString statusName)"
+
+.PP
+\fBpsql::insertStatus\fP Inserts a new status to the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstatusName\fP The new status name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "void psql::setError (QString msg)"
+
+.PP
+\fBpsql::setError\fP If an operation goes wrong, this method saves the contents of the error message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP The error message to be saved\&. 
+.RE
+.PP
+
+.SS "void psql::setHost (QString newHost)"
+
+.PP
+\fBpsql::setHost\fP: Sets the IP address of the new host 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewHost\fP The new IP address 
+.RE
+.PP
+
+.SS "void psql::setPassword (QString newPassword)"
+
+.PP
+\fBpsql::setPassword\fP: Sets the new password 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPassword\fP The new password 
+.RE
+.PP
+
+.SS "void psql::setUsername (QString newUser)"
+
+.PP
+\fBpsql::setUsername\fP: Sets the new username 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewUser\fP The new username 
+.RE
+.PP
+
+.SS "bool psql::updateApplication (QString title, QString company, int cityID, int statusID, QString date, int id)"
+
+.PP
+\fBpsql::updateApplication\fP: Updates the current job application 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItitle\fP The new title 
+.br
+\fIcompany\fP The new job company 
+.br
+\fIcityID\fP The ID of the new city where the job is located 
+.br
+\fIstatusID\fP The status of the new job 
+.br
+\fIdate\fP The new job application deadline 
+.br
+\fIid\fP The job ID to be updated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false otherwise\&. 
+.RE
+.PP
+
+.SS "bool psql::updateCity (QString cityName, int countryID, int id)"
+
+.PP
+\fBpsql::updateCity\fP Updates information of an existing city\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcityName\fP The new name of the city 
+.br
+\fIcountryID\fP The new country ID, the ID of the country where the city is located\&. 
+.br
+\fIid\fP the ID of the city to be updated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "bool psql::updateCountry (QString countryName, int countryID)"
+
+.PP
+\fBpsql::updateCountry\fP Updates an existing country\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcountryName\fP The new country name\&. 
+.br
+\fIcountryID\fP The ID of the country to be updated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure\&. 
+.RE
+.PP
+
+.SS "bool psql::updateStatus (QString statusname, int statusID)"
+
+.PP
+\fBpsql::updateStatus\fP Updates an existing status\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstatusname\fP The new status name\&. 
+.br
+\fIstatusID\fP The ID of the status to be updated\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.
