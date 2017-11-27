@@ -29,6 +29,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QPushButton>
+#include <QMessageBox>
 
 namespace Ui {
 class NewJob;

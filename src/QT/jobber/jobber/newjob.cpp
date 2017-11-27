@@ -45,7 +45,7 @@ NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->comboBoxStedID, SIGNAL(currentTextChanged(QString)), this, SLOT(cityIDchanged()));
     connect(ui->comboBoxStatusID, SIGNAL(currentIndexChanged(int)), this, SLOT(statusIDchanged()));
     connect(ui->lineEditSoknadsfrist, SIGNAL(textChanged(QString)), this, SLOT(dateChanged()));
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(OKButtonClicked()));
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(OKButtonClicked()), Qt::UniqueConnection);
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     getStatusIDs();
     getCityIDs();
@@ -72,6 +72,14 @@ void NewJob::OKButtonClicked()
             msg.exec();
             changed = false;
             hide();
+        }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
         }
     }
     else
@@ -241,6 +249,14 @@ void NewJob::closeEvent(QCloseEvent *event)
                     msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
                     msg.exec();
                     event->accept();
+                }
+                else
+                {
+                    QMessageBox msg;
+                    msg.setIcon(msg.Warning);
+                    msg.setWindowTitle(winTitle);
+                    msg.setText("Noe har gått galt: " + p->getError());
+                    msg.exec();
                 }
             }
             else if(res == QMessageBox::No)

@@ -46,12 +46,12 @@ ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->comboBoxTownID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboBoxCityIDChanged()));
     connect(ui->comboBoxStatusID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboBoxStatusIDChanged()));
     connect(ui->lineEditDeadline, SIGNAL(textChanged(QString)), this, SLOT(lineEditDealineChanged()));
-    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()));
-    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()));
-    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()));
-    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()));
-    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()));
-    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()));
+    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
+    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
+    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
+    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
+    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()), Qt::UniqueConnection);
+    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()), Qt::UniqueConnection);
 }
 
 ViewJobs::~ViewJobs()
@@ -142,6 +142,14 @@ void ViewJobs::closeEvent(QCloseEvent *event)
                 msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
                 msg2.exec();
             }
+            else
+            {
+                QMessageBox msg;
+                msg.setIcon(msg.Warning);
+                msg.setWindowTitle(winTitle);
+                msg.setText("Noe har gått galt: " + p->getError());
+                msg.exec();
+            }
             event->accept();
         }
         else if(res == QMessageBox::No)
@@ -174,6 +182,14 @@ void ViewJobs::checkChanges()
                 msg2.exec();
             }
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
         setChanged(false);
     }
 }
@@ -189,17 +205,36 @@ void ViewJobs::buttonSaveClicked()
         msg2.exec();
         setChanged(false);
     }
+    else
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Noe har gått galt: " + p->getError());
+        msg.exec();
+    }
 }
 
 
 void ViewJobs::buttonFirstClicked()
 {
-    checkChanges();
-    getApplication(1);
-    ui->btnFirst->setEnabled(false);
-    ui->btnPrev->setEnabled(false);
-    ui->btnNext->setEnabled(true);
-    ui->btnLast->setEnabled(true);
+    try
+    {
+        checkChanges();
+        getApplication(1);
+        ui->btnFirst->setEnabled(false);
+        ui->btnPrev->setEnabled(false);
+        ui->btnNext->setEnabled(true);
+        ui->btnLast->setEnabled(true);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ViewJobs::buttonDeleteClicked()
@@ -235,54 +270,97 @@ void ViewJobs::buttonDeleteClicked()
                 ui->btnPrev->setEnabled(false);
             }
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
         setChanged(false);
     }
 }
 
 void ViewJobs::buttonLastClicked()
 {
-    checkChanges();
-    ui->comboBoxApplicationID->setCurrentIndex(ui->comboBoxApplicationID->count()-1);
-    getApplication(ui->comboBoxApplicationID->currentText().toInt());
-    ui->btnFirst->setEnabled(true);
-    ui->btnLast->setEnabled(false);
-    ui->btnNext->setEnabled(false);
-    ui->btnPrev->setEnabled(true);
+    try
+    {
+        checkChanges();
+        ui->comboBoxApplicationID->setCurrentIndex(ui->comboBoxApplicationID->count()-1);
+        getApplication(ui->comboBoxApplicationID->currentText().toInt());
+        ui->btnFirst->setEnabled(true);
+        ui->btnLast->setEnabled(false);
+        ui->btnNext->setEnabled(false);
+        ui->btnPrev->setEnabled(true);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ViewJobs::buttonNextClicked()
 {
-    checkChanges();
-    int currentApplication = getApplicationID(), counter = 1;
-    while(QString::compare(p->getCompany(currentApplication + counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        counter++;
+        checkChanges();
+        int currentApplication = getApplicationID(), counter = 1;
+        while(QString::compare(p->getCompany(currentApplication + counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter++;
+        }
+        getApplication(currentApplication + counter);
+        ui->btnFirst->setEnabled(true);
+        ui->btnPrev->setEnabled(true);
+        if(currentApplication + 1 == lastid)
+        {
+            ui->btnLast->setEnabled(false);
+            ui->btnNext->setEnabled(false);
+        }
     }
-    getApplication(currentApplication + counter);
-    ui->btnFirst->setEnabled(true);
-    ui->btnPrev->setEnabled(true);
-    if(currentApplication + 1 == lastid)
+    catch(std::exception &e)
     {
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 
 void ViewJobs::buttonPreviousClicked()
 {
-    checkChanges();
-    int currentApplication = getApplicationID(), counter = 1;
-    while(QString::compare(p->getCompany(currentApplication - counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        counter++;
+        checkChanges();
+        int currentApplication = getApplicationID(), counter = 1;
+        while(QString::compare(p->getCompany(currentApplication - counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter++;
+        }
+        getApplication(currentApplication - counter);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        if(currentApplication -1 == 1)
+        {
+            ui->btnFirst->setEnabled(false);
+            ui->btnPrev->setEnabled(false);
+        }
     }
-    getApplication(currentApplication - counter);
-    ui->btnLast->setEnabled(true);
-    ui->btnNext->setEnabled(true);
-    if(currentApplication -1 == 1)
+    catch(std::exception &e)
     {
-        ui->btnFirst->setEnabled(false);
-        ui->btnPrev->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 

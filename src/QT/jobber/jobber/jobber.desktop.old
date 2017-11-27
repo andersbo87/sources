@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=jobber
+GenericName=Jobber
+Comment=QT 5 Front-end av PosgtreSQL-databasen jobber
+TryExec=/usr/local/bin/jobber
+Exec=/usr/local/bin/jobber
+Icon=jobber.png
+Terminal=False
+Encoding=UTF-8
+Categories=Accessories

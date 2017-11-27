@@ -40,14 +40,14 @@ ShowStatuses::ShowStatuses(QString windowTitle, psql *pg, QWidget *parent) :
     winTitle = windowTitle;
     ui->setupUi(this);
     setFixedHeight(height());
-    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()));
-    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()));
-    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()));
-    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()));
+    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
+    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
+    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
+    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
     connect(ui->comboBoxStatusID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxStatusIDChanged()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(lineEditStatusnameChanged()));
-    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()));
-    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(btnSaveClicked()));
+    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()), Qt::UniqueConnection);
+    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(btnSaveClicked()), Qt::UniqueConnection);
     getStatuses();
     getStatus(1);
     changed = false;
@@ -134,55 +134,6 @@ void ShowStatuses::getStatuses()
             iter++;
         }
         lastID = i;
-        /*while(i <= list.count())
-        {
-            QString s = p->getStatusName(i);
-            // Tar høyde for at brukeren kan ha fjernet ett eller flere elementer midt i lista:
-            if(QString::compare(s, "",Qt::CaseSensitive) != 0)
-            {
-                ui->comboBoxStatusID->addItem(QString::number(i),QString::number(i));
-            }
-            else
-            {
-                while(QString::compare(p->getStatusName(i), "",Qt::CaseSensitive) == 0)
-                {
-                     // Dersom brukeren har fjernet ett eller flere elementer i lista, slik at den for eksempel er
-                     // 1, 2, 4, 5, 8, 9, øker vi telleren for hvert "tomme element". Når vi kommer til 3, øker vi telleren slik
-                     // at systemet går rett til 4. Kommer vi til element 6, øker vi slik at systemet går rett til element 8.
-
-                    i++;
-                }
-                ui->comboBoxStatusID->addItem(QString::number(i),QString::number(i));
-            }
-            i++;
-        }
-
-        int itmsIncomboBox = ui->comboBoxStatusID->count();
-        fprintf(stdout, "itmsIncomboBox: %d\ni: %d\n", itmsIncomboBox, i);
-        if(i-itmsIncomboBox == 1)
-            lastID = itmsIncomboBox;
-        else
-            lastID = i;
-        //lst.value(lst.last());
-        // Følgende linjer burde være unødvendig, men har opplevd at siste element i databasetabellen ikke ble tatt med.
-        //if(QString::compare(p->getStatusName(list.value(list.last())), "",Qt::CaseSensitive) != 0)
-        //{
-        //    ui->comboBoxStatusID->addItem(QString::number(list.value(list.last())), list.value(list.last()));
-            //ui->comboBoxStatusID->addItem(QString::number(list.value(list.last()),QString::number(list.value(list.last()))));
-        //}
-        //ui->comboBoxStatusID->addItem(QString::number(list.last()));
-
-
-
-        QList<int>::iterator iter = list.begin();
-        int j=0;
-        while(iter != list.end())
-        {
-            fprintf(stdout, "%d\n",list.value(j));
-            j++;
-            iter++;
-        }*/
-
     }
     catch(std::exception &e)
     {
@@ -221,6 +172,14 @@ void ShowStatuses::closeEvent(QCloseEvent *event)
                 msg2.setIcon(msg2.Information);
                 msg2.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
                 msg2.exec();
+            }
+            else
+            {
+                QMessageBox msg;
+                msg.setIcon(msg.Warning);
+                msg.setWindowTitle(winTitle);
+                msg.setText("Noe har gått galt: " + p->getError());
+                msg.exec();
             }
             event->accept();
         }
@@ -274,6 +233,14 @@ void ShowStatuses::checkChanges()
                 success.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
                 success.exec();
             }
+            else
+            {
+                QMessageBox msg;
+                msg.setIcon(msg.Warning);
+                msg.setWindowTitle(winTitle);
+                msg.setText("Noe har gått galt: " + p->getError());
+                msg.exec();
+            }
         }
         setChanged(false);
     }
@@ -288,6 +255,14 @@ void ShowStatuses::btnSaveClicked()
         msg.setWindowTitle(winTitle);
         msg.setIcon(msg.Information);
         msg.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
+        msg.exec();
+    }
+    else
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Noe har gått galt: " + p->getError());
         msg.exec();
     }
     setChanged(false);
@@ -325,67 +300,119 @@ void ShowStatuses::btnDeleteClicked()
                 ui->btnPrev->setEnabled(false);
             }
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
         setChanged(false);
     }
 }
 
 void ShowStatuses::buttonFirstClicked()
 {
-    checkChanges();
-    getStatus(1);
-    ui->btnFirst->setEnabled(false);
-    ui->btnLast->setEnabled(true);
-    ui->btnNext->setEnabled(true);
-    ui->btnPrev->setEnabled(false);
+    try
+    {
+        checkChanges();
+        getStatus(1);
+        ui->btnFirst->setEnabled(false);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        ui->btnPrev->setEnabled(false);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ShowStatuses::buttonLastClicked()
 {
-    checkChanges();
-    ui->comboBoxStatusID->setCurrentIndex(ui->comboBoxStatusID->count()-1);
-    getStatus(ui->comboBoxStatusID->currentText().toInt());
-    ui->btnFirst->setEnabled(true);
-    ui->btnLast->setEnabled(false);
-    ui->btnNext->setEnabled(false);
-    ui->btnPrev->setEnabled(true);
+    try
+    {
+        checkChanges();
+        ui->comboBoxStatusID->setCurrentIndex(ui->comboBoxStatusID->count()-1);
+        getStatus(ui->comboBoxStatusID->currentText().toInt());
+        ui->btnFirst->setEnabled(true);
+        ui->btnLast->setEnabled(false);
+        ui->btnNext->setEnabled(false);
+        ui->btnPrev->setEnabled(true);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ShowStatuses::buttonNextClicked()
 {
-    checkChanges();
-    int currStatus = getStatusID(), counter = 1;
-    while(QString::compare(p->getStatusName(currStatus + counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        fprintf(stdout, "Må gå enda lenger. Teller: %d\n", counter);
-        counter++;
+        checkChanges();
+        int currStatus = getStatusID(), counter = 1;
+        while(QString::compare(p->getStatusName(currStatus + counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter++;
+        }
+        getStatus(currStatus +counter);
+        ui->btnFirst->setEnabled(true);
+        ui->btnPrev->setEnabled(true);
+        if(currStatus +1 == lastID)
+        {
+            ui->btnLast->setEnabled(false);
+            ui->btnNext->setEnabled(false);
+        }
     }
-    getStatus(currStatus +counter);
-    ui->btnFirst->setEnabled(true);
-    ui->btnPrev->setEnabled(true);
-    if(currStatus +1 == lastID)
+    catch(std::exception &e)
     {
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 
 void ShowStatuses::buttonPreviousClicked()
 {
-    int counter =1;
-    checkChanges();
-    int currStatus = getStatusID();
-    while(QString::compare(p->getStatusName(currStatus - counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        fprintf(stdout, "Må gå enda lenger. Teller: %d\n", counter);
-        counter++;
+        int counter =1;
+        checkChanges();
+        int currStatus = getStatusID();
+        while(QString::compare(p->getStatusName(currStatus - counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter++;
+        }
+        getStatus(currStatus-counter);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        if(currStatus-1 == 1)
+        {
+            ui->btnFirst->setEnabled(false);
+            ui->btnPrev->setEnabled(false);
+        }
     }
-    getStatus(currStatus-counter);
-    ui->btnLast->setEnabled(true);
-    ui->btnNext->setEnabled(true);
-    if(currStatus-1 == 1)
+    catch(std::exception &e)
     {
-        ui->btnFirst->setEnabled(false);
-        ui->btnPrev->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 

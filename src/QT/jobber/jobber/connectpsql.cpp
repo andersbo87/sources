@@ -41,7 +41,7 @@ connectPsql::connectPsql(QString windowTitle, QWidget *parent) :
     setFixedHeight(height());
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Koble til");
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()), Qt::UniqueConnection);
     connect(ui->lineEdit_User, SIGNAL(textChanged(QString)), this, SLOT(userTextChanged()));
     connect(ui->lineEdit_Host, SIGNAL(textChanged(QString)), this, SLOT(hostTextChanged()));
     connect(ui->lineEdit_Password, SIGNAL(textChanged(QString)), this, SLOT(passwordTextChanged()));
@@ -62,7 +62,7 @@ void connectPsql::accept()
         QMessageBox msg;
         msg.setIcon(msg.Information);
         msg.setWindowTitle(winTitle);
-        msg.setText("Oppkoblingen til databasen mislyktes.");
+        msg.setText("Oppkoblingen til databasen mislyktes. Feilmelding: " + p->getError());
         msg.exec();
     }
 }

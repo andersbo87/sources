@@ -9,6 +9,20 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = jobber
+
+TARGET.path += /usr/local/bin
+TARGET.files += jobber
+INSTALLS += TARGET
+ICON = jobber.png
+ICON.path += /usr/local/share/pixmaps
+ICON.files += jobber.png
+INSTALLS += ICON
+TARGETS.path += /usr/local/share/applications
+TARGETS.files += jobber.desktop
+INSTALLS += TARGETS
+
+QMAKE_CLEAN += jobber
+
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use

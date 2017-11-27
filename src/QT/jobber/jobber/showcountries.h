@@ -28,6 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QMainWindow>
 #include <QCloseEvent>
 #include "psql.h"
+#include <QMessageBox>
 
 namespace Ui {
 class ShowCountries;

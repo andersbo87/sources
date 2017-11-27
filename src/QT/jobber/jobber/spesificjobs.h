@@ -4,6 +4,7 @@
 #include <QtCore>
 #include <QtGui>
 #include <QMainWindow>
+#include <QMessageBox>
 
 namespace Ui {
 class SpesicficJobs;

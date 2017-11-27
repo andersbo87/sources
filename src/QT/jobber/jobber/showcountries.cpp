@@ -40,14 +40,14 @@ ShowCountries::ShowCountries(QString windowTitle, psql *pg, QWidget *parent) :
     setFixedHeight(height());
     p = pg;
     winTitle = windowTitle;
-    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()));
-    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()));
-    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()));
-    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()));
+    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
+    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
+    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
+    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
     connect(ui->comboBoxLandID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCountryIDChanged()));
     connect(ui->lineEditCountryName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCountrynameChanged()));
-    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()));
-    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(btnSaveClicked()));
+    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()), Qt::UniqueConnection);
+    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(btnSaveClicked()), Qt::UniqueConnection);
     getCountries();
     getCountry(1);
     countryIDchanged = false;
@@ -190,6 +190,14 @@ void ShowCountries::checkChanges()
                 msg2.exec();
             }
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
         setChanged(false);
     }
 }
@@ -228,6 +236,14 @@ void ShowCountries::btnDeleteClicked()
                 ui->btnPrev->setEnabled(false);
             }
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
         setChanged(false);
     }
 }
@@ -242,64 +258,117 @@ void ShowCountries::btnSaveClicked()
         success.setText("Landet ble oppdatert og har følgende verdier:\nLandid: " + QString::number(getCountryID()) + "\nLandnavn: " + getCountryName());
         success.exec();
     }
+    else
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Noe har gått galt: " + p->getError());
+        msg.exec();
+    }
     setChanged(false);
 }
 
 void ShowCountries::buttonFirstClicked()
 {
-    checkChanges();
-    getCountry(1);
-    ui->btnFirst->setEnabled(false);
-    ui->btnLast->setEnabled(true);
-    ui->btnNext->setEnabled(true);
-    ui->btnPrev->setEnabled(false);
+    try
+    {
+        checkChanges();
+        getCountry(1);
+        ui->btnFirst->setEnabled(false);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        ui->btnPrev->setEnabled(false);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ShowCountries::buttonLastClicked()
 {
-    checkChanges();
-    ui->comboBoxLandID->setCurrentIndex(ui->comboBoxLandID->count()-1);
-    getCountry(ui->comboBoxLandID->currentText().toInt());
-    ui->btnFirst->setEnabled(true);
-    ui->btnLast->setEnabled(false);
-    ui->btnNext->setEnabled(false);
-    ui->btnPrev->setEnabled(true);
+    try
+    {
+        checkChanges();
+        ui->comboBoxLandID->setCurrentIndex(ui->comboBoxLandID->count()-1);
+        getCountry(ui->comboBoxLandID->currentText().toInt());
+        ui->btnFirst->setEnabled(true);
+        ui->btnLast->setEnabled(false);
+        ui->btnNext->setEnabled(false);
+        ui->btnPrev->setEnabled(true);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ShowCountries::buttonNextClicked()
 {
-    checkChanges();
-    int currentCountry = getCountryID(), counter = 1;
-    while(QString::compare(p->getCountryName(currentCountry + counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        fprintf(stdout, "Må gå enda lenger. Teller: %d\n", counter);
-        counter++;
+        checkChanges();
+        int currentCountry = getCountryID(), counter = 1;
+        while(QString::compare(p->getCountryName(currentCountry + counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter++;
+        }
+        getCountry(currentCountry + counter);
+        ui->btnFirst->setEnabled(true);
+        ui->btnPrev->setEnabled(true);
+        if(currentCountry + 1 == lastID)
+        {
+            ui->btnLast->setEnabled(false);
+            ui->btnNext->setEnabled(false);
+        }
     }
-    getCountry(currentCountry + counter);
-    ui->btnFirst->setEnabled(true);
-    ui->btnPrev->setEnabled(true);
-    if(currentCountry + 1 == lastID)
+    catch(std::exception &e)
     {
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 
 void ShowCountries::buttonPreviousClicked()
 {
-    checkChanges();
-    int currentCountry = getCountryID(), counter = 1;
-    while(QString::compare(p->getCountryName(currentCountry - counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        counter++;
+        checkChanges();
+        int currentCountry = getCountryID(), counter = 1;
+        while(QString::compare(p->getCountryName(currentCountry - counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter++;
+        }
+        getCountry(currentCountry - counter);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        if(currentCountry - 1 == 1)
+        {
+            ui->btnFirst->setEnabled(false);
+            ui->btnPrev->setEnabled(false);
+        }
     }
-    getCountry(currentCountry - counter);
-    ui->btnLast->setEnabled(true);
-    ui->btnNext->setEnabled(true);
-    if(currentCountry - 1 == 1)
+    catch(std::exception &e)
     {
-        ui->btnFirst->setEnabled(false);
-        ui->btnPrev->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 
@@ -364,6 +433,14 @@ void ShowCountries::closeEvent(QCloseEvent *event)
                 msg2.setWindowTitle(winTitle);
                 msg2.setText("Landet ble oppdatert og har følgende verdier:\nLandid: " + QString::number(getCountryID()) + "\nLandnavn: " + getCountryName());
                 msg2.exec();
+            }
+            else
+            {
+                QMessageBox msg;
+                msg.setIcon(msg.Warning);
+                msg.setWindowTitle(winTitle);
+                msg.setText("Noe har gått galt: " + p->getError());
+                msg.exec();
             }
             event->accept();
         }

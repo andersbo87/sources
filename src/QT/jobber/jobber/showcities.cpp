@@ -34,15 +34,15 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     ui->setupUi(this);
     setFixedHeight(height());
     setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
-    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()));
-    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()));
-    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()));
-    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()));
-    connect(ui->comboBoxCityID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCityIDChanged()));
-    connect(ui->comboBoxCountryID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCountryIDChanged()));
-    connect(ui->lineEditCityName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCityNameChanged()));
-    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()));
-    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()));
+    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
+    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
+    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
+    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
+    connect(ui->comboBoxCityID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCityIDChanged()), Qt::UniqueConnection);
+    connect(ui->comboBoxCountryID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCountryIDChanged()), Qt::UniqueConnection);
+    connect(ui->lineEditCityName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCityNameChanged()), Qt::UniqueConnection);
+    connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()), Qt::UniqueConnection);
+    connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()), Qt::UniqueConnection);
     getCities();
     getCountryIDs();
     getCity(1);
@@ -185,6 +185,14 @@ void ShowCities::checkChanges()
                 msg2.exec();
             }
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
         setChanged(false);
     }
 }
@@ -221,6 +229,14 @@ void ShowCities::buttonDeleteClicked()
                 ui->btnPrev->setEnabled(false);
             }
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
         setChanged(false);
     }
 }
@@ -235,62 +251,116 @@ void ShowCities::buttonSaveClicked()
         success.setText("Stedet ble oppdatert og har følgende verdier:\nStedid: " + QString::number(getCityID()) + "\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
         success.exec();
     }
+    else
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Noe har gått galt: " + p->getError());
+        msg.exec();
+    }
 }
 
 void ShowCities::buttonFirstClicked()
 {
-    checkChanges();
-    getCity(1);
-    ui->btnFirst->setEnabled(false);
-    ui->btnLast->setEnabled(false);
-    ui->btnNext->setEnabled(true);
-    ui->btnPrev->setEnabled(true);
+    try
+    {
+        checkChanges();
+        getCity(1);
+        ui->btnFirst->setEnabled(false);
+        ui->btnLast->setEnabled(false);
+        ui->btnNext->setEnabled(true);
+        ui->btnPrev->setEnabled(true);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ShowCities::buttonLastClicked()
 {
-    checkChanges();
-    ui->comboBoxCityID->setCurrentIndex(ui->comboBoxCityID->count() -1);
-    getCity(ui->comboBoxCityID->currentText().toInt());
-    ui->btnFirst->setEnabled(true);
-    ui->btnLast->setEnabled(false);
-    ui->btnNext->setEnabled(false);
-    ui->btnPrev->setEnabled(true);
+    try
+    {
+        checkChanges();
+        ui->comboBoxCityID->setCurrentIndex(ui->comboBoxCityID->count() -1);
+        getCity(ui->comboBoxCityID->currentText().toInt());
+        ui->btnFirst->setEnabled(true);
+        ui->btnLast->setEnabled(false);
+        ui->btnNext->setEnabled(false);
+        ui->btnPrev->setEnabled(true);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
 }
 
 void ShowCities::buttonNextClicked()
 {
-    checkChanges();
-    int currentCity = getCityID(), counter = 1;
-    while(QString::compare(p->getCityName(currentCity - counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        counter ++;
+        checkChanges();
+        int currentCity = getCityID(), counter = 1;
+        while(QString::compare(p->getCityName(currentCity + counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter ++;
+        }
+        getCity(currentCity + counter);
+        ui->btnFirst->setEnabled(true);
+        ui->btnPrev->setEnabled(true);
+        if(currentCity + 1 == lastID)
+        {
+            ui->btnLast->setEnabled(false);
+            ui->btnNext->setEnabled(false);
+        }
     }
-    getCity(currentCity + counter);
-    ui->btnFirst->setEnabled(true);
-    ui->btnPrev->setEnabled(true);
-    if(currentCity + 1 == lastID)
+    catch(std::exception &e)
     {
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 
 void ShowCities::buttonPreviousClicked()
 {
-    checkChanges();
-    int currentCity = getCityID(), counter=1;
-    while(QString::compare(p->getCityName(currentCity - counter), "", Qt::CaseSensitive) == 0)
+    try
     {
-        counter ++;
+        checkChanges();
+        int currentCity = getCityID(), counter=1;
+        while(QString::compare(p->getCityName(currentCity - counter), "", Qt::CaseSensitive) == 0)
+        {
+            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
+            counter ++;
+        }
+        getCity(currentCity -counter);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        if(currentCity - 1 == 1)
+        {
+            ui->btnFirst->setEnabled(false);
+            ui->btnPrev->setEnabled(false);
+        }
     }
-    getCity(currentCity -counter);
-    ui->btnLast->setEnabled(true);
-    ui->btnNext->setEnabled(true);
-    if(currentCity - 1 == 1)
+    catch(std::exception &e)
     {
-        ui->btnFirst->setEnabled(false);
-        ui->btnPrev->setEnabled(false);
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
     }
 }
 
@@ -363,6 +433,14 @@ void ShowCities::closeEvent(QCloseEvent *event)
                 msg2.setWindowTitle(winTitle);
                 msg2.setText("Stedet ble oppdatert og har følgende verdier:\nStedid: " + QString::number(getCityID()) + "\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
                 msg2.exec();
+            }
+            else
+            {
+                QMessageBox msg;
+                msg.setIcon(msg.Warning);
+                msg.setWindowTitle(winTitle);
+                msg.setText("Noe har gått galt: " + p->getError());
+                msg.exec();
             }
             event->accept();
         }

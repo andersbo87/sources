@@ -46,7 +46,7 @@ NewCountry::NewCountry(QString windowTitle, psql *pg, QWidget *parent) :
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
-    connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(OKButtonClicked()));
+    connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(OKButtonClicked()), Qt::UniqueConnection);
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     connect(ui->lineEditCountryName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCountryNameChanged()));
 }
@@ -122,6 +122,14 @@ void NewCountry::closeEvent(QCloseEvent *event)
                     msg.exec();
                     event->accept();
                 }
+                else
+                {
+                    QMessageBox msg;
+                    msg.setIcon(msg.Warning);
+                    msg.setWindowTitle(winTitle);
+                    msg.setText("Noe har gått galt: " + p->getError());
+                    msg.exec();
+                }
             }
             else if(res == QMessageBox::No)
             {
@@ -165,6 +173,14 @@ void NewCountry::OKButtonClicked()
             msg.setText("Det nye landet ble lagret med følgende verdier:\nLandnavn: " + getCountry());
             msg.exec();
             hide();
+        }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
         }
     }
     else

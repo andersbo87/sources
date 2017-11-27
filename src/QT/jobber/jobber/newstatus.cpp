@@ -46,7 +46,7 @@ NewStatus::NewStatus(QString windowTitle, psql *pg, QWidget *parent) :
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
-    connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(OKButtonClicked()));
+    connect(ui->buttonBox, SIGNAL(accepted()),this, SLOT(OKButtonClicked()), Qt::UniqueConnection);
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     connect(ui->lineEditStatusName, SIGNAL(textChanged(QString)), this, SLOT(lineEditStatusNameChanged()));
 }
@@ -112,6 +112,14 @@ void NewStatus::closeEvent(QCloseEvent *event)
                     msg.exec();
                     event->accept();
                 }
+                else
+                {
+                    QMessageBox msg;
+                    msg.setIcon(msg.Warning);
+                    msg.setWindowTitle(winTitle);
+                    msg.setText("Noe har gått galt: " + p->getError());
+                    msg.exec();
+                }
             }
             else if(res==QMessageBox::No)
             {
@@ -154,6 +162,14 @@ void NewStatus::OKButtonClicked()
             msg.setText("Den nye statuse ble lagt inn med følgende data:\nStatus: " + getStatus());
             msg.exec();
             hide();
+        }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
         }
     }
     else

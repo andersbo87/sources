@@ -42,7 +42,7 @@ NewCity::NewCity(QString windowTitle, psql *pg, QWidget *parent) :
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Lagre");
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Avbryt");
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(OKButtonClicked()));
+    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(OKButtonClicked()), Qt::UniqueConnection);
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     connect(ui->lineEditCityName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCityNameChanged()));
     connect(ui->comboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(countryIDchanged()));
@@ -132,6 +132,14 @@ void NewCity::OKButtonClicked()
             changed = false;
             hide();
         }
+        else
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText("Noe har gått galt: " + p->getError());
+            msg.exec();
+        }
     }
     else
     {
@@ -174,6 +182,14 @@ void NewCity::closeEvent(QCloseEvent *event)
                     msg.setText("Det nye stedet ble lagt inn med følgende data:\nStedsnavn: " + getCityName() + "\nLandid: " + QString::number((getCountryID())));
                     msg.exec();
                     event->accept();
+                }
+                else
+                {
+                    QMessageBox msg;
+                    msg.setIcon(msg.Warning);
+                    msg.setWindowTitle(winTitle);
+                    msg.setText("Noe har gått galt: " + p->getError());
+                    msg.exec();
                 }
             }
             else if(res == QMessageBox::No)
