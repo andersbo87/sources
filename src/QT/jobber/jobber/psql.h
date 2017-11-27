@@ -27,7 +27,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <sstream>
 #include <QApplication>
 #include <QLinkedList>
-#include <QMessageBox>
 #include <QException>
 #include <pqxx/pqxx>
 #include <pqxx/result>
@@ -72,6 +71,10 @@ public:
     bool deleteCountry(int countryID);
     bool deleteStatus(int statusID);
 
+    // Metoder som henter og setter feilmeldinger.
+    QString getError();
+    void setError(QString msg);
+
     // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
     int getApplicationID(QString qry);
     int getCityID(int applicationID);
@@ -95,7 +98,7 @@ public:
     //int getSpecificApplications(); // Returnerer antall søknader
 
 private:
-    QString username, host, password, winTitle; // winTitle: Tittelen på meldinger i meldingsbokser
+    QString errMsg, username, host, password, winTitle; // winTitle: Tittelen på meldinger i meldingsbokser. errMsg: Feilmelding som settes i metoder som ikke går som de skal.
     std::string connectionString;
 };
 

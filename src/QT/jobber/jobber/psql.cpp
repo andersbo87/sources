@@ -34,6 +34,25 @@ psql::psql(QString windowTitle)
 }
 
 /**
+ * @brief psql::getError If an operation goes wrong, this method can be used to get the returned error message.
+ * @return The error message.
+ */
+QString psql::getError()
+{
+    return errMsg;
+}
+
+/**
+ * @brief psql::setError If an operation goes wrong, this method saves the contents of the error message.
+ * @param msg The error message to be saved.
+ */
+void psql::setError(QString msg)
+{
+    qDebug("Noe har gått galt og et unntak har blitt kastet. Feilmelding: %s", msg.toStdString().c_str());
+    errMsg = msg;
+}
+
+/**
  * @brief psql::getUsername: Gets the username
  * @return the username
  */
@@ -127,11 +146,7 @@ bool psql::insertApplication(QString title, QString company, int cityID, int sta
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -163,11 +178,7 @@ bool psql::insertCity(QString cityName, int countryID)
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -196,11 +207,7 @@ bool psql::insertCountry(QString countryName)
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe er galt: " + QString::fromStdString(e.what()));
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -229,11 +236,7 @@ bool psql::insertStatus(QString statusName)
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -281,11 +284,7 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
         return true;
     }
     catch(exception &e){
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -318,11 +317,7 @@ bool psql::updateCity(QString cityName, int countryID, int id)
         return true;
     }
     catch(exception &e){
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -352,11 +347,7 @@ bool psql::updateCountry(QString countryName, int countryID)
         return true;
     }
     catch(exception &e){
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -386,11 +377,7 @@ bool psql::updateStatus(QString statusname, int statusID)
         return true;
     }
     catch(exception &e){
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText("Noe har gått galt: " + QString::fromStdString(e.what()));
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -422,11 +409,7 @@ bool psql::deleteApplication(int applicationID)
     }
     catch(std::exception &e)
     {
-        QMessageBox error;
-        error.setIcon(error.Warning);
-        error.setWindowTitle(winTitle);
-        error.setText(e.what());
-        error.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -454,11 +437,7 @@ bool psql::deleteCity(int cityID)
     }
     catch(std::exception &e)
     {
-        QMessageBox error;
-        error.setIcon(error.Warning);
-        error.setWindowTitle(winTitle);
-        error.setText(e.what());
-        error.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -486,11 +465,7 @@ bool psql::deleteCountry(int countryID)
     }
     catch(std::exception &e)
     {
-        QMessageBox error;
-        error.setIcon(error.Warning);
-        error.setWindowTitle(winTitle);
-        error.setText(e.what());
-        error.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -518,11 +493,7 @@ bool psql::deleteStatus(int statusID)
     }
     catch(std::exception &e)
     {
-        QMessageBox error;
-        error.setIcon(error.Warning);
-        error.setWindowTitle(winTitle);
-        error.setText(e.what());
-        error.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -547,11 +518,7 @@ bool psql::connectDatabase()
             return false;
     }
     catch(const std::exception &e){
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
+        setError(e.what());
         return false;
     }
 }
@@ -571,54 +538,45 @@ QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, st
         QList<QString> list;
         //QList<int>::iterator iterator;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        QString stmt = "SELECT tittel FROM view_soknad WHERE tittel like '%";
+        string sql;
+        stringstream oss;
+        oss << sql << stmt.toStdString();
+        oss << sql << jobTitle;
+        oss << sql << "%' and bedrift like '%";
+        oss << sql << companyName;
+        if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
         {
-            QString stmt = "SELECT tittel FROM view_soknad WHERE tittel like '%";
-            string sql;
-            stringstream oss;
-            oss << sql << stmt.toStdString();
-            oss << sql << jobTitle;
-            oss << sql << "%' and bedrift like '%";
-            oss << sql << companyName;
-            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and stedsnavn like '%";
-                oss << sql << cityName;
-            }
-            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and status like '%";
-                oss << sql << status;
-            }
-            oss << sql << "%' and soknadsfrist like '%";
-            oss << sql << deadline;
-            oss << sql << "%';";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(oss.str()));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
-            {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s);
-                    i++;
-                }
-            }
-            conn.disconnect();
-            return list;
+            oss << sql << "%' and stedsnavn like '%";
+            oss << sql << cityName;
         }
-        exit(EXIT_FAILURE);
+        if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and status like '%";
+            oss << sql << status;
+        }
+        oss << sql << "%' and soknadsfrist like '%";
+        oss << sql << deadline;
+        oss << sql << "%';";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(oss.str()));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+        {
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            {
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
+            }
+        }
+        conn.disconnect();
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 /**
@@ -635,56 +593,46 @@ QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName
     try
     {
         QList<QString> list;
-        //QList<int>::iterator iterator;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        QString stmt = "SELECT bedrift FROM view_soknad WHERE tittel like '%";
+        string sql;
+        stringstream oss;
+        oss << sql << stmt.toStdString();
+        oss << sql << jobTitle;
+        oss << sql << "%' and bedrift like '%";
+        oss << sql << companyName;
+        if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
         {
-            QString stmt = "SELECT bedrift FROM view_soknad WHERE tittel like '%";
-            string sql;
-            stringstream oss;
-            oss << sql << stmt.toStdString();
-            oss << sql << jobTitle;
-            oss << sql << "%' and bedrift like '%";
-            oss << sql << companyName;
-            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and stedsnavn like '%";
-                oss << sql << cityName;
-            }
-            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and status like '%";
-                oss << sql << status;
-            }
-            oss << sql << "%' and soknadsfrist like '%";
-            oss << sql << deadline;
-            oss << sql << "%';";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(oss.str()));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
-            {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s);
-                    i++;
-                }
-            }
-            conn.disconnect();
-            return list;
+            oss << sql << "%' and stedsnavn like '%";
+            oss << sql << cityName;
         }
-        exit(EXIT_FAILURE);
+        if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and status like '%";
+            oss << sql << status;
+        }
+        oss << sql << "%' and soknadsfrist like '%";
+        oss << sql << deadline;
+        oss << sql << "%';";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(oss.str()));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+        {
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            {
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
+            }
+        }
+        conn.disconnect();
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 /**
@@ -703,54 +651,45 @@ QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, s
         QList<QString> list;
         //QList<int>::iterator iterator;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        QString stmt = "SELECT soknadsfrist FROM view_soknad WHERE tittel like '%";
+        string sql;
+        stringstream oss;
+        oss << sql << stmt.toStdString();
+        oss << sql << jobTitle;
+        oss << sql << "%' and bedrift like '%";
+        oss << sql << companyName;
+        if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
         {
-            QString stmt = "SELECT soknadsfrist FROM view_soknad WHERE tittel like '%";
-            string sql;
-            stringstream oss;
-            oss << sql << stmt.toStdString();
-            oss << sql << jobTitle;
-            oss << sql << "%' and bedrift like '%";
-            oss << sql << companyName;
-            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and stedsnavn like '%";
-                oss << sql << cityName;
-            }
-            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and status like '%";
-                oss << sql << status;
-            }
-            oss << sql << "%' and soknadsfrist like '%";
-            oss << sql << deadline;
-            oss << sql << "%';";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(oss.str()));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
-            {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s);
-                    i++;
-                }
-            }
-            conn.disconnect();
-            return list;
+            oss << sql << "%' and stedsnavn like '%";
+            oss << sql << cityName;
         }
-        exit(EXIT_FAILURE);
+        if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and status like '%";
+            oss << sql << status;
+        }
+        oss << sql << "%' and soknadsfrist like '%";
+        oss << sql << deadline;
+        oss << sql << "%';";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(oss.str()));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+        {
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            {
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
+            }
+        }
+        conn.disconnect();
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 /**
@@ -767,56 +706,46 @@ QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, s
     try
     {
         QList<QString> list;
-        //QList<int>::iterator iterator;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        QString stmt = "SELECT stedsnavn FROM view_soknad WHERE tittel like '%";
+        string sql;
+        stringstream oss;
+        oss << sql << stmt.toStdString();
+        oss << sql << jobTitle;
+        oss << sql << "%' and bedrift like '%";
+        oss << sql << companyName;
+        if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
         {
-            QString stmt = "SELECT stedsnavn FROM view_soknad WHERE tittel like '%";
-            string sql;
-            stringstream oss;
-            oss << sql << stmt.toStdString();
-            oss << sql << jobTitle;
-            oss << sql << "%' and bedrift like '%";
-            oss << sql << companyName;
-            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and stedsnavn like '%";
-                oss << sql << cityName;
-            }
-            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and status like '%";
-                oss << sql << status;
-            }
-            oss << sql << "%' and soknadsfrist like '%";
-            oss << sql << deadline;
-            oss << sql << "%';";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(oss.str()));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
-            {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s);
-                    i++;
-                }
-            }
-            conn.disconnect();
-            return list;
+            oss << sql << "%' and stedsnavn like '%";
+            oss << sql << cityName;
         }
-        exit(EXIT_FAILURE);
+        if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and status like '%";
+            oss << sql << status;
+        }
+        oss << sql << "%' and soknadsfrist like '%";
+        oss << sql << deadline;
+        oss << sql << "%';";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(oss.str()));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+        {
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            {
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
+            }
+        }
+        conn.disconnect();
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 /**
@@ -835,54 +764,45 @@ QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, st
         QList<QString> list;
         //QList<int>::iterator iterator;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        QString stmt = "SELECT status FROM view_soknad WHERE tittel like '%";
+        string sql;
+        stringstream oss;
+        oss << sql << stmt.toStdString();
+        oss << sql << jobTitle;
+        oss << sql << "%' and bedrift like '%";
+        oss << sql << companyName;
+        if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
         {
-            QString stmt = "SELECT status FROM view_soknad WHERE tittel like '%";
-            string sql;
-            stringstream oss;
-            oss << sql << stmt.toStdString();
-            oss << sql << jobTitle;
-            oss << sql << "%' and bedrift like '%";
-            oss << sql << companyName;
-            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and stedsnavn like '%";
-                oss << sql << cityName;
-            }
-            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and status like '%";
-                oss << sql << status;
-            }
-            oss << sql << "%' and soknadsfrist like '%";
-            oss << sql << deadline;
-            oss << sql << "%';";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(oss.str()));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
-            {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s);
-                    i++;
-                }
-            }
-            conn.disconnect();
-            return list;
+            oss << sql << "%' and stedsnavn like '%";
+            oss << sql << cityName;
         }
-        exit(EXIT_FAILURE);
+        if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and status like '%";
+            oss << sql << status;
+        }
+        oss << sql << "%' and soknadsfrist like '%";
+        oss << sql << deadline;
+        oss << sql << "%';";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(oss.str()));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+        {
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            {
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
+            }
+        }
+        conn.disconnect();
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 /**
@@ -901,54 +821,45 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
         QList<int> list;
         QList<int>::iterator iterator;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        QString stmt = "SELECT soknadid FROM view_soknad WHERE tittel like '%";
+        string sql;
+        stringstream oss;
+        oss << sql << stmt.toStdString();
+        oss << sql << jobTitle;
+        oss << sql << "%' and bedrift like '%";
+        oss << sql << companyName;
+        if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
         {
-            QString stmt = "SELECT soknadid FROM view_soknad WHERE tittel like '%";
-            string sql;
-            stringstream oss;
-            oss << sql << stmt.toStdString();
-            oss << sql << jobTitle;
-            oss << sql << "%' and bedrift like '%";
-            oss << sql << companyName;
-            if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and stedsnavn like '%";
-                oss << sql << cityName;
-            }
-            if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
-            {
-                oss << sql << "%' and status like '%";
-                oss << sql << status;
-            }
-            oss << sql << "%' and soknadsfrist like '%";
-            oss << sql << deadline;
-            oss << sql << "%';";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(oss.str()));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
-            {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s.toInt());
-                    i++;
-                }
-            }
-            conn.disconnect();
-            return list;
+            oss << sql << "%' and stedsnavn like '%";
+            oss << sql << cityName;
         }
-        exit(EXIT_FAILURE);
+        if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and status like '%";
+            oss << sql << status;
+        }
+        oss << sql << "%' and soknadsfrist like '%";
+        oss << sql << deadline;
+        oss << sql << "%';";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(oss.str()));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+        {
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            {
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s.toInt());
+                i++;
+            }
+        }
+        conn.disconnect();
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 /**
@@ -961,34 +872,25 @@ QList<QString> psql::getCityNames()
     {
         QList<QString> list;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        string query = "SELECT stedsnavn FROM sted ORDER BY stedid ASC";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(query));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            string query = "SELECT stedsnavn FROM sted ORDER BY stedid ASC";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(query));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s);
-                    i++;
-                }
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
             }
-            return list;
         }
-        exit(EXIT_FAILURE);
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 
@@ -1002,34 +904,25 @@ QList<QString> psql::getStatuses()
     {
         QList<QString> list;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(conn.is_open())
+        string query = "SELECT status FROM status ORDER BY statusid ASC";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(query));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            string query = "SELECT status FROM status ORDER BY statusid ASC";
-            pqxx::nontransaction nt(conn);
-            pqxx::result res(nt.exec(query));
-            int i = 1;
-            for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
-                for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
-                {
-                    QString s = QString::fromStdString(tci.c_str());
-                    list.insert(i, s);
-                    i++;
-                }
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
             }
-            return list;
         }
-        exit(EXIT_FAILURE);
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 
@@ -1046,34 +939,25 @@ QList<int> psql::fillList(const char *sqlSporring)
         QList<int>::iterator iterator;
 
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        if(C.is_open())
+        pqxx::nontransaction N(C);
+        pqxx::result R(N.exec(sqlSporring));
+        int i = 1;
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c)
         {
-            pqxx::nontransaction N(C);
-            pqxx::result R(N.exec(sqlSporring));
-            int i = 1;
-            for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c)
+            for(pqxx::result::tuple::const_iterator field = c.begin(); field != c.end(); ++field)
             {
-                for(pqxx::result::tuple::const_iterator field = c.begin(); field != c.end(); ++field)
-                {
-                    QString s = QString::fromStdString(field.c_str());
-                    list.insert(i,s.toInt());
-                    i++;
-                }
+                QString s = QString::fromStdString(field.c_str());
+                list.insert(i,s.toInt());
+                i++;
             }
-            C.disconnect();
-            return list;
         }
-        exit(EXIT_FAILURE);
+        C.disconnect();
+        return list;
     }
     catch(std::exception &e)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Information);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-        exit(EXIT_FAILURE);
-        //return NULL;
+        setError(e.what());
+        throw; // Kaster unntaket videre.
     }
 }
 
@@ -1085,9 +969,9 @@ QList<int> psql::fillList(const char *sqlSporring)
 QString psql::getStatusName(int s)
 {
     QString res = "";
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT status FROM status WHERE statusid = ";
         ostringstream oss;
@@ -1100,7 +984,11 @@ QString psql::getStatusName(int s)
         C.disconnect();
         return res;
     }
-    return "Error";
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw; // Kaster unntaket videre.
+    }
 }
 
 /**
@@ -1111,9 +999,9 @@ QString psql::getStatusName(int s)
 QString psql::getTitle(int applicationID)
 {
     QString res = "";
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT tittel FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1126,7 +1014,11 @@ QString psql::getTitle(int applicationID)
         C.disconnect();
         return res;
     }
-    return "Error";
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
 }
 
 /**
@@ -1137,9 +1029,9 @@ QString psql::getTitle(int applicationID)
 QString psql::getCompany(int applicationID)
 {
     QString res = "";
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT bedrift FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1152,7 +1044,11 @@ QString psql::getCompany(int applicationID)
         C.disconnect();
         return res;
     }
-    return "Error";
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
 }
 
 /**
@@ -1163,9 +1059,9 @@ QString psql::getCompany(int applicationID)
 int psql::getCityID(int applicationID)
 {
     int res = 0;
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT stedid FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1178,7 +1074,11 @@ int psql::getCityID(int applicationID)
         C.disconnect();
         return res;
     }
-    return res;
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
 }
 
 /**
@@ -1189,9 +1089,9 @@ int psql::getCityID(int applicationID)
 int psql::getCountryID(int cityID)
 {
     int res = 0;
-    pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(conn.is_open())
+    try
     {
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction nt(conn);
         string statement = "SELECT landid FROM sted WHERE stedid = ";
         ostringstream oss;
@@ -1205,7 +1105,11 @@ int psql::getCountryID(int cityID)
         conn.disconnect();
         return res;
     }
-    return res;
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
 }
 
 /**
@@ -1216,9 +1120,9 @@ int psql::getCountryID(int cityID)
 int psql::getStatusID(int applicationID)
 {
     int res = 0;
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT statusid FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1231,7 +1135,11 @@ int psql::getStatusID(int applicationID)
         C.disconnect();
         return res;
     }
-    return res;
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
 }
 
 /**
@@ -1242,9 +1150,9 @@ int psql::getStatusID(int applicationID)
 QString psql::getDate(int applicationID)
 {
     QString res = "";
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT soknadsfrist FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1257,7 +1165,11 @@ QString psql::getDate(int applicationID)
         C.disconnect();
         return res;
     }
-    return "Error";
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
 }
 
 /**
@@ -1268,9 +1180,9 @@ QString psql::getDate(int applicationID)
 QString psql::getCountryName(int countryID)
 {
     QString res = "";
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT land FROM land WHERE landid = ";
         ostringstream oss;
@@ -1284,9 +1196,10 @@ QString psql::getCountryName(int countryID)
         C.disconnect();
         return res;
     }
-    else
+    catch(std::exception &e)
     {
-        return "Error. Connection not open.";
+        setError(e.what());
+        throw;
     }
 }
 
@@ -1298,9 +1211,9 @@ QString psql::getCountryName(int countryID)
 QString psql::getCityName(int cityNumber)
 {
     QString res = "";
-    pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-    if(C.is_open())
+    try
     {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
         string statement = "SELECT stedsnavn FROM sted WHERE stedid = ";
         ostringstream oss;
@@ -1313,5 +1226,9 @@ QString psql::getCityName(int cityNumber)
         C.disconnect();
         return res;
     }
-    return "Error";
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
 }
