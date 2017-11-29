@@ -1,0 +1,7 @@
+QMAKE_DEFAULT_INCDIRS = \
+    /usr/include/c++/v1 \
+    /usr/lib/clang/4.0.0/include \
+    /usr/include
+QMAKE_DEFAULT_LIBDIRS = \
+    /lib \
+    /usr/lib
