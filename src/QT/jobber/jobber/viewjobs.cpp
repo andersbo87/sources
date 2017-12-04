@@ -31,7 +31,7 @@ ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
 {
     setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
     ui->setupUi(this);
-    setFixedHeight(height());
+    setFixedSize(size());
     p = pg;
     changed = false;
     soknadIDChanged = false;
