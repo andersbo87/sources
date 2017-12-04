@@ -13,6 +13,10 @@ then
     make uninstall clean
     rm -rf /Applications/jobber.app/
     rm Makefile
+elif [ "$1" == "compile" ]
+then
+    /usr/bin/make
+    rm Makefile
 else
     /usr/bin/make
     /bin/rm -f install
