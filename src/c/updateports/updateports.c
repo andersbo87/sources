@@ -1832,6 +1832,32 @@ void updateLinux()
     printf("\033]0;\007");
     exit(-1);
   }
+  int aptautoremove = fork();
+  printf("\033]0;\007");
+  printf("\033]0;Running /usr/bin/apt autoremove -y.\007");
+  if(aptautoremove == 0){
+    char *aptautorm[4];
+    aptautorm[0] = "/usr/bin/apt";
+    aptautorm[1] = "autoremove";
+    aptautorm[2] = "-y";
+    aptautorm[3] = NULL;
+    execvp(aptautorm[0], aptautorm);
+  }
+  else if(aptautoremove >=1){
+    waitpid(aptautoremove, NULL, 0);
+    if(WIFEXITED(status)){
+      if(WEXITSTATUS(status) != 0){
+	fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
+	printf("\033]0;\007");
+	exit(status);
+      }
+    }
+  }
+  else{
+    fprintf(stderr, "Failed to create apt process.\n");
+    printf("\033]0;\007");
+    exit(-1);
+  }
   printf("\033]0;\007");
 }
 
