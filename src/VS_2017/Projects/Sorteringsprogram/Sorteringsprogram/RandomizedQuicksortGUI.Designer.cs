@@ -1,4 +1,5 @@
-﻿namespace Sorteringsprogram
+﻿// Designerklasse for randomized Quicksort.
+namespace Sorteringsprogram
 {
     partial class RandomizedQuicksortGUI
     {

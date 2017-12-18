@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Klasse som inneholder koden som gjennomførerer "hurtigsortering" på en mer "tilfeldig" måte.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
