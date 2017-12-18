@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Grafisk grensesnitt for HeapSort.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

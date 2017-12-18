@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Klasse med kode for å gjennomføre såkalt Heapsort.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

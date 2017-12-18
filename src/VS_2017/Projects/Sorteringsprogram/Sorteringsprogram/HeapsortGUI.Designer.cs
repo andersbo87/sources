@@ -1,4 +1,5 @@
-﻿namespace Sorteringsprogram
+﻿// Designerklasse for HeapsortGUI
+namespace Sorteringsprogram
 {
     partial class HeapsortGUI
     {
