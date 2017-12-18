@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Klasse som inneholder kode for å gjennomføre quicksort på den "tradisjonelle" måten.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
