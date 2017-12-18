@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+     * Koden i metodene NextLong og Next er hentet fra https://gist.github.com/subena22jf/c7bb027ea99127944981.
+     * Ellers arver denne klassen fra System.Random.
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +10,6 @@ using System.Threading.Tasks;
 
 namespace Sorteringsprogram
 {
-    /*
-     * Koden i metodene NextLong og Next er hentet fra https://gist.github.com/subena22jf/c7bb027ea99127944981.
-     * Ellers arver denne klassen fra System.Random.
-     */
     class LongRandom : Random
     {
         public long NextLong(long min, long max)
