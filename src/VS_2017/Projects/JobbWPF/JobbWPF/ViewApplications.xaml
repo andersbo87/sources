@@ -19,7 +19,7 @@
         <Label Content="Søknadsfrist" Margin="10,230,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         
         <!--Følgende elementer skal brukes dynamisk og blir opprettet som pekere ved å angi et unikt navn.-->
-        <ComboBox Name="comboBoxApplicationID" Margin="90,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxApplicationID_SelectionChanged"/>
+        <ComboBox Name="comboBoxApplicationID" Margin="90,40,0,0" IsReadOnly="True" Focusable="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxApplicationID_SelectionChanged"/>
         <TextBox Name="textBoxJobTitle" Margin="90,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" TextChanged="textBoxJobTitle_TextChanged"/>
         <TextBox Name="textBoxCompany" Margin="90,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" TextChanged="textBoxCompany_TextChanged"/>
         <ComboBox Name="comboBoxTownID" Margin="90,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxTownID_SelectionChanged"/>
@@ -32,7 +32,7 @@
         <Button Name="btnFirst" IsEnabled="False" Margin="10,270,0,0" Content="Første" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnFirst_Click"/>
         <Button Name="btnPrev" IsEnabled="False" Margin="90,270,0,0" Content="Forrige" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnPrev_Click"/>
         <Button Name="btnDel" Content="Slett" Margin="170,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDel_Click"/>
-        <Button Name="btnUpdate" Content="Oppdater" Margin="250,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnUpdate_Click"/>
+        <Button Name="btnUpdate" Content="Oppdater" Margin="250,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Click="btnUpdate_Click"/>
         <Button Name="btnNext" Content="Neste" Margin="330,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnNext_Click"/>
         <Button Name="btnLast" Content="Siste" Margin="410,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnLast_Click"/>
     </Grid>

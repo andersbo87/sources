@@ -39,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxSorted = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.buttonDetails = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
@@ -129,24 +128,13 @@
             this.textBoxSorted.TabIndex = 7;
             this.textBoxSorted.WordWrap = false;
             // 
-            // buttonDetails
-            // 
-            this.buttonDetails.Enabled = false;
-            this.buttonDetails.Location = new System.Drawing.Point(342, 58);
-            this.buttonDetails.Name = "buttonDetails";
-            this.buttonDetails.Size = new System.Drawing.Size(75, 23);
-            this.buttonDetails.TabIndex = 8;
-            this.buttonDetails.Text = "Detaljer";
-            this.buttonDetails.UseVisualStyleBackColor = true;
-            this.buttonDetails.Click += new System.EventHandler(this.buttonDetails_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 306);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(468, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(422, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -159,9 +147,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 328);
+            this.ClientSize = new System.Drawing.Size(422, 328);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.buttonDetails);
             this.Controls.Add(this.textBoxSorted);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonSort);
@@ -195,7 +182,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxSorted;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button buttonDetails;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }

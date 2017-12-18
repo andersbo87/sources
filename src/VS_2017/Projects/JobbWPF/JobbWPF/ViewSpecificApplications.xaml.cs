@@ -104,9 +104,12 @@ namespace JobbWPF
             try
             {
                 List<jobb> titles = p.getSpecificJobs(getJobTitle(), getCompanyName(), getCityName(), getStatusName(), getDeadline());
-                if (p.getRecord() == 0)
-                    MessageBox.Show("Søket returnerte ingen treff.", progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
                 dataGrid.ItemsSource = titles;
+                if (p.getRecord() == 0)
+                {
+                    titles.Clear();
+                    MessageBox.Show("Søket returnerte ingen treff.", progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
                 p.setRecord(0);
             }
             catch(System.Net.Sockets.SocketException se)

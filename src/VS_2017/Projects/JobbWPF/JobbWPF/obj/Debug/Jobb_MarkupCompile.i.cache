@@ -16,5 +16,5 @@ DEBUG;TRACE
 68934817397
 App.xaml;ConnectPgsql.xaml;MainWindow.xaml;NewCountry.xaml;NewApplication.xaml;NewStatus.xaml;NewTown.xaml;ViewApplications.xaml;ViewCountries.xaml;ViewSpecificApplications.xaml;ViewStatuses.xaml;ViewTowns.xaml;
 
-False
+True
 

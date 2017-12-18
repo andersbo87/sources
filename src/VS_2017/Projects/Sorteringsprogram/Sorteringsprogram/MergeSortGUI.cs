@@ -39,7 +39,7 @@ namespace Sorteringsprogram
                     string path = Path.GetFullPath(file);
                     input = File.ReadAllText(openFileDialog1.FileName);
                     buttonSort.Enabled = true;
-                    buttonDetails.Enabled = true;
+                    textBoxUnsorted.Text = input;
                 }
             }
             catch(OutOfMemoryException)
@@ -64,11 +64,6 @@ namespace Sorteringsprogram
             long mis = sw.ElapsedMilliseconds;
             toolStripStatusLabel1.Text = "Flettesortering av " + elements + " elementer utført på " + TimeSpan.FromMilliseconds(mis);
             output = string.Join(" ", B);
-        }
-
-        private void buttonDetails_Click(object sender, EventArgs e)
-        {
-            textBoxUnsorted.Text = input;
             textBoxSorted.Text = output;
         }
     }

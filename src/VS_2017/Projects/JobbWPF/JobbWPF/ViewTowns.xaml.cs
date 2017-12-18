@@ -51,6 +51,7 @@ namespace JobbWPF
         void setChanged(bool changed)
         {
             textChanged = changed;
+            btnUpdate.IsEnabled = changed;
         }
         bool isChanged()
         {
@@ -244,7 +245,7 @@ namespace JobbWPF
                 if (!opening)
                 {
                     int idx = Int32.Parse(comboBoxTownID.Text);
-                    int nyidx = Int32.Parse(comboBoxTownID.SelectedValue.ToString());
+                    int newidx = Int32.Parse(comboBoxTownID.SelectedValue.ToString());
                     if (isChanged())
                     {
                         // Spør om endringene skal lagres
@@ -254,27 +255,32 @@ namespace JobbWPF
                             // Lagre endringa og gå videre.
                             if (p.updateTown(getTownID(), getTownName()))
                             {
-                                changeTownID(nyidx);
+                                changeTownID(newidx);
                             }
                             else // Dersom lagringsforsøket gikk galt:
                             {
                                 MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (msgUpdateFailed == MessageBoxResult.Yes)
-                                    changeTownID(nyidx);
+                                {
+                                    setChanged(false);
+                                    changeTownID(newidx);
+                                }
                             }
                         }
                         else if (msr == MessageBoxResult.No)
                         {
                             // Fortsett uten å lagre.
-                            changeTownID(idx);
+                            setChanged(false);
+                            changeTownID(newidx);
                         }
                     }
                     else
-                        changeTownID(nyidx);
+                        changeTownID(newidx);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
         }
