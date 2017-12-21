@@ -3,10 +3,10 @@ CC=gcc
 SQLCFLAGS=-I/usr/local/include/mysql
 SQLLIBS="/usr/local/lib/mysql"
 
-make:
+lh:
 	cc -g -o lh -L$(SQLLIBS) -lmysqlclient -pthread -lz $(SQLCFLAGS) ../main.c ../database_commands.c
 
-install:
+install: lh
 	install -g wheel -o root -m 555 lh /usr/local/bin/lh
 	install -g wheel -o root -m 555 ../lh.1 /usr/local/man/man1/lh.1
 
