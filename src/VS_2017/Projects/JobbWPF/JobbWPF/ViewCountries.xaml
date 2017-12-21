@@ -18,7 +18,7 @@
         <Button Name="btnFirst" Margin="10,90,0,0" Content="&lt;&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnFirst_Click" IsEnabled="False" ToolTip="Første treff" />
         <Button Name="btnPrev" Margin="40,90,0,0" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnPrev_Click" IsEnabled="False" ToolTip="Forrige treff" />
         <Button Name="btnDelete" Margin="70,90,0,0" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnDelete_Click" ToolTip="Slett" />
-        <Button Name="btnUpdate" Margin="100,90,0,0" Content="O" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnUpdate_Click" ToolTip="Lagre endringer/Oppdater databasen" />
+        <Button Name="btnUpdate" Margin="100,90,0,0" Content="O" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" IsEnabled="False" Click="btnUpdate_Click" ToolTip="Lagre endringer/Oppdater databasen" />
         <Button Name="btnNext" Content="&gt;" Margin="130,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnNext_Click" ToolTip="Neste treff" />
         <Button Name="btnLast" Content="&gt;&gt;" Margin="160,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnLast_Click" ToolTip="Siste treff" />
     </Grid>

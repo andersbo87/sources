@@ -10,16 +10,16 @@ namespace Sorteringsprogram
     {
         public void insertionSort(long []A)
         {
-            for(long l = 2; l < A.LongLength; l++)
+            for(long i = 1; i < A.LongLength; i++)
             {
-                long key = A[l];
-                long i = l - 1;
-                while(i > 0 && A[i] > key)
+                long key = A[i];
+                long j = i - 1;
+                while(j >= 0 && key < A[j])
                 {
-                    A[i + 1] = A[i];
-                    i = i - 1;
+                    A[j + 1] = A[j];
+                    j--;
                 }
-                A[i + 1] = key;
+                A[j + 1] = key;
             }
         }
     }

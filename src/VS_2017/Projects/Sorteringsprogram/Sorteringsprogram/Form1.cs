@@ -65,5 +65,17 @@ namespace Sorteringsprogram
                 igui = new InsertionSortGUI();
             igui.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            RandomizedQuicksortGUI rqsgui = new RandomizedQuicksortGUI();
+            rqsgui.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HeapsortGUI hgui = new HeapsortGUI();
+            hgui.Show();
+        }
     }
 }

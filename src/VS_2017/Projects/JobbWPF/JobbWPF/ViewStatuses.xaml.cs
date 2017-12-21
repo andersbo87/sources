@@ -53,6 +53,7 @@ namespace JobbWPF
         void setChanged(bool changed)
         {
             textChanged = changed;
+            btnUpdate.IsEnabled = changed;
         }
         bool isChanged()
         {
@@ -122,7 +123,7 @@ namespace JobbWPF
                 if (!opening)
                 {
                     int idx = Int32.Parse(comboBoxStatusID.Text);
-                    int nyidx = Int32.Parse(comboBoxStatusID.SelectedValue.ToString());
+                    int newidx = Int32.Parse(comboBoxStatusID.SelectedValue.ToString());
                     if (isChanged())
                     {
                         // Spør om endringene skal lagres
@@ -132,23 +133,27 @@ namespace JobbWPF
                             // Lagre endringa og gå videre.
                             if (p.updateStatus(getStatusID(), getStatusName()))
                             {
-                                changeStatusID(nyidx);
+                                changeStatusID(newidx);
                             }
                             else // Dersom lagringsforsøket gikk galt:
                             {
                                 MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (msgUpdateFailed == MessageBoxResult.Yes)
-                                    changeStatusID(nyidx);
+                                {
+                                    setChanged(false);
+                                    changeStatusID(newidx);
+                                }
                             }
                         }
                         else if (msr == MessageBoxResult.No)
                         {
                             // Fortsett uten å lagre.
-                            changeStatusID(idx);
+                            setChanged(false);
+                            changeStatusID(newidx);
                         }
                     }
                     else
-                        changeStatusID(nyidx);
+                        changeStatusID(newidx);
                 }
             }
             catch (Exception)

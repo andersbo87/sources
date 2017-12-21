@@ -1086,8 +1086,7 @@ namespace JobbWPF
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    if(i!= 0)
-                        data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5) });
+                    data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5) });
                     i++;
                 }
                 setRecord(i);

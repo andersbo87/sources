@@ -107,6 +107,7 @@ namespace JobbWPF
         public void setChanged(bool changed)
         {
             contentChanged = changed;
+            btnUpdate.IsEnabled = changed;
         }
 
         public bool isChanged()
@@ -341,6 +342,7 @@ namespace JobbWPF
                 }
                 opening = false;
                 setChanged(false);
+                comboBoxApplicationID.Focus();
             }
             catch (TimeoutException te)
             {
@@ -361,7 +363,7 @@ namespace JobbWPF
                 if (!opening)
                 {
                     int idx = Int32.Parse(comboBoxApplicationID.Text);
-                    int nyidx = Int32.Parse(comboBoxApplicationID.SelectedValue.ToString());
+                    int newidx = Int32.Parse(comboBoxApplicationID.SelectedValue.ToString());
                     if (isChanged())
                     {
                         // Spør om endringene skal lagres
@@ -371,23 +373,27 @@ namespace JobbWPF
                             // Lagre endringa og gå videre.
                             if (p.updateApplication(idx, getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline()))
                             {
-                                changeApplicationID(nyidx);
+                                changeApplicationID(newidx);
                             }
                             else
                             {
                                 MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Vil du forkaste endringene og gå videre?", progTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (msgUpdateFailed == MessageBoxResult.Yes)
-                                    changeApplicationID(nyidx);
+                                {
+                                    setChanged(false);
+                                    changeApplicationID(newidx);
+                                }
                             }
                         }
                         else if (msr == MessageBoxResult.No)
                         {
                             // Fortsett uten å lagre.
-                            changeApplicationID(idx);
+                            setChanged(false);
+                            changeApplicationID(newidx);
                         }
                     }
                     else
-                        changeApplicationID(nyidx);
+                        changeApplicationID(newidx);
                 }
             }
             catch (Exception)
@@ -431,6 +437,7 @@ namespace JobbWPF
         private void btnFirst_Click(object sender, RoutedEventArgs e)
         {
             comboBoxApplicationID.SelectedIndex = 0;
+            
         }
 
         private void btnPrev_Click(object sender, RoutedEventArgs e)

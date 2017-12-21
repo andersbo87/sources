@@ -20,7 +20,7 @@
         <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="90,105" Name="textBoxStatusName" TextChanged="textBoxStatusName_TextChanged"/>
         <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="90,125" Name="textBoxDeadline" TextChanged="textBoxDeadline_TextChanged"/>
         <Button Name="btnSearch" Content="Søk!" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,150,0,0" Click="btnSearch_Click"/>
-        <DataGrid AutoGenerateColumns="False" Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="148" Margin="10,175,0,0" VerticalAlignment="Top" Width="340" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="148" Margin="10,175,0,0" VerticalAlignment="Top" Width="340" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <!--Kodesnutten under, samt egenskapen AutoGenerateColumns i tagen over, er basert på koden som står her: http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Søknadid" Binding="{Binding applicationID}" />

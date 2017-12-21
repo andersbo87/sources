@@ -12,3 +12,20 @@ d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sortering
 d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.QuicksortGUI.resources
 d:\users\a-bol\documents\visual studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.reversedSortedNumbersGenerator.resources
 d:\Users\a-bol\Documents\Visual Studio 2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.InsertionSortGUI.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Debug\Sorteringsprogram.exe.config
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Debug\Sorteringsprogram.exe
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\bin\Debug\Sorteringsprogram.pdb
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.Form1.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.InsertionSortGUI.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.MergeSortGUI.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.Properties.Resources.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.QuicksortGUI.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.RandomNumbersGenerator.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.reversedSortedNumbersGenerator.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.csproj.GenerateResource.Cache
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.exe
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.pdb
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.RandomizedQuicksortGUI.resources
+C:\Users\andersbo\git\src\VS_2017\Projects\Sorteringsprogram\Sorteringsprogram\obj\Debug\Sorteringsprogram.HeapsortGUI.resources

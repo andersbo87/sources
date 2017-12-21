@@ -13,7 +13,6 @@ namespace Sorteringsprogram
 {
     public partial class QuicksortGUI : Form
     {
-        ArrayIO aio;
         quicksort qs;
         string input, output;
         long elements;
@@ -30,21 +29,28 @@ namespace Sorteringsprogram
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            long[] A = input.Split(' ').Select(n => Convert.ToInt64(n)).ToArray();
-            elements = A[0];
-            long[] B = new long[A.Length - 1];
-            // Det første tallet er lengden på tabellen, og skal ikke være med i sorteringa.
-            // For å forsikre meg om at tallet ikke er med, lager jeg en ny tabell med verdien til A[1] (og ikke 0) som første indeks.
-            for (long i = 1; i <= B.Length; i++)
-                B[i - 1] = A[i];
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-            qs.sort(B, 0, B.LongLength-1);
-            sw.Stop();
-            long mis = sw.ElapsedMilliseconds;
-            toolStripStatusLabel1.Text = "Flettesortering av " + elements + " elementer utført på " + TimeSpan.FromMilliseconds(mis);
-            output = string.Join(" ", B);
-            textBoxSorted.Text = output;
+            try
+            {
+                long[] A = input.Split(' ').Select(n => Convert.ToInt64(n)).ToArray();
+                elements = A[0];
+                long[] B = new long[A.Length - 1];
+                // Det første tallet er lengden på tabellen, og skal ikke være med i sorteringa.
+                // For å forsikre meg om at tallet ikke er med, lager jeg en ny tabell med verdien til A[1] (og ikke 0) som første indeks.
+                for (long i = 1; i <= B.Length; i++)
+                    B[i - 1] = A[i];
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                sw.Start();
+                qs.sort(B, 0, B.LongLength - 1);
+                sw.Stop();
+                long mis = sw.ElapsedMilliseconds;
+                toolStripStatusLabel1.Text = "Flettesortering av " + elements + " elementer utført på " + TimeSpan.FromMilliseconds(mis);
+                output = string.Join(" ", B);
+                textBoxSorted.Text = output;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Noe gikk galt: " + ex.Message, "Sorteringsprogram", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
