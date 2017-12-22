@@ -233,6 +233,13 @@ void SpesificJobs::btnSearchClicked()
     h << "ID" << "Tittel" << "Bedrift" << "Stedsnavn" << "Status" << "Søknadsfrist";
     model->setHorizontalHeaderLabels(h);
     ui->tableViewResults->setModel(model);
+    if(model->rowCount() == 0){
+        QMessageBox msg;
+        msg.setWindowTitle(winTitle);
+        msg.setIcon(msg.Information);
+        msg.setText("Søket returnerte ingen treff.");
+        msg.exec();
+    }
 }
 
 void SpesificJobs::lineEditJobTitleChanged()
