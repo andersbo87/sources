@@ -9,12 +9,13 @@ lh:
 
 
 install: lh
+	mkdir -p /usr/local/bin /usr/local/man/man1
 	install -g wheel -o root -m 555 lh /usr/local/bin/lh
 	install -g wheel -o root -m 555 lh.1 /usr/local/man/man1/lh.1
 
 clean:
 	rm lh
-
+	rm -rf lh.dSYM/
 uninstall:
 	rm /usr/local/bin/lh /usr/local/man/man1/lh
 
