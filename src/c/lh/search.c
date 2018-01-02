@@ -152,13 +152,13 @@ int searchSeason(char *search)
 	conn = mysql_init(NULL);
 	if (conn == NULL) 
 	{
-		fprintf(stderr, "Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
-		return mysql_errno(conn);
+	  fprintf(stderr, "Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+	  return mysql_errno(conn);
 	}
 	if(!mysql_real_connect(conn, server, user, password, database, 0, NULL, 0)) 
 	{
-		fprintf(stderr, "Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
-		return mysql_errno(conn);
+	  fprintf(stderr, "Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+	  return mysql_errno(conn);
 	}
 	
 	if (mysql_query(conn, search))
@@ -193,10 +193,9 @@ int search()
 	sesongen episoden er i (f. eks. sesong 1)
 	*/
 	//printf("lh$ ");
-//#ifdef SIGINFO
-    printf("SIGINFO\n");
+#ifdef SIGINFO
     signal(SIGINFO, catch_siginfo);
-//#endif
+#endif
 	signal(SIGINT, catch_int);
 	signal(SIGTSTP, catch_int2);
 	signal(SIGABRT, catch_int3);
