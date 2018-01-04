@@ -1,0 +1,627 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_spesific_jobs" kind="class" language="C++" prot="public">
+    <compoundname>SpesificJobs</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_spesific_jobs_1aec4e13a5c7ac6fd669b509db3dee8449" prot="private" static="no" mutable="no">
+        <type>Ui::SpesicficJobs *</type>
+        <definition>Ui::SpesicficJobs* SpesificJobs::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="41" column="1" bodyfile="spesificjobs.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1ac1f69eb1710a57a31666d885201f55de" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SpesificJobs::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="42" column="1" bodyfile="spesificjobs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1a4ad05acb76422ffc78acbae3e9b5fc65" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SpesificJobs::jobTitle</definition>
+        <argsstring></argsstring>
+        <name>jobTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="42" column="1" bodyfile="spesificjobs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1aa041f7d64f62d1c1375981d14f6e428e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SpesificJobs::companyName</definition>
+        <argsstring></argsstring>
+        <name>companyName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="42" column="1" bodyfile="spesificjobs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1a703cd612c39a53f28e5384db502c0ba1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SpesificJobs::cityName</definition>
+        <argsstring></argsstring>
+        <name>cityName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="42" column="1" bodyfile="spesificjobs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1af18958ab0d03165283703a70a7812d1c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SpesificJobs::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="42" column="1" bodyfile="spesificjobs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1add13525338b0de103260cf246295e7fc" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SpesificJobs::deadline</definition>
+        <argsstring></argsstring>
+        <name>deadline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="42" column="1" bodyfile="spesificjobs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1abb5d61f6a94f2471837bd3fe32ca41c5" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SpesificJobs::motivation</definition>
+        <argsstring></argsstring>
+        <name>motivation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="42" column="1" bodyfile="spesificjobs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1a6851b462db402109eafda7dc86874215" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* SpesificJobs::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="43" column="1" bodyfile="spesificjobs.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spesific_jobs_1a92b03e1ad18b2cbf4f03d2653fef3901" prot="private" static="no" mutable="no">
+        <type>QStandardItemModel *</type>
+        <definition>QStandardItemModel* SpesificJobs::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="44" column="1" bodyfile="spesificjobs.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_spesific_jobs_1a382c130bb70f2bf25c76ef5c720659d6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpesificJobs::SpesificJobs</definition>
+        <argsstring>(QString title, psql *pg, QWidget *parent=0)</argsstring>
+        <name>SpesificJobs</name>
+        <param>
+          <type>QString</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="18" column="1" bodyfile="spesificjobs.cpp" bodystart="5" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a2ac947799f858d8dd3c5fd59caf332aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpesificJobs::~SpesificJobs</definition>
+        <argsstring>()</argsstring>
+        <name>~SpesificJobs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="19" column="1" bodyfile="spesificjobs.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1afe77ad902d3e9f3cfd5f057e0a37a193" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString SpesificJobs::getJobTitle</definition>
+        <argsstring>()</argsstring>
+        <name>getJobTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="21" column="1" bodyfile="spesificjobs.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a51afafde9872e78e8b09e3bc00a2a161" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString SpesificJobs::getCompanyName</definition>
+        <argsstring>()</argsstring>
+        <name>getCompanyName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="22" column="1" bodyfile="spesificjobs.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a39390d9c54635a2dc60c80322a7b42ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString SpesificJobs::getCityName</definition>
+        <argsstring>()</argsstring>
+        <name>getCityName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="23" column="1" bodyfile="spesificjobs.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1aefe905d920961199fec0aff37a34b50d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString SpesificJobs::getStatus</definition>
+        <argsstring>()</argsstring>
+        <name>getStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="24" column="1" bodyfile="spesificjobs.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a4744022c02271fabfb7fca0015896c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString SpesificJobs::getDeadline</definition>
+        <argsstring>()</argsstring>
+        <name>getDeadline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="25" column="1" bodyfile="spesificjobs.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a73406f6204c990c3fa3c7b9d16f1b0b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString SpesificJobs::getMotivation</definition>
+        <argsstring>()</argsstring>
+        <name>getMotivation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="26" column="1" bodyfile="spesificjobs.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1abb4d8e45e0a2be8197ef03057fc5c714" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::setJobTitle</definition>
+        <argsstring>(QString newTitle)</argsstring>
+        <name>setJobTitle</name>
+        <param>
+          <type>QString</type>
+          <declname>newTitle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="29" column="1" bodyfile="spesificjobs.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1aeacc56572911219fddf2f1439a70ed74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::setCompanyName</definition>
+        <argsstring>(QString newName)</argsstring>
+        <name>setCompanyName</name>
+        <param>
+          <type>QString</type>
+          <declname>newName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="30" column="1" bodyfile="spesificjobs.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a67b162aa9ad12ed8ffba061edff96cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::setCityName</definition>
+        <argsstring>(QString newCityName)</argsstring>
+        <name>setCityName</name>
+        <param>
+          <type>QString</type>
+          <declname>newCityName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="31" column="1" bodyfile="spesificjobs.cpp" bodystart="71" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a439307a28196221b7e3877983077812f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::setStatus</definition>
+        <argsstring>(QString newStatus)</argsstring>
+        <name>setStatus</name>
+        <param>
+          <type>QString</type>
+          <declname>newStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="32" column="1" bodyfile="spesificjobs.cpp" bodystart="78" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a80ceb9ead40dc83e0adcf6ed2b3d5465" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::setDeadline</definition>
+        <argsstring>(QString newDeadline)</argsstring>
+        <name>setDeadline</name>
+        <param>
+          <type>QString</type>
+          <declname>newDeadline</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="33" column="1" bodyfile="spesificjobs.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a39df1f364b1ca8e3059094708f01983c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::setMotivation</definition>
+        <argsstring>(QString newMotivation)</argsstring>
+        <name>setMotivation</name>
+        <param>
+          <type>QString</type>
+          <declname>newMotivation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="34" column="1" bodyfile="spesificjobs.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1acbf1efeeb4000a0a1238897daa74085b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::getCityNames</definition>
+        <argsstring>()</argsstring>
+        <name>getCityNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="37" column="1" bodyfile="spesificjobs.cpp" bodystart="96" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1ad1eead4bdf63388b3cbe0bb79b4b0d09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::getStatuses</definition>
+        <argsstring>()</argsstring>
+        <name>getStatuses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="38" column="1" bodyfile="spesificjobs.cpp" bodystart="121" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_spesific_jobs_1ac1e70f4ba940154e71423aef878800c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::appendApplicationIDs</definition>
+        <argsstring>()</argsstring>
+        <name>appendApplicationIDs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="45" column="1" bodyfile="spesificjobs.cpp" bodystart="146" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a34b8f35bc269b6deeec22a17c1a5718e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::appendJobTitles</definition>
+        <argsstring>()</argsstring>
+        <name>appendJobTitles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="46" column="1" bodyfile="spesificjobs.cpp" bodystart="160" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1adbf0c9c7a84779a1c431775c1cd86993" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::appendCompanyNames</definition>
+        <argsstring>()</argsstring>
+        <name>appendCompanyNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="47" column="1" bodyfile="spesificjobs.cpp" bodystart="175" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1aa0838390b6c2c12a12fbdd001f07e0d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::appendCityNames</definition>
+        <argsstring>()</argsstring>
+        <name>appendCityNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="48" column="1" bodyfile="spesificjobs.cpp" bodystart="189" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a38d8df81426779186714b6e9e3847602" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::appendStatuses</definition>
+        <argsstring>()</argsstring>
+        <name>appendStatuses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="49" column="1" bodyfile="spesificjobs.cpp" bodystart="203" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1af94e4842375f809b079ad70023678455" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::appendDeadlines</definition>
+        <argsstring>()</argsstring>
+        <name>appendDeadlines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="50" column="1" bodyfile="spesificjobs.cpp" bodystart="217" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spesific_jobs_1a43a3c8b1813896c13f99ddcdb1c8e636" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::appendMotivations</definition>
+        <argsstring>()</argsstring>
+        <name>appendMotivations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="51" column="1" bodyfile="spesificjobs.cpp" bodystart="231" bodyend="243"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_spesific_jobs_1a85d1a246018409f403e50bbed479fa56" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::btnSearchClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnSearchClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="54" column="1" bodyfile="spesificjobs.cpp" bodystart="246" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_spesific_jobs_1aadde7b3b5336803ba34213af11ee3ccf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::comboBoxCityNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>comboBoxCityNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="55" column="1" bodyfile="spesificjobs.cpp" bodystart="285" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_spesific_jobs_1a713cf407d89833941dc75b62385c16fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::comboBoxStatusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>comboBoxStatusChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="56" column="1" bodyfile="spesificjobs.cpp" bodystart="290" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_spesific_jobs_1a7700d78d12b04622bb9fd2aa5428244a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::lineEditJobTitleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditJobTitleChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="57" column="1" bodyfile="spesificjobs.cpp" bodystart="270" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_spesific_jobs_1a9a17354cf100ea9080147926a1f11b56" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::lineEditCompanyNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditCompanyNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="58" column="1" bodyfile="spesificjobs.cpp" bodystart="275" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_spesific_jobs_1a835ef2a912e29fb0bbf1110c01f566b0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpesificJobs::lineEditDeadlineChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditDeadlineChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="spesificjobs.h" line="59" column="1" bodyfile="spesificjobs.cpp" bodystart="280" bodyend="283"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="42">
+        <label>SpesificJobs</label>
+        <link refid="class_spesific_jobs"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>QMainWindow</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="44">
+        <label>SpesificJobs</label>
+        <link refid="class_spesific_jobs"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>QMainWindow</label>
+      </node>
+    </collaborationgraph>
+    <location file="spesificjobs.h" line="14" column="1" bodyfile="spesificjobs.h" bodystart="13" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_spesific_jobs_1ac1e70f4ba940154e71423aef878800c7" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>appendApplicationIDs</name></member>
+      <member refid="class_spesific_jobs_1aa0838390b6c2c12a12fbdd001f07e0d3" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>appendCityNames</name></member>
+      <member refid="class_spesific_jobs_1adbf0c9c7a84779a1c431775c1cd86993" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>appendCompanyNames</name></member>
+      <member refid="class_spesific_jobs_1af94e4842375f809b079ad70023678455" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>appendDeadlines</name></member>
+      <member refid="class_spesific_jobs_1a34b8f35bc269b6deeec22a17c1a5718e" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>appendJobTitles</name></member>
+      <member refid="class_spesific_jobs_1a43a3c8b1813896c13f99ddcdb1c8e636" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>appendMotivations</name></member>
+      <member refid="class_spesific_jobs_1a38d8df81426779186714b6e9e3847602" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>appendStatuses</name></member>
+      <member refid="class_spesific_jobs_1a85d1a246018409f403e50bbed479fa56" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>btnSearchClicked</name></member>
+      <member refid="class_spesific_jobs_1a703cd612c39a53f28e5384db502c0ba1" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>cityName</name></member>
+      <member refid="class_spesific_jobs_1aadde7b3b5336803ba34213af11ee3ccf" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>comboBoxCityNameChanged</name></member>
+      <member refid="class_spesific_jobs_1a713cf407d89833941dc75b62385c16fd" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>comboBoxStatusChanged</name></member>
+      <member refid="class_spesific_jobs_1aa041f7d64f62d1c1375981d14f6e428e" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>companyName</name></member>
+      <member refid="class_spesific_jobs_1add13525338b0de103260cf246295e7fc" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>deadline</name></member>
+      <member refid="class_spesific_jobs_1a39390d9c54635a2dc60c80322a7b42ed" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getCityName</name></member>
+      <member refid="class_spesific_jobs_1acbf1efeeb4000a0a1238897daa74085b" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getCityNames</name></member>
+      <member refid="class_spesific_jobs_1a51afafde9872e78e8b09e3bc00a2a161" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getCompanyName</name></member>
+      <member refid="class_spesific_jobs_1a4744022c02271fabfb7fca0015896c09" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getDeadline</name></member>
+      <member refid="class_spesific_jobs_1afe77ad902d3e9f3cfd5f057e0a37a193" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getJobTitle</name></member>
+      <member refid="class_spesific_jobs_1a73406f6204c990c3fa3c7b9d16f1b0b9" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getMotivation</name></member>
+      <member refid="class_spesific_jobs_1aefe905d920961199fec0aff37a34b50d" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getStatus</name></member>
+      <member refid="class_spesific_jobs_1ad1eead4bdf63388b3cbe0bb79b4b0d09" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>getStatuses</name></member>
+      <member refid="class_spesific_jobs_1a4ad05acb76422ffc78acbae3e9b5fc65" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>jobTitle</name></member>
+      <member refid="class_spesific_jobs_1a9a17354cf100ea9080147926a1f11b56" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>lineEditCompanyNameChanged</name></member>
+      <member refid="class_spesific_jobs_1a835ef2a912e29fb0bbf1110c01f566b0" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>lineEditDeadlineChanged</name></member>
+      <member refid="class_spesific_jobs_1a7700d78d12b04622bb9fd2aa5428244a" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>lineEditJobTitleChanged</name></member>
+      <member refid="class_spesific_jobs_1a92b03e1ad18b2cbf4f03d2653fef3901" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>model</name></member>
+      <member refid="class_spesific_jobs_1abb5d61f6a94f2471837bd3fe32ca41c5" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>motivation</name></member>
+      <member refid="class_spesific_jobs_1a6851b462db402109eafda7dc86874215" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>p</name></member>
+      <member refid="class_spesific_jobs_1a67b162aa9ad12ed8ffba061edff96cdf" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>setCityName</name></member>
+      <member refid="class_spesific_jobs_1aeacc56572911219fddf2f1439a70ed74" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>setCompanyName</name></member>
+      <member refid="class_spesific_jobs_1a80ceb9ead40dc83e0adcf6ed2b3d5465" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>setDeadline</name></member>
+      <member refid="class_spesific_jobs_1abb4d8e45e0a2be8197ef03057fc5c714" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>setJobTitle</name></member>
+      <member refid="class_spesific_jobs_1a39df1f364b1ca8e3059094708f01983c" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>setMotivation</name></member>
+      <member refid="class_spesific_jobs_1a439307a28196221b7e3877983077812f" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>setStatus</name></member>
+      <member refid="class_spesific_jobs_1a382c130bb70f2bf25c76ef5c720659d6" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>SpesificJobs</name></member>
+      <member refid="class_spesific_jobs_1af18958ab0d03165283703a70a7812d1c" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>status</name></member>
+      <member refid="class_spesific_jobs_1aec4e13a5c7ac6fd669b509db3dee8449" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>ui</name></member>
+      <member refid="class_spesific_jobs_1ac1f69eb1710a57a31666d885201f55de" prot="private" virt="non-virtual"><scope>SpesificJobs</scope><name>winTitle</name></member>
+      <member refid="class_spesific_jobs_1a2ac947799f858d8dd3c5fd59caf332aa" prot="public" virt="non-virtual"><scope>SpesificJobs</scope><name>~SpesificJobs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

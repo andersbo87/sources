@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="psql_8h" kind="file" language="C++">
+    <compoundname>psql.h</compoundname>
+    <includes local="no">sstream</includes>
+    <includes local="no">QApplication</includes>
+    <includes local="no">QLinkedList</includes>
+    <includes local="no">QException</includes>
+    <includes local="no">QDebug</includes>
+    <includes local="no">pqxx/pqxx</includes>
+    <includes local="no">pqxx/result</includes>
+    <includes local="no">QtGui</includes>
+    <includedby refid="connectpsql_8h" local="yes">connectpsql.h</includedby>
+    <includedby refid="mainwindow_8h" local="yes">mainwindow.h</includedby>
+    <includedby refid="newjob_8h" local="yes">newjob.h</includedby>
+    <includedby refid="viewjobs_8h" local="yes">viewjobs.h</includedby>
+    <includedby refid="newcity_8h" local="yes">newcity.h</includedby>
+    <includedby refid="newcountry_8h" local="yes">newcountry.h</includedby>
+    <includedby refid="newstatus_8h" local="yes">newstatus.h</includedby>
+    <includedby refid="showcities_8h" local="yes">showcities.h</includedby>
+    <includedby refid="showcountries_8h" local="yes">showcountries.h</includedby>
+    <includedby refid="showstatuses_8h" local="yes">showstatuses.h</includedby>
+    <includedby refid="spesificjobs_8h" local="yes">spesificjobs.h</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
+    <includedby refid="psql_8cpp" local="yes">psql.cpp</includedby>
+    <incdepgraph>
+      <node id="235">
+        <label>psql.h</label>
+        <link refid="psql_8h"/>
+        <childnode refid="236" relation="include">
+        </childnode>
+        <childnode refid="237" relation="include">
+        </childnode>
+        <childnode refid="238" relation="include">
+        </childnode>
+        <childnode refid="239" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+        <childnode refid="242" relation="include">
+        </childnode>
+        <childnode refid="243" relation="include">
+        </childnode>
+      </node>
+      <node id="238">
+        <label>QLinkedList</label>
+      </node>
+      <node id="237">
+        <label>QApplication</label>
+      </node>
+      <node id="240">
+        <label>QDebug</label>
+      </node>
+      <node id="241">
+        <label>pqxx/pqxx</label>
+      </node>
+      <node id="236">
+        <label>sstream</label>
+      </node>
+      <node id="242">
+        <label>pqxx/result</label>
+      </node>
+      <node id="239">
+        <label>QException</label>
+      </node>
+      <node id="243">
+        <label>QtGui</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="245">
+        <label>connectpsql.h</label>
+        <link refid="connectpsql_8h_source"/>
+        <childnode refid="246" relation="include">
+        </childnode>
+      </node>
+      <node id="247">
+        <label>newjob.h</label>
+        <link refid="newjob_8h_source"/>
+      </node>
+      <node id="244">
+        <label>psql.h</label>
+        <link refid="psql_8h"/>
+        <childnode refid="245" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
+        </childnode>
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="248" relation="include">
+        </childnode>
+        <childnode refid="249" relation="include">
+        </childnode>
+        <childnode refid="251" relation="include">
+        </childnode>
+        <childnode refid="252" relation="include">
+        </childnode>
+        <childnode refid="253" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+        <childnode refid="255" relation="include">
+        </childnode>
+        <childnode refid="256" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+      </node>
+      <node id="249">
+        <label>newcity.h</label>
+        <link refid="newcity_8h_source"/>
+        <childnode refid="250" relation="include">
+        </childnode>
+      </node>
+      <node id="246">
+        <label>mainwindow.h</label>
+        <link refid="mainwindow_8h_source"/>
+      </node>
+      <node id="255">
+        <label>showstatuses.h</label>
+        <link refid="showstatuses_8h_source"/>
+      </node>
+      <node id="252">
+        <label>newstatus.h</label>
+        <link refid="newstatus_8h_source"/>
+      </node>
+      <node id="256">
+        <label>spesificjobs.h</label>
+        <link refid="spesificjobs_8h_source"/>
+      </node>
+      <node id="253">
+        <label>showcities.h</label>
+        <link refid="showcities_8h_source"/>
+      </node>
+      <node id="250">
+        <label>newcity.cpp</label>
+        <link refid="newcity_8cpp"/>
+      </node>
+      <node id="251">
+        <label>newcountry.h</label>
+        <link refid="newcountry_8h_source"/>
+      </node>
+      <node id="257">
+        <label>psql.cpp</label>
+        <link refid="psql_8cpp"/>
+      </node>
+      <node id="248">
+        <label>viewjobs.h</label>
+        <link refid="viewjobs_8h_source"/>
+      </node>
+      <node id="254">
+        <label>showcountries.h</label>
+        <link refid="showcountries_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classpsql" prot="public">psql</innerclass>
+    <innernamespace refid="namespacestd">std</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2017,<sp/>Anders<sp/>Bolt-Evensen</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/><sp/><sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/><sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"></highlight></codeline>
+<codeline lineno="13"><highlight class="comment">THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;<sp/>AND</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE<sp/>IMPLIED</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>ARE</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>ANDERS<sp/>BOLT-EVENSEN<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PSQL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PSQL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QLinkedList&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QException&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDebug&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pqxx/pqxx&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pqxx/result&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepqxx" kindref="compound">pqxx</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classpsql" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classpsql" kindref="compound">psql</ref></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpsql" kindref="compound">psql</ref>(QString<sp/>windowTitle);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getUsername();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getPassword();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getHost();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getRows(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>query);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Funksjoner<sp/>som<sp/>angir<sp/>parametere<sp/>for<sp/>å<sp/>koble<sp/>til<sp/>databasen:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setHost(QString<sp/>newHost);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setPassword(QString<sp/>newPassword);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setUsername(QString<sp/>newUser);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Koble<sp/>til<sp/>databasen:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>connectDatabase();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Metoder<sp/>som<sp/>setter<sp/>inn<sp/>ny<sp/>data<sp/>i<sp/>databasen:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>insertApplication(QString<sp/>title,<sp/>QString<sp/>company,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityID,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID,<sp/>QString<sp/>date,<sp/>QString<sp/>motivation);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>insertCity(QString<sp/>cityName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>insertCountry(QString<sp/>countryName);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>insertStatus(QString<sp/>statusName);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Metoder<sp/>som<sp/>oppdaterer<sp/>eksisterende<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateApplication(QString<sp/>title,<sp/>QString<sp/>company,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityID,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID,<sp/>QString<sp/>date,<sp/>QString<sp/>motivation,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateCity(QString<sp/>cityName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateCountry(QString<sp/>countryName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateStatus(QString<sp/>statusname,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Metoder<sp/>som<sp/>sletter<sp/>data<sp/>fra<sp/>databasen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deleteApplication(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>applicationID);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deleteCity(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityID);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deleteCountry(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>deleteStatus(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Metoder<sp/>som<sp/>henter<sp/>og<sp/>setter<sp/>feilmeldinger.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getError();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setError(QString<sp/>msg);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Hente<sp/>resultater.<sp/>Rangert<sp/>alfabetisk<sp/>etter<sp/>datatype<sp/>og<sp/>objekt/peker,<sp/>deretter<sp/>alfabetisk<sp/>etter<sp/>metodenavn</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getApplicationID(QString<sp/>qry);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getCityID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>applicationID);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getCountryID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityID);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getStatusID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>applicationID);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>fillList(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sqlSporring);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;int&gt;<sp/>getSpecificApplicationIDs(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>jobTitle,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>companyName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>cityName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>deadline,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>motivation);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getSpecificJobNames(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>jobTitle,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>companyName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>cityName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>deadline,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>motivation);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getSpecificCompanyNames(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>jobTitle,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>companyName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>cityName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>deadline,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>motivation);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getSpecificCityNames(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>jobTitle,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>companyName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>cityName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>deadline,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>motivation);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getSpecificStatuses(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>jobTitle,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>companyName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>cityName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>deadline,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>motivation);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getSpecificDeadlines(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>jobTitle,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>companyName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>cityName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>deadline,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>motivation);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getSpecificMotivations(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>jobTitle,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>companyName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>cityName,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>status,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>deadline,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>motivation);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getCityNames();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>getStatuses();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCityName(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityNumber);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCompany(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>applicationID);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCountryName(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getDate(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>applicationID);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getStatusName(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getTitle(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>applicationID);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getMotivation(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>applicationID);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>getSpecificApplications();<sp/>//<sp/>Returnerer<sp/>antall<sp/>søknader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>errMsg,<sp/>username,<sp/>host,<sp/>password,<sp/>winTitle;<sp/></highlight><highlight class="comment">//<sp/>winTitle:<sp/>Tittelen<sp/>på<sp/>meldinger<sp/>i<sp/>meldingsbokser.<sp/>errMsg:<sp/>Feilmelding<sp/>som<sp/>settes<sp/>i<sp/>metoder<sp/>som<sp/>ikke<sp/>går<sp/>som<sp/>de<sp/>skal.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>connectionString;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>PSQL_H</highlight></codeline>
+    </programlisting>
+    <location file="psql.h"/>
+  </compounddef>
+</doxygen>

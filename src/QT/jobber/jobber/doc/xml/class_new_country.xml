@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_new_country" kind="class" language="C++" prot="public">
+    <compoundname>NewCountry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_new_country_1afa55435689db70d717b89809309e48a1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewCountry::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="49" column="1" bodyfile="newcountry.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_country_1a6f0827405ccb060fdfa8b9d419951825" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewCountry::close</definition>
+        <argsstring></argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="49" column="1" bodyfile="newcountry.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_country_1a32e123fa985ee6a630cc04e4a4f31dae" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* NewCountry::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="50" column="1" bodyfile="newcountry.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_country_1ac3edd6d06e56a382028dcbbd6e3f0c2c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewCountry::country</definition>
+        <argsstring></argsstring>
+        <name>country</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="51" column="1" bodyfile="newcountry.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_country_1a7a01c4cc29173c8bc2c82aab260bf7cc" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewCountry::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="51" column="1" bodyfile="newcountry.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_country_1a3c53949e1b9a70d1adb21dbd84c07201" prot="private" static="no" mutable="no">
+        <type>Ui::NewCountry *</type>
+        <definition>Ui::NewCountry* NewCountry::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="52" column="1" bodyfile="newcountry.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_new_country_1a0ab1a95a2acd77e953f3a7aac8544880" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewCountry::NewCountry</definition>
+        <argsstring>(QString windowTitle, psql *pg, QWidget *parent=0)</argsstring>
+        <name>NewCountry</name>
+        <param>
+          <type>QString</type>
+          <declname>windowTitle</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_country_1a0ab1a95a2acd77e953f3a7aac8544880" kindref="member">NewCountry::NewCountry</ref> <ref refid="class_new_country" kindref="compound">NewCountry</ref> class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>windowTitle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The title to be used with message boxes (QMessageBox) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the PostgreSQL database class </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="42" column="1" bodyfile="newcountry.cpp" bodystart="35" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_country_1a7144b218fd12616de110d5d73507e57a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewCountry::~NewCountry</definition>
+        <argsstring>()</argsstring>
+        <name>~NewCountry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="43" column="1" bodyfile="newcountry.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_country_1a5d28702b9788a1debf6817443d4a7355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NewCountry::getCountry</definition>
+        <argsstring>()</argsstring>
+        <name>getCountry</name>
+        <briefdescription>
+<para><ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">NewCountry::getCountry</ref> Gets the current country name. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the country </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="44" column="1" bodyfile="newcountry.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_country_1af6fed97011d536e1a29db8112849e36b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCountry::setCountry</definition>
+        <argsstring>(QString newCountry)</argsstring>
+        <name>setCountry</name>
+        <param>
+          <type>QString</type>
+          <declname>newCountry</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_country_1af6fed97011d536e1a29db8112849e36b" kindref="member">NewCountry::setCountry</ref> Sets the name of the country. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCountry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new name of the country </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="45" column="1" bodyfile="newcountry.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_new_country_1af690df4edefac82200910292d4d0dca5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NewCountry::canSave</definition>
+        <argsstring>()</argsstring>
+        <name>canSave</name>
+        <briefdescription>
+<para>NewCountry::canSave Checks if the unsaved changes can be saved or not. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the changes can be saved (getCountry length is &gt;= 1) and false otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="55" column="1" bodyfile="newcountry.cpp" bodystart="85" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_country_1a59867dc78ed3143bdb57834b77728fa9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCountry::closeEvent</definition>
+        <argsstring>(QCloseEvent *event) override</argsstring>
+        <name>closeEvent</name>
+        <param>
+          <type>QCloseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>NewCountry::closeEvent Code to be executed when the window closes. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This pointer points to the QCloseEvent class that contains functions to prvent the window from closing. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="56" column="1" bodyfile="newcountry.cpp" bodystart="98" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_new_country_1a4b47666f7a25a1b4c39ae909a5b0182a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCountry::OKButtonClicked</definition>
+        <argsstring>()</argsstring>
+        <name>OKButtonClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="60" column="1" bodyfile="newcountry.cpp" bodystart="163" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_country_1a0a1e68124f7a18fa24aecc991999c897" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCountry::lineEditCountryNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditCountryNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcountry.h" line="61" column="1" bodyfile="newcountry.cpp" bodystart="156" bodyend="161"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="16">
+        <label>NewCountry</label>
+        <link refid="class_new_country"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>QMainWindow</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="18">
+        <label>NewCountry</label>
+        <link refid="class_new_country"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>QMainWindow</label>
+      </node>
+    </collaborationgraph>
+    <location file="newcountry.h" line="38" column="1" bodyfile="newcountry.h" bodystart="37" bodyend="62"/>
+    <listofallmembers>
+      <member refid="class_new_country_1af690df4edefac82200910292d4d0dca5" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>canSave</name></member>
+      <member refid="class_new_country_1afa55435689db70d717b89809309e48a1" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>changed</name></member>
+      <member refid="class_new_country_1a6f0827405ccb060fdfa8b9d419951825" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>close</name></member>
+      <member refid="class_new_country_1a59867dc78ed3143bdb57834b77728fa9" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>closeEvent</name></member>
+      <member refid="class_new_country_1ac3edd6d06e56a382028dcbbd6e3f0c2c" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>country</name></member>
+      <member refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" prot="public" virt="non-virtual"><scope>NewCountry</scope><name>getCountry</name></member>
+      <member refid="class_new_country_1a0a1e68124f7a18fa24aecc991999c897" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>lineEditCountryNameChanged</name></member>
+      <member refid="class_new_country_1a0ab1a95a2acd77e953f3a7aac8544880" prot="public" virt="non-virtual"><scope>NewCountry</scope><name>NewCountry</name></member>
+      <member refid="class_new_country_1a4b47666f7a25a1b4c39ae909a5b0182a" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>OKButtonClicked</name></member>
+      <member refid="class_new_country_1a32e123fa985ee6a630cc04e4a4f31dae" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>p</name></member>
+      <member refid="class_new_country_1af6fed97011d536e1a29db8112849e36b" prot="public" virt="non-virtual"><scope>NewCountry</scope><name>setCountry</name></member>
+      <member refid="class_new_country_1a3c53949e1b9a70d1adb21dbd84c07201" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>ui</name></member>
+      <member refid="class_new_country_1a7a01c4cc29173c8bc2c82aab260bf7cc" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>winTitle</name></member>
+      <member refid="class_new_country_1a7144b218fd12616de110d5d73507e57a" prot="public" virt="non-virtual"><scope>NewCountry</scope><name>~NewCountry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

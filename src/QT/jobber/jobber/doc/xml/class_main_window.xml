@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_main_window" kind="class" language="C++" prot="public">
+    <compoundname>MainWindow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="mainwindow_8h" local="no">mainwindow.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_main_window_1af6a0a464b2432a13ece4953de0e66441" prot="public" static="no" mutable="no">
+        <type><ref refid="classconnect_psql" kindref="compound">connectPsql</ref> *</type>
+        <definition>connectPsql* MainWindow::cp</definition>
+        <argsstring></argsstring>
+        <name>cp</name>
+        <briefdescription>
+<para>cp A pointer to the <ref refid="classconnect_psql" kindref="compound">connectPsql</ref> class </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="46" column="1" bodyfile="mainwindow.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_main_window_1a35466a70ed47252a0191168126a352a5" prot="private" static="no" mutable="no">
+        <type>Ui::MainWindow *</type>
+        <definition>Ui::MainWindow* MainWindow::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="56" column="1" bodyfile="mainwindow.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a7586a3f325eb1a3251b3359fe002a748" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* MainWindow::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="57" column="1" bodyfile="mainwindow.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1acb444930bdbf7884f4ffb0a795f4b310" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString MainWindow::progName</definition>
+        <argsstring></argsstring>
+        <name>progName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="58" column="1" bodyfile="mainwindow.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_main_window_1a8b244be8b7b7db1b08de2a2acb9409db" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MainWindow::MainWindow</definition>
+        <argsstring>(QWidget *parent=0)</argsstring>
+        <name>MainWindow</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="class_main_window" kindref="compound">MainWindow</ref> Class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="52" column="1" bodyfile="mainwindow.cpp" bodystart="43" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_main_window_1ae98d00a93bc118200eeef9f9bba1dba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MainWindow::~MainWindow</definition>
+        <argsstring>()</argsstring>
+        <name>~MainWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="53" column="1" bodyfile="mainwindow.cpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_main_window_1a2e3be5f32da15065bc69979a331fd05e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_newJob_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_newJob_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="60" column="1" bodyfile="mainwindow.cpp" bodystart="111" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a7e3a94a9b34da2bfe862a9c8a0676225" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_showJobs_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_showJobs_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="61" column="1" bodyfile="mainwindow.cpp" bodystart="104" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1ad58600dc7c0d7f518a035d297fc60cf3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_NewCity_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_NewCity_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="62" column="1" bodyfile="mainwindow.cpp" bodystart="98" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1abf37dceec43fb1150909eec80702e8b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_NewStatus_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_NewStatus_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="63" column="1" bodyfile="mainwindow.cpp" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a5201424858fc59c07b1fa99930047fd3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_ShowCities_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_ShowCities_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="64" column="1" bodyfile="mainwindow.cpp" bodystart="86" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a97575597609e5b060c1e7a84cec5a21e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_ShowStatuses_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_ShowStatuses_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="65" column="1" bodyfile="mainwindow.cpp" bodystart="92" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a5aff5255ffc83644d51e8a6af9500ea5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_NewCountry_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_NewCountry_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="66" column="1" bodyfile="mainwindow.cpp" bodystart="68" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a5a8f403d1782b2d23e4a8db31b043591" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_ShowCountries_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_ShowCountries_Click</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="67" column="1" bodyfile="mainwindow.cpp" bodystart="74" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a868885039ee32b7c941c003d6dfd6fc0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_btnSpecificJobs_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_btnSpecificJobs_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="68" column="1" bodyfile="mainwindow.cpp" bodystart="128" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="class_main_window" kindref="compound">MainWindow</ref> class. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>QMainWindow</label>
+      </node>
+      <node id="5">
+        <label>MainWindow</label>
+        <link refid="class_main_window"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>QMainWindow</label>
+      </node>
+      <node id="7">
+        <label>MainWindow</label>
+        <link refid="class_main_window"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>cp</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>QDialog</label>
+      </node>
+      <node id="9">
+        <label>connectPsql</label>
+        <link refid="classconnect_psql"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>p</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>psql</label>
+        <link refid="classpsql"/>
+      </node>
+    </collaborationgraph>
+    <location file="mainwindow.h" line="39" column="1" bodyfile="mainwindow.h" bodystart="38" bodyend="69"/>
+    <listofallmembers>
+      <member refid="class_main_window_1ad58600dc7c0d7f518a035d297fc60cf3" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_NewCity_Click</name></member>
+      <member refid="class_main_window_1a5aff5255ffc83644d51e8a6af9500ea5" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_NewCountry_Click</name></member>
+      <member refid="class_main_window_1a2e3be5f32da15065bc69979a331fd05e" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_newJob_Click</name></member>
+      <member refid="class_main_window_1abf37dceec43fb1150909eec80702e8b7" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_NewStatus_Click</name></member>
+      <member refid="class_main_window_1a5201424858fc59c07b1fa99930047fd3" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_ShowCities_Click</name></member>
+      <member refid="class_main_window_1a5a8f403d1782b2d23e4a8db31b043591" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_ShowCountries_Click</name></member>
+      <member refid="class_main_window_1a7e3a94a9b34da2bfe862a9c8a0676225" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_showJobs_Click</name></member>
+      <member refid="class_main_window_1a97575597609e5b060c1e7a84cec5a21e" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_ShowStatuses_Click</name></member>
+      <member refid="class_main_window_1af6a0a464b2432a13ece4953de0e66441" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>cp</name></member>
+      <member refid="class_main_window_1a8b244be8b7b7db1b08de2a2acb9409db" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>MainWindow</name></member>
+      <member refid="class_main_window_1a868885039ee32b7c941c003d6dfd6fc0" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_btnSpecificJobs_clicked</name></member>
+      <member refid="class_main_window_1a7586a3f325eb1a3251b3359fe002a748" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>p</name></member>
+      <member refid="class_main_window_1acb444930bdbf7884f4ffb0a795f4b310" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>progName</name></member>
+      <member refid="class_main_window_1a35466a70ed47252a0191168126a352a5" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>ui</name></member>
+      <member refid="class_main_window_1ae98d00a93bc118200eeef9f9bba1dba7" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>~MainWindow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

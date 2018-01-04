@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_new_status" kind="class" language="C++" prot="public">
+    <compoundname>NewStatus</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="newstatus_8h" local="no">newstatus.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_new_status_1a18c1dc0e699eb7bbb1ac8b32e37b3baa" prot="private" static="no" mutable="no">
+        <type>Ui::NewStatus *</type>
+        <definition>Ui::NewStatus* NewStatus::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="50" column="1" bodyfile="newstatus.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_status_1a87989f50fd5955e24f83a397e6d3fc8b" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* NewStatus::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="52" column="1" bodyfile="newstatus.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_status_1aa36e137b56156f35e233daa831bfb80f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewStatus::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="53" column="1" bodyfile="newstatus.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_status_1a6e7c98aca7b9512058b36af1224c9da8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewStatus::close</definition>
+        <argsstring></argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="53" column="1" bodyfile="newstatus.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_status_1a8de417a9675e4da7b7f1f0512daf02c2" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewStatus::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="54" column="1" bodyfile="newstatus.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_status_1a4d2d47cce0add9b63d5b20ab2a5a827a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewStatus::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="54" column="1" bodyfile="newstatus.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_new_status_1a5a09743191f617f006bc89e4b35984bf" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewStatus::NewStatus</definition>
+        <argsstring>(QString windowTitle, psql *pg, QWidget *parent=0)</argsstring>
+        <name>NewStatus</name>
+        <param>
+          <type>QString</type>
+          <declname>windowTitle</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_status" kindref="compound">NewStatus</ref> <ref refid="class_new_status" kindref="compound">NewStatus</ref> class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>windowTitle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The title to be used with message boxes (QMessageBox) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the PostgreSQL database class </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="44" column="1" bodyfile="newstatus.cpp" bodystart="35" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_status_1aa15ee2173f3b5ea50a17fd24db16de77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewStatus::~NewStatus</definition>
+        <argsstring>()</argsstring>
+        <name>~NewStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="45" column="1" bodyfile="newstatus.cpp" bodystart="185" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewStatus::setStatus</definition>
+        <argsstring>(QString newStatus)</argsstring>
+        <name>setStatus</name>
+        <param>
+          <type>QString</type>
+          <declname>newStatus</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" kindref="member">NewStatus::setStatus</ref> Sets the new status name. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the new status </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="46" column="1" bodyfile="newstatus.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_status_1a7ea744ad1645c5954000983d50947154" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NewStatus::getStatus</definition>
+        <argsstring>()</argsstring>
+        <name>getStatus</name>
+        <briefdescription>
+<para><ref refid="class_new_status_1a7ea744ad1645c5954000983d50947154" kindref="member">NewStatus::getStatus</ref> Gets the current status name. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The status name to be returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="47" column="1" bodyfile="newstatus.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_new_status_1af52a4d8e359888497f247bfacd0cd5d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewStatus::closeEvent</definition>
+        <argsstring>(QCloseEvent *event) override</argsstring>
+        <name>closeEvent</name>
+        <param>
+          <type>QCloseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>closeEvent Code to be executed when the window closes </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This pointer points to the QCloseEvent class that contains functions to prvent the window from closing. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="51" column="1" bodyfile="newstatus.cpp" bodystart="88" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_status_1a73cf134c5e4902bdf6093e042d604b8b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NewStatus::canSave</definition>
+        <argsstring>()</argsstring>
+        <name>canSave</name>
+        <briefdescription>
+<para>NewStatus::canSave Checks if the changes can be saved. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the changes can be saved and false otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="55" column="1" bodyfile="newstatus.cpp" bodystart="58" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_new_status_1aafe058165acbee5d3d01cf977bac752f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewStatus::OKButtonClicked</definition>
+        <argsstring>()</argsstring>
+        <name>OKButtonClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="58" column="1" bodyfile="newstatus.cpp" bodystart="152" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_status_1a33b9b56cb6b60f763ed9276ea4cb8d4e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewStatus::lineEditStatusNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditStatusNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newstatus.h" line="59" column="1" bodyfile="newstatus.cpp" bodystart="145" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="class_new_status" kindref="compound">NewStatus</ref> class. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="24">
+        <label>NewStatus</label>
+        <link refid="class_new_status"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>QMainWindow</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="26">
+        <label>NewStatus</label>
+        <link refid="class_new_status"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>QMainWindow</label>
+      </node>
+    </collaborationgraph>
+    <location file="newstatus.h" line="40" column="1" bodyfile="newstatus.h" bodystart="39" bodyend="60"/>
+    <listofallmembers>
+      <member refid="class_new_status_1a73cf134c5e4902bdf6093e042d604b8b" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>canSave</name></member>
+      <member refid="class_new_status_1aa36e137b56156f35e233daa831bfb80f" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>changed</name></member>
+      <member refid="class_new_status_1a6e7c98aca7b9512058b36af1224c9da8" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>close</name></member>
+      <member refid="class_new_status_1af52a4d8e359888497f247bfacd0cd5d6" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>closeEvent</name></member>
+      <member refid="class_new_status_1a7ea744ad1645c5954000983d50947154" prot="public" virt="non-virtual"><scope>NewStatus</scope><name>getStatus</name></member>
+      <member refid="class_new_status_1a33b9b56cb6b60f763ed9276ea4cb8d4e" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>lineEditStatusNameChanged</name></member>
+      <member refid="class_new_status_1a5a09743191f617f006bc89e4b35984bf" prot="public" virt="non-virtual"><scope>NewStatus</scope><name>NewStatus</name></member>
+      <member refid="class_new_status_1aafe058165acbee5d3d01cf977bac752f" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>OKButtonClicked</name></member>
+      <member refid="class_new_status_1a87989f50fd5955e24f83a397e6d3fc8b" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>p</name></member>
+      <member refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" prot="public" virt="non-virtual"><scope>NewStatus</scope><name>setStatus</name></member>
+      <member refid="class_new_status_1a8de417a9675e4da7b7f1f0512daf02c2" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>status</name></member>
+      <member refid="class_new_status_1a18c1dc0e699eb7bbb1ac8b32e37b3baa" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>ui</name></member>
+      <member refid="class_new_status_1a4d2d47cce0add9b63d5b20ab2a5a827a" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>winTitle</name></member>
+      <member refid="class_new_status_1aa15ee2173f3b5ea50a17fd24db16de77" prot="public" virt="non-virtual"><scope>NewStatus</scope><name>~NewStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

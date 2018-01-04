@@ -32,16 +32,16 @@ void \hyperlink{classpsql_a1488a9e4909abd172651b7be240342cb}{set\+Username} (Q\+
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a1488a9e4909abd172651b7be240342cb}{psql\+::set\+Username}\+: Sets the new username \end{DoxyCompactList}\item 
 bool \hyperlink{classpsql_ada485c933df77453629e3821ab19fa4c}{connect\+Database} ()
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ada485c933df77453629e3821ab19fa4c}{psql\+::connect\+Database} Connects to the Postgre\+S\+QL database. \end{DoxyCompactList}\item 
-bool \hyperlink{classpsql_a4073d4f70f2ae6211ba0328c2008407c}{insert\+Application} (Q\+String title, Q\+String company, int city\+ID, int status\+ID, Q\+String date)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a4073d4f70f2ae6211ba0328c2008407c}{psql\+::insert\+Application} Inserts a new job application to the database. \end{DoxyCompactList}\item 
+bool \hyperlink{classpsql_a03f773904e698853caa0fcdb1f5b3809}{insert\+Application} (Q\+String title, Q\+String company, int city\+ID, int status\+ID, Q\+String date, Q\+String motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a03f773904e698853caa0fcdb1f5b3809}{psql\+::insert\+Application} Inserts a new job application to the database. \end{DoxyCompactList}\item 
 bool \hyperlink{classpsql_a767b85014d9df3eac148730f18888d6d}{insert\+City} (Q\+String city\+Name, int country\+ID)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a767b85014d9df3eac148730f18888d6d}{psql\+::insert\+City} Inserts a new city to the database \end{DoxyCompactList}\item 
 bool \hyperlink{classpsql_ab3b5934ce3fbc4be1730d990d4142893}{insert\+Country} (Q\+String country\+Name)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ab3b5934ce3fbc4be1730d990d4142893}{psql\+::insert\+Country} Inserts a new country into the database \end{DoxyCompactList}\item 
 bool \hyperlink{classpsql_a601ee0bdc9430b1d674a857f7c94b767}{insert\+Status} (Q\+String status\+Name)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a601ee0bdc9430b1d674a857f7c94b767}{psql\+::insert\+Status} Inserts a new status to the database. \end{DoxyCompactList}\item 
-bool \hyperlink{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}{update\+Application} (Q\+String title, Q\+String company, int city\+ID, int status\+ID, Q\+String date, int id)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}{psql\+::update\+Application}\+: Updates the current job application \end{DoxyCompactList}\item 
+bool \hyperlink{classpsql_a836eea3c6deb2d6a3a357193a99d6ee7}{update\+Application} (Q\+String title, Q\+String company, int city\+ID, int status\+ID, Q\+String date, Q\+String motivation, int id)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a836eea3c6deb2d6a3a357193a99d6ee7}{psql\+::update\+Application}\+: Updates the current job application \end{DoxyCompactList}\item 
 bool \hyperlink{classpsql_a6adf2ba381783e520c03fe5324dcb010}{update\+City} (Q\+String city\+Name, int country\+ID, int id)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a6adf2ba381783e520c03fe5324dcb010}{psql\+::update\+City} Updates information of an existing city. \end{DoxyCompactList}\item 
 bool \hyperlink{classpsql_ae662278c5fb8ff3471ee1442e69482e2}{update\+Country} (Q\+String country\+Name, int country\+ID)
@@ -71,18 +71,21 @@ int \hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{get\+Status\+ID} (in
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{psql\+::get\+Status\+ID} Returns the status ID of the application based on the application ID provided by the user. \end{DoxyCompactList}\item 
 Q\+List$<$ int $>$ \hyperlink{classpsql_a9a3082a159c962dfcd84e23930f5619b}{fill\+List} (const char $\ast$sql\+Sporring)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a9a3082a159c962dfcd84e23930f5619b}{psql\+::fill\+List} \char`\"{}\+Fills\char`\"{} a Q\+List with integers based on the results of an S\+QL query. \end{DoxyCompactList}\item 
-Q\+List$<$ int $>$ \hyperlink{classpsql_ae262aec447273444deeda34113361e21}{get\+Specific\+Application\+I\+Ds} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ae262aec447273444deeda34113361e21}{psql\+::get\+Specific\+Application\+I\+Ds} Builds a list of application I\+Ds based on search criteria. \end{DoxyCompactList}\item 
-Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a62b208d687607bd78a6502444cecced8}{get\+Specific\+Job\+Names} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a62b208d687607bd78a6502444cecced8}{psql\+::get\+Specific\+Job\+Names} Builds list of job titles based on search criteria. \end{DoxyCompactList}\item 
-Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a47a1c719a9014f94706fdce665fdf21c}{get\+Specific\+Company\+Names} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a47a1c719a9014f94706fdce665fdf21c}{psql\+::get\+Specific\+Company\+Names} Builds a list with name of job company/companies based on search criteria. \end{DoxyCompactList}\item 
-Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_ae337317b29abd16f3a52467d978b04ea}{get\+Specific\+City\+Names} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ae337317b29abd16f3a52467d978b04ea}{psql\+::get\+Specific\+City\+Names} Builds a list of city names in one or more applications based on search criteria. \end{DoxyCompactList}\item 
-Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a7635c79a1991c8271c813dbf02f7d123}{get\+Specific\+Statuses} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a7635c79a1991c8271c813dbf02f7d123}{psql\+::get\+Specific\+Statuses} Builds a list of statuses based on the search criteria. \end{DoxyCompactList}\item 
-Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a880551e9e539e52143a35dee2b07bff6}{get\+Specific\+Deadlines} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a880551e9e539e52143a35dee2b07bff6}{psql\+::get\+Specific\+Deadlines} Builds a list of application deadlines based on search criteria \end{DoxyCompactList}\item 
+Q\+List$<$ int $>$ \hyperlink{classpsql_ab6edb8a2e42d8ac7c4ae29f5b0cb494f}{get\+Specific\+Application\+I\+Ds} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ab6edb8a2e42d8ac7c4ae29f5b0cb494f}{psql\+::get\+Specific\+Application\+I\+Ds} Builds a list of application I\+Ds based on search criteria. \end{DoxyCompactList}\item 
+Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a029f2ef38c4156cc6c67765900c8245f}{get\+Specific\+Job\+Names} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a029f2ef38c4156cc6c67765900c8245f}{psql\+::get\+Specific\+Job\+Names} Builds list of job titles based on search criteria. \end{DoxyCompactList}\item 
+Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_ac2528de5054ba99371d2d796ed32b2b1}{get\+Specific\+Company\+Names} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ac2528de5054ba99371d2d796ed32b2b1}{psql\+::get\+Specific\+Company\+Names} Builds a list with name of job company/companies based on search criteria. \end{DoxyCompactList}\item 
+Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_aace910a1e695138795d6e41765908784}{get\+Specific\+City\+Names} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_aace910a1e695138795d6e41765908784}{psql\+::get\+Specific\+City\+Names} Builds a list of city names in one or more applications based on search criteria. \end{DoxyCompactList}\item 
+Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_aa04154eae71d7cdfd0fb8ab67ac032e7}{get\+Specific\+Statuses} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_aa04154eae71d7cdfd0fb8ab67ac032e7}{psql\+::get\+Specific\+Statuses} Builds a list of statuses based on the search criteria. \end{DoxyCompactList}\item 
+Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a415ebb495b96ac805880401555f72825}{get\+Specific\+Deadlines} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a415ebb495b96ac805880401555f72825}{psql\+::get\+Specific\+Deadlines} Builds a list of application deadlines based on search criteria \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classpsql_a7c86e4ba33784dece1bf897537087a68}\label{classpsql_a7c86e4ba33784dece1bf897537087a68}} 
+Q\+List$<$ Q\+String $>$ {\bfseries get\+Specific\+Motivations} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
+\item 
 Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a42ee0cf90055ba6a7a6f564cf04d8bb8}{get\+City\+Names} ()
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a42ee0cf90055ba6a7a6f564cf04d8bb8}{psql\+::get\+City\+Names} Builds a list of strings that cointain name of all cities in the database. \end{DoxyCompactList}\item 
 Q\+List$<$ Q\+String $>$ \hyperlink{classpsql_a14854d28aabc7e658aea87a7b8b52e5c}{get\+Statuses} ()
@@ -98,7 +101,9 @@ Q\+String \hyperlink{classpsql_a561f96bfe7e9d092077712dd6b186af8}{get\+Date} (in
 Q\+String \hyperlink{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}{get\+Status\+Name} (int s)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}{psql\+::get\+Status\+Name} Returns the current status name \end{DoxyCompactList}\item 
 Q\+String \hyperlink{classpsql_ada9e3be3e0866011edf53e30ec510afc}{get\+Title} (int application\+ID)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ada9e3be3e0866011edf53e30ec510afc}{psql\+::get\+Title} Returns the application title based on the ID provided by the user \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_ada9e3be3e0866011edf53e30ec510afc}{psql\+::get\+Title} Returns the application title based on the ID provided by the user \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classpsql_aca1b2273937491e113089c1547caf49b}{get\+Motivation} (int application\+ID)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classpsql_aca1b2273937491e113089c1547caf49b}{psql\+::get\+Motivation} The the motivation for the job application based on the application ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -355,6 +360,24 @@ The error message.
 \begin{DoxyReturn}{Returns}
 The host\textquotesingle{}s IP address 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_aca1b2273937491e113089c1547caf49b}\label{classpsql_aca1b2273937491e113089c1547caf49b}} 
+\index{psql@{psql}!get\+Motivation@{get\+Motivation}}
+\index{get\+Motivation@{get\+Motivation}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Motivation()}{getMotivation()}}
+{\footnotesize\ttfamily Q\+String psql\+::get\+Motivation (\begin{DoxyParamCaption}\item[{int}]{application\+ID }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classpsql_aca1b2273937491e113089c1547caf49b}{psql\+::get\+Motivation} The the motivation for the job application based on the application ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application\+ID} & The ID of the application in question \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string explaing what motivated the user to apply for this job. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classpsql_a817e5a88f877cac6f843c1e743aec096}\label{classpsql_a817e5a88f877cac6f843c1e743aec096}} 
 \index{psql@{psql}!get\+Password@{get\+Password}}
 \index{get\+Password@{get\+Password}!psql@{psql}}
@@ -368,15 +391,15 @@ The host\textquotesingle{}s IP address
 \begin{DoxyReturn}{Returns}
 The user\textquotesingle{}s password 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_ae262aec447273444deeda34113361e21}\label{classpsql_ae262aec447273444deeda34113361e21}} 
+\mbox{\Hypertarget{classpsql_ab6edb8a2e42d8ac7c4ae29f5b0cb494f}\label{classpsql_ab6edb8a2e42d8ac7c4ae29f5b0cb494f}} 
 \index{psql@{psql}!get\+Specific\+Application\+I\+Ds@{get\+Specific\+Application\+I\+Ds}}
 \index{get\+Specific\+Application\+I\+Ds@{get\+Specific\+Application\+I\+Ds}!psql@{psql}}
 \subsubsection{\texorpdfstring{get\+Specific\+Application\+I\+Ds()}{getSpecificApplicationIDs()}}
-{\footnotesize\ttfamily Q\+List$<$ int $>$ psql\+::get\+Specific\+Application\+I\+Ds (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Q\+List$<$ int $>$ psql\+::get\+Specific\+Application\+I\+Ds (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline,  }\item[{string}]{motivation }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_ae262aec447273444deeda34113361e21}{psql\+::get\+Specific\+Application\+I\+Ds} Builds a list of application I\+Ds based on search criteria. 
+\hyperlink{classpsql_ab6edb8a2e42d8ac7c4ae29f5b0cb494f}{psql\+::get\+Specific\+Application\+I\+Ds} Builds a list of application I\+Ds based on search criteria. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -389,20 +412,22 @@ The user\textquotesingle{}s password
 {\em status} & The status of the application(s) in question. \\
 \hline
 {\em deadline} & The deadline of the application(s) in question. \\
+\hline
+{\em motivation} & An optional text containing the reasons and motivation why the user applied for this job \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A list of integers containing the application I\+D(s). 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_ae337317b29abd16f3a52467d978b04ea}\label{classpsql_ae337317b29abd16f3a52467d978b04ea}} 
+\mbox{\Hypertarget{classpsql_aace910a1e695138795d6e41765908784}\label{classpsql_aace910a1e695138795d6e41765908784}} 
 \index{psql@{psql}!get\+Specific\+City\+Names@{get\+Specific\+City\+Names}}
 \index{get\+Specific\+City\+Names@{get\+Specific\+City\+Names}!psql@{psql}}
 \subsubsection{\texorpdfstring{get\+Specific\+City\+Names()}{getSpecificCityNames()}}
-{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+City\+Names (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+City\+Names (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline,  }\item[{string}]{motivation }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_ae337317b29abd16f3a52467d978b04ea}{psql\+::get\+Specific\+City\+Names} Builds a list of city names in one or more applications based on search criteria. 
+\hyperlink{classpsql_aace910a1e695138795d6e41765908784}{psql\+::get\+Specific\+City\+Names} Builds a list of city names in one or more applications based on search criteria. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -415,20 +440,22 @@ A list of integers containing the application I\+D(s).
 {\em status} & The status of the application(s) in question. \\
 \hline
 {\em deadline} & The deadline of the application(s) in question. \\
+\hline
+{\em motivation} & An optional text containing the reasons and motivation why the user applied for this job \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A list of strings containing the city name(s) that matched the search. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a47a1c719a9014f94706fdce665fdf21c}\label{classpsql_a47a1c719a9014f94706fdce665fdf21c}} 
+\mbox{\Hypertarget{classpsql_ac2528de5054ba99371d2d796ed32b2b1}\label{classpsql_ac2528de5054ba99371d2d796ed32b2b1}} 
 \index{psql@{psql}!get\+Specific\+Company\+Names@{get\+Specific\+Company\+Names}}
 \index{get\+Specific\+Company\+Names@{get\+Specific\+Company\+Names}!psql@{psql}}
 \subsubsection{\texorpdfstring{get\+Specific\+Company\+Names()}{getSpecificCompanyNames()}}
-{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Company\+Names (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Company\+Names (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline,  }\item[{string}]{motivation }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_a47a1c719a9014f94706fdce665fdf21c}{psql\+::get\+Specific\+Company\+Names} Builds a list with name of job company/companies based on search criteria. 
+\hyperlink{classpsql_ac2528de5054ba99371d2d796ed32b2b1}{psql\+::get\+Specific\+Company\+Names} Builds a list with name of job company/companies based on search criteria. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -441,20 +468,22 @@ A list of strings containing the city name(s) that matched the search.
 {\em status} & The status of the application(s) in question. \\
 \hline
 {\em deadline} & The deadline of the application(s) in question. \\
+\hline
+{\em motivation} & An optional text containing the reasons and motivation why the user applied for this job \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A list of strings containing the job companies that matched the search. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a880551e9e539e52143a35dee2b07bff6}\label{classpsql_a880551e9e539e52143a35dee2b07bff6}} 
+\mbox{\Hypertarget{classpsql_a415ebb495b96ac805880401555f72825}\label{classpsql_a415ebb495b96ac805880401555f72825}} 
 \index{psql@{psql}!get\+Specific\+Deadlines@{get\+Specific\+Deadlines}}
 \index{get\+Specific\+Deadlines@{get\+Specific\+Deadlines}!psql@{psql}}
 \subsubsection{\texorpdfstring{get\+Specific\+Deadlines()}{getSpecificDeadlines()}}
-{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Deadlines (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Deadlines (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline,  }\item[{string}]{motivation }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_a880551e9e539e52143a35dee2b07bff6}{psql\+::get\+Specific\+Deadlines} Builds a list of application deadlines based on search criteria 
+\hyperlink{classpsql_a415ebb495b96ac805880401555f72825}{psql\+::get\+Specific\+Deadlines} Builds a list of application deadlines based on search criteria 
 
 
 \begin{DoxyParams}{Parameters}
@@ -467,20 +496,22 @@ A list of strings containing the job companies that matched the search.
 {\em status} & The status of the application(s) in question. \\
 \hline
 {\em deadline} & The deadline of the application(s) in question. \\
+\hline
+{\em motivation} & An optional text containing the reasons and motivation why the user applied for this job \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A list of strings containing the application deadlines that matched the search. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a62b208d687607bd78a6502444cecced8}\label{classpsql_a62b208d687607bd78a6502444cecced8}} 
+\mbox{\Hypertarget{classpsql_a029f2ef38c4156cc6c67765900c8245f}\label{classpsql_a029f2ef38c4156cc6c67765900c8245f}} 
 \index{psql@{psql}!get\+Specific\+Job\+Names@{get\+Specific\+Job\+Names}}
 \index{get\+Specific\+Job\+Names@{get\+Specific\+Job\+Names}!psql@{psql}}
 \subsubsection{\texorpdfstring{get\+Specific\+Job\+Names()}{getSpecificJobNames()}}
-{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Job\+Names (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Job\+Names (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline,  }\item[{string}]{motivation }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_a62b208d687607bd78a6502444cecced8}{psql\+::get\+Specific\+Job\+Names} Builds list of job titles based on search criteria. 
+\hyperlink{classpsql_a029f2ef38c4156cc6c67765900c8245f}{psql\+::get\+Specific\+Job\+Names} Builds list of job titles based on search criteria. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -493,20 +524,22 @@ A list of strings containing the application deadlines that matched the search.
 {\em status} & The status of the application(s) in question. \\
 \hline
 {\em deadline} & The deadline of the application(s) in question. \\
+\hline
+{\em motivation} & An optional text containing the reasons and motivation why the user applied for this job \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A list of strings containing the job names that matched the search. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a7635c79a1991c8271c813dbf02f7d123}\label{classpsql_a7635c79a1991c8271c813dbf02f7d123}} 
+\mbox{\Hypertarget{classpsql_aa04154eae71d7cdfd0fb8ab67ac032e7}\label{classpsql_aa04154eae71d7cdfd0fb8ab67ac032e7}} 
 \index{psql@{psql}!get\+Specific\+Statuses@{get\+Specific\+Statuses}}
 \index{get\+Specific\+Statuses@{get\+Specific\+Statuses}!psql@{psql}}
 \subsubsection{\texorpdfstring{get\+Specific\+Statuses()}{getSpecificStatuses()}}
-{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Statuses (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Q\+List$<$ Q\+String $>$ psql\+::get\+Specific\+Statuses (\begin{DoxyParamCaption}\item[{string}]{job\+Title,  }\item[{string}]{company\+Name,  }\item[{string}]{city\+Name,  }\item[{string}]{status,  }\item[{string}]{deadline,  }\item[{string}]{motivation }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_a7635c79a1991c8271c813dbf02f7d123}{psql\+::get\+Specific\+Statuses} Builds a list of statuses based on the search criteria. 
+\hyperlink{classpsql_aa04154eae71d7cdfd0fb8ab67ac032e7}{psql\+::get\+Specific\+Statuses} Builds a list of statuses based on the search criteria. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -519,6 +552,8 @@ A list of strings containing the job names that matched the search.
 {\em status} & The status of the application(s) in question. \\
 \hline
 {\em deadline} & The deadline of the application(s) in question. \\
+\hline
+{\em motivation} & An optional text containing the reasons and motivation why the user applied for this job \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -604,15 +639,15 @@ the application title on success and \char`\"{}\+Error\char`\"{} on failure.
 \begin{DoxyReturn}{Returns}
 the username 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a4073d4f70f2ae6211ba0328c2008407c}\label{classpsql_a4073d4f70f2ae6211ba0328c2008407c}} 
+\mbox{\Hypertarget{classpsql_a03f773904e698853caa0fcdb1f5b3809}\label{classpsql_a03f773904e698853caa0fcdb1f5b3809}} 
 \index{psql@{psql}!insert\+Application@{insert\+Application}}
 \index{insert\+Application@{insert\+Application}!psql@{psql}}
 \subsubsection{\texorpdfstring{insert\+Application()}{insertApplication()}}
-{\footnotesize\ttfamily bool psql\+::insert\+Application (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{company,  }\item[{int}]{city\+ID,  }\item[{int}]{status\+ID,  }\item[{Q\+String}]{date }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool psql\+::insert\+Application (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{company,  }\item[{int}]{city\+ID,  }\item[{int}]{status\+ID,  }\item[{Q\+String}]{date,  }\item[{Q\+String}]{motivation }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_a4073d4f70f2ae6211ba0328c2008407c}{psql\+::insert\+Application} Inserts a new job application to the database. 
+\hyperlink{classpsql_a03f773904e698853caa0fcdb1f5b3809}{psql\+::insert\+Application} Inserts a new job application to the database. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -746,15 +781,15 @@ True on success and false on failure
 {\em new\+User} & The new username \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}\label{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}} 
+\mbox{\Hypertarget{classpsql_a836eea3c6deb2d6a3a357193a99d6ee7}\label{classpsql_a836eea3c6deb2d6a3a357193a99d6ee7}} 
 \index{psql@{psql}!update\+Application@{update\+Application}}
 \index{update\+Application@{update\+Application}!psql@{psql}}
 \subsubsection{\texorpdfstring{update\+Application()}{updateApplication()}}
-{\footnotesize\ttfamily bool psql\+::update\+Application (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{company,  }\item[{int}]{city\+ID,  }\item[{int}]{status\+ID,  }\item[{Q\+String}]{date,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool psql\+::update\+Application (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{company,  }\item[{int}]{city\+ID,  }\item[{int}]{status\+ID,  }\item[{Q\+String}]{date,  }\item[{Q\+String}]{motivation,  }\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
-\hyperlink{classpsql_a9a9c4c858ae22eac8a9a4572b16500f5}{psql\+::update\+Application}\+: Updates the current job application 
+\hyperlink{classpsql_a836eea3c6deb2d6a3a357193a99d6ee7}{psql\+::update\+Application}\+: Updates the current job application 
 
 
 \begin{DoxyParams}{Parameters}
@@ -767,6 +802,8 @@ True on success and false on failure
 {\em status\+ID} & The status of the new job \\
 \hline
 {\em date} & The new job application deadline \\
+\hline
+{\em motivation} & An optional text containing the reasons and motivation why the user applied for this job \\
 \hline
 {\em id} & The job ID to be updated. \\
 \hline

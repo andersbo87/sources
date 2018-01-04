@@ -1,0 +1,587 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_show_cities" kind="class" language="C++" prot="public">
+    <compoundname>ShowCities</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="showcities_8h" local="no">showcities.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_show_cities_1a654963d7e330f28504785c6f566fc3d8" prot="private" static="no" mutable="no">
+        <type>Ui::ShowCities *</type>
+        <definition>Ui::ShowCities* ShowCities::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="63" column="1" bodyfile="showcities.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1ae584ed28144395d393227a66895696dd" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* ShowCities::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="64" column="1" bodyfile="showcities.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1a42f64916b8239929ba030aa5d1eddda5" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ShowCities::cityName</definition>
+        <argsstring></argsstring>
+        <name>cityName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="65" column="1" bodyfile="showcities.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1af852d38454dccf6e55abe91ffaa52f91" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ShowCities::countryName</definition>
+        <argsstring></argsstring>
+        <name>countryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="65" column="1" bodyfile="showcities.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1a27f6bd616411e533a01ba9d37bb7baec" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ShowCities::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="65" column="1" bodyfile="showcities.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1ae980c1eec5c56fcc56b6ac9cb7213926" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ShowCities::cityID</definition>
+        <argsstring></argsstring>
+        <name>cityID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="66" column="1" bodyfile="showcities.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1a6f7665f15b2843b4e08e3877a7bff995" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ShowCities::countryID</definition>
+        <argsstring></argsstring>
+        <name>countryID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="66" column="1" bodyfile="showcities.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1a807f05a9bcc1be2211e1e4def4a0c47e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ShowCities::lastID</definition>
+        <argsstring></argsstring>
+        <name>lastID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="66" column="1" bodyfile="showcities.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1a9104f71de61c78bf5cd1351599266aa3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ShowCities::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="67" column="1" bodyfile="showcities.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_cities_1ad9d2b08f51c3f096dc1f3d37f0b77bec" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ShowCities::cityIDchanged</definition>
+        <argsstring></argsstring>
+        <name>cityIDchanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="67" column="1" bodyfile="showcities.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_show_cities_1a71a514390bebd22b5e6ecbb6b731979a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ShowCities::ShowCities</definition>
+        <argsstring>(QString title, psql *pg, QWidget *parent=0)</argsstring>
+        <name>ShowCities</name>
+        <param>
+          <type>QString</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="class_show_cities" kindref="compound">ShowCities</ref> The ShowCitis class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the PostgreSQL database </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="49" column="1" bodyfile="showcities.cpp" bodystart="28" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a2b37dc76d5c113c1fe5a1f3cc20b4938" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ShowCities::~ShowCities</definition>
+        <argsstring>()</argsstring>
+        <name>~ShowCities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="50" column="1" bodyfile="showcities.cpp" bodystart="454" bodyend="457"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::getCities</definition>
+        <argsstring>()</argsstring>
+        <name>getCities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="51" column="1" bodyfile="showcities.cpp" bodystart="126" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a7a03bcd5374073d6689aed90cc23ce5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::getCity</definition>
+        <argsstring>(int cityID)</argsstring>
+        <name>getCity</name>
+        <param>
+          <type>int</type>
+          <declname>cityID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="52" column="1" bodyfile="showcities.cpp" bodystart="84" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::setCityID</definition>
+        <argsstring>(int newID)</argsstring>
+        <name>setCityID</name>
+        <param>
+          <type>int</type>
+          <declname>newID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="53" column="1" bodyfile="showcities.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::setCityName</definition>
+        <argsstring>(QString newName)</argsstring>
+        <name>setCityName</name>
+        <param>
+          <type>QString</type>
+          <declname>newName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="54" column="1" bodyfile="showcities.cpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::setCountryID</definition>
+        <argsstring>(int newID)</argsstring>
+        <name>setCountryID</name>
+        <param>
+          <type>int</type>
+          <declname>newID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="55" column="1" bodyfile="showcities.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ShowCities::getCityID</definition>
+        <argsstring>()</argsstring>
+        <name>getCityID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="56" column="1" bodyfile="showcities.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a8fa42e8a5b12579cd04ae2a8ee4a9370" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::getCountryIDs</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryIDs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="57" column="1" bodyfile="showcities.cpp" bodystart="105" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a8f66380734928e926a732a0088c1d998" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ShowCities::getCountryID</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="58" column="1" bodyfile="showcities.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a3640b91c66939d0070c3dd6f5b9eb93c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ShowCities::getCityName</definition>
+        <argsstring>()</argsstring>
+        <name>getCityName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="59" column="1" bodyfile="showcities.cpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ShowCities::getCountryName</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="60" column="1" bodyfile="showcities.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_show_cities_1a2a94c9e1dfc10bfd591f236fd278e7e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::checkChanges</definition>
+        <argsstring>()</argsstring>
+        <name>checkChanges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="68" column="1" bodyfile="showcities.cpp" bodystart="164" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1aa16f8e2104a6424342285edc2d1e78b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ShowCities::isChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="69" column="1" bodyfile="showcities.cpp" bodystart="149" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1ace0a3ca94beaf1301a27cddd417f31ad" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::setChanged</definition>
+        <argsstring>(bool change)</argsstring>
+        <name>setChanged</name>
+        <param>
+          <type>bool</type>
+          <declname>change</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="70" column="1" bodyfile="showcities.cpp" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_cities_1a99aacd915ba6e9a8bc9a6f117eb77c54" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::closeEvent</definition>
+        <argsstring>(QCloseEvent *event) override</argsstring>
+        <name>closeEvent</name>
+        <param>
+          <type>QCloseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="71" column="1" bodyfile="showcities.cpp" bodystart="413" bodyend="452"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_show_cities_1a1f9f7fe93d9f21dc5ae5671903bf6ca1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::comboboxCityIDChanged</definition>
+        <argsstring>()</argsstring>
+        <name>comboboxCityIDChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="74" column="1" bodyfile="showcities.cpp" bodystart="374" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1a912626f9b76404a4efca975ff72fe18d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::comboboxCountryIDChanged</definition>
+        <argsstring>()</argsstring>
+        <name>comboboxCountryIDChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="75" column="1" bodyfile="showcities.cpp" bodystart="405" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::lineEditCityNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditCityNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="76" column="1" bodyfile="showcities.cpp" bodystart="367" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1aed7205043422f828eb01a7a6e8232a0a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::buttonFirstClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonFirstClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="77" column="1" bodyfile="showcities.cpp" bodystart="264" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1ad7b50fcfd00a0dda80e1f18b01b143f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::buttonPreviousClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonPreviousClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="78" column="1" bodyfile="showcities.cpp" bodystart="337" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1a62c401e3d3d9ae4b1aa49c23e1213e89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::buttonNextClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonNextClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="79" column="1" bodyfile="showcities.cpp" bodystart="307" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1a9bfee33c284dd225954bd3e8c907b420" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::buttonLastClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonLastClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="80" column="1" bodyfile="showcities.cpp" bodystart="285" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1a2c111d1f43cca0d08c3fd8d82ef44c5d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::buttonSaveClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonSaveClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="81" column="1" bodyfile="showcities.cpp" bodystart="244" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::buttonDeleteClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonDeleteClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="82" column="1" bodyfile="showcities.cpp" bodystart="200" bodyend="242"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="class_show_cities" kindref="compound">ShowCities</ref> class. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="31">
+        <label>QMainWindow</label>
+      </node>
+      <node id="30">
+        <label>ShowCities</label>
+        <link refid="class_show_cities"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="33">
+        <label>QMainWindow</label>
+      </node>
+      <node id="32">
+        <label>ShowCities</label>
+        <link refid="class_show_cities"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="showcities.h" line="40" column="1" bodyfile="showcities.h" bodystart="39" bodyend="83"/>
+    <listofallmembers>
+      <member refid="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonDeleteClicked</name></member>
+      <member refid="class_show_cities_1aed7205043422f828eb01a7a6e8232a0a" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonFirstClicked</name></member>
+      <member refid="class_show_cities_1a9bfee33c284dd225954bd3e8c907b420" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonLastClicked</name></member>
+      <member refid="class_show_cities_1a62c401e3d3d9ae4b1aa49c23e1213e89" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonNextClicked</name></member>
+      <member refid="class_show_cities_1ad7b50fcfd00a0dda80e1f18b01b143f2" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonPreviousClicked</name></member>
+      <member refid="class_show_cities_1a2c111d1f43cca0d08c3fd8d82ef44c5d" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonSaveClicked</name></member>
+      <member refid="class_show_cities_1a9104f71de61c78bf5cd1351599266aa3" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>changed</name></member>
+      <member refid="class_show_cities_1a2a94c9e1dfc10bfd591f236fd278e7e0" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>checkChanges</name></member>
+      <member refid="class_show_cities_1ae980c1eec5c56fcc56b6ac9cb7213926" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>cityID</name></member>
+      <member refid="class_show_cities_1ad9d2b08f51c3f096dc1f3d37f0b77bec" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>cityIDchanged</name></member>
+      <member refid="class_show_cities_1a42f64916b8239929ba030aa5d1eddda5" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>cityName</name></member>
+      <member refid="class_show_cities_1a99aacd915ba6e9a8bc9a6f117eb77c54" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>closeEvent</name></member>
+      <member refid="class_show_cities_1a1f9f7fe93d9f21dc5ae5671903bf6ca1" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>comboboxCityIDChanged</name></member>
+      <member refid="class_show_cities_1a912626f9b76404a4efca975ff72fe18d" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>comboboxCountryIDChanged</name></member>
+      <member refid="class_show_cities_1a6f7665f15b2843b4e08e3877a7bff995" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>countryID</name></member>
+      <member refid="class_show_cities_1af852d38454dccf6e55abe91ffaa52f91" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>countryName</name></member>
+      <member refid="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>getCities</name></member>
+      <member refid="class_show_cities_1a7a03bcd5374073d6689aed90cc23ce5e" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>getCity</name></member>
+      <member refid="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>getCityID</name></member>
+      <member refid="class_show_cities_1a3640b91c66939d0070c3dd6f5b9eb93c" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>getCityName</name></member>
+      <member refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>getCountryID</name></member>
+      <member refid="class_show_cities_1a8fa42e8a5b12579cd04ae2a8ee4a9370" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>getCountryIDs</name></member>
+      <member refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>getCountryName</name></member>
+      <member refid="class_show_cities_1aa16f8e2104a6424342285edc2d1e78b7" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>isChanged</name></member>
+      <member refid="class_show_cities_1a807f05a9bcc1be2211e1e4def4a0c47e" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>lastID</name></member>
+      <member refid="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>lineEditCityNameChanged</name></member>
+      <member refid="class_show_cities_1ae584ed28144395d393227a66895696dd" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>p</name></member>
+      <member refid="class_show_cities_1ace0a3ca94beaf1301a27cddd417f31ad" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>setChanged</name></member>
+      <member refid="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>setCityID</name></member>
+      <member refid="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>setCityName</name></member>
+      <member refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>setCountryID</name></member>
+      <member refid="class_show_cities_1a71a514390bebd22b5e6ecbb6b731979a" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>ShowCities</name></member>
+      <member refid="class_show_cities_1a654963d7e330f28504785c6f566fc3d8" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>ui</name></member>
+      <member refid="class_show_cities_1a27f6bd616411e533a01ba9d37bb7baec" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>winTitle</name></member>
+      <member refid="class_show_cities_1a2b37dc76d5c113c1fe5a1f3cc20b4938" prot="public" virt="non-virtual"><scope>ShowCities</scope><name>~ShowCities</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

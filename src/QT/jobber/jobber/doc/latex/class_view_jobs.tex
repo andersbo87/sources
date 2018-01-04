@@ -37,6 +37,8 @@ void \hyperlink{class_view_jobs_a55943415fd91377d5f701f7074ba58d6}{set\+Status\+
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_view_jobs_a55943415fd91377d5f701f7074ba58d6}{View\+Jobs\+::set\+Status\+ID} Sets a new status ID for the current job. \end{DoxyCompactList}\item 
 void \hyperlink{class_view_jobs_a7574794410eb40956f343976de97221f}{set\+Date} (Q\+String new\+Date)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_view_jobs_a7574794410eb40956f343976de97221f}{View\+Jobs\+::set\+Date} Sets a new application deadline for the job application. \end{DoxyCompactList}\item 
+void \hyperlink{class_view_jobs_a53bdfabaf2b442841d676f42ebbf975f}{set\+Motivation} (Q\+String new\+Motivation)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_view_jobs_a53bdfabaf2b442841d676f42ebbf975f}{View\+Jobs\+::set\+Motivation} Sets the new job motivation. \end{DoxyCompactList}\item 
 int \hyperlink{class_view_jobs_a086650882ad80acb4074cf697f8cddcb}{get\+Application\+ID} ()
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_view_jobs_a086650882ad80acb4074cf697f8cddcb}{View\+Jobs\+::get\+Application\+ID} Gets the current application ID. \end{DoxyCompactList}\item 
 Q\+String \hyperlink{class_view_jobs_ae78f119d37c77a9e3e457ecfd78d7de3}{get\+Title} ()
@@ -52,6 +54,8 @@ Q\+String \hyperlink{class_view_jobs_af046f9201cc6031e070b4f9b613a35f9}{get\+Dat
 \mbox{\Hypertarget{class_view_jobs_a6cf031afcc4a09dfca54044fdf8c4f7b}\label{class_view_jobs_a6cf031afcc4a09dfca54044fdf8c4f7b}} 
 void \hyperlink{class_view_jobs_a6cf031afcc4a09dfca54044fdf8c4f7b}{get\+City\+I\+Ds} ()
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_view_jobs_a6cf031afcc4a09dfca54044fdf8c4f7b}{View\+Jobs\+::get\+City\+I\+Ds} Fills the combo\+Box\+Town\+ID with all city I\+Ds that exist in the databse. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_view_jobs_a238ec5365ef2c39baa97670769dfedca}{get\+Motivation} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_view_jobs_a238ec5365ef2c39baa97670769dfedca}{View\+Jobs\+::get\+Motivation} Gets the current job motivation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_view_jobs_adabe196e81c74d17c436de1a6ea12099}\label{class_view_jobs_adabe196e81c74d17c436de1a6ea12099}} 
 void \hyperlink{class_view_jobs_adabe196e81c74d17c436de1a6ea12099}{get\+Status\+I\+Ds} ()
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_view_jobs_adabe196e81c74d17c436de1a6ea12099}{View\+Jobs\+::get\+Status\+I\+Ds} Fills the combo\+Box\+Status\+ID with all status I\+Ds that exist in the database. \end{DoxyCompactList}\item 
@@ -169,6 +173,19 @@ the current company.
 \begin{DoxyReturn}{Returns}
 The deadline of the current application. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_view_jobs_a238ec5365ef2c39baa97670769dfedca}\label{class_view_jobs_a238ec5365ef2c39baa97670769dfedca}} 
+\index{View\+Jobs@{View\+Jobs}!get\+Motivation@{get\+Motivation}}
+\index{get\+Motivation@{get\+Motivation}!View\+Jobs@{View\+Jobs}}
+\subsubsection{\texorpdfstring{get\+Motivation()}{getMotivation()}}
+{\footnotesize\ttfamily Q\+String View\+Jobs\+::get\+Motivation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_view_jobs_a238ec5365ef2c39baa97670769dfedca}{View\+Jobs\+::get\+Motivation} Gets the current job motivation. 
+
+\begin{DoxyReturn}{Returns}
+A string containing what motivated the user to apply for this job. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_view_jobs_a91696fde9f0a663bae929390aac8324b}\label{class_view_jobs_a91696fde9f0a663bae929390aac8324b}} 
 \index{View\+Jobs@{View\+Jobs}!get\+Status\+ID@{get\+Status\+ID}}
 \index{get\+Status\+ID@{get\+Status\+ID}!View\+Jobs@{View\+Jobs}}
@@ -281,6 +298,21 @@ True if there are unsaved changes and false otherwise.
 
 \begin{DoxyParams}{Parameters}
 {\em new\+Date} & The new deadline for the current job application. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_view_jobs_a53bdfabaf2b442841d676f42ebbf975f}\label{class_view_jobs_a53bdfabaf2b442841d676f42ebbf975f}} 
+\index{View\+Jobs@{View\+Jobs}!set\+Motivation@{set\+Motivation}}
+\index{set\+Motivation@{set\+Motivation}!View\+Jobs@{View\+Jobs}}
+\subsubsection{\texorpdfstring{set\+Motivation()}{setMotivation()}}
+{\footnotesize\ttfamily void View\+Jobs\+::set\+Motivation (\begin{DoxyParamCaption}\item[{Q\+String}]{new\+Motivation }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_view_jobs_a53bdfabaf2b442841d676f42ebbf975f}{View\+Jobs\+::set\+Motivation} Sets the new job motivation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Motivation} & A string explaining what motivated the user to apply for this job. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_view_jobs_a55943415fd91377d5f701f7074ba58d6}\label{class_view_jobs_a55943415fd91377d5f701f7074ba58d6}} 

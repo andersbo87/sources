@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_show_countries" kind="class" language="C++" prot="public">
+    <compoundname>ShowCountries</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_show_countries_1aecdf2c418bd29719e892e66dc25941f8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ShowCountries::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="57" column="1" bodyfile="showcountries.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1a2234e84db3d017de111195bf2f55a85c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ShowCountries::countryIDchanged</definition>
+        <argsstring></argsstring>
+        <name>countryIDchanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="57" column="1" bodyfile="showcountries.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1a471a77ac81d0de3b57fb855946671637" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ShowCountries::countryID</definition>
+        <argsstring></argsstring>
+        <name>countryID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="58" column="1" bodyfile="showcountries.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1afa51a7756fbb6f0ab079529b63196c3e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ShowCountries::lastID</definition>
+        <argsstring></argsstring>
+        <name>lastID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="58" column="1" bodyfile="showcountries.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1a229e69bd1979469e10e12d4f59144bdc" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* ShowCountries::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="59" column="1" bodyfile="showcountries.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1ad9cb84adec09b17a0bbab337f6077880" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ShowCountries::countryName</definition>
+        <argsstring></argsstring>
+        <name>countryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="60" column="1" bodyfile="showcountries.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1a65416b61c7bb25b712f14323b8377ebb" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ShowCountries::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="60" column="1" bodyfile="showcountries.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1a2720093499b06f65dd85ae376cdd2620" prot="private" static="no" mutable="no">
+        <type>Ui::ShowCountries *</type>
+        <definition>Ui::ShowCountries* ShowCountries::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="61" column="1" bodyfile="showcountries.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_show_countries_1a509e0b6ebeb2fb580e7985b81b3f77e6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ShowCountries::ShowCountries</definition>
+        <argsstring>(QString windowTitle, psql *pg, QWidget *parent=0)</argsstring>
+        <name>ShowCountries</name>
+        <param>
+          <type>QString</type>
+          <declname>windowTitle</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="class_show_countries" kindref="compound">ShowCountries</ref> The <ref refid="class_show_countries" kindref="compound">ShowCountries</ref> class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>windowTitle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The title to be used with message boxes (QMessageBox) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the PostgreSQL database class. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="43" column="1" bodyfile="showcountries.cpp" bodystart="34" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1a5711e1400ed3dd8b14bd71941b3bbe8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ShowCountries::~ShowCountries</definition>
+        <argsstring>()</argsstring>
+        <name>~ShowCountries</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="44" column="1" bodyfile="showcountries.cpp" bodystart="453" bodyend="456"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::getCountries</definition>
+        <argsstring>()</argsstring>
+        <name>getCountries</name>
+        <briefdescription>
+<para><ref refid="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" kindref="member">ShowCountries::getCountries</ref> Builds a QLinkedList of integers. This list is then added to the combobox. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="47" column="1" bodyfile="showcountries.cpp" bodystart="122" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::getCountry</definition>
+        <argsstring>(int countryID)</argsstring>
+        <name>getCountry</name>
+        <param>
+          <type>int</type>
+          <declname>countryID</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">ShowCountries::getCountry</ref> Fetches information about the current country and fills the combobox and textbox with the new information. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>countryID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the country in question. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="48" column="1" bodyfile="showcountries.cpp" bodystart="100" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1a02956713871e89645487500f3c9b77b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ShowCountries::getCountryID</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryID</name>
+        <briefdescription>
+<para><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">ShowCountries::getCountryID</ref> Gets the ID of the current country. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The identification number to be returned </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="49" column="1" bodyfile="showcountries.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ShowCountries::getCountryName</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryName</name>
+        <briefdescription>
+<para><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">ShowCountries::getCountryName</ref> Gets the name of the current country. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the country </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="50" column="1" bodyfile="showcountries.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1aee1d49fc8829a0f240d42ecaac5481d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::getCountryIDs</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryIDs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::setCountryID</definition>
+        <argsstring>(int newID)</argsstring>
+        <name>setCountryID</name>
+        <param>
+          <type>int</type>
+          <declname>newID</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" kindref="member">ShowCountries::setCountryID</ref> Sets the current identification number of a country. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new country ID </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="52" column="1" bodyfile="showcountries.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::setCountryName</definition>
+        <argsstring>(QString newName)</argsstring>
+        <name>setCountryName</name>
+        <param>
+          <type>QString</type>
+          <declname>newName</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" kindref="member">ShowCountries::setCountryName</ref> Sets a new name of the current country. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new name of the country </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="53" column="1" bodyfile="showcountries.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_show_countries_1abf2e5b62a29d2bfbf35e5e7015025b89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::checkChanges</definition>
+        <argsstring>()</argsstring>
+        <name>checkChanges</name>
+        <briefdescription>
+<para>ShowCountries::checkChanges Checks if there are unsaved changes. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="64" column="1" bodyfile="showcountries.cpp" bodystart="169" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1aa9b1e4f6e836624b0cadca512035c176" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::closeEvent</definition>
+        <argsstring>(QCloseEvent *event) override</argsstring>
+        <name>closeEvent</name>
+        <param>
+          <type>QCloseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="65" column="1" bodyfile="showcountries.cpp" bodystart="413" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1aa85731fff2063eca9c9ac5114f129a95" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ShowCountries::isChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isChanged</name>
+        <briefdescription>
+<para>ShowCountries::isChanged Checks if there are unsaved changes in the current record. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if ther have been one or more changes and false otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="66" column="1" bodyfile="showcountries.cpp" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1a26d776d09da9e922174c807e219e0a21" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::setChanged</definition>
+        <argsstring>(bool change)</argsstring>
+        <name>setChanged</name>
+        <param>
+          <type>bool</type>
+          <declname>change</declname>
+        </param>
+        <briefdescription>
+<para>ShowCountries::setChanged Use this method once a change have been saved to the database or if the user is modifying some data. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>change</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if there have been one or more changes and false if the changes have been saved. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="67" column="1" bodyfile="showcountries.cpp" bodystart="160" bodyend="164"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_show_countries_1a62dfc724aaf31d8365444d2a3d695d5a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::buttonFirstClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonFirstClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="70" column="1" bodyfile="showcountries.cpp" bodystart="272" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_countries_1aa569f08023a311da7ceeccdccf8cdb43" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::buttonLastClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonLastClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="71" column="1" bodyfile="showcountries.cpp" bodystart="293" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_countries_1aecc16927cc7d5fb72ebd1f132c247bac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::buttonNextClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonNextClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="72" column="1" bodyfile="showcountries.cpp" bodystart="315" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_countries_1a824fea849685302c29488fcded0c5c65" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::buttonPreviousClicked</definition>
+        <argsstring>()</argsstring>
+        <name>buttonPreviousClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="73" column="1" bodyfile="showcountries.cpp" bodystart="345" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_countries_1a2dd8c9622c5001eb9d3fe70666797e42" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::comboboxCountryIDChanged</definition>
+        <argsstring>()</argsstring>
+        <name>comboboxCountryIDChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="74" column="1" bodyfile="showcountries.cpp" bodystart="375" bodyend="404"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_countries_1a3f6e1184b4cdb13635bc903418e076b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::lineEditCountrynameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditCountrynameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="75" column="1" bodyfile="showcountries.cpp" bodystart="406" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_countries_1abd06adcfa6e0f5b56d4c1e1594704a64" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::btnSaveClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnSaveClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="76" column="1" bodyfile="showcountries.cpp" bodystart="251" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_countries_1a77826fc9d3fc78447da6d2365df7686a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::btnDeleteClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnDeleteClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="77" column="1" bodyfile="showcountries.cpp" bodystart="207" bodyend="249"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="35">
+        <label>QMainWindow</label>
+      </node>
+      <node id="34">
+        <label>ShowCountries</label>
+        <link refid="class_show_countries"/>
+        <childnode refid="35" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="37">
+        <label>QMainWindow</label>
+      </node>
+      <node id="36">
+        <label>ShowCountries</label>
+        <link refid="class_show_countries"/>
+        <childnode refid="37" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="showcountries.h" line="38" column="1" bodyfile="showcountries.h" bodystart="37" bodyend="78"/>
+    <listofallmembers>
+      <member refid="class_show_countries_1a77826fc9d3fc78447da6d2365df7686a" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>btnDeleteClicked</name></member>
+      <member refid="class_show_countries_1abd06adcfa6e0f5b56d4c1e1594704a64" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>btnSaveClicked</name></member>
+      <member refid="class_show_countries_1a62dfc724aaf31d8365444d2a3d695d5a" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonFirstClicked</name></member>
+      <member refid="class_show_countries_1aa569f08023a311da7ceeccdccf8cdb43" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonLastClicked</name></member>
+      <member refid="class_show_countries_1aecc16927cc7d5fb72ebd1f132c247bac" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonNextClicked</name></member>
+      <member refid="class_show_countries_1a824fea849685302c29488fcded0c5c65" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonPreviousClicked</name></member>
+      <member refid="class_show_countries_1aecdf2c418bd29719e892e66dc25941f8" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>changed</name></member>
+      <member refid="class_show_countries_1abf2e5b62a29d2bfbf35e5e7015025b89" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>checkChanges</name></member>
+      <member refid="class_show_countries_1aa9b1e4f6e836624b0cadca512035c176" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>closeEvent</name></member>
+      <member refid="class_show_countries_1a2dd8c9622c5001eb9d3fe70666797e42" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>comboboxCountryIDChanged</name></member>
+      <member refid="class_show_countries_1a471a77ac81d0de3b57fb855946671637" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>countryID</name></member>
+      <member refid="class_show_countries_1a2234e84db3d017de111195bf2f55a85c" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>countryIDchanged</name></member>
+      <member refid="class_show_countries_1ad9cb84adec09b17a0bbab337f6077880" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>countryName</name></member>
+      <member refid="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>getCountries</name></member>
+      <member refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>getCountry</name></member>
+      <member refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>getCountryID</name></member>
+      <member refid="class_show_countries_1aee1d49fc8829a0f240d42ecaac5481d7" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>getCountryIDs</name></member>
+      <member refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>getCountryName</name></member>
+      <member refid="class_show_countries_1aa85731fff2063eca9c9ac5114f129a95" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>isChanged</name></member>
+      <member refid="class_show_countries_1afa51a7756fbb6f0ab079529b63196c3e" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>lastID</name></member>
+      <member refid="class_show_countries_1a3f6e1184b4cdb13635bc903418e076b1" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>lineEditCountrynameChanged</name></member>
+      <member refid="class_show_countries_1a229e69bd1979469e10e12d4f59144bdc" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>p</name></member>
+      <member refid="class_show_countries_1a26d776d09da9e922174c807e219e0a21" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>setChanged</name></member>
+      <member refid="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>setCountryID</name></member>
+      <member refid="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>setCountryName</name></member>
+      <member refid="class_show_countries_1a509e0b6ebeb2fb580e7985b81b3f77e6" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>ShowCountries</name></member>
+      <member refid="class_show_countries_1a2720093499b06f65dd85ae376cdd2620" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>ui</name></member>
+      <member refid="class_show_countries_1a65416b61c7bb25b712f14323b8377ebb" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>winTitle</name></member>
+      <member refid="class_show_countries_1a5711e1400ed3dd8b14bd71941b3bbe8f" prot="public" virt="non-virtual"><scope>ShowCountries</scope><name>~ShowCountries</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

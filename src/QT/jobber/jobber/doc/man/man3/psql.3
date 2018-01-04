@@ -1,4 +1,4 @@
-.TH "psql" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.TH "psql" 3 "Thu Jan 4 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -47,7 +47,7 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::connectDatabase\fP Connects to the PostgreSQL database\&. "
 .ti -1c
-.RI "bool \fBinsertApplication\fP (QString title, QString company, int cityID, int statusID, QString date)"
+.RI "bool \fBinsertApplication\fP (QString title, QString company, int cityID, int statusID, QString date, QString motivation)"
 .br
 .RI "\fBpsql::insertApplication\fP Inserts a new job application to the database\&. "
 .ti -1c
@@ -63,7 +63,7 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::insertStatus\fP Inserts a new status to the database\&. "
 .ti -1c
-.RI "bool \fBupdateApplication\fP (QString title, QString company, int cityID, int statusID, QString date, int id)"
+.RI "bool \fBupdateApplication\fP (QString title, QString company, int cityID, int statusID, QString date, QString motivation, int id)"
 .br
 .RI "\fBpsql::updateApplication\fP: Updates the current job application "
 .ti -1c
@@ -122,29 +122,32 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::fillList\fP 'Fills' a QList with integers based on the results of an SQL query\&. "
 .ti -1c
-.RI "QList< int > \fBgetSpecificApplicationIDs\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.RI "QList< int > \fBgetSpecificApplicationIDs\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 .br
 .RI "\fBpsql::getSpecificApplicationIDs\fP Builds a list of application IDs based on search criteria\&. "
 .ti -1c
-.RI "QList< QString > \fBgetSpecificJobNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.RI "QList< QString > \fBgetSpecificJobNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 .br
 .RI "\fBpsql::getSpecificJobNames\fP Builds list of job titles based on search criteria\&. "
 .ti -1c
-.RI "QList< QString > \fBgetSpecificCompanyNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.RI "QList< QString > \fBgetSpecificCompanyNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 .br
 .RI "\fBpsql::getSpecificCompanyNames\fP Builds a list with name of job company/companies based on search criteria\&. "
 .ti -1c
-.RI "QList< QString > \fBgetSpecificCityNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.RI "QList< QString > \fBgetSpecificCityNames\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 .br
 .RI "\fBpsql::getSpecificCityNames\fP Builds a list of city names in one or more applications based on search criteria\&. "
 .ti -1c
-.RI "QList< QString > \fBgetSpecificStatuses\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.RI "QList< QString > \fBgetSpecificStatuses\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 .br
 .RI "\fBpsql::getSpecificStatuses\fP Builds a list of statuses based on the search criteria\&. "
 .ti -1c
-.RI "QList< QString > \fBgetSpecificDeadlines\fP (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.RI "QList< QString > \fBgetSpecificDeadlines\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 .br
 .RI "\fBpsql::getSpecificDeadlines\fP Builds a list of application deadlines based on search criteria "
+.ti -1c
+.RI "QList< QString > \fBgetSpecificMotivations\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
+.br
 .ti -1c
 .RI "QList< QString > \fBgetCityNames\fP ()"
 .br
@@ -177,6 +180,10 @@ psql \- The psql class\&.
 .RI "QString \fBgetTitle\fP (int applicationID)"
 .br
 .RI "\fBpsql::getTitle\fP Returns the application title based on the ID provided by the user "
+.ti -1c
+.RI "QString \fBgetMotivation\fP (int applicationID)"
+.br
+.RI "\fBpsql::getMotivation\fP The the motivation for the job application based on the application ID\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -402,6 +409,22 @@ The host's IP address
 .RE
 .PP
 
+.SS "QString psql::getMotivation (int applicationID)"
+
+.PP
+\fBpsql::getMotivation\fP The the motivation for the job application based on the application ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplicationID\fP The ID of the application in question 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A string explaing what motivated the user to apply for this job\&. 
+.RE
+.PP
+
 .SS "QString psql::getPassword ()"
 
 .PP
@@ -413,7 +436,7 @@ The user's password
 .RE
 .PP
 
-.SS "QList< int > psql::getSpecificApplicationIDs (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.SS "QList< int > psql::getSpecificApplicationIDs (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 
 .PP
 \fBpsql::getSpecificApplicationIDs\fP Builds a list of application IDs based on search criteria\&. 
@@ -429,6 +452,8 @@ The user's password
 \fIstatus\fP The status of the application(s) in question\&. 
 .br
 \fIdeadline\fP The deadline of the application(s) in question\&. 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
 .RE
 .PP
 \fBReturns:\fP
@@ -437,7 +462,7 @@ A list of integers containing the application ID(s)\&.
 .RE
 .PP
 
-.SS "QList< QString > psql::getSpecificCityNames (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.SS "QList< QString > psql::getSpecificCityNames (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 
 .PP
 \fBpsql::getSpecificCityNames\fP Builds a list of city names in one or more applications based on search criteria\&. 
@@ -453,6 +478,8 @@ A list of integers containing the application ID(s)\&.
 \fIstatus\fP The status of the application(s) in question\&. 
 .br
 \fIdeadline\fP The deadline of the application(s) in question\&. 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
 .RE
 .PP
 \fBReturns:\fP
@@ -461,7 +488,7 @@ A list of strings containing the city name(s) that matched the search\&.
 .RE
 .PP
 
-.SS "QList< QString > psql::getSpecificCompanyNames (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.SS "QList< QString > psql::getSpecificCompanyNames (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 
 .PP
 \fBpsql::getSpecificCompanyNames\fP Builds a list with name of job company/companies based on search criteria\&. 
@@ -477,6 +504,8 @@ A list of strings containing the city name(s) that matched the search\&.
 \fIstatus\fP The status of the application(s) in question\&. 
 .br
 \fIdeadline\fP The deadline of the application(s) in question\&. 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
 .RE
 .PP
 \fBReturns:\fP
@@ -485,7 +514,7 @@ A list of strings containing the job companies that matched the search\&.
 .RE
 .PP
 
-.SS "QList< QString > psql::getSpecificDeadlines (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.SS "QList< QString > psql::getSpecificDeadlines (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 
 .PP
 \fBpsql::getSpecificDeadlines\fP Builds a list of application deadlines based on search criteria 
@@ -501,6 +530,8 @@ A list of strings containing the job companies that matched the search\&.
 \fIstatus\fP The status of the application(s) in question\&. 
 .br
 \fIdeadline\fP The deadline of the application(s) in question\&. 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
 .RE
 .PP
 \fBReturns:\fP
@@ -509,7 +540,7 @@ A list of strings containing the application deadlines that matched the search\&
 .RE
 .PP
 
-.SS "QList< QString > psql::getSpecificJobNames (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.SS "QList< QString > psql::getSpecificJobNames (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 
 .PP
 \fBpsql::getSpecificJobNames\fP Builds list of job titles based on search criteria\&. 
@@ -525,6 +556,8 @@ A list of strings containing the application deadlines that matched the search\&
 \fIstatus\fP The status of the application(s) in question\&. 
 .br
 \fIdeadline\fP The deadline of the application(s) in question\&. 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
 .RE
 .PP
 \fBReturns:\fP
@@ -533,7 +566,7 @@ A list of strings containing the job names that matched the search\&.
 .RE
 .PP
 
-.SS "QList< QString > psql::getSpecificStatuses (string jobTitle, string companyName, string cityName, string status, string deadline)"
+.SS "QList< QString > psql::getSpecificStatuses (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 
 .PP
 \fBpsql::getSpecificStatuses\fP Builds a list of statuses based on the search criteria\&. 
@@ -549,6 +582,8 @@ A list of strings containing the job names that matched the search\&.
 \fIstatus\fP The status of the application(s) in question\&. 
 .br
 \fIdeadline\fP The deadline of the application(s) in question\&. 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
 .RE
 .PP
 \fBReturns:\fP
@@ -627,7 +662,7 @@ the username
 .RE
 .PP
 
-.SS "bool psql::insertApplication (QString title, QString company, int cityID, int statusID, QString date)"
+.SS "bool psql::insertApplication (QString title, QString company, int cityID, int statusID, QString date, QString motivation)"
 
 .PP
 \fBpsql::insertApplication\fP Inserts a new job application to the database\&. 
@@ -745,7 +780,7 @@ True on success and false on failure
 .RE
 .PP
 
-.SS "bool psql::updateApplication (QString title, QString company, int cityID, int statusID, QString date, int id)"
+.SS "bool psql::updateApplication (QString title, QString company, int cityID, int statusID, QString date, QString motivation, int id)"
 
 .PP
 \fBpsql::updateApplication\fP: Updates the current job application 
@@ -761,6 +796,8 @@ True on success and false on failure
 \fIstatusID\fP The status of the new job 
 .br
 \fIdate\fP The new job application deadline 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
 .br
 \fIid\fP The job ID to be updated\&. 
 .RE

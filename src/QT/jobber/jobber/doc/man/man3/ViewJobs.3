@@ -1,4 +1,4 @@
-.TH "ViewJobs" 3 "Mon Nov 27 2017" "Jobber" \" -*- nroff -*-
+.TH "ViewJobs" 3 "Thu Jan 4 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,6 +51,10 @@ Inherits QMainWindow\&.
 .br
 .RI "\fBViewJobs::setDate\fP Sets a new application deadline for the job application\&. "
 .ti -1c
+.RI "void \fBsetMotivation\fP (QString newMotivation)"
+.br
+.RI "\fBViewJobs::setMotivation\fP Sets the new job motivation\&. "
+.ti -1c
 .RI "int \fBgetApplicationID\fP ()"
 .br
 .RI "\fBViewJobs::getApplicationID\fP Gets the current application ID\&. "
@@ -78,6 +82,10 @@ Inherits QMainWindow\&.
 .RI "void \fBgetCityIDs\fP ()"
 .br
 .RI "\fBViewJobs::getCityIDs\fP Fills the comboBoxTownID with all city IDs that exist in the databse\&. "
+.ti -1c
+.RI "QString \fBgetMotivation\fP ()"
+.br
+.RI "\fBViewJobs::getMotivation\fP Gets the current job motivation\&. "
 .ti -1c
 .RI "void \fBgetStatusIDs\fP ()"
 .br
@@ -181,6 +189,17 @@ The deadline of the current application\&.
 .RE
 .PP
 
+.SS "QString ViewJobs::getMotivation ()"
+
+.PP
+\fBViewJobs::getMotivation\fP Gets the current job motivation\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+A string containing what motivated the user to apply for this job\&. 
+.RE
+.PP
+
 .SS "int ViewJobs::getStatusID ()"
 
 .PP
@@ -266,6 +285,17 @@ True if there are unsaved changes and false otherwise\&.
 \fBParameters:\fP
 .RS 4
 \fInewDate\fP The new deadline for the current job application\&. 
+.RE
+.PP
+
+.SS "void ViewJobs::setMotivation (QString newMotivation)"
+
+.PP
+\fBViewJobs::setMotivation\fP Sets the new job motivation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewMotivation\fP A string explaining what motivated the user to apply for this job\&. 
 .RE
 .PP
 

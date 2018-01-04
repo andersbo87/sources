@@ -1,0 +1,351 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_new_city" kind="class" language="C++" prot="public">
+    <compoundname>NewCity</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="newcity_8h" local="no">newcity.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_new_city_1ac15d48a008e388ca11c5a643371399ab" prot="private" static="no" mutable="no">
+        <type>Ui::NewCity *</type>
+        <definition>Ui::NewCity* NewCity::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="58" column="1" bodyfile="newcity.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_city_1a7f74bcb090b336907807c6f4767a0981" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* NewCity::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="59" column="1" bodyfile="newcity.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_city_1a7a6a715a230c4959d8f13c69e270f3ae" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NewCity::countryID</definition>
+        <argsstring></argsstring>
+        <name>countryID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="63" column="1" bodyfile="newcity.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_city_1a830a1f7714e5ff824211dcf9c3cac2e6" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewCity::cityName</definition>
+        <argsstring></argsstring>
+        <name>cityName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="64" column="1" bodyfile="newcity.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_city_1a041a06d51ad026d68829d1b345dc0e19" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewCity::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="64" column="1" bodyfile="newcity.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_city_1afc8a2c73852d26baf7cf55234dad7438" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewCity::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="65" column="1" bodyfile="newcity.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_city_1a566e62b57c0d7eb3af04d702a5a4414d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewCity::close</definition>
+        <argsstring></argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="65" column="1" bodyfile="newcity.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_new_city_1a8b626e1fe480368bc7c2f819c1de6a19" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewCity::NewCity</definition>
+        <argsstring>(QString windowTitle, psql *pg, QWidget *parent=0)</argsstring>
+        <name>NewCity</name>
+        <param>
+          <type>QString</type>
+          <declname>windowTitle</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_city" kindref="compound">NewCity</ref> The <ref refid="class_new_city" kindref="compound">NewCity</ref> class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the PostgreSQL database </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="49" column="1" bodyfile="newcity.cpp" bodystart="31" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_city_1a8fc9591777da4867339c9f78487b8d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewCity::~NewCity</definition>
+        <argsstring>()</argsstring>
+        <name>~NewCity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="50" column="1" bodyfile="newcity.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_city_1a8a96f2c58640c96faf74e1f3bb956e4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCity::setCountryID</definition>
+        <argsstring>(int newCountryID)</argsstring>
+        <name>setCountryID</name>
+        <param>
+          <type>int</type>
+          <declname>newCountryID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="51" column="1" bodyfile="newcity.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_city_1a743baefdc6604f1bf8da124056939b0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int NewCity::getCountryID</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="52" column="1" bodyfile="newcity.cpp" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_city_1afe093fcb1aa6623e896c52ea35ff0481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCity::setCityName</definition>
+        <argsstring>(QString name)</argsstring>
+        <name>setCityName</name>
+        <param>
+          <type>QString</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="53" column="1" bodyfile="newcity.cpp" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_city_1a3be62538974fa100134d694546608877" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NewCity::getCityName</definition>
+        <argsstring>()</argsstring>
+        <name>getCityName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="54" column="1" bodyfile="newcity.cpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_new_city_1a3c81cef24f80fa70227434f8f5780e20" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCity::closeEvent</definition>
+        <argsstring>(QCloseEvent *event) override</argsstring>
+        <name>closeEvent</name>
+        <param>
+          <type>QCloseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="60" column="1" bodyfile="newcity.cpp" bodystart="159" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_city_1a06d5d3e09c9186231fe7024a0a551557" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCity::getCountryIDs</definition>
+        <argsstring>()</argsstring>
+        <name>getCountryIDs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="61" column="1" bodyfile="newcity.cpp" bodystart="58" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_city_1a120817ae5d3c36e2d1edd6d1eee8aacc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NewCity::canSave</definition>
+        <argsstring>()</argsstring>
+        <name>canSave</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="62" column="1" bodyfile="newcity.cpp" bodystart="110" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_new_city_1a5d599f8c8f1aa2f2b5bbdfed9b16d14f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCity::OKButtonClicked</definition>
+        <argsstring>()</argsstring>
+        <name>OKButtonClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="69" column="1" bodyfile="newcity.cpp" bodystart="119" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_city_1ab84eb55dd150c893f70a3370a0412573" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCity::countryIDchanged</definition>
+        <argsstring>()</argsstring>
+        <name>countryIDchanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="70" column="1" bodyfile="newcity.cpp" bodystart="86" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_city_1a124e63ad2a05d48097b5d40e3f134c7f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewCity::lineEditCityNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditCityNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newcity.h" line="71" column="1" bodyfile="newcity.cpp" bodystart="103" bodyend="108"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="class_new_city" kindref="compound">NewCity</ref> class. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="12">
+        <label>NewCity</label>
+        <link refid="class_new_city"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>QMainWindow</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="14">
+        <label>NewCity</label>
+        <link refid="class_new_city"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>QMainWindow</label>
+      </node>
+    </collaborationgraph>
+    <location file="newcity.h" line="40" column="1" bodyfile="newcity.h" bodystart="39" bodyend="72"/>
+    <listofallmembers>
+      <member refid="class_new_city_1a120817ae5d3c36e2d1edd6d1eee8aacc" prot="private" virt="non-virtual"><scope>NewCity</scope><name>canSave</name></member>
+      <member refid="class_new_city_1afc8a2c73852d26baf7cf55234dad7438" prot="private" virt="non-virtual"><scope>NewCity</scope><name>changed</name></member>
+      <member refid="class_new_city_1a830a1f7714e5ff824211dcf9c3cac2e6" prot="private" virt="non-virtual"><scope>NewCity</scope><name>cityName</name></member>
+      <member refid="class_new_city_1a566e62b57c0d7eb3af04d702a5a4414d" prot="private" virt="non-virtual"><scope>NewCity</scope><name>close</name></member>
+      <member refid="class_new_city_1a3c81cef24f80fa70227434f8f5780e20" prot="private" virt="non-virtual"><scope>NewCity</scope><name>closeEvent</name></member>
+      <member refid="class_new_city_1a7a6a715a230c4959d8f13c69e270f3ae" prot="private" virt="non-virtual"><scope>NewCity</scope><name>countryID</name></member>
+      <member refid="class_new_city_1ab84eb55dd150c893f70a3370a0412573" prot="private" virt="non-virtual"><scope>NewCity</scope><name>countryIDchanged</name></member>
+      <member refid="class_new_city_1a3be62538974fa100134d694546608877" prot="public" virt="non-virtual"><scope>NewCity</scope><name>getCityName</name></member>
+      <member refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" prot="public" virt="non-virtual"><scope>NewCity</scope><name>getCountryID</name></member>
+      <member refid="class_new_city_1a06d5d3e09c9186231fe7024a0a551557" prot="private" virt="non-virtual"><scope>NewCity</scope><name>getCountryIDs</name></member>
+      <member refid="class_new_city_1a124e63ad2a05d48097b5d40e3f134c7f" prot="private" virt="non-virtual"><scope>NewCity</scope><name>lineEditCityNameChanged</name></member>
+      <member refid="class_new_city_1a8b626e1fe480368bc7c2f819c1de6a19" prot="public" virt="non-virtual"><scope>NewCity</scope><name>NewCity</name></member>
+      <member refid="class_new_city_1a5d599f8c8f1aa2f2b5bbdfed9b16d14f" prot="private" virt="non-virtual"><scope>NewCity</scope><name>OKButtonClicked</name></member>
+      <member refid="class_new_city_1a7f74bcb090b336907807c6f4767a0981" prot="private" virt="non-virtual"><scope>NewCity</scope><name>p</name></member>
+      <member refid="class_new_city_1afe093fcb1aa6623e896c52ea35ff0481" prot="public" virt="non-virtual"><scope>NewCity</scope><name>setCityName</name></member>
+      <member refid="class_new_city_1a8a96f2c58640c96faf74e1f3bb956e4e" prot="public" virt="non-virtual"><scope>NewCity</scope><name>setCountryID</name></member>
+      <member refid="class_new_city_1ac15d48a008e388ca11c5a643371399ab" prot="private" virt="non-virtual"><scope>NewCity</scope><name>ui</name></member>
+      <member refid="class_new_city_1a041a06d51ad026d68829d1b345dc0e19" prot="private" virt="non-virtual"><scope>NewCity</scope><name>winTitle</name></member>
+      <member refid="class_new_city_1a8fc9591777da4867339c9f78487b8d69" prot="public" virt="non-virtual"><scope>NewCity</scope><name>~NewCity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,682 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_new_job" kind="class" language="C++" prot="public">
+    <compoundname>NewJob</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="newjob_8h" local="no">newjob.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_new_job_1a5f6d817870d8302892ec47a1f6bf3a2e" prot="private" static="no" mutable="no">
+        <type>Ui::NewJob *</type>
+        <definition>Ui::NewJob* NewJob::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="73" column="1" bodyfile="newjob.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1a1fc1065b8c1396a8677235f5d2cb04d3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewJob::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="77" column="1" bodyfile="newjob.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1a99053912fee4f7dbcca4f4e3d984b7cb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NewJob::close</definition>
+        <argsstring></argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="77" column="1" bodyfile="newjob.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1ad0c1c8b4b8dcc3cfb505d31a900d1232" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewJob::jobTitle</definition>
+        <argsstring></argsstring>
+        <name>jobTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="79" column="1" bodyfile="newjob.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1aa01ddb8db4ea6b178dfc1bac71ce8563" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewJob::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="79" column="1" bodyfile="newjob.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1a4c3babb94b88ae1b2ac90377c218eec9" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewJob::company</definition>
+        <argsstring></argsstring>
+        <name>company</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="79" column="1" bodyfile="newjob.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1ab7c654312f45fc38844daebc32fc9224" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewJob::date</definition>
+        <argsstring></argsstring>
+        <name>date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="79" column="1" bodyfile="newjob.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1ae0b682bb995886b7d3455542e079aa81" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString NewJob::motivation</definition>
+        <argsstring></argsstring>
+        <name>motivation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="79" column="1" bodyfile="newjob.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1a742090337f791e715e2915607001e595" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NewJob::statusid</definition>
+        <argsstring></argsstring>
+        <name>statusid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="80" column="1" bodyfile="newjob.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1aee375a7e0e5a53eefb10086515f56ce9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NewJob::cityid</definition>
+        <argsstring></argsstring>
+        <name>cityid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="80" column="1" bodyfile="newjob.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_new_job_1a254a8a24f265abf9d9414c6169aee493" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* NewJob::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="81" column="1" bodyfile="newjob.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_new_job_1a489279a9ec91bcac74d7dad65eb2f85a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewJob::NewJob</definition>
+        <argsstring>(QString windowTitle, psql *pg, QWidget *parent=0)</argsstring>
+        <name>NewJob</name>
+        <param>
+          <type>QString</type>
+          <declname>windowTitle</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_job" kindref="compound">NewJob</ref> The <ref refid="class_new_job" kindref="compound">NewJob</ref> class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the PostgreSQL database. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="51" column="1" bodyfile="newjob.cpp" bodystart="29" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1abd7bef6f7fa91dccf1bd8eddfbbac931" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NewJob::~NewJob</definition>
+        <argsstring>()</argsstring>
+        <name>~NewJob</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="52" column="1" bodyfile="newjob.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1ae8c2b576f2ea6f444776e6d944f0d767" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::setTitle</definition>
+        <argsstring>(QString newTitle)</argsstring>
+        <name>setTitle</name>
+        <param>
+          <type>QString</type>
+          <declname>newTitle</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_job_1ae8c2b576f2ea6f444776e6d944f0d767" kindref="member">NewJob::setTitle</ref>: Sets a new job title. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newTitle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new job title. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="53" column="1" bodyfile="newjob.cpp" bodystart="302" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1ad9f522f4a6a45348ecc3ab1229b5eabb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::setCompany</definition>
+        <argsstring>(QString newCompany)</argsstring>
+        <name>setCompany</name>
+        <param>
+          <type>QString</type>
+          <declname>newCompany</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_job_1ad9f522f4a6a45348ecc3ab1229b5eabb" kindref="member">NewJob::setCompany</ref>: Sets a new job company. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCompany</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new job company </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="54" column="1" bodyfile="newjob.cpp" bodystart="311" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1a715852b239121af2b12ce36eded8faa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::setCityID</definition>
+        <argsstring>(int newCityID)</argsstring>
+        <name>setCityID</name>
+        <param>
+          <type>int</type>
+          <declname>newCityID</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_job_1a715852b239121af2b12ce36eded8faa0" kindref="member">NewJob::setCityID</ref>: Sets the ID of the city in which the job is located. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCityID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ID of the city in which the job is located. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="55" column="1" bodyfile="newjob.cpp" bodystart="320" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1aa184d2046d0e60e82cd5840c40b99bed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::setStatusID</definition>
+        <argsstring>(int newStatusID)</argsstring>
+        <name>setStatusID</name>
+        <param>
+          <type>int</type>
+          <declname>newStatusID</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_job_1aa184d2046d0e60e82cd5840c40b99bed" kindref="member">NewJob::setStatusID</ref>: Sets the status ID of the job application. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newStatusID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new status ID of the job application </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="56" column="1" bodyfile="newjob.cpp" bodystart="329" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1a0a1d9067e72f797ad3b1f01d44fedb0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::setDate</definition>
+        <argsstring>(QString newDate)</argsstring>
+        <name>setDate</name>
+        <param>
+          <type>QString</type>
+          <declname>newDate</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_job_1a0a1d9067e72f797ad3b1f01d44fedb0f" kindref="member">NewJob::setDate</ref>: Sets the deadline for when the job application has to be sent. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newDate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The deadline of the new job. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="57" column="1" bodyfile="newjob.cpp" bodystart="338" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1a3ddb9ee8bccdf069711406effb9d7dcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::setMotivation</definition>
+        <argsstring>(QString newMotivation)</argsstring>
+        <name>setMotivation</name>
+        <param>
+          <type>QString</type>
+          <declname>newMotivation</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="class_new_job_1a3ddb9ee8bccdf069711406effb9d7dcd" kindref="member">NewJob::setMotivation</ref> Sets the motivation for the current job. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newMotivation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string containing information about what motivated the user to apply for this job. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="58" column="1" bodyfile="newjob.cpp" bodystart="347" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1aa93c07712d80644b828994a01993c27c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NewJob::getTitle</definition>
+        <argsstring>()</argsstring>
+        <name>getTitle</name>
+        <briefdescription>
+<para><ref refid="class_new_job_1aa93c07712d80644b828994a01993c27c" kindref="member">NewJob::getTitle</ref>: Gets the position title. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The position title </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="59" column="1" bodyfile="newjob.cpp" bodystart="360" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1ad4680ae9c009b90ce751c3c5fe60cdb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NewJob::getCompany</definition>
+        <argsstring>()</argsstring>
+        <name>getCompany</name>
+        <briefdescription>
+<para><ref refid="class_new_job_1ad4680ae9c009b90ce751c3c5fe60cdb5" kindref="member">NewJob::getCompany</ref>: Gets the name of the company. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the company </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="60" column="1" bodyfile="newjob.cpp" bodystart="369" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1aed4a9a6fa7eab69062c1d36afd58cd75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int NewJob::getCityID</definition>
+        <argsstring>()</argsstring>
+        <name>getCityID</name>
+        <briefdescription>
+<para><ref refid="class_new_job_1aed4a9a6fa7eab69062c1d36afd58cd75" kindref="member">NewJob::getCityID</ref>: Gets the ID of the city where the job is located. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the ID of the city where the job is located. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="61" column="1" bodyfile="newjob.cpp" bodystart="378" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1aebbe015a22f5dbf60a34c33dd5c5a8e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int NewJob::getStatusID</definition>
+        <argsstring>()</argsstring>
+        <name>getStatusID</name>
+        <briefdescription>
+<para><ref refid="class_new_job_1aebbe015a22f5dbf60a34c33dd5c5a8e7" kindref="member">NewJob::getStatusID</ref>: Gets the current status ID of the job. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the ID of the job&apos;s status </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="62" column="1" bodyfile="newjob.cpp" bodystart="387" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1abe92b6bce4e8e3485f59554a2cbad1bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NewJob::getDate</definition>
+        <argsstring>()</argsstring>
+        <name>getDate</name>
+        <briefdescription>
+<para><ref refid="class_new_job_1abe92b6bce4e8e3485f59554a2cbad1bc" kindref="member">NewJob::getDate</ref>: Gets the job&apos;s current application deadline. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The deadline of the job </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="63" column="1" bodyfile="newjob.cpp" bodystart="396" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1a665113a114684439ed3705c8c5f8eabf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString NewJob::getMotivation</definition>
+        <argsstring>()</argsstring>
+        <name>getMotivation</name>
+        <briefdescription>
+<para><ref refid="class_new_job_1a665113a114684439ed3705c8c5f8eabf" kindref="member">NewJob::getMotivation</ref> Gets the job&apos;s current motivations (what motivated the user to apply for this job?) </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="64" column="1" bodyfile="newjob.cpp" bodystart="405" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1a84f6390f63ce01fb860b375f53f9c68d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::closeEvent</definition>
+        <argsstring>(QCloseEvent *event) override</argsstring>
+        <name>closeEvent</name>
+        <param>
+          <type>QCloseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>closeEvent Code to be executed when the window closes </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This pointer points to the QCloseEvent class that contains functions to prvent the window from closing. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="70" column="1" bodyfile="newjob.cpp" bodystart="236" bodyend="293"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_new_job_1a84ccd88dc5b91c3a8bb023ce21d73908" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NewJob::canSave</definition>
+        <argsstring>()</argsstring>
+        <name>canSave</name>
+        <briefdescription>
+<para>Checks if all textboxes contains at least one character. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if all textboxes has at least one character, and false otherwise. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="74" column="1" bodyfile="newjob.cpp" bodystart="219" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1af6a55338f7b75888991a428a7cfe8860" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::getCityIDs</definition>
+        <argsstring>()</argsstring>
+        <name>getCityIDs</name>
+        <briefdescription>
+<para>Creates a list of city IDs to be added to a combobox. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="75" column="1" bodyfile="newjob.cpp" bodystart="106" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_new_job_1ae62f1e1a4f6953ae0551d72de5d723f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::getStatusIDs</definition>
+        <argsstring>()</argsstring>
+        <name>getStatusIDs</name>
+        <briefdescription>
+<para>Creates a list of status IDs to be added to a combobox. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="76" column="1" bodyfile="newjob.cpp" bodystart="132" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_new_job_1a605a7a6b8aa165d4b556df07b754b552" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::titleTextChanged</definition>
+        <argsstring>()</argsstring>
+        <name>titleTextChanged</name>
+        <briefdescription>
+<para>Executes when the contents of the text box lineEditTitle is changed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="84" column="1" bodyfile="newjob.cpp" bodystart="158" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_job_1ada52e101b8c61c0e15555f15b4ea09e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::companyTextChanged</definition>
+        <argsstring>()</argsstring>
+        <name>companyTextChanged</name>
+        <briefdescription>
+<para>Executes when the contents of the text box lineEditCompany is changed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="85" column="1" bodyfile="newjob.cpp" bodystart="178" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_job_1a140c224ad2f2de3629300a34831e1ece" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::cityIDchanged</definition>
+        <argsstring>()</argsstring>
+        <name>cityIDchanged</name>
+        <briefdescription>
+<para>Executes when the selected item of the combobox comboBoxStedID is changed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="86" column="1" bodyfile="newjob.cpp" bodystart="188" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_job_1a311f7cd158f34921a7ddb47f5ee6ab58" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::statusIDchanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusIDchanged</name>
+        <briefdescription>
+<para>Executes when the selected item of the combobox comboBoxStatusID is changed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="87" column="1" bodyfile="newjob.cpp" bodystart="198" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_job_1ac8a5b6ee543c75322d1738e1b679fb5c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::dateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>dateChanged</name>
+        <briefdescription>
+<para>Executes when the contents of the text box lineEditDate is changed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="88" column="1" bodyfile="newjob.cpp" bodystart="208" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_job_1a593cb6c241e3e7908e4b979d180dd350" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::motivationTextChanged</definition>
+        <argsstring>()</argsstring>
+        <name>motivationTextChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="89" column="1" bodyfile="newjob.cpp" bodystart="165" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_job_1acd8db3a9c080ad263bca1db5d2975b3d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::OKButtonClicked</definition>
+        <argsstring>()</argsstring>
+        <name>OKButtonClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="90" column="1" bodyfile="newjob.cpp" bodystart="61" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_new_job_1a37c984e02936a80e253c278857ca9a3f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NewJob::CancelButtonClicked</definition>
+        <argsstring>()</argsstring>
+        <name>CancelButtonClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="newjob.h" line="91" column="1" bodyfile="newjob.cpp" bodystart="96" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="class_new_job" kindref="compound">NewJob</ref> class. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="20">
+        <label>NewJob</label>
+        <link refid="class_new_job"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>QMainWindow</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="22">
+        <label>NewJob</label>
+        <link refid="class_new_job"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>QMainWindow</label>
+      </node>
+    </collaborationgraph>
+    <location file="newjob.h" line="42" column="1" bodyfile="newjob.h" bodystart="41" bodyend="92"/>
+    <listofallmembers>
+      <member refid="class_new_job_1a37c984e02936a80e253c278857ca9a3f" prot="private" virt="non-virtual"><scope>NewJob</scope><name>CancelButtonClicked</name></member>
+      <member refid="class_new_job_1a84ccd88dc5b91c3a8bb023ce21d73908" prot="private" virt="non-virtual"><scope>NewJob</scope><name>canSave</name></member>
+      <member refid="class_new_job_1a1fc1065b8c1396a8677235f5d2cb04d3" prot="private" virt="non-virtual"><scope>NewJob</scope><name>changed</name></member>
+      <member refid="class_new_job_1aee375a7e0e5a53eefb10086515f56ce9" prot="private" virt="non-virtual"><scope>NewJob</scope><name>cityid</name></member>
+      <member refid="class_new_job_1a140c224ad2f2de3629300a34831e1ece" prot="private" virt="non-virtual"><scope>NewJob</scope><name>cityIDchanged</name></member>
+      <member refid="class_new_job_1a99053912fee4f7dbcca4f4e3d984b7cb" prot="private" virt="non-virtual"><scope>NewJob</scope><name>close</name></member>
+      <member refid="class_new_job_1a84f6390f63ce01fb860b375f53f9c68d" prot="public" virt="non-virtual"><scope>NewJob</scope><name>closeEvent</name></member>
+      <member refid="class_new_job_1a4c3babb94b88ae1b2ac90377c218eec9" prot="private" virt="non-virtual"><scope>NewJob</scope><name>company</name></member>
+      <member refid="class_new_job_1ada52e101b8c61c0e15555f15b4ea09e4" prot="private" virt="non-virtual"><scope>NewJob</scope><name>companyTextChanged</name></member>
+      <member refid="class_new_job_1ab7c654312f45fc38844daebc32fc9224" prot="private" virt="non-virtual"><scope>NewJob</scope><name>date</name></member>
+      <member refid="class_new_job_1ac8a5b6ee543c75322d1738e1b679fb5c" prot="private" virt="non-virtual"><scope>NewJob</scope><name>dateChanged</name></member>
+      <member refid="class_new_job_1aed4a9a6fa7eab69062c1d36afd58cd75" prot="public" virt="non-virtual"><scope>NewJob</scope><name>getCityID</name></member>
+      <member refid="class_new_job_1af6a55338f7b75888991a428a7cfe8860" prot="private" virt="non-virtual"><scope>NewJob</scope><name>getCityIDs</name></member>
+      <member refid="class_new_job_1ad4680ae9c009b90ce751c3c5fe60cdb5" prot="public" virt="non-virtual"><scope>NewJob</scope><name>getCompany</name></member>
+      <member refid="class_new_job_1abe92b6bce4e8e3485f59554a2cbad1bc" prot="public" virt="non-virtual"><scope>NewJob</scope><name>getDate</name></member>
+      <member refid="class_new_job_1a665113a114684439ed3705c8c5f8eabf" prot="public" virt="non-virtual"><scope>NewJob</scope><name>getMotivation</name></member>
+      <member refid="class_new_job_1aebbe015a22f5dbf60a34c33dd5c5a8e7" prot="public" virt="non-virtual"><scope>NewJob</scope><name>getStatusID</name></member>
+      <member refid="class_new_job_1ae62f1e1a4f6953ae0551d72de5d723f4" prot="private" virt="non-virtual"><scope>NewJob</scope><name>getStatusIDs</name></member>
+      <member refid="class_new_job_1aa93c07712d80644b828994a01993c27c" prot="public" virt="non-virtual"><scope>NewJob</scope><name>getTitle</name></member>
+      <member refid="class_new_job_1ad0c1c8b4b8dcc3cfb505d31a900d1232" prot="private" virt="non-virtual"><scope>NewJob</scope><name>jobTitle</name></member>
+      <member refid="class_new_job_1ae0b682bb995886b7d3455542e079aa81" prot="private" virt="non-virtual"><scope>NewJob</scope><name>motivation</name></member>
+      <member refid="class_new_job_1a593cb6c241e3e7908e4b979d180dd350" prot="private" virt="non-virtual"><scope>NewJob</scope><name>motivationTextChanged</name></member>
+      <member refid="class_new_job_1a489279a9ec91bcac74d7dad65eb2f85a" prot="public" virt="non-virtual"><scope>NewJob</scope><name>NewJob</name></member>
+      <member refid="class_new_job_1acd8db3a9c080ad263bca1db5d2975b3d" prot="private" virt="non-virtual"><scope>NewJob</scope><name>OKButtonClicked</name></member>
+      <member refid="class_new_job_1a254a8a24f265abf9d9414c6169aee493" prot="private" virt="non-virtual"><scope>NewJob</scope><name>p</name></member>
+      <member refid="class_new_job_1a715852b239121af2b12ce36eded8faa0" prot="public" virt="non-virtual"><scope>NewJob</scope><name>setCityID</name></member>
+      <member refid="class_new_job_1ad9f522f4a6a45348ecc3ab1229b5eabb" prot="public" virt="non-virtual"><scope>NewJob</scope><name>setCompany</name></member>
+      <member refid="class_new_job_1a0a1d9067e72f797ad3b1f01d44fedb0f" prot="public" virt="non-virtual"><scope>NewJob</scope><name>setDate</name></member>
+      <member refid="class_new_job_1a3ddb9ee8bccdf069711406effb9d7dcd" prot="public" virt="non-virtual"><scope>NewJob</scope><name>setMotivation</name></member>
+      <member refid="class_new_job_1aa184d2046d0e60e82cd5840c40b99bed" prot="public" virt="non-virtual"><scope>NewJob</scope><name>setStatusID</name></member>
+      <member refid="class_new_job_1ae8c2b576f2ea6f444776e6d944f0d767" prot="public" virt="non-virtual"><scope>NewJob</scope><name>setTitle</name></member>
+      <member refid="class_new_job_1a742090337f791e715e2915607001e595" prot="private" virt="non-virtual"><scope>NewJob</scope><name>statusid</name></member>
+      <member refid="class_new_job_1a311f7cd158f34921a7ddb47f5ee6ab58" prot="private" virt="non-virtual"><scope>NewJob</scope><name>statusIDchanged</name></member>
+      <member refid="class_new_job_1a605a7a6b8aa165d4b556df07b754b552" prot="private" virt="non-virtual"><scope>NewJob</scope><name>titleTextChanged</name></member>
+      <member refid="class_new_job_1a5f6d817870d8302892ec47a1f6bf3a2e" prot="private" virt="non-virtual"><scope>NewJob</scope><name>ui</name></member>
+      <member refid="class_new_job_1aa01ddb8db4ea6b178dfc1bac71ce8563" prot="private" virt="non-virtual"><scope>NewJob</scope><name>winTitle</name></member>
+      <member refid="class_new_job_1abd7bef6f7fa91dccf1bd8eddfbbac931" prot="public" virt="non-virtual"><scope>NewJob</scope><name>~NewJob</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
