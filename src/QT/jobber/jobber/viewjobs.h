@@ -57,6 +57,7 @@ public:
     void setCityID(int newTownID);
     void setStatusID(int newStatusID);
     void setDate(QString newDate);
+    void setMotivation(QString newMotivation);
     int getApplicationID();
     QString getTitle();
     QString getCompany();
@@ -64,6 +65,7 @@ public:
     int getStatusID();
     QString getDate();
     void getCityIDs();
+    QString getMotivation();
     void getStatusIDs();
     bool isChanged();
     void setChanged(bool change);
@@ -72,7 +74,7 @@ public:
 private:
     Ui::ViewJobs *ui;
     psql *p;
-    QString jobTitle, company, date, winTitle; // jobTitle: the title of the job. title: The name to be used in messageboxes
+    QString jobTitle, company, date, winTitle, motivation; // jobTitle: the title of the job. title: The name to be used in messageboxes
     int statusid, cityid, applicationid, lastid;
     bool changed, soknadIDChanged;
     void checkChanges();
@@ -84,6 +86,7 @@ private slots:
     void lineEditDealineChanged();
     void comboBoxCityIDChanged();
     void comboBoxStatusIDChanged();
+    void motivationTextChanged();
     void buttonFirstClicked();
     void buttonPreviousClicked();
     void buttonNextClicked();

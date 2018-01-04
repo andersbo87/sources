@@ -52,6 +52,11 @@ QString SpesificJobs::getDeadline()
     return deadline;
 }
 
+QString SpesificJobs::getMotivation()
+{
+    return motivation;
+}
+
 // "Setters" - metoder som angir verdier
 void SpesificJobs::setJobTitle(QString newTitle)
 {
@@ -80,6 +85,11 @@ void SpesificJobs::setStatus(QString newStatus)
 void SpesificJobs::setDeadline(QString newDeadline)
 {
     deadline = newDeadline;
+}
+
+void SpesificJobs::setMotivation(QString newMotivation)
+{
+    motivation = newMotivation;
 }
 
 // Andre offentlige metoder:
@@ -136,7 +146,7 @@ void SpesificJobs::getStatuses()
 void SpesificJobs::appendApplicationIDs()
 {
     QList<QStandardItem *> list;
-    QList<int> res = p->getSpecificApplicationIDs(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString());
+    QList<int> res = p->getSpecificApplicationIDs(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
     QList<int>::iterator iterInt = res.begin();
     int i = 0;
     while(iterInt != res.end())
@@ -150,7 +160,7 @@ void SpesificJobs::appendApplicationIDs()
 void SpesificJobs::appendJobTitles()
 {
     QList<QStandardItem *> list;
-    QList<QString> jobTitles = p->getSpecificJobNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString());
+    QList<QString> jobTitles = p->getSpecificJobNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
     QList<QString>::iterator iter;
     iter = jobTitles.begin();
     int i = 0;
@@ -165,7 +175,7 @@ void SpesificJobs::appendJobTitles()
 void SpesificJobs::appendCompanyNames()
 {
     QList<QStandardItem *> list;
-    QList<QString> companyNames = p->getSpecificCompanyNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString());
+    QList<QString> companyNames = p->getSpecificCompanyNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
     QList<QString>::iterator iter;
     int i = 0;
     for(iter = companyNames.begin(); iter != companyNames.end(); iter++)
@@ -178,7 +188,7 @@ void SpesificJobs::appendCompanyNames()
 
 void SpesificJobs::appendCityNames()
 {
-    QList<QString> cityNames = p->getSpecificCityNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString());
+    QList<QString> cityNames = p->getSpecificCityNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
     QList<QStandardItem *> list;
     QList<QString>::iterator iter;
     int i = 0;
@@ -193,7 +203,7 @@ void SpesificJobs::appendCityNames()
 void SpesificJobs::appendStatuses()
 {
     QList<QStandardItem *> list;
-    QList<QString> statuses = p->getSpecificStatuses(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString());
+    QList<QString> statuses = p->getSpecificStatuses(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
     QList<QString>::iterator iter;
     int i = 0;
     for(iter = statuses.begin(); iter != statuses.end(); iter++)
@@ -207,12 +217,26 @@ void SpesificJobs::appendStatuses()
 void SpesificJobs::appendDeadlines()
 {
     QList<QStandardItem *> list;
-    QList<QString> deadlines = p->getSpecificDeadlines(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString());
+    QList<QString> deadlines = p->getSpecificDeadlines(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
     QList<QString>::iterator iter;
     int i = 0;
     for(iter = deadlines.begin(); iter != deadlines.end(); iter++)
     {
         list.append(new QStandardItem(deadlines.value(i)));
+        i++;
+    }
+    model->appendColumn(list);
+}
+
+void SpesificJobs::appendMotivations()
+{
+    QList<QStandardItem *> list;
+    QList<QString> motivations = p->getSpecificMotivations(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
+    QList<QString>::iterator iter;
+    int i = 0;
+    for(iter = motivations.begin(); iter != motivations.end(); iter++)
+    {
+        list.append(new QStandardItem(motivations.value(i)));
         i++;
     }
     model->appendColumn(list);
@@ -228,9 +252,10 @@ void SpesificJobs::btnSearchClicked()
     appendCityNames();
     appendStatuses();
     appendDeadlines();
+    appendMotivations();
     ui->tableViewResults->setEditTriggers(QAbstractItemView::NoEditTriggers);
     QStringList h;
-    h << "ID" << "Tittel" << "Bedrift" << "Stedsnavn" << "Status" << "Søknadsfrist";
+    h << "ID" << "Tittel" << "Bedrift" << "Stedsnavn" << "Status" << "Søknadsfrist" << "Motivasjon";
     model->setHorizontalHeaderLabels(h);
     ui->tableViewResults->setModel(model);
     if(model->rowCount() == 0){

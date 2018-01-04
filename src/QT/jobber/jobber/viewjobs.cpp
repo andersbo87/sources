@@ -46,6 +46,7 @@ ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->comboBoxTownID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboBoxCityIDChanged()));
     connect(ui->comboBoxStatusID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboBoxStatusIDChanged()));
     connect(ui->lineEditDeadline, SIGNAL(textChanged(QString)), this, SLOT(lineEditDealineChanged()));
+    connect(ui->textEditMotivation, SIGNAL(textChanged()), this, SLOT(motivationTextChanged()), Qt::UniqueConnection);
     connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
     connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
     connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
@@ -76,6 +77,19 @@ void ViewJobs::setChanged(bool change)
 {
     ui->btnSave->setEnabled(change);
     changed = change;
+}
+
+void ViewJobs::motivationTextChanged()
+{
+    setMotivation(ui->textEditMotivation->toPlainText());
+    if(!soknadIDChanged)
+    {
+        setChanged(true);
+    }
+    else
+    {
+        setChanged(false);
+    }
 }
 
 void ViewJobs::comboBoxStatusIDChanged()
@@ -134,12 +148,12 @@ void ViewJobs::closeEvent(QCloseEvent *event)
         int res = msg.exec();
         if(res == QMessageBox::Yes)
         {
-            if(p->updateApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getApplicationID()))
+            if(p->updateApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getMotivation(), getApplicationID()))
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
                 msg2.setWindowTitle(winTitle);
-                msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
+                msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate() + "\nMotivasjon: " + getMotivation());
                 msg2.exec();
             }
             else
@@ -173,22 +187,22 @@ void ViewJobs::checkChanges()
         msg.setText("Du har gjort noen endringer. Vil du lagre disse?");
         if(msg.exec() == QMessageBox::Yes)
         {
-            if(p->updateApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getApplicationID()))
+            if(p->updateApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getMotivation(), getApplicationID()))
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
                 msg2.setWindowTitle(winTitle);
-                msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
+                msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate() + "\nMotivasjon: " + getMotivation());
                 msg2.exec();
             }
-        }
-        else
-        {
-            QMessageBox msg;
-            msg.setIcon(msg.Warning);
-            msg.setWindowTitle(winTitle);
-            msg.setText("Noe har gått galt: " + p->getError());
-            msg.exec();
+            else
+            {
+                QMessageBox msg;
+                msg.setIcon(msg.Warning);
+                msg.setWindowTitle(winTitle);
+                msg.setText("Noe har gått galt: " + p->getError());
+                msg.exec();
+            }
         }
         setChanged(false);
     }
@@ -196,12 +210,12 @@ void ViewJobs::checkChanges()
 
 void ViewJobs::buttonSaveClicked()
 {
-    if(p->updateApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getApplicationID()))
+    if(p->updateApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getMotivation(), getApplicationID()))
     {
         QMessageBox msg2;
         msg2.setIcon(msg2.Information);
         msg2.setWindowTitle(winTitle);
-        msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
+        msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate() + "\nMotivasjon: " + getMotivation());
         msg2.exec();
         setChanged(false);
     }
@@ -502,6 +516,24 @@ QString ViewJobs::getDate()
 }
 
 /**
+ * @brief ViewJobs::getMotivation Gets the current job motivation
+ * @return A string containing what motivated the user to apply for this job.
+ */
+QString ViewJobs::getMotivation()
+{
+    return motivation;
+}
+
+/**
+ * @brief ViewJobs::setMotivation Sets the new job motivation.
+ * @param newMotivation A string explaining what motivated the user to apply for this job.
+ */
+void ViewJobs::setMotivation(QString newMotivation)
+{
+    motivation = newMotivation;
+}
+
+/**
  * @brief ViewJobs::setApplicationID sets a new application ID
  * @param newID the new ID.
  */
@@ -598,6 +630,9 @@ void ViewJobs::getApplication(int appID)
         ui->comboBoxTownID->setCurrentText(QString::number(p->getCityID(appID)));
         ui->comboBoxStatusID->setCurrentText(QString::number(p->getStatusID(appID)));
         ui->lineEditDeadline->setText(p->getDate(appID));
+        bool old = ui->textEditMotivation->blockSignals(true);
+        ui->textEditMotivation->setText(p->getMotivation(appID));
+        ui->textEditMotivation->blockSignals(old);
         setApplicationID(appID);
         setTitle(ui->lineEditTitle->text());
         setCompany(ui->lineEditCompany->text());
@@ -606,6 +641,7 @@ void ViewJobs::getApplication(int appID)
         setDate(ui->lineEditDeadline->text());
         ui->labelCityValue->setText(p->getCityName(getCityID()));
         ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
+        setMotivation(ui->textEditMotivation->toPlainText());
     }
     catch(std::exception &e)
     {

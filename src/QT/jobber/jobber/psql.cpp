@@ -27,6 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "psql.h"
+#include <stdio.h>
 
 psql::psql(QString windowTitle)
 {
@@ -118,13 +119,13 @@ void psql::setHost(QString newHost)
  * @param date The deadline of the new job application
  * @return True on success and false on failure.
  */
-bool psql::insertApplication(QString title, QString company, int cityID, int statusID, QString date)
+bool psql::insertApplication(QString title, QString company, int cityID, int statusID, QString date, QString motivation)
 {
     try
     {
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         string statement = "";
-        QString insertStatement = "INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist) VALUES('";
+        QString insertStatement = "INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist, motivasjon) VALUES('";
         ostringstream oss;
         oss << statement << insertStatement.toStdString();
         oss << statement << title.toStdString();
@@ -136,6 +137,8 @@ bool psql::insertApplication(QString title, QString company, int cityID, int sta
         oss << statement << statusID;
         oss << statement << ", '";
         oss << statement << date.toStdString();
+        oss << statement << "', '";
+        oss << statement << motivation.toStdString();
         oss << statement << "')";
 
         pqxx::work W(C);
@@ -252,10 +255,11 @@ bool psql::insertStatus(QString statusName)
  * @param cityID: The ID of the new city where the job is located
  * @param statusID: The status of the new job
  * @param date: The new job application deadline
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
  * @param id: The job ID to be updated.
  * @return True on success and false otherwise.
  */
-bool psql::updateApplication(QString title, QString company, int cityID, int statusID, QString date, int id)
+bool psql::updateApplication(QString title, QString company, int cityID, int statusID, QString date, QString motivation, int id)
 {
     try
     {
@@ -274,8 +278,11 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
         oss << statement << statusID;
         oss << statement << ", soknadsfrist='";
         oss << statement << date.toStdString();
+        oss << statement << "', motivasjon='";
+        oss << statement << motivation.toStdString();
         oss << statement << "' where soknadid=";
         oss << statement << id;
+        qDebug("DEBUG: oss.str: %s\n", oss.str().c_str());
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::work W(C);
         W.exec(oss.str());
@@ -529,9 +536,10 @@ bool psql::connectDatabase()
  * @param cityName The name of the city where the job is located.
  * @param status The status of the application(s) in question.
  * @param deadline The deadline of the application(s) in question.
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
  * @return A list of strings containing the job names that matched the search.
  */
-QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline)
+QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
     {
@@ -557,6 +565,8 @@ QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, st
         }
         oss << sql << "%' and soknadsfrist like '%";
         oss << sql << deadline;
+        oss << sql << "%' and motivasjon like '%";
+        oss << sql << motivation;
         oss << sql << "%';";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(oss.str()));
@@ -586,9 +596,10 @@ QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, st
  * @param cityName The name of the city where the job is located.
  * @param status The status of the application(s) in question.
  * @param deadline The deadline of the application(s) in question.
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
  * @return A list of strings containing the job companies that matched the search.
  */
-QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline)
+QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
     {
@@ -613,6 +624,8 @@ QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName
         }
         oss << sql << "%' and soknadsfrist like '%";
         oss << sql << deadline;
+        oss << sql << "%' and motivasjon like '%";
+        oss << sql << motivation;
         oss << sql << "%';";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(oss.str()));
@@ -642,9 +655,10 @@ QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName
  * @param cityName The name of the city where the job is located.
  * @param status The status of the application(s) in question.
  * @param deadline The deadline of the application(s) in question.
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
  * @return A list of strings containing the application deadlines that matched the search.
  */
-QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, string cityName, string status, string deadline)
+QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
     {
@@ -670,6 +684,8 @@ QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, s
         }
         oss << sql << "%' and soknadsfrist like '%";
         oss << sql << deadline;
+        oss << sql << "%' and motivasjon like '%";
+        oss << sql << motivation;
         oss << sql << "%';";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(oss.str()));
@@ -699,9 +715,10 @@ QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, s
  * @param cityName The name of the city where the job is located.
  * @param status The status of the application(s) in question.
  * @param deadline The deadline of the application(s) in question.
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
  * @return A list of strings containing the city name(s) that matched the search.
  */
-QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, string cityName, string status, string deadline)
+QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
     {
@@ -726,6 +743,8 @@ QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, s
         }
         oss << sql << "%' and soknadsfrist like '%";
         oss << sql << deadline;
+        oss << sql << "%' and motivasjon like '%";
+        oss << sql << motivation;
         oss << sql << "%';";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(oss.str()));
@@ -755,9 +774,10 @@ QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, s
  * @param cityName The name of the city where the job is located.
  * @param status The status of the application(s) in question.
  * @param deadline The deadline of the application(s) in question.
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
  * @return A list of strings containing the status names that matched the search.
  */
-QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, string cityName, string status, string deadline)
+QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
     {
@@ -783,6 +803,8 @@ QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, st
         }
         oss << sql << "%' and soknadsfrist like '%";
         oss << sql << deadline;
+        oss << sql << "%' and motivasjon like '%";
+        oss << sql << motivation;
         oss << sql << "%';";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(oss.str()));
@@ -812,9 +834,10 @@ QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, st
  * @param cityName The name of the city where the job is located.
  * @param status The status of the application(s) in question.
  * @param deadline The deadline of the application(s) in question.
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
  * @return A list of integers containing the application ID(s).
  */
-QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline)
+QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
     {
@@ -840,6 +863,8 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
         }
         oss << sql << "%' and soknadsfrist like '%";
         oss << sql << deadline;
+        oss << sql << "%' and motivasjon like '%";
+        oss << sql << motivation;
         oss << sql << "%';";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(oss.str()));
@@ -862,6 +887,57 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
         throw; // Kaster unntaket videre.
     }
 }
+
+QList<QString> psql::getSpecificMotivations(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
+{
+    try
+    {
+        QList<QString> list;
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        QString stmt = "SELECT motivasjon FROM view_soknad WHERE tittel like '%";
+        string sql;
+        stringstream oss;
+        oss << sql << stmt.toStdString();
+        oss << sql << jobTitle;
+        oss << sql << "%' and bedrift like '%";
+        oss << sql << companyName;
+        if(QString::compare(QString::fromStdString(cityName), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and stedsnavn like '%";
+            oss << sql << cityName;
+        }
+        if(QString::compare(QString::fromStdString(status), "", Qt::CaseSensitive) != 0)
+        {
+            oss << sql << "%' and status like '%";
+            oss << sql << status;
+        }
+        oss << sql << "%' and soknadsfrist like '%";
+        oss << sql << deadline;
+        oss << sql << "%' and motivasjon like '%";
+        oss << sql << motivation;
+        oss << sql << "%';";
+        pqxx::nontransaction nt(conn);
+        pqxx::result res(nt.exec(oss.str()));
+        int i = 1;
+        for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
+        {
+            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            {
+                QString s = QString::fromStdString(tci.c_str());
+                list.insert(i, s);
+                i++;
+            }
+        }
+        conn.disconnect();
+        return list;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw; // Kaster unntaket videre.
+    }
+}
+
 /**
  * @brief psql::getCityNames Builds a list of strings that cointain name of all cities in the database.
  * @return On success, return the mentioned list of strings.
@@ -988,6 +1064,37 @@ QString psql::getStatusName(int s)
     {
         setError(e.what());
         throw; // Kaster unntaket videre.
+    }
+}
+
+/**
+ * @brief psql::getMotivation The the motivation for the job application based on the application ID.
+ * @param applicationID The ID of the application in question
+ * @return A string explaing what motivated the user to apply for this job.
+ */
+QString psql::getMotivation(int applicationID)
+{
+    QString res = "";
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        string statement = "SELECT motivasjon FROM soknad WHERE soknadid = ";
+        ostringstream oss;
+        oss << statement << applicationID;
+        pqxx::result R(N.exec(oss.str()));
+        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
+            res = QString::fromUtf8(c[0].as<string>().c_str());
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        qDebug() << e.what();
+        throw;
     }
 }
 

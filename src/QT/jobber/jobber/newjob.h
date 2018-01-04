@@ -55,11 +55,13 @@ public:
     void setCityID(int newCityID);
     void setStatusID(int newStatusID);
     void setDate(QString newDate);
+    void setMotivation(QString newMotivation);
     QString getTitle();
     QString getCompany();
     int getCityID();
     int getStatusID();
     QString getDate();
+    QString getMotivation();
 
     /**
      * @brief closeEvent Code to be executed when the window closes
@@ -74,7 +76,7 @@ private:
     void getStatusIDs();
     bool changed, close;
     // jobTitle: The name of the job (developer, CEO, etc.). winTitle: The name to be used in message boxes.
-    QString jobTitle, winTitle, company, date;
+    QString jobTitle, winTitle, company, date, motivation;
     int statusid, cityid;
     psql *p;
 
@@ -84,6 +86,7 @@ private slots:
     void cityIDchanged();
     void statusIDchanged();
     void dateChanged();
+    void motivationTextChanged();
     void OKButtonClicked();
     void CancelButtonClicked();
 };

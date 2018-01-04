@@ -28,6 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QApplication>
 #include <QLinkedList>
 #include <QException>
+#include <QDebug>
 #include <pqxx/pqxx>
 #include <pqxx/result>
 #include <QtGui>
@@ -54,13 +55,13 @@ public:
     bool connectDatabase();
 
     // Metoder som setter inn ny data i databasen:
-    bool insertApplication(QString title, QString company, int cityID, int statusID, QString date);
+    bool insertApplication(QString title, QString company, int cityID, int statusID, QString date, QString motivation);
     bool insertCity(QString cityName, int countryID);
     bool insertCountry(QString countryName);
     bool insertStatus(QString statusName);
 
     // Metoder som oppdaterer eksisterende data
-    bool updateApplication(QString title, QString company, int cityID, int statusID, QString date, int id);
+    bool updateApplication(QString title, QString company, int cityID, int statusID, QString date, QString motivation, int id);
     bool updateCity(QString cityName, int countryID, int id);
     bool updateCountry(QString countryName, int countryID);
     bool updateStatus(QString statusname, int statusID);
@@ -81,12 +82,13 @@ public:
     int getCountryID(int cityID);
     int getStatusID(int applicationID);
     QList<int> fillList(const char *sqlSporring);
-    QList<int> getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline);
-    QList<QString> getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline);
-    QList<QString> getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline);
-    QList<QString> getSpecificCityNames(string jobTitle, string companyName, string cityName, string status, string deadline);
-    QList<QString> getSpecificStatuses(string jobTitle, string companyName, string cityName, string status, string deadline);
-    QList<QString> getSpecificDeadlines(string jobTitle, string companyName, string cityName, string status, string deadline);
+    QList<int> getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
+    QList<QString> getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
+    QList<QString> getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
+    QList<QString> getSpecificCityNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
+    QList<QString> getSpecificStatuses(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
+    QList<QString> getSpecificDeadlines(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
+    QList<QString> getSpecificMotivations(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
     QList<QString> getCityNames();
     QList<QString> getStatuses();
     QString getCityName(int cityNumber);
@@ -95,6 +97,7 @@ public:
     QString getDate(int applicationID);
     QString getStatusName(int s);
     QString getTitle(int applicationID);
+    QString getMotivation(int applicationID);
     //int getSpecificApplications(); // Returnerer antall søknader
 
 private:

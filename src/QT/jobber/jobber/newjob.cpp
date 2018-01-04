@@ -45,6 +45,7 @@ NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->comboBoxStedID, SIGNAL(currentTextChanged(QString)), this, SLOT(cityIDchanged()));
     connect(ui->comboBoxStatusID, SIGNAL(currentIndexChanged(int)), this, SLOT(statusIDchanged()));
     connect(ui->lineEditSoknadsfrist, SIGNAL(textChanged(QString)), this, SLOT(dateChanged()));
+    connect(ui->textEditMotivation, SIGNAL(textChanged()), this, SLOT(motivationTextChanged()));
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(OKButtonClicked()), Qt::UniqueConnection);
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     getStatusIDs();
@@ -62,13 +63,13 @@ void NewJob::OKButtonClicked()
     // Setter dataene inn i databasen.
     if(canSave())
     {
-        if(p->insertApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate()))
+        if(p->insertApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getMotivation()))
         {
             // Lukker vinduet.
             QMessageBox msg;
             msg.setWindowTitle(winTitle);
             msg.setIcon(msg.Information);
-            msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
+            msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate() + "\nMotivasjon: " + getMotivation());
             msg.exec();
             changed = false;
             hide();
@@ -161,6 +162,16 @@ void NewJob::titleTextChanged()
     changed = canSave();
 }
 
+void NewJob::motivationTextChanged()
+{
+    setMotivation(ui->textEditMotivation->toPlainText());
+    /*QMessageBox msg;
+    msg.setText(ui->textEditMotivation->toPlainText());
+    msg.exec();*/
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+    changed = canSave();
+}
+
 /**
  * @brief Executes when the contents of the text box lineEditCompany is changed.
  */
@@ -240,13 +251,13 @@ void NewJob::closeEvent(QCloseEvent *event)
             if(res == QMessageBox::Yes)
             {
                 // Setter dataene inn i databasen.
-                if(p->insertApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate()))
+                if(p->insertApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getMotivation()))
                 {
                     // Lukker vinduet.
                     QMessageBox msg;
                     msg.setWindowTitle(winTitle);
                     msg.setIcon(msg.Information);
-                    msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
+                    msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate() + "\nMotivasjon: " + getMotivation());
                     msg.exec();
                     event->accept();
                 }
@@ -267,13 +278,13 @@ void NewJob::closeEvent(QCloseEvent *event)
         else
         {
             // Setter dataene inn i databasen.
-            if(p->insertApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate()))
+            if(p->insertApplication(getTitle(), getCompany(), getCityID(), getStatusID(), getDate(), getMotivation()))
             {
                 // Lukker vinduet.
                 QMessageBox msg;
                 msg.setWindowTitle(winTitle);
                 msg.setIcon(msg.Information);
-                msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate());
+                msg.setText("Den nye søknaden ble lagt inn med følgende data:\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusID: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate() + "\nMotivasjon: " + getMotivation());
                 msg.exec();
                 event->accept();
             }
@@ -329,6 +340,15 @@ void NewJob::setDate(QString newDate)
     date = newDate;
 }
 
+/**
+ * @brief NewJob::setMotivation Sets the motivation for the current job
+ * @param newMotivation A string containing information about what motivated the user to apply for this job.
+ */
+void NewJob::setMotivation(QString newMotivation)
+{
+    motivation = newMotivation;
+}
+
 /*
  * Metoder som henter gamle verdier:
  */
@@ -376,4 +396,13 @@ int NewJob::getStatusID()
 QString NewJob::getDate()
 {
     return date;
+}
+
+/**
+ * @brief NewJob::getMotivation Gets the job's current motivations (what motivated the user to apply for this job?)
+ * @return
+ */
+QString NewJob::getMotivation()
+{
+    return motivation;
 }

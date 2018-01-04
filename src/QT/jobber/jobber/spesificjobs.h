@@ -23,12 +23,15 @@ public:
     QString getCityName();
     QString getStatus();
     QString getDeadline();
+    QString getMotivation();
+
     // "Setters":
     void setJobTitle(QString newTitle);
     void setCompanyName(QString newName);
     void setCityName(QString newCityName);
     void setStatus(QString newStatus);
     void setDeadline(QString newDeadline);
+    void setMotivation(QString newMotivation);
 
     // Offentlige metoder som henter ulike datastrukturer:
     void getCityNames();
@@ -36,7 +39,7 @@ public:
 
 private:
     Ui::SpesicficJobs *ui;
-    QString winTitle, jobTitle, companyName, cityName, status, deadline;
+    QString winTitle, jobTitle, companyName, cityName, status, deadline, motivation;
     psql *p;
     QStandardItemModel *model;
     void appendApplicationIDs();
@@ -45,6 +48,7 @@ private:
     void appendCityNames();
     void appendStatuses();
     void appendDeadlines();
+    void appendMotivations();
 
 private slots:
     void btnSearchClicked();
