@@ -29,7 +29,7 @@ namespace JobbWPF
     /// </summary>
     public partial class ViewSpecificApplications : Window
     {
-        private string progTitle, companyName, jobTitle, deadline, cityName, statusName;
+        private string progTitle, companyName, jobTitle, deadline, cityName, statusName, motivation;
         private MainWindow mw = App.mw;
         private pgsql p;
         public ViewSpecificApplications(string newTitle)
@@ -64,6 +64,11 @@ namespace JobbWPF
             statusName = newName;
         }
         
+        void setMotivation(string newMotivation)
+        {
+            motivation = newMotivation;
+        }
+
         string getJobTitle()
         {
             return jobTitle;
@@ -89,9 +94,19 @@ namespace JobbWPF
             return deadline;
         }
 
+        string getMotivation()
+        {
+            return motivation;
+        }
+
         private void textBoxJobTitle_TextChanged(object sender, TextChangedEventArgs e)
         {
             setJobTitle(textBoxJobTitle.Text);
+        }
+
+        private void textBoxMotivation_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            setMotivation(textBoxMotivation.Text);
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -103,7 +118,7 @@ namespace JobbWPF
         {
             try
             {
-                List<jobb> titles = p.getSpecificJobs(getJobTitle(), getCompanyName(), getCityName(), getStatusName(), getDeadline());
+                List<jobb> titles = p.getSpecificJobs(getJobTitle(), getCompanyName(), getCityName(), getStatusName(), getDeadline(), getMotivation());
                 dataGrid.ItemsSource = titles;
                 if (p.getRecord() == 0)
                 {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Vis søknader" Name="viewApplications" Closed="viewApplications_Closed" Loaded="viewApplications_Loaded" Height="344.538" Width="513.446" ResizeMode="NoResize">
+        Title="Vis søknader" Name="viewApplications" Closed="viewApplications_Closed" Loaded="viewApplications_Loaded" Height="436.222" Width="513.446" ResizeMode="NoResize">
     <Grid>
         <!--Dataene i etikettene under skal ikke endres og etikettene har derfor ikke navn-->
         <Label Margin="10,10,0,0" Content="Her kan du vise og redigere innlagte søknader i databasen, bortsett fra ID-en til søknaden." HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -17,23 +17,25 @@
         <Label Content="LandNavn" Margin="10,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="StatusID" Margin="10,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Søknadsfrist" Margin="10,230,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        
+        <Label Content="Motivasjon" Margin="10,255,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
         <!--Følgende elementer skal brukes dynamisk og blir opprettet som pekere ved å angi et unikt navn.-->
         <ComboBox Name="comboBoxApplicationID" Margin="90,40,0,0" IsReadOnly="True" Focusable="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxApplicationID_SelectionChanged"/>
-        <TextBox Name="textBoxJobTitle" Margin="90,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" TextChanged="textBoxJobTitle_TextChanged"/>
-        <TextBox Name="textBoxCompany" Margin="90,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" TextChanged="textBoxCompany_TextChanged"/>
+        <TextBox Name="textBoxJobTitle" Margin="90,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxJobTitle_TextChanged"/>
+        <TextBox Name="textBoxCompany" Margin="90,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxCompany_TextChanged"/>
         <ComboBox Name="comboBoxTownID" Margin="90,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxTownID_SelectionChanged"/>
         <ComboBox Name="comboBoxStatusID" Margin="90,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxStatusID_SelectionChanged"/>
-        <TextBox Name="textBoxDeadline" Margin="90,235,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" TextChanged="textBoxDeadline_TextChanged"/>
+        <TextBox Name="textBoxDeadline" Margin="90,235,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxDeadline_TextChanged"/>
+        <TextBox Name="textBoxMotivation" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="90,260,0,0" Width="390" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" TextChanged="textBoxMotivation_TextChanged" />
         <Label Name="lblTownName" Margin="220,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Name="lblCountryID" Margin="90,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Name="lblCountryName" Margin="90,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Name="lblStatusName" Margin="220,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Name="btnFirst" IsEnabled="False" Margin="10,270,0,0" Content="Første" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnFirst_Click"/>
-        <Button Name="btnPrev" IsEnabled="False" Margin="90,270,0,0" Content="Forrige" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnPrev_Click"/>
-        <Button Name="btnDel" Content="Slett" Margin="170,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDel_Click"/>
-        <Button Name="btnUpdate" Content="Oppdater" Margin="250,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Click="btnUpdate_Click"/>
-        <Button Name="btnNext" Content="Neste" Margin="330,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnNext_Click"/>
-        <Button Name="btnLast" Content="Siste" Margin="410,270,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnLast_Click"/>
+        <Button Name="btnFirst" IsEnabled="False" Margin="10,351,0,0" Content="Første" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnFirst_Click"/>
+        <Button Name="btnPrev" IsEnabled="False" Margin="90,351,0,0" Content="Forrige" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnPrev_Click"/>
+        <Button Name="btnDel" Content="Slett" Margin="170,351,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDel_Click"/>
+        <Button Name="btnUpdate" Content="Oppdater" Margin="250,351,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Click="btnUpdate_Click"/>
+        <Button Name="btnNext" Content="Neste" Margin="330,351,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnNext_Click"/>
+        <Button Name="btnLast" Content="Siste" Margin="410,351,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnLast_Click"/>
     </Grid>
 </Window>

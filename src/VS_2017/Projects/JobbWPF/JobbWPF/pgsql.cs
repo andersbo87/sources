@@ -470,12 +470,12 @@ namespace JobbWPF
         /// <param name="statusID">int: The status of the job application</param>
         /// <param name="date">The deadline for when the application has to be sent.</param>
         /// <returns>True if the insert succeeds and false if it fails</returns>
-        public bool InsertApplication(string title, string company, int townID, int statusID, string date)
+        public bool InsertApplication(string title, string company, int townID, int statusID, string date, string motivation)
         {
             Init();
             try
             {
-                cmd = new NpgsqlCommand("INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist) VALUES('" + title + "', '" + company + "'," + townID + ", " + statusID + ", '" + date + "');", conn);
+                cmd = new NpgsqlCommand("INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist, motivasjon) VALUES('" + title + "', '" + company + "'," + townID + ", " + statusID + ", '" + date + "," + motivation + "');", conn);
                 cmd.ExecuteNonQuery();
 
                 return true;
@@ -517,7 +517,7 @@ namespace JobbWPF
             cmd = new NpgsqlCommand();
             List<string> data = new List<string>();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT tittel, bedrift, stedid, stedsnavn, landid, land, statusid, status, soknadsfrist FROM view_soknad WHERE soknadid = " + index;
+            cmd.CommandText = "SELECT tittel, bedrift, stedid, stedsnavn, landid, land, statusid, status, soknadsfrist, motivasjon FROM view_soknad WHERE soknadid = " + index;
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -530,6 +530,7 @@ namespace JobbWPF
                 data.Add(reader.GetString(6)); // StatusID
                 data.Add(reader.GetString(7)); // Status
                 data.Add(reader.GetString(8)); // Soknadsfrist
+                data.Add(reader.GetString(9)); // Motivasjon
             }
             conn.Close();
             return data;
@@ -759,6 +760,22 @@ namespace JobbWPF
             return ans;
         }
 
+        public string getMotivation(int idx)
+        {
+            string res = "";
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT motivasjon from view_soknad WHERE soknadid=" + idx;
+            reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                res = reader.GetString(0);
+            }
+            conn.Close();
+            return res;
+        }
+
         /// <summary>
         /// Gets the name of a status based on the parameter provided by the user.
         /// </summary>
@@ -788,13 +805,13 @@ namespace JobbWPF
         /// <param name="newStatusID">The new status ID. 1=Registered, 2=Sent, 3=Interested, possible interview, 4=Declined/Rejected, 5=Application written but not sent, 6=Job accepted.</param>
         /// <param name="newDeadline">The new application deadline.</param>
         /// <returns>True on success and false on failure.</returns>
-        public bool updateApplication(int appID, string newAppTitle, string newCompany, int newTownID, int newStatusID, string newDeadline)
+        public bool updateApplication(int appID, string newAppTitle, string newCompany, int newTownID, int newStatusID, string newDeadline, string newMotivation)
         {
             try
             {
                 Init();
                 cmd.Connection = conn;
-                cmd.CommandText = "UPDATE soknad SET tittel='" + newAppTitle + "', bedrift='" +newCompany + "', stedID=" + newTownID + ", statusID=" + newStatusID + ", soknadsfrist='" + newDeadline + "' where soknadid=" + appID + ";";
+                cmd.CommandText = "UPDATE soknad SET tittel='" + newAppTitle + "', bedrift='" +newCompany + "', stedID=" + newTownID + ", statusID=" + newStatusID + ", soknadsfrist='" + newDeadline + "', motivasjon='" + newMotivation + "' where soknadid=" + appID + ";";
                 cmd.ExecuteNonQuery();
                 
             }
@@ -1067,7 +1084,7 @@ namespace JobbWPF
          * Koden i QT-utgaven brukes til å generere én kolonne per metode, men her bygges hele lista opp i én metode.
          */
         
-        public List<jobb> getSpecificJobs(string jobTitle, string companyName, string cityName, string status, string deadline)
+        public List<jobb> getSpecificJobs(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
         {
             List<jobb> data = new List<jobb>();
             try
@@ -1076,17 +1093,18 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 int i = 0;
-                string s = "SELECT soknadid, tittel, bedrift, stedsnavn, status, soknadsfrist FROM view_soknad WHERE tittel like '%" + jobTitle + "%' and bedrift like '%" + companyName + "%' ";
+                string s = "SELECT soknadid, tittel, bedrift, stedsnavn, status, soknadsfrist, motivasjon FROM view_soknad WHERE tittel like '%" + jobTitle + "%' and bedrift like '%" + companyName + "%' ";
                 if (string.Compare(cityName, "", false) != 0)
                     s = s + "and stedsnavn like '%" + cityName + "%' ";
                 if (string.Compare(status, "", false) != 0)
                     s = s + "and status like '%" + status + "%' ";
-                s = s + "and soknadsfrist like '%" + deadline + "%' order by soknadid;";
+                s = s + "and soknadsfrist like '%" + deadline + "%' ";
+                s = s + "and motivasjon like '%" + motivation + "%' order by soknadid;";
                 cmd.CommandText = s;
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5) });
+                    data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5), motivasjon = reader.GetString(6) });
                     i++;
                 }
                 setRecord(i);

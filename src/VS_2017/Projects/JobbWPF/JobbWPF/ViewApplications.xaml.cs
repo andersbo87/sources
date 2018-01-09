@@ -21,7 +21,7 @@ namespace JobbWPF
     /// </summary>
     public partial class ViewApplications : Window
     {
-        private string progTitle, jobTitle, company, deadline;
+        private string progTitle, jobTitle, company, deadline, motivation;
         private int applicationID, townID, max, statusID, c = 0;
         private pgsql p;
         private MainWindow mw = App.mw;
@@ -70,6 +70,11 @@ namespace JobbWPF
             deadline = newDeadline;
         }
 
+        public void setMotivation(string newMotivation)
+        {
+            motivation = newMotivation;
+        }
+
         /*
          * Og deretter: Offentlige metoder som henter verdier:
          */
@@ -102,6 +107,11 @@ namespace JobbWPF
         public string getDeadline()
         {
             return deadline;
+        }
+
+        public string getMotivation()
+        {
+            return motivation;
         }
 
         public void setChanged(bool changed)
@@ -177,6 +187,7 @@ namespace JobbWPF
                 lblCountryName.Content = applicationData.ElementAt(5);
                 lblStatusName.Content = applicationData.ElementAt(7);
                 textBoxDeadline.Text = applicationData.ElementAt(8);
+                textBoxMotivation.Text = applicationData.ElementAt(9);
                 comboBoxApplicationID.Text = index.ToString();
                 return true;
             }
@@ -371,7 +382,7 @@ namespace JobbWPF
                         if (msr == MessageBoxResult.Yes)
                         {
                             // Lagre endringa og gå videre.
-                            if (p.updateApplication(idx, getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline()))
+                            if (p.updateApplication(idx, getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline(), getMotivation()))
                             {
                                 changeApplicationID(newidx);
                             }
@@ -405,6 +416,12 @@ namespace JobbWPF
         private void textBoxJobTitle_TextChanged(object sender, TextChangedEventArgs e)
         {
             setJobTitle(textBoxJobTitle.Text);
+            setChanged(true);
+        }
+
+        private void textBoxMotivation_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            setMotivation(textBoxMotivation.Text);
             setChanged(true);
         }
 
@@ -465,7 +482,7 @@ namespace JobbWPF
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if(p.updateApplication(int.Parse(comboBoxApplicationID.Text), getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline()))
+            if(p.updateApplication(int.Parse(comboBoxApplicationID.Text), getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline(), getMotivation()))
             {
                 MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + int.Parse(comboBoxApplicationID.Text) + ":\nTittel: " + getJobTitle() + "\nBedrift: " + getCompany() + "\nStedID: " + getTownID() + "\nStatusID: " + getStatusID() + "\nSøknadsfrist: " + getDeadline(), progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
                 setChanged(false);

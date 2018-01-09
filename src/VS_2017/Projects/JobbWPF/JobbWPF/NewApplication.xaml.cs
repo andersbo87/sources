@@ -21,7 +21,7 @@ namespace JobbWPF
     {
         private MainWindow mw = App.mw;
         private pgsql p;
-        private string title, jobTitle, company, deadline;
+        private string title, jobTitle, company, deadline, motivation;
         private int townID, statusid;
         private bool textChanged = false, btnSavedClicked = false, btnCancelClicked = false;
         private List<string> statusList, townList;
@@ -54,6 +54,11 @@ namespace JobbWPF
             deadline = newDeadline;
         }
 
+        public void setMotivation(string newMotivation)
+        {
+            motivation = newMotivation;
+        }
+
         public string getJobTitle()
         {
             return jobTitle;
@@ -77,6 +82,11 @@ namespace JobbWPF
         public string getDeadline()
         {
             return deadline;
+        }
+
+        public string getMotivation()
+        {
+            return motivation;
         }
         // Slutt på offentlige metoder som henter og setter verdier.
 
@@ -169,6 +179,12 @@ namespace JobbWPF
             {
                 MessageBox.Show("Kan ikke hente data. Feilmelding: " + ne.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void motivationValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            setMotivation(motivationValue.Text);
+            setChanged(true);
         }
 
         /// <summary>

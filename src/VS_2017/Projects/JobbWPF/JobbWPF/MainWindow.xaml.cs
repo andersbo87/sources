@@ -80,7 +80,7 @@ namespace JobbWPF
             na.ShowDialog();
             if (na.DialogResult.HasValue && na.DialogResult.Value)
             {
-                if (psql.InsertApplication(na.getJobTitle(), na.getCompany(), na.getTownID(), na.getStatusID(), na.getDeadline()))
+                if (psql.InsertApplication(na.getJobTitle(), na.getCompany(), na.getTownID(), na.getStatusID(), na.getDeadline(), na.getMotivation()))
                 {
                     MessageBox.Show("Jobben ble lagret med følgende data:\nTittel: " + na.getJobTitle() + "\nBedrift: " + na.getCompany() + "\nStedID: " + na.getTownID() + "\nStatusID: " + na.getStatusID() + "\nSøknadsfrist: " + na.getDeadline() + ".", title, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
