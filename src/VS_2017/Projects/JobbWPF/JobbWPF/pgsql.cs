@@ -475,7 +475,7 @@ namespace JobbWPF
             Init();
             try
             {
-                cmd = new NpgsqlCommand("INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist, motivasjon) VALUES('" + title + "', '" + company + "'," + townID + ", " + statusID + ", '" + date + "," + motivation + "');", conn);
+                cmd = new NpgsqlCommand("INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist, motivasjon) VALUES('" + title + "', '" + company + "'," + townID + ", " + statusID + ", '" + date + "','" + motivation + "');", conn);
                 cmd.ExecuteNonQuery();
 
                 return true;

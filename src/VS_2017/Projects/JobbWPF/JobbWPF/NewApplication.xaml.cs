@@ -164,6 +164,7 @@ namespace JobbWPF
                 getStatusIDList();
                 btnSavedClicked = false;
                 btnCancelClicked = false;
+                applicationValue.Focus();
             }
             catch (TimeoutException te)
             {

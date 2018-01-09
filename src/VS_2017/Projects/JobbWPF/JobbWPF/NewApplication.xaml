@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Legg til ny jobb" Loaded="Window_Loaded" Closing="Window_Closing" Height="295.073" Width="380.904">
+        Title="Legg til ny jobb" Loaded="Window_Loaded" Closing="Window_Closing" Height="295.073" Width="400.741">
     <Grid>
         <!-- De følgende etikettene skal bare brukes statisk, og har derfor ikke navn -->
         <Label Content="Her kan du legge inn en ny søknad i databasen." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2" />
@@ -16,13 +16,13 @@
         <Label Content="Søknadsfrist" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0" />
         <Label Content="Motivasjon" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,145,0,0" />
         <!--Tekstbokser som skal brukes til registrering av data.-->
-        <TextBox Name="applicationValue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Margin="120, 35,0,0" TextChanged="applicationValue_TextChanged" />
-        <TextBox Name="companyValue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Margin="120,55,0,0" TextChanged="companyValue_TextChanged" />
-        <TextBox Name="deadlineValue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Margin="120,125,0,0" TextChanged="deadlineValue_TextChanged" />
-        <TextBox Name="motivationValue" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Height="59" Margin="120,150,0,0" TextChanged="motivationValue_TextChanged" />
+        <TextBox Name="applicationValue" KeyboardNavigation.TabIndex="0" Focusable="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Margin="120, 35,0,0" TextChanged="applicationValue_TextChanged" />
+        <TextBox Name="companyValue" KeyboardNavigation.TabIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Margin="120,55,0,0" TextChanged="companyValue_TextChanged" />
+        <TextBox Name="deadlineValue" KeyboardNavigation.TabIndex="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Margin="120,125,0,0" TextChanged="deadlineValue_TextChanged" />
+        <TextBox Name="motivationValue" KeyboardNavigation.TabIndex="5" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="243" Height="59" Margin="120,150,0,0" TextChanged="motivationValue_TextChanged" />
         <!--"ComboBox" som skal brukes til å vise innlagte steder og statuser og som brukes til å registrere en ny søknad.-->
-        <ComboBox Name="comboBox_townID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="120, 75, 0, 0" SelectionChanged="comboBox_townID_SelectionChanged" />
-        <ComboBox Name="comboBox_statusID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="120, 100, 0, 0" SelectionChanged="comboBox_statusID_SelectionChanged" />
+        <ComboBox Name="comboBox_townID" KeyboardNavigation.TabIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="120, 75, 0, 0" SelectionChanged="comboBox_townID_SelectionChanged" />
+        <ComboBox Name="comboBox_statusID" KeyboardNavigation.TabIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="120, 100, 0, 0" SelectionChanged="comboBox_statusID_SelectionChanged" />
         <!-- Etiketter hvis tekst skal oppdateres avhengig av valg som brukeren tar når det gjelder "gardinlistene" over -->
         <Label Name="lbl_townName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195, 70, 0, 0" />
         <Label Name="lbl_statusName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195, 95, 0, 0" />

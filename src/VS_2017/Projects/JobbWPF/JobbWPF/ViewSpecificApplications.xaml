@@ -14,12 +14,12 @@
         <Label Content="Status" Margin="10,100" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Label Content="Søknadsfrist" Margin="10,120" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label Content="Motivasjon" Margin="10,140" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,45,0,0" Width="327" Name="textBoxJobTitle" TextChanged="textBoxJobTitle_TextChanged"/>
-        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,65,0,0" Name="textBoxCompanyName" TextChanged="textBoxCompanyName_TextChanged" />
-        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,85,0,0" Name="textBoxCityName" TextChanged="textBoxCityName_TextChanged"/>
-        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,105,0,0" Name="textBoxStatusName" TextChanged="textBoxStatusName_TextChanged"/>
-        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,125,0,0" Name="textBoxDeadline" TextChanged="textBoxDeadline_TextChanged"/>
-        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,145,0,0" Height="40" Name="textBoxMotivation" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" TextChanged="textBoxMotivation_TextChanged" />
+        <TextBox KeyboardNavigation.TabIndex="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,45,0,0" Width="327" Name="textBoxJobTitle" TextChanged="textBoxJobTitle_TextChanged"/>
+        <TextBox KeyboardNavigation.TabIndex="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,65,0,0" Name="textBoxCompanyName" TextChanged="textBoxCompanyName_TextChanged" />
+        <TextBox KeyboardNavigation.TabIndex="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,85,0,0" Name="textBoxCityName" TextChanged="textBoxCityName_TextChanged"/>
+        <TextBox KeyboardNavigation.TabIndex="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,105,0,0" Name="textBoxStatusName" TextChanged="textBoxStatusName_TextChanged"/>
+        <TextBox KeyboardNavigation.TabIndex="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,125,0,0" Name="textBoxDeadline" TextChanged="textBoxDeadline_TextChanged"/>
+        <TextBox KeyboardNavigation.TabIndex="5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,145,0,0" Height="40" Name="textBoxMotivation" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" TextChanged="textBoxMotivation_TextChanged" />
         <Button Name="btnSearch" Content="Søk!" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,190,0,0" Click="btnSearch_Click"/>
         <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="148" Margin="10,215,0,0" VerticalAlignment="Top" Width="407" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <!--Kodesnutten under, samt egenskapen AutoGenerateColumns i tagen over, er basert på koden som står her: http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->

@@ -20,13 +20,13 @@
         <Label Content="Motivasjon" Margin="10,255,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!--Følgende elementer skal brukes dynamisk og blir opprettet som pekere ved å angi et unikt navn.-->
-        <ComboBox Name="comboBoxApplicationID" Margin="90,40,0,0" IsReadOnly="True" Focusable="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxApplicationID_SelectionChanged"/>
-        <TextBox Name="textBoxJobTitle" Margin="90,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxJobTitle_TextChanged"/>
-        <TextBox Name="textBoxCompany" Margin="90,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxCompany_TextChanged"/>
-        <ComboBox Name="comboBoxTownID" Margin="90,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxTownID_SelectionChanged"/>
-        <ComboBox Name="comboBoxStatusID" Margin="90,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxStatusID_SelectionChanged"/>
-        <TextBox Name="textBoxDeadline" Margin="90,235,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxDeadline_TextChanged"/>
-        <TextBox Name="textBoxMotivation" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="90,260,0,0" Width="390" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" TextChanged="textBoxMotivation_TextChanged" />
+        <ComboBox Name="comboBoxApplicationID" KeyboardNavigation.TabIndex="0" Margin="90,40,0,0" IsReadOnly="True" Focusable="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxApplicationID_SelectionChanged"/>
+        <TextBox Name="textBoxJobTitle" KeyboardNavigation.TabIndex="1" Margin="90,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxJobTitle_TextChanged"/>
+        <TextBox Name="textBoxCompany" KeyboardNavigation.TabIndex="2" Margin="90,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxCompany_TextChanged"/>
+        <ComboBox Name="comboBoxTownID" KeyboardNavigation.TabIndex="3" Margin="90,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxTownID_SelectionChanged"/>
+        <ComboBox Name="comboBoxStatusID" KeyboardNavigation.TabIndex="4" Margin="90,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxStatusID_SelectionChanged"/>
+        <TextBox Name="textBoxDeadline" KeyboardNavigation.TabIndex="5" Margin="90,235,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxDeadline_TextChanged"/>
+        <TextBox Name="textBoxMotivation" KeyboardNavigation.TabIndex="6" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="90,260,0,0" Width="390" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" TextChanged="textBoxMotivation_TextChanged" />
         <Label Name="lblTownName" Margin="220,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Name="lblCountryID" Margin="90,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Name="lblCountryName" Margin="90,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>

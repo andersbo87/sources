@@ -82,7 +82,7 @@ namespace JobbWPF
             {
                 if (psql.InsertApplication(na.getJobTitle(), na.getCompany(), na.getTownID(), na.getStatusID(), na.getDeadline(), na.getMotivation()))
                 {
-                    MessageBox.Show("Jobben ble lagret med følgende data:\nTittel: " + na.getJobTitle() + "\nBedrift: " + na.getCompany() + "\nStedID: " + na.getTownID() + "\nStatusID: " + na.getStatusID() + "\nSøknadsfrist: " + na.getDeadline() + ".", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Jobben ble lagret med følgende data:\nTittel: " + na.getJobTitle() + "\nBedrift: " + na.getCompany() + "\nStedID: " + na.getTownID() + "\nStatusID: " + na.getStatusID() + "\nSøknadsfrist: " + na.getDeadline() + "\nMotivasjon: " + na.getMotivation(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
