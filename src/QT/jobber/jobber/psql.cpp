@@ -573,7 +573,7 @@ QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, st
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -632,7 +632,7 @@ QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -692,7 +692,7 @@ QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, s
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -751,7 +751,7 @@ QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, s
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -811,7 +811,7 @@ QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, st
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -871,7 +871,7 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s.toInt());
@@ -921,7 +921,7 @@ QList<QString> psql::getSpecificMotivations(string jobTitle, string companyName,
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -954,7 +954,7 @@ QList<QString> psql::getCityNames()
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -986,7 +986,7 @@ QList<QString> psql::getStatuses()
         int i = 1;
         for(pqxx::result::const_iterator ci = res.begin(); ci != res.end(); ci++)
         {
-            for(pqxx::result::tuple::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
+            for(pqxx::row::const_iterator tci = ci.begin(); tci != ci.end(); tci++)
             {
                 QString s = QString::fromStdString(tci.c_str());
                 list.insert(i, s);
@@ -1020,7 +1020,7 @@ QList<int> psql::fillList(const char *sqlSporring)
         int i = 1;
         for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c)
         {
-            for(pqxx::result::tuple::const_iterator field = c.begin(); field != c.end(); ++field)
+            for(pqxx::row::const_iterator field = c.begin(); field != c.end(); ++field)
             {
                 QString s = QString::fromStdString(field.c_str());
                 list.insert(i,s.toInt());
