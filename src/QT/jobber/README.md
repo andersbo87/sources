@@ -37,23 +37,23 @@ Skriptet install.sh generer Makefile automatisk og kjører deretter kommandoen m
 For å kunne kompilere dette programmet, må QT5 være installert. Det samme gjelder for biblioteket libpqxx er installert.
 På Linux kan man kjøre kommandoen `apt install libpqxx-dev` (eller en tilsvarene kommando) for å installere dette biblioteket. På FreeBSD kan man gjøre det samme ved å kjøre `pkg install postgresql-pqxx`.
 
-Programmet skal nå kunne la seg kompilere mot libpqxx versjon 6.
+Programmet krever libpqxx versjon 6 som kan lastes ned slik:
+```
+git clone https://github.com/jtv/libpqxx.git
+./configure --disable-documentation
+make
+make install clean
+```
 
 ### Linux
-For å kunne kompilere dette programmet på Linux må følgende programmer også installeres:
+For å kunne kompilere dette programmet på Linux må følgende programmer også installeres i tillegg til libpqxx:
 
 - clang
 - qt4-qmake
 - qt5-default
-- libpqxx-dev
 
 ### Mac
-For å kunne kompilere dette programmet på Mac, må du installere QT. Dette kan gjøres via QTs offisielle installasjonsprogram for Mac, eller via for eksempel MacPorts.
-
-Deretter må libpqxx installeres, ved å angi følgende eller tilsvarende kommando:
-```
-port install libpqxx
-```
+For å kunne kompilere dette programmet på Mac, må du installere QT. Dette kan gjøres via QTs offisielle installasjonsprogram for Mac, eller via for eksempel MacPorts. I tillegg må du også installere libpqxx (se avsnitt over).
 
 ### FreeBSD
 For å kunne installere dette programmet på FreeBSD, må du installere
