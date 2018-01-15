@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 checkroot(){
     if [ $(id -u) != 0 ]
     then
@@ -17,7 +17,7 @@ fi
 if [ "$1" == "uninstall" ]
 then
     checkroot
-    make -C ../ uninstall clean
+    make -C ../ uninstall
     rm ../Makefile
 elif [ "$1" == "compile" ]
 then

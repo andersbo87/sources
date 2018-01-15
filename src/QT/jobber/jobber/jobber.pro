@@ -7,7 +7,7 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+CONFIG += c++14
 TARGET = jobber
 
 TARGET.path += /usr/local/bin
@@ -22,7 +22,7 @@ TARGETS.files += jobber.desktop
 INSTALLS += TARGETS
 
 QMAKE_CLEAN += jobber
-
+#QMAKE_CXXFLAGS += -std=c++14
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
