@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Vis søknader" Name="viewApplications" Closed="viewApplications_Closed" Loaded="viewApplications_Loaded" Height="436.222" Width="513.446" ResizeMode="NoResize">
+        Title="Vis søknader" Name="viewApplications" Closed="viewApplications_Closed" Loaded="viewApplications_Loaded" Height="436.222" Width="513.446" ResizeMode="CanMinimize">
     <Grid>
         <!--Dataene i etikettene under skal ikke endres og etikettene har derfor ikke navn-->
         <Label Margin="10,10,0,0" Content="Her kan du vise og redigere innlagte søknader i databasen, bortsett fra ID-en til søknaden." HorizontalAlignment="Left" VerticalAlignment="Top"/>
