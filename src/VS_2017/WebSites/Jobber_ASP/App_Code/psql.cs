@@ -465,7 +465,8 @@ public class psql
         cmd = new NpgsqlCommand();
         List<string> data = new List<string>();
         cmd.Connection = conn;
-        cmd.CommandText = "SELECT tittel, bedrift, soknadsfrist, stedid, stedsnavn, landid, land, statusid, status FROM view_soknad WHERE soknadid = " + index;
+        //cmd.CommandText = "SELECT tittel, bedrift, soknadsfrist, stedid, stedsnavn, landid, land, statusid, status FROM view_soknad WHERE soknadid = " + index;
+        cmd.CommandText = "SELECT tittel, bedrift, stedid, sted, landid, land, statusid, status, soknadsfrist, motivasjon FROM view_soknad WHERE soknadid=" + index;
         reader = cmd.ExecuteReader();
         while (reader.Read())
         {
@@ -478,6 +479,7 @@ public class psql
             data.Add(reader.GetString(6)); // StatusID
             data.Add(reader.GetString(7)); // Status
             data.Add(reader.GetString(8)); // Soknadsfrist
+            data.Add(reader.GetString(9)); // Motivasjon
         }
         conn.Close();
         return data;
