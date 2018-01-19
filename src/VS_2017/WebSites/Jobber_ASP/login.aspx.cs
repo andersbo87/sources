@@ -34,7 +34,7 @@ public partial class login : System.Web.UI.Page
             else
             {
                 errorLabel.Visible = true;
-                errorLabel.Text = "Noe er galt";
+                errorLabel.Text = "Noe er galt: " + p.getError();
             }
         }
         catch(Exception ex)
