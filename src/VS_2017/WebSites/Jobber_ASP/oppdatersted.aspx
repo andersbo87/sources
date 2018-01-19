@@ -33,7 +33,46 @@
                     <a href="nysøknad.aspx">Ny søknad</a><br />
                 </td>
                 <td style="vertical-align:top;" class="auto-style2">
-                    Her vil det etter hvert dukke opp en tekst.
+                    Her kan du oppdatere eller slette byene som er registrert i databasen.
+                    
+                    <asp:Label ID="successLabel" Visible="false" runat="server" ForeColor="Green" Font-Bold="true"></asp:Label>
+                    <asp:Label ID="errorLabel" runat="server" Visible="false" ForeColor="Red" Font-Bold="true"></asp:Label>
+                    <table border="0">
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:DropDownList runat="server" ID="townIDDropDownList" AutoPostBack="false" OnSelectedIndexChanged="townIDDropDownList_SelectedIndexChanged"></asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="lblTownID" runat="server" Text="StedID"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:TextBox ID="textBoxTownID" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="lblTownName" runat="server" Text="Stedsnavn"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:TextBox ID="textBoxTownName" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Button ID="btnUpdate" runat="server" Text="Oppdater" OnClick="btnUpdate_Click" />
+                                <asp:Button ID="btnDelete" runat="server" Text="Slett" OnClick="btnDelete_Click" />
+                                <asp:Button ID="btnCancel" runat="server" Text="Avbryt" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+                    <asp:Label ID="labelRemoveData" runat="server" Text="Label" Visible="False"></asp:Label>
+                    <br />
+                    <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" Text="Ja" Visible="False" />
+                    <asp:Button ID="btnNo" runat="server" OnClick="btnNo_Click" Text="Nei" Visible="False" />
                 </td>
             </tr>
             <tr>
