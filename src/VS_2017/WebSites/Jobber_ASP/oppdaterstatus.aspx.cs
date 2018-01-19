@@ -103,14 +103,14 @@ public partial class oppdaterstatus : System.Web.UI.Page
         {
             errorLabel.Visible = true;
             successLabel.Visible = false;
-            errorLabel.Text = "LanID-en må bestå av minst ett siffer.";
+            errorLabel.Text = "StatusID-en må bestå av minst ett siffer.";
             return false;
         }
         if (textBoxStatusName.Text.Length == 0)
         {
             errorLabel.Visible = true;
             successLabel.Visible = false;
-            errorLabel.Text = errorLabel.Text + " LanID-en må bestå av minst ett siffer.";
+            errorLabel.Text = errorLabel.Text + "Statusen må bestå av minst ett siffer.";
         }
         return res;
     }
