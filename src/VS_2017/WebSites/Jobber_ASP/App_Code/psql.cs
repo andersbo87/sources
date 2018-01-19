@@ -829,6 +829,50 @@ public class psql
         }
     }
 
+    public bool updateCity(int cityID, int newCityID, string newCityName)
+    {
+        try
+        {
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "UPDATE sted SET stedid=" + newCityID + ", sted='" + newCityName + "' WHERE stedid=" + cityID;
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            setError(ex.Message);
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    public bool updateStatus(int statusID, int newStatusID, string newStatusName)
+    {
+        try
+        {
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "UPDATE status SET statusid=" + newStatusID + ", status='" + newStatusName + "' WHERE statusid=" + statusID;
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            setError(ex.Message);
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
     public List<string> GetData(string sqlQuery, int index)
     {
         Init();
