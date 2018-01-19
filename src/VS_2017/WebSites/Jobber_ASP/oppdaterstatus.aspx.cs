@@ -168,12 +168,16 @@ public partial class oppdaterstatus : System.Web.UI.Page
         statusIDDropDownList.Visible = true;
         labelRemoveData.Visible = false;
         labelRemoveData.Text = "";
+        btnYes.Enabled = true;
+        btnNo.Text = "Nei";
         btnYes.Visible = false;
         btnNo.Visible = false;
     }
 
     protected void btnYes_Click(object sender, EventArgs e)
     {
+        labelRemoveData.Visible = false;
+        labelRemoveData.Text = "";
         if (p.DeleteItem("status", "statusid", int.Parse(statusIDDropDownList.Text)))
         {
             errorLabel.Visible = false;
@@ -187,8 +191,6 @@ public partial class oppdaterstatus : System.Web.UI.Page
             textBoxStatusID.Visible = true;
             textBoxStatusName.Visible = true;
             statusIDDropDownList.Visible = true;
-            labelRemoveData.Visible = false;
-            labelRemoveData.Text = "";
             btnYes.Visible = false;
             btnNo.Visible = false;
         }
@@ -197,6 +199,8 @@ public partial class oppdaterstatus : System.Web.UI.Page
             successLabel.Visible = false;
             errorLabel.Visible = true;
             errorLabel.Text = "Noe har gått galt: " + p.getError();
+            btnNo.Text = "OK";
+            btnYes.Enabled = false;
         }
     }
 
