@@ -42,9 +42,8 @@ public partial class visSoknader : System.Web.UI.Page
         {
             if (checkCookies())
             {
-                
-                p.SetUsername("a-bol");
-                p.SetPassword("mPecGt87!");
+                p.SetUsername(hc.Values["brukernavn"]);
+                p.SetPassword(hc.Values["passord"]);
                 p.SetServer("localhost");
                 labelInfo.Text = "Informasjonen på denne siden hentes fra en PostgreSQL-database på Windows " + p.getString();
                 try
