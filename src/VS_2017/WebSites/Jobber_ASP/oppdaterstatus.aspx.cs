@@ -123,7 +123,7 @@ public partial class oppdaterstatus : System.Web.UI.Page
             {
                 errorLabel.Visible = false;
                 successLabel.Visible = true;
-                successLabel.Text = "Oppdatering vellykket. Nye verdier:\nStatusID: " + textBoxStatusID.Text + "\n: Status: " + textBoxStatusName.Text;
+                successLabel.Text = "Oppdatering vellykket. Nye verdier:<br />StatusID: " + textBoxStatusID.Text + "<br />: Status: " + textBoxStatusName.Text;
             }
             else
             {

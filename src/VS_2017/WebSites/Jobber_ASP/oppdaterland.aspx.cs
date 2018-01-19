@@ -126,7 +126,7 @@ public partial class oppdaterland : System.Web.UI.Page
             {
                 errorLabel.Visible = false;
                 successLabel.Visible = true;
-                successLabel.Text = "Oppdatering vellykket. Nye verdier:\nLandID: " + countryID.Text + "\n: Landnavn: " + countryName.Text;
+                successLabel.Text = "Oppdatering vellykket. Nye verdier:<br />LandID: " + countryID.Text + "<br />: Landnavn: " + countryName.Text;
             }
             else
             {

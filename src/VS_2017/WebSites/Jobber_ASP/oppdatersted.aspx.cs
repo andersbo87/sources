@@ -126,7 +126,7 @@ public partial class oppdatersted : System.Web.UI.Page
             {
                 errorLabel.Visible = false;
                 successLabel.Visible = true;
-                successLabel.Text = "Oppdatering vellykket. Nye verdier:\nStedID: " + textBoxTownID.Text + "\nLandnavn: " + textBoxTownName.Text;
+                successLabel.Text = "Oppdatering vellykket. Nye verdier:<br />StedID: " + textBoxTownID.Text + "<br />Landnavn: " + textBoxTownName.Text;
             }
             else
             {
