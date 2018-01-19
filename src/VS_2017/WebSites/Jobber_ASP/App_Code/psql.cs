@@ -51,20 +51,19 @@ public class psql
             cmd = new NpgsqlCommand();
             return true;
         }
-        catch (NpgsqlException)
+        catch (NpgsqlException ne)
         {
-            //MessageBox.Show("En PostgreSQL-feil har oppstått: " + ne.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            setError(ne.Message);
             return false;
         }
-        catch (SocketException )
+        catch (SocketException se)
         {
-            //MessageBox.Show("En feil har oppstått under oppkobling mot en ekstern server: " + se.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //Application.Exit(); // Avslutter programmet (det er jo ikke noen forbindelse med serveren lenger, så hvorfor fortsette?)
+            setError(se.Message);
             return false;
         }
-        catch (Exception )
+        catch (Exception e)
         {
-            //MessageBox.Show("En feil har oppstått: " + e.Message, Program.title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            setError(e.Message);
             return false;
         }
     }
@@ -466,20 +465,21 @@ public class psql
         List<string> data = new List<string>();
         cmd.Connection = conn;
         //cmd.CommandText = "SELECT tittel, bedrift, soknadsfrist, stedid, stedsnavn, landid, land, statusid, status FROM view_soknad WHERE soknadid = " + index;
-        cmd.CommandText = "SELECT tittel, bedrift, stedid, sted, landid, land, statusid, status, soknadsfrist, motivasjon FROM view_soknad WHERE soknadid=" + index;
+        cmd.CommandText = "SELECT soknadid, tittel, bedrift, stedid, stedsnavn, landid, land, statusid, status, soknadsfrist, motivasjon FROM view_soknad WHERE soknadid=" + index;
         reader = cmd.ExecuteReader();
         while (reader.Read())
         {
-            data.Add(reader.GetString(0)); // Title
-            data.Add(reader.GetString(1)); // Bedrift
-            data.Add(reader.GetString(2)); // Stedid
-            data.Add(reader.GetString(3)); // Sted (by)
-            data.Add(reader.GetString(4)); // LandID
-            data.Add(reader.GetString(5)); // Land
-            data.Add(reader.GetString(6)); // StatusID
-            data.Add(reader.GetString(7)); // Status
-            data.Add(reader.GetString(8)); // Soknadsfrist
-            data.Add(reader.GetString(9)); // Motivasjon
+            data.Add(reader.GetString(0)); // SøknadID
+            data.Add(reader.GetString(1)); // Tittel
+            data.Add(reader.GetString(2)); // Bedrift
+            data.Add(reader.GetString(3)); // Stedid
+            data.Add(reader.GetString(4)); // Sted (by)
+            data.Add(reader.GetString(5)); // LandID
+            data.Add(reader.GetString(6)); // Land
+            data.Add(reader.GetString(7)); // StatusID
+            data.Add(reader.GetString(8)); // Status
+            data.Add(reader.GetString(9)); // Soknadsfrist
+            data.Add(reader.GetString(10)); // Motivasjon
         }
         conn.Close();
         return data;
@@ -829,6 +829,13 @@ public class psql
         }
     }
 
+    /// <summary>
+    /// Updates information about a registered city
+    /// </summary>
+    /// <param name="cityID">The old ID of the city to be updated</param>
+    /// <param name="newCityID">The new unique ID</param>
+    /// <param name="newCityName">The new city name</param>
+    /// <returns></returns>
     public bool updateCity(int cityID, int newCityID, string newCityName)
     {
         try
@@ -851,6 +858,13 @@ public class psql
         }
     }
 
+    /// <summary>
+    /// Updates an existing status in the database.
+    /// </summary>
+    /// <param name="statusID">The old ID of the status to be updated</param>
+    /// <param name="newStatusID">The new status ID</param>
+    /// <param name="newStatusName">The new name of the status.</param>
+    /// <returns></returns>
     public bool updateStatus(int statusID, int newStatusID, string newStatusName)
     {
         try
@@ -859,6 +873,40 @@ public class psql
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "UPDATE status SET statusid=" + newStatusID + ", status='" + newStatusName + "' WHERE statusid=" + statusID;
+            cmd.ExecuteNonQuery();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            setError(ex.Message);
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    /// <summary>
+    /// Updates an existing job application
+    /// </summary>
+    /// <param name="applicationID">The application's old ID.</param>
+    /// <param name="newApplicationID">The application's new, unique ID.</param>
+    /// <param name="newJobTitle">The new job title (teacher, salesman, ...)</param>
+    /// <param name="newCompanyName">The new company name</param>
+    /// <param name="newCityID">The ID of the city where the company is located.</param>
+    /// <param name="newStatusID">The new status ID.</param>
+    /// <param name="newDeadline">The new job deadline</param>
+    /// <param name="newMotivation">A short explanation of what motivated you to apply for this job.</param>
+    /// <returns></returns>
+    public bool updateAppliction(int applicationID, int newApplicationID, string newJobTitle, string newCompanyName, int newCityID, int newStatusID, string newDeadline, string newMotivation)
+    {
+        try
+        {
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "UPDATE soknad SET soknadid=" + newApplicationID + ", bedrift='" + newCompanyName + "', stedid=" + newCityID + ", statusid=" + newStatusID + ", soknadsfrist='" + newDeadline + "', motivasjon='" + newMotivation + "' WHERE soknadid=" + applicationID;
             cmd.ExecuteNonQuery();
             return true;
         }
