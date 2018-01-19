@@ -105,6 +105,7 @@ public partial class nysøknad : System.Web.UI.Page
         title.Text = "";
         company.Text = "";
         deadline.Text = "";
+        motivation.Text = "";
     }
     bool checkData()
     {
@@ -152,7 +153,7 @@ public partial class nysøknad : System.Web.UI.Page
         {
             if(checkData())
             {
-                if(p.InsertApplication(title.Text, company.Text, int.Parse(dropDownCityList.Text), int.Parse(dropDownStatusList.Text), deadline.Text))
+                if(p.InsertApplication(title.Text, company.Text, int.Parse(dropDownCityList.Text), int.Parse(dropDownStatusList.Text), deadline.Text, motivation.Text))
                 {
                     errorLabel.Visible = false;
                     successLabel.Visible = true;

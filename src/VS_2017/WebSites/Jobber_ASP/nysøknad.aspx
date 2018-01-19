@@ -83,6 +83,14 @@
                         </tr>
                         <tr>
                             <td style="vertical-align:top">
+                                <asp:Label ID="motivationLabel" runat="server" Text="Motivasjon"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:TextBox ID="motivation" runat="server" Height="127px" TextMode="MultiLine"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top">
                                 <asp:Button ID="btnSubmit" runat="server" Text="Sett inn" OnClick="btnSubmit_Click" />
                                 <asp:Button ID="btnClear" runat="server" Text="Fjern tekst" OnClick="btnClear_Click" />
                             </td>

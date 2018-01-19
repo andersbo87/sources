@@ -124,6 +124,14 @@
                                <asp:Label ID="statusValue" runat="server" Text="$status"></asp:Label>
                             </td>
                         </tr>
+                        <tr>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="motivationLabel" runat="server" Text="Motivasjon"></asp:Label>
+                            </td>
+                            <td style="vertical-align:top">
+                                <asp:Label ID="motivationValue" runat="server" Text="$motivasjon"></asp:Label>
+                            </td>
+                        </tr>
                     </table>
                 </td>
            </tr>

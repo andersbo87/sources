@@ -100,22 +100,20 @@ public partial class visSoknader : System.Web.UI.Page
         try
         {
             List<string> applicationData = p.GetApplications(index);
-            titleValue.Text = applicationData.ElementAt(0);
-            companyValue.Text = applicationData.ElementAt(1);
-            applicationDeadlineValue.Text = applicationData.ElementAt(2);
+            titleValue.Text = applicationData.ElementAt(1);
+            companyValue.Text = applicationData.ElementAt(2);
             townIDValue.Text = applicationData.ElementAt(3);
             townNameValue.Text = applicationData.ElementAt(4);
             countryIDValue.Text = applicationData.ElementAt(5);
             countryValue.Text = applicationData.ElementAt(6);
             statusIDValue.Text = applicationData.ElementAt(7);
             statusValue.Text = applicationData.ElementAt(8);
+            applicationDeadlineValue.Text = applicationData.ElementAt(9);
+            motivationValue.Text = applicationData.ElementAt(10);
             dropDownApplicationID.Text = index.ToString();
-            //comboBoxApplicationID.Text = index.ToString();
         }
         catch (InvalidOperationException)
         {
-            //MessageBox.Show(e.Message);
-            //getData(index+1);
             return;
         }
         catch (System.FormatException)
