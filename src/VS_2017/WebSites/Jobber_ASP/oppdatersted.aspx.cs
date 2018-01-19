@@ -132,7 +132,7 @@ public partial class oppdatersted : System.Web.UI.Page
             {
                 errorLabel.Visible = true;
                 successLabel.Visible = false;
-                errorLabel.Text = "Noe har gått galt: " + p.getError();
+                errorLabel.Text = "Noe har gått galt: " + p.getError(); 
             }
         }
     }
