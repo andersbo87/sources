@@ -119,7 +119,7 @@ public partial class oppdaterstatus : System.Web.UI.Page
     {
         if (checkData())
         {
-            if (p.updateCountry(int.Parse(statusIDDropDownList.Text), int.Parse(textBoxStatusID.Text), textBoxStatusName.Text))
+            if(p.updateStatus(int.Parse(statusIDDropDownList.SelectedItem.Text), int.Parse(textBoxStatusID.Text), textBoxStatusName.Text))
             {
                 errorLabel.Visible = false;
                 successLabel.Visible = true;
