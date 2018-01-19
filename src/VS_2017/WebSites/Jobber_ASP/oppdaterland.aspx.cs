@@ -106,14 +106,14 @@ public partial class oppdaterland : System.Web.UI.Page
         {
             errorLabel.Visible = true;
             successLabel.Visible = false;
-            errorLabel.Text = "LanID-en må bestå av minst ett siffer.";
+            errorLabel.Text = "LandID-en må bestå av minst ett siffer.";
             return false;
         }
         if(countryName.Text.Length == 0)
         {
             errorLabel.Visible = true;
             successLabel.Visible = false;
-            errorLabel.Text = errorLabel.Text + " LanID-en må bestå av minst ett siffer.";
+            errorLabel.Text = errorLabel.Text + "Landnavnet må bestå av minst ett siffer.";
         }
         return res;
     }
