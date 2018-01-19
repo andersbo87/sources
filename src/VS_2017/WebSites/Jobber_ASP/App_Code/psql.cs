@@ -557,18 +557,6 @@ public class psql
             }
             reader.Close();
         }
-        /*Init();
-        List<string> data = new List<string>();
-        cmd = new NpgsqlCommand("SELECT * FROM land WHERE landid = " + index, conn);
-        /*cmd.Connection = conn;
-        cmd.CommandText = "SELECT * FROM land WHERE landid = " + index;*/
-        /*reader = cmd.ExecuteReader();
-        while (reader.Read())
-        {
-            data.Add(reader.GetString(0));
-            data.Add(reader.GetString(1));
-        }
-        conn.Close();*/
         return data;
     }
 
