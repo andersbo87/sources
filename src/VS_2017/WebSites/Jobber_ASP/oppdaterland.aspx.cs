@@ -172,13 +172,17 @@ public partial class oppdaterland : System.Web.UI.Page
         countryDropDownList.Visible = true;
         labelRemoveData.Visible = false;
         labelRemoveData.Text = "";
+        Button1.Enabled = true;
+        Button2.Text = "Nei";
         Button1.Visible = false;
         Button2.Visible = false;
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        if(p.DeleteItem("land","landid",int.Parse(countryDropDownList.Text)))
+        labelRemoveData.Visible = false;
+        labelRemoveData.Text = "";
+        if (p.DeleteItem("land","landid",int.Parse(countryDropDownList.Text)))
         {
             errorLabel.Visible = false;
             successLabel.Visible = true;
@@ -201,6 +205,8 @@ public partial class oppdaterland : System.Web.UI.Page
             successLabel.Visible = false;
             errorLabel.Visible = true;
             errorLabel.Text = "Noe har gått galt: " + p.getError();
+            Button1.Enabled = false;
+            Button2.Text = "OK";
         }
     }
     void refillList()
