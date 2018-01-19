@@ -431,12 +431,12 @@ public class psql
     /// <param name="statusID">int: The status of the job application</param>
     /// <param name="date">The deadline for when the application has to be sent.</param>
     /// <returns>True if the insert succeeds and false if it fails</returns>
-    public bool InsertApplication(string title, string company, int placeID, int statusID, string date)
+    public bool InsertApplication(string title, string company, int placeID, int statusID, string date, string motivation)
     {
         Init();
         try
         {
-            cmd = new NpgsqlCommand("INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist) VALUES('" + title + "', '" + company + "'," + placeID + ", " + statusID + ", '" + date + "');", conn);
+            cmd = new NpgsqlCommand("INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist, motivasjon) VALUES('" + title + "', '" + company + "'," + placeID + ", " + statusID + ", '" + date + "', '" + motivation + "');", conn);
             cmd.ExecuteNonQuery();
 
             return true;
