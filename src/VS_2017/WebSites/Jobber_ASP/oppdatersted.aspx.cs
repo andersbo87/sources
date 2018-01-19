@@ -122,7 +122,7 @@ public partial class oppdatersted : System.Web.UI.Page
     {
         if (checkData())
         {
-            if(p.updateStatus(int.Parse(townIDDropDownList.Text), int.Parse(textBoxTownID.Text), textBoxTownName.Text))
+            if(p.updateCity(int.Parse(townIDDropDownList.Text), int.Parse(textBoxTownID.Text), textBoxTownName.Text))
             {
                 errorLabel.Visible = false;
                 successLabel.Visible = true;
