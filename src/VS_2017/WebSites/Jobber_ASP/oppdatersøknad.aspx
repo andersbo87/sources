@@ -106,7 +106,7 @@
                                 <asp:Label ID="lblMotivation" runat="server" Text="Motivasjon"></asp:Label>
                             </td>
                             <td style="vertical-align:top">
-                                <asp:TextBox ID="textBoxMotivation" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="textBoxMotivation" runat="server" Height="96px" TextMode="MultiLine"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
