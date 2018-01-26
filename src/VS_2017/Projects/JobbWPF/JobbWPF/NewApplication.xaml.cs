@@ -96,15 +96,18 @@ namespace JobbWPF
         }
         private void comboBox_statusID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            setStatusID(int.Parse(comboBox_statusID.SelectedValue.ToString()));
-            lbl_statusName.Content = p.getStatusName(int.Parse(comboBox_statusID.SelectedValue.ToString()));
+            //setStatusID(int.Parse(comboBox_statusID.SelectedValue.ToString()));
+            setStatusID(p.GetStatusID(comboBox_statusID.SelectedValue.ToString()));
+            //lbl_statusName.Content = p.getStatusName(int.Parse(comboBox_statusID.SelectedValue.ToString()));
             setChanged(true);
         }
         
         private void comboBox_townID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            setTownID(int.Parse(comboBox_townID.SelectedValue.ToString()));
-            lbl_townName.Content = p.getCityName(int.Parse(comboBox_townID.SelectedValue.ToString()));
+            //setTownID(int.Parse(comboBox_townID.SelectedValue.ToString()));
+            setTownID(p.GetCityID(comboBox_townID.SelectedValue.ToString()));
+            //lbl_townName.Content = p.getCityName(int.Parse(comboBox_townID.SelectedValue.ToString()));
+            //lbl_townName.Content = comboBox_townID.SelectedValue.ToString();
             setChanged(true);
         }
         
@@ -122,7 +125,7 @@ namespace JobbWPF
         // Private "drivermetoder"
         void getTownIDList()
         {
-            townList = p.GetData("SELECT stedid FROM sted ORDER BY stedid ASC", 0);
+            townList = p.GetData("SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC", 0);
             int i = 0;
             while (i < townList.Count)
             {
@@ -133,7 +136,7 @@ namespace JobbWPF
 
         void getStatusIDList()
         {
-            statusList = p.GetData("SELECT statusid FROM status ORDER BY statusid ASC", 0);
+            statusList = p.GetData("SELECT status FROM status ORDER BY status ASC", 0);
             for(int i = 0; i < statusList.Count; ++i)
             {
                 comboBox_statusID.Items.Add(statusList.ElementAt(i));
