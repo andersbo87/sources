@@ -636,6 +636,25 @@ namespace JobbWPF
         }
 
         /// <summary>
+        /// Get the ID of a town based on the town's name
+        /// </summary>
+        /// <param name="name">The name of the town in question</param>
+        /// <returns>The town ID</returns>
+        public int GetCityID(string name)
+        {
+            int ans = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT stedid FROM sted WHERE stedsnavn='" + name + "'";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                ans = reader.GetInt32(0);
+            conn.Close();
+            return ans;
+        }
+
+        /// <summary>
         /// Get the ID of a city based on the application ID
         /// </summary>
         /// <param name="index">The ID of the application in question.</param>
@@ -737,6 +756,28 @@ namespace JobbWPF
             {
                 conn.Close();
             }
+        }
+
+        /// <summary>
+        /// Gets the status ID of the provided status
+        /// </summary>
+        /// <param name="statusname">The name of the status in question</param>
+        /// <returns>The ID of the provided status</returns>
+        public int GetStatusID(string statusname)
+        {
+            int ans = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT statusID from status WHERE status='" + statusname + "'";
+            System.Windows.MessageBox.Show(cmd.CommandText);
+            reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                ans = reader.GetInt32(0);
+            }
+            conn.Close();
+            return ans;
         }
 
         /// <summary>
