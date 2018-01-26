@@ -24,8 +24,8 @@
         <ComboBox Name="comboBox_townID" KeyboardNavigation.TabIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="120, 75, 0, 0" SelectionChanged="comboBox_townID_SelectionChanged" />
         <ComboBox Name="comboBox_statusID" KeyboardNavigation.TabIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="120, 100, 0, 0" SelectionChanged="comboBox_statusID_SelectionChanged" />
         <!-- Etiketter hvis tekst skal oppdateres avhengig av valg som brukeren tar når det gjelder "gardinlistene" over -->
-        <Label Name="lbl_townName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195, 70, 0, 0" />
-        <Label Name="lbl_statusName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195, 95, 0, 0" />
+        <!--<Label Name="lbl_townName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195, 70, 0, 0" />-->
+        <!--<Label Name="lbl_statusName" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195, 95, 0, 0" />-->
         <Button Name="btnSave" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,222,0,0" Width="70" Content="Lagre" Click="btnSave_Clicked" />
         <Button Name="btnCancel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,222,0,0" Width="70" Content="Avbryt" Click="btnCancel_Clicked" />
     </Grid>
