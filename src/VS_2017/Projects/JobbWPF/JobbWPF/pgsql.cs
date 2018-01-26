@@ -770,7 +770,6 @@ namespace JobbWPF
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT statusID from status WHERE status='" + statusname + "'";
-            System.Windows.MessageBox.Show(cmd.CommandText);
             reader = cmd.ExecuteReader();
             while(reader.Read())
             {
