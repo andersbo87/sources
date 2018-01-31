@@ -72,90 +72,76 @@
     <item row="3" column="0">
      <widget class="QLabel" name="labelStedid">
       <property name="text">
-       <string>Stedid*</string>
+       <string>Sted*</string>
       </property>
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QComboBox" name="comboBoxStedID"/>
+     <widget class="QComboBox" name="comboBoxSted"/>
     </item>
     <item row="4" column="0">
-     <widget class="QLabel" name="labelCity">
-      <property name="text">
-       <string>Stedsnavn</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLabel" name="labelCityValue">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
      <widget class="QLabel" name="labelStatusID">
       <property name="text">
        <string>StatusID*</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="4" column="1">
      <widget class="QComboBox" name="comboBoxStatusID"/>
     </item>
-    <item row="6" column="0">
+    <item row="5" column="0">
      <widget class="QLabel" name="labelStatus">
       <property name="text">
        <string>Status</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="1">
+    <item row="5" column="1">
      <widget class="QLabel" name="labelStatusValue">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
-    <item row="7" column="0">
+    <item row="6" column="0">
      <widget class="QLabel" name="labelSoknadsfrist">
       <property name="text">
        <string>Søknadsfrist*</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="1">
+    <item row="6" column="1">
      <widget class="QLineEdit" name="lineEditSoknadsfrist">
       <property name="placeholderText">
        <string>Dato, kan være i hvilket format som helst.</string>
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
+    <item row="7" column="0">
      <widget class="QLabel" name="labelMotivation">
       <property name="text">
        <string>Motivasjon</string>
       </property>
      </widget>
     </item>
-    <item row="9" column="0" colspan="2">
+    <item row="7" column="1">
+     <widget class="QTextEdit" name="textEditMotivation">
+      <property name="placeholderText">
+       <string>Forklar hva som gjør deg motivert til å søke på denne jobben. Er det noe med bedriften som motiverer? Noe med jobben? Begge deler?</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0" colspan="2">
      <widget class="QLabel" name="labelAsterisk">
       <property name="text">
        <string>Felt merket med * må fylles ut</string>
       </property>
      </widget>
     </item>
-    <item row="10" column="0" colspan="2">
+    <item row="9" column="0" colspan="2">
      <widget class="QDialogButtonBox" name="buttonBox">
       <property name="standardButtons">
        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QTextEdit" name="textEditMotivation">
-      <property name="placeholderText">
-       <string>Forklar hva som gjør deg motivert til å søke på denne jobben. Er det noe med bedriften som motiverer? Noe med jobben? Begge deler?</string>
       </property>
      </widget>
     </item>
@@ -165,7 +151,7 @@
  <tabstops>
   <tabstop>lineEditTittel</tabstop>
   <tabstop>lineEditBedrift</tabstop>
-  <tabstop>comboBoxStedID</tabstop>
+  <tabstop>comboBoxSted</tabstop>
   <tabstop>comboBoxStatusID</tabstop>
   <tabstop>lineEditSoknadsfrist</tabstop>
   <tabstop>textEditMotivation</tabstop>
