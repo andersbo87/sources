@@ -79,9 +79,11 @@ public:
     // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
     int getApplicationID(QString qry);
     int getCityID(int applicationID);
+    int getCityID(string name);
     int getCountryID(int cityID);
     int getStatusID(int applicationID);
-    QList<int> fillList(const char *sqlSporring);
+    QList<QString> fillList(const char *sqlSporring);
+    //QList<QString> psql::fillList(const char *sqlSporring);
     QList<int> getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
     QList<QString> getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
     QList<QString> getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);

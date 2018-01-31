@@ -888,6 +888,34 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
     }
 }
 
+int psql::getCityID(string name)
+{
+    int res = 0;
+    string stmt;// = name.toStdString();
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "SELECT stedid FROM sted WHERE stedsnavn = '";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        oss << stmt << name;
+        oss << stmt << "'";
+        pqxx::result R(N.exec(oss.str()));
+        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
 QList<QString> psql::getSpecificMotivations(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
@@ -1005,9 +1033,44 @@ QList<QString> psql::getStatuses()
 /**
  * @brief psql::fillList "Fills" a QList with integers based on the results of an SQL query.
  * @param sqlSporring The SQL query to be executed.
- * @return
+ * @return A list of ints based on the results of the query in "sqlSporring"
  */
-QList<int> psql::fillList(const char *sqlSporring)
+QList<QString> psql::fillList(const char *sqlSporring)
+{
+    try
+    {
+        QList<QString> list;// = new QLinkedList<int>();
+        QList<QString>::iterator iterator;
+
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        pqxx::result R(N.exec(sqlSporring));
+        int i = 1;
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c)
+        {
+            for(pqxx::row::const_iterator field = c.begin(); field != c.end(); ++field)
+            {
+                QString s = QString::fromStdString(field.c_str());
+                list.insert(i,QString::fromStdString(s.toStdString()));
+                i++;
+            }
+        }
+        C.disconnect();
+        return list;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw; // Kaster unntaket videre.
+    }
+}
+
+/**
+ * @brief psql::fillList "Fills" a QList with QStrings based on the results of an SQL query.
+ * @param sqlSporring The SQL query to be executed.
+ * @return A list of QStrings based on the results of the query in "sqlSporring"
+ */
+/*QList<T> psql::fillList(const char *sqlSporring)
 {
     try
     {
@@ -1035,7 +1098,7 @@ QList<int> psql::fillList(const char *sqlSporring)
         setError(e.what());
         throw; // Kaster unntaket videre.
     }
-}
+}*/
 
 /**
  * @brief psql::getStatusName Returns the current status name
@@ -1157,6 +1220,8 @@ QString psql::getCompany(int applicationID)
         throw;
     }
 }
+
+
 
 /**
  * @brief psql::getCityID Gets the city ID of the application based on the application ID prvoided by the user.
