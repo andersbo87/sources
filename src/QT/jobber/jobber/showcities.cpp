@@ -106,7 +106,7 @@ void ShowCities::getCountryIDs()
 {
     try
     {
-        QList<int> list;
+        QList<QString> list;
         list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
         for(int i=0; i < list.count(); i++)
         {
@@ -127,11 +127,12 @@ void ShowCities::getCities()
 {
     try
     {
-        QList<int> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        QList<QString> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
         int i = 0;
-        for(QList<int>::iterator iter = list.begin(); iter != list.end(); iter++)
+        for(QList<QString>::iterator iter = list.begin(); iter != list.end(); iter++)
         {
-            ui->comboBoxCityID->addItem(QString::number(list.value(i)));
+            //ui->comboBoxCityID->addItem(QString::number(list.value(i)));
+            ui->comboBoxCityID->addItem(list.value(i));
             i++;
         }
         lastID = i;

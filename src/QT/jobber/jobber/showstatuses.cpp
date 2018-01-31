@@ -123,13 +123,14 @@ void ShowStatuses::getStatuses()
 {
     try
     {
-        QList<int> list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
+        QList<QString> list = p->fillList("SELECT status FROM status ORDER BY status ASC");
         int i = 0;
-        QList<int>::iterator iter = list.begin();
+        QList<QString>::iterator iter = list.begin();
         i = 0;
         while(iter != list.end())
         {
-            ui->comboBoxStatusID->addItem(QString::number(list.value(i)));
+            //ui->comboBoxStatusID->addItem(QString::number(list.value(i)));
+            ui->comboBoxStatusID->addItem(list.value(i));
             i++;
             iter++;
         }
