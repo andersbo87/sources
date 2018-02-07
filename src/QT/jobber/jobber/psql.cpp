@@ -29,6 +29,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "psql.h"
 #include <stdio.h>
 
+/**
+ * @brief psql::psql Class constructor
+ * @param windowTitle The title of the window to be used in message boxes.
+ */
 psql::psql(QString windowTitle)
 {
     winTitle = windowTitle;
@@ -117,6 +121,7 @@ void psql::setHost(QString newHost)
  * @param cityID The ID of the city where the job is located.
  * @param statusID The status of the new job. Can be (in Norwegian) 1 (registrert), 2 (sendt), 3 (interessert, mulig intervju), 4 (avvist)
  * @param date The deadline of the new job application
+ * @param motivation The reasons and motivation for applying for this job
  * @return True on success and false on failure.
  */
 bool psql::insertApplication(QString title, QString company, int cityID, int statusID, QString date, QString motivation)
@@ -1421,7 +1426,6 @@ QString psql::getCompany(int applicationID)
         throw;
     }
 }
-
 
 
 /**

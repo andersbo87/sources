@@ -45,7 +45,6 @@ public:
     QString getUsername();
     QString getPassword();
     QString getHost();
-    int getRows(string query);
     // Funksjoner som angir parametere for å koble til databasen:
     void setHost(QString newHost);
     void setPassword(QString newPassword);
@@ -86,7 +85,6 @@ public:
     int countAccepted(); // Application accepted and ready to start the job. StatusID 6
 
     // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
-    int getApplicationID(QString qry);
     int getCityID(int applicationID);
     int getCityID(string name);
     int getCountryID(int cityID);
