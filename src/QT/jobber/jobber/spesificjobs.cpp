@@ -2,6 +2,12 @@
 #include "ui_spesificjobs.h"
 
 // Konstruktør og destruktør
+/**
+ * @brief SpesificJobs::SpesificJobs SpesificJobs class constructor
+ * @param title The title to be used in windows and dialog boxes.
+ * @param pg Pointer to the psql class
+ * @param parent
+ */
 SpesificJobs::SpesificJobs(QString title, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SpesicficJobs)
@@ -27,47 +33,84 @@ SpesificJobs::~SpesificJobs()
 
 // Offentlige metoder:
 // "Getters"
+
+/**
+ * @brief SpesificJobs::getJobTitle Gets the job title
+ * @return The job title
+ */
 QString SpesificJobs::getJobTitle()
 {
     return jobTitle;
 }
 
+/**
+ * @brief SpesificJobs::getCompanyName Gets the company name
+ * @return The name of the company
+ */
 QString SpesificJobs::getCompanyName()
 {
     return companyName;
 }
 
+/**
+ * @brief SpesificJobs::getCityName Gets the name of the city where the job is located
+ * @return The city name
+ */
 QString SpesificJobs::getCityName()
 {
     return cityName;
 }
 
+/**
+ * @brief SpesificJobs::getStatus Gets the status of the job application
+ * @return The name of the current application status (sent, declined/rejected, etc)
+ */
 QString SpesificJobs::getStatus()
 {
     return status;
 }
 
+/**
+ * @brief SpesificJobs::getDeadline Gets the deadline of the application
+ * @return The application deadline
+ */
 QString SpesificJobs::getDeadline()
 {
     return deadline;
 }
 
+/**
+ * @brief SpesificJobs::getMotivation Gets the motivation for applying for this job.
+ * @return The application motivation
+ */
 QString SpesificJobs::getMotivation()
 {
     return motivation;
 }
 
 // "Setters" - metoder som angir verdier
+/**
+ * @brief SpesificJobs::setJobTitle Sets the title of the job
+ * @param newTitle The name of the job
+ */
 void SpesificJobs::setJobTitle(QString newTitle)
 {
     jobTitle = newTitle;
 }
 
+/**
+ * @brief SpesificJobs::setCompanyName Sets the name of the company
+ * @param newName The company name
+ */
 void SpesificJobs::setCompanyName(QString newName)
 {
     companyName = newName;
 }
 
+/**
+ * @brief SpesificJobs::setCityName Sets the name of the city where the job is located.
+ * @param newCityName The name of the city
+ */
 void SpesificJobs::setCityName(QString newCityName)
 {
     if(QString::compare(newCityName, "Ingen spesielle steder", Qt::CaseSensitive) == 0)
@@ -75,6 +118,10 @@ void SpesificJobs::setCityName(QString newCityName)
     cityName = newCityName;
 }
 
+/**
+ * @brief SpesificJobs::setStatus Set the status of the job application
+ * @param newStatus The status of the application.
+ */
 void SpesificJobs::setStatus(QString newStatus)
 {
     if(QString::compare(newStatus, "Ingen spesielle statuser", Qt::CaseSensitive) == 0)
@@ -82,17 +129,28 @@ void SpesificJobs::setStatus(QString newStatus)
     status = newStatus;
 }
 
+/**
+ * @brief SpesificJobs::setDeadline Sets the deadline of the application
+ * @param newDeadline The application dealine (could be a date in any format or 'ASAP' or something)
+ */
 void SpesificJobs::setDeadline(QString newDeadline)
 {
     deadline = newDeadline;
 }
 
+/**
+ * @brief SpesificJobs::setMotivation Sets the reasons for applying for this job (optional)
+ * @param newMotivation The motivation. Is there something about the job or company that made you apply for that job
+ */
 void SpesificJobs::setMotivation(QString newMotivation)
 {
     motivation = newMotivation;
 }
 
 // Andre offentlige metoder:
+/**
+ * @brief SpesificJobs::getCityNames Fetches a list of city names to be added to the comboBoxCityName.
+ */
 void SpesificJobs::getCityNames()
 {
     ui->comboBoxCityName->addItem("Ingen spesielle steder");
@@ -118,6 +176,9 @@ void SpesificJobs::getCityNames()
     }
 }
 
+/**
+ * @brief SpesificJobs::getStatuses Fetches a list of status names to be added to the comboBoxStatusName
+ */
 void SpesificJobs::getStatuses()
 {
     ui->comboBoxStatusName->addItem("Ingen spesielle statuser");
