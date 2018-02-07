@@ -41,11 +41,6 @@ class NewCity : public QMainWindow
     Q_OBJECT
 
 public:
-    /**
-     * @brief NewCity The NewCity class constructor
-     * @param pg Pointer to the PostgreSQL database
-     * @param parent
-     */
     explicit NewCity(QString windowTitle, psql *pg, QWidget *parent = 0);
     ~NewCity();
     void setCountryID(int newCountryID);

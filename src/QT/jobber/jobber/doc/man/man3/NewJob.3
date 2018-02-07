@@ -1,4 +1,4 @@
-.TH "NewJob" 3 "Thu Jan 4 2018" "Jobber" \" -*- nroff -*-
+.TH "NewJob" 3 "Wed Feb 7 2018" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,9 +27,9 @@ Inherits QMainWindow\&.
 .br
 .RI "\fBNewJob::setCompany\fP: Sets a new job company\&. "
 .ti -1c
-.RI "void \fBsetCityID\fP (int newCityID)"
+.RI "void \fBsetCityName\fP (QString newCityName)"
 .br
-.RI "\fBNewJob::setCityID\fP: Sets the ID of the city in which the job is located\&. "
+.RI "\fBNewJob::setCityName\fP: Sets the name of the city in which the job is located\&. "
 .ti -1c
 .RI "void \fBsetStatusID\fP (int newStatusID)"
 .br
@@ -43,6 +43,10 @@ Inherits QMainWindow\&.
 .br
 .RI "\fBNewJob::setMotivation\fP Sets the motivation for the current job\&. "
 .ti -1c
+.RI "void \fBsetCityID\fP (int newID)"
+.br
+.RI "\fBNewJob::setCityID\fP Sets the ID of the existing city where the job is located\&. "
+.ti -1c
 .RI "QString \fBgetTitle\fP ()"
 .br
 .RI "\fBNewJob::getTitle\fP: Gets the position title\&. "
@@ -51,9 +55,13 @@ Inherits QMainWindow\&.
 .br
 .RI "\fBNewJob::getCompany\fP: Gets the name of the company\&. "
 .ti -1c
-.RI "int \fBgetCityID\fP ()"
+.RI "QString \fBgetCityName\fP ()"
 .br
 .RI "\fBNewJob::getCityID\fP: Gets the ID of the city where the job is located\&. "
+.ti -1c
+.RI "int \fBgetCityID\fP ()"
+.br
+.RI "\fBNewJob::getCityID\fP Gets the ID of the city where the job is located\&. "
 .ti -1c
 .RI "int \fBgetStatusID\fP ()"
 .br
@@ -83,6 +91,8 @@ The \fBNewJob\fP class\&.
 .PP
 \fBParameters:\fP
 .RS 4
+\fIwindowTitle\fP The title to be used in message boxes and other things\&. 
+.br
 \fIpg\fP A pointer to the PostgreSQL database\&. 
 .br
 \fIparent\fP 
@@ -103,6 +113,17 @@ closeEvent Code to be executed when the window closes
 .PP
 
 .SS "int NewJob::getCityID ()"
+
+.PP
+\fBNewJob::getCityID\fP Gets the ID of the city where the job is located\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The ID of the city where the job is located\&. 
+.RE
+.PP
+
+.SS "QString NewJob::getCityName ()"
 
 .PP
 \fBNewJob::getCityID\fP: Gets the ID of the city where the job is located\&. 
@@ -168,14 +189,25 @@ The position title
 .RE
 .PP
 
-.SS "void NewJob::setCityID (int newCityID)"
+.SS "void NewJob::setCityID (int newID)"
 
 .PP
-\fBNewJob::setCityID\fP: Sets the ID of the city in which the job is located\&. 
+\fBNewJob::setCityID\fP Sets the ID of the existing city where the job is located\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fInewCityID\fP the ID of the city in which the job is located\&. 
+\fInewID\fP The ID of the city where the job is located\&. 
+.RE
+.PP
+
+.SS "void NewJob::setCityName (QString newCityName)"
+
+.PP
+\fBNewJob::setCityName\fP: Sets the name of the city in which the job is located\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCityName\fP the name of the city in which the job is located\&. 
 .RE
 .PP
 
@@ -237,4 +269,4 @@ The position title
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Jobber from the source code\&.
+Generated automatically by Doxygen for My Project from the source code\&.

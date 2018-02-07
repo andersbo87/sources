@@ -26,6 +26,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ui_newjob.h"
 
 // Konstruktør
+/**
+ * @brief NewJob The NewJob class constructor
+ * @param windowTitle The title to be used in message boxes and other things.
+ * @param pg A pointer to the PostgreSQL database.
+ * @param parent
+ */
 NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewJob)
@@ -42,7 +48,7 @@ NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) :
     winTitle = windowTitle;
     connect(ui->lineEditTittel, SIGNAL(textChanged(QString)), this, SLOT(titleTextChanged()));
     connect(ui->lineEditBedrift, SIGNAL(textChanged(QString)), this, SLOT(companyTextChanged()));
-    connect(ui->comboBoxStedID, SIGNAL(currentTextChanged(QString)), this, SLOT(cityIDchanged()));
+    connect(ui->comboBoxSted, SIGNAL(currentTextChanged(QString)), this, SLOT(cityIDchanged()));
     connect(ui->comboBoxStatusID, SIGNAL(currentIndexChanged(int)), this, SLOT(statusIDchanged()));
     connect(ui->lineEditSoknadsfrist, SIGNAL(textChanged(QString)), this, SLOT(dateChanged()));
     connect(ui->textEditMotivation, SIGNAL(textChanged()), this, SLOT(motivationTextChanged()));
@@ -107,12 +113,13 @@ void NewJob::getCityIDs()
 {
     try
     {
-        QList<int> list;// = new QLinkedList<int>();
-        list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        QList<QString> list;// = new QLinkedList<int>();
+        //list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        list = p->fillList("SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC");
         int i = 0;
         while(i < list.count())
         {
-            ui->comboBoxStedID->addItem(QString::number(i+1));
+            ui->comboBoxSted->addItem(list.value(i));
             i++;
         }
     }
@@ -133,7 +140,7 @@ void NewJob::getStatusIDs()
 {
     try
     {
-        QList<int> list;
+        QList<QString> list;
         list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
         int i = 0;
         while(i < list.count())
@@ -183,12 +190,13 @@ void NewJob::companyTextChanged()
 }
 
 /**
- * @brief Executes when the selected item of the combobox comboBoxStedID is changed.
+ * @brief Executes when the selected item of the combobox comboBoxSted is changed.
  */
 void NewJob::cityIDchanged()
 {
-    setCityID(ui->comboBoxStedID->currentText().toInt());
-    ui->labelCityValue->setText(p->getCityName(getCityID()));
+    //setCityName(ui->comboBoxSted->currentText().toInt());
+    //ui->labelCityValue->setText(p->getCityName(getCityID()));
+    setCityID(p->getCityID(ui->comboBoxSted->currentText().toStdString()));
     changed = canSave();
 }
 
@@ -314,12 +322,30 @@ void NewJob::setCompany(QString newCompany)
 }
 
 /**
- * @brief NewJob::setCityID: Sets the ID of the city in which the job is located.
- * @param newCityID: the ID of the city in which the job is located.
+ * @brief NewJob::getCityID Gets the ID of the city where the job is located.
+ * @return The ID of the city where the job is located.
  */
-void NewJob::setCityID(int newCityID)
+int NewJob::getCityID()
 {
-    cityid = newCityID;
+    return cityid;
+}
+
+/**
+ * @brief NewJob::setCityID Sets the ID of the existing city where the job is located.
+ * @param newID The ID of the city where the job is located.
+ */
+void NewJob::setCityID(int newID)
+{
+    cityid = newID;
+}
+
+/**
+ * @brief NewJob::setCityName: Sets the name of the city in which the job is located.
+ * @param newCityName: the name of the city in which the job is located.
+ */
+void NewJob::setCityName(QString newCityName)
+{
+    cityname = newCityName;
 }
 
 /**
@@ -375,9 +401,9 @@ QString NewJob::getCompany()
  * @brief NewJob::getCityID: Gets the ID of the city where the job is located.
  * @return the ID of the city where the job is located.
  */
-int NewJob::getCityID()
+QString NewJob::getCityName()
 {
-    return cityid;
+    return cityname;
 }
 
 /**

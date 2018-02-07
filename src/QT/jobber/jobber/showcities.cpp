@@ -25,6 +25,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "showcities.h"
 #include "ui_showcities.h"
 
+/**
+ * @brief ShowCities The ShowCitis class constructor.
+ * @param windowTitle The title to be used in windows, message boxes and other things.
+ * @param pg A pointer to the PostgreSQL database
+ * @param parent
+ */
 ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ShowCities)
@@ -50,37 +56,65 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     changed = false;
 }
 
+/**
+ * @brief ShowCities::getCityID Gets the current city ID
+ * @return The city ID.
+ */
 int ShowCities::getCityID()
 {
     return cityID;
 }
 
+/**
+ * @brief ShowCities::getCountryName Gets the name of the country where the current city is located.
+ * @return The country name
+ */
 QString ShowCities::getCountryName()
 {
     return countryName;
 }
 
+/**
+ * @brief ShowCities::getCountryID Gets the ID of the country where the current city is located.
+ * @return The country ID.
+ */
 int ShowCities::getCountryID()
 {
     return countryID;
 }
 
 // Metoder som angir nye verdier:
+/**
+ * @brief ShowCities::setCityID Sets a new city ID
+ * @param newID The ID of the new city in question.
+ */
 void ShowCities::setCityID(int newID)
 {
     cityID = newID;
 }
 
+/**
+ * @brief ShowCities::setCityName Sets the name of the city
+ * @param newName The new city name to be used.
+ */
 void ShowCities::setCityName(QString newName)
 {
     cityName = newName;
 }
 
+/**
+ * @brief ShowCities::setCountryID Sets the ID of the country in which the city exists.
+ * @param newID The new country ID
+ */
 void ShowCities::setCountryID(int newID)
 {
     countryID = newID;
 }
 
+/**
+ * @brief ShowCities::getCity Shows data about the current city based on the ID
+ * @param cityID The ID of the city in question.
+ */
 void ShowCities::getCity(int cityID)
 {
     try
@@ -102,11 +136,15 @@ void ShowCities::getCity(int cityID)
     }
 }
 
+/**
+ * @brief ShowCities::getCountryIDs Builds a list of countries based on existing data in the database.
+ * That data will be used to fill the comboBoxCountryID.
+ */
 void ShowCities::getCountryIDs()
 {
     try
     {
-        QList<int> list;
+        QList<QString> list;
         list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
         for(int i=0; i < list.count(); i++)
         {
@@ -123,15 +161,19 @@ void ShowCities::getCountryIDs()
     }
 }
 
+/**
+ * @brief ShowCities::getCities Builds a list to be used in the combobox of city IDs based on registered cities in the database.
+ */
 void ShowCities::getCities()
 {
     try
     {
-        QList<int> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        QList<QString> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
         int i = 0;
-        for(QList<int>::iterator iter = list.begin(); iter != list.end(); iter++)
+        for(QList<QString>::iterator iter = list.begin(); iter != list.end(); iter++)
         {
-            ui->comboBoxCityID->addItem(QString::number(list.value(i)));
+            //ui->comboBoxCityID->addItem(QString::number(list.value(i)));
+            ui->comboBoxCityID->addItem(list.value(i));
             i++;
         }
         lastID = i;
@@ -156,6 +198,10 @@ void ShowCities::setChanged(bool change)
     changed = change;
 }
 
+/**
+ * @brief ShowCities::getCityName Gets the name of the current city
+ * @return The name of the city
+ */
 QString ShowCities::getCityName()
 {
     return cityName;

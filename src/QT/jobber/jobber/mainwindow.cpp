@@ -35,6 +35,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "showcountries.h"
 #include "showstatuses.h"
 #include "spesificjobs.h"
+#include "statistics.h"
 #include "psql.h"
 #include <pqxx/pqxx>
 
@@ -56,6 +57,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btn_ShowCities, SIGNAL(clicked(bool)), this, SLOT(btn_ShowCities_Click()));
     connect(ui->btn_showCountries, SIGNAL(clicked(bool)), this, SLOT(btn_ShowCountries_Click()));
     connect(ui->btn_ShowStatuses, SIGNAL(clicked(bool)), this, SLOT(btn_ShowStatuses_Click()));
+    connect(ui->btnStatistic, SIGNAL(clicked(bool)), this, SLOT(btnStatistic_Click()));
     cp = new connectPsql(progName);
     p = cp->p; // Kanskje ikke verdens smarteste idé, men lar den likevel peke på psql-objektet i klassen "connectpsql" inntil videre.
     cp->exec();
@@ -69,6 +71,12 @@ void MainWindow::btn_NewCountry_Click()
 {
     NewCountry *ncty = new NewCountry(progName, p, this);
     ncty->show();
+}
+
+void MainWindow::btnStatistic_Click()
+{
+    statistics *s = new statistics(p, this);
+    s->show();
 }
 
 void MainWindow::btn_ShowCountries_Click()

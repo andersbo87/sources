@@ -43,21 +43,19 @@ class NewJob : public QMainWindow
     Q_OBJECT
 
 public:
-    /**
-     * @brief NewJob The NewJob class constructor
-     * @param pg A pointer to the PostgreSQL database.
-     * @param parent
-     */
+
     explicit NewJob(QString windowTitle, psql *pg, QWidget *parent = 0);
     ~NewJob();
     void setTitle(QString newTitle);
     void setCompany(QString newCompany);
-    void setCityID(int newCityID);
+    void setCityName(QString newCityName);
     void setStatusID(int newStatusID);
     void setDate(QString newDate);
     void setMotivation(QString newMotivation);
+    void setCityID(int newID);
     QString getTitle();
     QString getCompany();
+    QString getCityName();
     int getCityID();
     int getStatusID();
     QString getDate();
@@ -76,7 +74,7 @@ private:
     void getStatusIDs();
     bool changed, close;
     // jobTitle: The name of the job (developer, CEO, etc.). winTitle: The name to be used in message boxes.
-    QString jobTitle, winTitle, company, date, motivation;
+    QString jobTitle, winTitle, company, date, motivation, cityname;
     int statusid, cityid;
     psql *p;
 

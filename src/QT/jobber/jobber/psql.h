@@ -45,7 +45,6 @@ public:
     QString getUsername();
     QString getPassword();
     QString getHost();
-    int getRows(string query);
     // Funksjoner som angir parametere for å koble til databasen:
     void setHost(QString newHost);
     void setPassword(QString newPassword);
@@ -76,12 +75,22 @@ public:
     QString getError();
     void setError(QString msg);
 
+    // Metoder som henter antall søknader i hver kategori (status):
+    int countTotalApplications();
+    int countRegisteredApplications(); // Applications that have been added to the database but not sent. StatusID 1
+    int countSentApplications(); // Get applications that have been sent and not answered. StatusID 2
+    int countInterviews(); // Get applications employers are interested in and have called in for an interviews. StatusID 3
+    int countDeclinedApplications(); // Applications that have been declined. StatusID 4
+    int countWrittenButNotSent(); // Applications that have been written but not sent to the employer. StatusID 5
+    int countAccepted(); // Application accepted and ready to start the job. StatusID 6
+
     // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
-    int getApplicationID(QString qry);
     int getCityID(int applicationID);
+    int getCityID(string name);
     int getCountryID(int cityID);
     int getStatusID(int applicationID);
-    QList<int> fillList(const char *sqlSporring);
+    QList<QString> fillList(const char *sqlSporring);
+    //QList<QString> psql::fillList(const char *sqlSporring);
     QList<int> getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
     QList<QString> getSpecificJobNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);
     QList<QString> getSpecificCompanyNames(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);

@@ -41,11 +41,7 @@ class ShowCities : public QMainWindow
     Q_OBJECT
 
 public:
-    /**
-     * @brief ShowCities The ShowCitis class constructor.
-     * @param pg A pointer to the PostgreSQL database
-     * @param parent
-     */
+
     explicit ShowCities(QString title, psql *pg, QWidget *parent = 0);
     ~ShowCities();
     void getCities();

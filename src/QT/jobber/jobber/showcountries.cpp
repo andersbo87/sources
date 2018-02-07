@@ -123,12 +123,13 @@ void ShowCountries::getCountries()
 {
     try
     {
-        QList<int> list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
+        QList<QString> list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
         int i = 0;
-        QList<int>::iterator iter;
+        QList<QString>::iterator iter;
         for(iter = list.begin(); iter != list.end(); iter++)
         {
-            ui->comboBoxLandID->addItem(QString::number(list.value(i)));
+            //ui->comboBoxLandID->addItem(QString::number(list.value(i)));
+            ui->comboBoxLandID->addItem(list.value(i));
             i++;
         }
     }

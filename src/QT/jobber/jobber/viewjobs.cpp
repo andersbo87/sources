@@ -25,6 +25,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "viewjobs.h"
 #include "ui_viewjobs.h"
 
+/**
+ * @brief ViewJobs The ViewJobs class constructor
+ * @param windowTitle The name to be used as titles in windows and message boxes.
+ * @param pg A pointer to the PostgreSQL database class.
+ * @param parent
+ */
 ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ViewJobs)
@@ -416,7 +422,7 @@ void ViewJobs::getCityIDs()
 {
     try
     {
-        QList<int> list;// = new QLinkedList<int>();
+        QList<QString> list;// = new QLinkedList<int>();
         list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
         int i = 0;
         while(i < list.count())
@@ -442,7 +448,7 @@ void ViewJobs::getStatusIDs()
 {
     try
     {
-        QList<int> list;
+        QList<QString> list;
         list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
         int i = 0;
         while(i < list.count())
@@ -594,13 +600,13 @@ void ViewJobs::getApplications()
 {
     try
     {
-        QList<int> list;
+        QList<QString> list;
         list = p->fillList("SELECT soknadid FROM soknad ORDER BY soknadid ASC");
         int i = 0;
-        QList<int>::iterator iter = list.begin();
+        QList<QString>::iterator iter = list.begin();
         while(iter != list.end())
         {
-            ui->comboBoxApplicationID->addItem(QString::number(list.value(i)));
+            ui->comboBoxApplicationID->addItem(list.value(i));
             i++;
             iter++;
         }

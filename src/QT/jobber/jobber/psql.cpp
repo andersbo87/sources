@@ -29,6 +29,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "psql.h"
 #include <stdio.h>
 
+/**
+ * @brief psql::psql Class constructor
+ * @param windowTitle The title of the window to be used in message boxes.
+ */
 psql::psql(QString windowTitle)
 {
     winTitle = windowTitle;
@@ -117,6 +121,7 @@ void psql::setHost(QString newHost)
  * @param cityID The ID of the city where the job is located.
  * @param statusID The status of the new job. Can be (in Norwegian) 1 (registrert), 2 (sendt), 3 (interessert, mulig intervju), 4 (avvist)
  * @param date The deadline of the new job application
+ * @param motivation The reasons and motivation for applying for this job
  * @return True on success and false on failure.
  */
 bool psql::insertApplication(QString title, QString company, int cityID, int statusID, QString date, QString motivation)
@@ -529,6 +534,10 @@ bool psql::connectDatabase()
         return false;
     }
 }
+
+/*
+ * Metoder som bygger opp en liste med QStrings eller heltall basert på ulike søkekriterier:
+*/
 /**
  * @brief psql::getSpecificJobNames Builds list of job titles based on search criteria.
  * @param jobTitle The job title to be included in the search
@@ -888,6 +897,16 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
     }
 }
 
+/**
+ * @brief psql::getSpecificMotivations Builds a list of motivations based on search criteria.
+ * @param jobTitle The job title to be included in the search
+ * @param companyName The name of the company to be included
+ * @param cityName The name of the city where the job is located.
+ * @param status The status of the application(s) in question.
+ * @param deadline The deadline of the application(s) in question.
+ * @param motivation An optional text containing the reasons and motivation why the user applied for this job
+ * @return A list of strings containing the motivations and reasons for applying for those jobs.
+ */
 QList<QString> psql::getSpecificMotivations(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)
 {
     try
@@ -937,6 +956,256 @@ QList<QString> psql::getSpecificMotivations(string jobTitle, string companyName,
         throw; // Kaster unntaket videre.
     }
 }
+
+/*
+ * Metoder som brukes for å føre statistikk over totalt antall-, registrerte-, sendte-, avviste-, skrevet men ikke sendte- og godtatte søknader.
+*/
+
+/**
+ * @brief psql::countTotalApplications Counts the total registered applications (registered, sent, interested in interview, declined, etc.
+ * @return The total number of job applications in the database.
+ */
+int psql::countTotalApplications()
+{
+    int res = 0;
+    string stmt;
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "select count(statusid) from soknad";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
+ * @brief psql::countRegisteredApplications Counts the number of registered job applications that have not yet been sent (status id 1)
+ * @return The number of registered job applications.
+ */
+int psql::countRegisteredApplications()
+{
+    int res = 0;
+    string stmt;
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "select count(statusid) from soknad group by statusid having statusid=1";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
+ * @brief psql::countSentApplications Counts the number of sent applications (status id 2)
+ * @return The number of sent applications.
+ */
+int psql::countSentApplications()
+{
+    int res = 0;
+    string stmt;
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "select count(statusid) from soknad group by statusid having statusid=2";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
+ * @brief psql::countInterviews Counts the number of applications which the emplyer found interesting and called for an interview
+ * @return The number of applications that "led" to an interview.
+ */
+int psql::countInterviews()
+{
+    int res = 0;
+    string stmt;
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "select count(statusid) from soknad group by statusid having statusid=3";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
+ * @brief psql::countDeclinedApplications Counts the number of applications that have been declined/rejected by the employer.
+ * @return The number of declined/rejected applications
+ */
+int psql::countDeclinedApplications()
+{
+    int res = 0;
+    string stmt;
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "select count(statusid) from soknad group by statusid having statusid=4";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
+ * @brief psql::countWrittenButNotSent Counts the number of applications that have been written, but not yet sent.
+ * @return The number of applications that have been written, but not yet sent.
+ */
+int psql::countWrittenButNotSent()
+{
+    int res = 0;
+    string stmt;
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "select count(statusid) from soknad group by statusid having statusid=5";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
+ * @brief psql::countAccepted Counts the number of applications that have been accepted and has lead to an employment.
+ * @return The number of accepted applications.
+ */
+int psql::countAccepted()
+{
+    int res = 0;
+    string stmt;
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "select count(statusid) from soknad group by statusid having statusid=6";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+// Andre metoder:
+
+/**
+ * @brief psql::getCityID Gets the ID of a city based on its name
+ * @param name The city name
+ * @return The city ID
+ */
+int psql::getCityID(string name)
+{
+    int res = 0;
+    string stmt;// = name.toStdString();
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "SELECT stedid FROM sted WHERE stedsnavn = '";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        oss << stmt << name;
+        oss << stmt << "'";
+        pqxx::result R(N.exec(oss.str()));
+        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
 
 /**
  * @brief psql::getCityNames Builds a list of strings that cointain name of all cities in the database.
@@ -1005,14 +1274,14 @@ QList<QString> psql::getStatuses()
 /**
  * @brief psql::fillList "Fills" a QList with integers based on the results of an SQL query.
  * @param sqlSporring The SQL query to be executed.
- * @return
+ * @return A list of ints based on the results of the query in "sqlSporring"
  */
-QList<int> psql::fillList(const char *sqlSporring)
+QList<QString> psql::fillList(const char *sqlSporring)
 {
     try
     {
-        QList<int> list;// = new QLinkedList<int>();
-        QList<int>::iterator iterator;
+        QList<QString> list;// = new QLinkedList<int>();
+        QList<QString>::iterator iterator;
 
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
@@ -1023,7 +1292,7 @@ QList<int> psql::fillList(const char *sqlSporring)
             for(pqxx::row::const_iterator field = c.begin(); field != c.end(); ++field)
             {
                 QString s = QString::fromStdString(field.c_str());
-                list.insert(i,s.toInt());
+                list.insert(i,QString::fromStdString(s.toStdString()));
                 i++;
             }
         }
@@ -1157,6 +1426,7 @@ QString psql::getCompany(int applicationID)
         throw;
     }
 }
+
 
 /**
  * @brief psql::getCityID Gets the city ID of the application based on the application ID prvoided by the user.

@@ -28,6 +28,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "newcity.h"
 #include "ui_newcity.h"
 #include <QPushButton>
+
+/**
+ * @brief NewCity The NewCity class constructor
+ * @param windowTitle The title to be used in message boxes, etc.
+ * @param pg Pointer to the PostgreSQL database
+ * @param parent
+ */
 NewCity::NewCity(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewCity)
@@ -59,7 +66,7 @@ void NewCity::getCountryIDs()
 {
     try
     {
-        QList<int> list;
+        QList<QString> list;
         list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
         int i = 0;
         while(i < list.count())
@@ -78,6 +85,10 @@ void NewCity::getCountryIDs()
     }
 }
 
+/**
+ * @brief NewCity::setCountryID Sets a new country ID to be used when saving the new city to the database.
+ * @param newCountryID The ID of the country.
+ */
 void NewCity::setCountryID(int newCountryID)
 {
     countryID = newCountryID;
@@ -90,11 +101,19 @@ void NewCity::countryIDchanged()
     changed = true;
 }
 
+/**
+ * @brief NewCity::getCityName Gets the name of the new city
+ * @return The name of the city to be saved in the database.
+ */
 QString NewCity::getCityName()
 {
     return cityName;
 }
 
+/**
+ * @brief NewCity::setCityName Sets the name of the new city.
+ * @param name The new city name.
+ */
 void NewCity::setCityName(QString name)
 {
     cityName = name;
@@ -151,6 +170,10 @@ void NewCity::OKButtonClicked()
     }
 }
 
+/**
+ * @brief NewCity::getCountryID Gets the chosen country ID
+ * @return The the country ID
+ */
 int NewCity::getCountryID()
 {
     return countryID;
