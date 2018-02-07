@@ -1,4 +1,4 @@
-.TH "psql" 3 "Thu Jan 4 2018" "Jobber" \" -*- nroff -*-
+.TH "psql" 3 "Wed Feb 7 2018" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,6 +15,7 @@ psql \- The psql class\&.
 .ti -1c
 .RI "\fBpsql\fP (QString windowTitle)"
 .br
+.RI "\fBpsql::psql\fP Class constructor "
 .ti -1c
 .RI "QString \fBgetUsername\fP ()"
 .br
@@ -27,9 +28,6 @@ psql \- The psql class\&.
 .RI "QString \fBgetHost\fP ()"
 .br
 .RI "\fBpsql::getHost\fP: Gets the IP address of the host "
-.ti -1c
-.RI "int \fBgetRows\fP (string query)"
-.br
 .ti -1c
 .RI "void \fBsetHost\fP (QString newHost)"
 .br
@@ -103,12 +101,41 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::setError\fP If an operation goes wrong, this method saves the contents of the error message\&. "
 .ti -1c
-.RI "int \fBgetApplicationID\fP (QString qry)"
+.RI "int \fBcountTotalApplications\fP ()"
 .br
+.RI "\fBpsql::countTotalApplications\fP Counts the total registered applications (registered, sent, interested in interview, declined, etc\&. "
+.ti -1c
+.RI "int \fBcountRegisteredApplications\fP ()"
+.br
+.RI "\fBpsql::countRegisteredApplications\fP Counts the number of registered job applications that have not yet been sent (status id 1) "
+.ti -1c
+.RI "int \fBcountSentApplications\fP ()"
+.br
+.RI "\fBpsql::countSentApplications\fP Counts the number of sent applications (status id 2) "
+.ti -1c
+.RI "int \fBcountInterviews\fP ()"
+.br
+.RI "\fBpsql::countInterviews\fP Counts the number of applications which the emplyer found interesting and called for an interview "
+.ti -1c
+.RI "int \fBcountDeclinedApplications\fP ()"
+.br
+.RI "\fBpsql::countDeclinedApplications\fP Counts the number of applications that have been declined/rejected by the employer\&. "
+.ti -1c
+.RI "int \fBcountWrittenButNotSent\fP ()"
+.br
+.RI "\fBpsql::countWrittenButNotSent\fP Counts the number of applications that have been written, but not yet sent\&. "
+.ti -1c
+.RI "int \fBcountAccepted\fP ()"
+.br
+.RI "\fBpsql::countAccepted\fP Counts the number of applications that have been accepted and has lead to an employment\&. "
 .ti -1c
 .RI "int \fBgetCityID\fP (int applicationID)"
 .br
 .RI "\fBpsql::getCityID\fP Gets the city ID of the application based on the application ID prvoided by the user\&. "
+.ti -1c
+.RI "int \fBgetCityID\fP (string name)"
+.br
+.RI "\fBpsql::getCityID\fP Gets the ID of a city based on its name "
 .ti -1c
 .RI "int \fBgetCountryID\fP (int cityID)"
 .br
@@ -118,7 +145,7 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::getStatusID\fP Returns the status ID of the application based on the application ID provided by the user\&. "
 .ti -1c
-.RI "QList< int > \fBfillList\fP (const char *sqlSporring)"
+.RI "QList< QString > \fBfillList\fP (const char *sqlSporring)"
 .br
 .RI "\fBpsql::fillList\fP 'Fills' a QList with integers based on the results of an SQL query\&. "
 .ti -1c
@@ -148,6 +175,7 @@ psql \- The psql class\&.
 .ti -1c
 .RI "QList< QString > \fBgetSpecificMotivations\fP (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 .br
+.RI "\fBpsql::getSpecificMotivations\fP Builds a list of motivations based on search criteria\&. "
 .ti -1c
 .RI "QList< QString > \fBgetCityNames\fP ()"
 .br
@@ -188,6 +216,19 @@ psql \- The psql class\&.
 .SH "Detailed Description"
 .PP 
 The psql class\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "psql::psql (QString windowTitle)"
+
+.PP
+\fBpsql::psql\fP Class constructor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwindowTitle\fP The title of the window to be used in message boxes\&. 
+.RE
+.PP
+
 .SH "Member Function Documentation"
 .PP 
 .SS "bool psql::connectDatabase ()"
@@ -198,6 +239,83 @@ The psql class\&.
 \fBReturns:\fP
 .RS 4
 True on successful connection and false on failure\&. 
+.RE
+.PP
+
+.SS "int psql::countAccepted ()"
+
+.PP
+\fBpsql::countAccepted\fP Counts the number of applications that have been accepted and has lead to an employment\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of accepted applications\&. 
+.RE
+.PP
+
+.SS "int psql::countDeclinedApplications ()"
+
+.PP
+\fBpsql::countDeclinedApplications\fP Counts the number of applications that have been declined/rejected by the employer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of declined/rejected applications 
+.RE
+.PP
+
+.SS "int psql::countInterviews ()"
+
+.PP
+\fBpsql::countInterviews\fP Counts the number of applications which the emplyer found interesting and called for an interview 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of applications that 'led' to an interview\&. 
+.RE
+.PP
+
+.SS "int psql::countRegisteredApplications ()"
+
+.PP
+\fBpsql::countRegisteredApplications\fP Counts the number of registered job applications that have not yet been sent (status id 1) 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of registered job applications\&. 
+.RE
+.PP
+
+.SS "int psql::countSentApplications ()"
+
+.PP
+\fBpsql::countSentApplications\fP Counts the number of sent applications (status id 2) 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of sent applications\&. 
+.RE
+.PP
+
+.SS "int psql::countTotalApplications ()"
+
+.PP
+\fBpsql::countTotalApplications\fP Counts the total registered applications (registered, sent, interested in interview, declined, etc\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The total number of job applications in the database\&. 
+.RE
+.PP
+
+.SS "int psql::countWrittenButNotSent ()"
+
+.PP
+\fBpsql::countWrittenButNotSent\fP Counts the number of applications that have been written, but not yet sent\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of applications that have been written, but not yet sent\&. 
 .RE
 .PP
 
@@ -265,7 +383,7 @@ True on successful removal and false otherwise\&.
 .RE
 .PP
 
-.SS "QList< int > psql::fillList (const char * sqlSporring)"
+.SS "QList< QString > psql::fillList (const char * sqlSporring)"
 
 .PP
 \fBpsql::fillList\fP 'Fills' a QList with integers based on the results of an SQL query\&. 
@@ -277,6 +395,7 @@ True on successful removal and false otherwise\&.
 .PP
 \fBReturns:\fP
 .RS 4
+A list of ints based on the results of the query in 'sqlSporring' 
 .RE
 .PP
 
@@ -293,6 +412,22 @@ True on successful removal and false otherwise\&.
 \fBReturns:\fP
 .RS 4
 The city ID on success and 0 on failure\&. 
+.RE
+.PP
+
+.SS "int psql::getCityID (string name)"
+
+.PP
+\fBpsql::getCityID\fP Gets the ID of a city based on its name 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The city name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The city ID 
 .RE
 .PP
 
@@ -566,6 +701,32 @@ A list of strings containing the job names that matched the search\&.
 .RE
 .PP
 
+.SS "QList< QString > psql::getSpecificMotivations (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
+
+.PP
+\fBpsql::getSpecificMotivations\fP Builds a list of motivations based on search criteria\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjobTitle\fP The job title to be included in the search 
+.br
+\fIcompanyName\fP The name of the company to be included 
+.br
+\fIcityName\fP The name of the city where the job is located\&. 
+.br
+\fIstatus\fP The status of the application(s) in question\&. 
+.br
+\fIdeadline\fP The deadline of the application(s) in question\&. 
+.br
+\fImotivation\fP An optional text containing the reasons and motivation why the user applied for this job 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of strings containing the motivations and reasons for applying for those jobs\&. 
+.RE
+.PP
+
 .SS "QList< QString > psql::getSpecificStatuses (string jobTitle, string companyName, string cityName, string status, string deadline, string motivation)"
 
 .PP
@@ -678,6 +839,8 @@ the username
 \fIstatusID\fP The status of the new job\&. Can be (in Norwegian) 1 (registrert), 2 (sendt), 3 (interessert, mulig intervju), 4 (avvist) 
 .br
 \fIdate\fP The deadline of the new job application 
+.br
+\fImotivation\fP The reasons and motivation for applying for this job 
 .RE
 .PP
 \fBReturns:\fP
@@ -866,4 +1029,4 @@ True on success and false on failure\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Jobber from the source code\&.
+Generated automatically by Doxygen for My Project from the source code\&.

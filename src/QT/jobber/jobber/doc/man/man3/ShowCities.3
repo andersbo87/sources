@@ -1,4 +1,4 @@
-.TH "ShowCities" 3 "Thu Jan 4 2018" "Jobber" \" -*- nroff -*-
+.TH "ShowCities" 3 "Wed Feb 7 2018" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,53 +21,155 @@ Inherits QMainWindow\&.
 .ti -1c
 .RI "void \fBgetCities\fP ()"
 .br
+.RI "\fBShowCities::getCities\fP Builds a list to be used in the combobox of city IDs based on registered cities in the database\&. "
 .ti -1c
 .RI "void \fBgetCity\fP (int cityID)"
 .br
+.RI "\fBShowCities::getCity\fP Shows data about the current city based on the ID\&. "
 .ti -1c
 .RI "void \fBsetCityID\fP (int newID)"
 .br
+.RI "\fBShowCities::setCityID\fP Sets a new city ID\&. "
 .ti -1c
 .RI "void \fBsetCityName\fP (QString newName)"
 .br
+.RI "\fBShowCities::setCityName\fP Sets the name of the city\&. "
 .ti -1c
 .RI "void \fBsetCountryID\fP (int newID)"
 .br
+.RI "\fBShowCities::setCountryID\fP Sets the ID of the country in which the city exists\&. "
 .ti -1c
 .RI "int \fBgetCityID\fP ()"
 .br
+.RI "\fBShowCities::getCityID\fP Gets the current city ID\&. "
 .ti -1c
 .RI "void \fBgetCountryIDs\fP ()"
 .br
+.RI "\fBShowCities::getCountryIDs\fP Builds a list of countries based on existing data in the database\&. That data will be used to fill the comboBoxCountryID\&. "
 .ti -1c
 .RI "int \fBgetCountryID\fP ()"
 .br
+.RI "\fBShowCities::getCountryID\fP Gets the ID of the country where the current city is located\&. "
 .ti -1c
 .RI "QString \fBgetCityName\fP ()"
 .br
+.RI "\fBShowCities::getCityName\fP Gets the name of the current city\&. "
 .ti -1c
 .RI "QString \fBgetCountryName\fP ()"
 .br
+.RI "\fBShowCities::getCountryName\fP Gets the name of the country where the current city is located\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 The \fBShowCities\fP class\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "ShowCities::ShowCities (QString title, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+.SS "ShowCities::ShowCities (QString windowTitle, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
 
 .PP
 \fBShowCities\fP The ShowCitis class constructor\&. 
 .PP
 \fBParameters:\fP
 .RS 4
+\fIwindowTitle\fP The title to be used in windows, message boxes and other things\&. 
+.br
 \fIpg\fP A pointer to the PostgreSQL database 
 .br
 \fIparent\fP 
 .RE
 .PP
 
+.SH "Member Function Documentation"
+.PP 
+.SS "void ShowCities::getCity (int cityID)"
+
+.PP
+\fBShowCities::getCity\fP Shows data about the current city based on the ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcityID\fP The ID of the city in question\&. 
+.RE
+.PP
+
+.SS "int ShowCities::getCityID ()"
+
+.PP
+\fBShowCities::getCityID\fP Gets the current city ID\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The city ID\&. 
+.RE
+.PP
+
+.SS "QString ShowCities::getCityName ()"
+
+.PP
+\fBShowCities::getCityName\fP Gets the name of the current city\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the city 
+.RE
+.PP
+
+.SS "int ShowCities::getCountryID ()"
+
+.PP
+\fBShowCities::getCountryID\fP Gets the ID of the country where the current city is located\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The country ID\&. 
+.RE
+.PP
+
+.SS "QString ShowCities::getCountryName ()"
+
+.PP
+\fBShowCities::getCountryName\fP Gets the name of the country where the current city is located\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The country name 
+.RE
+.PP
+
+.SS "void ShowCities::setCityID (int newID)"
+
+.PP
+\fBShowCities::setCityID\fP Sets a new city ID\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewID\fP The ID of the new city in question\&. 
+.RE
+.PP
+
+.SS "void ShowCities::setCityName (QString newName)"
+
+.PP
+\fBShowCities::setCityName\fP Sets the name of the city\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP The new city name to be used\&. 
+.RE
+.PP
+
+.SS "void ShowCities::setCountryID (int newID)"
+
+.PP
+\fBShowCities::setCountryID\fP Sets the ID of the country in which the city exists\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewID\fP The new country ID 
+.RE
+.PP
+
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Jobber from the source code\&.
+Generated automatically by Doxygen for My Project from the source code\&.

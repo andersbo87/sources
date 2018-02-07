@@ -1,4 +1,4 @@
-.TH "SpesificJobs" 3 "Thu Jan 4 2018" "Jobber" \" -*- nroff -*-
+.TH "SpesificJobs" 3 "Wed Feb 7 2018" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -14,50 +14,216 @@ Inherits QMainWindow\&.
 .ti -1c
 .RI "\fBSpesificJobs\fP (QString title, \fBpsql\fP *pg, QWidget *parent=0)"
 .br
+.RI "\fBSpesificJobs::SpesificJobs\fP \fBSpesificJobs\fP class constructor\&. "
 .ti -1c
 .RI "QString \fBgetJobTitle\fP ()"
 .br
+.RI "\fBSpesificJobs::getJobTitle\fP Gets the job title\&. "
 .ti -1c
 .RI "QString \fBgetCompanyName\fP ()"
 .br
+.RI "\fBSpesificJobs::getCompanyName\fP Gets the company name\&. "
 .ti -1c
 .RI "QString \fBgetCityName\fP ()"
 .br
+.RI "\fBSpesificJobs::getCityName\fP Gets the name of the city where the job is located\&. "
 .ti -1c
 .RI "QString \fBgetStatus\fP ()"
 .br
+.RI "\fBSpesificJobs::getStatus\fP Gets the status of the job application\&. "
 .ti -1c
 .RI "QString \fBgetDeadline\fP ()"
 .br
+.RI "\fBSpesificJobs::getDeadline\fP Gets the deadline of the application\&. "
 .ti -1c
 .RI "QString \fBgetMotivation\fP ()"
 .br
+.RI "\fBSpesificJobs::getMotivation\fP Gets the motivation for applying for this job\&. "
 .ti -1c
 .RI "void \fBsetJobTitle\fP (QString newTitle)"
 .br
+.RI "\fBSpesificJobs::setJobTitle\fP Sets the title of the job\&. "
 .ti -1c
 .RI "void \fBsetCompanyName\fP (QString newName)"
 .br
+.RI "\fBSpesificJobs::setCompanyName\fP Sets the name of the company\&. "
 .ti -1c
 .RI "void \fBsetCityName\fP (QString newCityName)"
 .br
+.RI "\fBSpesificJobs::setCityName\fP Sets the name of the city where the job is located\&. "
 .ti -1c
 .RI "void \fBsetStatus\fP (QString newStatus)"
 .br
+.RI "\fBSpesificJobs::setStatus\fP Set the status of the job application\&. "
 .ti -1c
 .RI "void \fBsetDeadline\fP (QString newDeadline)"
 .br
+.RI "\fBSpesificJobs::setDeadline\fP Sets the deadline of the application\&. "
 .ti -1c
 .RI "void \fBsetMotivation\fP (QString newMotivation)"
 .br
+.RI "\fBSpesificJobs::setMotivation\fP Sets the reasons for applying for this job (optional) "
 .ti -1c
 .RI "void \fBgetCityNames\fP ()"
 .br
+.RI "\fBSpesificJobs::getCityNames\fP Fetches a list of city names to be added to the comboBoxCityName\&. "
 .ti -1c
 .RI "void \fBgetStatuses\fP ()"
 .br
+.RI "\fBSpesificJobs::getStatuses\fP Fetches a list of status names to be added to the comboBoxStatusName\&. "
 .in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SpesificJobs::SpesificJobs (QString title, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBSpesificJobs::SpesificJobs\fP \fBSpesificJobs\fP class constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItitle\fP The title to be used in windows and dialog boxes\&. 
+.br
+\fIpg\fP Pointer to the psql class 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QString SpesificJobs::getCityName ()"
+
+.PP
+\fBSpesificJobs::getCityName\fP Gets the name of the city where the job is located\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The city name 
+.RE
+.PP
+
+.SS "QString SpesificJobs::getCompanyName ()"
+
+.PP
+\fBSpesificJobs::getCompanyName\fP Gets the company name\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the company 
+.RE
+.PP
+
+.SS "QString SpesificJobs::getDeadline ()"
+
+.PP
+\fBSpesificJobs::getDeadline\fP Gets the deadline of the application\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The application deadline 
+.RE
+.PP
+
+.SS "QString SpesificJobs::getJobTitle ()"
+
+.PP
+\fBSpesificJobs::getJobTitle\fP Gets the job title\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The job title 
+.RE
+.PP
+
+.SS "QString SpesificJobs::getMotivation ()"
+
+.PP
+\fBSpesificJobs::getMotivation\fP Gets the motivation for applying for this job\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The application motivation 
+.RE
+.PP
+
+.SS "QString SpesificJobs::getStatus ()"
+
+.PP
+\fBSpesificJobs::getStatus\fP Gets the status of the job application\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the current application status (sent, declined/rejected, etc) 
+.RE
+.PP
+
+.SS "void SpesificJobs::setCityName (QString newCityName)"
+
+.PP
+\fBSpesificJobs::setCityName\fP Sets the name of the city where the job is located\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCityName\fP The name of the city 
+.RE
+.PP
+
+.SS "void SpesificJobs::setCompanyName (QString newName)"
+
+.PP
+\fBSpesificJobs::setCompanyName\fP Sets the name of the company\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP The company name 
+.RE
+.PP
+
+.SS "void SpesificJobs::setDeadline (QString newDeadline)"
+
+.PP
+\fBSpesificJobs::setDeadline\fP Sets the deadline of the application\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDeadline\fP The application dealine (could be a date in any format or 'ASAP' or something) 
+.RE
+.PP
+
+.SS "void SpesificJobs::setJobTitle (QString newTitle)"
+
+.PP
+\fBSpesificJobs::setJobTitle\fP Sets the title of the job\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewTitle\fP The name of the job 
+.RE
+.PP
+
+.SS "void SpesificJobs::setMotivation (QString newMotivation)"
+
+.PP
+\fBSpesificJobs::setMotivation\fP Sets the reasons for applying for this job (optional) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewMotivation\fP The motivation\&. Is there something about the job or company that made you apply for that job 
+.RE
+.PP
+
+.SS "void SpesificJobs::setStatus (QString newStatus)"
+
+.PP
+\fBSpesificJobs::setStatus\fP Set the status of the job application\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewStatus\fP The status of the application\&. 
+.RE
+.PP
+
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Jobber from the source code\&.
+Generated automatically by Doxygen for My Project from the source code\&.

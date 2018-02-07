@@ -1,4 +1,4 @@
-.TH "NewCity" 3 "Thu Jan 4 2018" "Jobber" \" -*- nroff -*-
+.TH "NewCity" 3 "Wed Feb 7 2018" "My Project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -21,15 +21,19 @@ Inherits QMainWindow\&.
 .ti -1c
 .RI "void \fBsetCountryID\fP (int newCountryID)"
 .br
+.RI "\fBNewCity::setCountryID\fP Sets a new country ID to be used when saving the new city to the database\&. "
 .ti -1c
 .RI "int \fBgetCountryID\fP ()"
 .br
+.RI "\fBNewCity::getCountryID\fP Gets the chosen country ID\&. "
 .ti -1c
 .RI "void \fBsetCityName\fP (QString name)"
 .br
+.RI "\fBNewCity::setCityName\fP Sets the name of the new city\&. "
 .ti -1c
 .RI "QString \fBgetCityName\fP ()"
 .br
+.RI "\fBNewCity::getCityName\fP Gets the name of the new city\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -43,13 +47,61 @@ The \fBNewCity\fP class\&.
 .PP
 \fBParameters:\fP
 .RS 4
+\fIwindowTitle\fP The title to be used in message boxes, etc\&. 
+.br
 \fIpg\fP Pointer to the PostgreSQL database 
 .br
 \fIparent\fP 
 .RE
 .PP
 
+.SH "Member Function Documentation"
+.PP 
+.SS "QString NewCity::getCityName ()"
+
+.PP
+\fBNewCity::getCityName\fP Gets the name of the new city\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the city to be saved in the database\&. 
+.RE
+.PP
+
+.SS "int NewCity::getCountryID ()"
+
+.PP
+\fBNewCity::getCountryID\fP Gets the chosen country ID\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The the country ID 
+.RE
+.PP
+
+.SS "void NewCity::setCityName (QString name)"
+
+.PP
+\fBNewCity::setCityName\fP Sets the name of the new city\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The new city name\&. 
+.RE
+.PP
+
+.SS "void NewCity::setCountryID (int newCountryID)"
+
+.PP
+\fBNewCity::setCountryID\fP Sets a new country ID to be used when saving the new city to the database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCountryID\fP The ID of the country\&. 
+.RE
+.PP
+
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Jobber from the source code\&.
+Generated automatically by Doxygen for My Project from the source code\&.

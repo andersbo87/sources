@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "cdfgimnpsuv",
   1: "cmnpsv",
   2: "np",
-  3: "cdfgimnsuv",
+  3: "cdfgimnpsuv",
   4: "cp"
 };
 
