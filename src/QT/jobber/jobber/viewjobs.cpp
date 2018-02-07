@@ -25,6 +25,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "viewjobs.h"
 #include "ui_viewjobs.h"
 
+/**
+ * @brief ViewJobs The ViewJobs class constructor
+ * @param windowTitle The name to be used as titles in windows and message boxes.
+ * @param pg A pointer to the PostgreSQL database class.
+ * @param parent
+ */
 ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ViewJobs)

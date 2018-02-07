@@ -48,7 +48,6 @@ public:
     void getCountry(int countryID);
     int getCountryID();
     QString getCountryName();
-    void getCountryIDs();
     void setCountryID(int newID);
     void setCountryName(QString newName);
 

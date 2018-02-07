@@ -42,11 +42,6 @@ class ViewJobs : public QMainWindow
     Q_OBJECT
 
 public:
-    /**
-     * @brief ViewJobs The ViewJobs class constructor
-     * @param pg A pointer to the PostgreSQL database class.
-     * @param parent
-     */
     explicit ViewJobs(QString windowTitle, psql *pg, QWidget *parent = 0);
     ~ViewJobs();
     void getApplications();

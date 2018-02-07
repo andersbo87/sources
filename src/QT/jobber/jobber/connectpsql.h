@@ -47,10 +47,6 @@ public:
      * @brief p A PostgreSQL pointer
      */
     psql *p;
-    /**
-     * @brief connectPsql Class constructor
-     * @param parent
-     */
     explicit connectPsql(QString windowTitle, QWidget *parent = 0);
 
     ~connectPsql();

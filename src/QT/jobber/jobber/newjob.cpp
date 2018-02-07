@@ -26,6 +26,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ui_newjob.h"
 
 // Konstruktør
+/**
+ * @brief NewJob The NewJob class constructor
+ * @param windowTitle The title to be used in message boxes and other things.
+ * @param pg A pointer to the PostgreSQL database.
+ * @param parent
+ */
 NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewJob)
@@ -315,19 +321,27 @@ void NewJob::setCompany(QString newCompany)
     company = newCompany;
 }
 
+/**
+ * @brief NewJob::getCityID Gets the ID of the city where the job is located.
+ * @return The ID of the city where the job is located.
+ */
 int NewJob::getCityID()
 {
     return cityid;
 }
 
+/**
+ * @brief NewJob::setCityID Sets the ID of the existing city where the job is located.
+ * @param newID The ID of the city where the job is located.
+ */
 void NewJob::setCityID(int newID)
 {
     cityid = newID;
 }
 
 /**
- * @brief NewJob::setCityID: Sets the ID of the city in which the job is located.
- * @param newCityID: the ID of the city in which the job is located.
+ * @brief NewJob::setCityName: Sets the name of the city in which the job is located.
+ * @param newCityName: the name of the city in which the job is located.
  */
 void NewJob::setCityName(QString newCityName)
 {

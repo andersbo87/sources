@@ -1,6 +1,11 @@
 #include "statistics.h"
 #include "ui_statistics.h"
 
+/**
+ * @brief statistics::statistics statisitcs class constructor.
+ * @param pg The pointer to the psql class
+ * @param parent Pointer the the parent class
+ */
 statistics::statistics(psql *pg,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::statistics)
@@ -11,6 +16,9 @@ statistics::statistics(psql *pg,QWidget *parent) :
     connect(ui->btnUpdate, SIGNAL(clicked(bool)), this, SLOT(btnUpdateClicked()));
 }
 
+/**
+ * @brief statistics::updateData Fetches new application statistics from the database.
+ */
 void statistics::updateData()
 {
     ui->labelTotalValue->setText(QString::number(p->countTotalApplications()));

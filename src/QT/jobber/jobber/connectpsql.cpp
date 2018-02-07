@@ -28,7 +28,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QMessageBox>
 
 /**
- * @brief connectPsql::connectPsql
+ * @brief connectPsql::connectPsql Class constructor
+ * @param windowTitle The title to be used in message boxes, etc.
  * @param parent
  */
 connectPsql::connectPsql(QString windowTitle, QWidget *parent) :

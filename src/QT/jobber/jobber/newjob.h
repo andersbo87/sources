@@ -43,11 +43,7 @@ class NewJob : public QMainWindow
     Q_OBJECT
 
 public:
-    /**
-     * @brief NewJob The NewJob class constructor
-     * @param pg A pointer to the PostgreSQL database.
-     * @param parent
-     */
+
     explicit NewJob(QString windowTitle, psql *pg, QWidget *parent = 0);
     ~NewJob();
     void setTitle(QString newTitle);
