@@ -1,0 +1,66 @@
+create table tbl_division(divisionID int not null auto_increment, divisionName varchar(15) not null, information varchar(1000) not null, primary key(divisionID));
+create table tbl_division(divisionID int not null auto increment, divisionName varchar(15) not null, information varchar(1000) not null, primary key(divisionID));
+create sequence division_id_seq;
+create table tbl_division(divisionID int not null nextval('division_id_seq'), divisionName varchar(15) not null, information varchar(1000) not null, primary key(divisionID));
+create table tbl_division(divisionID int not null default nextval('division_id_seq'), divisionName varchar(15) not null, information varchar(1000) not null, primary key(divisionID));
+alter sequence division_id_seq owned by tbl_division.divisionID;
+create sequence player_id_seq;
+create sequence team_id_seq;
+create table tbl_player(playerID int not null default nextval('player_id_seq'), playerName varchar(20) not null, playerNumber int not null, positionID int not null, nationID not null, primary key(playerID));
+create table tbl_player(playerID int not null default nextval('player_id_seq'), playerName varchar(20) not null, playerNumber int not null, positionID int not null, nationID int not null, primary key(playerID));
+alter sequence player_id_seq owned by tbl_player.playerID;
+create table tbl_team(teamID int not null default nextval('team_id_seq'), teamName varchar(20) not null, primary key(teamID));
+alter sequence team_id_seq owned by tbl_team.teamID;
+drop table tbl_player;
+create table tbl_player(playerID int not null default nextval('player_id_seq'), playerName varchar(20) not null, playerNumber int not null, positionID int not null, nationID not null, teamID int not null, primary key(playerID));
+create table tbl_player(playerID int not null default nextval('player_id_seq'), playerName varchar(20) not null, playerNumber int not null, positionID int not null, nationID int not null, teamID int not null, primary key(playerID));
+create sequence player_id_seq;
+create table tbl_player(playerID int not null default nextval('player_id_seq'), playerName varchar(20) not null, playerNumber int not null, positionID int not null, nationID int not null, teamID int not null, primary key(playerID));
+alter sequence player_id_seq owned by tbl_player.playerID;
+\q
+select * from tbl_spiller;
+select * from tbl_player;
+select * from tbl_position;
+select * from tbl_posisjon;
+\h
+show
+\t
+\dt
+create sequence position_id_seq;
+\d
+CREATE SEQUENCE position_id_seq;
+create table tbl_sequence(sequenceID int not null default nextval('position_id_seq'), poistionName varchar(20) unique not null, positionNotes varchar(100), primary key(sequenceID));
+alter sequence position_id_seq owned by tbl_position.positionID;
+drop table tbl_sequence
+\dt
+drop table tbl_sequence;
+DROP TABLE tbl_sequence;
+drop sequence posistion_id_seq;
+\d
+drop sequence position_id_seq;
+CREATE SEQUENCE position_id_seq;
+create table tbl_position(positionID int not null default nextval('position_id_seq'), poistionName varchar(20) unique not null, positionNotes varchar(100), primary key(sequenceID));
+create table tbl_position(positionID int not null default nextval('position_id_seq'), poistionName varchar(20) unique not null, positionNotes varchar(100), primary key(positionID));
+alter sequence position_id_seq owned by tbl_position.positionID;
+\h insert
+insert into tbl_position(positionName) VALUES("Keeper");
+drop sequence position_id_seq;
+DROP TABLE tbl_sequence;
+DROP TABLE tbl_position;
+drop sequence position_id_seq;
+drop sequence position_id_seq;
+drop sequence position_id_seq;
+\d
+CREATE SEQUENCE position_id_seq;
+create table tbl_position(positionID int not null default nextval('position_id_seq'), positionName varchar(20) unique not null, positionNotes varchar(100), primary key(positionID));
+alter sequence position_id_seq owned by tbl_position.positionID;
+insert into tbl_position(positionName) VALUES("Keeper");
+insert into tbl_position(positionName) VALUES('Keeper');
+insert into tbl_position(positionName) VALUES('Forsvar');
+insert into tbl_position(positionName) VALUES('Midtbane');
+insert into tbl_position(positionName) VALUES('Spiss');
+select * from tbl_position;
+select * from tbl_team;
+\dt
+\dt tbl_team
+\s tbl_team
