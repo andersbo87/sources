@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner2_Loops\bin\Debug\Beginner2_Loops.exe.config
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner2_Loops\bin\Debug\Beginner2_Loops.exe
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner2_Loops\bin\Debug\Beginner2_Loops.pdb
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner2_Loops\obj\Debug\Beginner2_Loops.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner2_Loops\obj\Debug\Beginner2_Loops.exe
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner2_Loops\obj\Debug\Beginner2_Loops.pdb
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner2_Loops\obj\Debug\Beginner2_Loops.csprojResolveAssemblyReference.cache

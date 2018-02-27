@@ -1,0 +1,7 @@
+C:\Users\a-bol\source\repos\LettProblem\LettProblem\bin\Debug\LettProblem.exe.config
+C:\Users\a-bol\source\repos\LettProblem\LettProblem\bin\Debug\LettProblem.exe
+C:\Users\a-bol\source\repos\LettProblem\LettProblem\bin\Debug\LettProblem.pdb
+C:\Users\a-bol\source\repos\LettProblem\LettProblem\obj\Debug\LettProblem.csproj.CoreCompileInputs.cache
+C:\Users\a-bol\source\repos\LettProblem\LettProblem\obj\Debug\LettProblem.exe
+C:\Users\a-bol\source\repos\LettProblem\LettProblem\obj\Debug\LettProblem.pdb
+C:\Users\a-bol\source\repos\LettProblem\LettProblem\obj\Debug\LettProblem.csprojResolveAssemblyReference.cache

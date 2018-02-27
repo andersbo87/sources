@@ -1,0 +1,6 @@
+c:\users\andersbo\source\repos\stringCmp\stringCmp\bin\Debug\stringCmp.exe.config
+c:\users\andersbo\source\repos\stringCmp\stringCmp\bin\Debug\stringCmp.exe
+c:\users\andersbo\source\repos\stringCmp\stringCmp\bin\Debug\stringCmp.pdb
+c:\users\andersbo\source\repos\stringCmp\stringCmp\obj\Debug\stringCmp.csproj.CoreCompileInputs.cache
+c:\users\andersbo\source\repos\stringCmp\stringCmp\obj\Debug\stringCmp.exe
+c:\users\andersbo\source\repos\stringCmp\stringCmp\obj\Debug\stringCmp.pdb

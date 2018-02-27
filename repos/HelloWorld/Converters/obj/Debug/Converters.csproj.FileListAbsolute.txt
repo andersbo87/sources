@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\HelloWorld\Converters\bin\Debug\Converters.exe.config
+C:\Users\andersbo\source\repos\HelloWorld\Converters\bin\Debug\Converters.exe
+C:\Users\andersbo\source\repos\HelloWorld\Converters\bin\Debug\Converters.pdb
+C:\Users\andersbo\source\repos\HelloWorld\Converters\obj\Debug\Converters.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\source\repos\HelloWorld\Converters\obj\Debug\Converters.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\HelloWorld\Converters\obj\Debug\Converters.exe
+C:\Users\andersbo\source\repos\HelloWorld\Converters\obj\Debug\Converters.pdb

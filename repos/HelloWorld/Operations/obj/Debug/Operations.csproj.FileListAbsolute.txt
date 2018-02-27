@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\HelloWorld\Operations\bin\Debug\Operations.exe.config
+C:\Users\andersbo\source\repos\HelloWorld\Operations\bin\Debug\Operations.exe
+C:\Users\andersbo\source\repos\HelloWorld\Operations\bin\Debug\Operations.pdb
+C:\Users\andersbo\source\repos\HelloWorld\Operations\obj\Debug\Operations.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\source\repos\HelloWorld\Operations\obj\Debug\Operations.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\HelloWorld\Operations\obj\Debug\Operations.exe
+C:\Users\andersbo\source\repos\HelloWorld\Operations\obj\Debug\Operations.pdb

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherIOS", "WeatherIOS\WeatherIOS.csproj", "{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhone = Debug|iPhone
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Debug|iPhone.Build.0 = Debug|iPhone
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Release|iPhone.ActiveCfg = Release|iPhone
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Release|iPhone.Build.0 = Release|iPhone
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{CFFF5AA1-74E0-46C6-8B69-A9EB0892A49F}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C332A180-E5BB-42AA-B23B-580BA3BBA238}
+	EndGlobalSection
+EndGlobal

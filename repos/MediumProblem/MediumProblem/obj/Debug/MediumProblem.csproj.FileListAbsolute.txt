@@ -1,0 +1,7 @@
+C:\Users\a-bol\source\repos\MediumProblem\MediumProblem\bin\Debug\MediumProblem.exe.config
+C:\Users\a-bol\source\repos\MediumProblem\MediumProblem\bin\Debug\MediumProblem.exe
+C:\Users\a-bol\source\repos\MediumProblem\MediumProblem\bin\Debug\MediumProblem.pdb
+C:\Users\a-bol\source\repos\MediumProblem\MediumProblem\obj\Debug\MediumProblem.csprojResolveAssemblyReference.cache
+C:\Users\a-bol\source\repos\MediumProblem\MediumProblem\obj\Debug\MediumProblem.csproj.CoreCompileInputs.cache
+C:\Users\a-bol\source\repos\MediumProblem\MediumProblem\obj\Debug\MediumProblem.exe
+C:\Users\a-bol\source\repos\MediumProblem\MediumProblem\obj\Debug\MediumProblem.pdb

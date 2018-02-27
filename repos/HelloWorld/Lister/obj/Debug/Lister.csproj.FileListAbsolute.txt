@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\HelloWorld\Lister\bin\Debug\Lister.exe.config
+C:\Users\andersbo\source\repos\HelloWorld\Lister\bin\Debug\Lister.exe
+C:\Users\andersbo\source\repos\HelloWorld\Lister\bin\Debug\Lister.pdb
+C:\Users\andersbo\source\repos\HelloWorld\Lister\obj\Debug\Lister.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\source\repos\HelloWorld\Lister\obj\Debug\Lister.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\HelloWorld\Lister\obj\Debug\Lister.exe
+C:\Users\andersbo\source\repos\HelloWorld\Lister\obj\Debug\Lister.pdb

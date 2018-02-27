@@ -1,0 +1,7 @@
+C:\Users\a-bol\source\repos\DifferentInts\DifferentInts\bin\Debug\DifferentInts.exe.config
+C:\Users\a-bol\source\repos\DifferentInts\DifferentInts\bin\Debug\DifferentInts.exe
+C:\Users\a-bol\source\repos\DifferentInts\DifferentInts\bin\Debug\DifferentInts.pdb
+C:\Users\a-bol\source\repos\DifferentInts\DifferentInts\obj\Debug\DifferentInts.csprojResolveAssemblyReference.cache
+C:\Users\a-bol\source\repos\DifferentInts\DifferentInts\obj\Debug\DifferentInts.csproj.CoreCompileInputs.cache
+C:\Users\a-bol\source\repos\DifferentInts\DifferentInts\obj\Debug\DifferentInts.exe
+C:\Users\a-bol\source\repos\DifferentInts\DifferentInts\obj\Debug\DifferentInts.pdb

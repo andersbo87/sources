@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner3\bin\Debug\Beginner3.exe.config
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner3\bin\Debug\Beginner3.exe
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner3\bin\Debug\Beginner3.pdb
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner3\obj\Debug\Beginner3.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner3\obj\Debug\Beginner3.exe
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner3\obj\Debug\Beginner3.pdb
+C:\Users\andersbo\source\repos\KursOppgaver\Beginner3\obj\Debug\Beginner3.csprojResolveAssemblyReference.cache

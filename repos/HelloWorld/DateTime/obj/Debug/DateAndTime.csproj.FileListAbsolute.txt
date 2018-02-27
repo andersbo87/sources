@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\HelloWorld\DateTime\bin\Debug\DateTime.exe.config
+C:\Users\andersbo\source\repos\HelloWorld\DateTime\bin\Debug\DateTime.exe
+C:\Users\andersbo\source\repos\HelloWorld\DateTime\bin\Debug\DateTime.pdb
+C:\Users\andersbo\source\repos\HelloWorld\DateTime\obj\Debug\DateAndTime.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\source\repos\HelloWorld\DateTime\obj\Debug\DateAndTime.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\HelloWorld\DateTime\obj\Debug\DateTime.exe
+C:\Users\andersbo\source\repos\HelloWorld\DateTime\obj\Debug\DateTime.pdb

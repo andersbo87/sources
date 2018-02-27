@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\HelloWorld\Condidtionals\bin\Debug\Condidtionals.exe.config
+C:\Users\andersbo\source\repos\HelloWorld\Condidtionals\bin\Debug\Condidtionals.exe
+C:\Users\andersbo\source\repos\HelloWorld\Condidtionals\bin\Debug\Condidtionals.pdb
+C:\Users\andersbo\source\repos\HelloWorld\Condidtionals\obj\Debug\Condidtionals.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\source\repos\HelloWorld\Condidtionals\obj\Debug\Condidtionals.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\HelloWorld\Condidtionals\obj\Debug\Condidtionals.exe
+C:\Users\andersbo\source\repos\HelloWorld\Condidtionals\obj\Debug\Condidtionals.pdb

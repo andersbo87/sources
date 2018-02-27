@@ -1,0 +1,7 @@
+C:\Users\andersbo\source\repos\HelloWorld\FundamentalsInCSharp\bin\Debug\FundamentalsInCSharp.exe.config
+C:\Users\andersbo\source\repos\HelloWorld\FundamentalsInCSharp\bin\Debug\FundamentalsInCSharp.exe
+C:\Users\andersbo\source\repos\HelloWorld\FundamentalsInCSharp\bin\Debug\FundamentalsInCSharp.pdb
+C:\Users\andersbo\source\repos\HelloWorld\FundamentalsInCSharp\obj\Debug\FundamentalsInCSharp.csprojResolveAssemblyReference.cache
+C:\Users\andersbo\source\repos\HelloWorld\FundamentalsInCSharp\obj\Debug\FundamentalsInCSharp.csproj.CoreCompileInputs.cache
+C:\Users\andersbo\source\repos\HelloWorld\FundamentalsInCSharp\obj\Debug\FundamentalsInCSharp.exe
+C:\Users\andersbo\source\repos\HelloWorld\FundamentalsInCSharp\obj\Debug\FundamentalsInCSharp.pdb
