@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Threading;
 
 namespace Beginner4
@@ -21,33 +19,34 @@ namespace Beginner4
         static void task1()
         {
             Console.Write("Skriv inn noen heltall. Bruk tegnet '-' til å skille tallene: ");
-            string ans = Console.ReadLine();
-            string[] strings = ans.Split('-');
-            int[] ints = new int[strings.Length];
+            string[] strings = Console.ReadLine().Split('-');
+            int[] ints = convertToInts(strings);
+            if(isConsecutive(ints))
+                Console.WriteLine("Consecutive");
+            else
+                Console.WriteLine("Not consecutive.");
+        }
+
+        static bool isConsecutive(int[] intArr)
+        {
             bool isConsecutive = false;
-            for(int i = 0; i < strings.Length; i++)
+            for (int i = 0; i < intArr.Length - 1; i++)
             {
-                ints[i] = Convert.ToInt32(strings[i]);
-            }
-            for(int i = 0; i < ints.Length-1; i++)
-            {
-                if (ints[i + 1] == ints[i] + 1)
+                if (intArr[i + 1] == intArr[i] + 1)
                 {
                     isConsecutive = true;
                 }
-                else if (ints[i + 1] == ints[i] - 1)
+                else if (intArr[i + 1] == intArr[i] - 1)
                 {
                     isConsecutive = true;
                 }
                 else
                 {
                     isConsecutive = false;
+                    break;
                 }
             }
-            if(isConsecutive)
-                Console.WriteLine("Consecutive");
-            else
-                Console.WriteLine("Not consecutive.");
+            return isConsecutive;
         }
 
         static void task2()
@@ -58,18 +57,14 @@ namespace Beginner4
                 return;
 
             string[] strings = ans.Split('-');
-            int[] numbers = new int[strings.Length];
-            for(int i = 0; i<strings.Length; i++)
-            {
-                numbers[i] = Convert.ToInt32(strings[i]);
-            }
-
+            int[] numbers = convertToInts(strings);
+            
             List<int> numberList = new List<int>();
             foreach(int number in numbers)
             {
                 numberList.Add(number);
             }
-            if (numberList.Count != numberList.Distinct().Count())
+            if (checkUnique(numberList))
             {
                 Console.WriteLine("Duplicate");
             }
@@ -77,6 +72,29 @@ namespace Beginner4
             {
                 Console.WriteLine("No duplicates.");
             }
+        }
+
+        static int[] convertToInts(string[] arr)
+        {
+            int[] res = new int[arr.Length];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                res[i] = Convert.ToInt32(arr[i]);
+            }
+            return res;
+        }
+
+        static bool checkUnique(List<int> numbers)
+        {
+            List<int> unikListe = new List<int>();
+            foreach(int i in numbers)
+            {
+                if (unikListe.Contains(i))
+                    return true;
+                else
+                    unikListe.Add(i);
+            }
+            return false;
         }
 
         static void task3()
@@ -88,19 +106,27 @@ namespace Beginner4
                 Console.WriteLine("Invalid time.");
                 return;
             }
+            if (timeIsValid(ans))
+                Console.WriteLine("OK");
+            else
+                Console.WriteLine("Invalid time.");
+        }
+
+        static bool timeIsValid(string input)
+        {
             try
             {
-                string[] time = ans.Split(':');
+                string[] time = input.Split(':');
                 int hrs = Convert.ToInt32(time[0]);
                 int mins = Convert.ToInt32(time[1]);
                 if (hrs >= 0 && hrs <= 23 && mins >= 0 && mins <= 59)
-                    Console.WriteLine("OK");
+                    return true;
                 else
-                    Console.WriteLine("Invalid time.");
+                    return false;
             }
-            catch(Exception)
+            catch (Exception)
             {
-                Console.WriteLine("Invalid time.");
+                return false;
             }
         }
 
@@ -113,17 +139,18 @@ namespace Beginner4
                 Console.WriteLine("Ugyldig tekst.");
                 return;
             }
-            /*
-             * TextInfo info = CultureInfo.CurrentCulture.TextInfo;
-             * ans = info.ToTitleCase(ans).Replace(" ", string.Empty);
-            */
-            string pascSvar= "";
-            foreach(string ord in ans.Split(' '))
+            Console.WriteLine(buildPascalString(ans));
+        }
+
+        static string buildPascalString(string input)
+        {
+            string pascSvar = "";
+            foreach (string ord in input.Split(' '))
             {
                 string pascString = char.ToUpper(ord[0]) + ord.ToLower().Substring(1);
                 pascSvar += pascString;
             }
-            Console.WriteLine(pascSvar);
+            return pascSvar;
         }
 
         static void task5()
@@ -135,8 +162,13 @@ namespace Beginner4
                 Console.WriteLine("Ugyldig tekst.");
                 return;
             }
+            Console.WriteLine("Ordet {0} består av {1} vokaler.", ans, vowelCount(ans));
+        }
+
+        static int vowelCount(string word)
+        {
             int vowelCounter = 0;
-            foreach(char c in ans)
+            foreach (char c in word)
             {
                 if (c == 'a' || c == 'A')
                     vowelCounter++;
@@ -160,7 +192,7 @@ namespace Beginner4
              *         vowelCounter++;
              * }
              */
-            Console.WriteLine("Ordet {0} består av {1} vokaler.", ans, vowelCounter);
+            return vowelCounter;
         }
     }
 }
