@@ -1,0 +1,5 @@
+/home/andersbo/source/repos/HelloWorld/ProceduralProgramming/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/andersbo/source/repos/HelloWorld/ProceduralProgramming/bin/Debug/ProceduralProgramming.pdb
+/home/andersbo/source/repos/HelloWorld/ProceduralProgramming/bin/Debug/ProceduralProgramming.exe
+/home/andersbo/source/repos/HelloWorld/ProceduralProgramming/obj/Debug/ProceduralProgramming.exe
+/home/andersbo/source/repos/HelloWorld/ProceduralProgramming/obj/Debug/ProceduralProgramming.pdb
