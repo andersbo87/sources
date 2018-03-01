@@ -4,5 +4,4 @@ C:\Users\andersbo\source\repos\HelloWorld\TextString\bin\Debug\TextString.pdb
 C:\Users\andersbo\source\repos\HelloWorld\TextString\obj\Debug\TextString.csproj.CoreCompileInputs.cache
 C:\Users\andersbo\source\repos\HelloWorld\TextString\obj\Debug\TextString.exe
 C:\Users\andersbo\source\repos\HelloWorld\TextString\obj\Debug\TextString.pdb
-C:\Users\andersbo\source\repos\HelloWorld\TextString\bin\Debug\TextString.exe.CodeAnalysisLog.xml
-C:\Users\andersbo\source\repos\HelloWorld\TextString\bin\Debug\TextString.exe.lastcodeanalysissucceeded
+C:\Users\andersbo\source\repos\HelloWorld\TextString\obj\Debug\TextString.csprojResolveAssemblyReference.cache
