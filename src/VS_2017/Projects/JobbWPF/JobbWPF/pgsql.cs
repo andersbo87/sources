@@ -82,6 +82,578 @@ namespace JobbWPF
                 throw e; // Kaster unntaket videre. Normalt sett vil dette kun påvirke koden i connectPgsql.cs, med mindre den eksterne serveren kobles fra.
             }
         }
+
+        // Metoder som sjekker om tabellene finnes i databasen.
+        // Det skal være fire tabeller: Søknad, sted, land og status
+        // i tillegg til ett "view" som kobler sammen de fire tabellene
+
+        /// <summary>
+        /// Checks if the table "steder" (towns) exists in the database by attempting to select the first item in the database
+        /// </summary>
+        /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
+        public bool tableTownExists()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT stedid FROM sted WHERE stedid=1";
+                reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch(NpgsqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Checks if the table "søknader" (applications) exists in the database by attempting to select the first item in the database
+        /// </summary>
+        /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
+        public bool tableApplicationExists()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT soknadid FROM soknad WHERE soknadid=1";
+                reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch (NpgsqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Checks if the table "land" (countries) exists in the database by attempting to select the first item in the database
+        /// </summary>
+        /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
+        public bool tableCountryExists()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT landid FROM land WHERE landid=1";
+                reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch (NpgsqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Checks if the table "statuser" (statuses) exists in the database by attempting to select the first item in the database
+        /// </summary>
+        /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
+        public bool tableStatusExists()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT statusid FROM status WHERE statusid=1";
+                reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch (NpgsqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Checks if the view "view_soknad" (søknad = application) exists in the database by attempting to select the first item in the database
+        /// </summary>
+        /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
+        public bool viewApplicationExists()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT soknadid FROM view_soknad WHERE soknadid=1";
+                reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch (NpgsqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Checks if the view "view_sted" (sted = town, city, place) exists in the database by attempting to select the first item in the database
+        /// </summary>
+        /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
+        public bool viewTownExists()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT stedid FROM view_sted WHERE stedid=1";
+                reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch (NpgsqlException)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        // Slutt på metoder som sjekker om tabellene finnes i databasen.
+        // Metoder som oppretter tomme tabeller:
+
+        public bool createTableTowns()
+        {
+            try
+            {
+                createSequenceStedidSeq();
+                Init();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TABLE public.sted(stedid integer NOT NULL DEFAULT nextval('stedid_seq'::regclass), stedsnavn text COLLATE pg_catalog.\"default\" NOT NULL, landid integer NOT NULL, CONSTRAINT sted_pkey PRIMARY KEY(stedid), CONSTRAINT unikt_sted UNIQUE(stedsnavn), CONSTRAINT sted_landid_fkey FOREIGN KEY(landid) REFERENCES public.land(landid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION) WITH(OIDS = FALSE) TABLESPACE pg_default;";
+                reader = cmd.ExecuteReader();
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createTableApplications()
+        {
+            try
+            {
+                createSequenceSoknadidSeq();
+                createFunctionEmpty();
+                Init();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TABLE public.soknad(soknadid integer NOT NULL DEFAULT nextval('soknadid_seq'::regclass), tittel text COLLATE pg_catalog.\"default\" NOT NULL, bedrift text COLLATE pg_catalog.\"default\" NOT NULL, stedid integer NOT NULL, statusid integer NOT NULL, soknadsfrist text COLLATE pg_catalog.\"default\" NOT NULL, motivasjon text COLLATE pg_catalog.\"default\", CONSTRAINT soknad_pkey PRIMARY KEY(soknadid), CONSTRAINT unik_soknad UNIQUE(tittel, bedrift, stedid), CONSTRAINT soknad_statusid_fkey FOREIGN KEY(statusid) REFERENCES public.status(statusid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT soknad_stedid_fkey FOREIGN KEY(stedid) REFERENCES public.sted(stedid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT chk CHECK(NOT empty(tittel)), CONSTRAINT chkbedriftnotempty CHECK(NOT empty(bedrift)), CONSTRAINT chksoknadsfristnotempty CHECK(NOT empty(soknadsfrist)))WITH(OIDS = FALSE)TABLESPACE pg_default;";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch(NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createTableCountries()
+        {
+            try
+            {
+                createSequenceLandidSeq();
+                Init();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TABLE public.land(landid integer NOT NULL DEFAULT nextval('landid_seq'::regclass), land text COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT land_pkey PRIMARY KEY(landid), CONSTRAINT unikt_land UNIQUE(land))WITH(OIDS = FALSE)TABLESPACE pg_default; ";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createTableStatuses()
+        {
+            try
+            {
+                createSequenceStatusidSeq();
+                Init();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TABLE public.status(statusid integer NOT NULL DEFAULT nextval('statusid_seq'::regclass), status character varying(30) COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT status_pkey PRIMARY KEY(statusid), CONSTRAINT unik_status UNIQUE(status))WITH(OIDS = FALSE)TABLESPACE pg_default;";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            catch (Exception e)
+            {
+                setError(e.Message);
+                return false;
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createViewApplications()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE OR REPLACE VIEW public.view_soknad AS SELECT soknad.soknadid, soknad.tittel, soknad.bedrift, soknad.soknadsfrist, soknad.stedid, sted.stedsnavn, sted.landid, land.land, soknad.statusid, status.status, soknad.motivasjon FROM soknad JOIN sted ON sted.stedid = soknad.stedid JOIN land ON land.landid = sted.landid JOIN status ON status.statusid = soknad.statusid ORDER BY soknad.soknadid;";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createViewTown()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE OR REPLACE VIEW public.view_sted AS SELECT sted.stedid, sted.stedsnavn, sted.landid, land.land FROM sted JOIN land ON land.landid = sted.landid;";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        // Slutt på funksjoner som oppretter tabeller og views.
+        // Metoder som oppretter sekvenser som brukes til å automatisk øke ID med 1.
+        private void createSequenceLandidSeq()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE SEQUENCE landid_seq;";
+                cmd.ExecuteNonQuery();
+            }
+            catch (NpgsqlException)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private void createSequenceStedidSeq()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE SEQUENCE stedid_seq;";
+                cmd.ExecuteNonQuery();
+            }
+            catch (NpgsqlException)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private void createSequenceSoknadidSeq()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE SEQUENCE soknadid_seq;";
+                cmd.ExecuteNonQuery();
+            }
+            catch (NpgsqlException)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private void createSequenceStatusidSeq()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE SEQUENCE statusid_seq;";
+                cmd.ExecuteNonQuery();
+            }
+            catch (NpgsqlException)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        // Metoder som oppretter lagrede prosedyrer og triggere.
+        // Disse metodene kjøres som del av metodene over og er derfor private.
+        public bool createFunctionEmpty()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE OR REPLACE FUNCTION public.empty(text) RETURNS boolean LANGUAGE 'sql' COST 100 IMMUTABLE AS $BODY$ SELECT $1 ~'^[[:space:]]*$'; $BODY$; COMMENT ON FUNCTION public.empty(text) IS 'Sjekke innholdet i en streng. Returnerer sann om strengen er tom eller bare inneholder mellomrom, og falsk ellers.';";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                throw ne;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public bool createProcedureNewCountryID()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE FUNCTION public.nylandid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF ROWS 0 AS $BODY$ BEGIN RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid; RETURN NEW; END; $BODY$; ";
+                return createTriggerNewCountryID();
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createProcedureNewApplicationID()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE FUNCTION nysoknadid() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE NOTICE 'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid; RETURN NEW; END; $$; ";
+                return createTriggerNewApplicationID();
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createProcedureNewTownID()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE FUNCTION nystedid() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid; RETURN NEW; END; $$";
+                return createTriggerNewTownID();
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool createProcedureUpdateApplication()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE FUNCTION updatesoknad() RETURNS trigger LANGUAGE plpgsql AS $$DECLARE counter_ integer:= 0; tablename_ text := 'temptable'; oldStatus text; newStatus text; max int; updated boolean := false; BEGIN begin --raise notice 'Creating table %', tablename_; execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop'; execute 'insert into ' || tablename_ || ' (counter) values(0)'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; exception when duplicate_table then null; end; execute 'select counter from ' || tablename_ into counter_; execute 'update ' || tablename_ || ' set counter = counter + 1'; --raise notice 'updating'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; max:= count(soknadid) from soknad; if counter_ = max then raise exception 'Kan ikke oppdatere mer enn Ã©n rad om gangen.'; end if; if NEW.soknadid != OLD.soknadid then raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid; updated = true; end if; if NEW.tittel != OLD.tittel then raise notice 'Søknaden med ID % har fÃ¥tt endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel; updated = true; end if; if NEW.bedrift != OLD.bedrift then raise notice 'Søknaden med ID % har fÃ¥tt endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift; updated = true; end if; if NEW.stedid != OLD.stedid then raise notice 'Søknaden med ID % har fÃ¥tt endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid; updated = true; end if; if NEW.soknadsfrist != OLD.soknadsfrist then raise notice 'Søknaden med ID % har fÃ¥tt endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist; updated = true; end if; if NEW.motivasjon != OLD.motivasjon then raise notice 'Søknaden med ID % har fÃ¥tt endret motivasjon fra % til %.', OLD.soknadid, OLD.motivasjon, NEW.motivasjon; updated = true; end if; if NEW.statusid != OLD.statusid then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; if NEW.statusid = 1 then newStatus = 'Registrert'; elsif NEW.statusid = 2 then newStatus = 'Sendt'; elsif NEW.statusid = 3 then newStatus = 'Interessert, mulig intervju'; elsif NEW.statusid = 4 then newStatus = 'Avvist'; elsif NEW.statusid = 5 then newStatus = 'Søknad skrevet, men ikke sendt'; elsif NEW.statusid = 6 then newStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har fÃ¥tt endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus; elsif NEW.statusid = OLD.statusid then if updated = false then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus; end if; end if; RETURN NEW; END; $$;";
+                return createTriggerUpdateApplication();
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private bool createTriggerNewCountryID()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TRIGGER trg_nyttland AFTER INSERT ON public.land FOR EACH ROW EXECUTE PROCEDURE public.nylandid();";
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private bool createTriggerNewApplicationID()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TRIGGER trg_nysoknad AFTER INSERT ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.nysoknadid();";
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private bool createTriggerNewTownID()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TRIGGER trg_nyttsted AFTER INSERT ON public.sted FOR EACH ROW EXECUTE PROCEDURE public.nystedid();";
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private bool createTriggerUpdateApplication()
+        {
+            Init();
+            try
+            {
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE TRIGGER trg_oppdatersoknad AFTER UPDATE ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.updatesoknad();";
+                return true;
+            }
+            catch (NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        // Slutt på metoder som oprretter triggere.
+
         public void setRecord(int newRecord)
         {
             record = newRecord;
@@ -115,26 +687,26 @@ namespace JobbWPF
                 int j = 0;
                 while (reader.Read())
                 {
-                    int i = 0;
-                    res = new string[reader.FieldCount];
-                    while (i < reader.FieldCount)
-                    {
-                        if (j == 0)
-                        {
-                            if (i == reader.FieldCount - 1)
-                            {
-                                res[i] = reader.GetName(i) + "\n";
-                                j++;
-                            }
-                            else
-                            {
-                                res[i] = reader.GetName(i) + "\t";
-                            }
+    int i = 0;
+    res = new string[reader.FieldCount];
+    while (i < reader.FieldCount)
+    {
+        if (j == 0)
+        {
+            if (i == reader.FieldCount - 1)
+            {
+                res[i] = reader.GetName(i) + "\n";
+                j++;
+            }
+            else
+            {
+                res[i] = reader.GetName(i) + "\t";
+            }
 
-                        }
-                        i++;
-                    }
-                    return res;
+        }
+        i++;
+    }
+    return res;
                 }
             }
             return res;
@@ -155,39 +727,39 @@ namespace JobbWPF
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    res = new string[rows];
-                    int i = 0, j = 0;
-                    while (i < reader.FieldCount)
-                    {
-                        if (j == 0)
-                        {
-                            if (i == reader.FieldCount - 1)
-                            {
-                                sb.Append(reader.GetName(i) + "\n");
-                                j++;
-                            }
-                            else
-                            {
-                                sb.Append(reader.GetName(i) + "\t");
-                            }
-                        }
-                        i++;
-                    }
-                    i = 0;
-                    while (i < reader.FieldCount)
-                    {
+    res = new string[rows];
+    int i = 0, j = 0;
+    while (i < reader.FieldCount)
+    {
+        if (j == 0)
+        {
+            if (i == reader.FieldCount - 1)
+            {
+                sb.Append(reader.GetName(i) + "\n");
+                j++;
+            }
+            else
+            {
+                sb.Append(reader.GetName(i) + "\t");
+            }
+        }
+        i++;
+    }
+    i = 0;
+    while (i < reader.FieldCount)
+    {
 
-                        if (i == reader.FieldCount - 1)
-                        {
-                            res[i] = reader.GetString(i) + "\n";
-                        }
-                        else
-                        {
-                            res[i] = reader.GetString(i) + "\t";
-                        }
-                        i++;
-                    }
-                    return res;
+        if (i == reader.FieldCount - 1)
+        {
+            res[i] = reader.GetString(i) + "\n";
+        }
+        else
+        {
+            res[i] = reader.GetString(i) + "\t";
+        }
+        i++;
+    }
+    return res;
                 }
             }
             return res;
@@ -212,79 +784,79 @@ namespace JobbWPF
                 int rows = nad.Fill(dt);
                 if (sqlQuery.StartsWith("select"))
                 {
-                    int j = 0;
-                    reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        int i = 0;
-                        while (i < reader.FieldCount)
-                        {
-                            if (j == 0)
-                            {
-                                if (i == reader.FieldCount - 1)
-                                {
-                                    sb.AppendLine(reader.GetName(i) + "\n");
-                                    j++;
-                                }
-                                else
-                                {
-                                    sb.Append(reader.GetName(i) + " \t | ");
-                                }
-                            }
-                            i++;
-                        }
-                        i = 0;
-                        while (i < reader.FieldCount)
-                        {
-
-                            if (i == reader.FieldCount - 1)
-                                sb.AppendLine(reader.GetString(i) + "\n");
-                            else
-                                sb.Append(reader.GetString(i) + " \t | ");
-                            i++;
-                        }
-                    }
-                    res = sb.ToString() + "\n(" + rows.ToString() + " rader)";
-                }
-                else if (sqlQuery.StartsWith("explain"))
+    int j = 0;
+    reader = cmd.ExecuteReader();
+    while (reader.Read())
+    {
+        int i = 0;
+        while (i < reader.FieldCount)
+        {
+            if (j == 0)
+            {
+                if (i == reader.FieldCount - 1)
                 {
-                    int j = 0;
-                    reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        int i = 0;
-                        while (i < reader.FieldCount)
-                        {
-                            if (j == 0)
-                            {
-                                if (i == reader.FieldCount - 1)
-                                {
-                                    sb.AppendLine(reader.GetName(i) + "\n");
-                                    j++;
-                                }
-                                else
-                                {
-                                    sb.Append(reader.GetName(i) + "\t");
-                                }
-                            }
-                            i++;
-                        }
-                        i = 0;
-                        while (i < reader.FieldCount)
-                        {
-
-                            if (i == reader.FieldCount - 1)
-                                sb.AppendLine(reader.GetString(i) + "\n");
-                            else
-                                sb.Append(reader.GetString(i) + "\t");
-                            i++;
-                        }
-                    }
-                    res = sb.ToString() + "\n(" + rows.ToString() + " rader)";
+    sb.AppendLine(reader.GetName(i) + "\n");
+    j++;
                 }
                 else
                 {
-                    sb.AppendLine(cmd.ExecuteNonQuery() + " rader ble endret.");
+    sb.Append(reader.GetName(i) + " \t | ");
+                }
+            }
+            i++;
+        }
+        i = 0;
+        while (i < reader.FieldCount)
+        {
+
+            if (i == reader.FieldCount - 1)
+                sb.AppendLine(reader.GetString(i) + "\n");
+            else
+                sb.Append(reader.GetString(i) + " \t | ");
+            i++;
+        }
+    }
+    res = sb.ToString() + "\n(" + rows.ToString() + " rader)";
+                }
+                else if (sqlQuery.StartsWith("explain"))
+                {
+    int j = 0;
+    reader = cmd.ExecuteReader();
+    while (reader.Read())
+    {
+        int i = 0;
+        while (i < reader.FieldCount)
+        {
+            if (j == 0)
+            {
+                if (i == reader.FieldCount - 1)
+                {
+    sb.AppendLine(reader.GetName(i) + "\n");
+    j++;
+                }
+                else
+                {
+    sb.Append(reader.GetName(i) + "\t");
+                }
+            }
+            i++;
+        }
+        i = 0;
+        while (i < reader.FieldCount)
+        {
+
+            if (i == reader.FieldCount - 1)
+                sb.AppendLine(reader.GetString(i) + "\n");
+            else
+                sb.Append(reader.GetString(i) + "\t");
+            i++;
+        }
+    }
+    res = sb.ToString() + "\n(" + rows.ToString() + " rader)";
+                }
+                else
+                {
+    sb.AppendLine(cmd.ExecuteNonQuery() + " rader ble endret.");
                 }
                 res = sb.ToString();
                 return res;
@@ -507,6 +1079,142 @@ namespace JobbWPF
         }
 
         /// <summary>
+        /// Counts the total number of applications.
+        /// </summary>
+        /// <returns>The total number of applications.</returns>
+        public double countTotalApplications()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
+        /// Counts the number of applications that the employer have not responded to.
+        /// </summary>
+        /// <returns>Number of unanswered applications</returns>
+        public double countUnansweredApplications()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=2";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
+        /// Counts applications that have been added to the database, but not yet sent or written.
+        /// </summary>
+        /// <returns>Number of unsent, unwritten applications</returns>
+        public double countRegisteredNotSentApplications()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=1";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
+        /// Counts the number of applications that have been declined after an interview.
+        /// </summary>
+        /// <returns>Number of applications that have been declined after an interview</returns>
+        public double countDeclinedAfterInterview()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=6";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
+        /// Counts the number of applications that have been declined by the employer.
+        /// </summary>
+        /// <returns>Number of declined jobs</returns>
+        public double countDeclinedApplications()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=4";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
+        /// Counts the number of applications that the employer finds interesting and have lead to an interview
+        /// </summary>
+        /// <returns>The number of application that have lead to a job interview.</returns>
+        public double countAcceptedForInterview()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=3";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
+        /// Counts the number of applications that the employer accepted which then have lead to a job.
+        /// </summary>
+        /// <returns>Number of accepted applications</returns>
+        public double countAcceptedForWork()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=7";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
+        /// Counts the number of written applications that is yet to be sent.
+        /// </summary>
+        /// <returns>Number of written, unsent applications</returns>
+        public double countWrittenButNotSent()
+        {
+            int res = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=5";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res++;
+            return res;
+        }
+
+        /// <summary>
         /// Builds a list of strings containing all data about a given job application.
         /// </summary>
         /// <param name="index">The application ID</param>
@@ -593,10 +1301,10 @@ namespace JobbWPF
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    data.Add(reader.GetString(0));
-                    data.Add(reader.GetString(1));
-                    data.Add(reader.GetString(2));
-                    data.Add(reader.GetString(3));
+    data.Add(reader.GetString(0));
+    data.Add(reader.GetString(1));
+    data.Add(reader.GetString(2));
+    data.Add(reader.GetString(3));
                 }
                 conn.Close();
                 return data;
@@ -744,7 +1452,7 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand("SELECT land FROM land WHERE landid=" + index + ";", conn);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
-                    res = reader.GetString(0);
+    res = reader.GetString(0);
                 return res;
             }
             catch (NpgsqlException ne)
@@ -1093,10 +1801,10 @@ namespace JobbWPF
                 cmd.CommandText = sqlQuery;
                 using (var rdr = cmd.ExecuteReader())
                 {
-                    while (rdr.Read())
-                    {
-                        data.Add(rdr.GetString(index));
-                    }
+    while (rdr.Read())
+    {
+        data.Add(rdr.GetString(index));
+    }
                 }
                 return data;
             }
@@ -1135,17 +1843,17 @@ namespace JobbWPF
                 int i = 0;
                 string s = "SELECT soknadid, tittel, bedrift, stedsnavn, status, soknadsfrist, motivasjon FROM view_soknad WHERE tittel like '%" + jobTitle + "%' and bedrift like '%" + companyName + "%' ";
                 if (string.Compare(cityName, "", false) != 0)
-                    s = s + "and stedsnavn like '%" + cityName + "%' ";
+    s = s + "and stedsnavn like '%" + cityName + "%' ";
                 if (string.Compare(status, "", false) != 0)
-                    s = s + "and status like '%" + status + "%' ";
+    s = s + "and status like '%" + status + "%' ";
                 s = s + "and soknadsfrist like '%" + deadline + "%' ";
                 s = s + "and motivasjon like '%" + motivation + "%' order by soknadid;";
                 cmd.CommandText = s;
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5), motivasjon = reader.GetString(6) });
-                    i++;
+    data.Add(new jobb() { applicationID = reader.GetInt32(0), jobTitle = reader.GetString(1), company = reader.GetString(2), cityName = reader.GetString(3), statusName = reader.GetString(4), deadline = reader.GetString(5), motivasjon = reader.GetString(6) });
+    i++;
                 }
                 setRecord(i);
                 conn.Close();
