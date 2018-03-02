@@ -76,13 +76,14 @@ public:
     void setError(QString msg);
 
     // Metoder som henter antall søknader i hver kategori (status):
-    int countTotalApplications();
-    int countRegisteredApplications(); // Applications that have been added to the database but not sent. StatusID 1
-    int countSentApplications(); // Get applications that have been sent and not answered. StatusID 2
-    int countInterviews(); // Get applications employers are interested in and have called in for an interviews. StatusID 3
-    int countDeclinedApplications(); // Applications that have been declined. StatusID 4
-    int countWrittenButNotSent(); // Applications that have been written but not sent to the employer. StatusID 5
-    int countAccepted(); // Application accepted and ready to start the job. StatusID 6
+    double countTotalApplications();
+    double countRegisteredApplications(); // Applications that have been added to the database but not sent. StatusID 1
+    double countSentApplications(); // Get applications that have been sent and not answered. StatusID 2
+    double countInterviews(); // Get applications employers are interested in and have called in for an interviews. StatusID 3
+    double countDeclinedApplications(); // Applications that have been declined. StatusID 4
+    double countWrittenButNotSent(); // Applications that have been written but not sent to the employer. StatusID 5
+    double countDeclinedAfterInterview(); // Application declined after interview. StatusID 6
+    double countAccepted(); // Application accepted and ready to start the job. StatusID 7
 
     // Hente resultater. Rangert alfabetisk etter datatype og objekt/peker, deretter alfabetisk etter metodenavn
     int getCityID(int applicationID);
