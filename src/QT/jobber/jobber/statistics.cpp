@@ -28,6 +28,9 @@ void statistics::updateData()
     ui->labelRegisteredValue->setText(QString::number(p->countRegisteredApplications()));
     ui->labelSentValue->setText(QString::number(p->countSentApplications()));
     ui->labelWrittenButNotSentValue->setText(QString::number(p->countWrittenButNotSent()));
+    double percent = ((p->countAccepted() + p->countDeclinedAfterInterview() + p->countDeclinedApplications() + p->countInterviews())/p->countTotalApplications())*100;
+    ui->labelAnsweredValue->setText(QString::number(p->countAccepted() + p->countDeclinedAfterInterview() + p->countDeclinedApplications() + p->countInterviews()) + " (" + QString::number(percent) + " %)");
+    ui->labelDeclinedAfterInterviewValue->setText(QString::number(p->countDeclinedAfterInterview()));
 }
 
 void statistics::btnUpdateClicked()

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>432</width>
-    <height>300</height>
+    <height>340</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -82,7 +82,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
+   <item row="4" column="0">
     <widget class="QLabel" name="labelSent">
      <property name="font">
       <font>
@@ -95,7 +95,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="1">
+   <item row="4" column="1">
     <widget class="QLabel" name="labelSentValue">
      <property name="font">
       <font>
@@ -108,7 +108,7 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="0">
+   <item row="6" column="0">
     <widget class="QLabel" name="labelInterview">
      <property name="font">
       <font>
@@ -121,7 +121,7 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="1">
+   <item row="6" column="1">
     <widget class="QLabel" name="labelInterviewValue">
      <property name="font">
       <font>
@@ -134,7 +134,7 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
+   <item row="7" column="0">
     <widget class="QLabel" name="labelDeclined">
      <property name="font">
       <font>
@@ -147,7 +147,7 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
+   <item row="7" column="1">
     <widget class="QLabel" name="labelDeclinedValue">
      <property name="font">
       <font>
@@ -160,7 +160,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
+   <item row="9" column="0">
     <widget class="QLabel" name="labelWrittenButNotSent">
      <property name="font">
       <font>
@@ -173,7 +173,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="1">
+   <item row="9" column="1">
     <widget class="QLabel" name="labelWrittenButNotSentValue">
      <property name="font">
       <font>
@@ -186,7 +186,7 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="0">
+   <item row="10" column="0">
     <widget class="QLabel" name="labelAccepted">
      <property name="font">
       <font>
@@ -199,7 +199,7 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="1">
+   <item row="10" column="1">
     <widget class="QLabel" name="labelAcceptedValue">
      <property name="font">
       <font>
@@ -212,7 +212,7 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="0">
+   <item row="11" column="0">
     <widget class="QPushButton" name="btnUpdate">
      <property name="font">
       <font>
@@ -222,6 +222,60 @@
      </property>
      <property name="text">
       <string>Oppdater</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="labelAnswered">
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Antall besvarte søknader</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLabel" name="labelAnsweredValue">
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="labelDeclinedAfterInterview">
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Avvist etter intervju</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1">
+    <widget class="QLabel" name="labelDeclinedAfterInterviewValue">
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </item>
