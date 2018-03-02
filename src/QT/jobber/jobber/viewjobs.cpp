@@ -39,13 +39,7 @@ ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     ui->setupUi(this);
     setFixedSize(size());
     p = pg;
-    changed = false;
-    soknadIDChanged = false;
     winTitle = windowTitle;
-    getApplications();
-    getCityIDs();
-    getStatusIDs();
-    getApplication(1);
     connect(ui->comboBoxApplicationID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxApplicationIDChanged()));
     connect(ui->lineEditTitle, SIGNAL(textChanged(QString)), this, SLOT(lineEditTitleChanged()));
     connect(ui->lineEditCompany, SIGNAL(textChanged(QString)), this, SLOT(lineEditCompanyChanged()));
@@ -59,8 +53,15 @@ ViewJobs::ViewJobs(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
     connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()), Qt::UniqueConnection);
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()), Qt::UniqueConnection);
+    //connect(this, SIGNAL(window_loaded), this, SLOT(windowLoaded()), Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
+    connect(this, SIGNAL(sigShowEvent()), this, SLOT(windowLoaded()));
 }
 
+/*void ViewJobs::showEvent(QShowEvent e)
+{
+    ViewJobs::showEvent(e);
+    emit sigShowEvent();
+}*/
 ViewJobs::~ViewJobs()
 {
     delete ui;
@@ -133,6 +134,21 @@ void ViewJobs::lineEditTitleChanged()
     setTitle(ui->lineEditTitle->text());
     if(!soknadIDChanged)
         setChanged(true);
+}
+
+void ViewJobs::windowLoaded()
+{
+    changed = false;
+    soknadIDChanged = false;
+    getApplications();
+    getCityIDs();
+    getStatusIDs();
+    getApplication(1);
+}
+
+void ViewJobs::showEvent(QShowEvent *)
+{
+    QTimer::singleShot(50, this, SLOT(windowLoaded()));
 }
 
 /**
@@ -603,14 +619,26 @@ void ViewJobs::getApplications()
         QList<QString> list;
         list = p->fillList("SELECT soknadid FROM soknad ORDER BY soknadid ASC");
         int i = 0;
-        QList<QString>::iterator iter = list.begin();
-        while(iter != list.end())
+        if(list.count() == 0)
         {
-            ui->comboBoxApplicationID->addItem(list.value(i));
-            i++;
-            iter++;
+            QMessageBox msg;
+            msg.setWindowTitle(windowTitle());
+            msg.setIcon(msg.Warning);
+            msg.setText("Du har ikke lagt inn noen søknader ennå.");
+            msg.exec();
+            this->close();
         }
-        lastid = i;
+        else
+        {
+            QList<QString>::iterator iter = list.begin();
+            while(iter != list.end())
+            {
+                ui->comboBoxApplicationID->addItem(list.value(i));
+                i++;
+                iter++;
+            }
+            lastid = i;
+        }
     }
     catch(std::exception &e)
     {

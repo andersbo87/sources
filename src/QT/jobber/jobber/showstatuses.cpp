@@ -48,10 +48,7 @@ ShowStatuses::ShowStatuses(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(lineEditStatusnameChanged()));
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()), Qt::UniqueConnection);
     connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(btnSaveClicked()), Qt::UniqueConnection);
-    getStatuses();
-    getStatus(1);
-    changed = false;
-    statusIDchanged = false;
+
 }
 
 // Metoder som henter verdier
@@ -126,15 +123,27 @@ void ShowStatuses::getStatuses()
         QList<QString> list = p->fillList("SELECT status FROM status ORDER BY status ASC");
         int i = 0;
         QList<QString>::iterator iter = list.begin();
-        i = 0;
-        while(iter != list.end())
+        if(list.count() == 0)
         {
-            //ui->comboBoxStatusID->addItem(QString::number(list.value(i)));
-            ui->comboBoxStatusID->addItem(list.value(i));
-            i++;
-            iter++;
+            QMessageBox msg;
+            msg.setWindowTitle(windowTitle());
+            msg.setIcon(msg.Warning);
+            msg.setText("Du har ikke lagt inn noen søknader ennå.");
+            msg.exec();
+            this->close();
         }
-        lastID = i;
+        else
+        {
+            i = 0;
+            while(iter != list.end())
+            {
+                //ui->comboBoxStatusID->addItem(QString::number(list.value(i)));
+                ui->comboBoxStatusID->addItem(list.value(i));
+                i++;
+                iter++;
+            }
+            lastID = i;
+        }
     }
     catch(std::exception &e)
     {
@@ -151,6 +160,18 @@ ShowStatuses::~ShowStatuses()
     delete ui;
 }
 // Private metoder
+void ShowStatuses::windowLoaded()
+{
+    getStatuses();
+    getStatus(1);
+    changed = false;
+    statusIDchanged = false;
+}
+
+void ShowStatuses::showEvent(QShowEvent *)
+{
+    QTimer::singleShot(50, this, SLOT(windowLoaded()));
+}
 void ShowStatuses::closeEvent(QCloseEvent *event)
 {
     if(isChanged())

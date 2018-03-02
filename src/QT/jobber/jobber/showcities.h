@@ -65,6 +65,7 @@ private:
     bool isChanged();
     void setChanged(bool change);
     void closeEvent(QCloseEvent *event) override;
+    void showEvent(QShowEvent *) override;
 
 private slots:
     void comboboxCityIDChanged();
@@ -76,6 +77,7 @@ private slots:
     void buttonLastClicked();
     void buttonSaveClicked();
     void buttonDeleteClicked();
+    void windowLoaded();
 };
 
 #endif // SHOWCITIES_H

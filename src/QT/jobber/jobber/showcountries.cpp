@@ -48,10 +48,7 @@ ShowCountries::ShowCountries(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->lineEditCountryName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCountrynameChanged()));
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()), Qt::UniqueConnection);
     connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(btnSaveClicked()), Qt::UniqueConnection);
-    getCountries();
-    getCountry(1);
-    countryIDchanged = false;
-    changed = false;
+
 }
 
 // Metoder som henter verdier:
@@ -124,13 +121,25 @@ void ShowCountries::getCountries()
     try
     {
         QList<QString> list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
-        int i = 0;
-        QList<QString>::iterator iter;
-        for(iter = list.begin(); iter != list.end(); iter++)
+        if(list.count() == 0)
         {
-            //ui->comboBoxLandID->addItem(QString::number(list.value(i)));
-            ui->comboBoxLandID->addItem(list.value(i));
-            i++;
+            QMessageBox msg;
+            msg.setWindowTitle(windowTitle());
+            msg.setIcon(msg.Warning);
+            msg.setText("Du har ikke lagt inn noen søknader ennå.");
+            msg.exec();
+            this->close();
+        }
+        else
+        {
+            int i = 0;
+            QList<QString>::iterator iter;
+            for(iter = list.begin(); iter != list.end(); iter++)
+            {
+                //ui->comboBoxLandID->addItem(QString::number(list.value(i)));
+                ui->comboBoxLandID->addItem(list.value(i));
+                i++;
+            }
         }
     }
     catch(std::exception &e)
@@ -409,6 +418,19 @@ void ShowCountries::lineEditCountrynameChanged()
     setCountryName(ui->lineEditCountryName->text());
     if(!countryIDchanged)
         setChanged(true);
+}
+
+void ShowCountries::windowLoaded()
+{
+    getCountries();
+    getCountry(1);
+    countryIDchanged = false;
+    changed = false;
+}
+
+void ShowCountries::showEvent(QShowEvent *)
+{
+    QTimer::singleShot(50, this, SLOT(windowLoaded()));
 }
 
 void ShowCountries::closeEvent(QCloseEvent *event)

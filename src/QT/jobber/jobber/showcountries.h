@@ -62,6 +62,7 @@ private:
     // Private metoder:
     void checkChanges();
     void closeEvent(QCloseEvent *event) override;
+    void showEvent(QShowEvent *) override;
     bool isChanged();
     void setChanged(bool change);
 
@@ -74,6 +75,7 @@ private slots:
     void lineEditCountrynameChanged();
     void btnSaveClicked();
     void btnDeleteClicked();
+    void windowLoaded();
 };
 
 #endif // SHOWCOUNTRIES_H

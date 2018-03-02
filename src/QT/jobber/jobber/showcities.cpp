@@ -49,11 +49,6 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->lineEditCityName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCityNameChanged()), Qt::UniqueConnection);
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()), Qt::UniqueConnection);
     connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()), Qt::UniqueConnection);
-    getCities();
-    getCountryIDs();
-    getCity(1);
-    cityIDchanged = false;
-    changed = false;
 }
 
 /**
@@ -169,14 +164,26 @@ void ShowCities::getCities()
     try
     {
         QList<QString> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
-        int i = 0;
-        for(QList<QString>::iterator iter = list.begin(); iter != list.end(); iter++)
+        if(list.count() == 0)
         {
-            //ui->comboBoxCityID->addItem(QString::number(list.value(i)));
-            ui->comboBoxCityID->addItem(list.value(i));
-            i++;
+            QMessageBox msg;
+            msg.setWindowTitle(windowTitle());
+            msg.setIcon(msg.Warning);
+            msg.setText("Du har ikke lagt inn noen søknader ennå.");
+            msg.exec();
+            this->close();
         }
-        lastID = i;
+        else
+        {
+            int i = 0;
+            for(QList<QString>::iterator iter = list.begin(); iter != list.end(); iter++)
+            {
+                //ui->comboBoxCityID->addItem(QString::number(list.value(i)));
+                ui->comboBoxCityID->addItem(list.value(i));
+                i++;
+            }
+            lastID = i;
+        }
     }
     catch(std::exception &e)
     {
@@ -455,7 +462,19 @@ void ShowCities::comboboxCountryIDChanged()
     if(!cityIDchanged)
         setChanged(true);
 }
+void ShowCities::windowLoaded()
+{
+    getCities();
+    getCountryIDs();
+    getCity(1);
+    cityIDchanged = false;
+    changed = false;
+}
 
+void ShowCities::showEvent(QShowEvent *)
+{
+    QTimer::singleShot(50, this, SLOT(windowLoaded()));
+}
 void ShowCities::closeEvent(QCloseEvent *event)
 {
     if(isChanged())

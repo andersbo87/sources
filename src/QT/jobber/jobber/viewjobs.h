@@ -65,6 +65,9 @@ public:
     bool isChanged();
     void setChanged(bool change);
     void closeEvent(QCloseEvent *event) override;
+    void showEvent(QShowEvent *) override;
+signals:
+    void sigShowEvent();
 
 private:
     Ui::ViewJobs *ui;
@@ -73,6 +76,7 @@ private:
     int statusid, cityid, applicationid, lastid;
     bool changed, soknadIDChanged;
     void checkChanges();
+
 
 private slots:
     void comboboxApplicationIDChanged();
@@ -88,6 +92,7 @@ private slots:
     void buttonLastClicked();
     void buttonSaveClicked();
     void buttonDeleteClicked();
+    void windowLoaded();
 };
 
 #endif // VIEWJOBS_H
