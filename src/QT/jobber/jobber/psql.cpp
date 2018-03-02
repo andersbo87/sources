@@ -1635,3 +1635,819 @@ QString psql::getCityName(int cityNumber)
         throw;
     }
 }
+
+/**
+ * @brief psql::tableApplicationExists Checks if the table "soknad" exists in the database by attempting to fetch data from it.
+ * @return True if the table exists in the database and false if it does not.
+ */
+bool psql::tableApplicationExists()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        string stmt = "";
+        QString res, statement = "select soknadid from soknad where soknadid=1";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception e)
+    {
+        return false;
+    }
+}
+
+/**
+ * @brief psql::tableCountryExists Checks if the table "land" exists in the database by attempting to fetch data fram the table.
+ * @return True if the table exists in the database and false if it does not.
+ */
+bool psql::tableCountryExists()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        string stmt = "";
+        QString res, statement = "select landid from land where landid=1";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception e)
+    {
+        return false;
+    }
+}
+
+/**
+ * @brief psql::tableStatusExists Checks if the table "status" exists in the database py attempting to pull data from the table.
+ * @return True if the table exists and false if it does not.
+ */
+bool psql::tableStatusExists()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        string stmt = "";
+        QString res, statement = "select statusid from status where statusid=1";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception e)
+    {
+        return false;
+    }
+}
+
+/**
+ * @brief psql::tableTownExists Checks if the table "sted" (town) exists by attempting to fetch data from it
+ * @return True if the table exists and false if it does'nt
+ */
+bool psql::tableTownExists()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        string stmt = "";
+        QString res, statement = "select stedid from sted where stedid=1";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception e)
+    {
+        return false;
+    }
+}
+
+bool psql::viewApplicationExists()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        string stmt = "";
+        QString res, statement = "select soknadid from view_soknad where soknadid=1";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception e)
+    {
+        return false;
+    }
+}
+
+bool psql::viewTownExists()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        string stmt = "";
+        QString res, statement = "select stedid from view_sted where stedid=1";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        pqxx::result R(N.exec(oss.str()));
+        for(pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c){
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception e)
+    {
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTableApplication Creates the table "soknad"
+ * @return True on success and false on failure
+ */
+bool psql::createTableApplication()
+{
+    try
+    {
+        createSequenceApplicationIDSeq();
+        createFunctionEmptyText();
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TABLE public.soknad(soknadid integer NOT NULL DEFAULT nextval('soknadid_seq'::regclass),tittel text COLLATE pg_catalog.\"default\" NOT NULL, bedrift text COLLATE pg_catalog.\"default\" NOT NULL, stedid integer NOT NULL, statusid integer NOT NULL, soknadsfrist text COLLATE pg_catalog.\"default\" NOT NULL, motivasjon text COLLATE pg_catalog.\"default\", CONSTRAINT soknad_pkey PRIMARY KEY (soknadid), CONSTRAINT unik_soknad UNIQUE (tittel, bedrift, stedid), CONSTRAINT soknad_statusid_fkey FOREIGN KEY (statusid) REFERENCES public.status (statusid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT soknad_stedid_fkey FOREIGN KEY (stedid) REFERENCES public.sted (stedid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT chk CHECK (NOT empty(tittel)), CONSTRAINT chkbedriftnotempty CHECK (NOT empty(bedrift)), CONSTRAINT chksoknadsfristnotempty CHECK (NOT empty(soknadsfrist))) WITH (OIDS = FALSE) TABLESPACE pg_default;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return createProcedureNewApplicationID() && createProcedureUpdateApplication();
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTableCountry Creates the table "land".
+ * @return True on success and false on failure
+ */
+bool psql::createTableCountry()
+{
+    try
+    {
+        createSequenceCountryIDSeq();
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TABLE public.land(landid integer NOT NULL DEFAULT nextval('landid_seq'::regclass), land text COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT land_pkey PRIMARY KEY (landid), CONSTRAINT unikt_land UNIQUE (land))WITH (OIDS = FALSE) TABLESPACE pg_default;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return createProcedureNewCountryID();
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTableStatus Creates the table "status"
+ * @return True on success and false on failure
+ */
+bool psql::createTableStatus()
+{
+    try
+    {
+        createSequenceStatusIDSeq();
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TABLE public.status(statusid integer NOT NULL DEFAULT nextval('statusid_seq'::regclass), status character varying(30) COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT status_pkey PRIMARY KEY (statusid), CONSTRAINT unik_status UNIQUE (status)) WITH (OIDS = FALSE) TABLESPACE pg_default;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTableTown Creates the table "sted"
+ * @return True on success and false on failure
+ */
+bool psql::createTableTown()
+{
+    try
+    {
+        createSequenceTownIDSeq();
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TABLE public.sted (stedid integer NOT NULL DEFAULT nextval('stedid_seq'::regclass), stedsnavn text COLLATE pg_catalog.\"default\" NOT NULL, landid integer NOT NULL, CONSTRAINT sted_pkey PRIMARY KEY (stedid), CONSTRAINT unikt_sted UNIQUE (stedsnavn), CONSTRAINT sted_landid_fkey FOREIGN KEY (landid) REFERENCES public.land (landid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION) WITH (OIDS = FALSE) TABLESPACE pg_default;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return createProcedureNewTownID();
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createViewApplication Creates the view "view_soknad" This requieres the table "soknad" (application) to be present.
+ * @return True on success and false on failure
+ */
+bool psql::createViewApplication()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE OR REPLACE VIEW public.view_soknad AS SELECT soknad.soknadid, soknad.tittel, soknad.bedrift, soknad.soknadsfrist, soknad.stedid, sted.stedsnavn, sted.landid, land.land, soknad.statusid, status.status, soknad.motivasjon FROM soknad JOIN sted ON sted.stedid = soknad.stedid JOIN land ON land.landid = sted.landid JOIN status ON status.statusid = soknad.statusid ORDER BY soknad.soknadid;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createViewTowns Creates the view_sted. This requires the table "sted" (Town, City, place) to be present in the database.
+ * @return True on success and false otherwise.
+ */
+bool psql::createViewTowns()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE OR REPLACE VIEW public.view_sted AS SELECT sted.stedid, sted.stedsnavn, sted.landid, land.land FROM sted JOIN land ON land.landid = sted.landid;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createSequenceApplicationIDSeq Creates the seqence for incrementing the application ID
+ * @return True on success and false on failure
+ */
+bool psql::createSequenceApplicationIDSeq()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE SEQUENCE soknadid_seq";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createSequenceCountryIDSeq Creates the sequence for incrementing the country ID
+ * @return True on success and false on failure
+ */
+bool psql::createSequenceCountryIDSeq()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE SEQUENCE landid_seq";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createSequenceStatusIDSeq Creates a sequence for increasing the status ID.
+ * @return True on success and false on failure
+ */
+bool psql::createSequenceStatusIDSeq()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE SEQUENCE statusid_seq";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createSequenceTownIDSeq Creates the sequence for incrementing the town ID
+ * @return True on success and false on failure
+ */
+bool psql::createSequenceTownIDSeq()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE SEQUENCE stedid_seq";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createFunctionEmptyText Creates a function that checks if iput is empty
+ * @return True on success and false on failure
+ */
+bool psql::createFunctionEmptyText()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE OR REPLACE FUNCTION public.empty(text) RETURNS boolean LANGUAGE 'sql' COST 100 IMMUTABLE AS $BODY$ SELECT $1 ~ '^[[:space:]]*$'; $BODY$; COMMENT ON FUNCTION public.empty(text) IS 'Sjekke innholdet i en streng. Returnerer sann om strengen er tom eller bare inneholder mellomrom, og falsk ellers.';";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createProcedureNewApplicationID Creates a stored procedure that returns which is run when a new row is inserted in the application table
+ * @return True on success and false otherwise
+ */
+bool psql::createProcedureNewApplicationID()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE FUNCTION public.nysoknadid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid; RETURN NEW; END; $BODY$;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return createTriggerNewApplicationID();
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createProcedureUpdateApplication Creates a stored procedure that returns which is run when data in the application table is updated
+ * @return True if the creation succeeds and false on failure
+ */
+bool psql::createProcedureUpdateApplication()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt =
+                "CREATE FUNCTION updatesoknad() RETURNS trigger \n"
+                "LANGUAGE plpgsql \n"
+                "AS $$DECLARE \n"
+            "counter_ integer := 0; \n"
+            "tablename_ text := 'temptable'; \n"
+            "oldStatus text; \n"
+            "newStatus text; \n"
+            "max int; \n"
+            "updated boolean := false; \n"
+            "BEGIN \n"
+            "begin \n"
+            "        --raise notice 'Creating table %', tablename_; \n"
+            "        execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop'; \n"
+            "        execute 'insert into ' || tablename_ || ' (counter) values(0)'; \n"
+            "        execute 'select counter from ' || tablename_ into counter_; \n"
+            "        --raise notice 'Actual value for counter= [%]', counter_; \n"
+            "    exception \n"
+            "        when duplicate_table then \n"
+            "        null; \n"
+            "    end; \n"
+            "execute 'select counter from ' || tablename_ into counter_; \n"
+            "    execute 'update ' || tablename_ || ' set counter = counter + 1'; \n"
+            "   --raise notice 'updating'; \n"
+            "    execute 'select counter from ' || tablename_ into counter_; \n"
+            "    --raise notice 'Actual value for counter= [%]', counter_; \n"
+            "    max := count(soknadid) from soknad; \n"
+            "    if counter_ = max then \n"
+            "        raise exception 'Kan ikke oppdatere mer enn én rad om gangen.'; \n"
+            "    end if; \n"
+            "if NEW.soknadid != OLD.soknadid \n"
+            "then \n"
+            "raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid; \n"
+            "updated = true; \n"
+            "end if; \n"
+            "if NEW.tittel != OLD.tittel \n"
+            "then \n"
+            "raise notice 'Søknaden med ID % har fått endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel; \n"
+            "updated=true; \n"
+            "end if; \n"
+            "if NEW.bedrift != OLD.bedrift \n"
+            "then \n"
+            "raise notice 'Søknaden med ID % har fått endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift; \n"
+            "updated=true; \n"
+            "end if; \n"
+            "if NEW.stedid != OLD.stedid \n"
+            "then \n"
+            "raise notice 'Søknaden med ID % har fått endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid; \n"
+            "updated=true; \n"
+            "end if; \n"
+            "if NEW.soknadsfrist != OLD.soknadsfrist \n"
+            "then \n"
+            "raise notice 'Søknaden med ID % har fått endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist; \n"
+            "updated = true; \n"
+            "end if; \n"
+            "if NEW.motivasjon != OLD.motivasjon \n"
+            "then \n"
+            "raise notice 'Søknaden med ID % har fått endret motivasjon fra % til %.', OLD.soknadid, OLD.motivasjon, NEW.motivasjon; \n"
+            "updated = true; \n"
+            "end if; \n"
+            "if NEW.statusid != OLD.statusid \n"
+            "then \n"
+            "if OLD.statusid = 1 \n"
+            "then \n"
+            "oldStatus = 'Registrert'; \n"
+            "elsif OLD.statusid = 2 \n"
+            "then \n"
+            "oldStatus = 'Sendt'; \n"
+            "elsif OLD.statusid = 3 \n"
+            "then \n"
+            "oldStatus = 'Interessert, mulig intervju'; \n"
+            "elsif OLD.statusid = 4 \n"
+            "then \n"
+            "oldStatus = 'Avvist'; \n"
+            "elsif OLD.statusid = 5 \n"
+            "then \n"
+            "oldStatus = 'Søknad skrevet, men ikke sendt'; \n"
+            "elsif OLD.statusid = 6 \n"
+            "then \n"
+            "oldStatus = 'Avvist etter intervju'; \n"
+            "elsif OLD.statusid = 7 \n"
+            "then \n"
+            "oldStatus = 'Godtatt, klar for jobb'; \n"
+            "end if; \n"
+            "if NEW.statusid = 1 \n"
+            "then \n"
+            "newStatus = 'Registrert'; \n"
+            "elsif NEW.statusid = 2 \n"
+            "then \n"
+            "newStatus = 'Sendt'; \n"
+            "elsif NEW.statusid = 3 \n"
+            "then \n"
+            "newStatus = 'Interessert, mulig intervju'; \n"
+            "elsif NEW.statusid = 4 \n"
+            "then \n"
+            "newStatus = 'Avvist'; \n"
+            "elsif NEW.statusid = 5 \n"
+            "then \n"
+            "newStatus = 'Søknad skrevet, men ikke sendt'; \n"
+            "elsif NEW.statusid = 6 \n"
+            "then \n"
+            "newStatus = 'Avvist etter intervju'; \n"
+            "elsif NEW.statusid = 7 \n"
+            "then \n"
+            "newStatus = 'Godtatt, klar for jobb'; \n"
+            "end if; \n"
+            "raise notice 'Søknaden med ID % har fått endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus; \n"
+            "elsif NEW.statusid = OLD.statusid \n"
+            "then \n"
+            "if updated = false \n"
+            "then \n"
+            "if OLD.statusid = 1 \n"
+            "then \n"
+            "oldStatus = 'Registrert'; \n"
+            "elsif OLD.statusid = 2 \n"
+            "then \n"
+            "oldStatus = 'Sendt'; \n"
+            "elsif OLD.statusid = 3 \n"
+            "then \n"
+            "oldStatus = 'Interessert, mulig intervju'; \n"
+            "elsif OLD.statusid = 4 \n"
+            "then \n"
+            "oldStatus = 'Avvist'; \n"
+            "elsif OLD.statusid = 5 \n"
+            "then \n"
+            "oldStatus = 'Søknad skrevet, men ikke sendt'; \n"
+            "elsif OLD.statusid = 6 \n"
+            "then \n"
+            "oldStatus = 'Avvist etter intervju'; \n"
+            "elsif OLD.statusid = 7 \n"
+            "then \n"
+            "oldStatus = 'Godtatt, klar for jobb'; \n"
+            "end if; \n"
+            "raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus; \n"
+            "end if; \n"
+            "end if; \n"
+            "RETURN NEW; \n"
+            "END; \n"
+            "$$;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return createTriggerUpdateApplication();
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createProcedureNewCountryID Creates a stored procedure that returns which is run when a new row is inserted in the country table
+ * @return True on success and false on failure
+ */
+bool psql::createProcedureNewCountryID()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE FUNCTION public.nylandid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid;  RETURN NEW; END; $BODY$;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return createTriggerNewCountryID();
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createProcedureNewTownID Creates a stored procedure that returns which is run when a new row is inserted in the town table
+ * @return True on success and false on failure
+ */
+bool psql::createProcedureNewTownID()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE FUNCTION public.nystedid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid; RETURN NEW; END; $BODY$;";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return createTriggerNewTownID();
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTriggerNewApplicationID Creates the trigger that executes the procedure "nysoknadid();"
+ * @return True on success and false on failure
+ */
+bool psql::createTriggerNewApplicationID()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TRIGGER trg_nysoknad AFTER INSERT ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.nysoknadid();";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTriggerUpdateApplication Creates the trigger that executes the procedure "updatesoknad();"
+ * @return True on success and false on failure
+ */
+bool psql::createTriggerUpdateApplication()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TRIGGER trg_oppdatersoknad AFTER UPDATE  ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.updatesoknad();";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTriggerNewCountryID Creates the trigger that executes the procedure "nylandid();"
+ * @return True on success and false on failure
+ */
+bool psql::createTriggerNewCountryID()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TRIGGER trg_nyttland AFTER INSERT ON public.land FOR EACH ROW EXECUTE PROCEDURE public.nylandid();";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}
+
+/**
+ * @brief psql::createTriggerNewTownID Creates the trigger that executes the procedure "nystedid();"
+ * @return True on success and false on failure
+ */
+bool psql::createTriggerNewTownID()
+{
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        string statement = "";
+        QString stmt = "CREATE TRIGGER trg_nyttsted AFTER INSERT ON public.sted FOR EACH ROW EXECUTE PROCEDURE public.nystedid();";
+        ostringstream oss;
+        oss << statement << stmt.toStdString();
+
+        pqxx::work W(C);
+        W.exec(oss.str());
+        W.commit();
+        C.disconnect();
+        return true;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        return false;
+    }
+}

@@ -67,6 +67,117 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 }
 
+void MainWindow::showEvent(QShowEvent *)
+{
+    QTimer::singleShot(50, this, SLOT(windowLoaded()));
+}
+
+void MainWindow::windowLoaded()
+{
+    if(!p->tableCountryExists())
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setText("Tabellen med land finnes ikke i databasen. Denne blir nå opprettet.");
+        msg.setWindowTitle(windowTitle());
+        msg.exec();
+        if(!p->createTableCountry())
+        {
+            QMessageBox msg2;
+            msg2.setIcon(msg.Warning);
+            msg2.setText("Kan ikke sette inn tabellen med oversikt over land: " + p->getError());
+            msg2.setWindowTitle(windowTitle());
+            msg2.exec();
+            exit(1);
+        }
+    }
+    if(!p->tableTownExists())
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setText("Tabellen med steder finnes ikke i databasen. Denne blir nå opprettet.");
+        msg.setWindowTitle(windowTitle());
+        msg.exec();
+        if(!p->createTableTown())
+        {
+            QMessageBox msg2;
+            msg2.setIcon(msg.Warning);
+            msg2.setText("Kan ikke sette inn tabellen med oversikt over steder: " + p->getError());
+            msg2.setWindowTitle(windowTitle());
+            msg2.exec();
+            exit(1);
+        }
+    }
+    if(!p->tableStatusExists())
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setText("Tabellen med status finnes ikke i databasen. Denne blir nå opprettet.");
+        msg.setWindowTitle(windowTitle());
+        msg.exec();
+        if(!p->createTableStatus())
+        {
+            QMessageBox msg2;
+            msg2.setIcon(msg.Warning);
+            msg2.setText("Kan ikke sette inn tabellen med oversikt over status: " + p->getError());
+            msg2.setWindowTitle(windowTitle());
+            msg2.exec();
+            exit(1);
+        }
+    }
+    if(!p->tableApplicationExists())
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setText("Tabellen med søknader finnes ikke i databasen. Denne blir nå opprettet.");
+        msg.setWindowTitle(windowTitle());
+        msg.exec();
+        if(!p->createTableApplication())
+        {
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setText("Kan ikke sette inn tabellen med oversikt over søknader: " + p->getError());
+            msg.setWindowTitle(windowTitle());
+            msg.exec();
+            exit(1);
+        }
+    }
+    if(!p->viewApplicationExists())
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setText("'Viewet' med oversikt over søknader finnes ikke i databasen. Denne blir nå opprettet.");
+        msg.setWindowTitle(windowTitle());
+        msg.exec();
+        if(!p->createViewApplication())
+        {
+            QMessageBox msg2;
+            msg2.setIcon(msg.Warning);
+            msg2.setText("Kan ikke sette inn 'viewet' med oversikt over søknader: " + p->getError());
+            msg2.setWindowTitle(windowTitle());
+            msg2.exec();
+            exit(1);
+        }
+    }
+    if(!p->viewTownExists())
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Information);
+        msg.setText("'Viewet' med oversikt over steder finnes ikke i databasen. Denne blir nå opprettet.");
+        msg.setWindowTitle(windowTitle());
+        msg.exec();
+        if(!p->createViewTowns())
+        {
+            QMessageBox msg2;
+            msg2.setIcon(msg.Warning);
+            msg2.setText("Kan ikke sette inn 'viewet' med oversikt over steder: " + p->getError());
+            msg2.setWindowTitle(windowTitle());
+            msg2.exec();
+            exit(1);
+        }
+    }
+}
+
 void MainWindow::btn_NewCountry_Click()
 {
     NewCountry *ncty = new NewCountry(progName, p, this);

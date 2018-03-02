@@ -71,6 +71,34 @@ public:
     bool deleteCountry(int countryID);
     bool deleteStatus(int statusID);
 
+    // Metoder som sjekker om tabellene eksisterer i databasen. Det er 4 tabeller og 2 "views"
+    bool tableApplicationExists();
+    bool tableCountryExists();
+    bool tableStatusExists();
+    bool tableTownExists();
+    bool viewApplicationExists();
+    bool viewTownExists();
+
+    // Metoder som oppretter tabellene nevnt over om de ikke eksisterer
+    bool createTableApplication();
+    bool createTableCountry();
+    bool createTableStatus();
+    bool createTableTown();
+    bool createViewApplication();
+    bool createViewTowns();
+
+    // Metoder som oppretter lagrede prosedyrer som returnerer en trigger. Denne triggeren brukes i egne funksjoner.
+    bool createProcedureNewApplicationID();
+    bool createProcedureUpdateApplication();
+    bool createProcedureNewCountryID();
+    bool createProcedureNewTownID();
+
+    // Metoder som oppretter sekvenser som brukes til å øke ID-tellerne med 1
+    bool createSequenceApplicationIDSeq();
+    bool createSequenceCountryIDSeq();
+    bool createSequenceStatusIDSeq();
+    bool createSequenceTownIDSeq();
+
     // Metoder som henter og setter feilmeldinger.
     QString getError();
     void setError(QString msg);
@@ -113,6 +141,15 @@ public:
 private:
     QString errMsg, username, host, password, winTitle; // winTitle: Tittelen på meldinger i meldingsbokser. errMsg: Feilmelding som settes i metoder som ikke går som de skal.
     std::string connectionString;
+
+    // Metode som brukes til å lage en "stored procedure" som returnerer en boolsk verdi:
+    bool createFunctionEmptyText();
+
+    // Metoder som oppretter triggerfunksjoner som hører til tabellene nevnt over:
+    bool createTriggerNewApplicationID();
+    bool createTriggerUpdateApplication();
+    bool createTriggerNewCountryID();
+    bool createTriggerNewTownID();
 };
 
 #endif // PSQL_H

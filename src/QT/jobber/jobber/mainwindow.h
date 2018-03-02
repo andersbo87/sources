@@ -56,6 +56,7 @@ private:
     Ui::MainWindow *ui;
     psql *p;
     QString progName;
+    void showEvent(QShowEvent *) override;
 private slots:
     void btn_newJob_Click();
     void btn_showJobs_Click();
@@ -67,6 +68,7 @@ private slots:
     void btn_ShowCountries_Click();
     void on_btnSpecificJobs_clicked();
     void btnStatistic_Click();
+    void windowLoaded();
 };
 
 #endif // MAINWINDOW_H
