@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Jobber" Height="176.185" Width="234.419" ResizeMode="CanMinimize" Loaded="formLoaded">
+        Title="Jobber" Height="197.018" Width="234.419" ResizeMode="CanMinimize" Loaded="formLoaded">
     <Grid>
         <Button Content="Legg til jobb" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" Name="btn_NewApplication" Click="newApplication_Click" />
         <Button Content="Legg til land" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="90" Name="btn_NewCountry" Click="btn_NewCountry_Click"/>
@@ -15,7 +15,8 @@
         <Button Content="Vis alle land" HorizontalAlignment="Left" Margin="105,35,0,0" VerticalAlignment="Top" Width="90" Name="btn_ViewCountries" Click="btn_ViewCountries_Click"/>
         <Button Content="Vis alle statuser" HorizontalAlignment="Left" Margin="105,60,0,0" VerticalAlignment="Top" Width="90" Name="btn_ViewStatuses" Click="btn_ViewStatuses_Click"/>
         <Button Content="Vis alle steder" HorizontalAlignment="Left" Margin="105,85,0,0" VerticalAlignment="Top" Width="90" Name="btn_ViewTowns" Click="btn_ViewTowns_Click"/>
-        <Button Content="Vis spesifikke jobber" HorizontalAlignment="Left" Margin="43,110,0,0" VerticalAlignment="Top" Width="120" Name="btn_ViewSpecificApplications" Click="btn_ViewSpecificApplications_Click"/>
+        <Button Content="Vis statistikk" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="90" Name="btn_Statistics" Click="btn_Statistics_Click"></Button>
+        <Button Content="Vis spesifikke jobber" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="120" Name="btn_ViewSpecificApplications" Click="btn_ViewSpecificApplications_Click"/>
 
     </Grid>
 </Window>

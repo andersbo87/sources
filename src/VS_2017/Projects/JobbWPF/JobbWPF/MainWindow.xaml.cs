@@ -31,6 +31,7 @@ namespace JobbWPF
         private ViewSpecificApplications vsa;
         private ViewStatuses vs;
         private ViewTowns vt;
+        private Statistics st;
         string title;
         internal pgsql ps { get => psql; set => psql = value; }
 
@@ -67,10 +68,93 @@ namespace JobbWPF
                     MessageBox.Show("Kan ikke koble til databasen: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
                     initialize();
                 }
+                if (!psql.tableCountryExists())
+                {
+                    MessageBox.Show("Tabellen med oversikt over registrerte land finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!psql.createTableCountries())
+                    {
+                        MessageBox.Show("Kunne ikke opprette tabellen land: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        Environment.Exit(-1);
+                    }
+                    else
+                    {
+                        if(!psql.createProcedureNewCountryID())
+                        {
+                            MessageBox.Show("Kunne ikke opprette prosedyren land: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            Environment.Exit(-1);
+                        }
+                    }
+                }
+                if (!psql.tableTownExists())
+                {
+                    MessageBox.Show("Tabellen med oversikt over registrerte steder finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!psql.createTableTowns())
+                    {
+                        MessageBox.Show("Kunne ikke opprette tabellen sted: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        Environment.Exit(-1);
+                    }
+                    else
+                    {
+                        if (!psql.createProcedureNewTownID())
+                        {
+                            MessageBox.Show("Kunne ikke opprette prosedyren sted: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            Environment.Exit(-1);
+                        }
+                    }
+                }
+                if (!psql.tableStatusExists())
+                {
+                    MessageBox.Show("Tabellen med oversikt over registrerte statuser finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!psql.createTableStatuses())
+                    {
+                        MessageBox.Show("Kunne ikke opprette tabellen status: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        Environment.Exit(-1);
+                    }
+                }
+                if (!psql.tableApplicationExists())
+                {
+                    MessageBox.Show("Tabellen med oversikt over registrerte søknader finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!psql.createTableApplications())
+                    {
+                        MessageBox.Show("Kunne ikke opprette tabellen søknad: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        Environment.Exit(-1);
+                    }
+                    else
+                    {
+                        if (!psql.createProcedureNewApplicationID())
+                        {
+                            MessageBox.Show("Kunne ikke opprette prosedyren nysoknadid: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            Environment.Exit(-1);
+                        }
+                        if (!psql.createProcedureUpdateApplication())
+                        {
+                            MessageBox.Show("Kunne ikke opprette prosedyren updatesoknad: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            Environment.Exit(-1);
+                        }
+                    }
+                }
+                if (!psql.viewApplicationExists())
+                {
+                    MessageBox.Show("'Viewet' med oversikt over registrerte søknader finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!psql.createViewApplications())
+                    {
+                        MessageBox.Show("Kunne ikke opprette 'viewet' søknad: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        Environment.Exit(-1);
+                    }
+                }
+                if (!psql.viewApplicationExists())
+                {
+                    MessageBox.Show("'Viewet' med oversikt over registrerte steder finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!psql.createViewTown())
+                    {
+                        MessageBox.Show("Kunne ikke opprette 'viewet' sted: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        Environment.Exit(-1);
+                    }
+                }
             }
             else
             {
-                Application.Current.Shutdown();
+                Environment.Exit(-1);
             }
         }
 
@@ -178,6 +262,12 @@ namespace JobbWPF
         {
             nc = new NewCountry(title);
             nc.ShowDialog();
+        }
+
+        private void btn_Statistics_Click(object sender, RoutedEventArgs e)
+        {
+            st = new Statistics(title);
+            st.Show();
         }
     }
 }
