@@ -332,28 +332,41 @@ namespace JobbWPF
                 opening = true;
                 reopen = false;
                 List<string> l = p.GetData("SELECT soknadid FROM view_soknad ORDER BY soknadid asc", 0);
-                int i = 0;
-                while (i < l.Count)
+                if(l == null)
                 {
-                    comboBoxApplicationID.Items.Add(l.ElementAt(i));
-                    i++;
+                    MessageBox.Show("Kunne ikke opprette liste over sendte/registrerte søknader..", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
                 }
-                max = Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString());
-                if (c == 0)
+                else if(l.Count == 0)
                 {
-                    getData(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-                    c++;
+                    MessageBox.Show("Tabellen over sendte søknader er tom. Vennligst legg inn en søknad og åpne dette vinduet igjen.", Title,MessageBoxButton.OK,MessageBoxImage.Exclamation);
+                    Close();
                 }
-                getCities(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-                getStatuses(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
-                if (Int32.Parse(comboBoxApplicationID.Text) == Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString()))
+                else
                 {
-                    btnNext.IsEnabled = false;
-                    btnLast.IsEnabled = false;
+                    int i = 0;
+                    while (i < l.Count)
+                    {
+                        comboBoxApplicationID.Items.Add(l.ElementAt(i));
+                        i++;
+                    }
+                    max = Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString());
+                    if (c == 0)
+                    {
+                        getData(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
+                        c++;
+                    }
+                    getCities(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
+                    getStatuses(Int32.Parse(comboBoxApplicationID.Items[0].ToString()));
+                    if (Int32.Parse(comboBoxApplicationID.Text) == Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString()))
+                    {
+                        btnNext.IsEnabled = false;
+                        btnLast.IsEnabled = false;
+                    }
+                    opening = false;
+                    setChanged(false);
+                    comboBoxApplicationID.Focus();
                 }
-                opening = false;
-                setChanged(false);
-                comboBoxApplicationID.Focus();
             }
             catch (TimeoutException te)
             {

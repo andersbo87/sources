@@ -17,10 +17,17 @@ namespace JobbWPF
         [STAThread]
         public static void Main()
         {
-            var application = new App();
-            mw = new JobbWPF.MainWindow("Jobber");
-            application.InitializeComponent();
-            application.Run(mw);
+            try
+            {
+                var application = new App();
+                mw = new JobbWPF.MainWindow("Jobber");
+                application.InitializeComponent();
+                application.Run(mw);
+            }
+            catch(Exception)
+            {
+                return;
+            }
         }
     }
 }

@@ -154,25 +154,38 @@ namespace JobbWPF
                 opening = true;
                 //reopen = false;
                 List<string> l = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
-                int i = 0;
-                while (i < l.Count)
+                if (l == null)
                 {
-                    comboBoxTownID.Items.Add(l.ElementAt(i));
-                    i++;
+                    MessageBox.Show("Kunne ikke opprette liste over registrerte steder..", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
                 }
-                max = Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString());
-                if (c == 0)
+                else if (l.Count == 0)
                 {
-                    getData(Int32.Parse(comboBoxTownID.Items[0].ToString()));
-                    c++;
+                    MessageBox.Show("Tabellen over registrerte steder er tom. Vennligst legg inn en søknad og åpne dette vinduet igjen.", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
                 }
-                if (Int32.Parse(comboBoxTownID.Text) == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
+                else
                 {
-                    btnNext.IsEnabled = false;
-                    btnLast.IsEnabled = false;
+                    int i = 0;
+                    while (i < l.Count)
+                    {
+                        comboBoxTownID.Items.Add(l.ElementAt(i));
+                        i++;
+                    }
+                    max = Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString());
+                    if (c == 0)
+                    {
+                        getData(Int32.Parse(comboBoxTownID.Items[0].ToString()));
+                        c++;
+                    }
+                    if (Int32.Parse(comboBoxTownID.Text) == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
+                    {
+                        btnNext.IsEnabled = false;
+                        btnLast.IsEnabled = false;
+                    }
+                    opening = false;
+                    setChanged(false);
                 }
-                opening = false;
-                setChanged(false);
             }
             catch (TimeoutException te)
             {

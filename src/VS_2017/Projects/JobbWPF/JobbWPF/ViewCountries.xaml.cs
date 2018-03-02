@@ -273,32 +273,45 @@ namespace JobbWPF
                 opening = true;
                 //reopen = false;
                 List<string> l = p.GetData("SELECT landid FROM land ORDER BY landid asc", 0);
-                int i = 0;
-                while (i < l.Count)
+                if (l == null)
                 {
-                    comboBoxCountryID.Items.Add(l.ElementAt(i));
-                    i++;
+                    MessageBox.Show("Kunne ikke opprette liste over registerte land..", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
                 }
-                max = Int32.Parse(comboBoxCountryID.Items[comboBoxCountryID.Items.Count - 1].ToString());
-                if (c == 0)
+                else if (l.Count == 0)
                 {
-                    getData(Int32.Parse(comboBoxCountryID.Items[0].ToString()));
-                    c++;
+                    MessageBox.Show("Tabellen over land er tom. Vennligst legg inn en søknad og åpne dette vinduet igjen.", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
                 }
-                if (Int32.Parse(comboBoxCountryID.Text) == Int32.Parse(comboBoxCountryID.Items[comboBoxCountryID.Items.Count - 1].ToString()))
+                else
                 {
-                    btnNext.IsEnabled = false;
-                    btnLast.IsEnabled = false;
+                    int i = 0;
+                    while (i < l.Count)
+                    {
+                        comboBoxCountryID.Items.Add(l.ElementAt(i));
+                        i++;
+                    }
+                    max = Int32.Parse(comboBoxCountryID.Items[comboBoxCountryID.Items.Count - 1].ToString());
+                    if (c == 0)
+                    {
+                        getData(Int32.Parse(comboBoxCountryID.Items[0].ToString()));
+                        c++;
+                    }
+                    if (Int32.Parse(comboBoxCountryID.Text) == Int32.Parse(comboBoxCountryID.Items[comboBoxCountryID.Items.Count - 1].ToString()))
+                    {
+                        btnNext.IsEnabled = false;
+                        btnLast.IsEnabled = false;
+                    }
+                    opening = false;
+                    setChanged(false);
                 }
-                opening = false;
-                setChanged(false);
             }
-            catch(TimeoutException te)
+            catch (TimeoutException te)
             {
                 MessageBox.Show("En feil oppstod under henting av data. Er serveren fortsatt online? Feilmeldingen lyder slik: " + te.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Error);
                 Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("En feil har oppstått under henting av data. Er serveren fortsatt online? Feilmeldinga lyder: " + ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
                 Close();

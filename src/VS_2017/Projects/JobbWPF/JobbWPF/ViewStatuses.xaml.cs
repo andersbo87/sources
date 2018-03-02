@@ -207,25 +207,38 @@ namespace JobbWPF
                 opening = true;
                 //reopen = false;
                 List<string> l = p.GetData("SELECT statusid FROM status ORDER BY statusid asc", 0);
-                int i = 0;
-                while (i < l.Count)
+                if (l == null)
                 {
-                    comboBoxStatusID.Items.Add(l.ElementAt(i));
-                    i++;
+                    MessageBox.Show("Kunne ikke opprette liste over registrerte statuser..", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
                 }
-                max = Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString());
-                if (c == 0)
+                else if (l.Count == 0)
                 {
-                    getData(Int32.Parse(comboBoxStatusID.Items[0].ToString()));
-                    c++;
+                    MessageBox.Show("Tabellen over registrerte statuser er tom. Vennligst legg inn en søknad og åpne dette vinduet igjen.", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
                 }
-                if (Int32.Parse(comboBoxStatusID.Text) == Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString()))
+                else
                 {
-                    btnNext.IsEnabled = false;
-                    btnLast.IsEnabled = false;
+                    int i = 0;
+                    while (i < l.Count)
+                    {
+                        comboBoxStatusID.Items.Add(l.ElementAt(i));
+                        i++;
+                    }
+                    max = Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString());
+                    if (c == 0)
+                    {
+                        getData(Int32.Parse(comboBoxStatusID.Items[0].ToString()));
+                        c++;
+                    }
+                    if (Int32.Parse(comboBoxStatusID.Text) == Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString()))
+                    {
+                        btnNext.IsEnabled = false;
+                        btnLast.IsEnabled = false;
+                    }
+                    opening = false;
+                    setChanged(false);
                 }
-                opening = false;
-                setChanged(false);
             }
             catch (TimeoutException te)
             {
