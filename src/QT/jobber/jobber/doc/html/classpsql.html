@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: psql Class Reference</title>
+<title>Jobber: psql Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,8 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="jobber.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Jobber
    </div>
   </td>
  </tr>
@@ -137,33 +136,96 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a26fc592cfb9f484e1bee62af527f2b95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a26fc592cfb9f484e1bee62af527f2b95">deleteStatus</a> (int statusID)</td></tr>
 <tr class="memdesc:a26fc592cfb9f484e1bee62af527f2b95"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a26fc592cfb9f484e1bee62af527f2b95" title="psql::deleteStatus Deletes an existing status from the database. ">psql::deleteStatus</a> Deletes an existing status from the database.  <a href="#a26fc592cfb9f484e1bee62af527f2b95">More...</a><br /></td></tr>
 <tr class="separator:a26fc592cfb9f484e1bee62af527f2b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117b616053845f1b7295b21a06f008fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a117b616053845f1b7295b21a06f008fd">tableApplicationExists</a> ()</td></tr>
+<tr class="memdesc:a117b616053845f1b7295b21a06f008fd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a117b616053845f1b7295b21a06f008fd" title="psql::tableApplicationExists Checks if the table &quot;soknad&quot; exists in the database by attempting to fet...">psql::tableApplicationExists</a> Checks if the table "soknad" exists in the database by attempting to fetch data from it.  <a href="#a117b616053845f1b7295b21a06f008fd">More...</a><br /></td></tr>
+<tr class="separator:a117b616053845f1b7295b21a06f008fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ab0012c58471bd3fd63c286fb22224"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ae0ab0012c58471bd3fd63c286fb22224">tableCountryExists</a> ()</td></tr>
+<tr class="memdesc:ae0ab0012c58471bd3fd63c286fb22224"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ae0ab0012c58471bd3fd63c286fb22224" title="psql::tableCountryExists Checks if the table &quot;land&quot; exists in the database by attempting to fetch dat...">psql::tableCountryExists</a> Checks if the table "land" exists in the database by attempting to fetch data fram the table.  <a href="#ae0ab0012c58471bd3fd63c286fb22224">More...</a><br /></td></tr>
+<tr class="separator:ae0ab0012c58471bd3fd63c286fb22224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f8bac89bd0cee3af77e47e5c555543d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a3f8bac89bd0cee3af77e47e5c555543d">tableStatusExists</a> ()</td></tr>
+<tr class="memdesc:a3f8bac89bd0cee3af77e47e5c555543d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a3f8bac89bd0cee3af77e47e5c555543d" title="psql::tableStatusExists Checks if the table &quot;status&quot; exists in the database py attempting to pull dat...">psql::tableStatusExists</a> Checks if the table "status" exists in the database py attempting to pull data from the table.  <a href="#a3f8bac89bd0cee3af77e47e5c555543d">More...</a><br /></td></tr>
+<tr class="separator:a3f8bac89bd0cee3af77e47e5c555543d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a717162b7d7faa0fb41b5a526e42de4ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a717162b7d7faa0fb41b5a526e42de4ac">tableTownExists</a> ()</td></tr>
+<tr class="memdesc:a717162b7d7faa0fb41b5a526e42de4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a717162b7d7faa0fb41b5a526e42de4ac" title="psql::tableTownExists Checks if the table &quot;sted&quot; (town) exists by attempting to fetch data from it ...">psql::tableTownExists</a> Checks if the table "sted" (town) exists by attempting to fetch data from it  <a href="#a717162b7d7faa0fb41b5a526e42de4ac">More...</a><br /></td></tr>
+<tr class="separator:a717162b7d7faa0fb41b5a526e42de4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c23d467c41e155a55c38b1cefb9b54b"><td class="memItemLeft" align="right" valign="top"><a id="a4c23d467c41e155a55c38b1cefb9b54b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>viewApplicationExists</b> ()</td></tr>
+<tr class="separator:a4c23d467c41e155a55c38b1cefb9b54b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae95eb2a505c1b0b7b4d5671926ecd2f"><td class="memItemLeft" align="right" valign="top"><a id="aae95eb2a505c1b0b7b4d5671926ecd2f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>viewTownExists</b> ()</td></tr>
+<tr class="separator:aae95eb2a505c1b0b7b4d5671926ecd2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36f6a197a2214b9c71cfcd620334835d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a36f6a197a2214b9c71cfcd620334835d">createTableApplication</a> ()</td></tr>
+<tr class="memdesc:a36f6a197a2214b9c71cfcd620334835d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a36f6a197a2214b9c71cfcd620334835d" title="psql::createTableApplication Creates the table &quot;soknad&quot; ">psql::createTableApplication</a> Creates the table "soknad"  <a href="#a36f6a197a2214b9c71cfcd620334835d">More...</a><br /></td></tr>
+<tr class="separator:a36f6a197a2214b9c71cfcd620334835d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6e496d8471f3cd9c5c082a6ba75c25b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ab6e496d8471f3cd9c5c082a6ba75c25b">createTableCountry</a> ()</td></tr>
+<tr class="memdesc:ab6e496d8471f3cd9c5c082a6ba75c25b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ab6e496d8471f3cd9c5c082a6ba75c25b" title="psql::createTableCountry Creates the table &quot;land&quot;. ">psql::createTableCountry</a> Creates the table "land".  <a href="#ab6e496d8471f3cd9c5c082a6ba75c25b">More...</a><br /></td></tr>
+<tr class="separator:ab6e496d8471f3cd9c5c082a6ba75c25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a427ad0f483c8ab7a4d23912278bc69e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a427ad0f483c8ab7a4d23912278bc69e8">createTableStatus</a> ()</td></tr>
+<tr class="memdesc:a427ad0f483c8ab7a4d23912278bc69e8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a427ad0f483c8ab7a4d23912278bc69e8" title="psql::createTableStatus Creates the table &quot;status&quot; ">psql::createTableStatus</a> Creates the table "status"  <a href="#a427ad0f483c8ab7a4d23912278bc69e8">More...</a><br /></td></tr>
+<tr class="separator:a427ad0f483c8ab7a4d23912278bc69e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d1f522766174bd2c6a7b94f725719c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a95d1f522766174bd2c6a7b94f725719c">createTableTown</a> ()</td></tr>
+<tr class="memdesc:a95d1f522766174bd2c6a7b94f725719c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a95d1f522766174bd2c6a7b94f725719c" title="psql::createTableTown Creates the table &quot;sted&quot; ">psql::createTableTown</a> Creates the table "sted"  <a href="#a95d1f522766174bd2c6a7b94f725719c">More...</a><br /></td></tr>
+<tr class="separator:a95d1f522766174bd2c6a7b94f725719c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6fb8e1e7177c7996f297d477ecceb27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ad6fb8e1e7177c7996f297d477ecceb27">createViewApplication</a> ()</td></tr>
+<tr class="memdesc:ad6fb8e1e7177c7996f297d477ecceb27"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ad6fb8e1e7177c7996f297d477ecceb27" title="psql::createViewApplication Creates the view &quot;view_soknad&quot; This requieres the table &quot;soknad&quot; (applica...">psql::createViewApplication</a> Creates the view "view_soknad" This requieres the table "soknad" (application) to be present.  <a href="#ad6fb8e1e7177c7996f297d477ecceb27">More...</a><br /></td></tr>
+<tr class="separator:ad6fb8e1e7177c7996f297d477ecceb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b1230ac405a600b67b144060b33a0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ac5b1230ac405a600b67b144060b33a0d">createViewTowns</a> ()</td></tr>
+<tr class="memdesc:ac5b1230ac405a600b67b144060b33a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ac5b1230ac405a600b67b144060b33a0d" title="psql::createViewTowns Creates the view_sted. This requires the table &quot;sted&quot; (Town, City, place) to be present in the database. ">psql::createViewTowns</a> Creates the view_sted. This requires the table "sted" (Town, City, place) to be present in the database.  <a href="#ac5b1230ac405a600b67b144060b33a0d">More...</a><br /></td></tr>
+<tr class="separator:ac5b1230ac405a600b67b144060b33a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e3ee06f4a5ecd4178662dfa0655fe1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ae9e3ee06f4a5ecd4178662dfa0655fe1">createProcedureNewApplicationID</a> ()</td></tr>
+<tr class="memdesc:ae9e3ee06f4a5ecd4178662dfa0655fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ae9e3ee06f4a5ecd4178662dfa0655fe1" title="psql::createProcedureNewApplicationID Creates a stored procedure that returns which is run when a new...">psql::createProcedureNewApplicationID</a> Creates a stored procedure that returns which is run when a new row is inserted in the application table  <a href="#ae9e3ee06f4a5ecd4178662dfa0655fe1">More...</a><br /></td></tr>
+<tr class="separator:ae9e3ee06f4a5ecd4178662dfa0655fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f3e3d6309e3ce57493db284c099946"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a28f3e3d6309e3ce57493db284c099946">createProcedureUpdateApplication</a> ()</td></tr>
+<tr class="memdesc:a28f3e3d6309e3ce57493db284c099946"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a28f3e3d6309e3ce57493db284c099946" title="psql::createProcedureUpdateApplication Creates a stored procedure that returns which is run when data...">psql::createProcedureUpdateApplication</a> Creates a stored procedure that returns which is run when data in the application table is updated  <a href="#a28f3e3d6309e3ce57493db284c099946">More...</a><br /></td></tr>
+<tr class="separator:a28f3e3d6309e3ce57493db284c099946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565bfc828ecb6b5621354128773494fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a565bfc828ecb6b5621354128773494fd">createProcedureNewCountryID</a> ()</td></tr>
+<tr class="memdesc:a565bfc828ecb6b5621354128773494fd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a565bfc828ecb6b5621354128773494fd" title="psql::createProcedureNewCountryID Creates a stored procedure that returns which is run when a new row...">psql::createProcedureNewCountryID</a> Creates a stored procedure that returns which is run when a new row is inserted in the country table  <a href="#a565bfc828ecb6b5621354128773494fd">More...</a><br /></td></tr>
+<tr class="separator:a565bfc828ecb6b5621354128773494fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade0c7fa4f019c3f349230af09b1de49e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ade0c7fa4f019c3f349230af09b1de49e">createProcedureNewTownID</a> ()</td></tr>
+<tr class="memdesc:ade0c7fa4f019c3f349230af09b1de49e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ade0c7fa4f019c3f349230af09b1de49e" title="psql::createProcedureNewTownID Creates a stored procedure that returns which is run when a new row is...">psql::createProcedureNewTownID</a> Creates a stored procedure that returns which is run when a new row is inserted in the town table  <a href="#ade0c7fa4f019c3f349230af09b1de49e">More...</a><br /></td></tr>
+<tr class="separator:ade0c7fa4f019c3f349230af09b1de49e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54c75d0896ee6aad58e22c830895c106"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a54c75d0896ee6aad58e22c830895c106">createSequenceApplicationIDSeq</a> ()</td></tr>
+<tr class="memdesc:a54c75d0896ee6aad58e22c830895c106"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a54c75d0896ee6aad58e22c830895c106" title="psql::createSequenceApplicationIDSeq Creates the seqence for incrementing the application ID ...">psql::createSequenceApplicationIDSeq</a> Creates the seqence for incrementing the application ID  <a href="#a54c75d0896ee6aad58e22c830895c106">More...</a><br /></td></tr>
+<tr class="separator:a54c75d0896ee6aad58e22c830895c106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa907c84f592212451d3d59a2061adabd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#aa907c84f592212451d3d59a2061adabd">createSequenceCountryIDSeq</a> ()</td></tr>
+<tr class="memdesc:aa907c84f592212451d3d59a2061adabd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#aa907c84f592212451d3d59a2061adabd" title="psql::createSequenceCountryIDSeq Creates the sequence for incrementing the country ID ...">psql::createSequenceCountryIDSeq</a> Creates the sequence for incrementing the country ID  <a href="#aa907c84f592212451d3d59a2061adabd">More...</a><br /></td></tr>
+<tr class="separator:aa907c84f592212451d3d59a2061adabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae882aa80b2d629383fc2e60aecfd421a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ae882aa80b2d629383fc2e60aecfd421a">createSequenceStatusIDSeq</a> ()</td></tr>
+<tr class="memdesc:ae882aa80b2d629383fc2e60aecfd421a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ae882aa80b2d629383fc2e60aecfd421a" title="psql::createSequenceStatusIDSeq Creates a sequence for increasing the status ID. ">psql::createSequenceStatusIDSeq</a> Creates a sequence for increasing the status ID.  <a href="#ae882aa80b2d629383fc2e60aecfd421a">More...</a><br /></td></tr>
+<tr class="separator:ae882aa80b2d629383fc2e60aecfd421a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce21cb5a1e77cb0c280e2932d2b557d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a6ce21cb5a1e77cb0c280e2932d2b557d">createSequenceTownIDSeq</a> ()</td></tr>
+<tr class="memdesc:a6ce21cb5a1e77cb0c280e2932d2b557d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a6ce21cb5a1e77cb0c280e2932d2b557d" title="psql::createSequenceTownIDSeq Creates the sequence for incrementing the town ID ">psql::createSequenceTownIDSeq</a> Creates the sequence for incrementing the town ID  <a href="#a6ce21cb5a1e77cb0c280e2932d2b557d">More...</a><br /></td></tr>
+<tr class="separator:a6ce21cb5a1e77cb0c280e2932d2b557d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f51e254b67ff932f287df2184ccc043"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a5f51e254b67ff932f287df2184ccc043">getError</a> ()</td></tr>
 <tr class="memdesc:a5f51e254b67ff932f287df2184ccc043"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a5f51e254b67ff932f287df2184ccc043" title="psql::getError If an operation goes wrong, this method can be used to get the returned error message...">psql::getError</a> If an operation goes wrong, this method can be used to get the returned error message.  <a href="#a5f51e254b67ff932f287df2184ccc043">More...</a><br /></td></tr>
 <tr class="separator:a5f51e254b67ff932f287df2184ccc043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a0d5ba32aabe6018a36fb0bc185445b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9a0d5ba32aabe6018a36fb0bc185445b">setError</a> (QString msg)</td></tr>
 <tr class="memdesc:a9a0d5ba32aabe6018a36fb0bc185445b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9a0d5ba32aabe6018a36fb0bc185445b" title="psql::setError If an operation goes wrong, this method saves the contents of the error message...">psql::setError</a> If an operation goes wrong, this method saves the contents of the error message.  <a href="#a9a0d5ba32aabe6018a36fb0bc185445b">More...</a><br /></td></tr>
 <tr class="separator:a9a0d5ba32aabe6018a36fb0bc185445b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc6d7fe8bd179fb7341917b430883963"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#afc6d7fe8bd179fb7341917b430883963">countTotalApplications</a> ()</td></tr>
-<tr class="memdesc:afc6d7fe8bd179fb7341917b430883963"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#afc6d7fe8bd179fb7341917b430883963" title="psql::countTotalApplications Counts the total registered applications (registered, sent, interested in interview, declined, etc. ">psql::countTotalApplications</a> Counts the total registered applications (registered, sent, interested in interview, declined, etc.  <a href="#afc6d7fe8bd179fb7341917b430883963">More...</a><br /></td></tr>
-<tr class="separator:afc6d7fe8bd179fb7341917b430883963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6bb08051a489a4c36cad8bb7f1abd1c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#ac6bb08051a489a4c36cad8bb7f1abd1c">countRegisteredApplications</a> ()</td></tr>
-<tr class="memdesc:ac6bb08051a489a4c36cad8bb7f1abd1c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#ac6bb08051a489a4c36cad8bb7f1abd1c" title="psql::countRegisteredApplications Counts the number of registered job applications that have not yet ...">psql::countRegisteredApplications</a> Counts the number of registered job applications that have not yet been sent (status id 1)  <a href="#ac6bb08051a489a4c36cad8bb7f1abd1c">More...</a><br /></td></tr>
-<tr class="separator:ac6bb08051a489a4c36cad8bb7f1abd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aa2281c867a8a2916963ec9391c2320"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a1aa2281c867a8a2916963ec9391c2320">countSentApplications</a> ()</td></tr>
-<tr class="memdesc:a1aa2281c867a8a2916963ec9391c2320"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a1aa2281c867a8a2916963ec9391c2320" title="psql::countSentApplications Counts the number of sent applications (status id 2) ">psql::countSentApplications</a> Counts the number of sent applications (status id 2)  <a href="#a1aa2281c867a8a2916963ec9391c2320">More...</a><br /></td></tr>
-<tr class="separator:a1aa2281c867a8a2916963ec9391c2320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d382c01e6d7957e628ade338ddaf70b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a5d382c01e6d7957e628ade338ddaf70b">countInterviews</a> ()</td></tr>
-<tr class="memdesc:a5d382c01e6d7957e628ade338ddaf70b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a5d382c01e6d7957e628ade338ddaf70b" title="psql::countInterviews Counts the number of applications which the emplyer found interesting and calle...">psql::countInterviews</a> Counts the number of applications which the emplyer found interesting and called for an interview  <a href="#a5d382c01e6d7957e628ade338ddaf70b">More...</a><br /></td></tr>
-<tr class="separator:a5d382c01e6d7957e628ade338ddaf70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accf6323167fbe0c622b3c14a6e454195"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#accf6323167fbe0c622b3c14a6e454195">countDeclinedApplications</a> ()</td></tr>
-<tr class="memdesc:accf6323167fbe0c622b3c14a6e454195"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#accf6323167fbe0c622b3c14a6e454195" title="psql::countDeclinedApplications Counts the number of applications that have been declined/rejected by...">psql::countDeclinedApplications</a> Counts the number of applications that have been declined/rejected by the employer.  <a href="#accf6323167fbe0c622b3c14a6e454195">More...</a><br /></td></tr>
-<tr class="separator:accf6323167fbe0c622b3c14a6e454195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d16f7ff59525da8743b10cb5ca29636"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a0d16f7ff59525da8743b10cb5ca29636">countWrittenButNotSent</a> ()</td></tr>
-<tr class="memdesc:a0d16f7ff59525da8743b10cb5ca29636"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a0d16f7ff59525da8743b10cb5ca29636" title="psql::countWrittenButNotSent Counts the number of applications that have been written, but not yet sent. ">psql::countWrittenButNotSent</a> Counts the number of applications that have been written, but not yet sent.  <a href="#a0d16f7ff59525da8743b10cb5ca29636">More...</a><br /></td></tr>
-<tr class="separator:a0d16f7ff59525da8743b10cb5ca29636"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc598b3a1783194380b9ab22d9341357"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#abc598b3a1783194380b9ab22d9341357">countAccepted</a> ()</td></tr>
-<tr class="memdesc:abc598b3a1783194380b9ab22d9341357"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#abc598b3a1783194380b9ab22d9341357" title="psql::countAccepted Counts the number of applications that have been accepted and has lead to an empl...">psql::countAccepted</a> Counts the number of applications that have been accepted and has lead to an employment.  <a href="#abc598b3a1783194380b9ab22d9341357">More...</a><br /></td></tr>
-<tr class="separator:abc598b3a1783194380b9ab22d9341357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a496d0a426a1539bf9babd1dd4e9fcd96"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a496d0a426a1539bf9babd1dd4e9fcd96">countTotalApplications</a> ()</td></tr>
+<tr class="memdesc:a496d0a426a1539bf9babd1dd4e9fcd96"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a496d0a426a1539bf9babd1dd4e9fcd96" title="psql::countTotalApplications Counts the total registered applications (registered, sent, interested in interview, declined, etc. ">psql::countTotalApplications</a> Counts the total registered applications (registered, sent, interested in interview, declined, etc.  <a href="#a496d0a426a1539bf9babd1dd4e9fcd96">More...</a><br /></td></tr>
+<tr class="separator:a496d0a426a1539bf9babd1dd4e9fcd96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8673a80968d293cd3ead6e6e9da8dd8a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a8673a80968d293cd3ead6e6e9da8dd8a">countRegisteredApplications</a> ()</td></tr>
+<tr class="memdesc:a8673a80968d293cd3ead6e6e9da8dd8a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a8673a80968d293cd3ead6e6e9da8dd8a" title="psql::countRegisteredApplications Counts the number of registered job applications that have not yet ...">psql::countRegisteredApplications</a> Counts the number of registered job applications that have not yet been sent (status id 1)  <a href="#a8673a80968d293cd3ead6e6e9da8dd8a">More...</a><br /></td></tr>
+<tr class="separator:a8673a80968d293cd3ead6e6e9da8dd8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e6768f6c51ac7b94571505f7a628e4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#af5e6768f6c51ac7b94571505f7a628e4">countSentApplications</a> ()</td></tr>
+<tr class="memdesc:af5e6768f6c51ac7b94571505f7a628e4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#af5e6768f6c51ac7b94571505f7a628e4" title="psql::countSentApplications Counts the number of sent applications (status id 2) ">psql::countSentApplications</a> Counts the number of sent applications (status id 2)  <a href="#af5e6768f6c51ac7b94571505f7a628e4">More...</a><br /></td></tr>
+<tr class="separator:af5e6768f6c51ac7b94571505f7a628e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c1fdea2d09783a39677c4f79d924fc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a84c1fdea2d09783a39677c4f79d924fc">countInterviews</a> ()</td></tr>
+<tr class="memdesc:a84c1fdea2d09783a39677c4f79d924fc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a84c1fdea2d09783a39677c4f79d924fc" title="psql::countInterviews Counts the number of applications which the emplyer found interesting and calle...">psql::countInterviews</a> Counts the number of applications which the emplyer found interesting and called for an interview  <a href="#a84c1fdea2d09783a39677c4f79d924fc">More...</a><br /></td></tr>
+<tr class="separator:a84c1fdea2d09783a39677c4f79d924fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40541367c3af9c0ac94e2fb92f00f53c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a40541367c3af9c0ac94e2fb92f00f53c">countDeclinedApplications</a> ()</td></tr>
+<tr class="memdesc:a40541367c3af9c0ac94e2fb92f00f53c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a40541367c3af9c0ac94e2fb92f00f53c" title="psql::countDeclinedApplications Counts the number of applications that have been declined/rejected by...">psql::countDeclinedApplications</a> Counts the number of applications that have been declined/rejected by the employer.  <a href="#a40541367c3af9c0ac94e2fb92f00f53c">More...</a><br /></td></tr>
+<tr class="separator:a40541367c3af9c0ac94e2fb92f00f53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70ad9f4b00735a55232f46da4edd2edc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a70ad9f4b00735a55232f46da4edd2edc">countWrittenButNotSent</a> ()</td></tr>
+<tr class="memdesc:a70ad9f4b00735a55232f46da4edd2edc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a70ad9f4b00735a55232f46da4edd2edc" title="psql::countWrittenButNotSent Counts the number of applications that have been written, but not yet sent. ">psql::countWrittenButNotSent</a> Counts the number of applications that have been written, but not yet sent.  <a href="#a70ad9f4b00735a55232f46da4edd2edc">More...</a><br /></td></tr>
+<tr class="separator:a70ad9f4b00735a55232f46da4edd2edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae512bc231446d5fccae84582395675"><td class="memItemLeft" align="right" valign="top"><a id="a2ae512bc231446d5fccae84582395675"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>countDeclinedAfterInterview</b> ()</td></tr>
+<tr class="separator:a2ae512bc231446d5fccae84582395675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0beec2f098edc0961f27774cdd54d09b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a0beec2f098edc0961f27774cdd54d09b">countAccepted</a> ()</td></tr>
+<tr class="memdesc:a0beec2f098edc0961f27774cdd54d09b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a0beec2f098edc0961f27774cdd54d09b" title="psql::countAccepted Counts the number of applications that have been accepted and has lead to an empl...">psql::countAccepted</a> Counts the number of applications that have been accepted and has lead to an employment.  <a href="#a0beec2f098edc0961f27774cdd54d09b">More...</a><br /></td></tr>
+<tr class="separator:a0beec2f098edc0961f27774cdd54d09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3462a12dc106e0ca8df4fa8fcf28436"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#af3462a12dc106e0ca8df4fa8fcf28436">getCityID</a> (int applicationID)</td></tr>
 <tr class="memdesc:af3462a12dc106e0ca8df4fa8fcf28436"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#af3462a12dc106e0ca8df4fa8fcf28436" title="psql::getCityID Gets the city ID of the application based on the application ID prvoided by the user...">psql::getCityID</a> Gets the city ID of the application based on the application ID prvoided by the user.  <a href="#af3462a12dc106e0ca8df4fa8fcf28436">More...</a><br /></td></tr>
 <tr class="separator:af3462a12dc106e0ca8df4fa8fcf28436"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,14 +340,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abc598b3a1783194380b9ab22d9341357"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc598b3a1783194380b9ab22d9341357">&#9670;&nbsp;</a></span>countAccepted()</h2>
+<a id="a0beec2f098edc0961f27774cdd54d09b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0beec2f098edc0961f27774cdd54d09b">&#9670;&nbsp;</a></span>countAccepted()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int psql::countAccepted </td>
+          <td class="memname">double psql::countAccepted </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -293,19 +355,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#abc598b3a1783194380b9ab22d9341357" title="psql::countAccepted Counts the number of applications that have been accepted and has lead to an empl...">psql::countAccepted</a> Counts the number of applications that have been accepted and has lead to an employment. </p>
+<p><a class="el" href="classpsql.html#a0beec2f098edc0961f27774cdd54d09b" title="psql::countAccepted Counts the number of applications that have been accepted and has lead to an empl...">psql::countAccepted</a> Counts the number of applications that have been accepted and has lead to an employment. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of accepted applications. </dd></dl>
 
 </div>
 </div>
-<a id="accf6323167fbe0c622b3c14a6e454195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accf6323167fbe0c622b3c14a6e454195">&#9670;&nbsp;</a></span>countDeclinedApplications()</h2>
+<a id="a40541367c3af9c0ac94e2fb92f00f53c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40541367c3af9c0ac94e2fb92f00f53c">&#9670;&nbsp;</a></span>countDeclinedApplications()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int psql::countDeclinedApplications </td>
+          <td class="memname">double psql::countDeclinedApplications </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -313,19 +375,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#accf6323167fbe0c622b3c14a6e454195" title="psql::countDeclinedApplications Counts the number of applications that have been declined/rejected by...">psql::countDeclinedApplications</a> Counts the number of applications that have been declined/rejected by the employer. </p>
+<p><a class="el" href="classpsql.html#a40541367c3af9c0ac94e2fb92f00f53c" title="psql::countDeclinedApplications Counts the number of applications that have been declined/rejected by...">psql::countDeclinedApplications</a> Counts the number of applications that have been declined/rejected by the employer. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of declined/rejected applications </dd></dl>
 
 </div>
 </div>
-<a id="a5d382c01e6d7957e628ade338ddaf70b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d382c01e6d7957e628ade338ddaf70b">&#9670;&nbsp;</a></span>countInterviews()</h2>
+<a id="a84c1fdea2d09783a39677c4f79d924fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c1fdea2d09783a39677c4f79d924fc">&#9670;&nbsp;</a></span>countInterviews()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int psql::countInterviews </td>
+          <td class="memname">double psql::countInterviews </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -333,19 +395,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#a5d382c01e6d7957e628ade338ddaf70b" title="psql::countInterviews Counts the number of applications which the emplyer found interesting and calle...">psql::countInterviews</a> Counts the number of applications which the emplyer found interesting and called for an interview </p>
+<p><a class="el" href="classpsql.html#a84c1fdea2d09783a39677c4f79d924fc" title="psql::countInterviews Counts the number of applications which the emplyer found interesting and calle...">psql::countInterviews</a> Counts the number of applications which the emplyer found interesting and called for an interview </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of applications that "led" to an interview. </dd></dl>
 
 </div>
 </div>
-<a id="ac6bb08051a489a4c36cad8bb7f1abd1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6bb08051a489a4c36cad8bb7f1abd1c">&#9670;&nbsp;</a></span>countRegisteredApplications()</h2>
+<a id="a8673a80968d293cd3ead6e6e9da8dd8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8673a80968d293cd3ead6e6e9da8dd8a">&#9670;&nbsp;</a></span>countRegisteredApplications()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int psql::countRegisteredApplications </td>
+          <td class="memname">double psql::countRegisteredApplications </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -353,19 +415,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#ac6bb08051a489a4c36cad8bb7f1abd1c" title="psql::countRegisteredApplications Counts the number of registered job applications that have not yet ...">psql::countRegisteredApplications</a> Counts the number of registered job applications that have not yet been sent (status id 1) </p>
+<p><a class="el" href="classpsql.html#a8673a80968d293cd3ead6e6e9da8dd8a" title="psql::countRegisteredApplications Counts the number of registered job applications that have not yet ...">psql::countRegisteredApplications</a> Counts the number of registered job applications that have not yet been sent (status id 1) </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of registered job applications. </dd></dl>
 
 </div>
 </div>
-<a id="a1aa2281c867a8a2916963ec9391c2320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1aa2281c867a8a2916963ec9391c2320">&#9670;&nbsp;</a></span>countSentApplications()</h2>
+<a id="af5e6768f6c51ac7b94571505f7a628e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5e6768f6c51ac7b94571505f7a628e4">&#9670;&nbsp;</a></span>countSentApplications()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int psql::countSentApplications </td>
+          <td class="memname">double psql::countSentApplications </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -373,19 +435,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#a1aa2281c867a8a2916963ec9391c2320" title="psql::countSentApplications Counts the number of sent applications (status id 2) ">psql::countSentApplications</a> Counts the number of sent applications (status id 2) </p>
+<p><a class="el" href="classpsql.html#af5e6768f6c51ac7b94571505f7a628e4" title="psql::countSentApplications Counts the number of sent applications (status id 2) ">psql::countSentApplications</a> Counts the number of sent applications (status id 2) </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of sent applications. </dd></dl>
 
 </div>
 </div>
-<a id="afc6d7fe8bd179fb7341917b430883963"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc6d7fe8bd179fb7341917b430883963">&#9670;&nbsp;</a></span>countTotalApplications()</h2>
+<a id="a496d0a426a1539bf9babd1dd4e9fcd96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496d0a426a1539bf9babd1dd4e9fcd96">&#9670;&nbsp;</a></span>countTotalApplications()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int psql::countTotalApplications </td>
+          <td class="memname">double psql::countTotalApplications </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -393,19 +455,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#afc6d7fe8bd179fb7341917b430883963" title="psql::countTotalApplications Counts the total registered applications (registered, sent, interested in interview, declined, etc. ">psql::countTotalApplications</a> Counts the total registered applications (registered, sent, interested in interview, declined, etc. </p>
+<p><a class="el" href="classpsql.html#a496d0a426a1539bf9babd1dd4e9fcd96" title="psql::countTotalApplications Counts the total registered applications (registered, sent, interested in interview, declined, etc. ">psql::countTotalApplications</a> Counts the total registered applications (registered, sent, interested in interview, declined, etc. </p>
 <dl class="section return"><dt>Returns</dt><dd>The total number of job applications in the database. </dd></dl>
 
 </div>
 </div>
-<a id="a0d16f7ff59525da8743b10cb5ca29636"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d16f7ff59525da8743b10cb5ca29636">&#9670;&nbsp;</a></span>countWrittenButNotSent()</h2>
+<a id="a70ad9f4b00735a55232f46da4edd2edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ad9f4b00735a55232f46da4edd2edc">&#9670;&nbsp;</a></span>countWrittenButNotSent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int psql::countWrittenButNotSent </td>
+          <td class="memname">double psql::countWrittenButNotSent </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -413,8 +475,288 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classpsql.html#a0d16f7ff59525da8743b10cb5ca29636" title="psql::countWrittenButNotSent Counts the number of applications that have been written, but not yet sent. ">psql::countWrittenButNotSent</a> Counts the number of applications that have been written, but not yet sent. </p>
+<p><a class="el" href="classpsql.html#a70ad9f4b00735a55232f46da4edd2edc" title="psql::countWrittenButNotSent Counts the number of applications that have been written, but not yet sent. ">psql::countWrittenButNotSent</a> Counts the number of applications that have been written, but not yet sent. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of applications that have been written, but not yet sent. </dd></dl>
+
+</div>
+</div>
+<a id="ae9e3ee06f4a5ecd4178662dfa0655fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e3ee06f4a5ecd4178662dfa0655fe1">&#9670;&nbsp;</a></span>createProcedureNewApplicationID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createProcedureNewApplicationID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ae9e3ee06f4a5ecd4178662dfa0655fe1" title="psql::createProcedureNewApplicationID Creates a stored procedure that returns which is run when a new...">psql::createProcedureNewApplicationID</a> Creates a stored procedure that returns which is run when a new row is inserted in the application table </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a565bfc828ecb6b5621354128773494fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a565bfc828ecb6b5621354128773494fd">&#9670;&nbsp;</a></span>createProcedureNewCountryID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createProcedureNewCountryID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a565bfc828ecb6b5621354128773494fd" title="psql::createProcedureNewCountryID Creates a stored procedure that returns which is run when a new row...">psql::createProcedureNewCountryID</a> Creates a stored procedure that returns which is run when a new row is inserted in the country table </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="ade0c7fa4f019c3f349230af09b1de49e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade0c7fa4f019c3f349230af09b1de49e">&#9670;&nbsp;</a></span>createProcedureNewTownID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createProcedureNewTownID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ade0c7fa4f019c3f349230af09b1de49e" title="psql::createProcedureNewTownID Creates a stored procedure that returns which is run when a new row is...">psql::createProcedureNewTownID</a> Creates a stored procedure that returns which is run when a new row is inserted in the town table </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="a28f3e3d6309e3ce57493db284c099946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f3e3d6309e3ce57493db284c099946">&#9670;&nbsp;</a></span>createProcedureUpdateApplication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createProcedureUpdateApplication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a28f3e3d6309e3ce57493db284c099946" title="psql::createProcedureUpdateApplication Creates a stored procedure that returns which is run when data...">psql::createProcedureUpdateApplication</a> Creates a stored procedure that returns which is run when data in the application table is updated </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the creation succeeds and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="a54c75d0896ee6aad58e22c830895c106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54c75d0896ee6aad58e22c830895c106">&#9670;&nbsp;</a></span>createSequenceApplicationIDSeq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createSequenceApplicationIDSeq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a54c75d0896ee6aad58e22c830895c106" title="psql::createSequenceApplicationIDSeq Creates the seqence for incrementing the application ID ...">psql::createSequenceApplicationIDSeq</a> Creates the seqence for incrementing the application ID </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="aa907c84f592212451d3d59a2061adabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa907c84f592212451d3d59a2061adabd">&#9670;&nbsp;</a></span>createSequenceCountryIDSeq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createSequenceCountryIDSeq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#aa907c84f592212451d3d59a2061adabd" title="psql::createSequenceCountryIDSeq Creates the sequence for incrementing the country ID ...">psql::createSequenceCountryIDSeq</a> Creates the sequence for incrementing the country ID </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="ae882aa80b2d629383fc2e60aecfd421a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae882aa80b2d629383fc2e60aecfd421a">&#9670;&nbsp;</a></span>createSequenceStatusIDSeq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createSequenceStatusIDSeq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ae882aa80b2d629383fc2e60aecfd421a" title="psql::createSequenceStatusIDSeq Creates a sequence for increasing the status ID. ">psql::createSequenceStatusIDSeq</a> Creates a sequence for increasing the status ID. </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="a6ce21cb5a1e77cb0c280e2932d2b557d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ce21cb5a1e77cb0c280e2932d2b557d">&#9670;&nbsp;</a></span>createSequenceTownIDSeq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createSequenceTownIDSeq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a6ce21cb5a1e77cb0c280e2932d2b557d" title="psql::createSequenceTownIDSeq Creates the sequence for incrementing the town ID ">psql::createSequenceTownIDSeq</a> Creates the sequence for incrementing the town ID </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="a36f6a197a2214b9c71cfcd620334835d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f6a197a2214b9c71cfcd620334835d">&#9670;&nbsp;</a></span>createTableApplication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createTableApplication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a36f6a197a2214b9c71cfcd620334835d" title="psql::createTableApplication Creates the table &quot;soknad&quot; ">psql::createTableApplication</a> Creates the table "soknad" </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="ab6e496d8471f3cd9c5c082a6ba75c25b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6e496d8471f3cd9c5c082a6ba75c25b">&#9670;&nbsp;</a></span>createTableCountry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createTableCountry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ab6e496d8471f3cd9c5c082a6ba75c25b" title="psql::createTableCountry Creates the table &quot;land&quot;. ">psql::createTableCountry</a> Creates the table "land". </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="a427ad0f483c8ab7a4d23912278bc69e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427ad0f483c8ab7a4d23912278bc69e8">&#9670;&nbsp;</a></span>createTableStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createTableStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a427ad0f483c8ab7a4d23912278bc69e8" title="psql::createTableStatus Creates the table &quot;status&quot; ">psql::createTableStatus</a> Creates the table "status" </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="a95d1f522766174bd2c6a7b94f725719c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d1f522766174bd2c6a7b94f725719c">&#9670;&nbsp;</a></span>createTableTown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createTableTown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a95d1f522766174bd2c6a7b94f725719c" title="psql::createTableTown Creates the table &quot;sted&quot; ">psql::createTableTown</a> Creates the table "sted" </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="ad6fb8e1e7177c7996f297d477ecceb27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6fb8e1e7177c7996f297d477ecceb27">&#9670;&nbsp;</a></span>createViewApplication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createViewApplication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ad6fb8e1e7177c7996f297d477ecceb27" title="psql::createViewApplication Creates the view &quot;view_soknad&quot; This requieres the table &quot;soknad&quot; (applica...">psql::createViewApplication</a> Creates the view "view_soknad" This requieres the table "soknad" (application) to be present. </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false on failure </dd></dl>
+
+</div>
+</div>
+<a id="ac5b1230ac405a600b67b144060b33a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b1230ac405a600b67b144060b33a0d">&#9670;&nbsp;</a></span>createViewTowns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::createViewTowns </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ac5b1230ac405a600b67b144060b33a0d" title="psql::createViewTowns Creates the view_sted. This requires the table &quot;sted&quot; (Town, City, place) to be present in the database. ">psql::createViewTowns</a> Creates the view_sted. This requires the table "sted" (Town, City, place) to be present in the database. </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success and false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -1691,6 +2033,86 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a117b616053845f1b7295b21a06f008fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117b616053845f1b7295b21a06f008fd">&#9670;&nbsp;</a></span>tableApplicationExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::tableApplicationExists </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a117b616053845f1b7295b21a06f008fd" title="psql::tableApplicationExists Checks if the table &quot;soknad&quot; exists in the database by attempting to fet...">psql::tableApplicationExists</a> Checks if the table "soknad" exists in the database by attempting to fetch data from it. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the table exists in the database and false if it does not. </dd></dl>
+
+</div>
+</div>
+<a id="ae0ab0012c58471bd3fd63c286fb22224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ab0012c58471bd3fd63c286fb22224">&#9670;&nbsp;</a></span>tableCountryExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::tableCountryExists </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#ae0ab0012c58471bd3fd63c286fb22224" title="psql::tableCountryExists Checks if the table &quot;land&quot; exists in the database by attempting to fetch dat...">psql::tableCountryExists</a> Checks if the table "land" exists in the database by attempting to fetch data fram the table. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the table exists in the database and false if it does not. </dd></dl>
+
+</div>
+</div>
+<a id="a3f8bac89bd0cee3af77e47e5c555543d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f8bac89bd0cee3af77e47e5c555543d">&#9670;&nbsp;</a></span>tableStatusExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::tableStatusExists </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a3f8bac89bd0cee3af77e47e5c555543d" title="psql::tableStatusExists Checks if the table &quot;status&quot; exists in the database py attempting to pull dat...">psql::tableStatusExists</a> Checks if the table "status" exists in the database py attempting to pull data from the table. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the table exists and false if it does not. </dd></dl>
+
+</div>
+</div>
+<a id="a717162b7d7faa0fb41b5a526e42de4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a717162b7d7faa0fb41b5a526e42de4ac">&#9670;&nbsp;</a></span>tableTownExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool psql::tableTownExists </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a717162b7d7faa0fb41b5a526e42de4ac" title="psql::tableTownExists Checks if the table &quot;sted&quot; (town) exists by attempting to fetch data from it ...">psql::tableTownExists</a> Checks if the table "sted" (town) exists by attempting to fetch data from it </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the table exists and false if it does'nt </dd></dl>
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="spesificjobs_8h" kind="file" language="C++">
     <compoundname>spesificjobs.h</compoundname>
     <includes refid="psql_8h" local="yes">psql.h</includes>
@@ -10,16 +10,12 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="spesificjobs_8cpp" local="yes">spesificjobs.cpp</includedby>
     <incdepgraph>
-      <node id="376">
+      <node id="378">
         <label>QMessageBox</label>
       </node>
-      <node id="365">
+      <node id="367">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="366" relation="include">
-        </childnode>
-        <childnode refid="367" relation="include">
-        </childnode>
         <childnode refid="368" relation="include">
         </childnode>
         <childnode refid="369" relation="include">
@@ -32,49 +28,53 @@
         </childnode>
         <childnode refid="373" relation="include">
         </childnode>
-      </node>
-      <node id="375">
-        <label>QMainWindow</label>
-      </node>
-      <node id="368">
-        <label>QLinkedList</label>
-      </node>
-      <node id="374">
-        <label>QtCore</label>
-      </node>
-      <node id="367">
-        <label>QApplication</label>
-      </node>
-      <node id="370">
-        <label>QDebug</label>
-      </node>
-      <node id="371">
-        <label>pqxx/pqxx</label>
-      </node>
-      <node id="364">
-        <label>spesificjobs.h</label>
-        <link refid="spesificjobs_8h"/>
-        <childnode refid="365" relation="include">
-        </childnode>
         <childnode refid="374" relation="include">
-        </childnode>
-        <childnode refid="373" relation="include">
         </childnode>
         <childnode refid="375" relation="include">
         </childnode>
-        <childnode refid="376" relation="include">
-        </childnode>
       </node>
-      <node id="366">
-        <label>sstream</label>
+      <node id="377">
+        <label>QMainWindow</label>
       </node>
-      <node id="372">
-        <label>pqxx/result</label>
+      <node id="370">
+        <label>QLinkedList</label>
+      </node>
+      <node id="376">
+        <label>QtCore</label>
       </node>
       <node id="369">
-        <label>QException</label>
+        <label>QApplication</label>
+      </node>
+      <node id="372">
+        <label>QDebug</label>
       </node>
       <node id="373">
+        <label>pqxx/pqxx</label>
+      </node>
+      <node id="366">
+        <label>spesificjobs.h</label>
+        <link refid="spesificjobs_8h"/>
+        <childnode refid="367" relation="include">
+        </childnode>
+        <childnode refid="376" relation="include">
+        </childnode>
+        <childnode refid="375" relation="include">
+        </childnode>
+        <childnode refid="377" relation="include">
+        </childnode>
+        <childnode refid="378" relation="include">
+        </childnode>
+      </node>
+      <node id="368">
+        <label>sstream</label>
+      </node>
+      <node id="374">
+        <label>pqxx/result</label>
+      </node>
+      <node id="371">
+        <label>QException</label>
+      </node>
+      <node id="375">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -102,27 +102,27 @@
 <codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs" kindref="compound">SpesificJobs</ref>(QString<sp/>title,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1a382c130bb70f2bf25c76ef5c720659d6" kindref="member">SpesificJobs</ref>(QString<sp/>title,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_spesific_jobs" kindref="compound">SpesificJobs</ref>();</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;Getters&quot;:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getJobTitle();</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCompanyName();</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCityName();</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getStatus();</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getDeadline();</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getMotivation();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_spesific_jobs_1afe77ad902d3e9f3cfd5f057e0a37a193" kindref="member">getJobTitle</ref>();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_spesific_jobs_1a51afafde9872e78e8b09e3bc00a2a161" kindref="member">getCompanyName</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_spesific_jobs_1a39390d9c54635a2dc60c80322a7b42ed" kindref="member">getCityName</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_spesific_jobs_1aefe905d920961199fec0aff37a34b50d" kindref="member">getStatus</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_spesific_jobs_1a4744022c02271fabfb7fca0015896c09" kindref="member">getDeadline</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_spesific_jobs_1a73406f6204c990c3fa3c7b9d16f1b0b9" kindref="member">getMotivation</ref>();</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;Setters&quot;:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setJobTitle(QString<sp/>newTitle);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCompanyName(QString<sp/>newName);</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCityName(QString<sp/>newCityName);</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStatus(QString<sp/>newStatus);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDeadline(QString<sp/>newDeadline);</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMotivation(QString<sp/>newMotivation);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1abb4d8e45e0a2be8197ef03057fc5c714" kindref="member">setJobTitle</ref>(QString<sp/>newTitle);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1aeacc56572911219fddf2f1439a70ed74" kindref="member">setCompanyName</ref>(QString<sp/>newName);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1a67b162aa9ad12ed8ffba061edff96cdf" kindref="member">setCityName</ref>(QString<sp/>newCityName);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1a439307a28196221b7e3877983077812f" kindref="member">setStatus</ref>(QString<sp/>newStatus);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1a80ceb9ead40dc83e0adcf6ed2b3d5465" kindref="member">setDeadline</ref>(QString<sp/>newDeadline);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1a39df1f364b1ca8e3059094708f01983c" kindref="member">setMotivation</ref>(QString<sp/>newMotivation);</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Offentlige<sp/>metoder<sp/>som<sp/>henter<sp/>ulike<sp/>datastrukturer:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCityNames();</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getStatuses();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1acbf1efeeb4000a0a1238897daa74085b" kindref="member">getCityNames</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_spesific_jobs_1ad1eead4bdf63388b3cbe0bb79b4b0d09" kindref="member">getStatuses</ref>();</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::SpesicficJobs<sp/>*ui;</highlight></codeline>

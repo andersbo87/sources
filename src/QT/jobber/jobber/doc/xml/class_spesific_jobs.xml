@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="class_spesific_jobs" kind="class" language="C++" prot="public">
     <compoundname>SpesificJobs</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -155,12 +155,34 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a382c130bb70f2bf25c76ef5c720659d6" kindref="member">SpesificJobs::SpesificJobs</ref> <ref refid="class_spesific_jobs" kindref="compound">SpesificJobs</ref> class constructor. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The title to be used in windows and dialog boxes. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the psql class </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="18" column="1" bodyfile="spesificjobs.cpp" bodystart="5" bodyend="21"/>
+        <location file="spesificjobs.h" line="18" column="1" bodyfile="spesificjobs.cpp" bodystart="11" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a2ac947799f858d8dd3c5fd59caf332aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -173,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="19" column="1" bodyfile="spesificjobs.cpp" bodystart="23" bodyend="26"/>
+        <location file="spesificjobs.h" line="19" column="1" bodyfile="spesificjobs.cpp" bodystart="29" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1afe77ad902d3e9f3cfd5f057e0a37a193" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -181,12 +203,13 @@
         <argsstring>()</argsstring>
         <name>getJobTitle</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1afe77ad902d3e9f3cfd5f057e0a37a193" kindref="member">SpesificJobs::getJobTitle</ref> Gets the job title. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>The job title </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="21" column="1" bodyfile="spesificjobs.cpp" bodystart="30" bodyend="33"/>
+        <location file="spesificjobs.h" line="21" column="1" bodyfile="spesificjobs.cpp" bodystart="41" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a51afafde9872e78e8b09e3bc00a2a161" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -194,12 +217,13 @@
         <argsstring>()</argsstring>
         <name>getCompanyName</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a51afafde9872e78e8b09e3bc00a2a161" kindref="member">SpesificJobs::getCompanyName</ref> Gets the company name. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>The name of the company </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="22" column="1" bodyfile="spesificjobs.cpp" bodystart="35" bodyend="38"/>
+        <location file="spesificjobs.h" line="22" column="1" bodyfile="spesificjobs.cpp" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a39390d9c54635a2dc60c80322a7b42ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -207,12 +231,13 @@
         <argsstring>()</argsstring>
         <name>getCityName</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a39390d9c54635a2dc60c80322a7b42ed" kindref="member">SpesificJobs::getCityName</ref> Gets the name of the city where the job is located. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>The city name </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="23" column="1" bodyfile="spesificjobs.cpp" bodystart="40" bodyend="43"/>
+        <location file="spesificjobs.h" line="23" column="1" bodyfile="spesificjobs.cpp" bodystart="59" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1aefe905d920961199fec0aff37a34b50d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -220,12 +245,13 @@
         <argsstring>()</argsstring>
         <name>getStatus</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1aefe905d920961199fec0aff37a34b50d" kindref="member">SpesificJobs::getStatus</ref> Gets the status of the job application. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>The name of the current application status (sent, declined/rejected, etc) </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="24" column="1" bodyfile="spesificjobs.cpp" bodystart="45" bodyend="48"/>
+        <location file="spesificjobs.h" line="24" column="1" bodyfile="spesificjobs.cpp" bodystart="68" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a4744022c02271fabfb7fca0015896c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -233,12 +259,13 @@
         <argsstring>()</argsstring>
         <name>getDeadline</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a4744022c02271fabfb7fca0015896c09" kindref="member">SpesificJobs::getDeadline</ref> Gets the deadline of the application. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>The application deadline </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="25" column="1" bodyfile="spesificjobs.cpp" bodystart="50" bodyend="53"/>
+        <location file="spesificjobs.h" line="25" column="1" bodyfile="spesificjobs.cpp" bodystart="77" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a73406f6204c990c3fa3c7b9d16f1b0b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -246,12 +273,13 @@
         <argsstring>()</argsstring>
         <name>getMotivation</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a73406f6204c990c3fa3c7b9d16f1b0b9" kindref="member">SpesificJobs::getMotivation</ref> Gets the motivation for applying for this job. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>The application motivation </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="26" column="1" bodyfile="spesificjobs.cpp" bodystart="55" bodyend="58"/>
+        <location file="spesificjobs.h" line="26" column="1" bodyfile="spesificjobs.cpp" bodystart="86" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1abb4d8e45e0a2be8197ef03057fc5c714" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -263,12 +291,20 @@
           <declname>newTitle</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1abb4d8e45e0a2be8197ef03057fc5c714" kindref="member">SpesificJobs::setJobTitle</ref> Sets the title of the job. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newTitle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the job </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="29" column="1" bodyfile="spesificjobs.cpp" bodystart="61" bodyend="64"/>
+        <location file="spesificjobs.h" line="29" column="1" bodyfile="spesificjobs.cpp" bodystart="96" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1aeacc56572911219fddf2f1439a70ed74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -280,12 +316,20 @@
           <declname>newName</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1aeacc56572911219fddf2f1439a70ed74" kindref="member">SpesificJobs::setCompanyName</ref> Sets the name of the company. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The company name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="30" column="1" bodyfile="spesificjobs.cpp" bodystart="66" bodyend="69"/>
+        <location file="spesificjobs.h" line="30" column="1" bodyfile="spesificjobs.cpp" bodystart="105" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a67b162aa9ad12ed8ffba061edff96cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -297,12 +341,20 @@
           <declname>newCityName</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a67b162aa9ad12ed8ffba061edff96cdf" kindref="member">SpesificJobs::setCityName</ref> Sets the name of the city where the job is located. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCityName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the city </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="31" column="1" bodyfile="spesificjobs.cpp" bodystart="71" bodyend="76"/>
+        <location file="spesificjobs.h" line="31" column="1" bodyfile="spesificjobs.cpp" bodystart="114" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a439307a28196221b7e3877983077812f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -314,12 +366,20 @@
           <declname>newStatus</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a439307a28196221b7e3877983077812f" kindref="member">SpesificJobs::setStatus</ref> Set the status of the job application. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The status of the application. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="32" column="1" bodyfile="spesificjobs.cpp" bodystart="78" bodyend="83"/>
+        <location file="spesificjobs.h" line="32" column="1" bodyfile="spesificjobs.cpp" bodystart="125" bodyend="130"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a80ceb9ead40dc83e0adcf6ed2b3d5465" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -331,12 +391,20 @@
           <declname>newDeadline</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a80ceb9ead40dc83e0adcf6ed2b3d5465" kindref="member">SpesificJobs::setDeadline</ref> Sets the deadline of the application. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newDeadline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application dealine (could be a date in any format or &apos;ASAP&apos; or something) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="33" column="1" bodyfile="spesificjobs.cpp" bodystart="85" bodyend="88"/>
+        <location file="spesificjobs.h" line="33" column="1" bodyfile="spesificjobs.cpp" bodystart="136" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a39df1f364b1ca8e3059094708f01983c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -348,12 +416,20 @@
           <declname>newMotivation</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1a39df1f364b1ca8e3059094708f01983c" kindref="member">SpesificJobs::setMotivation</ref> Sets the reasons for applying for this job (optional) </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newMotivation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The motivation. Is there something about the job or company that made you apply for that job </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="34" column="1" bodyfile="spesificjobs.cpp" bodystart="90" bodyend="93"/>
+        <location file="spesificjobs.h" line="34" column="1" bodyfile="spesificjobs.cpp" bodystart="145" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1acbf1efeeb4000a0a1238897daa74085b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -361,12 +437,12 @@
         <argsstring>()</argsstring>
         <name>getCityNames</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1acbf1efeeb4000a0a1238897daa74085b" kindref="member">SpesificJobs::getCityNames</ref> Fetches a list of city names to be added to the comboBoxCityName. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="37" column="1" bodyfile="spesificjobs.cpp" bodystart="96" bodyend="119"/>
+        <location file="spesificjobs.h" line="37" column="1" bodyfile="spesificjobs.cpp" bodystart="154" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1ad1eead4bdf63388b3cbe0bb79b4b0d09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -374,12 +450,12 @@
         <argsstring>()</argsstring>
         <name>getStatuses</name>
         <briefdescription>
-        </briefdescription>
+<para><ref refid="class_spesific_jobs_1ad1eead4bdf63388b3cbe0bb79b4b0d09" kindref="member">SpesificJobs::getStatuses</ref> Fetches a list of status names to be added to the comboBoxStatusName. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="38" column="1" bodyfile="spesificjobs.cpp" bodystart="121" bodyend="144"/>
+        <location file="spesificjobs.h" line="38" column="1" bodyfile="spesificjobs.cpp" bodystart="182" bodyend="205"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -394,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="45" column="1" bodyfile="spesificjobs.cpp" bodystart="146" bodyend="159"/>
+        <location file="spesificjobs.h" line="45" column="1" bodyfile="spesificjobs.cpp" bodystart="207" bodyend="220"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a34b8f35bc269b6deeec22a17c1a5718e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -407,7 +483,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="46" column="1" bodyfile="spesificjobs.cpp" bodystart="160" bodyend="174"/>
+        <location file="spesificjobs.h" line="46" column="1" bodyfile="spesificjobs.cpp" bodystart="221" bodyend="235"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1adbf0c9c7a84779a1c431775c1cd86993" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -420,7 +496,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="47" column="1" bodyfile="spesificjobs.cpp" bodystart="175" bodyend="187"/>
+        <location file="spesificjobs.h" line="47" column="1" bodyfile="spesificjobs.cpp" bodystart="236" bodyend="248"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1aa0838390b6c2c12a12fbdd001f07e0d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -433,7 +509,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="48" column="1" bodyfile="spesificjobs.cpp" bodystart="189" bodyend="201"/>
+        <location file="spesificjobs.h" line="48" column="1" bodyfile="spesificjobs.cpp" bodystart="250" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a38d8df81426779186714b6e9e3847602" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -446,7 +522,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="49" column="1" bodyfile="spesificjobs.cpp" bodystart="203" bodyend="215"/>
+        <location file="spesificjobs.h" line="49" column="1" bodyfile="spesificjobs.cpp" bodystart="264" bodyend="276"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1af94e4842375f809b079ad70023678455" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -459,7 +535,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="50" column="1" bodyfile="spesificjobs.cpp" bodystart="217" bodyend="229"/>
+        <location file="spesificjobs.h" line="50" column="1" bodyfile="spesificjobs.cpp" bodystart="278" bodyend="290"/>
       </memberdef>
       <memberdef kind="function" id="class_spesific_jobs_1a43a3c8b1813896c13f99ddcdb1c8e636" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -472,7 +548,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="51" column="1" bodyfile="spesificjobs.cpp" bodystart="231" bodyend="243"/>
+        <location file="spesificjobs.h" line="51" column="1" bodyfile="spesificjobs.cpp" bodystart="292" bodyend="304"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -487,7 +563,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="54" column="1" bodyfile="spesificjobs.cpp" bodystart="246" bodyend="268"/>
+        <location file="spesificjobs.h" line="54" column="1" bodyfile="spesificjobs.cpp" bodystart="307" bodyend="329"/>
       </memberdef>
       <memberdef kind="slot" id="class_spesific_jobs_1aadde7b3b5336803ba34213af11ee3ccf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -500,7 +576,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="55" column="1" bodyfile="spesificjobs.cpp" bodystart="285" bodyend="288"/>
+        <location file="spesificjobs.h" line="55" column="1" bodyfile="spesificjobs.cpp" bodystart="346" bodyend="349"/>
       </memberdef>
       <memberdef kind="slot" id="class_spesific_jobs_1a713cf407d89833941dc75b62385c16fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -513,7 +589,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="56" column="1" bodyfile="spesificjobs.cpp" bodystart="290" bodyend="293"/>
+        <location file="spesificjobs.h" line="56" column="1" bodyfile="spesificjobs.cpp" bodystart="351" bodyend="354"/>
       </memberdef>
       <memberdef kind="slot" id="class_spesific_jobs_1a7700d78d12b04622bb9fd2aa5428244a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -526,7 +602,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="57" column="1" bodyfile="spesificjobs.cpp" bodystart="270" bodyend="273"/>
+        <location file="spesificjobs.h" line="57" column="1" bodyfile="spesificjobs.cpp" bodystart="331" bodyend="334"/>
       </memberdef>
       <memberdef kind="slot" id="class_spesific_jobs_1a9a17354cf100ea9080147926a1f11b56" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -539,7 +615,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="58" column="1" bodyfile="spesificjobs.cpp" bodystart="275" bodyend="278"/>
+        <location file="spesificjobs.h" line="58" column="1" bodyfile="spesificjobs.cpp" bodystart="336" bodyend="339"/>
       </memberdef>
       <memberdef kind="slot" id="class_spesific_jobs_1a835ef2a912e29fb0bbf1110c01f566b0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -552,7 +628,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="spesificjobs.h" line="59" column="1" bodyfile="spesificjobs.cpp" bodystart="280" bodyend="283"/>
+        <location file="spesificjobs.h" line="59" column="1" bodyfile="spesificjobs.cpp" bodystart="341" bodyend="344"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

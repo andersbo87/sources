@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classstatistics" kind="class" language="C++" prot="public">
+    <compoundname>statistics</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QDialog</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classstatistics_1a132d339d01784764b74a7b2a12b39981" prot="private" static="no" mutable="no">
+        <type>Ui::statistics *</type>
+        <definition>Ui::statistics* statistics::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="statistics.h" line="19" column="1" bodyfile="statistics.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classstatistics_1a783eb0a813b6cf4d756e1b856470769d" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* statistics::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="statistics.h" line="21" column="1" bodyfile="statistics.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classstatistics_1aaa102e49836a3b719df3a82e28735adc" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>statistics::statistics</definition>
+        <argsstring>(psql *pg, QWidget *parent=0)</argsstring>
+        <name>statistics</name>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="classstatistics_1aaa102e49836a3b719df3a82e28735adc" kindref="member">statistics::statistics</ref> statisitcs class constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the psql class </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer the the parent class </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="statistics.h" line="15" column="1" bodyfile="statistics.cpp" bodystart="9" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classstatistics_1a8cf720227802726be118712dc6616f94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>statistics::~statistics</definition>
+        <argsstring>()</argsstring>
+        <name>~statistics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="statistics.h" line="16" column="1" bodyfile="statistics.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classstatistics_1a69959e0aa277b9ed03737ec6186ef607" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void statistics::updateData</definition>
+        <argsstring>()</argsstring>
+        <name>updateData</name>
+        <briefdescription>
+<para>statistics::updateData Fetches new application statistics from the database. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="statistics.h" line="20" column="1" bodyfile="statistics.cpp" bodystart="22" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classstatistics_1aa2f6ad910ce0f596454eef235ca03321" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void statistics::btnUpdateClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnUpdateClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="statistics.h" line="24" column="1" bodyfile="statistics.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="47">
+        <label>QDialog</label>
+      </node>
+      <node id="46">
+        <label>statistics</label>
+        <link refid="classstatistics"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="49">
+        <label>QDialog</label>
+      </node>
+      <node id="48">
+        <label>statistics</label>
+        <link refid="classstatistics"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="statistics.h" line="11" column="1" bodyfile="statistics.h" bodystart="10" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classstatistics_1aa2f6ad910ce0f596454eef235ca03321" prot="private" virt="non-virtual"><scope>statistics</scope><name>btnUpdateClicked</name></member>
+      <member refid="classstatistics_1a783eb0a813b6cf4d756e1b856470769d" prot="private" virt="non-virtual"><scope>statistics</scope><name>p</name></member>
+      <member refid="classstatistics_1aaa102e49836a3b719df3a82e28735adc" prot="public" virt="non-virtual"><scope>statistics</scope><name>statistics</name></member>
+      <member refid="classstatistics_1a132d339d01784764b74a7b2a12b39981" prot="private" virt="non-virtual"><scope>statistics</scope><name>ui</name></member>
+      <member refid="classstatistics_1a69959e0aa277b9ed03737ec6186ef607" prot="private" virt="non-virtual"><scope>statistics</scope><name>updateData</name></member>
+      <member refid="classstatistics_1a8cf720227802726be118712dc6616f94" prot="public" virt="non-virtual"><scope>statistics</scope><name>~statistics</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

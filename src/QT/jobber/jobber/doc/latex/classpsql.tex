@@ -52,24 +52,69 @@ bool \mbox{\hyperlink{classpsql_a914bf8701fbed4ff80edcd0d09c7c3fd}{delete\+Count
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a914bf8701fbed4ff80edcd0d09c7c3fd}{psql\+::delete\+Country}} Deletes an existing country from the database. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classpsql_a26fc592cfb9f484e1bee62af527f2b95}{delete\+Status}} (int status\+ID)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a26fc592cfb9f484e1bee62af527f2b95}{psql\+::delete\+Status}} Deletes an existing status from the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a117b616053845f1b7295b21a06f008fd}{table\+Application\+Exists}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a117b616053845f1b7295b21a06f008fd}{psql\+::table\+Application\+Exists}} Checks if the table \char`\"{}soknad\char`\"{} exists in the database by attempting to fetch data from it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_ae0ab0012c58471bd3fd63c286fb22224}{table\+Country\+Exists}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ae0ab0012c58471bd3fd63c286fb22224}{psql\+::table\+Country\+Exists}} Checks if the table \char`\"{}land\char`\"{} exists in the database by attempting to fetch data fram the table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a3f8bac89bd0cee3af77e47e5c555543d}{table\+Status\+Exists}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a3f8bac89bd0cee3af77e47e5c555543d}{psql\+::table\+Status\+Exists}} Checks if the table \char`\"{}status\char`\"{} exists in the database py attempting to pull data from the table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a717162b7d7faa0fb41b5a526e42de4ac}{table\+Town\+Exists}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a717162b7d7faa0fb41b5a526e42de4ac}{psql\+::table\+Town\+Exists}} Checks if the table \char`\"{}sted\char`\"{} (town) exists by attempting to fetch data from it \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classpsql_a4c23d467c41e155a55c38b1cefb9b54b}\label{classpsql_a4c23d467c41e155a55c38b1cefb9b54b}} 
+bool {\bfseries view\+Application\+Exists} ()
+\item 
+\mbox{\Hypertarget{classpsql_aae95eb2a505c1b0b7b4d5671926ecd2f}\label{classpsql_aae95eb2a505c1b0b7b4d5671926ecd2f}} 
+bool {\bfseries view\+Town\+Exists} ()
+\item 
+bool \mbox{\hyperlink{classpsql_a36f6a197a2214b9c71cfcd620334835d}{create\+Table\+Application}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a36f6a197a2214b9c71cfcd620334835d}{psql\+::create\+Table\+Application}} Creates the table \char`\"{}soknad\char`\"{} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_ab6e496d8471f3cd9c5c082a6ba75c25b}{create\+Table\+Country}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ab6e496d8471f3cd9c5c082a6ba75c25b}{psql\+::create\+Table\+Country}} Creates the table \char`\"{}land\char`\"{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a427ad0f483c8ab7a4d23912278bc69e8}{create\+Table\+Status}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a427ad0f483c8ab7a4d23912278bc69e8}{psql\+::create\+Table\+Status}} Creates the table \char`\"{}status\char`\"{} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a95d1f522766174bd2c6a7b94f725719c}{create\+Table\+Town}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a95d1f522766174bd2c6a7b94f725719c}{psql\+::create\+Table\+Town}} Creates the table \char`\"{}sted\char`\"{} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_ad6fb8e1e7177c7996f297d477ecceb27}{create\+View\+Application}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ad6fb8e1e7177c7996f297d477ecceb27}{psql\+::create\+View\+Application}} Creates the view \char`\"{}view\+\_\+soknad\char`\"{} This requieres the table \char`\"{}soknad\char`\"{} (application) to be present. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_ac5b1230ac405a600b67b144060b33a0d}{create\+View\+Towns}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ac5b1230ac405a600b67b144060b33a0d}{psql\+::create\+View\+Towns}} Creates the view\+\_\+sted. This requires the table \char`\"{}sted\char`\"{} (Town, City, place) to be present in the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_ae9e3ee06f4a5ecd4178662dfa0655fe1}{create\+Procedure\+New\+Application\+ID}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ae9e3ee06f4a5ecd4178662dfa0655fe1}{psql\+::create\+Procedure\+New\+Application\+ID}} Creates a stored procedure that returns which is run when a new row is inserted in the application table \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a28f3e3d6309e3ce57493db284c099946}{create\+Procedure\+Update\+Application}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a28f3e3d6309e3ce57493db284c099946}{psql\+::create\+Procedure\+Update\+Application}} Creates a stored procedure that returns which is run when data in the application table is updated \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a565bfc828ecb6b5621354128773494fd}{create\+Procedure\+New\+Country\+ID}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a565bfc828ecb6b5621354128773494fd}{psql\+::create\+Procedure\+New\+Country\+ID}} Creates a stored procedure that returns which is run when a new row is inserted in the country table \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_ade0c7fa4f019c3f349230af09b1de49e}{create\+Procedure\+New\+Town\+ID}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ade0c7fa4f019c3f349230af09b1de49e}{psql\+::create\+Procedure\+New\+Town\+ID}} Creates a stored procedure that returns which is run when a new row is inserted in the town table \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a54c75d0896ee6aad58e22c830895c106}{create\+Sequence\+Application\+I\+D\+Seq}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a54c75d0896ee6aad58e22c830895c106}{psql\+::create\+Sequence\+Application\+I\+D\+Seq}} Creates the seqence for incrementing the application ID \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_aa907c84f592212451d3d59a2061adabd}{create\+Sequence\+Country\+I\+D\+Seq}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_aa907c84f592212451d3d59a2061adabd}{psql\+::create\+Sequence\+Country\+I\+D\+Seq}} Creates the sequence for incrementing the country ID \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_ae882aa80b2d629383fc2e60aecfd421a}{create\+Sequence\+Status\+I\+D\+Seq}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ae882aa80b2d629383fc2e60aecfd421a}{psql\+::create\+Sequence\+Status\+I\+D\+Seq}} Creates a sequence for increasing the status ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpsql_a6ce21cb5a1e77cb0c280e2932d2b557d}{create\+Sequence\+Town\+I\+D\+Seq}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a6ce21cb5a1e77cb0c280e2932d2b557d}{psql\+::create\+Sequence\+Town\+I\+D\+Seq}} Creates the sequence for incrementing the town ID \end{DoxyCompactList}\item 
 Q\+String \mbox{\hyperlink{classpsql_a5f51e254b67ff932f287df2184ccc043}{get\+Error}} ()
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a5f51e254b67ff932f287df2184ccc043}{psql\+::get\+Error}} If an operation goes wrong, this method can be used to get the returned error message. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classpsql_a9a0d5ba32aabe6018a36fb0bc185445b}{set\+Error}} (Q\+String msg)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a9a0d5ba32aabe6018a36fb0bc185445b}{psql\+::set\+Error}} If an operation goes wrong, this method saves the contents of the error message. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classpsql_afc6d7fe8bd179fb7341917b430883963}{count\+Total\+Applications}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_afc6d7fe8bd179fb7341917b430883963}{psql\+::count\+Total\+Applications}} Counts the total registered applications (registered, sent, interested in interview, declined, etc. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classpsql_ac6bb08051a489a4c36cad8bb7f1abd1c}{count\+Registered\+Applications}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_ac6bb08051a489a4c36cad8bb7f1abd1c}{psql\+::count\+Registered\+Applications}} Counts the number of registered job applications that have not yet been sent (status id 1) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classpsql_a1aa2281c867a8a2916963ec9391c2320}{count\+Sent\+Applications}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a1aa2281c867a8a2916963ec9391c2320}{psql\+::count\+Sent\+Applications}} Counts the number of sent applications (status id 2) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classpsql_a5d382c01e6d7957e628ade338ddaf70b}{count\+Interviews}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a5d382c01e6d7957e628ade338ddaf70b}{psql\+::count\+Interviews}} Counts the number of applications which the emplyer found interesting and called for an interview \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classpsql_accf6323167fbe0c622b3c14a6e454195}{count\+Declined\+Applications}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_accf6323167fbe0c622b3c14a6e454195}{psql\+::count\+Declined\+Applications}} Counts the number of applications that have been declined/rejected by the employer. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classpsql_a0d16f7ff59525da8743b10cb5ca29636}{count\+Written\+But\+Not\+Sent}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a0d16f7ff59525da8743b10cb5ca29636}{psql\+::count\+Written\+But\+Not\+Sent}} Counts the number of applications that have been written, but not yet sent. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classpsql_abc598b3a1783194380b9ab22d9341357}{count\+Accepted}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_abc598b3a1783194380b9ab22d9341357}{psql\+::count\+Accepted}} Counts the number of applications that have been accepted and has lead to an employment. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classpsql_a496d0a426a1539bf9babd1dd4e9fcd96}{count\+Total\+Applications}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a496d0a426a1539bf9babd1dd4e9fcd96}{psql\+::count\+Total\+Applications}} Counts the total registered applications (registered, sent, interested in interview, declined, etc. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classpsql_a8673a80968d293cd3ead6e6e9da8dd8a}{count\+Registered\+Applications}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a8673a80968d293cd3ead6e6e9da8dd8a}{psql\+::count\+Registered\+Applications}} Counts the number of registered job applications that have not yet been sent (status id 1) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classpsql_af5e6768f6c51ac7b94571505f7a628e4}{count\+Sent\+Applications}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_af5e6768f6c51ac7b94571505f7a628e4}{psql\+::count\+Sent\+Applications}} Counts the number of sent applications (status id 2) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classpsql_a84c1fdea2d09783a39677c4f79d924fc}{count\+Interviews}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a84c1fdea2d09783a39677c4f79d924fc}{psql\+::count\+Interviews}} Counts the number of applications which the emplyer found interesting and called for an interview \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classpsql_a40541367c3af9c0ac94e2fb92f00f53c}{count\+Declined\+Applications}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a40541367c3af9c0ac94e2fb92f00f53c}{psql\+::count\+Declined\+Applications}} Counts the number of applications that have been declined/rejected by the employer. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classpsql_a70ad9f4b00735a55232f46da4edd2edc}{count\+Written\+But\+Not\+Sent}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a70ad9f4b00735a55232f46da4edd2edc}{psql\+::count\+Written\+But\+Not\+Sent}} Counts the number of applications that have been written, but not yet sent. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classpsql_a2ae512bc231446d5fccae84582395675}\label{classpsql_a2ae512bc231446d5fccae84582395675}} 
+double {\bfseries count\+Declined\+After\+Interview} ()
+\item 
+double \mbox{\hyperlink{classpsql_a0beec2f098edc0961f27774cdd54d09b}{count\+Accepted}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a0beec2f098edc0961f27774cdd54d09b}{psql\+::count\+Accepted}} Counts the number of applications that have been accepted and has lead to an employment. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}{get\+City\+ID}} (int application\+ID)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}{psql\+::get\+City\+ID}} Gets the city ID of the application based on the application ID prvoided by the user. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classpsql_a0c33b3f48064ba75abaa4b0b58eb1ccd}{get\+City\+ID}} (string name)
@@ -149,96 +194,278 @@ The psql class.
 \begin{DoxyReturn}{Returns}
 True on successful connection and false on failure. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_abc598b3a1783194380b9ab22d9341357}\label{classpsql_abc598b3a1783194380b9ab22d9341357}} 
+\mbox{\Hypertarget{classpsql_a0beec2f098edc0961f27774cdd54d09b}\label{classpsql_a0beec2f098edc0961f27774cdd54d09b}} 
 \index{psql@{psql}!count\+Accepted@{count\+Accepted}}
 \index{count\+Accepted@{count\+Accepted}!psql@{psql}}
 \subsubsection{\texorpdfstring{count\+Accepted()}{countAccepted()}}
-{\footnotesize\ttfamily int psql\+::count\+Accepted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double psql\+::count\+Accepted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\mbox{\hyperlink{classpsql_abc598b3a1783194380b9ab22d9341357}{psql\+::count\+Accepted}} Counts the number of applications that have been accepted and has lead to an employment. 
+\mbox{\hyperlink{classpsql_a0beec2f098edc0961f27774cdd54d09b}{psql\+::count\+Accepted}} Counts the number of applications that have been accepted and has lead to an employment. 
 
 \begin{DoxyReturn}{Returns}
 The number of accepted applications. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_accf6323167fbe0c622b3c14a6e454195}\label{classpsql_accf6323167fbe0c622b3c14a6e454195}} 
+\mbox{\Hypertarget{classpsql_a40541367c3af9c0ac94e2fb92f00f53c}\label{classpsql_a40541367c3af9c0ac94e2fb92f00f53c}} 
 \index{psql@{psql}!count\+Declined\+Applications@{count\+Declined\+Applications}}
 \index{count\+Declined\+Applications@{count\+Declined\+Applications}!psql@{psql}}
 \subsubsection{\texorpdfstring{count\+Declined\+Applications()}{countDeclinedApplications()}}
-{\footnotesize\ttfamily int psql\+::count\+Declined\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double psql\+::count\+Declined\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\mbox{\hyperlink{classpsql_accf6323167fbe0c622b3c14a6e454195}{psql\+::count\+Declined\+Applications}} Counts the number of applications that have been declined/rejected by the employer. 
+\mbox{\hyperlink{classpsql_a40541367c3af9c0ac94e2fb92f00f53c}{psql\+::count\+Declined\+Applications}} Counts the number of applications that have been declined/rejected by the employer. 
 
 \begin{DoxyReturn}{Returns}
 The number of declined/rejected applications 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a5d382c01e6d7957e628ade338ddaf70b}\label{classpsql_a5d382c01e6d7957e628ade338ddaf70b}} 
+\mbox{\Hypertarget{classpsql_a84c1fdea2d09783a39677c4f79d924fc}\label{classpsql_a84c1fdea2d09783a39677c4f79d924fc}} 
 \index{psql@{psql}!count\+Interviews@{count\+Interviews}}
 \index{count\+Interviews@{count\+Interviews}!psql@{psql}}
 \subsubsection{\texorpdfstring{count\+Interviews()}{countInterviews()}}
-{\footnotesize\ttfamily int psql\+::count\+Interviews (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double psql\+::count\+Interviews (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\mbox{\hyperlink{classpsql_a5d382c01e6d7957e628ade338ddaf70b}{psql\+::count\+Interviews}} Counts the number of applications which the emplyer found interesting and called for an interview 
+\mbox{\hyperlink{classpsql_a84c1fdea2d09783a39677c4f79d924fc}{psql\+::count\+Interviews}} Counts the number of applications which the emplyer found interesting and called for an interview 
 
 \begin{DoxyReturn}{Returns}
 The number of applications that \char`\"{}led\char`\"{} to an interview. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_ac6bb08051a489a4c36cad8bb7f1abd1c}\label{classpsql_ac6bb08051a489a4c36cad8bb7f1abd1c}} 
+\mbox{\Hypertarget{classpsql_a8673a80968d293cd3ead6e6e9da8dd8a}\label{classpsql_a8673a80968d293cd3ead6e6e9da8dd8a}} 
 \index{psql@{psql}!count\+Registered\+Applications@{count\+Registered\+Applications}}
 \index{count\+Registered\+Applications@{count\+Registered\+Applications}!psql@{psql}}
 \subsubsection{\texorpdfstring{count\+Registered\+Applications()}{countRegisteredApplications()}}
-{\footnotesize\ttfamily int psql\+::count\+Registered\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double psql\+::count\+Registered\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\mbox{\hyperlink{classpsql_ac6bb08051a489a4c36cad8bb7f1abd1c}{psql\+::count\+Registered\+Applications}} Counts the number of registered job applications that have not yet been sent (status id 1) 
+\mbox{\hyperlink{classpsql_a8673a80968d293cd3ead6e6e9da8dd8a}{psql\+::count\+Registered\+Applications}} Counts the number of registered job applications that have not yet been sent (status id 1) 
 
 \begin{DoxyReturn}{Returns}
 The number of registered job applications. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a1aa2281c867a8a2916963ec9391c2320}\label{classpsql_a1aa2281c867a8a2916963ec9391c2320}} 
+\mbox{\Hypertarget{classpsql_af5e6768f6c51ac7b94571505f7a628e4}\label{classpsql_af5e6768f6c51ac7b94571505f7a628e4}} 
 \index{psql@{psql}!count\+Sent\+Applications@{count\+Sent\+Applications}}
 \index{count\+Sent\+Applications@{count\+Sent\+Applications}!psql@{psql}}
 \subsubsection{\texorpdfstring{count\+Sent\+Applications()}{countSentApplications()}}
-{\footnotesize\ttfamily int psql\+::count\+Sent\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double psql\+::count\+Sent\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\mbox{\hyperlink{classpsql_a1aa2281c867a8a2916963ec9391c2320}{psql\+::count\+Sent\+Applications}} Counts the number of sent applications (status id 2) 
+\mbox{\hyperlink{classpsql_af5e6768f6c51ac7b94571505f7a628e4}{psql\+::count\+Sent\+Applications}} Counts the number of sent applications (status id 2) 
 
 \begin{DoxyReturn}{Returns}
 The number of sent applications. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_afc6d7fe8bd179fb7341917b430883963}\label{classpsql_afc6d7fe8bd179fb7341917b430883963}} 
+\mbox{\Hypertarget{classpsql_a496d0a426a1539bf9babd1dd4e9fcd96}\label{classpsql_a496d0a426a1539bf9babd1dd4e9fcd96}} 
 \index{psql@{psql}!count\+Total\+Applications@{count\+Total\+Applications}}
 \index{count\+Total\+Applications@{count\+Total\+Applications}!psql@{psql}}
 \subsubsection{\texorpdfstring{count\+Total\+Applications()}{countTotalApplications()}}
-{\footnotesize\ttfamily int psql\+::count\+Total\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double psql\+::count\+Total\+Applications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\mbox{\hyperlink{classpsql_afc6d7fe8bd179fb7341917b430883963}{psql\+::count\+Total\+Applications}} Counts the total registered applications (registered, sent, interested in interview, declined, etc. 
+\mbox{\hyperlink{classpsql_a496d0a426a1539bf9babd1dd4e9fcd96}{psql\+::count\+Total\+Applications}} Counts the total registered applications (registered, sent, interested in interview, declined, etc. 
 
 \begin{DoxyReturn}{Returns}
 The total number of job applications in the database. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classpsql_a0d16f7ff59525da8743b10cb5ca29636}\label{classpsql_a0d16f7ff59525da8743b10cb5ca29636}} 
+\mbox{\Hypertarget{classpsql_a70ad9f4b00735a55232f46da4edd2edc}\label{classpsql_a70ad9f4b00735a55232f46da4edd2edc}} 
 \index{psql@{psql}!count\+Written\+But\+Not\+Sent@{count\+Written\+But\+Not\+Sent}}
 \index{count\+Written\+But\+Not\+Sent@{count\+Written\+But\+Not\+Sent}!psql@{psql}}
 \subsubsection{\texorpdfstring{count\+Written\+But\+Not\+Sent()}{countWrittenButNotSent()}}
-{\footnotesize\ttfamily int psql\+::count\+Written\+But\+Not\+Sent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double psql\+::count\+Written\+But\+Not\+Sent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\mbox{\hyperlink{classpsql_a0d16f7ff59525da8743b10cb5ca29636}{psql\+::count\+Written\+But\+Not\+Sent}} Counts the number of applications that have been written, but not yet sent. 
+\mbox{\hyperlink{classpsql_a70ad9f4b00735a55232f46da4edd2edc}{psql\+::count\+Written\+But\+Not\+Sent}} Counts the number of applications that have been written, but not yet sent. 
 
 \begin{DoxyReturn}{Returns}
 The number of applications that have been written, but not yet sent. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ae9e3ee06f4a5ecd4178662dfa0655fe1}\label{classpsql_ae9e3ee06f4a5ecd4178662dfa0655fe1}} 
+\index{psql@{psql}!create\+Procedure\+New\+Application\+ID@{create\+Procedure\+New\+Application\+ID}}
+\index{create\+Procedure\+New\+Application\+ID@{create\+Procedure\+New\+Application\+ID}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Procedure\+New\+Application\+I\+D()}{createProcedureNewApplicationID()}}
+{\footnotesize\ttfamily bool psql\+::create\+Procedure\+New\+Application\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_ae9e3ee06f4a5ecd4178662dfa0655fe1}{psql\+::create\+Procedure\+New\+Application\+ID}} Creates a stored procedure that returns which is run when a new row is inserted in the application table 
+
+\begin{DoxyReturn}{Returns}
+True on success and false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a565bfc828ecb6b5621354128773494fd}\label{classpsql_a565bfc828ecb6b5621354128773494fd}} 
+\index{psql@{psql}!create\+Procedure\+New\+Country\+ID@{create\+Procedure\+New\+Country\+ID}}
+\index{create\+Procedure\+New\+Country\+ID@{create\+Procedure\+New\+Country\+ID}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Procedure\+New\+Country\+I\+D()}{createProcedureNewCountryID()}}
+{\footnotesize\ttfamily bool psql\+::create\+Procedure\+New\+Country\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a565bfc828ecb6b5621354128773494fd}{psql\+::create\+Procedure\+New\+Country\+ID}} Creates a stored procedure that returns which is run when a new row is inserted in the country table 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ade0c7fa4f019c3f349230af09b1de49e}\label{classpsql_ade0c7fa4f019c3f349230af09b1de49e}} 
+\index{psql@{psql}!create\+Procedure\+New\+Town\+ID@{create\+Procedure\+New\+Town\+ID}}
+\index{create\+Procedure\+New\+Town\+ID@{create\+Procedure\+New\+Town\+ID}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Procedure\+New\+Town\+I\+D()}{createProcedureNewTownID()}}
+{\footnotesize\ttfamily bool psql\+::create\+Procedure\+New\+Town\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_ade0c7fa4f019c3f349230af09b1de49e}{psql\+::create\+Procedure\+New\+Town\+ID}} Creates a stored procedure that returns which is run when a new row is inserted in the town table 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a28f3e3d6309e3ce57493db284c099946}\label{classpsql_a28f3e3d6309e3ce57493db284c099946}} 
+\index{psql@{psql}!create\+Procedure\+Update\+Application@{create\+Procedure\+Update\+Application}}
+\index{create\+Procedure\+Update\+Application@{create\+Procedure\+Update\+Application}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Procedure\+Update\+Application()}{createProcedureUpdateApplication()}}
+{\footnotesize\ttfamily bool psql\+::create\+Procedure\+Update\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a28f3e3d6309e3ce57493db284c099946}{psql\+::create\+Procedure\+Update\+Application}} Creates a stored procedure that returns which is run when data in the application table is updated 
+
+\begin{DoxyReturn}{Returns}
+True if the creation succeeds and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a54c75d0896ee6aad58e22c830895c106}\label{classpsql_a54c75d0896ee6aad58e22c830895c106}} 
+\index{psql@{psql}!create\+Sequence\+Application\+I\+D\+Seq@{create\+Sequence\+Application\+I\+D\+Seq}}
+\index{create\+Sequence\+Application\+I\+D\+Seq@{create\+Sequence\+Application\+I\+D\+Seq}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Sequence\+Application\+I\+D\+Seq()}{createSequenceApplicationIDSeq()}}
+{\footnotesize\ttfamily bool psql\+::create\+Sequence\+Application\+I\+D\+Seq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a54c75d0896ee6aad58e22c830895c106}{psql\+::create\+Sequence\+Application\+I\+D\+Seq}} Creates the seqence for incrementing the application ID 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_aa907c84f592212451d3d59a2061adabd}\label{classpsql_aa907c84f592212451d3d59a2061adabd}} 
+\index{psql@{psql}!create\+Sequence\+Country\+I\+D\+Seq@{create\+Sequence\+Country\+I\+D\+Seq}}
+\index{create\+Sequence\+Country\+I\+D\+Seq@{create\+Sequence\+Country\+I\+D\+Seq}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Sequence\+Country\+I\+D\+Seq()}{createSequenceCountryIDSeq()}}
+{\footnotesize\ttfamily bool psql\+::create\+Sequence\+Country\+I\+D\+Seq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_aa907c84f592212451d3d59a2061adabd}{psql\+::create\+Sequence\+Country\+I\+D\+Seq}} Creates the sequence for incrementing the country ID 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ae882aa80b2d629383fc2e60aecfd421a}\label{classpsql_ae882aa80b2d629383fc2e60aecfd421a}} 
+\index{psql@{psql}!create\+Sequence\+Status\+I\+D\+Seq@{create\+Sequence\+Status\+I\+D\+Seq}}
+\index{create\+Sequence\+Status\+I\+D\+Seq@{create\+Sequence\+Status\+I\+D\+Seq}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Sequence\+Status\+I\+D\+Seq()}{createSequenceStatusIDSeq()}}
+{\footnotesize\ttfamily bool psql\+::create\+Sequence\+Status\+I\+D\+Seq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_ae882aa80b2d629383fc2e60aecfd421a}{psql\+::create\+Sequence\+Status\+I\+D\+Seq}} Creates a sequence for increasing the status ID. 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a6ce21cb5a1e77cb0c280e2932d2b557d}\label{classpsql_a6ce21cb5a1e77cb0c280e2932d2b557d}} 
+\index{psql@{psql}!create\+Sequence\+Town\+I\+D\+Seq@{create\+Sequence\+Town\+I\+D\+Seq}}
+\index{create\+Sequence\+Town\+I\+D\+Seq@{create\+Sequence\+Town\+I\+D\+Seq}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Sequence\+Town\+I\+D\+Seq()}{createSequenceTownIDSeq()}}
+{\footnotesize\ttfamily bool psql\+::create\+Sequence\+Town\+I\+D\+Seq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a6ce21cb5a1e77cb0c280e2932d2b557d}{psql\+::create\+Sequence\+Town\+I\+D\+Seq}} Creates the sequence for incrementing the town ID 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a36f6a197a2214b9c71cfcd620334835d}\label{classpsql_a36f6a197a2214b9c71cfcd620334835d}} 
+\index{psql@{psql}!create\+Table\+Application@{create\+Table\+Application}}
+\index{create\+Table\+Application@{create\+Table\+Application}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Table\+Application()}{createTableApplication()}}
+{\footnotesize\ttfamily bool psql\+::create\+Table\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a36f6a197a2214b9c71cfcd620334835d}{psql\+::create\+Table\+Application}} Creates the table \char`\"{}soknad\char`\"{} 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ab6e496d8471f3cd9c5c082a6ba75c25b}\label{classpsql_ab6e496d8471f3cd9c5c082a6ba75c25b}} 
+\index{psql@{psql}!create\+Table\+Country@{create\+Table\+Country}}
+\index{create\+Table\+Country@{create\+Table\+Country}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Table\+Country()}{createTableCountry()}}
+{\footnotesize\ttfamily bool psql\+::create\+Table\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_ab6e496d8471f3cd9c5c082a6ba75c25b}{psql\+::create\+Table\+Country}} Creates the table \char`\"{}land\char`\"{}. 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a427ad0f483c8ab7a4d23912278bc69e8}\label{classpsql_a427ad0f483c8ab7a4d23912278bc69e8}} 
+\index{psql@{psql}!create\+Table\+Status@{create\+Table\+Status}}
+\index{create\+Table\+Status@{create\+Table\+Status}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Table\+Status()}{createTableStatus()}}
+{\footnotesize\ttfamily bool psql\+::create\+Table\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a427ad0f483c8ab7a4d23912278bc69e8}{psql\+::create\+Table\+Status}} Creates the table \char`\"{}status\char`\"{} 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a95d1f522766174bd2c6a7b94f725719c}\label{classpsql_a95d1f522766174bd2c6a7b94f725719c}} 
+\index{psql@{psql}!create\+Table\+Town@{create\+Table\+Town}}
+\index{create\+Table\+Town@{create\+Table\+Town}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+Table\+Town()}{createTableTown()}}
+{\footnotesize\ttfamily bool psql\+::create\+Table\+Town (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a95d1f522766174bd2c6a7b94f725719c}{psql\+::create\+Table\+Town}} Creates the table \char`\"{}sted\char`\"{} 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ad6fb8e1e7177c7996f297d477ecceb27}\label{classpsql_ad6fb8e1e7177c7996f297d477ecceb27}} 
+\index{psql@{psql}!create\+View\+Application@{create\+View\+Application}}
+\index{create\+View\+Application@{create\+View\+Application}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+View\+Application()}{createViewApplication()}}
+{\footnotesize\ttfamily bool psql\+::create\+View\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_ad6fb8e1e7177c7996f297d477ecceb27}{psql\+::create\+View\+Application}} Creates the view \char`\"{}view\+\_\+soknad\char`\"{} This requieres the table \char`\"{}soknad\char`\"{} (application) to be present. 
+
+\begin{DoxyReturn}{Returns}
+True on success and false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ac5b1230ac405a600b67b144060b33a0d}\label{classpsql_ac5b1230ac405a600b67b144060b33a0d}} 
+\index{psql@{psql}!create\+View\+Towns@{create\+View\+Towns}}
+\index{create\+View\+Towns@{create\+View\+Towns}!psql@{psql}}
+\subsubsection{\texorpdfstring{create\+View\+Towns()}{createViewTowns()}}
+{\footnotesize\ttfamily bool psql\+::create\+View\+Towns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_ac5b1230ac405a600b67b144060b33a0d}{psql\+::create\+View\+Towns}} Creates the view\+\_\+sted. This requires the table \char`\"{}sted\char`\"{} (Town, City, place) to be present in the database. 
+
+\begin{DoxyReturn}{Returns}
+True on success and false otherwise. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classpsql_a999ee8e2d813892411ef502ebc055a79}\label{classpsql_a999ee8e2d813892411ef502ebc055a79}} 
 \index{psql@{psql}!delete\+Application@{delete\+Application}}
@@ -946,6 +1173,58 @@ True on success and false on failure
 {\em new\+User} & The new username \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classpsql_a117b616053845f1b7295b21a06f008fd}\label{classpsql_a117b616053845f1b7295b21a06f008fd}} 
+\index{psql@{psql}!table\+Application\+Exists@{table\+Application\+Exists}}
+\index{table\+Application\+Exists@{table\+Application\+Exists}!psql@{psql}}
+\subsubsection{\texorpdfstring{table\+Application\+Exists()}{tableApplicationExists()}}
+{\footnotesize\ttfamily bool psql\+::table\+Application\+Exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a117b616053845f1b7295b21a06f008fd}{psql\+::table\+Application\+Exists}} Checks if the table \char`\"{}soknad\char`\"{} exists in the database by attempting to fetch data from it. 
+
+\begin{DoxyReturn}{Returns}
+True if the table exists in the database and false if it does not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_ae0ab0012c58471bd3fd63c286fb22224}\label{classpsql_ae0ab0012c58471bd3fd63c286fb22224}} 
+\index{psql@{psql}!table\+Country\+Exists@{table\+Country\+Exists}}
+\index{table\+Country\+Exists@{table\+Country\+Exists}!psql@{psql}}
+\subsubsection{\texorpdfstring{table\+Country\+Exists()}{tableCountryExists()}}
+{\footnotesize\ttfamily bool psql\+::table\+Country\+Exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_ae0ab0012c58471bd3fd63c286fb22224}{psql\+::table\+Country\+Exists}} Checks if the table \char`\"{}land\char`\"{} exists in the database by attempting to fetch data fram the table. 
+
+\begin{DoxyReturn}{Returns}
+True if the table exists in the database and false if it does not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a3f8bac89bd0cee3af77e47e5c555543d}\label{classpsql_a3f8bac89bd0cee3af77e47e5c555543d}} 
+\index{psql@{psql}!table\+Status\+Exists@{table\+Status\+Exists}}
+\index{table\+Status\+Exists@{table\+Status\+Exists}!psql@{psql}}
+\subsubsection{\texorpdfstring{table\+Status\+Exists()}{tableStatusExists()}}
+{\footnotesize\ttfamily bool psql\+::table\+Status\+Exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a3f8bac89bd0cee3af77e47e5c555543d}{psql\+::table\+Status\+Exists}} Checks if the table \char`\"{}status\char`\"{} exists in the database py attempting to pull data from the table. 
+
+\begin{DoxyReturn}{Returns}
+True if the table exists and false if it does not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a717162b7d7faa0fb41b5a526e42de4ac}\label{classpsql_a717162b7d7faa0fb41b5a526e42de4ac}} 
+\index{psql@{psql}!table\+Town\+Exists@{table\+Town\+Exists}}
+\index{table\+Town\+Exists@{table\+Town\+Exists}!psql@{psql}}
+\subsubsection{\texorpdfstring{table\+Town\+Exists()}{tableTownExists()}}
+{\footnotesize\ttfamily bool psql\+::table\+Town\+Exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a717162b7d7faa0fb41b5a526e42de4ac}{psql\+::table\+Town\+Exists}} Checks if the table \char`\"{}sted\char`\"{} (town) exists by attempting to fetch data from it 
+
+\begin{DoxyReturn}{Returns}
+True if the table exists and false if it does\textquotesingle{}nt 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classpsql_a836eea3c6deb2d6a3a357193a99d6ee7}\label{classpsql_a836eea3c6deb2d6a3a357193a99d6ee7}} 
 \index{psql@{psql}!update\+Application@{update\+Application}}
 \index{update\+Application@{update\+Application}!psql@{psql}}

@@ -1,4 +1,4 @@
-.TH "psql" 3 "Wed Feb 7 2018" "My Project" \" -*- nroff -*-
+.TH "psql" 3 "Sat Mar 3 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -93,6 +93,84 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::deleteStatus\fP Deletes an existing status from the database\&. "
 .ti -1c
+.RI "bool \fBtableApplicationExists\fP ()"
+.br
+.RI "\fBpsql::tableApplicationExists\fP Checks if the table 'soknad' exists in the database by attempting to fetch data from it\&. "
+.ti -1c
+.RI "bool \fBtableCountryExists\fP ()"
+.br
+.RI "\fBpsql::tableCountryExists\fP Checks if the table 'land' exists in the database by attempting to fetch data fram the table\&. "
+.ti -1c
+.RI "bool \fBtableStatusExists\fP ()"
+.br
+.RI "\fBpsql::tableStatusExists\fP Checks if the table 'status' exists in the database py attempting to pull data from the table\&. "
+.ti -1c
+.RI "bool \fBtableTownExists\fP ()"
+.br
+.RI "\fBpsql::tableTownExists\fP Checks if the table 'sted' (town) exists by attempting to fetch data from it "
+.ti -1c
+.RI "bool \fBviewApplicationExists\fP ()"
+.br
+.ti -1c
+.RI "bool \fBviewTownExists\fP ()"
+.br
+.ti -1c
+.RI "bool \fBcreateTableApplication\fP ()"
+.br
+.RI "\fBpsql::createTableApplication\fP Creates the table 'soknad' "
+.ti -1c
+.RI "bool \fBcreateTableCountry\fP ()"
+.br
+.RI "\fBpsql::createTableCountry\fP Creates the table 'land'\&. "
+.ti -1c
+.RI "bool \fBcreateTableStatus\fP ()"
+.br
+.RI "\fBpsql::createTableStatus\fP Creates the table 'status' "
+.ti -1c
+.RI "bool \fBcreateTableTown\fP ()"
+.br
+.RI "\fBpsql::createTableTown\fP Creates the table 'sted' "
+.ti -1c
+.RI "bool \fBcreateViewApplication\fP ()"
+.br
+.RI "\fBpsql::createViewApplication\fP Creates the view 'view_soknad' This requieres the table 'soknad' (application) to be present\&. "
+.ti -1c
+.RI "bool \fBcreateViewTowns\fP ()"
+.br
+.RI "\fBpsql::createViewTowns\fP Creates the view_sted\&. This requires the table 'sted' (Town, City, place) to be present in the database\&. "
+.ti -1c
+.RI "bool \fBcreateProcedureNewApplicationID\fP ()"
+.br
+.RI "\fBpsql::createProcedureNewApplicationID\fP Creates a stored procedure that returns which is run when a new row is inserted in the application table "
+.ti -1c
+.RI "bool \fBcreateProcedureUpdateApplication\fP ()"
+.br
+.RI "\fBpsql::createProcedureUpdateApplication\fP Creates a stored procedure that returns which is run when data in the application table is updated "
+.ti -1c
+.RI "bool \fBcreateProcedureNewCountryID\fP ()"
+.br
+.RI "\fBpsql::createProcedureNewCountryID\fP Creates a stored procedure that returns which is run when a new row is inserted in the country table "
+.ti -1c
+.RI "bool \fBcreateProcedureNewTownID\fP ()"
+.br
+.RI "\fBpsql::createProcedureNewTownID\fP Creates a stored procedure that returns which is run when a new row is inserted in the town table "
+.ti -1c
+.RI "bool \fBcreateSequenceApplicationIDSeq\fP ()"
+.br
+.RI "\fBpsql::createSequenceApplicationIDSeq\fP Creates the seqence for incrementing the application ID "
+.ti -1c
+.RI "bool \fBcreateSequenceCountryIDSeq\fP ()"
+.br
+.RI "\fBpsql::createSequenceCountryIDSeq\fP Creates the sequence for incrementing the country ID "
+.ti -1c
+.RI "bool \fBcreateSequenceStatusIDSeq\fP ()"
+.br
+.RI "\fBpsql::createSequenceStatusIDSeq\fP Creates a sequence for increasing the status ID\&. "
+.ti -1c
+.RI "bool \fBcreateSequenceTownIDSeq\fP ()"
+.br
+.RI "\fBpsql::createSequenceTownIDSeq\fP Creates the sequence for incrementing the town ID "
+.ti -1c
 .RI "QString \fBgetError\fP ()"
 .br
 .RI "\fBpsql::getError\fP If an operation goes wrong, this method can be used to get the returned error message\&. "
@@ -101,31 +179,34 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::setError\fP If an operation goes wrong, this method saves the contents of the error message\&. "
 .ti -1c
-.RI "int \fBcountTotalApplications\fP ()"
+.RI "double \fBcountTotalApplications\fP ()"
 .br
 .RI "\fBpsql::countTotalApplications\fP Counts the total registered applications (registered, sent, interested in interview, declined, etc\&. "
 .ti -1c
-.RI "int \fBcountRegisteredApplications\fP ()"
+.RI "double \fBcountRegisteredApplications\fP ()"
 .br
 .RI "\fBpsql::countRegisteredApplications\fP Counts the number of registered job applications that have not yet been sent (status id 1) "
 .ti -1c
-.RI "int \fBcountSentApplications\fP ()"
+.RI "double \fBcountSentApplications\fP ()"
 .br
 .RI "\fBpsql::countSentApplications\fP Counts the number of sent applications (status id 2) "
 .ti -1c
-.RI "int \fBcountInterviews\fP ()"
+.RI "double \fBcountInterviews\fP ()"
 .br
 .RI "\fBpsql::countInterviews\fP Counts the number of applications which the emplyer found interesting and called for an interview "
 .ti -1c
-.RI "int \fBcountDeclinedApplications\fP ()"
+.RI "double \fBcountDeclinedApplications\fP ()"
 .br
 .RI "\fBpsql::countDeclinedApplications\fP Counts the number of applications that have been declined/rejected by the employer\&. "
 .ti -1c
-.RI "int \fBcountWrittenButNotSent\fP ()"
+.RI "double \fBcountWrittenButNotSent\fP ()"
 .br
 .RI "\fBpsql::countWrittenButNotSent\fP Counts the number of applications that have been written, but not yet sent\&. "
 .ti -1c
-.RI "int \fBcountAccepted\fP ()"
+.RI "double \fBcountDeclinedAfterInterview\fP ()"
+.br
+.ti -1c
+.RI "double \fBcountAccepted\fP ()"
 .br
 .RI "\fBpsql::countAccepted\fP Counts the number of applications that have been accepted and has lead to an employment\&. "
 .ti -1c
@@ -242,7 +323,7 @@ True on successful connection and false on failure\&.
 .RE
 .PP
 
-.SS "int psql::countAccepted ()"
+.SS "double psql::countAccepted ()"
 
 .PP
 \fBpsql::countAccepted\fP Counts the number of applications that have been accepted and has lead to an employment\&. 
@@ -253,7 +334,7 @@ The number of accepted applications\&.
 .RE
 .PP
 
-.SS "int psql::countDeclinedApplications ()"
+.SS "double psql::countDeclinedApplications ()"
 
 .PP
 \fBpsql::countDeclinedApplications\fP Counts the number of applications that have been declined/rejected by the employer\&. 
@@ -264,7 +345,7 @@ The number of declined/rejected applications
 .RE
 .PP
 
-.SS "int psql::countInterviews ()"
+.SS "double psql::countInterviews ()"
 
 .PP
 \fBpsql::countInterviews\fP Counts the number of applications which the emplyer found interesting and called for an interview 
@@ -275,7 +356,7 @@ The number of applications that 'led' to an interview\&.
 .RE
 .PP
 
-.SS "int psql::countRegisteredApplications ()"
+.SS "double psql::countRegisteredApplications ()"
 
 .PP
 \fBpsql::countRegisteredApplications\fP Counts the number of registered job applications that have not yet been sent (status id 1) 
@@ -286,7 +367,7 @@ The number of registered job applications\&.
 .RE
 .PP
 
-.SS "int psql::countSentApplications ()"
+.SS "double psql::countSentApplications ()"
 
 .PP
 \fBpsql::countSentApplications\fP Counts the number of sent applications (status id 2) 
@@ -297,7 +378,7 @@ The number of sent applications\&.
 .RE
 .PP
 
-.SS "int psql::countTotalApplications ()"
+.SS "double psql::countTotalApplications ()"
 
 .PP
 \fBpsql::countTotalApplications\fP Counts the total registered applications (registered, sent, interested in interview, declined, etc\&. 
@@ -308,7 +389,7 @@ The total number of job applications in the database\&.
 .RE
 .PP
 
-.SS "int psql::countWrittenButNotSent ()"
+.SS "double psql::countWrittenButNotSent ()"
 
 .PP
 \fBpsql::countWrittenButNotSent\fP Counts the number of applications that have been written, but not yet sent\&. 
@@ -316,6 +397,160 @@ The total number of job applications in the database\&.
 \fBReturns:\fP
 .RS 4
 The number of applications that have been written, but not yet sent\&. 
+.RE
+.PP
+
+.SS "bool psql::createProcedureNewApplicationID ()"
+
+.PP
+\fBpsql::createProcedureNewApplicationID\fP Creates a stored procedure that returns which is run when a new row is inserted in the application table 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false otherwise 
+.RE
+.PP
+
+.SS "bool psql::createProcedureNewCountryID ()"
+
+.PP
+\fBpsql::createProcedureNewCountryID\fP Creates a stored procedure that returns which is run when a new row is inserted in the country table 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createProcedureNewTownID ()"
+
+.PP
+\fBpsql::createProcedureNewTownID\fP Creates a stored procedure that returns which is run when a new row is inserted in the town table 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createProcedureUpdateApplication ()"
+
+.PP
+\fBpsql::createProcedureUpdateApplication\fP Creates a stored procedure that returns which is run when data in the application table is updated 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the creation succeeds and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createSequenceApplicationIDSeq ()"
+
+.PP
+\fBpsql::createSequenceApplicationIDSeq\fP Creates the seqence for incrementing the application ID 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createSequenceCountryIDSeq ()"
+
+.PP
+\fBpsql::createSequenceCountryIDSeq\fP Creates the sequence for incrementing the country ID 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createSequenceStatusIDSeq ()"
+
+.PP
+\fBpsql::createSequenceStatusIDSeq\fP Creates a sequence for increasing the status ID\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createSequenceTownIDSeq ()"
+
+.PP
+\fBpsql::createSequenceTownIDSeq\fP Creates the sequence for incrementing the town ID 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createTableApplication ()"
+
+.PP
+\fBpsql::createTableApplication\fP Creates the table 'soknad' 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createTableCountry ()"
+
+.PP
+\fBpsql::createTableCountry\fP Creates the table 'land'\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createTableStatus ()"
+
+.PP
+\fBpsql::createTableStatus\fP Creates the table 'status' 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createTableTown ()"
+
+.PP
+\fBpsql::createTableTown\fP Creates the table 'sted' 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createViewApplication ()"
+
+.PP
+\fBpsql::createViewApplication\fP Creates the view 'view_soknad' This requieres the table 'soknad' (application) to be present\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false on failure 
+.RE
+.PP
+
+.SS "bool psql::createViewTowns ()"
+
+.PP
+\fBpsql::createViewTowns\fP Creates the view_sted\&. This requires the table 'sted' (Town, City, place) to be present in the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True on success and false otherwise\&. 
 .RE
 .PP
 
@@ -943,6 +1178,50 @@ True on success and false on failure
 .RE
 .PP
 
+.SS "bool psql::tableApplicationExists ()"
+
+.PP
+\fBpsql::tableApplicationExists\fP Checks if the table 'soknad' exists in the database by attempting to fetch data from it\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the table exists in the database and false if it does not\&. 
+.RE
+.PP
+
+.SS "bool psql::tableCountryExists ()"
+
+.PP
+\fBpsql::tableCountryExists\fP Checks if the table 'land' exists in the database by attempting to fetch data fram the table\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the table exists in the database and false if it does not\&. 
+.RE
+.PP
+
+.SS "bool psql::tableStatusExists ()"
+
+.PP
+\fBpsql::tableStatusExists\fP Checks if the table 'status' exists in the database py attempting to pull data from the table\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the table exists and false if it does not\&. 
+.RE
+.PP
+
+.SS "bool psql::tableTownExists ()"
+
+.PP
+\fBpsql::tableTownExists\fP Checks if the table 'sted' (town) exists by attempting to fetch data from it 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the table exists and false if it does'nt 
+.RE
+.PP
+
 .SS "bool psql::updateApplication (QString title, QString company, int cityID, int statusID, QString date, QString motivation, int id)"
 
 .PP
@@ -1029,4 +1308,4 @@ True on success and false on failure\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for My Project from the source code\&.
+Generated automatically by Doxygen for Jobber from the source code\&.

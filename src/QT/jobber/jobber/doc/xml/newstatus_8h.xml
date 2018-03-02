@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="newstatus_8h" kind="file" language="C++">
     <compoundname>newstatus.h</compoundname>
     <includes local="no">QCloseEvent</includes>
@@ -9,17 +9,15 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="newstatus_8cpp" local="yes">newstatus.cpp</includedby>
     <incdepgraph>
-      <node id="210">
+      <node id="211">
         <label>QCloseEvent</label>
       </node>
-      <node id="221">
+      <node id="222">
         <label>QMessageBox</label>
       </node>
-      <node id="211">
+      <node id="212">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="212" relation="include">
-        </childnode>
         <childnode refid="213" relation="include">
         </childnode>
         <childnode refid="214" relation="include">
@@ -34,44 +32,46 @@
         </childnode>
         <childnode refid="219" relation="include">
         </childnode>
+        <childnode refid="220" relation="include">
+        </childnode>
       </node>
-      <node id="220">
+      <node id="221">
         <label>QMainWindow</label>
       </node>
-      <node id="214">
+      <node id="215">
         <label>QLinkedList</label>
       </node>
-      <node id="209">
+      <node id="210">
         <label>newstatus.h</label>
         <link refid="newstatus_8h"/>
-        <childnode refid="210" relation="include">
-        </childnode>
         <childnode refid="211" relation="include">
         </childnode>
-        <childnode refid="220" relation="include">
+        <childnode refid="212" relation="include">
         </childnode>
         <childnode refid="221" relation="include">
         </childnode>
+        <childnode refid="222" relation="include">
+        </childnode>
       </node>
-      <node id="213">
+      <node id="214">
         <label>QApplication</label>
       </node>
-      <node id="216">
+      <node id="217">
         <label>QDebug</label>
       </node>
-      <node id="217">
+      <node id="218">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="212">
+      <node id="213">
         <label>sstream</label>
       </node>
-      <node id="218">
+      <node id="219">
         <label>pqxx/result</label>
       </node>
-      <node id="215">
+      <node id="216">
         <label>QException</label>
       </node>
-      <node id="219">
+      <node id="220">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -122,10 +122,10 @@
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_status" kindref="compound">NewStatus</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a5a09743191f617f006bc89e4b35984bf" kindref="member">NewStatus</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_new_status" kindref="compound">NewStatus</ref>();</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStatus(QString<sp/>newStatus);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getStatus();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" kindref="member">setStatus</ref>(QString<sp/>newStatus);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_new_status_1a7ea744ad1645c5954000983d50947154" kindref="member">getStatus</ref>();</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::NewStatus<sp/>*ui;</highlight></codeline>

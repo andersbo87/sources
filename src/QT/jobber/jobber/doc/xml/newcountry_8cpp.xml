@@ -1,22 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="newcountry_8cpp" kind="file" language="C++">
     <compoundname>newcountry.cpp</compoundname>
     <includes refid="newcountry_8h" local="yes">newcountry.h</includes>
     <includes local="yes">ui_newcountry.h</includes>
     <includes local="no">QPushButton</includes>
     <incdepgraph>
-      <node id="131">
+      <node id="132">
         <label>QCloseEvent</label>
       </node>
-      <node id="142">
+      <node id="143">
         <label>QMessageBox</label>
       </node>
-      <node id="132">
+      <node id="133">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="133" relation="include">
-        </childnode>
         <childnode refid="134" relation="include">
         </childnode>
         <childnode refid="135" relation="include">
@@ -31,60 +29,62 @@
         </childnode>
         <childnode refid="140" relation="include">
         </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
       </node>
-      <node id="141">
+      <node id="142">
         <label>QMainWindow</label>
       </node>
-      <node id="135">
+      <node id="136">
         <label>QLinkedList</label>
       </node>
-      <node id="143">
+      <node id="144">
         <label>ui_newcountry.h</label>
       </node>
-      <node id="134">
+      <node id="135">
         <label>QApplication</label>
       </node>
-      <node id="137">
+      <node id="138">
         <label>QDebug</label>
       </node>
-      <node id="138">
+      <node id="139">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="133">
+      <node id="134">
         <label>sstream</label>
       </node>
-      <node id="144">
+      <node id="145">
         <label>QPushButton</label>
       </node>
-      <node id="139">
+      <node id="140">
         <label>pqxx/result</label>
       </node>
-      <node id="136">
+      <node id="137">
         <label>QException</label>
       </node>
-      <node id="129">
+      <node id="130">
         <label>newcountry.cpp</label>
         <link refid="newcountry_8cpp"/>
-        <childnode refid="130" relation="include">
-        </childnode>
-        <childnode refid="143" relation="include">
+        <childnode refid="131" relation="include">
         </childnode>
         <childnode refid="144" relation="include">
         </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
       </node>
-      <node id="130">
+      <node id="131">
         <label>newcountry.h</label>
         <link refid="newcountry_8h_source"/>
-        <childnode refid="131" relation="include">
-        </childnode>
         <childnode refid="132" relation="include">
         </childnode>
-        <childnode refid="141" relation="include">
+        <childnode refid="133" relation="include">
         </childnode>
         <childnode refid="142" relation="include">
         </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
       </node>
-      <node id="140">
+      <node id="141">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -161,7 +161,7 @@
 <codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Private<sp/>metoder</highlight></codeline>
 <codeline lineno="85"><highlight class="comment"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>NewCountry::canSave()</highlight></codeline>
 <codeline lineno="86"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(getCountry().length()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>().length()<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>close<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>close<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
@@ -185,13 +185,13 @@
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>res<sp/>=<sp/>msg.exec();</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(res<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ab3b5934ce3fbc4be1730d990d4142893" kindref="member">insertCountry</ref>(getCountry()))</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ab3b5934ce3fbc4be1730d990d4142893" kindref="member">insertCountry</ref>(<ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>()))</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lukker<sp/>vinduet.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>landet<sp/>ble<sp/>lagret<sp/>med<sp/>følgende<sp/>verdier:\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getCountry());</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>landet<sp/>ble<sp/>lagret<sp/>med<sp/>følgende<sp/>verdier:\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>());</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal">-&gt;accept();</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -211,13 +211,13 @@
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ab3b5934ce3fbc4be1730d990d4142893" kindref="member">insertCountry</ref>(getCountry()))</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ab3b5934ce3fbc4be1730d990d4142893" kindref="member">insertCountry</ref>(<ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>()))</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lukker<sp/>vinduet.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
 <codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>landet<sp/>ble<sp/>lagret<sp/>med<sp/>følgende<sp/>verdier:\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getCountry());</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>landet<sp/>ble<sp/>lagret<sp/>med<sp/>følgende<sp/>verdier:\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>());</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal">-&gt;accept();</highlight></codeline>
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -228,7 +228,7 @@
 <codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Metoder<sp/>definert<sp/>under<sp/>&quot;private<sp/>slots&quot;:</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="156"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>NewCountry::lineEditCountryNameChanged()</highlight></codeline>
 <codeline lineno="157"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>setCountry(ui-&gt;lineEditCountryName-&gt;text());</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_new_country_1af6fed97011d536e1a29db8112849e36b" kindref="member">setCountry</ref>(ui-&gt;lineEditCountryName-&gt;text());</highlight></codeline>
 <codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;buttonBox-&gt;button(QDialogButtonBox::Ok)-&gt;setEnabled(canSave());</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>changed<sp/>=<sp/>canSave();</highlight></codeline>
 <codeline lineno="161"><highlight class="normal">}</highlight></codeline>
@@ -237,13 +237,13 @@
 <codeline lineno="164"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(canSave())</highlight></codeline>
 <codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ab3b5934ce3fbc4be1730d990d4142893" kindref="member">insertCountry</ref>(getCountry()))</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ab3b5934ce3fbc4be1730d990d4142893" kindref="member">insertCountry</ref>(<ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>()))</highlight></codeline>
 <codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lukker<sp/>vinduet.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
 <codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>landet<sp/>ble<sp/>lagret<sp/>med<sp/>følgende<sp/>verdier:\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getCountry());</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>landet<sp/>ble<sp/>lagret<sp/>med<sp/>følgende<sp/>verdier:\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>());</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
 <codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hide();</highlight></codeline>
 <codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

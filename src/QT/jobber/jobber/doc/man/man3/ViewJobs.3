@@ -1,4 +1,4 @@
-.TH "ViewJobs" 3 "Wed Feb 7 2018" "My Project" \" -*- nroff -*-
+.TH "ViewJobs" 3 "Sat Mar 3 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -11,6 +11,13 @@ ViewJobs \- The \fBViewJobs\fP class\&.
 \fC#include <viewjobs\&.h>\fP
 .PP
 Inherits QMainWindow\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBsigShowEvent\fP ()"
+.br
+.in -1c
 .SS "Public Member Functions"
 
 .in +1c
@@ -102,6 +109,9 @@ Inherits QMainWindow\&.
 .RI "void \fBcloseEvent\fP (QCloseEvent *event) override"
 .br
 .RI "\fBViewJobs::closeEvent\fP Code to be executed when the user has ordered the window to be closed\&. "
+.ti -1c
+.RI "void \fBshowEvent\fP (QShowEvent *) override"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -326,4 +336,4 @@ True if there are unsaved changes and false otherwise\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for My Project from the source code\&.
+Generated automatically by Doxygen for Jobber from the source code\&.

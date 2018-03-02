@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "cdfgimnpsuv",
+  0: "cdfgimnpstuv",
   1: "cmnpsv",
   2: "np",
-  3: "cdfgimnpsuv",
+  3: "cdfgimnpstuv",
   4: "cp"
 };
 

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="newcountry_8h" kind="file" language="C++">
     <compoundname>newcountry.h</compoundname>
     <includes local="no">QCloseEvent</includes>
@@ -9,17 +9,15 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="newcountry_8cpp" local="yes">newcountry.cpp</includedby>
     <incdepgraph>
-      <node id="147">
+      <node id="148">
         <label>QCloseEvent</label>
       </node>
-      <node id="158">
+      <node id="159">
         <label>QMessageBox</label>
       </node>
-      <node id="148">
+      <node id="149">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="149" relation="include">
-        </childnode>
         <childnode refid="150" relation="include">
         </childnode>
         <childnode refid="151" relation="include">
@@ -34,44 +32,46 @@
         </childnode>
         <childnode refid="156" relation="include">
         </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
       </node>
-      <node id="157">
+      <node id="158">
         <label>QMainWindow</label>
       </node>
-      <node id="151">
+      <node id="152">
         <label>QLinkedList</label>
       </node>
-      <node id="150">
+      <node id="151">
         <label>QApplication</label>
       </node>
-      <node id="153">
+      <node id="154">
         <label>QDebug</label>
       </node>
-      <node id="154">
+      <node id="155">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="149">
+      <node id="150">
         <label>sstream</label>
       </node>
-      <node id="155">
+      <node id="156">
         <label>pqxx/result</label>
       </node>
-      <node id="152">
+      <node id="153">
         <label>QException</label>
       </node>
-      <node id="146">
+      <node id="147">
         <label>newcountry.h</label>
         <link refid="newcountry_8h"/>
-        <childnode refid="147" relation="include">
-        </childnode>
         <childnode refid="148" relation="include">
         </childnode>
-        <childnode refid="157" relation="include">
+        <childnode refid="149" relation="include">
         </childnode>
         <childnode refid="158" relation="include">
         </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
       </node>
-      <node id="156">
+      <node id="157">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -123,10 +123,10 @@
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_country" kindref="compound">NewCountry</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_country_1a0ab1a95a2acd77e953f3a7aac8544880" kindref="member">NewCountry</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_new_country" kindref="compound">NewCountry</ref>();</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCountry();</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCountry(QString<sp/>newCountry);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_new_country_1af6fed97011d536e1a29db8112849e36b" kindref="member">setCountry</ref>(QString<sp/>newCountry);</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Private<sp/>variabler</highlight><highlight class="normal"></highlight></codeline>
