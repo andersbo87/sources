@@ -142,7 +142,7 @@ namespace JobbWPF
                         Environment.Exit(-1);
                     }
                 }
-                if (!psql.viewApplicationExists())
+                if (!psql.viewTownExists())
                 {
                     MessageBox.Show("'Viewet' med oversikt over registrerte steder finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!psql.createViewTown())

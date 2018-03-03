@@ -491,7 +491,8 @@ namespace JobbWPF
             {
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "CREATE FUNCTION public.nylandid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF ROWS 0 AS $BODY$ BEGIN RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid; RETURN NEW; END; $BODY$; ";
+                cmd.CommandText = "CREATE FUNCTION public.nylandid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid; RETURN NEW; END; $BODY$; ";
+                cmd.ExecuteNonQuery();
                 return createTriggerNewCountryID();
             }
             catch (NpgsqlException ne)
@@ -513,6 +514,7 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE FUNCTION nysoknadid() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE NOTICE 'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid; RETURN NEW; END; $$; ";
+                cmd.ExecuteNonQuery();
                 return createTriggerNewApplicationID();
             }
             catch (NpgsqlException ne)
@@ -534,6 +536,7 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE FUNCTION nystedid() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid; RETURN NEW; END; $$";
+                cmd.ExecuteNonQuery();
                 return createTriggerNewTownID();
             }
             catch (NpgsqlException ne)
@@ -554,7 +557,146 @@ namespace JobbWPF
             {
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "CREATE FUNCTION updatesoknad() RETURNS trigger LANGUAGE plpgsql AS $$DECLARE counter_ integer:= 0; tablename_ text := 'temptable'; oldStatus text; newStatus text; max int; updated boolean := false; BEGIN begin --raise notice 'Creating table %', tablename_; execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop'; execute 'insert into ' || tablename_ || ' (counter) values(0)'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; exception when duplicate_table then null; end; execute 'select counter from ' || tablename_ into counter_; execute 'update ' || tablename_ || ' set counter = counter + 1'; --raise notice 'updating'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; max:= count(soknadid) from soknad; if counter_ = max then raise exception 'Kan ikke oppdatere mer enn Ã©n rad om gangen.'; end if; if NEW.soknadid != OLD.soknadid then raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid; updated = true; end if; if NEW.tittel != OLD.tittel then raise notice 'Søknaden med ID % har fÃ¥tt endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel; updated = true; end if; if NEW.bedrift != OLD.bedrift then raise notice 'Søknaden med ID % har fÃ¥tt endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift; updated = true; end if; if NEW.stedid != OLD.stedid then raise notice 'Søknaden med ID % har fÃ¥tt endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid; updated = true; end if; if NEW.soknadsfrist != OLD.soknadsfrist then raise notice 'Søknaden med ID % har fÃ¥tt endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist; updated = true; end if; if NEW.motivasjon != OLD.motivasjon then raise notice 'Søknaden med ID % har fÃ¥tt endret motivasjon fra % til %.', OLD.soknadid, OLD.motivasjon, NEW.motivasjon; updated = true; end if; if NEW.statusid != OLD.statusid then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; if NEW.statusid = 1 then newStatus = 'Registrert'; elsif NEW.statusid = 2 then newStatus = 'Sendt'; elsif NEW.statusid = 3 then newStatus = 'Interessert, mulig intervju'; elsif NEW.statusid = 4 then newStatus = 'Avvist'; elsif NEW.statusid = 5 then newStatus = 'Søknad skrevet, men ikke sendt'; elsif NEW.statusid = 6 then newStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har fÃ¥tt endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus; elsif NEW.statusid = OLD.statusid then if updated = false then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus; end if; end if; RETURN NEW; END; $$;";
+                //cmd.CommandText = "CREATE FUNCTION updatesoknad() RETURNS trigger LANGUAGE plpgsql AS $$DECLARE counter_ integer:= 0; tablename_ text := 'temptable'; oldStatus text; newStatus text; max int; updated boolean := false; BEGIN begin --raise notice 'Creating table %', tablename_; execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop'; execute 'insert into ' || tablename_ || ' (counter) values(0)'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; exception when duplicate_table then null; end; execute 'select counter from ' || tablename_ into counter_; execute 'update ' || tablename_ || ' set counter = counter + 1'; --raise notice 'updating'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; max:= count(soknadid) from soknad; if counter_ = max then raise exception 'Kan ikke oppdatere mer enn Ã©n rad om gangen.'; end if; if NEW.soknadid != OLD.soknadid then raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid; updated = true; end if; if NEW.tittel != OLD.tittel then raise notice 'Søknaden med ID % har fÃ¥tt endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel; updated = true; end if; if NEW.bedrift != OLD.bedrift then raise notice 'Søknaden med ID % har fÃ¥tt endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift; updated = true; end if; if NEW.stedid != OLD.stedid then raise notice 'Søknaden med ID % har fÃ¥tt endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid; updated = true; end if; if NEW.soknadsfrist != OLD.soknadsfrist then raise notice 'Søknaden med ID % har fÃ¥tt endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist; updated = true; end if; if NEW.motivasjon != OLD.motivasjon then raise notice 'Søknaden med ID % har fÃ¥tt endret motivasjon fra % til %.', OLD.soknadid, OLD.motivasjon, NEW.motivasjon; updated = true; end if; if NEW.statusid != OLD.statusid then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; if NEW.statusid = 1 then newStatus = 'Registrert'; elsif NEW.statusid = 2 then newStatus = 'Sendt'; elsif NEW.statusid = 3 then newStatus = 'Interessert, mulig intervju'; elsif NEW.statusid = 4 then newStatus = 'Avvist'; elsif NEW.statusid = 5 then newStatus = 'Søknad skrevet, men ikke sendt'; elsif NEW.statusid = 6 then newStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har fÃ¥tt endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus; elsif NEW.statusid = OLD.statusid then if updated = false then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus; end if; end if; RETURN NEW; END; $$;";
+                cmd.CommandText = "CREATE FUNCTION updatesoknad() RETURNS trigger \n" +
+                "LANGUAGE plpgsql \n"+
+                "AS $$DECLARE \n"+
+            "counter_ integer := 0; \n"+
+            "tablename_ text := 'temptable'; \n"+
+            "oldStatus text; \n"+
+            "newStatus text; \n"+
+            "max int; \n"+
+            "updated boolean := false; \n"+
+            "BEGIN \n"+
+            "begin \n"+
+            "        --raise notice 'Creating table %', tablename_; \n"+
+            "        execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop'; \n"+
+            "        execute 'insert into ' || tablename_ || ' (counter) values(0)'; \n"+
+            "        execute 'select counter from ' || tablename_ into counter_; \n"+
+            "        --raise notice 'Actual value for counter= [%]', counter_; \n"+
+            "    exception \n"+
+            "        when duplicate_table then \n"+
+            "        null; \n"+
+            "    end; \n"+
+            "execute 'select counter from ' || tablename_ into counter_; \n"+
+            "    execute 'update ' || tablename_ || ' set counter = counter + 1'; \n"+
+            "   --raise notice 'updating'; \n"+
+            "    execute 'select counter from ' || tablename_ into counter_; \n"+
+            "    --raise notice 'Actual value for counter= [%]', counter_; \n"+
+            "    max := count(soknadid) from soknad; \n"+
+            "    if counter_ = max then \n"+
+            "        raise exception 'Kan ikke oppdatere mer enn én rad om gangen.'; \n"+
+            "    end if; \n"+
+            "if NEW.soknadid != OLD.soknadid \n"+
+            "then \n"+
+            "raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid; \n"+
+            "updated = true; \n"+
+            "end if; \n"+
+            "if NEW.tittel != OLD.tittel \n"+
+            "then \n"+
+            "raise notice 'Søknaden med ID % har fått endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel; \n"+
+            "updated=true; \n"+
+            "end if; \n"+
+            "if NEW.bedrift != OLD.bedrift \n"+
+            "then \n"+
+            "raise notice 'Søknaden med ID % har fått endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift; \n"+
+            "updated=true; \n"+
+            "end if; \n"+
+            "if NEW.stedid != OLD.stedid \n"+
+            "then \n"+
+            "raise notice 'Søknaden med ID % har fått endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid; \n"+
+            "updated=true; \n"+
+            "end if; \n"+
+            "if NEW.soknadsfrist != OLD.soknadsfrist \n"+
+            "then \n"+
+            "raise notice 'Søknaden med ID % har fått endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist; \n"+
+            "updated = true; \n"+
+            "end if; \n"+
+            "if NEW.motivasjon != OLD.motivasjon \n"+
+            "then \n"+
+            "raise notice 'Søknaden med ID % har fått endret motivasjon fra % til %.', OLD.soknadid, OLD.motivasjon, NEW.motivasjon; \n"+
+            "updated = true; \n"+
+            "end if; \n"+
+            "if NEW.statusid != OLD.statusid \n"+
+            "then \n"+
+            "if OLD.statusid = 1 \n"+
+            "then \n"+
+            "oldStatus = 'Registrert'; \n"+
+            "elsif OLD.statusid = 2 \n"+
+            "then \n"+
+            "oldStatus = 'Sendt'; \n"+
+            "elsif OLD.statusid = 3 \n"+
+            "then \n"+
+            "oldStatus = 'Interessert, mulig intervju'; \n"+
+            "elsif OLD.statusid = 4 \n"+
+            "then \n"+
+            "oldStatus = 'Avvist'; \n"+
+            "elsif OLD.statusid = 5 \n"+
+            "then \n"+
+            "oldStatus = 'Søknad skrevet, men ikke sendt'; \n"+
+            "elsif OLD.statusid = 6 \n"+
+            "then \n"+
+            "oldStatus = 'Avvist etter intervju'; \n"+
+            "elsif OLD.statusid = 7 \n"+
+            "then \n"+
+            "oldStatus = 'Godtatt, klar for jobb'; \n"+
+            "end if; \n"+
+            "if NEW.statusid = 1 \n"+
+            "then \n"+
+            "newStatus = 'Registrert'; \n"+
+            "elsif NEW.statusid = 2 \n"+
+            "then \n"+
+            "newStatus = 'Sendt'; \n"+
+            "elsif NEW.statusid = 3 \n"+
+            "then \n"+
+            "newStatus = 'Interessert, mulig intervju'; \n"+
+            "elsif NEW.statusid = 4 \n"+
+            "then \n"+
+            "newStatus = 'Avvist'; \n"+
+            "elsif NEW.statusid = 5 \n"+
+            "then \n"+
+            "newStatus = 'Søknad skrevet, men ikke sendt'; \n"+
+            "elsif NEW.statusid = 6 \n"+
+            "then \n"+
+            "newStatus = 'Avvist etter intervju'; \n"+
+            "elsif NEW.statusid = 7 \n"+
+            "then \n"+
+            "newStatus = 'Godtatt, klar for jobb'; \n"+
+            "end if; \n"+
+            "raise notice 'Søknaden med ID % har fått endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus; \n"+
+            "elsif NEW.statusid = OLD.statusid \n"+
+            "then \n"+
+            "if updated = false \n"+
+            "then \n"+
+            "if OLD.statusid = 1 \n"+
+            "then \n"+
+            "oldStatus = 'Registrert'; \n"+
+            "elsif OLD.statusid = 2 \n"+
+            "then \n"+
+            "oldStatus = 'Sendt'; \n"+
+            "elsif OLD.statusid = 3 \n"+
+            "then \n"+
+            "oldStatus = 'Interessert, mulig intervju'; \n"+
+            "elsif OLD.statusid = 4 \n"+
+            "then \n"+
+            "oldStatus = 'Avvist'; \n"+
+            "elsif OLD.statusid = 5 \n"+
+            "then \n"+
+            "oldStatus = 'Søknad skrevet, men ikke sendt'; \n"+
+            "elsif OLD.statusid = 6 \n"+
+            "then \n"+
+            "oldStatus = 'Avvist etter intervju'; \n"+
+            "elsif OLD.statusid = 7 \n"+
+            "then \n"+
+            "oldStatus = 'Godtatt, klar for jobb'; \n"+
+            "end if; \n"+
+            "raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus; \n"+
+            "end if; \n"+
+            "end if; \n"+
+            "RETURN NEW; \n"+
+            "END; \n"+
+            "$$;";
+                cmd.ExecuteNonQuery();
                 return createTriggerUpdateApplication();
             }
             catch (NpgsqlException ne)
@@ -576,6 +718,7 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_nyttland AFTER INSERT ON public.land FOR EACH ROW EXECUTE PROCEDURE public.nylandid();";
+                cmd.ExecuteNonQuery();
                 return true;
             }
             catch (NpgsqlException ne)
@@ -597,6 +740,7 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_nysoknad AFTER INSERT ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.nysoknadid();";
+                cmd.ExecuteNonQuery();
                 return true;
             }
             catch (NpgsqlException ne)
@@ -618,6 +762,7 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_nyttsted AFTER INSERT ON public.sted FOR EACH ROW EXECUTE PROCEDURE public.nystedid();";
+                cmd.ExecuteNonQuery();
                 return true;
             }
             catch (NpgsqlException ne)
@@ -639,6 +784,7 @@ namespace JobbWPF
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_oppdatersoknad AFTER UPDATE ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.updatesoknad();";
+                cmd.ExecuteNonQuery();
                 return true;
             }
             catch (NpgsqlException ne)
