@@ -147,7 +147,7 @@
 	    <br />
 	    <br />
 	    <?php
-	      $sql = new mysqli("localhost", "webuser", "webuser", "little_house");
+	      $sql = new mysqli("localhost", "webuser", "wEb4321User!", "little_house");
 	      if($sql->connect_errno) {
 	         echo "Kan ikke koble til databasen (" . $sql->connect_errno . "): " . $sql->connect_error;
 	       }

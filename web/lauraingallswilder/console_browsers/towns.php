@@ -67,7 +67,7 @@
     <br />
     <br />
     <?php
-       $link = mysql_connect("localhost", "webuser", "webuser");
+       $link = mysql_connect("localhost", "webuser", "wEb4321User!");
        if(!$link)
        {
           die("Kunne ikke koble til: " . mysql_error());

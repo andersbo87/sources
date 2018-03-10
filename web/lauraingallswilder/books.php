@@ -167,7 +167,7 @@
 	   tittel fra listen under og klikke "Send."
 	   <br />
 	   <?php 
-	      $sql = new mysqli("localhost", "webuser", "webuser", "little_house");
+	      $sql = new mysqli("localhost", "webuser", "wEb4321User!", "little_house");
 	      if($sql->connect_errno)
 	      {
 		echo "Kunne ikke koble til databasen: (" . $sql->connect_errno . "): " . $sql->connect_error;

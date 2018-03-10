@@ -74,7 +74,7 @@
     Velg hvilken episode du vil slå opp, og trykk på send
     en gang til.
     <?php
-       $link = mysql_connect("localhost", "webuser", "webuser");
+       $link = mysql_connect("localhost", "webuser", "wEb4321User!");
        if(!$link)
        {
           die('Could not connect: ' . mysql_error());
