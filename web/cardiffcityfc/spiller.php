@@ -1,5 +1,8 @@
 <html>
   <head>
+    <?php
+      include('readfile.php');
+    ?>
     <title>Informasjon om Cardiffs spillere</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <script type="text/javascript" src="js/main.js"></script>
@@ -27,7 +30,7 @@
 	    Dette skal etterhvert bli en databaseside om Cardiff City FC.
 	    På denne siden vil du, når jeg får tid og lyst til å legge inn info på databasen, få informasjon om de ulike spillerne.
 	    <?php
-	       $link = pg_connect("user=andersbo dbname=cardiffcityfc") or die("Could not connect " . pg_last_error());
+	       $link = pg_connect("user=webuser dbname=cardiffcityfc password=$file") or die("Could not connect " . pg_last_error());
 	       $stat = pg_connection_status($link);
 	       if($stat === PGSQL_CONNECTION_OK)
 	       {

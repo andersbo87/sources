@@ -1,5 +1,8 @@
 <html>
   <head>
+    <?php
+      include('readfile.php');
+    ?>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/klokke.js"></script>
@@ -27,7 +30,8 @@
 	  Her vil du få informasjon om de ulike lagene (aldersbestemte og A-lag) til Cardiff.
 	  Velg et lag fra listen nedenfor.
 	  <?php
-	     $link = pg_connect("user=andersbo dbname=cardiffcityfc") or die("Could not connect " . pg_last_error());
+	    //echo "$file";
+	     $link = pg_connect("user=webuser dbname=cardiffcityfc password=$file") or die("<br />Could not connect " . pg_last_error());
              $stat = pg_connection_status($link);
              if($stat === PGSQL_CONNECTION_OK)
              {

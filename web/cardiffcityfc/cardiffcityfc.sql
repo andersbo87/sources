@@ -30,7 +30,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: tbl_division; Type: TABLE; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_division; Type: TABLE; Schema: public; Owner: webuser; Tablespace: 
 --
 
 CREATE TABLE tbl_division (
@@ -40,10 +40,10 @@ CREATE TABLE tbl_division (
 );
 
 
-ALTER TABLE public.tbl_division OWNER TO andersbo;
+ALTER TABLE public.tbl_division OWNER TO webuser;
 
 --
--- Name: division_id_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: division_id_seq; Type: SEQUENCE; Schema: public; Owner: webuser
 --
 
 CREATE SEQUENCE division_id_seq
@@ -54,17 +54,17 @@ CREATE SEQUENCE division_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.division_id_seq OWNER TO andersbo;
+ALTER TABLE public.division_id_seq OWNER TO webuser;
 
 --
--- Name: division_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andersbo
+-- Name: division_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: webuser
 --
 
 ALTER SEQUENCE division_id_seq OWNED BY tbl_division.divisionid;
 
 
 --
--- Name: tbl_nation; Type: TABLE; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_nation; Type: TABLE; Schema: public; Owner: webuser; Tablespace: 
 --
 
 CREATE TABLE tbl_nation (
@@ -73,10 +73,10 @@ CREATE TABLE tbl_nation (
 );
 
 
-ALTER TABLE public.tbl_nation OWNER TO andersbo;
+ALTER TABLE public.tbl_nation OWNER TO webuser;
 
 --
--- Name: nation_id_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: nation_id_seq; Type: SEQUENCE; Schema: public; Owner: webuser
 --
 
 CREATE SEQUENCE nation_id_seq
@@ -87,17 +87,17 @@ CREATE SEQUENCE nation_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.nation_id_seq OWNER TO andersbo;
+ALTER TABLE public.nation_id_seq OWNER TO webuser;
 
 --
--- Name: nation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andersbo
+-- Name: nation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: webuser
 --
 
 ALTER SEQUENCE nation_id_seq OWNED BY tbl_nation.nationid;
 
 
 --
--- Name: tbl_player; Type: TABLE; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_player; Type: TABLE; Schema: public; Owner: webuser; Tablespace: 
 --
 
 CREATE TABLE tbl_player (
@@ -110,10 +110,10 @@ CREATE TABLE tbl_player (
 );
 
 
-ALTER TABLE public.tbl_player OWNER TO andersbo;
+ALTER TABLE public.tbl_player OWNER TO webuser;
 
 --
--- Name: player_id_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: player_id_seq; Type: SEQUENCE; Schema: public; Owner: webuser
 --
 
 CREATE SEQUENCE player_id_seq
@@ -124,17 +124,17 @@ CREATE SEQUENCE player_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.player_id_seq OWNER TO andersbo;
+ALTER TABLE public.player_id_seq OWNER TO webuser;
 
 --
--- Name: player_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andersbo
+-- Name: player_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: webuser
 --
 
 ALTER SEQUENCE player_id_seq OWNED BY tbl_player.playerid;
 
 
 --
--- Name: tbl_position; Type: TABLE; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_position; Type: TABLE; Schema: public; Owner: webuser; Tablespace: 
 --
 
 CREATE TABLE tbl_position (
@@ -144,10 +144,10 @@ CREATE TABLE tbl_position (
 );
 
 
-ALTER TABLE public.tbl_position OWNER TO andersbo;
+ALTER TABLE public.tbl_position OWNER TO webuser;
 
 --
--- Name: position_id_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: position_id_seq; Type: SEQUENCE; Schema: public; Owner: webuser
 --
 
 CREATE SEQUENCE position_id_seq
@@ -158,17 +158,17 @@ CREATE SEQUENCE position_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.position_id_seq OWNER TO andersbo;
+ALTER TABLE public.position_id_seq OWNER TO webuser;
 
 --
--- Name: position_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andersbo
+-- Name: position_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: webuser
 --
 
 ALTER SEQUENCE position_id_seq OWNED BY tbl_position.positionid;
 
 
 --
--- Name: tbl_team; Type: TABLE; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_team; Type: TABLE; Schema: public; Owner: webuser; Tablespace: 
 --
 
 CREATE TABLE tbl_team (
@@ -178,10 +178,10 @@ CREATE TABLE tbl_team (
 );
 
 
-ALTER TABLE public.tbl_team OWNER TO andersbo;
+ALTER TABLE public.tbl_team OWNER TO webuser;
 
 --
--- Name: qry_player; Type: VIEW; Schema: public; Owner: andersbo
+-- Name: qry_player; Type: VIEW; Schema: public; Owner: webuser
 --
 
 CREATE VIEW qry_player AS
@@ -201,10 +201,10 @@ CREATE VIEW qry_player AS
   WHERE (((tbl_position.positionid = tbl_player.positionid) AND (tbl_nation.nationid = tbl_player.nationid)) AND (tbl_team.teamid = tbl_player.teamid));
 
 
-ALTER TABLE public.qry_player OWNER TO andersbo;
+ALTER TABLE public.qry_player OWNER TO webuser;
 
 --
--- Name: team_id_seq; Type: SEQUENCE; Schema: public; Owner: andersbo
+-- Name: team_id_seq; Type: SEQUENCE; Schema: public; Owner: webuser
 --
 
 CREATE SEQUENCE team_id_seq
@@ -215,80 +215,80 @@ CREATE SEQUENCE team_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.team_id_seq OWNER TO andersbo;
+ALTER TABLE public.team_id_seq OWNER TO webuser;
 
 --
--- Name: team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andersbo
+-- Name: team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: webuser
 --
 
 ALTER SEQUENCE team_id_seq OWNED BY tbl_team.teamid;
 
 
 --
--- Name: divisionid; Type: DEFAULT; Schema: public; Owner: andersbo
+-- Name: divisionid; Type: DEFAULT; Schema: public; Owner: webuser
 --
 
 ALTER TABLE ONLY tbl_division ALTER COLUMN divisionid SET DEFAULT nextval('division_id_seq'::regclass);
 
 
 --
--- Name: nationid; Type: DEFAULT; Schema: public; Owner: andersbo
+-- Name: nationid; Type: DEFAULT; Schema: public; Owner: webuser
 --
 
 ALTER TABLE ONLY tbl_nation ALTER COLUMN nationid SET DEFAULT nextval('nation_id_seq'::regclass);
 
 
 --
--- Name: playerid; Type: DEFAULT; Schema: public; Owner: andersbo
+-- Name: playerid; Type: DEFAULT; Schema: public; Owner: webuser
 --
 
 ALTER TABLE ONLY tbl_player ALTER COLUMN playerid SET DEFAULT nextval('player_id_seq'::regclass);
 
 
 --
--- Name: positionid; Type: DEFAULT; Schema: public; Owner: andersbo
+-- Name: positionid; Type: DEFAULT; Schema: public; Owner: webuser
 --
 
 ALTER TABLE ONLY tbl_position ALTER COLUMN positionid SET DEFAULT nextval('position_id_seq'::regclass);
 
 
 --
--- Name: teamid; Type: DEFAULT; Schema: public; Owner: andersbo
+-- Name: teamid; Type: DEFAULT; Schema: public; Owner: webuser
 --
 
 ALTER TABLE ONLY tbl_team ALTER COLUMN teamid SET DEFAULT nextval('team_id_seq'::regclass);
 
 
 --
--- Name: division_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: division_id_seq; Type: SEQUENCE SET; Schema: public; Owner: webuser
 --
 
 SELECT pg_catalog.setval('division_id_seq', 1, false);
 
 
 --
--- Name: nation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: nation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: webuser
 --
 
 SELECT pg_catalog.setval('nation_id_seq', 10, true);
 
 
 --
--- Name: player_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: player_id_seq; Type: SEQUENCE SET; Schema: public; Owner: webuser
 --
 
 SELECT pg_catalog.setval('player_id_seq', 29, true);
 
 
 --
--- Name: position_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: position_id_seq; Type: SEQUENCE SET; Schema: public; Owner: webuser
 --
 
 SELECT pg_catalog.setval('position_id_seq', 4, true);
 
 
 --
--- Data for Name: tbl_division; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: tbl_division; Type: TABLE DATA; Schema: public; Owner: webuser
 --
 
 COPY tbl_division (divisionid, divisionname, information) FROM stdin;
@@ -296,7 +296,7 @@ COPY tbl_division (divisionid, divisionname, information) FROM stdin;
 
 
 --
--- Data for Name: tbl_nation; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: tbl_nation; Type: TABLE DATA; Schema: public; Owner: webuser
 --
 
 COPY tbl_nation (nationid, nationname) FROM stdin;
@@ -314,7 +314,7 @@ COPY tbl_nation (nationid, nationname) FROM stdin;
 
 
 --
--- Data for Name: tbl_player; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: tbl_player; Type: TABLE DATA; Schema: public; Owner: webuser
 --
 
 COPY tbl_player (playerid, playername, playernumber, positionid, nationid, teamid) FROM stdin;
@@ -351,7 +351,7 @@ COPY tbl_player (playerid, playername, playernumber, positionid, nationid, teami
 
 
 --
--- Data for Name: tbl_position; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: tbl_position; Type: TABLE DATA; Schema: public; Owner: webuser
 --
 
 COPY tbl_position (positionid, positionname, positionnotes) FROM stdin;
@@ -363,7 +363,7 @@ COPY tbl_position (positionid, positionname, positionnotes) FROM stdin;
 
 
 --
--- Data for Name: tbl_team; Type: TABLE DATA; Schema: public; Owner: andersbo
+-- Data for Name: tbl_team; Type: TABLE DATA; Schema: public; Owner: webuser
 --
 
 COPY tbl_team (teamid, teamname, teamdescription) FROM stdin;
@@ -372,14 +372,14 @@ COPY tbl_team (teamid, teamname, teamdescription) FROM stdin;
 
 
 --
--- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andersbo
+-- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: webuser
 --
 
 SELECT pg_catalog.setval('team_id_seq', 1, true);
 
 
 --
--- Name: tbl_division_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_division_pkey; Type: CONSTRAINT; Schema: public; Owner: webuser; Tablespace: 
 --
 
 ALTER TABLE ONLY tbl_division
@@ -387,7 +387,7 @@ ALTER TABLE ONLY tbl_division
 
 
 --
--- Name: tbl_nation_nationname_key; Type: CONSTRAINT; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_nation_nationname_key; Type: CONSTRAINT; Schema: public; Owner: webuser; Tablespace: 
 --
 
 ALTER TABLE ONLY tbl_nation
@@ -395,7 +395,7 @@ ALTER TABLE ONLY tbl_nation
 
 
 --
--- Name: tbl_nation_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_nation_pkey; Type: CONSTRAINT; Schema: public; Owner: webuser; Tablespace: 
 --
 
 ALTER TABLE ONLY tbl_nation
@@ -403,7 +403,7 @@ ALTER TABLE ONLY tbl_nation
 
 
 --
--- Name: tbl_player_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_player_pkey; Type: CONSTRAINT; Schema: public; Owner: webuser; Tablespace: 
 --
 
 ALTER TABLE ONLY tbl_player
@@ -411,7 +411,7 @@ ALTER TABLE ONLY tbl_player
 
 
 --
--- Name: tbl_position_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_position_pkey; Type: CONSTRAINT; Schema: public; Owner: webuser; Tablespace: 
 --
 
 ALTER TABLE ONLY tbl_position
@@ -419,7 +419,7 @@ ALTER TABLE ONLY tbl_position
 
 
 --
--- Name: tbl_position_positionname_key; Type: CONSTRAINT; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_position_positionname_key; Type: CONSTRAINT; Schema: public; Owner: webuser; Tablespace: 
 --
 
 ALTER TABLE ONLY tbl_position
@@ -427,7 +427,7 @@ ALTER TABLE ONLY tbl_position
 
 
 --
--- Name: tbl_team_pkey; Type: CONSTRAINT; Schema: public; Owner: andersbo; Tablespace: 
+-- Name: tbl_team_pkey; Type: CONSTRAINT; Schema: public; Owner: webuser; Tablespace: 
 --
 
 ALTER TABLE ONLY tbl_team
