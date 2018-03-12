@@ -2,7 +2,7 @@
 
 removeOld(){
     /usr/bin/printf "\033[1mRemoving old packages from /usr/ports/packages/old/.\033[0m\n"
-    rm /usr/ports/packages/old/*
+    rm -f /usr/ports/packages/old/*
 }
 
 if [ "$1" == "removeOld" ]
