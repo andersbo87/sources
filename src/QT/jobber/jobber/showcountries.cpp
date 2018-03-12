@@ -40,6 +40,7 @@ ShowCountries::ShowCountries(QString windowTitle, psql *pg, QWidget *parent) :
     setFixedHeight(height());
     p = pg;
     winTitle = windowTitle;
+    changed = false;
     connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
     connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
     connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
@@ -77,7 +78,12 @@ QString ShowCountries::getCountryName()
  */
 void ShowCountries::setCountryID(int newID)
 {
-    countryID = newID;
+    if(newID > 0)
+        countryID = newID;
+    else
+    {
+        throw invalid_argument("LandID må være > 0.");
+    }
 }
 
 /**
@@ -86,6 +92,8 @@ void ShowCountries::setCountryID(int newID)
  */
 void ShowCountries::setCountryName(QString newName)
 {
+    if(isNullOrWhitespace(newName))
+        throw invalid_argument("Landnavnet kan ikke være tomt eller bare bestå av mellomrom.");
     countryName = newName;
 }
 
@@ -140,6 +148,7 @@ void ShowCountries::getCountries()
                 ui->comboBoxLandID->addItem(list.value(i));
                 i++;
             }
+            countries = i;
         }
     }
     catch(std::exception &e)
@@ -154,6 +163,17 @@ void ShowCountries::getCountries()
 
 
 // Private methods
+bool ShowCountries::isNullOrWhitespace(QString string)
+{
+    if(string.isNull())
+        return true;
+    if(string.isEmpty())
+        return true;
+    if(string.trimmed().isEmpty())
+        return true;
+    return false;
+}
+
 /**
  * @brief ShowCountries::isChanged Checks if there are unsaved changes in the current record.
  * @return True if ther have been one or more changes and false otherwise.
@@ -415,9 +435,21 @@ void ShowCountries::comboboxCountryIDChanged()
 
 void ShowCountries::lineEditCountrynameChanged()
 {
-    setCountryName(ui->lineEditCountryName->text());
-    if(!countryIDchanged)
-        setChanged(true);
+    try
+    {
+        setCountryName(ui->lineEditCountryName->text());
+        if(!countryIDchanged)
+            setChanged(true);
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        setChanged(false);
+    }
 }
 
 void ShowCountries::windowLoaded()

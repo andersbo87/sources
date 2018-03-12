@@ -101,49 +101,115 @@ void ViewJobs::motivationTextChanged()
 
 void ViewJobs::comboBoxStatusIDChanged()
 {
-    setStatusID(ui->comboBoxStatusID->currentText().toInt());
-    ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
-    if(!soknadIDChanged)
-        setChanged(true);
+    try
+    {
+        setStatusID(ui->comboBoxStatusID->currentText().toInt());
+        ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
+        if(!soknadIDChanged)
+            setChanged(true);
+    }
+    catch(const invalid_argument& iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditTitle->undo();
+        setChanged(false);
+    }
 }
 
 void ViewJobs::comboBoxCityIDChanged()
 {
-    setCityID(ui->comboBoxTownID->currentText().toInt());
-    ui->labelCityValue->setText(p->getCityName(getCityID()));
-    if(!soknadIDChanged)
-        setChanged(true);
+    try
+    {
+        setCityID(ui->comboBoxTownID->currentText().toInt());
+        ui->labelCityValue->setText(p->getCityName(getCityID()));
+        if(!soknadIDChanged)
+            setChanged(true);
+    }
+    catch(const invalid_argument& iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditTitle->undo();
+        setChanged(false);
+    }
 }
 
 void ViewJobs::lineEditDealineChanged()
 {
-    setDate(ui->lineEditDeadline->text());
-    if(!soknadIDChanged)
-        setChanged(true);
+    try
+    {
+        setDate(ui->lineEditDeadline->text());
+        if(!soknadIDChanged)
+            setChanged(true);
+    }
+    catch(const invalid_argument& iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditTitle->undo();
+        setChanged(false);
+    }
 }
 
 void ViewJobs::lineEditCompanyChanged()
 {
-    setCompany(ui->lineEditCompany->text());
-    if(!soknadIDChanged)
-        setChanged(true);
+    try
+    {
+        setCompany(ui->lineEditCompany->text());
+        if(!soknadIDChanged)
+            setChanged(true);
+    }
+    catch(const invalid_argument& iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditTitle->undo();
+        setChanged(false);
+    }
 }
 
 void ViewJobs::lineEditTitleChanged()
 {
-    setTitle(ui->lineEditTitle->text());
-    if(!soknadIDChanged)
-        setChanged(true);
+    try
+    {
+        setTitle(ui->lineEditTitle->text());
+        if(!soknadIDChanged)
+            setChanged(true);
+    }
+    catch(const invalid_argument& iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditTitle->undo();
+        setChanged(false);
+    }
 }
 
 void ViewJobs::windowLoaded()
 {
-    changed = false;
-    soknadIDChanged = false;
+    setChanged(false);
     getApplications();
     getCityIDs();
     getStatusIDs();
     getApplication(1);
+    setChanged(false); // Just to be sure the systems doesn't think we've made any changes.
+    soknadIDChanged = false;
 }
 
 void ViewJobs::showEvent(QShowEvent *)
@@ -556,12 +622,15 @@ void ViewJobs::setMotivation(QString newMotivation)
 }
 
 /**
- * @brief ViewJobs::setApplicationID sets a new application ID
+ * @brief ViewJobs::setApplicationID sets a new application ID. Note that this does NOT change the ID of the current application.
  * @param newID the new ID.
  */
 void ViewJobs::setApplicationID(int newID)
 {
-    applicationid = newID;
+    if(newID > 0)
+        applicationid = newID;
+    else
+        throw invalid_argument("SøknadID må være større enn 0.");
 }
 
 /**
@@ -570,6 +639,8 @@ void ViewJobs::setApplicationID(int newID)
  */
 void ViewJobs::setTitle(QString newTitle)
 {
+    if(isNullOrWhitespace(newTitle))
+        throw invalid_argument("Tittelen kan ikke være tom. Tittelen kan heller ikke bare bestå av mellomrom.");
     jobTitle = newTitle;
 }
 
@@ -579,6 +650,8 @@ void ViewJobs::setTitle(QString newTitle)
  */
 void ViewJobs::setCompany(QString newCompany)
 {
+    if(isNullOrWhitespace(newCompany))
+        throw invalid_argument("Bedriftsnavnet kan ikke være tomt og kan heller ikke bare bestå av mellomrom.");
     company = newCompany;
 }
 
@@ -588,7 +661,10 @@ void ViewJobs::setCompany(QString newCompany)
  */
 void ViewJobs::setCityID(int newTownID)
 {
-    cityid = newTownID;
+    if(newTownID > 0)
+        cityid = newTownID;
+    else
+        throw invalid_argument("StedID må ha verdi > 0.");
 }
 
 /**
@@ -597,7 +673,10 @@ void ViewJobs::setCityID(int newTownID)
  */
 void ViewJobs::setStatusID(int newStatusID)
 {
-    statusid = newStatusID;
+    if(newStatusID > 0 && newStatusID <= 7)
+        statusid = newStatusID;
+    else
+        throw invalid_argument("StatusID må ha verdi >0 og <7.");
 }
 
 /**
@@ -606,6 +685,8 @@ void ViewJobs::setStatusID(int newStatusID)
  */
 void ViewJobs::setDate(QString newDate)
 {
+    if(isNullOrWhitespace(newDate))
+        throw invalid_argument("Søknadsfristen kan ikke være tom og den kan heller ikke bare bestå av mellomrom. Er det ikke angitt frist, kan du skrive 'Snarest' eller tilsvarende isteden.");
     date = newDate;
 }
 
@@ -650,6 +731,18 @@ void ViewJobs::getApplications()
     }
 }
 
+
+bool ViewJobs::isNullOrWhitespace(QString string)
+{
+    if(string.isNull())
+        return true;
+    if(string.isEmpty())
+        return true;
+    if(string.trimmed().isEmpty())
+        return true;
+    return false;
+}
+
 /**
  * @brief ViewJobs::getApplication Fills the window with information based on the application ID
  * @param appID the application ID to be used.
@@ -670,12 +763,22 @@ void ViewJobs::getApplication(int appID)
         setApplicationID(appID);
         setTitle(ui->lineEditTitle->text());
         setCompany(ui->lineEditCompany->text());
-        setCityID(ui->comboBoxTownID->currentText().toInt());
-        setStatusID(ui->comboBoxStatusID->currentText().toInt());
+        //setCityID(ui->comboBoxTownID->currentText().toInt());
+        setCityID(p->getCityID(appID));
+        //setStatusID(ui->comboBoxStatusID->currentText().toInt());
+        setStatusID(p->getStatusID(appID));
         setDate(ui->lineEditDeadline->text());
         ui->labelCityValue->setText(p->getCityName(getCityID()));
         ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
         setMotivation(ui->textEditMotivation->toPlainText());
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
     }
     catch(std::exception &e)
     {

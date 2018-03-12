@@ -73,10 +73,10 @@ private:
     Ui::ViewJobs *ui;
     psql *p;
     QString jobTitle, company, date, winTitle, motivation; // jobTitle: the title of the job. title: The name to be used in messageboxes
-    int statusid, cityid, applicationid, lastid;
+    int statusid, cityid, applicationid, lastid, cities, statuses;
     bool changed, soknadIDChanged;
     void checkChanges();
-
+    bool isNullOrWhitespace(QString string);
 
 private slots:
     void comboboxApplicationIDChanged();

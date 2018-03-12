@@ -37,7 +37,9 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
 {
     winTitle = windowTitle;
     p = pg;
+    runs = 1;
     ui->setupUi(this);
+    changed = false;
     setFixedHeight(height());
     setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
     connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
@@ -49,6 +51,17 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->lineEditCityName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCityNameChanged()), Qt::UniqueConnection);
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(buttonDeleteClicked()), Qt::UniqueConnection);
     connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()), Qt::UniqueConnection);
+}
+
+bool ShowCities::isNullOrWhitespace(QString string)
+{
+    if(string.isNull())
+        return true;
+    if(string.isEmpty())
+        return true;
+    if(string.trimmed().isEmpty())
+        return true;
+    return false;
 }
 
 /**
@@ -85,7 +98,15 @@ int ShowCities::getCountryID()
  */
 void ShowCities::setCityID(int newID)
 {
-    cityID = newID;
+    if(newID > 0 && newID <= cities)
+        cityID = newID;
+    else
+    {
+        std::ostringstream oss;
+        string err = "StedID må være > 0 og <= ";
+        oss << err << cities;
+        throw invalid_argument(oss.str());
+    }
 }
 
 /**
@@ -94,6 +115,8 @@ void ShowCities::setCityID(int newID)
  */
 void ShowCities::setCityName(QString newName)
 {
+    if(isNullOrWhitespace(newName))
+        throw invalid_argument("Stedsnavnet kan ikke være tomt, og det kan ikke bare bestå av mellomrom.");
     cityName = newName;
 }
 
@@ -103,7 +126,25 @@ void ShowCities::setCityName(QString newName)
  */
 void ShowCities::setCountryID(int newID)
 {
-    countryID = newID;
+    if(newID > 0 && newID <= countries)
+        countryID = newID;
+    else
+    {
+        if(countries != 0)
+        {
+            ostringstream oss;
+            string err = "LandID må være > 0 og <= ";
+            oss << err << countries;
+            throw invalid_argument(oss.str());
+        }
+    }
+}
+
+void ShowCities::setCountryName(QString newName)
+{
+    if(isNullOrWhitespace(newName))
+        throw invalid_argument("Landnavnet kan ikke være tomt. Det kan heller ikke bare bestå av mellomrom.");
+    countryName = newName;
 }
 
 /**
@@ -117,9 +158,22 @@ void ShowCities::getCity(int cityID)
         ui->comboBoxCityID->setCurrentText(QString::number(cityID));
         ui->lineEditCityName->setText(p->getCityName(cityID));
         ui->comboBoxCountryID->setCurrentText(QString::number(p->getCountryID(cityID)));
+        ui->labelCountryName->setText(p->getCountryName(ui->comboBoxCountryID->currentText().toInt()));
         setCityID(cityID);
         setCountryID(ui->comboBoxCountryID->currentText().toInt());
         setCityName(ui->lineEditCityName->text());
+        setCountryName(ui->labelCountryName->text());
+    }
+    catch(invalid_argument iaex)
+    {
+        if(runs > 1){
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText(iaex.what());
+            msg.exec();
+        }
+
     }
     catch(std::exception &e)
     {
@@ -144,6 +198,7 @@ void ShowCities::getCountryIDs()
         for(int i=0; i < list.count(); i++)
         {
             ui->comboBoxCountryID->addItem(QString::number(i+1));
+            countries++;
         }
     }
     catch(std::exception &e)
@@ -183,6 +238,7 @@ void ShowCities::getCities()
                 i++;
             }
             lastID = i;
+            cities = i;
         }
     }
     catch(std::exception &e)
@@ -237,14 +293,14 @@ void ShowCities::checkChanges()
                 msg2.setText("Stedet ble oppdatert og har følgende verdier:\nStedid: " + QString::number(getCityID()) + "\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
                 msg2.exec();
             }
-        }
-        else
-        {
-            QMessageBox msg;
-            msg.setIcon(msg.Warning);
-            msg.setWindowTitle(winTitle);
-            msg.setText("Noe har gått galt: " + p->getError());
-            msg.exec();
+            else
+            {
+                QMessageBox msg;
+                msg.setIcon(msg.Warning);
+                msg.setWindowTitle(winTitle);
+                msg.setText("Noe har gått galt: " + p->getError());
+                msg.exec();
+            }
         }
         setChanged(false);
     }
@@ -419,9 +475,23 @@ void ShowCities::buttonPreviousClicked()
 
 void ShowCities::lineEditCityNameChanged()
 {
-    setCityName(ui->lineEditCityName->text());
-    if(!cityIDchanged)
-        setChanged(true);
+    try
+    {
+        setCityName(ui->lineEditCityName->text());
+        ui->btnSave->setEnabled(true);
+        if(!cityIDchanged)
+            setChanged(true);
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditCityName->undo();
+        setChanged(false);
+    }
 }
 
 void ShowCities::comboboxCityIDChanged()
@@ -467,8 +537,9 @@ void ShowCities::windowLoaded()
     getCities();
     getCountryIDs();
     getCity(1);
+    setChanged(false);
     cityIDchanged = false;
-    changed = false;
+    runs++;
 }
 
 void ShowCities::showEvent(QShowEvent *)

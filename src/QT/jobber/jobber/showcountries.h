@@ -54,7 +54,7 @@ public:
 private:
     // Private variabler for denne klassen:
     bool changed, countryIDchanged;
-    int countryID, lastID;
+    int countryID, lastID, countries;
     psql *p;
     QString countryName, winTitle; //title = the title to be used as titles in QMessageBox.
     Ui::ShowCountries *ui;
@@ -65,6 +65,7 @@ private:
     void showEvent(QShowEvent *) override;
     bool isChanged();
     void setChanged(bool change);
+    bool isNullOrWhitespace(QString string);
 
 private slots:
     void buttonFirstClicked();

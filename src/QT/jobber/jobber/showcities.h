@@ -49,6 +49,7 @@ public:
     void setCityID(int newID);
     void setCityName(QString newName);
     void setCountryID(int newID);
+    void setCountryName(QString newName);
     int getCityID();
     void getCountryIDs();
     int getCountryID();
@@ -59,13 +60,14 @@ private:
     Ui::ShowCities *ui;
     psql *p;
     QString cityName, countryName, winTitle; // Tittelen som skal brukes i meldingsbokser.
-    int cityID, countryID, lastID;
+    int cityID, countryID, lastID, runs, countries, cities; // Countries: antall land, cities: antall steder.
     bool changed, cityIDchanged;
     void checkChanges();
     bool isChanged();
     void setChanged(bool change);
     void closeEvent(QCloseEvent *event) override;
     void showEvent(QShowEvent *) override;
+    bool isNullOrWhitespace(QString string);
 
 private slots:
     void comboboxCityIDChanged();

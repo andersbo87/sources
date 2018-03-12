@@ -36,6 +36,7 @@ ShowStatuses::ShowStatuses(QString windowTitle, psql *pg, QWidget *parent) :
     ui(new Ui::ShowStatuses)
 {
     p = pg;
+    runs = 1;
     setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
     winTitle = windowTitle;
     ui->setupUi(this);
@@ -77,7 +78,16 @@ QString ShowStatuses::getStatusName()
  */
 void ShowStatuses::setStatusID(int newID)
 {
-    statusID = newID;
+    int statuses = lastID;
+    if(newID > 0 && newID <= lastID)
+        statusID = newID;
+    else
+    {
+        string err = "StatusID må være > 0 og <= ";
+        ostringstream oss;
+        oss << err << statuses;
+        throw invalid_argument(oss.str());
+    }
 }
 
 /**
@@ -103,6 +113,17 @@ void ShowStatuses::getStatus(int statusID)
         setStatusID(statusID);
         setStatusName(ui->lineEdit->text());
     }
+    catch(invalid_argument iaex)
+    {
+        if(runs > 1){
+            QMessageBox msg;
+            msg.setIcon(msg.Warning);
+            msg.setWindowTitle(winTitle);
+            msg.setText(iaex.what());
+            msg.exec();
+        }
+        runs++;
+    }
     catch(std::exception &e)
     {
         QMessageBox msg;
@@ -120,7 +141,7 @@ void ShowStatuses::getStatuses()
 {
     try
     {
-        QList<QString> list = p->fillList("SELECT status FROM status ORDER BY status ASC");
+        QList<QString> list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
         int i = 0;
         QList<QString>::iterator iter = list.begin();
         if(list.count() == 0)
@@ -159,7 +180,19 @@ ShowStatuses::~ShowStatuses()
 {
     delete ui;
 }
+
 // Private metoder
+bool ShowStatuses::isNullOrWhitespace(QString string)
+{
+    if(string.isNull())
+        return true;
+    if(string.isEmpty())
+        return true;
+    if(string.trimmed().isEmpty())
+        return true;
+    return false;
+}
+
 void ShowStatuses::windowLoaded()
 {
     getStatuses();
@@ -179,13 +212,14 @@ void ShowStatuses::closeEvent(QCloseEvent *event)
         event->ignore();
         QMessageBox msg;
         msg.setWindowTitle(winTitle);
-        msg.setIcon(msg.Question);
+        //msg.setIcon(msg.Question);
         msg.setStandardButtons(msg.Yes);
+        msg.addButton(msg.Cancel);
         msg.addButton(msg.No);
         msg.setDefaultButton(msg.Yes);
         msg.setText("Du har noen ulagrede endringer. Vil du lagre disse?");
         int res = msg.exec();
-        if(msg.exec() == QMessageBox::Yes)
+        if(res == QMessageBox::Yes)
         {
             if(p->updateStatus(getStatusName(), getStatusID()))
             {
@@ -471,7 +505,19 @@ void ShowStatuses::comboboxStatusIDChanged()
 
 void ShowStatuses::lineEditStatusnameChanged()
 {
-    setStatusName(ui->lineEdit->text());
-    if(!statusIDchanged)
-        setChanged(true);
+    try
+    {
+        setStatusName(ui->lineEdit->text());
+        if(!statusIDchanged)
+            setChanged(true);
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        setChanged(false);
+    }
 }

@@ -66,7 +66,7 @@ public:
 private:
     // Private variabler
     bool changed, statusIDchanged;
-    int statusID, lastID;
+    int statusID, lastID, runs;
     psql *p;
     QString statusName, winTitle; // Tittelen som skal brukes på meldingsboksene.
     Ui::ShowStatuses *ui;
@@ -77,6 +77,7 @@ private:
     void showEvent(QShowEvent *) override;
     bool isChanged();
     void setChanged(bool change);
+    bool isNullOrWhitespace(QString string);
 
 private slots:
     void buttonFirstClicked();
