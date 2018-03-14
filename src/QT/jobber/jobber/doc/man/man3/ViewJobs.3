@@ -1,4 +1,4 @@
-.TH "ViewJobs" 3 "Sat Mar 3 2018" "Jobber" \" -*- nroff -*-
+.TH "ViewJobs" 3 "Wed Mar 14 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -36,7 +36,7 @@ Inherits QMainWindow\&.
 .ti -1c
 .RI "void \fBsetApplicationID\fP (int newID)"
 .br
-.RI "\fBViewJobs::setApplicationID\fP sets a new application ID\&. "
+.RI "\fBViewJobs::setApplicationID\fP sets a new application ID\&. Note that this does NOT change the ID of the current application\&. "
 .ti -1c
 .RI "void \fBsetTitle\fP (QString newTitle)"
 .br
@@ -248,7 +248,7 @@ True if there are unsaved changes and false otherwise\&.
 .SS "void ViewJobs::setApplicationID (int newID)"
 
 .PP
-\fBViewJobs::setApplicationID\fP sets a new application ID\&. 
+\fBViewJobs::setApplicationID\fP sets a new application ID\&. Note that this does NOT change the ID of the current application\&. 
 .PP
 \fBParameters:\fP
 .RS 4

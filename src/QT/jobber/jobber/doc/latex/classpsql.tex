@@ -123,6 +123,8 @@ int \mbox{\hyperlink{classpsql_a81d02dc0350ba11d90257914078ba432}{get\+Country\+
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a81d02dc0350ba11d90257914078ba432}{psql\+::get\+Country\+ID}} Get the country ID of table sted based on given stedid. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{get\+Status\+ID}} (int application\+ID)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{psql\+::get\+Status\+ID}} Returns the status ID of the application based on the application ID provided by the user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classpsql_a9d13aebcb6d151719769207238865e75}{get\+Status\+ID}} (string name)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{psql\+::get\+Status\+ID}} Gets the status ID based on the status name \end{DoxyCompactList}\item 
 Q\+List$<$ Q\+String $>$ \mbox{\hyperlink{classpsql_a2ad41caea89dc5af0b55b12f6394fbf5}{fill\+List}} (const char $\ast$sql\+Sporring)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a2ad41caea89dc5af0b55b12f6394fbf5}{psql\+::fill\+List}} \char`\"{}\+Fills\char`\"{} a Q\+List with integers based on the results of an S\+QL query. \end{DoxyCompactList}\item 
 Q\+List$<$ int $>$ \mbox{\hyperlink{classpsql_ab6edb8a2e42d8ac7c4ae29f5b0cb494f}{get\+Specific\+Application\+I\+Ds}} (string job\+Title, string company\+Name, string city\+Name, string status, string deadline, string motivation)
@@ -965,7 +967,7 @@ On success, return the mentioned list of strings.
 \mbox{\Hypertarget{classpsql_a9c02c92c09cb60c35d24375673b7df06}\label{classpsql_a9c02c92c09cb60c35d24375673b7df06}} 
 \index{psql@{psql}!get\+Status\+ID@{get\+Status\+ID}}
 \index{get\+Status\+ID@{get\+Status\+ID}!psql@{psql}}
-\subsubsection{\texorpdfstring{get\+Status\+I\+D()}{getStatusID()}}
+\subsubsection{\texorpdfstring{get\+Status\+I\+D()}{getStatusID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily int psql\+::get\+Status\+ID (\begin{DoxyParamCaption}\item[{int}]{application\+ID }\end{DoxyParamCaption})}
 
 
@@ -979,6 +981,24 @@ On success, return the mentioned list of strings.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 the application ID on success and 0 on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a9d13aebcb6d151719769207238865e75}\label{classpsql_a9d13aebcb6d151719769207238865e75}} 
+\index{psql@{psql}!get\+Status\+ID@{get\+Status\+ID}}
+\index{get\+Status\+ID@{get\+Status\+ID}!psql@{psql}}
+\subsubsection{\texorpdfstring{get\+Status\+I\+D()}{getStatusID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int psql\+::get\+Status\+ID (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{psql\+::get\+Status\+ID}} Gets the status ID based on the status name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the status in question. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}\label{classpsql_a5c2a64419a68a258071fd1f9a37c7c09}} 
 \index{psql@{psql}!get\+Status\+Name@{get\+Status\+Name}}

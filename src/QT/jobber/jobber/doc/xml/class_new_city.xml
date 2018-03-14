@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="53" column="1" bodyfile="newcity.h" bodystart="53" bodyend="-1"/>
+        <location file="newcity.h" line="54" column="1" bodyfile="newcity.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_city_1a7f74bcb090b336907807c6f4767a0981" prot="private" static="no" mutable="no">
         <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="54" column="1" bodyfile="newcity.h" bodystart="54" bodyend="-1"/>
+        <location file="newcity.h" line="55" column="1" bodyfile="newcity.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_city_1a7a6a715a230c4959d8f13c69e270f3ae" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="58" column="1" bodyfile="newcity.h" bodystart="58" bodyend="-1"/>
+        <location file="newcity.h" line="59" column="1" bodyfile="newcity.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_city_1a830a1f7714e5ff824211dcf9c3cac2e6" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="59" column="1" bodyfile="newcity.h" bodystart="59" bodyend="-1"/>
+        <location file="newcity.h" line="60" column="1" bodyfile="newcity.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_city_1a041a06d51ad026d68829d1b345dc0e19" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="59" column="1" bodyfile="newcity.h" bodystart="59" bodyend="-1"/>
+        <location file="newcity.h" line="60" column="1" bodyfile="newcity.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_city_1afc8a2c73852d26baf7cf55234dad7438" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="60" column="1" bodyfile="newcity.h" bodystart="60" bodyend="-1"/>
+        <location file="newcity.h" line="61" column="1" bodyfile="newcity.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_city_1a566e62b57c0d7eb3af04d702a5a4414d" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="60" column="1" bodyfile="newcity.h" bodystart="60" bodyend="-1"/>
+        <location file="newcity.h" line="61" column="1" bodyfile="newcity.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -144,7 +144,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="44" column="1" bodyfile="newcity.cpp" bodystart="38" bodyend="57"/>
+        <location file="newcity.h" line="45" column="1" bodyfile="newcity.cpp" bodystart="38" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="class_new_city_1a8fc9591777da4867339c9f78487b8d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="45" column="1" bodyfile="newcity.cpp" bodystart="60" bodyend="63"/>
+        <location file="newcity.h" line="46" column="1" bodyfile="newcity.cpp" bodystart="60" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="class_new_city_1a8a96f2c58640c96faf74e1f3bb956e4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -182,7 +182,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="46" column="1" bodyfile="newcity.cpp" bodystart="92" bodyend="95"/>
+        <location file="newcity.h" line="47" column="1" bodyfile="newcity.cpp" bodystart="92" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="class_new_city_1a743baefdc6604f1bf8da124056939b0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -196,7 +196,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="47" column="1" bodyfile="newcity.cpp" bodystart="177" bodyend="180"/>
+        <location file="newcity.h" line="48" column="1" bodyfile="newcity.cpp" bodystart="193" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="class_new_city_1afe093fcb1aa6623e896c52ea35ff0481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -221,7 +221,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="48" column="1" bodyfile="newcity.cpp" bodystart="117" bodyend="120"/>
+        <location file="newcity.h" line="49" column="1" bodyfile="newcity.cpp" bodystart="117" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="class_new_city_1a3be62538974fa100134d694546608877" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -235,7 +235,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="49" column="1" bodyfile="newcity.cpp" bodystart="108" bodyend="111"/>
+        <location file="newcity.h" line="50" column="1" bodyfile="newcity.cpp" bodystart="108" bodyend="111"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="55" column="1" bodyfile="newcity.cpp" bodystart="182" bodyend="237"/>
+        <location file="newcity.h" line="56" column="1" bodyfile="newcity.cpp" bodystart="198" bodyend="253"/>
       </memberdef>
       <memberdef kind="function" id="class_new_city_1a06d5d3e09c9186231fe7024a0a551557" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="56" column="1" bodyfile="newcity.cpp" bodystart="65" bodyend="86"/>
+        <location file="newcity.h" line="57" column="1" bodyfile="newcity.cpp" bodystart="65" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="class_new_city_1a120817ae5d3c36e2d1edd6d1eee8aacc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="57" column="1" bodyfile="newcity.cpp" bodystart="129" bodyend="136"/>
+        <location file="newcity.h" line="58" column="1" bodyfile="newcity.cpp" bodystart="145" bodyend="152"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -295,7 +295,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="64" column="1" bodyfile="newcity.cpp" bodystart="138" bodyend="171"/>
+        <location file="newcity.h" line="65" column="1" bodyfile="newcity.cpp" bodystart="154" bodyend="187"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_city_1ab84eb55dd150c893f70a3370a0412573" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -308,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="65" column="1" bodyfile="newcity.cpp" bodystart="97" bodyend="102"/>
+        <location file="newcity.h" line="66" column="1" bodyfile="newcity.cpp" bodystart="97" bodyend="102"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_city_1a124e63ad2a05d48097b5d40e3f134c7f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcity.h" line="66" column="1" bodyfile="newcity.cpp" bodystart="122" bodyend="127"/>
+        <location file="newcity.h" line="67" column="1" bodyfile="newcity.cpp" bodystart="126" bodyend="143"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -350,7 +350,7 @@
         <label>QMainWindow</label>
       </node>
     </collaborationgraph>
-    <location file="newcity.h" line="40" column="1" bodyfile="newcity.h" bodystart="39" bodyend="67"/>
+    <location file="newcity.h" line="41" column="1" bodyfile="newcity.h" bodystart="40" bodyend="68"/>
     <listofallmembers>
       <member refid="class_new_city_1a120817ae5d3c36e2d1edd6d1eee8aacc" prot="private" virt="non-virtual"><scope>NewCity</scope><name>canSave</name></member>
       <member refid="class_new_city_1afc8a2c73852d26baf7cf55234dad7438" prot="private" virt="non-virtual"><scope>NewCity</scope><name>changed</name></member>

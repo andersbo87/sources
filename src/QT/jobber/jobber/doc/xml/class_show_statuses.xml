@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="68" column="1" bodyfile="showstatuses.h" bodystart="68" bodyend="-1"/>
+        <location file="showstatuses.h" line="69" column="1" bodyfile="showstatuses.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_show_statuses_1aff3fcb39458ceb440f88b7f90eadc2f4" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="68" column="1" bodyfile="showstatuses.h" bodystart="68" bodyend="-1"/>
+        <location file="showstatuses.h" line="69" column="1" bodyfile="showstatuses.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_show_statuses_1a700d3e9b79ea945285ad25b6b8fa1562" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="69" column="1" bodyfile="showstatuses.h" bodystart="69" bodyend="-1"/>
+        <location file="showstatuses.h" line="70" column="1" bodyfile="showstatuses.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_show_statuses_1af15870d0779608df66c153ac1a8d8f14" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -55,7 +55,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="69" column="1" bodyfile="showstatuses.h" bodystart="69" bodyend="-1"/>
+        <location file="showstatuses.h" line="70" column="1" bodyfile="showstatuses.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_show_statuses_1a1805492343c0913ffa9f5b568ff851ef" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ShowStatuses::runs</definition>
+        <argsstring></argsstring>
+        <name>runs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showstatuses.h" line="70" column="1" bodyfile="showstatuses.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_show_statuses_1acbd1393af948f82dfe578c90eab4ef8b" prot="private" static="no" mutable="no">
         <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
@@ -68,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="70" column="1" bodyfile="showstatuses.h" bodystart="70" bodyend="-1"/>
+        <location file="showstatuses.h" line="71" column="1" bodyfile="showstatuses.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_show_statuses_1a2771b66524b26356e62081a4d06fe819" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -81,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="71" column="1" bodyfile="showstatuses.h" bodystart="71" bodyend="-1"/>
+        <location file="showstatuses.h" line="72" column="1" bodyfile="showstatuses.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_show_statuses_1a09031b168174553547dd2ac82d793683" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -94,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="71" column="1" bodyfile="showstatuses.h" bodystart="71" bodyend="-1"/>
+        <location file="showstatuses.h" line="72" column="1" bodyfile="showstatuses.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_show_statuses_1a5ad32ccd6f757e6d5d51ce4bfabdc522" prot="private" static="no" mutable="no">
         <type>Ui::ShowStatuses *</type>
@@ -107,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="72" column="1" bodyfile="showstatuses.h" bodystart="72" bodyend="-1"/>
+        <location file="showstatuses.h" line="73" column="1" bodyfile="showstatuses.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -178,7 +191,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="51" column="1" bodyfile="showstatuses.cpp" bodystart="34" bodyend="52"/>
+        <location file="showstatuses.h" line="52" column="1" bodyfile="showstatuses.cpp" bodystart="34" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a02eaa17077f687b7f86cff3c60ad4c5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -191,7 +204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="52" column="1" bodyfile="showstatuses.cpp" bodystart="158" bodyend="161"/>
+        <location file="showstatuses.h" line="53" column="1" bodyfile="showstatuses.cpp" bodystart="181" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -216,7 +229,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="55" column="1" bodyfile="showstatuses.cpp" bodystart="97" bodyend="114"/>
+        <location file="showstatuses.h" line="56" column="1" bodyfile="showstatuses.cpp" bodystart="109" bodyend="137"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a78ceb898d01bd2892e1ef942672666ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -229,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="56" column="1" bodyfile="showstatuses.cpp" bodystart="119" bodyend="156"/>
+        <location file="showstatuses.h" line="57" column="1" bodyfile="showstatuses.cpp" bodystart="142" bodyend="179"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -244,7 +257,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="61" column="1" bodyfile="showstatuses.cpp" bodystart="59" bodyend="62"/>
+        <location file="showstatuses.h" line="62" column="1" bodyfile="showstatuses.cpp" bodystart="60" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -258,7 +271,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="62" column="1" bodyfile="showstatuses.cpp" bodystart="68" bodyend="71"/>
+        <location file="showstatuses.h" line="63" column="1" bodyfile="showstatuses.cpp" bodystart="69" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a03eb52c13df7220ced551be7be69f822" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -283,7 +296,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="63" column="1" bodyfile="showstatuses.cpp" bodystart="78" bodyend="81"/>
+        <location file="showstatuses.h" line="64" column="1" bodyfile="showstatuses.cpp" bodystart="79" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1ac4a3c02814d6a326a0d0a6bfc8239483" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -308,7 +321,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="64" column="1" bodyfile="showstatuses.cpp" bodystart="87" bodyend="90"/>
+        <location file="showstatuses.h" line="65" column="1" bodyfile="showstatuses.cpp" bodystart="97" bodyend="102"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -323,7 +336,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="75" column="1" bodyfile="showstatuses.cpp" bodystart="237" bodyend="269"/>
+        <location file="showstatuses.h" line="76" column="1" bodyfile="showstatuses.cpp" bodystart="262" bodyend="294"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1acf87a151fb5a56dc0d91680b65c827c8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -340,7 +353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="76" column="1" bodyfile="showstatuses.cpp" bodystart="175" bodyend="213"/>
+        <location file="showstatuses.h" line="77" column="1" bodyfile="showstatuses.cpp" bodystart="199" bodyend="238"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a615269e249975529cbe923b6174e7461" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -356,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="77" column="1" bodyfile="showstatuses.cpp" bodystart="171" bodyend="174"/>
+        <location file="showstatuses.h" line="78" column="1" bodyfile="showstatuses.cpp" bodystart="195" bodyend="198"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a8a9140a8901a6ea08846d0cc200f323b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -370,7 +383,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="78" column="1" bodyfile="showstatuses.cpp" bodystart="219" bodyend="222"/>
+        <location file="showstatuses.h" line="79" column="1" bodyfile="showstatuses.cpp" bodystart="244" bodyend="247"/>
       </memberdef>
       <memberdef kind="function" id="class_show_statuses_1a4a24900daaab4a041f3033ec08291651" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -395,7 +408,24 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="79" column="1" bodyfile="showstatuses.cpp" bodystart="228" bodyend="232"/>
+        <location file="showstatuses.h" line="80" column="1" bodyfile="showstatuses.cpp" bodystart="253" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_statuses_1a57628194fadd4e3fdef897da787057f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ShowStatuses::isNullOrWhitespace</definition>
+        <argsstring>(QString string)</argsstring>
+        <name>isNullOrWhitespace</name>
+        <param>
+          <type>QString</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showstatuses.h" line="81" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -410,7 +440,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="82" column="1" bodyfile="showstatuses.cpp" bodystart="337" bodyend="356"/>
+        <location file="showstatuses.h" line="84" column="1" bodyfile="showstatuses.cpp" bodystart="362" bodyend="381"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1ac84b0adaa0c641c80b2f6036340e68e6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -423,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="83" column="1" bodyfile="showstatuses.cpp" bodystart="358" bodyend="378"/>
+        <location file="showstatuses.h" line="85" column="1" bodyfile="showstatuses.cpp" bodystart="383" bodyend="403"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1a98d4a302ecc0ffaf7587bdff080814fc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -436,7 +466,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="84" column="1" bodyfile="showstatuses.cpp" bodystart="380" bodyend="408"/>
+        <location file="showstatuses.h" line="86" column="1" bodyfile="showstatuses.cpp" bodystart="405" bodyend="433"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1aaffe0120b90c7987e215879dc5871ac7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -449,7 +479,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="85" column="1" bodyfile="showstatuses.cpp" bodystart="410" bodyend="439"/>
+        <location file="showstatuses.h" line="87" column="1" bodyfile="showstatuses.cpp" bodystart="435" bodyend="464"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1a82212e067ccf0c9cc9b5dea143c38022" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -462,7 +492,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="86" column="1" bodyfile="showstatuses.cpp" bodystart="441" bodyend="470"/>
+        <location file="showstatuses.h" line="88" column="1" bodyfile="showstatuses.cpp" bodystart="466" bodyend="495"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1a47cf821f3890592236899364540cfbfc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -475,7 +505,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="87" column="1" bodyfile="showstatuses.cpp" bodystart="472" bodyend="477"/>
+        <location file="showstatuses.h" line="89" column="1" bodyfile="showstatuses.cpp" bodystart="497" bodyend="509"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1a8e2bd4b8b57f543671ef907b8d6554b5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -488,7 +518,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="88" column="1" bodyfile="showstatuses.cpp" bodystart="272" bodyend="291"/>
+        <location file="showstatuses.h" line="90" column="1" bodyfile="showstatuses.cpp" bodystart="297" bodyend="316"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1ab85f92a8d2824b9502223c404a831090" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -501,7 +531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="89" column="1" bodyfile="showstatuses.cpp" bodystart="293" bodyend="335"/>
+        <location file="showstatuses.h" line="91" column="1" bodyfile="showstatuses.cpp" bodystart="318" bodyend="360"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_statuses_1ae3326bbbb7153e26f098c299594d2f43" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -514,7 +544,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showstatuses.h" line="90" column="1" bodyfile="showstatuses.cpp" bodystart="163" bodyend="169"/>
+        <location file="showstatuses.h" line="92" column="1" bodyfile="showstatuses.cpp" bodystart="187" bodyend="193"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -543,7 +573,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="showstatuses.h" line="40" column="1" bodyfile="showstatuses.h" bodystart="39" bodyend="91"/>
+    <location file="showstatuses.h" line="41" column="1" bodyfile="showstatuses.h" bodystart="40" bodyend="93"/>
     <listofallmembers>
       <member refid="class_show_statuses_1ab85f92a8d2824b9502223c404a831090" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>btnDeleteClicked</name></member>
       <member refid="class_show_statuses_1a8e2bd4b8b57f543671ef907b8d6554b5" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>btnSaveClicked</name></member>
@@ -560,9 +590,11 @@
       <member refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" prot="public" virt="non-virtual"><scope>ShowStatuses</scope><name>getStatusID</name></member>
       <member refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" prot="public" virt="non-virtual"><scope>ShowStatuses</scope><name>getStatusName</name></member>
       <member refid="class_show_statuses_1a8a9140a8901a6ea08846d0cc200f323b" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>isChanged</name></member>
+      <member refid="class_show_statuses_1a57628194fadd4e3fdef897da787057f2" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>isNullOrWhitespace</name></member>
       <member refid="class_show_statuses_1af15870d0779608df66c153ac1a8d8f14" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>lastID</name></member>
       <member refid="class_show_statuses_1a47cf821f3890592236899364540cfbfc" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>lineEditStatusnameChanged</name></member>
       <member refid="class_show_statuses_1acbd1393af948f82dfe578c90eab4ef8b" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>p</name></member>
+      <member refid="class_show_statuses_1a1805492343c0913ffa9f5b568ff851ef" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>runs</name></member>
       <member refid="class_show_statuses_1a4a24900daaab4a041f3033ec08291651" prot="private" virt="non-virtual"><scope>ShowStatuses</scope><name>setChanged</name></member>
       <member refid="class_show_statuses_1a03eb52c13df7220ced551be7be69f822" prot="public" virt="non-virtual"><scope>ShowStatuses</scope><name>setStatusID</name></member>
       <member refid="class_show_statuses_1ac4a3c02814d6a326a0d0a6bfc8239483" prot="public" virt="non-virtual"><scope>ShowStatuses</scope><name>setStatusName</name></member>

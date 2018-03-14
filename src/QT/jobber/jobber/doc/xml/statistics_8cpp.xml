@@ -5,70 +5,70 @@
     <includes refid="statistics_8h" local="yes">statistics.h</includes>
     <includes local="yes">ui_statistics.h</includes>
     <incdepgraph>
-      <node id="392">
+      <node id="422">
         <label>ui_statistics.h</label>
       </node>
-      <node id="382">
+      <node id="412">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="383" relation="include">
+        <childnode refid="413" relation="include">
         </childnode>
-        <childnode refid="384" relation="include">
+        <childnode refid="414" relation="include">
         </childnode>
-        <childnode refid="385" relation="include">
+        <childnode refid="415" relation="include">
         </childnode>
-        <childnode refid="386" relation="include">
+        <childnode refid="416" relation="include">
         </childnode>
-        <childnode refid="387" relation="include">
+        <childnode refid="417" relation="include">
         </childnode>
-        <childnode refid="388" relation="include">
+        <childnode refid="418" relation="include">
         </childnode>
-        <childnode refid="389" relation="include">
+        <childnode refid="419" relation="include">
         </childnode>
-        <childnode refid="390" relation="include">
+        <childnode refid="420" relation="include">
         </childnode>
       </node>
-      <node id="385">
+      <node id="415">
         <label>QLinkedList</label>
       </node>
-      <node id="384">
+      <node id="414">
         <label>QApplication</label>
       </node>
-      <node id="380">
+      <node id="410">
         <label>statistics.cpp</label>
         <link refid="statistics_8cpp"/>
-        <childnode refid="381" relation="include">
+        <childnode refid="411" relation="include">
         </childnode>
-        <childnode refid="392" relation="include">
+        <childnode refid="422" relation="include">
         </childnode>
       </node>
-      <node id="391">
+      <node id="421">
         <label>QDialog</label>
       </node>
-      <node id="387">
+      <node id="417">
         <label>QDebug</label>
       </node>
-      <node id="388">
+      <node id="418">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="383">
+      <node id="413">
         <label>sstream</label>
       </node>
-      <node id="389">
+      <node id="419">
         <label>pqxx/result</label>
       </node>
-      <node id="386">
+      <node id="416">
         <label>QException</label>
       </node>
-      <node id="381">
+      <node id="411">
         <label>statistics.h</label>
         <link refid="statistics_8h_source"/>
-        <childnode refid="382" relation="include">
+        <childnode refid="412" relation="include">
         </childnode>
-        <childnode refid="391" relation="include">
+        <childnode refid="421" relation="include">
         </childnode>
       </node>
-      <node id="390">
+      <node id="420">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -77,42 +77,66 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;statistics.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ui_statistics.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><ref refid="classstatistics_1aaa102e49836a3b719df3a82e28735adc" kindref="member">statistics::statistics</ref>(<ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent)<sp/>:</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>QDialog(parent),</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/><ref refid="namespace_ui" kindref="compound">Ui</ref>::<ref refid="classstatistics" kindref="compound">statistics</ref>)</highlight></codeline>
-<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>p<sp/>=<sp/>pg;</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>updateData();</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui-&gt;btnUpdate,<sp/>SIGNAL(clicked(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(btnUpdateClicked()));</highlight></codeline>
-<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>statistics::updateData()</highlight></codeline>
-<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelTotalValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a496d0a426a1539bf9babd1dd4e9fcd96" kindref="member">countTotalApplications</ref>()));</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelAcceptedValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a0beec2f098edc0961f27774cdd54d09b" kindref="member">countAccepted</ref>()));</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelDeclinedValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a40541367c3af9c0ac94e2fb92f00f53c" kindref="member">countDeclinedApplications</ref>()));</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelInterviewValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a84c1fdea2d09783a39677c4f79d924fc" kindref="member">countInterviews</ref>()));</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelRegisteredValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a8673a80968d293cd3ead6e6e9da8dd8a" kindref="member">countRegisteredApplications</ref>()));</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelSentValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1af5e6768f6c51ac7b94571505f7a628e4" kindref="member">countSentApplications</ref>()));</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelWrittenButNotSentValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a70ad9f4b00735a55232f46da4edd2edc" kindref="member">countWrittenButNotSent</ref>()));</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percent<sp/>=<sp/>((p-&gt;<ref refid="classpsql_1a0beec2f098edc0961f27774cdd54d09b" kindref="member">countAccepted</ref>()<sp/>+<sp/>p-&gt;countDeclinedAfterInterview()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a40541367c3af9c0ac94e2fb92f00f53c" kindref="member">countDeclinedApplications</ref>()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a84c1fdea2d09783a39677c4f79d924fc" kindref="member">countInterviews</ref>())/p-&gt;<ref refid="classpsql_1a496d0a426a1539bf9babd1dd4e9fcd96" kindref="member">countTotalApplications</ref>())*100;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelAnsweredValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a0beec2f098edc0961f27774cdd54d09b" kindref="member">countAccepted</ref>()<sp/>+<sp/>p-&gt;countDeclinedAfterInterview()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a40541367c3af9c0ac94e2fb92f00f53c" kindref="member">countDeclinedApplications</ref>()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a84c1fdea2d09783a39677c4f79d924fc" kindref="member">countInterviews</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>(&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(percent)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>%)&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelDeclinedAfterInterviewValue-&gt;setText(QString::number(p-&gt;countDeclinedAfterInterview()));</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>statistics::btnUpdateClicked()</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>updateData();</highlight></codeline>
-<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal">statistics::~statistics()</highlight></codeline>
-<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ui;</highlight></codeline>
-<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Copyright<sp/>(c)<sp/>2017,<sp/>Anders<sp/>Bolt-Evensen</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/><sp/><sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/><sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"></highlight></codeline>
+<codeline lineno="13"><highlight class="comment">THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;<sp/>AND</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE<sp/>IMPLIED</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>ARE</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>ANDERS<sp/>BOLT-EVENSEN<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;statistics.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ui_statistics.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><ref refid="classstatistics_1aaa102e49836a3b719df3a82e28735adc" kindref="member">statistics::statistics</ref>(<ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent)<sp/>:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>QDialog(parent),</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/><ref refid="namespace_ui" kindref="compound">Ui</ref>::<ref refid="classstatistics" kindref="compound">statistics</ref>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>p<sp/>=<sp/>pg;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>updateData();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui-&gt;btnUpdate,<sp/>SIGNAL(clicked(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(btnUpdateClicked()));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>statistics::updateData()</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelTotalValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a496d0a426a1539bf9babd1dd4e9fcd96" kindref="member">countTotalApplications</ref>()));</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelAcceptedValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a0beec2f098edc0961f27774cdd54d09b" kindref="member">countAccepted</ref>()));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelDeclinedValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a40541367c3af9c0ac94e2fb92f00f53c" kindref="member">countDeclinedApplications</ref>()));</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelInterviewValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a84c1fdea2d09783a39677c4f79d924fc" kindref="member">countInterviews</ref>()));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelRegisteredValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a8673a80968d293cd3ead6e6e9da8dd8a" kindref="member">countRegisteredApplications</ref>()));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelSentValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1af5e6768f6c51ac7b94571505f7a628e4" kindref="member">countSentApplications</ref>()));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelWrittenButNotSentValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a70ad9f4b00735a55232f46da4edd2edc" kindref="member">countWrittenButNotSent</ref>()));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>percent<sp/>=<sp/>((p-&gt;<ref refid="classpsql_1a0beec2f098edc0961f27774cdd54d09b" kindref="member">countAccepted</ref>()<sp/>+<sp/>p-&gt;countDeclinedAfterInterview()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a40541367c3af9c0ac94e2fb92f00f53c" kindref="member">countDeclinedApplications</ref>()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a84c1fdea2d09783a39677c4f79d924fc" kindref="member">countInterviews</ref>())/p-&gt;<ref refid="classpsql_1a496d0a426a1539bf9babd1dd4e9fcd96" kindref="member">countTotalApplications</ref>())*100;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelAnsweredValue-&gt;setText(QString::number(p-&gt;<ref refid="classpsql_1a0beec2f098edc0961f27774cdd54d09b" kindref="member">countAccepted</ref>()<sp/>+<sp/>p-&gt;countDeclinedAfterInterview()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a40541367c3af9c0ac94e2fb92f00f53c" kindref="member">countDeclinedApplications</ref>()<sp/>+<sp/>p-&gt;<ref refid="classpsql_1a84c1fdea2d09783a39677c4f79d924fc" kindref="member">countInterviews</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>(&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(percent)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>%)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelDeclinedAfterInterviewValue-&gt;setText(QString::number(p-&gt;countDeclinedAfterInterview()));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>statistics::btnUpdateClicked()</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>updateData();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">statistics::~statistics()</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ui;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="statistics.cpp"/>
   </compounddef>

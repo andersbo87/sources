@@ -238,6 +238,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>countDeclinedAfterI
 <tr class="memitem:a9c02c92c09cb60c35d24375673b7df06"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06">getStatusID</a> (int applicationID)</td></tr>
 <tr class="memdesc:a9c02c92c09cb60c35d24375673b7df06"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06" title="psql::getStatusID Returns the status ID of the application based on the application ID provided by th...">psql::getStatusID</a> Returns the status ID of the application based on the application ID provided by the user.  <a href="#a9c02c92c09cb60c35d24375673b7df06">More...</a><br /></td></tr>
 <tr class="separator:a9c02c92c09cb60c35d24375673b7df06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d13aebcb6d151719769207238865e75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a9d13aebcb6d151719769207238865e75">getStatusID</a> (string name)</td></tr>
+<tr class="memdesc:a9d13aebcb6d151719769207238865e75"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06" title="psql::getStatusID Returns the status ID of the application based on the application ID provided by th...">psql::getStatusID</a> Gets the status ID based on the status name  <a href="#a9d13aebcb6d151719769207238865e75">More...</a><br /></td></tr>
+<tr class="separator:a9d13aebcb6d151719769207238865e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ad41caea89dc5af0b55b12f6394fbf5"><td class="memItemLeft" align="right" valign="top">QList&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpsql.html#a2ad41caea89dc5af0b55b12f6394fbf5">fillList</a> (const char *sqlSporring)</td></tr>
 <tr class="memdesc:a2ad41caea89dc5af0b55b12f6394fbf5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classpsql.html#a2ad41caea89dc5af0b55b12f6394fbf5" title="psql::fillList &quot;Fills&quot; a QList with integers based on the results of an SQL query. ">psql::fillList</a> "Fills" a QList with integers based on the results of an SQL query.  <a href="#a2ad41caea89dc5af0b55b12f6394fbf5">More...</a><br /></td></tr>
 <tr class="separator:a2ad41caea89dc5af0b55b12f6394fbf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1674,7 +1677,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>countDeclinedAfterI
 </div>
 </div>
 <a id="a9c02c92c09cb60c35d24375673b7df06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c02c92c09cb60c35d24375673b7df06">&#9670;&nbsp;</a></span>getStatusID()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c02c92c09cb60c35d24375673b7df06">&#9670;&nbsp;</a></span>getStatusID() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1697,6 +1700,33 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>countDeclinedAfterI
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the application ID on success and 0 on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a9d13aebcb6d151719769207238865e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d13aebcb6d151719769207238865e75">&#9670;&nbsp;</a></span>getStatusID() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int psql::getStatusID </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classpsql.html#a9c02c92c09cb60c35d24375673b7df06" title="psql::getStatusID Returns the status ID of the application based on the application ID provided by th...">psql::getStatusID</a> Gets the status ID based on the status name </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the status </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ID of the status in question. </dd></dl>
 
 </div>
 </div>

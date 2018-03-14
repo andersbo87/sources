@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="49" column="1" bodyfile="newcountry.h" bodystart="49" bodyend="-1"/>
+        <location file="newcountry.h" line="50" column="1" bodyfile="newcountry.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_country_1a6f0827405ccb060fdfa8b9d419951825" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="49" column="1" bodyfile="newcountry.h" bodystart="49" bodyend="-1"/>
+        <location file="newcountry.h" line="50" column="1" bodyfile="newcountry.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_country_1a32e123fa985ee6a630cc04e4a4f31dae" prot="private" static="no" mutable="no">
         <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="50" column="1" bodyfile="newcountry.h" bodystart="50" bodyend="-1"/>
+        <location file="newcountry.h" line="51" column="1" bodyfile="newcountry.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_country_1ac3edd6d06e56a382028dcbbd6e3f0c2c" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="51" column="1" bodyfile="newcountry.h" bodystart="51" bodyend="-1"/>
+        <location file="newcountry.h" line="52" column="1" bodyfile="newcountry.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_country_1a7a01c4cc29173c8bc2c82aab260bf7cc" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="51" column="1" bodyfile="newcountry.h" bodystart="51" bodyend="-1"/>
+        <location file="newcountry.h" line="52" column="1" bodyfile="newcountry.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_country_1a3c53949e1b9a70d1adb21dbd84c07201" prot="private" static="no" mutable="no">
         <type>Ui::NewCountry *</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="52" column="1" bodyfile="newcountry.h" bodystart="52" bodyend="-1"/>
+        <location file="newcountry.h" line="53" column="1" bodyfile="newcountry.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -130,7 +130,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="42" column="1" bodyfile="newcountry.cpp" bodystart="35" bodyend="52"/>
+        <location file="newcountry.h" line="43" column="1" bodyfile="newcountry.cpp" bodystart="35" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="class_new_country_1a7144b218fd12616de110d5d73507e57a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="43" column="1" bodyfile="newcountry.cpp" bodystart="75" bodyend="78"/>
+        <location file="newcountry.h" line="44" column="1" bodyfile="newcountry.cpp" bodystart="79" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="class_new_country_1a5d28702b9788a1debf6817443d4a7355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -157,7 +157,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="44" column="1" bodyfile="newcountry.cpp" bodystart="59" bodyend="62"/>
+        <location file="newcountry.h" line="45" column="1" bodyfile="newcountry.cpp" bodystart="59" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="class_new_country_1af6fed97011d536e1a29db8112849e36b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -182,7 +182,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="45" column="1" bodyfile="newcountry.cpp" bodystart="69" bodyend="72"/>
+        <location file="newcountry.h" line="46" column="1" bodyfile="newcountry.cpp" bodystart="69" bodyend="76"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -198,7 +198,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="55" column="1" bodyfile="newcountry.cpp" bodystart="85" bodyend="92"/>
+        <location file="newcountry.h" line="56" column="1" bodyfile="newcountry.cpp" bodystart="89" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="class_new_country_1a59867dc78ed3143bdb57834b77728fa9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -223,7 +223,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="56" column="1" bodyfile="newcountry.cpp" bodystart="98" bodyend="153"/>
+        <location file="newcountry.h" line="57" column="1" bodyfile="newcountry.cpp" bodystart="102" bodyend="157"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -238,7 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="60" column="1" bodyfile="newcountry.cpp" bodystart="163" bodyend="194"/>
+        <location file="newcountry.h" line="61" column="1" bodyfile="newcountry.cpp" bodystart="179" bodyend="210"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_country_1a0a1e68124f7a18fa24aecc991999c897" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -251,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newcountry.h" line="61" column="1" bodyfile="newcountry.cpp" bodystart="156" bodyend="161"/>
+        <location file="newcountry.h" line="62" column="1" bodyfile="newcountry.cpp" bodystart="160" bodyend="177"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -280,7 +280,7 @@
         <label>QMainWindow</label>
       </node>
     </collaborationgraph>
-    <location file="newcountry.h" line="38" column="1" bodyfile="newcountry.h" bodystart="37" bodyend="62"/>
+    <location file="newcountry.h" line="39" column="1" bodyfile="newcountry.h" bodystart="38" bodyend="63"/>
     <listofallmembers>
       <member refid="class_new_country_1af690df4edefac82200910292d4d0dca5" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>canSave</name></member>
       <member refid="class_new_country_1afa55435689db70d717b89809309e48a1" prot="private" virt="non-virtual"><scope>NewCountry</scope><name>changed</name></member>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="50" column="1" bodyfile="newstatus.h" bodystart="50" bodyend="-1"/>
+        <location file="newstatus.h" line="51" column="1" bodyfile="newstatus.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_status_1a87989f50fd5955e24f83a397e6d3fc8b" prot="private" static="no" mutable="no">
         <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="52" column="1" bodyfile="newstatus.h" bodystart="52" bodyend="-1"/>
+        <location file="newstatus.h" line="53" column="1" bodyfile="newstatus.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_status_1aa36e137b56156f35e233daa831bfb80f" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="53" column="1" bodyfile="newstatus.h" bodystart="53" bodyend="-1"/>
+        <location file="newstatus.h" line="54" column="1" bodyfile="newstatus.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_status_1a6e7c98aca7b9512058b36af1224c9da8" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="53" column="1" bodyfile="newstatus.h" bodystart="53" bodyend="-1"/>
+        <location file="newstatus.h" line="54" column="1" bodyfile="newstatus.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_status_1a8de417a9675e4da7b7f1f0512daf02c2" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="54" column="1" bodyfile="newstatus.h" bodystart="54" bodyend="-1"/>
+        <location file="newstatus.h" line="55" column="1" bodyfile="newstatus.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_new_status_1a4d2d47cce0add9b63d5b20ab2a5a827a" prot="private" static="no" mutable="no">
         <type>QString</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="54" column="1" bodyfile="newstatus.h" bodystart="54" bodyend="-1"/>
+        <location file="newstatus.h" line="55" column="1" bodyfile="newstatus.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -131,7 +131,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="44" column="1" bodyfile="newstatus.cpp" bodystart="35" bodyend="52"/>
+        <location file="newstatus.h" line="45" column="1" bodyfile="newstatus.cpp" bodystart="35" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="class_new_status_1aa15ee2173f3b5ea50a17fd24db16de77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="45" column="1" bodyfile="newstatus.cpp" bodystart="185" bodyend="188"/>
+        <location file="newstatus.h" line="46" column="1" bodyfile="newstatus.cpp" bodystart="199" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -169,7 +169,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="46" column="1" bodyfile="newstatus.cpp" bodystart="71" bodyend="74"/>
+        <location file="newstatus.h" line="47" column="1" bodyfile="newstatus.cpp" bodystart="71" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="class_new_status_1a7ea744ad1645c5954000983d50947154" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -183,7 +183,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="47" column="1" bodyfile="newstatus.cpp" bodystart="79" bodyend="82"/>
+        <location file="newstatus.h" line="48" column="1" bodyfile="newstatus.cpp" bodystart="81" bodyend="84"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -210,7 +210,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="51" column="1" bodyfile="newstatus.cpp" bodystart="88" bodyend="143"/>
+        <location file="newstatus.h" line="52" column="1" bodyfile="newstatus.cpp" bodystart="90" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="class_new_status_1a73cf134c5e4902bdf6093e042d604b8b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -224,7 +224,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="55" column="1" bodyfile="newstatus.cpp" bodystart="58" bodyend="65"/>
+        <location file="newstatus.h" line="56" column="1" bodyfile="newstatus.cpp" bodystart="58" bodyend="65"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="58" column="1" bodyfile="newstatus.cpp" bodystart="152" bodyend="183"/>
+        <location file="newstatus.h" line="59" column="1" bodyfile="newstatus.cpp" bodystart="166" bodyend="197"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_status_1a33b9b56cb6b60f763ed9276ea4cb8d4e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="59" column="1" bodyfile="newstatus.cpp" bodystart="145" bodyend="150"/>
+        <location file="newstatus.h" line="60" column="1" bodyfile="newstatus.cpp" bodystart="147" bodyend="164"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -281,7 +281,7 @@
         <label>QMainWindow</label>
       </node>
     </collaborationgraph>
-    <location file="newstatus.h" line="40" column="1" bodyfile="newstatus.h" bodystart="39" bodyend="60"/>
+    <location file="newstatus.h" line="41" column="1" bodyfile="newstatus.h" bodystart="40" bodyend="61"/>
     <listofallmembers>
       <member refid="class_new_status_1a73cf134c5e4902bdf6093e042d604b8b" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>canSave</name></member>
       <member refid="class_new_status_1aa36e137b56156f35e233daa831bfb80f" prot="private" virt="non-virtual"><scope>NewStatus</scope><name>changed</name></member>

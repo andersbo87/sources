@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classstring_check" kind="class" language="C++" prot="public">
+    <compoundname>stringCheck</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classstring_check_1a5e241946fc079c8175e348e9081b3ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>stringCheck::stringCheck</definition>
+        <argsstring>()</argsstring>
+        <name>stringCheck</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stringcheck.h" line="32" column="1" bodyfile="stringcheck.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool stringCheck::isNullOrWhitespace</definition>
+        <argsstring>(QString string)</argsstring>
+        <name>isNullOrWhitespace</name>
+        <param>
+          <type>QString</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="stringcheck.h" line="33" column="1" bodyfile="stringcheck.cpp" bodystart="32" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="stringcheck.h" line="30" column="1" bodyfile="stringcheck.h" bodystart="29" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" prot="public" virt="non-virtual"><scope>stringCheck</scope><name>isNullOrWhitespace</name></member>
+      <member refid="classstring_check_1a5e241946fc079c8175e348e9081b3ebd" prot="public" virt="non-virtual"><scope>stringCheck</scope><name>stringCheck</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

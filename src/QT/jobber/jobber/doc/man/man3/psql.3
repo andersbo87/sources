@@ -1,4 +1,4 @@
-.TH "psql" 3 "Sat Mar 3 2018" "Jobber" \" -*- nroff -*-
+.TH "psql" 3 "Wed Mar 14 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -225,6 +225,10 @@ psql \- The psql class\&.
 .RI "int \fBgetStatusID\fP (int applicationID)"
 .br
 .RI "\fBpsql::getStatusID\fP Returns the status ID of the application based on the application ID provided by the user\&. "
+.ti -1c
+.RI "int \fBgetStatusID\fP (string name)"
+.br
+.RI "\fBpsql::getStatusID\fP Gets the status ID based on the status name "
 .ti -1c
 .RI "QList< QString > \fBfillList\fP (const char *sqlSporring)"
 .br
@@ -1012,6 +1016,22 @@ On success, return the mentioned list of strings\&.
 \fBReturns:\fP
 .RS 4
 the application ID on success and 0 on failure\&. 
+.RE
+.PP
+
+.SS "int psql::getStatusID (string name)"
+
+.PP
+\fBpsql::getStatusID\fP Gets the status ID based on the status name 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the status 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The ID of the status in question\&. 
 .RE
 .PP
 

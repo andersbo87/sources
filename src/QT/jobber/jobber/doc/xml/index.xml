@@ -86,6 +86,10 @@
     <member refid="class_new_job_1a254a8a24f265abf9d9414c6169aee493" kind="variable"><name>p</name></member>
     <member refid="class_new_job_1a489279a9ec91bcac74d7dad65eb2f85a" kind="function"><name>NewJob</name></member>
     <member refid="class_new_job_1abd7bef6f7fa91dccf1bd8eddfbbac931" kind="function"><name>~NewJob</name></member>
+    <member refid="class_new_job_1a84f6390f63ce01fb860b375f53f9c68d" kind="function"><name>closeEvent</name></member>
+    <member refid="class_new_job_1a84ccd88dc5b91c3a8bb023ce21d73908" kind="function"><name>canSave</name></member>
+    <member refid="class_new_job_1af6a55338f7b75888991a428a7cfe8860" kind="function"><name>getCityIDs</name></member>
+    <member refid="class_new_job_1ae62f1e1a4f6953ae0551d72de5d723f4" kind="function"><name>getStatusIDs</name></member>
     <member refid="class_new_job_1ae8c2b576f2ea6f444776e6d944f0d767" kind="function"><name>setTitle</name></member>
     <member refid="class_new_job_1ad9f522f4a6a45348ecc3ab1229b5eabb" kind="function"><name>setCompany</name></member>
     <member refid="class_new_job_1a66004f3c78c6d9796fc3c5ce66f2479b" kind="function"><name>setCityName</name></member>
@@ -100,10 +104,6 @@
     <member refid="class_new_job_1aebbe015a22f5dbf60a34c33dd5c5a8e7" kind="function"><name>getStatusID</name></member>
     <member refid="class_new_job_1abe92b6bce4e8e3485f59554a2cbad1bc" kind="function"><name>getDate</name></member>
     <member refid="class_new_job_1a665113a114684439ed3705c8c5f8eabf" kind="function"><name>getMotivation</name></member>
-    <member refid="class_new_job_1a84f6390f63ce01fb860b375f53f9c68d" kind="function"><name>closeEvent</name></member>
-    <member refid="class_new_job_1a84ccd88dc5b91c3a8bb023ce21d73908" kind="function"><name>canSave</name></member>
-    <member refid="class_new_job_1af6a55338f7b75888991a428a7cfe8860" kind="function"><name>getCityIDs</name></member>
-    <member refid="class_new_job_1ae62f1e1a4f6953ae0551d72de5d723f4" kind="function"><name>getStatusIDs</name></member>
     <member refid="class_new_job_1a605a7a6b8aa165d4b556df07b754b552" kind="slot"><name>titleTextChanged</name></member>
     <member refid="class_new_job_1ada52e101b8c61c0e15555f15b4ea09e4" kind="slot"><name>companyTextChanged</name></member>
     <member refid="class_new_job_1a140c224ad2f2de3629300a34831e1ece" kind="slot"><name>cityIDchanged</name></member>
@@ -190,6 +190,7 @@
     <member refid="classpsql_1a0c33b3f48064ba75abaa4b0b58eb1ccd" kind="function"><name>getCityID</name></member>
     <member refid="classpsql_1a81d02dc0350ba11d90257914078ba432" kind="function"><name>getCountryID</name></member>
     <member refid="classpsql_1a9c02c92c09cb60c35d24375673b7df06" kind="function"><name>getStatusID</name></member>
+    <member refid="classpsql_1a9d13aebcb6d151719769207238865e75" kind="function"><name>getStatusID</name></member>
     <member refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kind="function"><name>fillList</name></member>
     <member refid="classpsql_1ab6edb8a2e42d8ac7c4ae29f5b0cb494f" kind="function"><name>getSpecificApplicationIDs</name></member>
     <member refid="classpsql_1a029f2ef38c4156cc6c67765900c8245f" kind="function"><name>getSpecificJobNames</name></member>
@@ -222,6 +223,9 @@
     <member refid="class_show_cities_1ae980c1eec5c56fcc56b6ac9cb7213926" kind="variable"><name>cityID</name></member>
     <member refid="class_show_cities_1a6f7665f15b2843b4e08e3877a7bff995" kind="variable"><name>countryID</name></member>
     <member refid="class_show_cities_1a807f05a9bcc1be2211e1e4def4a0c47e" kind="variable"><name>lastID</name></member>
+    <member refid="class_show_cities_1aee3e3571b3246da7d2dff94e006b67c4" kind="variable"><name>runs</name></member>
+    <member refid="class_show_cities_1a647d69e10d19a13074c8d07d8bdc03e4" kind="variable"><name>countries</name></member>
+    <member refid="class_show_cities_1ac63a26b520f35a6c650c21a20f4d662f" kind="variable"><name>cities</name></member>
     <member refid="class_show_cities_1a9104f71de61c78bf5cd1351599266aa3" kind="variable"><name>changed</name></member>
     <member refid="class_show_cities_1ad9d2b08f51c3f096dc1f3d37f0b77bec" kind="variable"><name>cityIDchanged</name></member>
     <member refid="class_show_cities_1a71a514390bebd22b5e6ecbb6b731979a" kind="function"><name>ShowCities</name></member>
@@ -231,6 +235,7 @@
     <member refid="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" kind="function"><name>setCityID</name></member>
     <member refid="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" kind="function"><name>setCityName</name></member>
     <member refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kind="function"><name>setCountryID</name></member>
+    <member refid="class_show_cities_1a6974ab22950cede9fb290490bcc8f3a5" kind="function"><name>setCountryName</name></member>
     <member refid="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" kind="function"><name>getCityID</name></member>
     <member refid="class_show_cities_1a8fa42e8a5b12579cd04ae2a8ee4a9370" kind="function"><name>getCountryIDs</name></member>
     <member refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kind="function"><name>getCountryID</name></member>
@@ -241,6 +246,8 @@
     <member refid="class_show_cities_1ace0a3ca94beaf1301a27cddd417f31ad" kind="function"><name>setChanged</name></member>
     <member refid="class_show_cities_1a99aacd915ba6e9a8bc9a6f117eb77c54" kind="function"><name>closeEvent</name></member>
     <member refid="class_show_cities_1a2b35f33f8cb6602b6c10c4e1cb0eed31" kind="function"><name>showEvent</name></member>
+    <member refid="class_show_cities_1a7fd9c66875dee479b8e612e02c5149bb" kind="function"><name>isNullOrWhitespace</name></member>
+    <member refid="class_show_cities_1acdac6036603fa879a0e1fada738b2e7a" kind="function"><name>canSave</name></member>
     <member refid="class_show_cities_1a1f9f7fe93d9f21dc5ae5671903bf6ca1" kind="slot"><name>comboboxCityIDChanged</name></member>
     <member refid="class_show_cities_1a912626f9b76404a4efca975ff72fe18d" kind="slot"><name>comboboxCountryIDChanged</name></member>
     <member refid="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" kind="slot"><name>lineEditCityNameChanged</name></member>
@@ -257,6 +264,7 @@
     <member refid="class_show_countries_1a2234e84db3d017de111195bf2f55a85c" kind="variable"><name>countryIDchanged</name></member>
     <member refid="class_show_countries_1a471a77ac81d0de3b57fb855946671637" kind="variable"><name>countryID</name></member>
     <member refid="class_show_countries_1afa51a7756fbb6f0ab079529b63196c3e" kind="variable"><name>lastID</name></member>
+    <member refid="class_show_countries_1a6dcb86333584e2182dbfc3c492a54e02" kind="variable"><name>countries</name></member>
     <member refid="class_show_countries_1a229e69bd1979469e10e12d4f59144bdc" kind="variable"><name>p</name></member>
     <member refid="class_show_countries_1ad9cb84adec09b17a0bbab337f6077880" kind="variable"><name>countryName</name></member>
     <member refid="class_show_countries_1a65416b61c7bb25b712f14323b8377ebb" kind="variable"><name>winTitle</name></member>
@@ -274,6 +282,7 @@
     <member refid="class_show_countries_1a5052803c523df8fddd5ad1b60279a390" kind="function"><name>showEvent</name></member>
     <member refid="class_show_countries_1aa85731fff2063eca9c9ac5114f129a95" kind="function"><name>isChanged</name></member>
     <member refid="class_show_countries_1a26d776d09da9e922174c807e219e0a21" kind="function"><name>setChanged</name></member>
+    <member refid="class_show_countries_1aa8c2793e59991094b3a3264206496c88" kind="function"><name>isNullOrWhitespace</name></member>
     <member refid="class_show_countries_1a62dfc724aaf31d8365444d2a3d695d5a" kind="slot"><name>buttonFirstClicked</name></member>
     <member refid="class_show_countries_1aa569f08023a311da7ceeccdccf8cdb43" kind="slot"><name>buttonLastClicked</name></member>
     <member refid="class_show_countries_1aecc16927cc7d5fb72ebd1f132c247bac" kind="slot"><name>buttonNextClicked</name></member>
@@ -289,6 +298,7 @@
     <member refid="class_show_statuses_1aff3fcb39458ceb440f88b7f90eadc2f4" kind="variable"><name>statusIDchanged</name></member>
     <member refid="class_show_statuses_1a700d3e9b79ea945285ad25b6b8fa1562" kind="variable"><name>statusID</name></member>
     <member refid="class_show_statuses_1af15870d0779608df66c153ac1a8d8f14" kind="variable"><name>lastID</name></member>
+    <member refid="class_show_statuses_1a1805492343c0913ffa9f5b568ff851ef" kind="variable"><name>runs</name></member>
     <member refid="class_show_statuses_1acbd1393af948f82dfe578c90eab4ef8b" kind="variable"><name>p</name></member>
     <member refid="class_show_statuses_1a2771b66524b26356e62081a4d06fe819" kind="variable"><name>statusName</name></member>
     <member refid="class_show_statuses_1a09031b168174553547dd2ac82d793683" kind="variable"><name>winTitle</name></member>
@@ -306,6 +316,7 @@
     <member refid="class_show_statuses_1a615269e249975529cbe923b6174e7461" kind="function"><name>showEvent</name></member>
     <member refid="class_show_statuses_1a8a9140a8901a6ea08846d0cc200f323b" kind="function"><name>isChanged</name></member>
     <member refid="class_show_statuses_1a4a24900daaab4a041f3033ec08291651" kind="function"><name>setChanged</name></member>
+    <member refid="class_show_statuses_1a57628194fadd4e3fdef897da787057f2" kind="function"><name>isNullOrWhitespace</name></member>
     <member refid="class_show_statuses_1a85d69d3a465132337946157f2671161d" kind="slot"><name>buttonFirstClicked</name></member>
     <member refid="class_show_statuses_1ac84b0adaa0c641c80b2f6036340e68e6" kind="slot"><name>buttonLastClicked</name></member>
     <member refid="class_show_statuses_1a98d4a302ecc0ffaf7587bdff080814fc" kind="slot"><name>buttonNextClicked</name></member>
@@ -365,6 +376,10 @@
     <member refid="classstatistics_1a69959e0aa277b9ed03737ec6186ef607" kind="function"><name>updateData</name></member>
     <member refid="classstatistics_1aa2f6ad910ce0f596454eef235ca03321" kind="slot"><name>btnUpdateClicked</name></member>
   </compound>
+  <compound refid="classstring_check" kind="class"><name>stringCheck</name>
+    <member refid="classstring_check_1a5e241946fc079c8175e348e9081b3ebd" kind="function"><name>stringCheck</name></member>
+    <member refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kind="function"><name>isNullOrWhitespace</name></member>
+  </compound>
   <compound refid="class_view_jobs" kind="class"><name>ViewJobs</name>
     <member refid="class_view_jobs_1a4b0e0aab1571e09466b6fafd37f02e2c" kind="variable"><name>ui</name></member>
     <member refid="class_view_jobs_1abd33ef2e4c74a949d6a6457de31223a6" kind="variable"><name>p</name></member>
@@ -377,6 +392,8 @@
     <member refid="class_view_jobs_1a6c7b860d6b39c2993947912a94a6fc83" kind="variable"><name>cityid</name></member>
     <member refid="class_view_jobs_1a74a1cbb04551554b61f794fc989ac903" kind="variable"><name>applicationid</name></member>
     <member refid="class_view_jobs_1ad129aa8e12d607771cb757a8b5e933c6" kind="variable"><name>lastid</name></member>
+    <member refid="class_view_jobs_1a731a112649ee1dac1657b93e4da50529" kind="variable"><name>cities</name></member>
+    <member refid="class_view_jobs_1a1f6716e010ba97a2558db0a5822e6c82" kind="variable"><name>statuses</name></member>
     <member refid="class_view_jobs_1acb69f78ea7e922e18da5a1669289d329" kind="variable"><name>changed</name></member>
     <member refid="class_view_jobs_1aaadd9b0036eafda0766df0a2cb1e9722" kind="variable"><name>soknadIDChanged</name></member>
     <member refid="class_view_jobs_1ac78f48cc812a0348a233f33dc78a71cc" kind="function"><name>ViewJobs</name></member>
@@ -405,6 +422,8 @@
     <member refid="class_view_jobs_1a50f3a52f43e097d46e106e0aa31e9eb4" kind="function"><name>showEvent</name></member>
     <member refid="class_view_jobs_1a6fe28a8ba9112250d4337d02e0abedbd" kind="signal"><name>sigShowEvent</name></member>
     <member refid="class_view_jobs_1adbae197f7c5912f1680bb22591ef1e31" kind="function"><name>checkChanges</name></member>
+    <member refid="class_view_jobs_1a67117edf3c9bbfab4b854d516d9eb821" kind="function"><name>isNullOrWhitespace</name></member>
+    <member refid="class_view_jobs_1a8cefd2db0408677fe64f7606febc01aa" kind="function"><name>canSave</name></member>
     <member refid="class_view_jobs_1a5ffbcccd95e85b0843ab659415a80b0a" kind="slot"><name>comboboxApplicationIDChanged</name></member>
     <member refid="class_view_jobs_1aae7a18babf211b6f46d3d2ba3209e8d6" kind="slot"><name>lineEditTitleChanged</name></member>
     <member refid="class_view_jobs_1a75640e3dbcc56057a84c38dae2fb8e82" kind="slot"><name>lineEditCompanyChanged</name></member>
@@ -476,6 +495,10 @@
   <compound refid="statistics_8cpp" kind="file"><name>statistics.cpp</name>
   </compound>
   <compound refid="statistics_8h" kind="file"><name>statistics.h</name>
+  </compound>
+  <compound refid="stringcheck_8cpp" kind="file"><name>stringcheck.cpp</name>
+  </compound>
+  <compound refid="stringcheck_8h" kind="file"><name>stringcheck.h</name>
   </compound>
   <compound refid="viewjobs_8cpp" kind="file"><name>viewjobs.cpp</name>
   </compound>

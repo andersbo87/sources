@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="statistics.h" line="19" column="1" bodyfile="statistics.h" bodystart="19" bodyend="-1"/>
+        <location file="statistics.h" line="43" column="1" bodyfile="statistics.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classstatistics_1a783eb0a813b6cf4d756e1b856470769d" prot="private" static="no" mutable="no">
         <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="statistics.h" line="21" column="1" bodyfile="statistics.h" bodystart="21" bodyend="-1"/>
+        <location file="statistics.h" line="45" column="1" bodyfile="statistics.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -67,7 +67,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="statistics.h" line="15" column="1" bodyfile="statistics.cpp" bodystart="9" bodyend="17"/>
+        <location file="statistics.h" line="39" column="1" bodyfile="statistics.cpp" bodystart="33" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="classstatistics_1a8cf720227802726be118712dc6616f94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="statistics.h" line="16" column="1" bodyfile="statistics.cpp" bodystart="41" bodyend="44"/>
+        <location file="statistics.h" line="40" column="1" bodyfile="statistics.cpp" bodystart="65" bodyend="68"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="statistics.h" line="20" column="1" bodyfile="statistics.cpp" bodystart="22" bodyend="34"/>
+        <location file="statistics.h" line="44" column="1" bodyfile="statistics.cpp" bodystart="46" bodyend="58"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="statistics.h" line="24" column="1" bodyfile="statistics.cpp" bodystart="36" bodyend="39"/>
+        <location file="statistics.h" line="48" column="1" bodyfile="statistics.cpp" bodystart="60" bodyend="63"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -139,7 +139,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="statistics.h" line="11" column="1" bodyfile="statistics.h" bodystart="10" bodyend="25"/>
+    <location file="statistics.h" line="35" column="1" bodyfile="statistics.h" bodystart="34" bodyend="49"/>
     <listofallmembers>
       <member refid="classstatistics_1aa2f6ad910ce0f596454eef235ca03321" prot="private" virt="non-virtual"><scope>statistics</scope><name>btnUpdateClicked</name></member>
       <member refid="classstatistics_1a783eb0a813b6cf4d756e1b856470769d" prot="private" virt="non-virtual"><scope>statistics</scope><name>p</name></member>

@@ -4,74 +4,86 @@
     <compoundname>newstatus.h</compoundname>
     <includes local="no">QCloseEvent</includes>
     <includes refid="psql_8h" local="yes">psql.h</includes>
+    <includes refid="stringcheck_8h" local="yes">stringcheck.h</includes>
     <includes local="no">QMainWindow</includes>
     <includes local="no">QMessageBox</includes>
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="newstatus_8cpp" local="yes">newstatus.cpp</includedby>
     <incdepgraph>
-      <node id="211">
+      <node id="227">
         <label>QCloseEvent</label>
       </node>
-      <node id="222">
+      <node id="240">
         <label>QMessageBox</label>
       </node>
-      <node id="212">
+      <node id="228">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="213" relation="include">
+        <childnode refid="229" relation="include">
         </childnode>
-        <childnode refid="214" relation="include">
+        <childnode refid="230" relation="include">
         </childnode>
-        <childnode refid="215" relation="include">
+        <childnode refid="231" relation="include">
         </childnode>
-        <childnode refid="216" relation="include">
+        <childnode refid="232" relation="include">
         </childnode>
-        <childnode refid="217" relation="include">
+        <childnode refid="233" relation="include">
         </childnode>
-        <childnode refid="218" relation="include">
+        <childnode refid="234" relation="include">
         </childnode>
-        <childnode refid="219" relation="include">
+        <childnode refid="235" relation="include">
         </childnode>
-        <childnode refid="220" relation="include">
+        <childnode refid="236" relation="include">
         </childnode>
       </node>
-      <node id="221">
+      <node id="239">
         <label>QMainWindow</label>
       </node>
-      <node id="215">
+      <node id="231">
         <label>QLinkedList</label>
       </node>
-      <node id="210">
+      <node id="226">
         <label>newstatus.h</label>
         <link refid="newstatus_8h"/>
-        <childnode refid="211" relation="include">
+        <childnode refid="227" relation="include">
         </childnode>
-        <childnode refid="212" relation="include">
+        <childnode refid="228" relation="include">
         </childnode>
-        <childnode refid="221" relation="include">
+        <childnode refid="237" relation="include">
         </childnode>
-        <childnode refid="222" relation="include">
+        <childnode refid="239" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
         </childnode>
       </node>
-      <node id="214">
+      <node id="230">
         <label>QApplication</label>
       </node>
-      <node id="217">
+      <node id="233">
         <label>QDebug</label>
       </node>
-      <node id="218">
+      <node id="234">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="213">
+      <node id="229">
         <label>sstream</label>
       </node>
-      <node id="219">
+      <node id="238">
+        <label>QString</label>
+      </node>
+      <node id="235">
         <label>pqxx/result</label>
       </node>
-      <node id="216">
+      <node id="232">
         <label>QException</label>
       </node>
-      <node id="220">
+      <node id="237">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="238" relation="include">
+        </childnode>
+      </node>
+      <node id="236">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -110,37 +122,38 @@
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NEWSTATUS_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QCloseEvent&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;psql.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMainWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMessageBox&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_ui" kindref="compound">Ui</ref><sp/>{</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_new_status" kindref="compound">NewStatus</ref>;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="class_new_status" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_new_status" kindref="compound">NewStatus</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QMainWindow</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a5a09743191f617f006bc89e4b35984bf" kindref="member">NewStatus</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_new_status" kindref="compound">NewStatus</ref>();</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" kindref="member">setStatus</ref>(QString<sp/>newStatus);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_new_status_1a7ea744ad1645c5954000983d50947154" kindref="member">getStatus</ref>();</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::NewStatus<sp/>*ui;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>closeEvent(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*p;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changed,<sp/>close;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>status,<sp/>winTitle;<sp/></highlight><highlight class="comment">//winTitle:<sp/>Tittelen<sp/>på<sp/>meldingsboksene</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>canSave();</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OKButtonClicked();</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>lineEditStatusNameChanged();</highlight></codeline>
-<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>NEWSTATUS_H</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stringcheck.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMainWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMessageBox&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_ui" kindref="compound">Ui</ref><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_new_status" kindref="compound">NewStatus</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_new_status" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_new_status" kindref="compound">NewStatus</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QMainWindow</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a5a09743191f617f006bc89e4b35984bf" kindref="member">NewStatus</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_new_status" kindref="compound">NewStatus</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" kindref="member">setStatus</ref>(QString<sp/>newStatus);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_new_status_1a7ea744ad1645c5954000983d50947154" kindref="member">getStatus</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::NewStatus<sp/>*ui;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>closeEvent(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*p;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changed,<sp/>close;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>status,<sp/>winTitle;<sp/></highlight><highlight class="comment">//winTitle:<sp/>Tittelen<sp/>på<sp/>meldingsboksene</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>canSave();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OKButtonClicked();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>lineEditStatusNameChanged();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>NEWSTATUS_H</highlight></codeline>
     </programlisting>
     <location file="newstatus.h"/>
   </compounddef>

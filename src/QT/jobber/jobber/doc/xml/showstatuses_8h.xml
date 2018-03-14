@@ -4,74 +4,86 @@
     <compoundname>showstatuses.h</compoundname>
     <includes local="no">QCloseEvent</includes>
     <includes refid="psql_8h" local="yes">psql.h</includes>
+    <includes refid="stringcheck_8h" local="yes">stringcheck.h</includes>
     <includes local="no">QMainWindow</includes>
     <includes local="no">QMessageBox</includes>
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="showstatuses_8cpp" local="yes">showstatuses.cpp</includedby>
     <incdepgraph>
-      <node id="337">
+      <node id="365">
         <label>QCloseEvent</label>
       </node>
-      <node id="348">
+      <node id="378">
         <label>QMessageBox</label>
       </node>
-      <node id="338">
+      <node id="366">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="339" relation="include">
+        <childnode refid="367" relation="include">
         </childnode>
-        <childnode refid="340" relation="include">
+        <childnode refid="368" relation="include">
         </childnode>
-        <childnode refid="341" relation="include">
+        <childnode refid="369" relation="include">
         </childnode>
-        <childnode refid="342" relation="include">
+        <childnode refid="370" relation="include">
         </childnode>
-        <childnode refid="343" relation="include">
+        <childnode refid="371" relation="include">
         </childnode>
-        <childnode refid="344" relation="include">
+        <childnode refid="372" relation="include">
         </childnode>
-        <childnode refid="345" relation="include">
+        <childnode refid="373" relation="include">
         </childnode>
-        <childnode refid="346" relation="include">
+        <childnode refid="374" relation="include">
         </childnode>
       </node>
-      <node id="347">
+      <node id="377">
         <label>QMainWindow</label>
       </node>
-      <node id="341">
+      <node id="369">
         <label>QLinkedList</label>
       </node>
-      <node id="336">
+      <node id="364">
         <label>showstatuses.h</label>
         <link refid="showstatuses_8h"/>
-        <childnode refid="337" relation="include">
+        <childnode refid="365" relation="include">
         </childnode>
-        <childnode refid="338" relation="include">
+        <childnode refid="366" relation="include">
         </childnode>
-        <childnode refid="347" relation="include">
+        <childnode refid="375" relation="include">
         </childnode>
-        <childnode refid="348" relation="include">
+        <childnode refid="377" relation="include">
+        </childnode>
+        <childnode refid="378" relation="include">
         </childnode>
       </node>
-      <node id="340">
+      <node id="368">
         <label>QApplication</label>
       </node>
-      <node id="343">
+      <node id="371">
         <label>QDebug</label>
       </node>
-      <node id="344">
+      <node id="372">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="339">
+      <node id="367">
         <label>sstream</label>
       </node>
-      <node id="345">
+      <node id="376">
+        <label>QString</label>
+      </node>
+      <node id="373">
         <label>pqxx/result</label>
       </node>
-      <node id="342">
+      <node id="370">
         <label>QException</label>
       </node>
-      <node id="346">
+      <node id="375">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="376" relation="include">
+        </childnode>
+      </node>
+      <node id="374">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -110,58 +122,60 @@
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHOWSTATUSES_H</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QCloseEvent&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;psql.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMainWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMessageBox&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_ui" kindref="compound">Ui</ref><sp/>{</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_show_statuses" kindref="compound">ShowStatuses</ref>;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="class_show_statuses" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_show_statuses" kindref="compound">ShowStatuses</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QMainWindow</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Konstruktør<sp/>og<sp/>destruktør</highlight></codeline>
-<codeline lineno="51"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a5f33b2e8d68add734ceb466de0fc80ae" kindref="member">ShowStatuses</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_show_statuses" kindref="compound">ShowStatuses</ref>();</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Offentlige<sp/>metoder</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a78ceb898d01bd2892e1ef942672666ec" kindref="member">getStatuses</ref>();</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>();</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>();</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a03eb52c13df7220ced551be7be69f822" kindref="member">setStatusID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1ac4a3c02814d6a326a0d0a6bfc8239483" kindref="member">setStatusName</ref>(QString<sp/>newName);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Private<sp/>variabler</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changed,<sp/>statusIDchanged;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID,<sp/>lastID;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*p;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>statusName,<sp/>winTitle;<sp/></highlight><highlight class="comment">//<sp/>Tittelen<sp/>som<sp/>skal<sp/>brukes<sp/>på<sp/>meldingsboksene.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::ShowStatuses<sp/>*ui;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Private<sp/>metoder</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>closeEvent(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>showEvent(QShowEvent<sp/>*)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isChanged();</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setChanged(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>change);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonFirstClicked();</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonLastClicked();</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonNextClicked();</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonPreviousClicked();</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>comboboxStatusIDChanged();</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>lineEditStatusnameChanged();</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btnSaveClicked();</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btnDeleteClicked();</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>windowLoaded();</highlight></codeline>
-<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>SHOWSTATUSES_H</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stringcheck.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMainWindow&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QMessageBox&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_ui" kindref="compound">Ui</ref><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_show_statuses" kindref="compound">ShowStatuses</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_show_statuses" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_show_statuses" kindref="compound">ShowStatuses</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QMainWindow</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Konstruktør<sp/>og<sp/>destruktør</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a5f33b2e8d68add734ceb466de0fc80ae" kindref="member">ShowStatuses</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_show_statuses" kindref="compound">ShowStatuses</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Offentlige<sp/>metoder</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a78ceb898d01bd2892e1ef942672666ec" kindref="member">getStatuses</ref>();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1a03eb52c13df7220ced551be7be69f822" kindref="member">setStatusID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_statuses_1ac4a3c02814d6a326a0d0a6bfc8239483" kindref="member">setStatusName</ref>(QString<sp/>newName);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Private<sp/>variabler</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changed,<sp/>statusIDchanged;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID,<sp/>lastID,<sp/>runs;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*p;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>statusName,<sp/>winTitle;<sp/></highlight><highlight class="comment">//<sp/>Tittelen<sp/>som<sp/>skal<sp/>brukes<sp/>på<sp/>meldingsboksene.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::ShowStatuses<sp/>*ui;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Private<sp/>metoder</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkChanges();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>closeEvent(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>showEvent(QShowEvent<sp/>*)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isChanged();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setChanged(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>change);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isNullOrWhitespace(QString<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonFirstClicked();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonLastClicked();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonNextClicked();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonPreviousClicked();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>comboboxStatusIDChanged();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>lineEditStatusnameChanged();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btnSaveClicked();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btnDeleteClicked();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>windowLoaded();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>SHOWSTATUSES_H</highlight></codeline>
     </programlisting>
     <location file="showstatuses.h"/>
   </compounddef>
