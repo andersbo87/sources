@@ -53,17 +53,6 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     connect(ui->btnSave, SIGNAL(clicked(bool)), this, SLOT(buttonSaveClicked()), Qt::UniqueConnection);
 }
 
-bool ShowCities::isNullOrWhitespace(QString string)
-{
-    if(string.isNull())
-        return true;
-    if(string.isEmpty())
-        return true;
-    if(string.trimmed().isEmpty())
-        return true;
-    return false;
-}
-
 /**
  * @brief ShowCities::getCityID Gets the current city ID
  * @return The city ID.
@@ -115,7 +104,7 @@ void ShowCities::setCityID(int newID)
  */
 void ShowCities::setCityName(QString newName)
 {
-    if(isNullOrWhitespace(newName))
+    if(stringCheck::isNullOrWhitespace(newName))
         throw invalid_argument("Stedsnavnet kan ikke være tomt, og det kan ikke bare bestå av mellomrom.");
     cityName = newName;
 }
@@ -142,7 +131,7 @@ void ShowCities::setCountryID(int newID)
 
 void ShowCities::setCountryName(QString newName)
 {
-    if(isNullOrWhitespace(newName))
+    if(stringCheck::isNullOrWhitespace(newName))
         throw invalid_argument("Landnavnet kan ikke være tomt. Det kan heller ikke bare bestå av mellomrom.");
     countryName = newName;
 }
@@ -258,6 +247,7 @@ bool ShowCities::isChanged()
 
 void ShowCities::setChanged(bool change)
 {
+    ui->btnSave->setEnabled(change);
     changed = change;
 }
 
@@ -473,23 +463,24 @@ void ShowCities::buttonPreviousClicked()
     }
 }
 
+bool ShowCities::canSave()
+{
+    bool res = true;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditCityName->text()))
+        res = false;
+    return res;
+}
+
 void ShowCities::lineEditCityNameChanged()
 {
     try
     {
         setCityName(ui->lineEditCityName->text());
-        ui->btnSave->setEnabled(true);
         if(!cityIDchanged)
-            setChanged(true);
+            setChanged(canSave());
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditCityName->undo();
         setChanged(false);
     }
 }
@@ -527,10 +518,17 @@ void ShowCities::comboboxCityIDChanged()
 
 void ShowCities::comboboxCountryIDChanged()
 {
-    setCountryID(ui->comboBoxCountryID->currentText().toInt());
-    ui->labelCountryName->setText(p->getCountryName(getCountryID()));
-    if(!cityIDchanged)
-        setChanged(true);
+    try
+    {
+        setCountryID(ui->comboBoxCountryID->currentText().toInt());
+        ui->labelCountryName->setText(p->getCountryName(getCountryID()));
+        if(!cityIDchanged)
+            setChanged(canSave());
+    }
+    catch(invalid_argument)
+    {
+        setChanged(false);
+    }
 }
 void ShowCities::windowLoaded()
 {

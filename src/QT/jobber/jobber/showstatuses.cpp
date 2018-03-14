@@ -96,6 +96,8 @@ void ShowStatuses::setStatusID(int newID)
  */
 void ShowStatuses::setStatusName(QString newName)
 {
+    if(stringCheck::isNullOrWhitespace(newName))
+        throw invalid_argument("Vennligst oppgi det nye statusnavnet.");
     statusName = newName;
 }
 
@@ -182,17 +184,6 @@ ShowStatuses::~ShowStatuses()
 }
 
 // Private metoder
-bool ShowStatuses::isNullOrWhitespace(QString string)
-{
-    if(string.isNull())
-        return true;
-    if(string.isEmpty())
-        return true;
-    if(string.trimmed().isEmpty())
-        return true;
-    return false;
-}
-
 void ShowStatuses::windowLoaded()
 {
     getStatuses();
@@ -511,13 +502,8 @@ void ShowStatuses::lineEditStatusnameChanged()
         if(!statusIDchanged)
             setChanged(true);
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
         setChanged(false);
     }
 }

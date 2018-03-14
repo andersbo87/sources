@@ -92,7 +92,7 @@ void ShowCountries::setCountryID(int newID)
  */
 void ShowCountries::setCountryName(QString newName)
 {
-    if(isNullOrWhitespace(newName))
+    if(stringCheck::isNullOrWhitespace(newName))
         throw invalid_argument("Landnavnet kan ikke være tomt eller bare bestå av mellomrom.");
     countryName = newName;
 }
@@ -163,17 +163,6 @@ void ShowCountries::getCountries()
 
 
 // Private methods
-bool ShowCountries::isNullOrWhitespace(QString string)
-{
-    if(string.isNull())
-        return true;
-    if(string.isEmpty())
-        return true;
-    if(string.trimmed().isEmpty())
-        return true;
-    return false;
-}
-
 /**
  * @brief ShowCountries::isChanged Checks if there are unsaved changes in the current record.
  * @return True if ther have been one or more changes and false otherwise.
@@ -441,13 +430,8 @@ void ShowCountries::lineEditCountrynameChanged()
         if(!countryIDchanged)
             setChanged(true);
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
         setChanged(false);
     }
 }

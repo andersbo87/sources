@@ -91,7 +91,7 @@ void ViewJobs::motivationTextChanged()
     setMotivation(ui->textEditMotivation->toPlainText());
     if(!soknadIDChanged)
     {
-        setChanged(true);
+        setChanged(canSave());
     }
     else
     {
@@ -104,18 +104,12 @@ void ViewJobs::comboBoxStatusIDChanged()
     try
     {
         setStatusID(ui->comboBoxStatusID->currentText().toInt());
-        ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
         if(!soknadIDChanged)
-            setChanged(true);
+            setChanged(canSave());
     }
-    catch(const invalid_argument& iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditTitle->undo();
+        // La oss bare ignorere feilen og evt sette changed til false. Brukeren kan ikke gjøre noe feil uansett...
         setChanged(false);
     }
 }
@@ -125,18 +119,12 @@ void ViewJobs::comboBoxCityIDChanged()
     try
     {
         setCityID(ui->comboBoxTownID->currentText().toInt());
-        ui->labelCityValue->setText(p->getCityName(getCityID()));
         if(!soknadIDChanged)
-            setChanged(true);
+            setChanged(canSave());
     }
-    catch(const invalid_argument& iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditTitle->undo();
+        // La oss bare ignorere feilen og evt sette changed til false. Brukeren kan ikke gjøre noe feil uansett...
         setChanged(false);
     }
 }
@@ -147,16 +135,10 @@ void ViewJobs::lineEditDealineChanged()
     {
         setDate(ui->lineEditDeadline->text());
         if(!soknadIDChanged)
-            setChanged(true);
+            setChanged(canSave());
     }
-    catch(const invalid_argument& iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditTitle->undo();
         setChanged(false);
     }
 }
@@ -167,16 +149,10 @@ void ViewJobs::lineEditCompanyChanged()
     {
         setCompany(ui->lineEditCompany->text());
         if(!soknadIDChanged)
-            setChanged(true);
+            setChanged(canSave());
     }
-    catch(const invalid_argument& iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditTitle->undo();
         setChanged(false);
     }
 }
@@ -187,18 +163,24 @@ void ViewJobs::lineEditTitleChanged()
     {
         setTitle(ui->lineEditTitle->text());
         if(!soknadIDChanged)
-            setChanged(true);
+            setChanged(canSave());
     }
-    catch(const invalid_argument& iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditTitle->undo();
         setChanged(false);
     }
+}
+
+bool ViewJobs::canSave()
+{
+    bool res = true;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditTitle->text()))
+        res = false;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditCompany->text()))
+        res = false;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditDeadline->text()))
+        res = false;
+    return res;
 }
 
 void ViewJobs::windowLoaded()
@@ -505,11 +487,12 @@ void ViewJobs::getCityIDs()
     try
     {
         QList<QString> list;// = new QLinkedList<int>();
-        list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        list = p->fillList("SELECT stedsnavn FROM sted ORDER BY stedid ASC");
         int i = 0;
         while(i < list.count())
         {
-            ui->comboBoxTownID->addItem(QString::number(i+1));
+            //ui->comboBoxTownID->addItem(QString::number(i+1));
+            ui->comboBoxTownID->addItem(list.value(i));
             i++;
         }
     }
@@ -531,11 +514,11 @@ void ViewJobs::getStatusIDs()
     try
     {
         QList<QString> list;
-        list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
+        list = p->fillList("SELECT status FROM status ORDER BY statusid ASC");
         int i = 0;
         while(i < list.count())
         {
-            ui->comboBoxStatusID->addItem(QString::number(i+1));
+            ui->comboBoxStatusID->addItem(list.value(i));
             i++;
         }
     }
@@ -639,7 +622,7 @@ void ViewJobs::setApplicationID(int newID)
  */
 void ViewJobs::setTitle(QString newTitle)
 {
-    if(isNullOrWhitespace(newTitle))
+    if(stringCheck::isNullOrWhitespace(newTitle))
         throw invalid_argument("Tittelen kan ikke være tom. Tittelen kan heller ikke bare bestå av mellomrom.");
     jobTitle = newTitle;
 }
@@ -650,7 +633,7 @@ void ViewJobs::setTitle(QString newTitle)
  */
 void ViewJobs::setCompany(QString newCompany)
 {
-    if(isNullOrWhitespace(newCompany))
+    if(stringCheck::isNullOrWhitespace(newCompany))
         throw invalid_argument("Bedriftsnavnet kan ikke være tomt og kan heller ikke bare bestå av mellomrom.");
     company = newCompany;
 }
@@ -685,7 +668,7 @@ void ViewJobs::setStatusID(int newStatusID)
  */
 void ViewJobs::setDate(QString newDate)
 {
-    if(isNullOrWhitespace(newDate))
+    if(stringCheck::isNullOrWhitespace(newDate))
         throw invalid_argument("Søknadsfristen kan ikke være tom og den kan heller ikke bare bestå av mellomrom. Er det ikke angitt frist, kan du skrive 'Snarest' eller tilsvarende isteden.");
     date = newDate;
 }
@@ -731,18 +714,6 @@ void ViewJobs::getApplications()
     }
 }
 
-
-bool ViewJobs::isNullOrWhitespace(QString string)
-{
-    if(string.isNull())
-        return true;
-    if(string.isEmpty())
-        return true;
-    if(string.trimmed().isEmpty())
-        return true;
-    return false;
-}
-
 /**
  * @brief ViewJobs::getApplication Fills the window with information based on the application ID
  * @param appID the application ID to be used.
@@ -754,8 +725,9 @@ void ViewJobs::getApplication(int appID)
         ui->comboBoxApplicationID->setCurrentText(QString::number(appID));
         ui->lineEditTitle->setText(p->getTitle(appID));
         ui->lineEditCompany->setText(p->getCompany(appID));
-        ui->comboBoxTownID->setCurrentText(QString::number(p->getCityID(appID)));
-        ui->comboBoxStatusID->setCurrentText(QString::number(p->getStatusID(appID)));
+        ui->comboBoxTownID->setCurrentText(p->getCityName(p->getCityID(appID)));
+        //ui->comboBoxStatusID->setCurrentText(QString::number(p->getStatusID(appID)));
+        ui->comboBoxStatusID->setCurrentText(p->getStatusName(p->getStatusID(appID)));
         ui->lineEditDeadline->setText(p->getDate(appID));
         bool old = ui->textEditMotivation->blockSignals(true);
         ui->textEditMotivation->setText(p->getMotivation(appID));
@@ -768,8 +740,6 @@ void ViewJobs::getApplication(int appID)
         //setStatusID(ui->comboBoxStatusID->currentText().toInt());
         setStatusID(p->getStatusID(appID));
         setDate(ui->lineEditDeadline->text());
-        ui->labelCityValue->setText(p->getCityName(getCityID()));
-        ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
         setMotivation(ui->textEditMotivation->toPlainText());
     }
     catch(invalid_argument iaex)

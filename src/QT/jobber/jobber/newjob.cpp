@@ -32,9 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * @param pg A pointer to the PostgreSQL database.
  * @param parent
  */
-NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::NewJob)
+NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) : QMainWindow(parent), ui(new Ui::NewJob)
 {
     setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
     ui->setupUi(this);
@@ -113,8 +111,7 @@ void NewJob::getCityIDs()
 {
     try
     {
-        QList<QString> list;// = new QLinkedList<int>();
-        //list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        QList<QString> list;
         list = p->fillList("SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC");
         int i = 0;
         while(i < list.count())
@@ -141,11 +138,11 @@ void NewJob::getStatusIDs()
     try
     {
         QList<QString> list;
-        list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
+        list = p->fillList("SELECT status FROM status ORDER BY statusid ASC");
         int i = 0;
         while(i < list.count())
         {
-            ui->comboBoxStatusID->addItem(QString::number(i+1));
+            ui->comboBoxStatusID->addItem(list.value(i));
             i++;
         }
     }
@@ -164,19 +161,40 @@ void NewJob::getStatusIDs()
  */
 void NewJob::titleTextChanged()
 {
-    setTitle(ui->lineEditTittel->text());
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
-    changed = canSave();
+    try
+    {
+        setTitle(ui->lineEditTittel->text());
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setWindowTitle(winTitle);
+        msg.setIcon(msg.Warning);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditTittel->undo();
+    }
 }
 
 void NewJob::motivationTextChanged()
 {
-    setMotivation(ui->textEditMotivation->toPlainText());
-    /*QMessageBox msg;
-    msg.setText(ui->textEditMotivation->toPlainText());
-    msg.exec();*/
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
-    changed = canSave();
+    try
+    {
+        setMotivation(ui->textEditMotivation->toPlainText());
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setWindowTitle(winTitle);
+        msg.setIcon(msg.Warning);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->textEditMotivation->undo();
+    }
 }
 
 /**
@@ -184,9 +202,21 @@ void NewJob::motivationTextChanged()
  */
 void NewJob::companyTextChanged()
 {
-    setCompany(ui->lineEditBedrift->text());
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
-    changed = canSave();
+    try
+    {
+        setCompany(ui->lineEditBedrift->text());
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setWindowTitle(winTitle);
+        msg.setIcon(msg.Warning);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditBedrift->undo();
+    }
 }
 
 /**
@@ -194,8 +224,6 @@ void NewJob::companyTextChanged()
  */
 void NewJob::cityIDchanged()
 {
-    //setCityName(ui->comboBoxSted->currentText().toInt());
-    //ui->labelCityValue->setText(p->getCityName(getCityID()));
     setCityID(p->getCityID(ui->comboBoxSted->currentText().toStdString()));
     changed = canSave();
 }
@@ -205,8 +233,7 @@ void NewJob::cityIDchanged()
  */
 void NewJob::statusIDchanged()
 {
-    setStatusID(ui->comboBoxStatusID->currentText().toInt());
-    ui->labelStatusValue->setText(p->getStatusName(getStatusID()));
+    setStatusID(p->getStatusID(ui->comboBoxStatusID->currentText().toStdString()));
     changed = canSave();
 }
 
@@ -215,9 +242,21 @@ void NewJob::statusIDchanged()
  */
 void NewJob::dateChanged()
 {
-    setDate(ui->lineEditSoknadsfrist->text());
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
-    changed = canSave();
+    try
+    {
+        setDate(ui->lineEditSoknadsfrist->text());
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setWindowTitle(winTitle);
+        msg.setIcon(msg.Warning);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditSoknadsfrist->undo();
+    }
 }
 
 /**
@@ -309,6 +348,10 @@ void NewJob::closeEvent(QCloseEvent *event)
  */
 void NewJob::setTitle(QString newTitle)
 {
+    if(stringCheck::isNullOrWhitespace(newTitle))
+    {
+        throw invalid_argument("Du må angi en jobbtittel. Denne tittelen kan ikke bestå av bare mellomrom.");
+    }
     jobTitle = newTitle;
 }
 
@@ -318,6 +361,8 @@ void NewJob::setTitle(QString newTitle)
  */
 void NewJob::setCompany(QString newCompany)
 {
+    if(stringCheck::isNullOrWhitespace(newCompany))
+        throw invalid_argument("Vennligst angi hva bedriften heter.");
     company = newCompany;
 }
 
@@ -345,6 +390,10 @@ void NewJob::setCityID(int newID)
  */
 void NewJob::setCityName(QString newCityName)
 {
+    if(stringCheck::isNullOrWhitespace(newCityName))
+    {
+        throw invalid_argument("Stedsnavnet kan ikke være tomt. Det kan heller ikke bare bestå av mellomrom.");
+    }
     cityname = newCityName;
 }
 
@@ -363,6 +412,10 @@ void NewJob::setStatusID(int newStatusID)
  */
 void NewJob::setDate(QString newDate)
 {
+    if(stringCheck::isNullOrWhitespace(newDate))
+    {
+        throw invalid_argument("Du må angi en søknadsfrist. Den kan heller ikke bare bestå av mellomrom. Er det ikke oppgitt en frist, kan du bruke uttrykk som 'snarest' isteden.");
+    }
     date = newDate;
 }
 
@@ -372,7 +425,7 @@ void NewJob::setDate(QString newDate)
  */
 void NewJob::setMotivation(QString newMotivation)
 {
-    motivation = newMotivation;
+    motivation = newMotivation; // Dette feltet er frivillig og kommer derfor ikke til å ha noen gyldighetstest.
 }
 
 /*

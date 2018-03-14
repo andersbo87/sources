@@ -26,6 +26,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define NEWJOB_H
 
 #include "psql.h"
+#include "stringcheck.h"
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QPushButton>
@@ -46,20 +47,7 @@ public:
 
     explicit NewJob(QString windowTitle, psql *pg, QWidget *parent = 0);
     ~NewJob();
-    void setTitle(QString newTitle);
-    void setCompany(QString newCompany);
-    void setCityName(QString newCityName);
-    void setStatusID(int newStatusID);
-    void setDate(QString newDate);
-    void setMotivation(QString newMotivation);
-    void setCityID(int newID);
-    QString getTitle();
-    QString getCompany();
-    QString getCityName();
-    int getCityID();
-    int getStatusID();
-    QString getDate();
-    QString getMotivation();
+
 
     /**
      * @brief closeEvent Code to be executed when the window closes
@@ -77,6 +65,21 @@ private:
     QString jobTitle, winTitle, company, date, motivation, cityname;
     int statusid, cityid;
     psql *p;
+
+    void setTitle(QString newTitle);
+    void setCompany(QString newCompany);
+    void setCityName(QString newCityName);
+    void setStatusID(int newStatusID);
+    void setDate(QString newDate);
+    void setMotivation(QString newMotivation);
+    void setCityID(int newID);
+    QString getTitle();
+    QString getCompany();
+    QString getCityName();
+    int getCityID();
+    int getStatusID();
+    QString getDate();
+    QString getMotivation();
 
 private slots:
     void titleTextChanged();

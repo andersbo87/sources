@@ -28,6 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QMainWindow>
 #include <QCloseEvent>
 #include "psql.h"
+#include "stringcheck.h"
 #include <QMessageBox>
 
 namespace Ui {
@@ -77,6 +78,7 @@ private:
     bool changed, soknadIDChanged;
     void checkChanges();
     bool isNullOrWhitespace(QString string);
+    bool canSave();
 
 private slots:
     void comboboxApplicationIDChanged();

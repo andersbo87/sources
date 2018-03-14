@@ -26,6 +26,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define NEWSTATUS_H
 #include <QCloseEvent>
 #include "psql.h"
+#include "stringcheck.h"
 #include <QMainWindow>
 #include <QMessageBox>
 

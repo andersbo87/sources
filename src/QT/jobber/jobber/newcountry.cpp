@@ -68,6 +68,10 @@ QString NewCountry::getCountry()
  */
 void NewCountry::setCountry(QString newCountry)
 {
+    if(stringCheck::isNullOrWhitespace(newCountry))
+    {
+        throw invalid_argument("Landnavnet kan ikke være null eller bare bestå av mellomrom.");
+    }
     country = newCountry;
 }
 
@@ -155,9 +159,21 @@ void NewCountry::closeEvent(QCloseEvent *event)
 // Metoder definert under "private slots":
 void NewCountry::lineEditCountryNameChanged()
 {
-    setCountry(ui->lineEditCountryName->text());
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
-    changed = canSave();
+    try
+    {
+        setCountry(ui->lineEditCountryName->text());
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditCountryName->undo();
+    }
 }
 
 void NewCountry::OKButtonClicked()

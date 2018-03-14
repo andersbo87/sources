@@ -70,6 +70,8 @@ bool NewStatus::canSave()
  */
 void NewStatus::setStatus(QString newStatus)
 {
+    if(stringCheck::isNullOrWhitespace(newStatus))
+        throw invalid_argument("Du må oppgi hva den nye statusen skal hete.");
     status = newStatus;
 }
 /**
@@ -144,9 +146,21 @@ void NewStatus::closeEvent(QCloseEvent *event)
 
 void NewStatus::lineEditStatusNameChanged()
 {
-    setStatus(ui->lineEditStatusName->text());
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
-    changed = canSave();
+    try
+    {
+        setStatus(ui->lineEditStatusName->text());
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditStatusName->undo();
+    }
 }
 
 void NewStatus::OKButtonClicked()

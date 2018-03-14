@@ -118,6 +118,7 @@ public:
     int getCityID(string name);
     int getCountryID(int cityID);
     int getStatusID(int applicationID);
+    int getStatusID(string name);
     QList<QString> fillList(const char *sqlSporring);
     //QList<QString> psql::fillList(const char *sqlSporring);
     QList<int> getSpecificApplicationIDs(string jobTitle, string companyName, string cityName, string status, string deadline, string motivation);

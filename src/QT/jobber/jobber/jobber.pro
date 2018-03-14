@@ -51,7 +51,8 @@ SOURCES += main.cpp\
     newcountry.cpp \
     showcountries.cpp \
     spesificjobs.cpp \
-    statistics.cpp
+    statistics.cpp \
+    stringcheck.cpp
 
 HEADERS  += mainwindow.h \
     connectpsql.h \
@@ -65,7 +66,8 @@ HEADERS  += mainwindow.h \
     newcountry.h \
     showcountries.h \
     spesificjobs.h \
-    statistics.h
+    statistics.h \
+    stringcheck.h
 
 FORMS    += mainwindow.ui \
     connectpsql.ui \

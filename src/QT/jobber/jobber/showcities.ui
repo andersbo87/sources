@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>493</width>
-    <height>186</height>
+    <width>535</width>
+    <height>194</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -44,7 +44,7 @@
     <item row="1" column="0" colspan="2">
      <widget class="QLabel" name="labelCityID">
       <property name="text">
-       <string>StedID</string>
+       <string>StedID*</string>
       </property>
      </widget>
     </item>
@@ -54,14 +54,14 @@
     <item row="2" column="0" colspan="2">
      <widget class="QLabel" name="labelCity">
       <property name="text">
-       <string>Stedsnavn</string>
+       <string>Stedsnavn*</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0" colspan="2">
      <widget class="QLabel" name="labelCountryID">
       <property name="text">
-       <string>LandID</string>
+       <string>LandID*</string>
       </property>
      </widget>
     </item>
@@ -122,7 +122,7 @@
     <item row="0" column="0" colspan="7">
      <widget class="QLabel" name="labelInfo">
       <property name="text">
-       <string>Her kan du se stedene som er lagt inn i databasen. Vil du bytte ID-en til et sted, må dette gjøres via kommandolinja.</string>
+       <string>Her kan du se stedene som er lagt inn i databasen. Vil du bytte ID-en til et sted, må dette gjøres via kommandolinja. Alle felt må utfylles</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>

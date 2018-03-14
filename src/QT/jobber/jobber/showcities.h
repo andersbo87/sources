@@ -26,6 +26,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define SHOWCITIES_H
 #include <QCloseEvent>
 #include "psql.h"
+#include "stringcheck.h"
 #include <QMainWindow>
 #include <QMessageBox>
 
@@ -68,6 +69,7 @@ private:
     void closeEvent(QCloseEvent *event) override;
     void showEvent(QShowEvent *) override;
     bool isNullOrWhitespace(QString string);
+    bool canSave();
 
 private slots:
     void comboboxCityIDChanged();

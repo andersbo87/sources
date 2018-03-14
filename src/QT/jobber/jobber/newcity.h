@@ -25,6 +25,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef NEWCITY_H
 #define NEWCITY_H
 #include "psql.h"
+#include "stringcheck.h"
 #include <QCloseEvent>
 #include <QMainWindow>
 #include <QMessageBox>

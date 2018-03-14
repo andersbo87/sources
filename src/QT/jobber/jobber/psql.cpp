@@ -1200,6 +1200,39 @@ double psql::countAccepted()
 // Andre metoder:
 
 /**
+ * @brief psql::getStatusID Gets the status ID based on the status name
+ * @param name The name of the status
+ * @return The ID of the status in question.
+ */
+int psql::getStatusID(string name)
+{
+    int res = 0;
+    string stmt;// = name.toStdString();
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::nontransaction N(C);
+        QString statement = "SELECT statusid FROM status WHERE status = '";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        oss << stmt << name;
+        oss << stmt << "'";
+        pqxx::result R(N.exec(oss.str()));
+        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
  * @brief psql::getCityID Gets the ID of a city based on its name
  * @param name The city name
  * @return The city ID

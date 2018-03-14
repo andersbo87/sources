@@ -116,14 +116,30 @@ QString NewCity::getCityName()
  */
 void NewCity::setCityName(QString name)
 {
+    if(stringCheck::isNullOrWhitespace(name))
+    {
+        throw invalid_argument("Stedsnavnet kan ikke være tomt eller bare bestå av mellomrom.");
+    }
     cityName = name;
 }
 
 void NewCity::lineEditCityNameChanged()
 {
-    setCityName(ui->lineEditCityName->text());
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
-    changed = canSave();
+    try
+    {
+        setCityName(ui->lineEditCityName->text());
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
+    }
+    catch(invalid_argument iaex)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(iaex.what());
+        msg.exec();
+        ui->lineEditCityName->undo();
+    }
 }
 
 bool NewCity::canSave()
