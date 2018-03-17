@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Vis statuser" Loaded="Window_Loaded" Height="148.739" Width="258.824" ResizeMode="CanMinimize">
+        Title="Vis statuser" Loaded="Window_Loaded" Closing="Window_Closing" Height="148.739" Width="258.824" ResizeMode="CanMinimize">
     <Grid>
         <!--Statiske etiketter:-->
         <Label Margin="10,10,0,0" Content="Her kan du vise alle registrerte statuser." HorizontalAlignment="Left" VerticalAlignment="Top" />

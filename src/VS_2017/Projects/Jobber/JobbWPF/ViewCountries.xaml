@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Vis land" Loaded="Window_Loaded" Height="150" Width="229.638" ResizeMode="CanMinimize">
+        Title="Vis land" Loaded="Window_Loaded" Closing="Window_Closing" Height="150" Width="229.638" ResizeMode="CanMinimize">
     <Grid>
         <!--Statiske etiketter:-->
         <Label Margin="10,10,0,0" Content="Her kan du vise alle registrerte land." HorizontalAlignment="Left" VerticalAlignment="Top" />

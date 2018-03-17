@@ -1,16 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace JobbWPF
 {
@@ -26,19 +19,25 @@ namespace JobbWPF
         private MainWindow mw = App.mw;
         private bool textChanged = false, opening=false;
         
-        public void setStatusID(int newID)
+        private void setStatusID(int newStatusID)
         {
-            statusID = newID;
+            if (newStatusID <= 0)
+                throw new ArgumentException("StatusID må være større enn 0.", newStatusID.ToString());
+            if (!p.GetStatusIDs().Contains(newStatusID))
+                throw new NoSuchElementException("StatusID nummer " + newStatusID + " finnes ikke i databasen.", newStatusID.ToString());
+            statusID = newStatusID;
         }
-        public void setStatusName(string newName)
+        private void setStatusName(string newName)
         {
+            if (String.IsNullOrWhiteSpace(newName))
+                throw new ArgumentException("Den nye statusens navn kan ikke være tomt. Det kan heller ikke bare bestå av mellomrom.", newName);
             statusName = newName;
         }
-        public int getStatusID()
+        private int getStatusID()
         {
             return statusID;
         }
-        public string getStatusName()
+        private string getStatusName()
         {
             return statusName;
         }
@@ -50,46 +49,62 @@ namespace JobbWPF
             p = mw.ps;
         }
 
-        void setChanged(bool changed)
+        private void setChanged(bool changed)
         {
             textChanged = changed;
             btnUpdate.IsEnabled = changed;
         }
-        bool isChanged()
+        private bool isChanged()
         {
             return textChanged;
         }
 
-        void changeStatusID(int idx)
+        private bool canSave()
         {
-            getData(idx);
-            if (idx == Int32.Parse(comboBoxStatusID.Items[0].ToString()))
-            {
-                btnPrev.IsEnabled = false;
-                btnFirst.IsEnabled = false;
-                btnNext.IsEnabled = true;
-                btnLast.IsEnabled = true;
-            }
-            else if (idx == Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString()))
-            {
-                btnNext.IsEnabled = false;
-                btnLast.IsEnabled = false;
-                btnFirst.IsEnabled = true;
-                btnPrev.IsEnabled = true;
-            }
-            else
-            {
-                // Mulig de fire neste linjene er unødige:
-                btnNext.IsEnabled = true;
-                btnLast.IsEnabled = true;
-                btnPrev.IsEnabled = true;
-                btnFirst.IsEnabled = true;
-            }
-            setStatusID(idx);
-            setChanged(false);
+            // Denne metoden er kanskje unødvendig, i og med at samme sjekk gjøres i setStatusName over (hvor det kastes et unntak), men man vet jo aldri...
+            bool res = true;
+            if (String.IsNullOrWhiteSpace(textBoxStatusName.Text))
+                res = false;
+            return res;
         }
 
-        bool getData(int index)
+        private void changeStatusID(int idx)
+        {
+            try
+            {
+                getData(idx);
+                if (idx == Int32.Parse(comboBoxStatusID.Items[0].ToString()))
+                {
+                    btnPrev.IsEnabled = false;
+                    btnFirst.IsEnabled = false;
+                    btnNext.IsEnabled = true;
+                    btnLast.IsEnabled = true;
+                }
+                else if (idx == Int32.Parse(comboBoxStatusID.Items[comboBoxStatusID.Items.Count - 1].ToString()))
+                {
+                    btnNext.IsEnabled = false;
+                    btnLast.IsEnabled = false;
+                    btnFirst.IsEnabled = true;
+                    btnPrev.IsEnabled = true;
+                }
+                else
+                {
+                    // Mulig de fire neste linjene er unødige:
+                    btnNext.IsEnabled = true;
+                    btnLast.IsEnabled = true;
+                    btnPrev.IsEnabled = true;
+                    btnFirst.IsEnabled = true;
+                }
+                setStatusID(idx);
+                setChanged(false);
+            }
+            catch(NoSuchElementException nse)
+            {
+                MessageBox.Show(nse.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private bool getData(int index)
         {
             try
             {
@@ -124,20 +139,21 @@ namespace JobbWPF
                 {
                     int idx = Int32.Parse(comboBoxStatusID.Text);
                     int newidx = Int32.Parse(comboBoxStatusID.SelectedValue.ToString());
-                    if (isChanged())
+                    if (isChanged() && canSave())
                     {
                         // Spør om endringene skal lagres
-                        MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for statusID=" + idx + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                        MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for statusID=" + getStatusID() + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                         if (msr == MessageBoxResult.Yes)
                         {
                             // Lagre endringa og gå videre.
                             if (p.updateStatus(getStatusID(), getStatusName()))
                             {
+                                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for statusID " + getStatusID() + ":\nStatus: " + getStatusName(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                                 changeStatusID(newidx);
                             }
                             else // Dersom lagringsforsøket gikk galt:
                             {
-                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (msgUpdateFailed == MessageBoxResult.Yes)
                                 {
                                     setChanged(false);
@@ -164,8 +180,15 @@ namespace JobbWPF
 
         private void textBoxStatusName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            setStatusName(textBoxStatusName.Text);
-            setChanged(true);
+            try
+            {
+                setStatusName(textBoxStatusName.Text);
+                setChanged(canSave());
+            }
+            catch(ArgumentException)
+            {
+                setChanged(false);
+            }
         }
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)
@@ -181,6 +204,42 @@ namespace JobbWPF
                 counter++;
             }
             comboBoxStatusID.SelectedIndex = comboBoxStatusID.SelectedIndex - counter;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            if (isChanged() && canSave())
+            {
+                // Spør om endringene skal lagres
+                MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for statusID=" + getStatusID() + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (msr == MessageBoxResult.Yes)
+                {
+                    // Lagre endringa og gå videre.
+                    if (p.updateStatus(getStatusID(), getStatusName()))
+                    {
+                        MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for statusID " + getStatusID() + ":\nStatus: " + getStatusName(), title, MessageBoxButton.OK, MessageBoxImage.Information);
+                        e.Cancel = false;
+                    }
+                    else // Dersom lagringsforsøket gikk galt:
+                    {
+                        MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (msgUpdateFailed == MessageBoxResult.Yes)
+                        {
+                            setChanged(false);
+                            e.Cancel = false;
+                        }
+                    }
+                }
+                else if (msr == MessageBoxResult.No)
+                {
+                    // Fortsett uten å lagre.
+                    setChanged(false);
+                    e.Cancel = false;
+                }
+            }
+            else
+                e.Cancel = false;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -237,6 +296,7 @@ namespace JobbWPF
                         btnLast.IsEnabled = false;
                     }
                     opening = false;
+                    setStatusID(1);
                     setChanged(false);
                 }
             }

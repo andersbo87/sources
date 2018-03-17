@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -23,7 +24,7 @@ namespace JobbWPF
         private string title, townName;
         private const string table = "sted", primaryKey = "stedid";
         private bool opening = false, textChanged = false;
-        private int townID, max, c;
+        private int townID, max, c, countryID;
         private MainWindow mw = App.mw;
         private pgsql p;
         public ViewTowns(string newTitle)
@@ -32,32 +33,59 @@ namespace JobbWPF
             InitializeComponent();
             p = mw.ps;
         }
-        void setTownID(int newID)
+        private void setTownID(int newTownID)
         {
-            townID = newID;
+            if (newTownID == 0)
+                throw new ArgumentException("StedID kan ikke være lik 0.", newTownID.ToString());
+            if (!p.GetTownIDs().Contains(newTownID))
+                throw new NoSuchElementException("StedID med verdi " + newTownID + " finnes ikke i databasen.", newTownID.ToString());
+            townID = newTownID;
         }
-        void setTownName(string newName)
+
+        private void setCountryID(int newCountryID)
         {
+            if (newCountryID <= 0)
+                throw new ArgumentException("LandID må være større enn 0.", newCountryID.ToString());
+            if (!p.GetCountryIDs().Contains(newCountryID))
+                throw new NoSuchElementException("Denne land-id-en finnes ikke i databasen.");
+            countryID = newCountryID;
+        }
+
+        private int getCountryID()
+        {
+            return countryID;
+        }
+
+        private void setTownName(string newName)
+        {
+            if (string.IsNullOrWhiteSpace(newName))
+                throw new ArgumentException("Det nye bynavnet kan ikke bare bestå av mellomrom eller være tomt.", newName);
             townName = newName;
         }
-        int getTownID()
+        private int getTownID()
         {
             return townID;
         }
-        string getTownName()
+        private string getTownName()
         {
             return townName;
         }
-        void setChanged(bool changed)
+        private void setChanged(bool changed)
         {
             textChanged = changed;
             btnUpdate.IsEnabled = changed;
         }
-        bool isChanged()
+        private bool isChanged()
         {
             return textChanged;
         }
-        bool getData(int index)
+        private bool canSave()
+        {
+            if (String.IsNullOrWhiteSpace(textBoxTownName.Text))
+                return false;
+            return true;
+        }
+        private bool getData(int index)
         {
             try
             {
@@ -89,10 +117,11 @@ namespace JobbWPF
                 return false;
             }
         }
-        void changeTownID(int idx)
+        private void changeTownID(int idx)
         {
             if (getData(idx))
             {
+                fillCountryList(idx);
                 if (idx == Int32.Parse(comboBoxTownID.Items[0].ToString()))
                 {
                     btnPrev.IsEnabled = false;
@@ -128,8 +157,16 @@ namespace JobbWPF
 
         private void textBoxTownName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            setTownName(textBoxTownName.Text);
-            setChanged(true);
+            try
+            {
+                setTownName(textBoxTownName.Text);
+                setChanged(canSave());
+            }
+            catch (ArgumentException)
+            {
+                setChanged(false);
+            }
+            
         }
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)
@@ -147,6 +184,34 @@ namespace JobbWPF
             comboBoxTownID.SelectedIndex = comboBoxTownID.SelectedIndex - counter;
         }
 
+        private void fillCountryList(int index)
+        {
+            if(comboBoxCountry.Items.Count == 0)
+            {
+                List<string> countryList = p.GetData("SELECT land FROM land ORDER BY land", 0);
+                if (countryList == null)
+                {
+                    MessageBox.Show("Kunne ikke opprette liste over registrerte steder.", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
+                }
+                else if (countryList.Count == 0)
+                {
+                    MessageBox.Show("Tabellen over registrerte steder er tom. Vennligst legg inn en søknad og åpne dette vinduet igjen.", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Close();
+                }
+                else
+                {
+                    int i = 0;
+                    while (i < countryList.Count)
+                    {
+                        comboBoxCountry.Items.Add(countryList.ElementAt(i));
+                        i++;
+                    }
+                }
+            }
+            comboBoxCountry.Text = p.GetCountryName(p.GetCityCountryID(index));
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -156,7 +221,7 @@ namespace JobbWPF
                 List<string> l = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
                 if (l == null)
                 {
-                    MessageBox.Show("Kunne ikke opprette liste over registrerte steder..", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Kunne ikke opprette liste over registrerte steder.", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     Close();
                 }
                 else if (l.Count == 0)
@@ -183,7 +248,9 @@ namespace JobbWPF
                         btnNext.IsEnabled = false;
                         btnLast.IsEnabled = false;
                     }
+                    fillCountryList(Int32.Parse(comboBoxTownID.Items[0].ToString()));
                     opening = false;
+                    setTownID(1);
                     setChanged(false);
                 }
             }
@@ -199,8 +266,63 @@ namespace JobbWPF
             }
             catch (Exception ex)
             {
-                MessageBox.Show("En feil har oppstått under henting av data. Feilmeldinga lyder: " + ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("En feil har oppstått under henting av data. Feilmeldinga lyder: " + ex.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Error);
                 Close();
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            int newidx = Int32.Parse(comboBoxTownID.SelectedValue.ToString());
+            if (isChanged() && canSave())
+            {
+                // Spør om endringene skal lagres
+                MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for stedID=" + getTownID() + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (msr == MessageBoxResult.Yes)
+                {
+                    // Lagre endringa og gå videre.
+                    if (p.updateTown(getTownID(), getTownName(), getCountryID()))
+                    {
+                        MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + "\nStedsnavn: " + getTownName() + "\nLandID: " + getCountryID(), title, MessageBoxButton.OK, MessageBoxImage.Information);
+                        e.Cancel = false;
+                    }
+                    else // Dersom lagringsforsøket gikk galt:
+                    {
+                        MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (msgUpdateFailed == MessageBoxResult.Yes)
+                        {
+                            setChanged(false);
+                            e.Cancel = false;
+                        }
+                    }
+                }
+                else if (msr == MessageBoxResult.No)
+                {
+                    // Fortsett uten å lagre.
+                    setChanged(false);
+                    e.Cancel = false;
+                }
+            }
+            else
+                e.Cancel = false;
+        }
+
+        private void comboBoxCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                setCountryID(p.getCountryID(comboBoxCountry.SelectedItem.ToString()));
+                setChanged(canSave());
+            }
+            catch(ArgumentException)
+            {
+                setChanged(false);
+            }
+            catch(NoSuchElementException nse)
+            {
+                MessageBox.Show(nse.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                setChanged(false);
             }
         }
 
@@ -223,9 +345,9 @@ namespace JobbWPF
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (p.updateTown(getTownID(), getTownName()))
+            if (p.updateTown(getTownID(), getTownName(), getCountryID()))
             {
-                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + ":\nStedsnavn: " + getTownName(), title, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + ":\nStedsnavn: " + getTownName() + "\nLandID: " + getCountryID(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                 setChanged(false);
             }
             else
@@ -257,22 +379,22 @@ namespace JobbWPF
             {
                 if (!opening)
                 {
-                    int idx = Int32.Parse(comboBoxTownID.Text);
                     int newidx = Int32.Parse(comboBoxTownID.SelectedValue.ToString());
-                    if (isChanged())
+                    if (isChanged() && canSave())
                     {
                         // Spør om endringene skal lagres
-                        MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for stedID=" + idx + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                        MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for stedID=" + getTownID() + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                         if (msr == MessageBoxResult.Yes)
                         {
                             // Lagre endringa og gå videre.
-                            if (p.updateTown(getTownID(), getTownName()))
+                            if (p.updateTown(getTownID(), getTownName(), getCountryID()))
                             {
+                                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + ":\nStedsnavn: " + getTownName() + "\nLandID: " + getCountryID(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                                 changeTownID(newidx);
                             }
                             else // Dersom lagringsforsøket gikk galt:
                             {
-                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (msgUpdateFailed == MessageBoxResult.Yes)
                                 {
                                     setChanged(false);

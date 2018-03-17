@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -37,90 +38,115 @@ namespace JobbWPF
         /*
          * Metoder som henter og setter verdier
          * etter den objektorienterte tenkemåten.
-         * 
          * La oss begynne med metoder som setter verdier:
          */
-        public void setApplicationID(int newID)
+        private void setApplicationID(int newAppliationID)
         {
-            applicationID = newID;
+            if (newAppliationID == 0)
+                throw new ArgumentException("SøknadID må være større enn 0.", newAppliationID.ToString());
+            ArrayList applicationIDs = p.GetApplicationIDs();
+            if (!applicationIDs.Contains(newAppliationID))
+                throw new NoSuchElementException("Søknad med ID " + newAppliationID + " finnes ikke i databasen.", newAppliationID.ToString());
+            applicationID = newAppliationID;
         }
         
-        public void setJobTitle(string newTitle)
+        private void setJobTitle(string newTitle)
         {
+            if (String.IsNullOrWhiteSpace(newTitle))
+                throw new ArgumentException("Tittelen kan ikke være tom eller bare bestå av mellomrom.", newTitle);
             jobTitle = newTitle;
         }
 
-        public void setCompany(string newCompany)
+        private void setCompany(string newCompany)
         {
+            if(String.IsNullOrWhiteSpace(newCompany))
+                throw new ArgumentException("Bedriftens navn kan ikke være tom eller bare bestå av mellomrom.", newCompany);
             company = newCompany;
         }
 
-        public void setTownID(int newID)
+        private void setTownID(int newTownID)
         {
-            townID = newID;
+            if (newTownID == 0)
+                throw new ArgumentException("StedID må være større enn 0.", newTownID.ToString());
+            if (!p.GetTownIDs().Contains(newTownID))
+                throw new NoSuchElementException("Sted med ID " + newTownID + " finnes ikke i databasen.", newTownID.ToString());
+            townID = newTownID;
         }
 
-        public void setStatusID(int newID)
+        private void setStatusID(int newStatusID)
         {
-            statusID = newID;
+            if (newStatusID == 0)
+                throw new ArgumentException("StatusID må være større enn 0.", newStatusID.ToString());
+            if (!p.GetStatusIDs().Contains(newStatusID))
+                throw new NoSuchElementException("Status med ID " + newStatusID + " finnes ikke i databasen.", newStatusID.ToString());
+            statusID = newStatusID;
         }
 
-        public void setDeadline(string newDeadline)
+        private void setCountryID(int townID)
         {
+            lblCountryID.Content = p.GetCityCountryID(townID);
+        }
+
+        private void setCountryName(int townID)
+        {
+            lblCountryName.Content = p.GetCountryName(townID);
+        }
+
+        private void setDeadline(string newDeadline)
+        {
+            if(String.IsNullOrWhiteSpace(newDeadline))
+                throw new ArgumentException("Søknadsfristen kan ikke være tom eller bare bestå av mellomrom. Er det ikke angitt en søknadsfrist, kan du bruke 'Snarest' eller noe tilsvarende.", newDeadline);
             deadline = newDeadline;
         }
 
-        public void setMotivation(string newMotivation)
+        private void setMotivation(string newMotivation)
         {
+            // According to the database definition, motivasjon (motivation) may be null or empty.
             motivation = newMotivation;
         }
-
-        /*
-         * Og deretter: Offentlige metoder som henter verdier:
-         */
         
-        public int getApplicationID()
+        private int getApplicationID()
         {
             return applicationID;
         }
         
-        public string getJobTitle()
+        private string getJobTitle()
         {
             return jobTitle;
         }
 
-        public string getCompany()
+        private string getCompany()
         {
             return company;
         }
 
-        public int getTownID()
+        private int getTownID()
         {
             return townID;
         }
 
-        public int getStatusID()
+        private int getStatusID()
         {
             return statusID;
         }
 
-        public string getDeadline()
+        private string getDeadline()
         {
             return deadline;
         }
 
-        public string getMotivation()
+        private string getMotivation()
         {
             return motivation;
         }
 
-        public void setChanged(bool changed)
+        private void setChanged(bool changed)
         {
             contentChanged = changed;
             btnUpdate.IsEnabled = changed;
         }
 
-        public bool isChanged()
+        private bool isChanged()
         {
             return contentChanged;
         }
@@ -130,45 +156,50 @@ namespace JobbWPF
             return reopen;
         }
 
-        // Private metoder som ikke er generert automatisk:
-        private void setTownName(int index)
+        bool canSave()
         {
-            lblTownName.Content = p.getCityName(index);
-        }
-
-        private void setStatusName(int index)
-        {
-            lblStatusName.Content = p.getStatusName(index);
+            bool res = true;
+            if (String.IsNullOrWhiteSpace(textBoxCompany.Text))
+                res = false;
+            if (String.IsNullOrWhiteSpace(textBoxDeadline.Text))
+                res = false;
+            if (String.IsNullOrWhiteSpace(textBoxJobTitle.Text))
+                res = false;
+            return res;
         }
 
         private void getCities(int index)
         {
-            List<string> cityList = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
+            //List<string> cityList = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
+            List<string> cityList = p.GetData("SELECT stedsnavn FROM sted ORDER BY stedsnavn asc", 0);
             int i = 0;
-            if (comboBoxTownID.Items.Count == 0)
+            if (comboBoxTownName.Items.Count == 0)
             {
                 while (i < cityList.Count)
                 {
-                    comboBoxTownID.Items.Add(cityList.ElementAt(i));
+                    comboBoxTownName.Items.Add(cityList.ElementAt(i));
                     i++;
                 }
             }
-            comboBoxTownID.Text = p.GetCityID(index).ToString();
+            //comboBoxTownName.Text = p.GetCityID(index).ToString();
+            comboBoxTownName.Text = p.getCityName(p.GetCityID(index));
         }
 
         private void getStatuses(int index)
         {
-            List<string> statusList = p.GetData("SELECT statusid FROM status order by statusid asc", 0);
+            //List<string> statusList = p.GetData("SELECT statusid FROM status order by statusid asc", 0);
+            List<string> statusList = p.GetData("SELECT status FROM status order by statusid asc", 0);
             int i = 0;
-            if (comboBoxStatusID.Items.Count == 0)
+            if (comboBoxStatusName.Items.Count == 0)
             {
                 while (i < statusList.Count)
                 {
-                    comboBoxStatusID.Items.Add(statusList.ElementAt(i));
+                    comboBoxStatusName.Items.Add(statusList.ElementAt(i));
                     i++;
                 }
             }
-            comboBoxStatusID.Text = p.GetStatusID(index).ToString();
+            //comboBoxStatusName.Text = p.GetStatusID(index).ToString();
+            comboBoxStatusName.Text = p.getStatusName(p.GetStatusID(index));
         }
 
         /// <summary>
@@ -182,10 +213,8 @@ namespace JobbWPF
                 List<string> applicationData = p.GetApplications(index);
                 textBoxJobTitle.Text = applicationData.ElementAt(0);
                 textBoxCompany.Text = applicationData.ElementAt(1);
-                lblTownName.Content = applicationData.ElementAt(3);
                 lblCountryID.Content = applicationData.ElementAt(4);
                 lblCountryName.Content = applicationData.ElementAt(5);
-                lblStatusName.Content = applicationData.ElementAt(7);
                 textBoxDeadline.Text = applicationData.ElementAt(8);
                 textBoxMotivation.Text = applicationData.ElementAt(9);
                 comboBoxApplicationID.Text = index.ToString();
@@ -211,7 +240,6 @@ namespace JobbWPF
 
         private void changeApplicationID(int idx)
         {
-            //int idx = Int32.Parse(comboBoxApplicationID.SelectedItem.ToString());
             getData(idx);
             getCities(idx);
             getStatuses(idx);
@@ -237,6 +265,7 @@ namespace JobbWPF
                 btnPrev.IsEnabled = true;
                 btnFirst.IsEnabled = true;
             }
+            setApplicationID(idx);
             setChanged(false);
         }
 
@@ -260,7 +289,6 @@ namespace JobbWPF
                     getData(currentApp + counter);
                     getCities(idx);
                     getStatuses(idx);
-                    //comboBoxApplicationID.Text = idx.ToString();
                     if (idx == Int32.Parse(comboBoxApplicationID.Items[comboBoxApplicationID.Items.Count - 1].ToString()))
                     {
                         btnLast.IsEnabled = false;
@@ -319,11 +347,6 @@ namespace JobbWPF
             }
         }
 
-        private void viewApplications_Closed(object sender, EventArgs e)
-        {
-            
-        }
-
         // Automatisk genererte private metoder:
         private void viewApplications_Loaded(object sender, RoutedEventArgs e)
         {
@@ -365,6 +388,7 @@ namespace JobbWPF
                     }
                     opening = false;
                     setChanged(false);
+                    setApplicationID(1);
                     comboBoxApplicationID.Focus();
                 }
             }
@@ -386,22 +410,22 @@ namespace JobbWPF
             {
                 if (!opening)
                 {
-                    int idx = Int32.Parse(comboBoxApplicationID.Text);
                     int newidx = Int32.Parse(comboBoxApplicationID.SelectedValue.ToString());
-                    if (isChanged())
+                    if (isChanged() && canSave())
                     {
                         // Spør om endringene skal lagres
-                        MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for sønkadID=" + idx + ". Vil du lagre endringa?", progTitle, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                        MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for sønkadID=" + getApplicationID() + ". Vil du lagre endringa?", progTitle, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                         if (msr == MessageBoxResult.Yes)
                         {
                             // Lagre endringa og gå videre.
-                            if (p.updateApplication(idx, getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline(), getMotivation()))
+                            if (p.updateApplication(getApplicationID(), getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline(), getMotivation()))
                             {
+                                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + int.Parse(comboBoxApplicationID.Text) + ":\nTittel: " + getJobTitle() + "\nBedrift: " + getCompany() + "\nStedID: " + getTownID() + "\nStatusID: " + getStatusID() + "\nSøknadsfrist: " + getDeadline() + "\nMotivasjon: " + getMotivation(), progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
                                 changeApplicationID(newidx);
                             }
                             else
                             {
-                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Vil du forkaste endringene og gå videre?", progTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", progTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (msgUpdateFailed == MessageBoxResult.Yes)
                                 {
                                     setChanged(false);
@@ -428,40 +452,116 @@ namespace JobbWPF
 
         private void textBoxJobTitle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            setJobTitle(textBoxJobTitle.Text);
-            setChanged(true);
+            try
+            {
+                setJobTitle(textBoxJobTitle.Text);
+                setChanged(canSave());
+            }
+            catch(ArgumentException)
+            {
+                setChanged(false);
+            }
+        }
+
+        private void viewApplications_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            if (isChanged() && canSave())
+            {
+                // Spør om endringene skal lagres
+                MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for sønkadID=" + getApplicationID() + ". Vil du lagre endringa?", progTitle, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (msr == MessageBoxResult.Yes)
+                {
+                    // Lagre endringa og gå videre.
+                    if (p.updateApplication(getApplicationID(), getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline(), getMotivation()))
+                    {
+                        MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + int.Parse(comboBoxApplicationID.Text) + ":\nTittel: " + getJobTitle() + "\nBedrift: " + getCompany() + "\nStedID: " + getTownID() + "\nStatusID: " + getStatusID() + "\nSøknadsfrist: " + getDeadline() + "\nMotivasjon: " + getMotivation(), progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                        e.Cancel = false; ;
+                    }
+                    else
+                    {
+                        MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", progTitle, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (msgUpdateFailed == MessageBoxResult.Yes)
+                        {
+                            setChanged(false);
+                            e.Cancel = false;
+                        }
+                    }
+                }
+                else if (msr == MessageBoxResult.No)
+                {
+                    // Fortsett uten å lagre.
+                    setChanged(false);
+                    e.Cancel = false;
+                }
+            }
+            else
+                e.Cancel = false;
         }
 
         private void textBoxMotivation_TextChanged(object sender, TextChangedEventArgs e)
         {
+            // According to the database definitions, this field may be empty. Therefore, there won't be any validation checks.
             setMotivation(textBoxMotivation.Text);
-            setChanged(true);
+            setChanged(canSave());
         }
 
         private void textBoxCompany_TextChanged(object sender, TextChangedEventArgs e)
         {
-            setCompany(textBoxCompany.Text);
-            setChanged(true);
+            try
+            {
+                setCompany(textBoxCompany.Text);
+                setChanged(canSave());
+            }
+            catch(ArgumentException)
+            {
+                setChanged(false);
+            }
         }
 
-        private void comboBoxTownID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void comboBoxTownName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            setTownID(Int32.Parse(comboBoxTownID.SelectedItem.ToString()));
-            setChanged(true);
-            setTownName(Int32.Parse(comboBoxTownID.SelectedItem.ToString()));
+            try
+            {
+                setTownID(p.GetCityID(comboBoxTownName.SelectedItem.ToString()));
+                setChanged(canSave());
+                lblCountryID.Content = p.GetCityCountryID(getTownID());
+                setCountryName(p.GetCityCountryID(getTownID()));
+            }
+            catch(NoSuchElementException)
+            {
+                setChanged(false);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        private void comboBoxStatusID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void comboBoxStatusName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            setStatusID(Int32.Parse(comboBoxStatusID.SelectedItem.ToString()));
-            setChanged(true);
-            setStatusName(Int32.Parse(comboBoxStatusID.SelectedItem.ToString()));
+            try
+            {
+                setStatusID(p.GetStatusID(comboBoxStatusName.SelectedItem.ToString()));
+                setChanged(canSave());
+            }
+            catch(NoSuchElementException)
+            {
+                setChanged(false);
+            }
         }
 
         private void textBoxDeadline_TextChanged(object sender, TextChangedEventArgs e)
         {
-            setDeadline(textBoxDeadline.Text);
-            setChanged(true);
+            try
+            {
+                setDeadline(textBoxDeadline.Text);
+                setChanged(canSave());
+            }
+            catch(ArgumentException)
+            {
+                setChanged(false);
+            }
         }
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)
@@ -497,7 +597,7 @@ namespace JobbWPF
         {
             if(p.updateApplication(int.Parse(comboBoxApplicationID.Text), getJobTitle(), getCompany(), getTownID(), getStatusID(), getDeadline(), getMotivation()))
             {
-                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + int.Parse(comboBoxApplicationID.Text) + ":\nTittel: " + getJobTitle() + "\nBedrift: " + getCompany() + "\nStedID: " + getTownID() + "\nStatusID: " + getStatusID() + "\nSøknadsfrist: " + getDeadline(), progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for søknadID " + int.Parse(comboBoxApplicationID.Text) + ":\nTittel: " + getJobTitle() + "\nBedrift: " + getCompany() + "\nStedID: " + getTownID() + "\nStatusID: " + getStatusID() + "\nSøknadsfrist: " + getDeadline() + "\nMotivasjon: " + getMotivation(), progTitle, MessageBoxButton.OK, MessageBoxImage.Information);
                 setChanged(false);
             }
             else

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Vis søknader" Name="viewApplications" Closed="viewApplications_Closed" Loaded="viewApplications_Loaded" Height="436.222" Width="513.446" ResizeMode="CanMinimize">
+        Title="Vis søknader" Name="viewApplications" Closing="viewApplications_Closing" Loaded="viewApplications_Loaded" Height="436.222" Width="513.446" ResizeMode="CanMinimize">
     <Grid>
         <!--Dataene i etikettene under skal ikke endres og etikettene har derfor ikke navn-->
         <Label Margin="10,10,0,0" Content="Her kan du vise og redigere innlagte søknader i databasen, bortsett fra ID-en til søknaden." HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -23,14 +23,12 @@
         <ComboBox Name="comboBoxApplicationID" KeyboardNavigation.TabIndex="0" Margin="90,40,0,0" IsReadOnly="True" Focusable="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxApplicationID_SelectionChanged"/>
         <TextBox Name="textBoxJobTitle" KeyboardNavigation.TabIndex="1" Margin="90,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxJobTitle_TextChanged"/>
         <TextBox Name="textBoxCompany" KeyboardNavigation.TabIndex="2" Margin="90,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxCompany_TextChanged"/>
-        <ComboBox Name="comboBoxTownID" KeyboardNavigation.TabIndex="3" Margin="90,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxTownID_SelectionChanged"/>
-        <ComboBox Name="comboBoxStatusID" KeyboardNavigation.TabIndex="4" Margin="90,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxStatusID_SelectionChanged"/>
+        <ComboBox Name="comboBoxTownName" KeyboardNavigation.TabIndex="3" Margin="90,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxTownName_SelectionChanged"/>
+        <ComboBox Name="comboBoxStatusName" KeyboardNavigation.TabIndex="4" Margin="90,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxStatusName_SelectionChanged"/>
         <TextBox Name="textBoxDeadline" KeyboardNavigation.TabIndex="5" Margin="90,235,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="390" TextChanged="textBoxDeadline_TextChanged"/>
         <TextBox Name="textBoxMotivation" KeyboardNavigation.TabIndex="6" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="90,260,0,0" Width="390" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" TextChanged="textBoxMotivation_TextChanged" />
-        <Label Name="lblTownName" Margin="220,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Name="lblCountryID" Margin="90,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Name="lblCountryName" Margin="90,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Label Name="lblStatusName" Margin="220,200,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Name="btnFirst" IsEnabled="False" Margin="10,351,0,0" Content="Første" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnFirst_Click"/>
         <Button Name="btnPrev" IsEnabled="False" Margin="90,351,0,0" Content="Forrige" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnPrev_Click"/>
         <Button Name="btnDel" Content="Slett" Margin="170,351,0,0" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDel_Click"/>

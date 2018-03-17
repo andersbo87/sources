@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -34,30 +35,35 @@ namespace JobbWPF
             p = mw.ps;
             title = newTitle;
         }
-
-        // Offentlige metoder
-        public void setCountryID(int newID)
+        
+        private void setCountryID(int newCountryID)
         {
-            countryID = newID;
+            if (newCountryID <= 0)
+                throw new ArgumentException("LandID må være større enn 0", newCountryID.ToString());
+            if (!p.GetCountryIDs().Contains(newCountryID))
+                throw new NoSuchElementException("Landet med ID " + newCountryID + " finnes ikke i databasen.", newCountryID.ToString());
+            countryID = newCountryID;
         }
 
-        public void setCountryName(string newName)
+        private void setCountryName(string newName)
         {
+            if (String.IsNullOrWhiteSpace(newName))
+                throw new ArgumentException("Det nye navnet kan ikke være tomt eller bare bestå av mellomrom.", newName);
             countryName = newName;
         }
 
-        public int getCountryID()
+        private int getCountryID()
         {
             return countryID;
         }
 
-        public string getCountryName()
+        private string getCountryName()
         {
             return countryName;
         }
 
         // Private metoder
-        void setChanged(bool changed)
+        private void setChanged(bool changed)
         {
             textChanged = changed;
             btnUpdate.IsEnabled = changed;
@@ -66,7 +72,7 @@ namespace JobbWPF
         {
             return textChanged;
         }
-        bool getData(int index)
+        private bool getData(int index)
         {
             try
             {
@@ -92,7 +98,7 @@ namespace JobbWPF
                 return false;
             }
         }
-        bool getPrev(int index)
+        private bool getPrev(int index)
         {
             try
             {
@@ -128,7 +134,7 @@ namespace JobbWPF
             }
         }
 
-        bool getNext(int index)
+        private bool getNext(int index)
         {
             int idx = index + 1;
             try
@@ -169,40 +175,62 @@ namespace JobbWPF
             }
         }
 
-        void changeCountryID(int idx)
+        private void changeCountryID(int idx)
         {
-            getData(idx);
-            if (idx == Int32.Parse(comboBoxCountryID.Items[0].ToString()))
+            try
             {
-                btnPrev.IsEnabled = false;
-                btnFirst.IsEnabled = false;
-                btnNext.IsEnabled = true;
-                btnLast.IsEnabled = true;
+                getData(idx);
+                if (idx == Int32.Parse(comboBoxCountryID.Items[0].ToString()))
+                {
+                    btnPrev.IsEnabled = false;
+                    btnFirst.IsEnabled = false;
+                    btnNext.IsEnabled = true;
+                    btnLast.IsEnabled = true;
+                }
+                else if (idx == Int32.Parse(comboBoxCountryID.Items[comboBoxCountryID.Items.Count - 1].ToString()))
+                {
+                    btnNext.IsEnabled = false;
+                    btnLast.IsEnabled = false;
+                    btnFirst.IsEnabled = true;
+                    btnPrev.IsEnabled = true;
+                }
+                else
+                {
+                    // Mulig de fire neste linjene er unødige:
+                    btnNext.IsEnabled = true;
+                    btnLast.IsEnabled = true;
+                    btnPrev.IsEnabled = true;
+                    btnFirst.IsEnabled = true;
+                }
+                setCountryID(idx);
+                setChanged(false);
             }
-            else if (idx == Int32.Parse(comboBoxCountryID.Items[comboBoxCountryID.Items.Count - 1].ToString()))
+            catch(NoSuchElementException nse)
             {
-                btnNext.IsEnabled = false;
-                btnLast.IsEnabled = false;
-                btnFirst.IsEnabled = true;
-                btnPrev.IsEnabled = true;
+                MessageBox.Show(nse.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            else
-            {
-                // Mulig de fire neste linjene er unødige:
-                btnNext.IsEnabled = true;
-                btnLast.IsEnabled = true;
-                btnPrev.IsEnabled = true;
-                btnFirst.IsEnabled = true;
-            }
-            setCountryID(idx);
-            setChanged(false);
+        }
+
+        private bool canSave()
+        {
+            bool res = true;
+            if (String.IsNullOrWhiteSpace(textBoxCountryName.Text))
+                res = false;
+            return res;
         }
 
         // Automatisk genererte private metoder
         private void textBoxCountryName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            setChanged(true);
-            setCountryName(textBoxCountryName.Text);
+            try
+            {
+                setCountryName(textBoxCountryName.Text);
+                setChanged(canSave());
+            }
+            catch (ArgumentException)
+            {
+                setChanged(false);
+            }
         }
 
         private void comboBoxCountryID_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -213,7 +241,7 @@ namespace JobbWPF
                 {
                     int idx = Int32.Parse(comboBoxCountryID.Text);
                     int newidx = Int32.Parse(comboBoxCountryID.SelectedValue.ToString());
-                    if (isChanged())
+                    if (isChanged() && canSave())
                     {
                         // Spør om endringene skal lagres
                         MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for landID=" + idx + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
@@ -222,11 +250,12 @@ namespace JobbWPF
                             // Lagre endringa og gå videre.
                             if (p.updateCountry(getCountryID(), getCountryName()))
                             {
+                                MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for landID " + getCountryID() + ":\nLandnavn: " + getCountryName(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                                 changeCountryID(newidx);
                             }
                             else // Dersom lagringsforsøket gikk galt:
                             {
-                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
                                 if (msgUpdateFailed == MessageBoxResult.Yes)
                                 {
                                     setChanged(false);
@@ -254,6 +283,42 @@ namespace JobbWPF
         private void btnFirst_Click(object sender, RoutedEventArgs e)
         {
             comboBoxCountryID.SelectedIndex = 0;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            if (isChanged() && canSave())
+            {
+                // Spør om endringene skal lagres
+                MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for landID=" + getCountryID() + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (msr == MessageBoxResult.Yes)
+                {
+                    // Lagre endringa og gå videre.
+                    if (p.updateCountry(getCountryID(), getCountryName()))
+                    {
+                        MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for landID " + getCountryID() + ":\nLandnavn: " + getCountryName(), title, MessageBoxButton.OK, MessageBoxImage.Information);
+                        e.Cancel = false;
+                    }
+                    else // Dersom lagringsforsøket gikk galt:
+                    {
+                        MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (msgUpdateFailed == MessageBoxResult.Yes)
+                        {
+                            setChanged(false);
+                            e.Cancel = false;
+                        }
+                    }
+                }
+                else if (msr == MessageBoxResult.No)
+                {
+                    // Fortsett uten å lagre.
+                    setChanged(false);
+                    e.Cancel = false;
+                }
+            }
+            else
+                e.Cancel = false;
         }
 
         private void btnPrev_Click(object sender, RoutedEventArgs e)
@@ -303,6 +368,7 @@ namespace JobbWPF
                         btnLast.IsEnabled = false;
                     }
                     opening = false;
+                    setCountryID(1);
                     setChanged(false);
                 }
             }
