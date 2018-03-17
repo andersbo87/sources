@@ -31,6 +31,7 @@ using System.Threading;
 using System.Data;
 using System.Net.Sockets;
 using System.IO;
+using System.Collections;
 
 namespace JobbWPF
 {
@@ -1566,6 +1567,92 @@ namespace JobbWPF
         }
 
         /// <summary>
+        /// Gets the ID of a country based on its name
+        /// </summary>
+        /// <param name="name">The name of the country in question</param>
+        /// <returns>The country's ID</returns>
+        public int getCountryID(string name)
+        {
+            int ans = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT landid FROM land WHERE land='" + name + "'";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                ans = reader.GetInt32(0);
+            conn.Close();
+            return ans;
+        }
+        /// <summary>
+        /// Builds an array list of all existing application IDs.
+        /// </summary>
+        /// <returns>An array list of existing application IDs</returns>
+        public ArrayList GetApplicationIDs()
+        {
+            ArrayList res = new ArrayList();
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT soknadid FROM soknad ORDER BY soknadid ASC";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res.Add(reader.GetInt32(0));
+            return res;
+        }
+
+        /// <summary>
+        /// Builds an array list of all existing country IDs.
+        /// </summary>
+        /// <returns>An array list of existing coutry IDs</returns>
+        public ArrayList GetCountryIDs()
+        {
+            ArrayList res = new ArrayList();
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT landid FROM land ORDER BY landid ASC";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res.Add(reader.GetInt32(0));
+            return res;
+        }
+
+        /// <summary>
+        /// Builds an array list of all existing status IDs.
+        /// </summary>
+        /// <returns>An array list of existing status IDs</returns>
+        public ArrayList GetStatusIDs()
+        {
+            ArrayList res = new ArrayList();
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT statusid FROM status ORDER BY statusid ASC";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res.Add(reader.GetInt32(0));
+            return res;
+        }
+
+        /// <summary>
+        /// Builds an array list of all existing town IDs.
+        /// </summary>
+        /// <returns>An array list of existing town IDs</returns>
+        public ArrayList GetTownIDs()
+        {
+            ArrayList res = new ArrayList();
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT stedid FROM sted ORDER BY stedid ASC";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res.Add(reader.GetInt32(0));
+            return res;
+        }
+
+        /// <summary>
         /// Gets the ID of the country from the view "sted" (=town/place) based on the town ID.
         /// </summary>
         /// <param name="index">The ID of the town in question.</param>
@@ -1577,6 +1664,25 @@ namespace JobbWPF
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM view_sted WHERE stedid=" + index;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                ans = reader.GetInt32(0);
+            conn.Close();
+            return ans;
+        }
+
+        /// <summary>
+        /// Gets the ID of the country from the view "sted" (=town/place) based on the town name.
+        /// </summary>
+        /// <param name="index">The ID of the town in question.</param>
+        /// <returns>A number with the ID of the country.</returns>
+        public int GetCityCountryID(string townName)
+        {
+            int ans = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT landid FROM view_sted WHERE stedsnavn='" + townName +"'";
             reader = cmd.ExecuteReader();
             while (reader.Read())
                 ans = reader.GetInt32(0);
@@ -1754,7 +1860,7 @@ namespace JobbWPF
             {
                 Init();
                 cmd.Connection = conn;
-                cmd.CommandText = "UPDATE land SET landnavn='" + newCountryName + "' where landid=" + countryID + ";";
+                cmd.CommandText = "UPDATE land SET land='" + newCountryName + "' where landid=" + countryID + ";";
                 cmd.ExecuteNonQuery();
             }
             catch (NpgsqlOperationInProgressException noipe)
@@ -1844,13 +1950,13 @@ namespace JobbWPF
         /// <param name="townID">The ID of the town to be updated.</param>
         /// <param name="newTownName">The new name of the town/city.</param>
         /// <returns></returns>
-        public bool updateTown(int townID, string newTownName)
+        public bool updateTown(int townID, string newTownName, int newCountryID)
         {
             try
             {
                 Init();
                 cmd.Connection = conn;
-                cmd.CommandText = "UPDATE sted SET stedsnavn='" + newTownName + "' where stedid=" + townID + ";";
+                cmd.CommandText = "UPDATE sted SET stedsnavn='" + newTownName + "', landid=" +newCountryID + " where stedid=" + townID + ";";
                 cmd.ExecuteNonQuery();
             }
             catch (NpgsqlOperationInProgressException noipe)
