@@ -103,13 +103,14 @@ void ViewJobs::comboBoxStatusIDChanged()
 {
     try
     {
-        setStatusID(ui->comboBoxStatusID->currentText().toInt());
+        setStatusID(p->getStatusID(ui->comboBoxStatusID->currentText().toStdString()));
         if(!soknadIDChanged)
             setChanged(canSave());
     }
-    catch(invalid_argument)
+    catch(invalid_argument ia)
     {
-        // La oss bare ignorere feilen og evt sette changed til false. Brukeren kan ikke gjøre noe feil uansett...
+        // La oss skrive feilen ut til konsollen.
+        qDebug("En feil har oppstått: %s\n", ia.what());
         setChanged(false);
     }
 }
@@ -118,13 +119,14 @@ void ViewJobs::comboBoxCityIDChanged()
 {
     try
     {
-        setCityID(ui->comboBoxTownID->currentText().toInt());
+        setCityID(p->getCityID(ui->comboBoxTownID->currentText().toStdString()));
         if(!soknadIDChanged)
             setChanged(canSave());
     }
-    catch(invalid_argument)
+    catch(invalid_argument ia)
     {
         // La oss bare ignorere feilen og evt sette changed til false. Brukeren kan ikke gjøre noe feil uansett...
+        qDebug("En feil har oppstått: %s\n", ia.what());
         setChanged(false);
     }
 }
