@@ -1179,7 +1179,7 @@ double psql::countAccepted()
     {
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::nontransaction N(C);
-        QString statement = "select count(statusid) from soknad group by statusid having statusid=6";
+        QString statement = "select count(statusid) from soknad group by statusid having statusid=7";
         ostringstream oss;
         oss << stmt << statement.toStdString();
         pqxx::result R(N.exec(oss.str()));
