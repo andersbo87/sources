@@ -1,8 +1,19 @@
 #!/bin/sh
 
 removeOld(){
-    /usr/bin/printf "\033[1mRemoving old packages from /usr/ports/packages/old/.\033[0m\n"
-    rm -f /usr/ports/packages/old/*
+    /usr/bin/printf "Do you want to remove old packages? (y/n) "
+    read ans
+    if [ "$ans" == "y" -o "$ans" == "Y" ]
+    then
+	/usr/bin/printf "\033[1mRemoving old packages from /usr/ports/packages/old/.\033[0m\n"
+	rm -f /usr/ports/packages/old/*
+    elif [ "$ans" == "n" -o "$ans" == "N" ]
+    then
+	continue
+    else
+	/usr/bin/printf "Please answer y or n."
+	removeOld
+    fi
 }
 
 if [ "$1" == "removeOld" ]
