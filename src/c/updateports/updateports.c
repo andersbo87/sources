@@ -1710,6 +1710,30 @@ void updateSunOS()
 void updateLinuxZypper()
 {
   int status, res, err;
+  int zypperref = fork();
+  if(zypperref == 0){
+    char *zypperref_arglist[2];
+    zypperref_arglist[0] = "/usr/bin/zypper";
+    zypperref_arglist[1] = NULL;
+    res = execvp(zypperref_arglist[0], zypperref_arglist);
+    if(res != 0)
+      exitApp(res);
+  }
+  else if(zypperref >= 1){
+    waitpid(zypperref, NULL, 0);
+    if(WIFEXITED(status)){
+      if(WEXITSTATUS(status) != 0){
+	fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
+	printf("\033]0;\007");
+	exit(status);
+      }
+    }
+  }
+  else{
+    fprintf(stderr, "Failed to create zypper process.\n");
+    printf("\033]0;\007");
+    exit(-1);
+  }
   int zypperdup = fork();
   if(zypperdup == 0){
     char *zypper_dup_arglist[3];
