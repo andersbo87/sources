@@ -1712,9 +1712,10 @@ void updateLinuxZypper()
   int status, res, err;
   int zypperref = fork();
   if(zypperref == 0){
-    char *zypperref_arglist[2];
+    char *zypperref_arglist[3];
     zypperref_arglist[0] = "/usr/bin/zypper";
-    zypperref_arglist[1] = NULL;
+    zypperref_arglist[1] = "ref";
+    zypperref_arglist[2] = NULL;
     res = execvp(zypperref_arglist[0], zypperref_arglist);
     if(res != 0)
       exitApp(res);
