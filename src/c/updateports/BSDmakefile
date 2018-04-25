@@ -1,6 +1,16 @@
-UNAME_S = $(shell uname)
+UNAME_S != uname
 make:
+	@echo ${UNAME_S}
+.if exists(/usr/bin/xdotool)
 	cc -o updateports updateports.c
+.else
+.if exists(/usr/local/bin/xdotool)
+	cc -o updateports updateports.c
+.else
+.error File does not exist
+.endif
+.endif
+
 install: updateports
 #ifneq ($(UNAME_S), Linux)
 	install -o root -g wheel updateports /usr/local/sbin/updateports

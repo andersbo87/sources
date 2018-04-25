@@ -49,7 +49,7 @@ int portmaster_arg;
 int portupgrade_arg;
 int rb; //variable to be used if softwareupdate(8) requires a reboot
 int sigint;
-
+char buf[BUFSIZ];
 // A "list" of a few functions used in this program.
 // These are needed to avoid the conflicting types for $function erorrs during compilation.
 void askReboot();
@@ -118,6 +118,9 @@ void ctrl_z(int sig_num)
 {
   signal(SIGTSTP, ctrl_z);
   fprintf(stdout, "Stopping…\n");
+  // Fetches the window title
+  FILE *pipe = popen("xdotool getactivewindow getwindowname", "r");
+  fgets(buf, BUFSIZ, pipe);
   syslog(LOG_ERR, "%s has been stopped by the user.\n", prog_name);
   kill(getpid(), SIGSTOP);
 }
@@ -129,6 +132,7 @@ void sigCont(int sig_num)
   if(p > 0)
     p = 0;
   else if(p == 0){
+    printf("\033]0;%s\007",buf);
     fprintf(stdout, "Resuming operation…\n");
     syslog(LOG_ERR, "%s is being continued.\n", prog_name);
     p++;
@@ -463,12 +467,12 @@ int updateFreeBSD()
       if(portmaster == 0) {
 	char *portmaster_arglist[3];
 	portmaster_arglist[0] = "/usr/local/sbin/portmaster";
-	portmaster_arglist[1] = "-DBaig";
+	portmaster_arglist[1] = "-DBCaig";
 	portmaster_arglist[2] = NULL;
 	execvp(portmaster_arglist[0], portmaster_arglist);
       }
       else if(portmaster >= 1){
-	setprogname("portmaster -DBaig");
+	setprogname("portmaster -DBCaig");
 	waitpid(portmaster, &portmaster_status, 0);
 	if(WIFEXITED(portmaster_status)){
 	  if(WEXITSTATUS(portmaster_status) != 0){
@@ -487,12 +491,12 @@ int updateFreeBSD()
       if(portmaster == 0){
 	char *portmaster_arglist[3];
 	portmaster_arglist[0] = "/usr/local/sbin/portmaster";
-	portmaster_arglist[1] = "-DBag";
+	portmaster_arglist[1] = "-DBCag";
 	portmaster_arglist[2] = NULL;
 	execvp(portmaster_arglist[0], portmaster_arglist);
       }
       else if(portmaster >= 1){
-	setprogname("portmaster -DBag");
+	setprogname("portmaster -DBCag");
 	waitpid(portmaster, &portmaster_status, 0);
 	if(WIFEXITED(portmaster_status)){
 	  if(WEXITSTATUS(portmaster_status) != 0){
