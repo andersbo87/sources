@@ -1,18 +1,15 @@
 UNAME_S = $(shell uname)
 DOT = $(shell cc --version 2>/dev/null)
 FILE=/usr/bin/xdotool
+ALTFILE=/usr/local/bin/xdotool
 updateports:
 ifeq ($(shell test -e $(FILE) && echo -n yes), yes)
-	@FILE_EXISTS=1
+	@echo Found xdotool at $(FILE).
+else ifeq ($(shell test -e $(ALTFILE) && echo -n yes), yes)
+	@echo Found xdotool at $(ALTFILE).
 else
-	@FILE_EXISTS=0
-	@ALTFILE=/usr/local/bin/xdotool
-ifeq ($(shell test -e $(ALTFILE) && echo -n yes), yes)
-	@FILE_EXISTS=1
-else
-	@FILE_EXISTS=0
-	$(error File does not exist)
-endif
+	FILE_EXISTS=0
+	$(error File $(ALTFILE) or $(FILE) does not exist)
 endif
 ifdef DOT
 ifneq ($(DOT), )
