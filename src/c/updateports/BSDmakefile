@@ -7,7 +7,7 @@ make:
 .if exists(/usr/local/bin/xdotool)
 	cc -o updateports updateports.c
 .else
-.error File does not exist
+.error File does /usr/local/bin/xdotool or /usr/bin/xdotool does not exist
 .endif
 .endif
 
@@ -16,9 +16,9 @@ install: updateports
 	install -o root -g wheel updateports /usr/local/sbin/updateports
 	install -o root -g wheel rmoldpackages_updateports.sh /usr/local/sbin/rmoldpackages_updateports
 	install -o root -g wheel updateports.8 /usr/local/man/man8/updateports.8
-#else
-#	install -o root -g root updateports /usr/local/sbin/updateports
-#endif
+.if (${UNAME_S} == "Linux")
+	install -o root -g root updateports /usr/local/sbin/updateports
+.endif
 clean:
 	rm -f updateports
 uninstall:
