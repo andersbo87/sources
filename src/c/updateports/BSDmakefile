@@ -20,7 +20,6 @@ install: updateports
 	install -o root -g wheel rmoldpackages_updateports.sh /usr/local/sbin/rmoldpackages_updateports
 	install -o root -g wheel updateports.8 /usr/local/man/man8/updateports.8
 .endif
-#ifneq ($(UNAME_S), Linux)
 
 clean:
 	rm -f updateports
