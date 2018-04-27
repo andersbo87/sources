@@ -1,5 +1,5 @@
 UNAME_S != uname
-make:
+updateports:
 	@echo ${UNAME_S}
 .if exists(/usr/bin/xdotool)
 	cc -o updateports updateports.c
