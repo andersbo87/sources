@@ -12,20 +12,31 @@ make:
 .endif
 
 install: updateports
-#ifneq ($(UNAME_S), Linux)
+.if (${UNAME_S} == "Linux")
+	install -o root -g root updateports /usr/local/sbin/updateports
+	install -o root -g root updateports.8 /usr/share/man/man8/updateports.8
+.else
 	install -o root -g wheel updateports /usr/local/sbin/updateports
 	install -o root -g wheel rmoldpackages_updateports.sh /usr/local/sbin/rmoldpackages_updateports
 	install -o root -g wheel updateports.8 /usr/local/man/man8/updateports.8
-.if (${UNAME_S} == "Linux")
-	install -o root -g root updateports /usr/local/sbin/updateports
 .endif
+#ifneq ($(UNAME_S), Linux)
+
 clean:
 	rm -f updateports
 uninstall:
 	rm -f /usr/local/sbin/updateports
 	rm -f /usr/local/sbin/rmoldpackages_updateports
+.if (${UNAME_S} == "Linux")
+	/usr/share/man/man8/updateports.8
+.else
 	rm -f /usr/local/man/man8/updateports.8
+.endif
 deinstall:
 	rm -f /usr/local/sbin/updateports
 	rm -f /usr/local/sbin/rmoldpackages_updateports
+.if (${UNAME_S} == "Linux")
+	/usr/share/man/man8/updateports.8
+.else
 	rm -f /usr/local/man/man8/updateports.8
+.endif
