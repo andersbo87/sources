@@ -109,7 +109,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>StedID*</string>
+     <string>Stedsnavn*</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBoxTownID">
@@ -132,7 +132,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>StatusID*</string>
+     <string>Status*</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBoxStatusID">

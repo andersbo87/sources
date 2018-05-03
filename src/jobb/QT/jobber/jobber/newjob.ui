@@ -72,7 +72,7 @@
     <item row="3" column="0">
      <widget class="QLabel" name="labelStedid">
       <property name="text">
-       <string>Sted*</string>
+       <string>Stedsnavn*</string>
       </property>
      </widget>
     </item>
@@ -82,7 +82,7 @@
     <item row="4" column="0">
      <widget class="QLabel" name="labelStatusID">
       <property name="text">
-       <string>StatusID*</string>
+       <string>Status*</string>
       </property>
      </widget>
     </item>
