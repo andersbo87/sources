@@ -16,6 +16,18 @@
       <node id="133">
         <label>QMessageBox</label>
       </node>
+      <node id="132">
+        <label>QMainWindow</label>
+      </node>
+      <node id="123">
+        <label>QLinkedList</label>
+      </node>
+      <node id="129">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
       <node id="120">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
@@ -50,12 +62,6 @@
         <childnode refid="133" relation="include">
         </childnode>
       </node>
-      <node id="132">
-        <label>QMainWindow</label>
-      </node>
-      <node id="123">
-        <label>QLinkedList</label>
-      </node>
       <node id="122">
         <label>QApplication</label>
       </node>
@@ -77,26 +83,20 @@
       <node id="124">
         <label>QException</label>
       </node>
-      <node id="129">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h_source"/>
-        <childnode refid="130" relation="include">
-        </childnode>
-      </node>
       <node id="128">
         <label>QtGui</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="135">
+        <label>newcity.cpp</label>
+        <link refid="newcity_8cpp"/>
+      </node>
       <node id="134">
         <label>newcity.h</label>
         <link refid="newcity_8h"/>
         <childnode refid="135" relation="include">
         </childnode>
-      </node>
-      <node id="135">
-        <label>newcity.cpp</label>
-        <link refid="newcity_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="class_new_city" prot="public">NewCity</innerclass>

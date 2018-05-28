@@ -5,6 +5,9 @@
     <includes refid="psql_8h" local="yes">psql.h</includes>
     <includes local="no">stdio.h</includes>
     <incdepgraph>
+      <node id="246">
+        <label>QLinkedList</label>
+      </node>
       <node id="243">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
@@ -25,9 +28,6 @@
         <childnode refid="251" relation="include">
         </childnode>
       </node>
-      <node id="246">
-        <label>QLinkedList</label>
-      </node>
       <node id="245">
         <label>QApplication</label>
       </node>
@@ -46,12 +46,6 @@
       <node id="247">
         <label>QException</label>
       </node>
-      <node id="252">
-        <label>stdio.h</label>
-      </node>
-      <node id="251">
-        <label>QtGui</label>
-      </node>
       <node id="242">
         <label>psql.cpp</label>
         <link refid="psql_8cpp"/>
@@ -59,6 +53,12 @@
         </childnode>
         <childnode refid="252" relation="include">
         </childnode>
+      </node>
+      <node id="252">
+        <label>stdio.h</label>
+      </node>
+      <node id="251">
+        <label>QtGui</label>
       </node>
     </incdepgraph>
     <briefdescription>
@@ -1029,7 +1029,7 @@
 <codeline lineno="1179"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="1180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pqxx::connection<sp/>C(</highlight><highlight class="stringliteral">&quot;dbname<sp/>=<sp/>jobber<sp/>user<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>username.toStdString()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>password<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>password.toStdString()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>hostaddr<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>host.toStdString()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>port<sp/>=<sp/>5432&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pqxx::nontransaction<sp/>N(C);</highlight></codeline>
-<codeline lineno="1182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>statement<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;select<sp/>count(statusid)<sp/>from<sp/>soknad<sp/>group<sp/>by<sp/>statusid<sp/>having<sp/>statusid=6&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>statement<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;select<sp/>count(statusid)<sp/>from<sp/>soknad<sp/>group<sp/>by<sp/>statusid<sp/>having<sp/>statusid=7&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ostringstream<sp/>oss;</highlight></codeline>
 <codeline lineno="1184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>stmt<sp/>&lt;&lt;<sp/>statement.toStdString();</highlight></codeline>
 <codeline lineno="1185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pqxx::result<sp/>R(N.exec(oss.str()));</highlight></codeline>

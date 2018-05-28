@@ -13,6 +13,12 @@
       <node id="408">
         <label>QMessageBox</label>
       </node>
+      <node id="407">
+        <label>QMainWindow</label>
+      </node>
+      <node id="400">
+        <label>QLinkedList</label>
+      </node>
       <node id="397">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
@@ -33,23 +39,11 @@
         <childnode refid="405" relation="include">
         </childnode>
       </node>
-      <node id="407">
-        <label>QMainWindow</label>
-      </node>
-      <node id="400">
-        <label>QLinkedList</label>
-      </node>
       <node id="406">
         <label>QtCore</label>
       </node>
       <node id="399">
         <label>QApplication</label>
-      </node>
-      <node id="402">
-        <label>QDebug</label>
-      </node>
-      <node id="403">
-        <label>pqxx/pqxx</label>
       </node>
       <node id="396">
         <label>spesificjobs.h</label>
@@ -64,6 +58,12 @@
         </childnode>
         <childnode refid="408" relation="include">
         </childnode>
+      </node>
+      <node id="402">
+        <label>QDebug</label>
+      </node>
+      <node id="403">
+        <label>pqxx/pqxx</label>
       </node>
       <node id="398">
         <label>sstream</label>

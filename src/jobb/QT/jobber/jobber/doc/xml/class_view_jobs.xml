@@ -274,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="48" column="1" bodyfile="viewjobs.cpp" bodystart="679" bodyend="715"/>
+        <location file="viewjobs.h" line="48" column="1" bodyfile="viewjobs.cpp" bodystart="680" bodyend="716"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -299,7 +299,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="49" column="1" bodyfile="viewjobs.cpp" bodystart="721" bodyend="761"/>
+        <location file="viewjobs.h" line="49" column="1" bodyfile="viewjobs.cpp" bodystart="722" bodyend="762"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -324,7 +324,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="50" column="1" bodyfile="viewjobs.cpp" bodystart="611" bodyend="617"/>
+        <location file="viewjobs.h" line="50" column="1" bodyfile="viewjobs.cpp" bodystart="612" bodyend="618"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -349,7 +349,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="51" column="1" bodyfile="viewjobs.cpp" bodystart="623" bodyend="628"/>
+        <location file="viewjobs.h" line="51" column="1" bodyfile="viewjobs.cpp" bodystart="624" bodyend="629"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -374,7 +374,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="52" column="1" bodyfile="viewjobs.cpp" bodystart="634" bodyend="639"/>
+        <location file="viewjobs.h" line="52" column="1" bodyfile="viewjobs.cpp" bodystart="635" bodyend="640"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -399,7 +399,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="53" column="1" bodyfile="viewjobs.cpp" bodystart="645" bodyend="651"/>
+        <location file="viewjobs.h" line="53" column="1" bodyfile="viewjobs.cpp" bodystart="646" bodyend="652"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -424,7 +424,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="54" column="1" bodyfile="viewjobs.cpp" bodystart="657" bodyend="663"/>
+        <location file="viewjobs.h" line="54" column="1" bodyfile="viewjobs.cpp" bodystart="658" bodyend="664"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a7574794410eb40956f343976de97221f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -449,7 +449,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="55" column="1" bodyfile="viewjobs.cpp" bodystart="669" bodyend="674"/>
+        <location file="viewjobs.h" line="55" column="1" bodyfile="viewjobs.cpp" bodystart="670" bodyend="675"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -474,7 +474,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="56" column="1" bodyfile="viewjobs.cpp" bodystart="602" bodyend="605"/>
+        <location file="viewjobs.h" line="56" column="1" bodyfile="viewjobs.cpp" bodystart="603" bodyend="606"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a086650882ad80acb4074cf697f8cddcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -488,7 +488,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="57" column="1" bodyfile="viewjobs.cpp" bodystart="539" bodyend="542"/>
+        <location file="viewjobs.h" line="57" column="1" bodyfile="viewjobs.cpp" bodystart="540" bodyend="543"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1ae78f119d37c77a9e3e457ecfd78d7de3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -502,7 +502,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="58" column="1" bodyfile="viewjobs.cpp" bodystart="548" bodyend="551"/>
+        <location file="viewjobs.h" line="58" column="1" bodyfile="viewjobs.cpp" bodystart="549" bodyend="552"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a88d7c0a7a79bc7a7e02b524587983bf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -516,7 +516,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="59" column="1" bodyfile="viewjobs.cpp" bodystart="557" bodyend="560"/>
+        <location file="viewjobs.h" line="59" column="1" bodyfile="viewjobs.cpp" bodystart="558" bodyend="561"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1adcafeca350b21a033aa630e042ee7947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -530,7 +530,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="60" column="1" bodyfile="viewjobs.cpp" bodystart="566" bodyend="569"/>
+        <location file="viewjobs.h" line="60" column="1" bodyfile="viewjobs.cpp" bodystart="567" bodyend="570"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a91696fde9f0a663bae929390aac8324b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -544,7 +544,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="61" column="1" bodyfile="viewjobs.cpp" bodystart="575" bodyend="578"/>
+        <location file="viewjobs.h" line="61" column="1" bodyfile="viewjobs.cpp" bodystart="576" bodyend="579"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1af046f9201cc6031e070b4f9b613a35f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -558,7 +558,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="62" column="1" bodyfile="viewjobs.cpp" bodystart="584" bodyend="587"/>
+        <location file="viewjobs.h" line="62" column="1" bodyfile="viewjobs.cpp" bodystart="585" bodyend="588"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -566,12 +566,12 @@
         <argsstring>()</argsstring>
         <name>getCityIDs</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" kindref="member">ViewJobs::getCityIDs</ref> Fills the comboBoxTownID with all city IDs that exist in the databse. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" kindref="member">ViewJobs::getCityIDs</ref> Fills the comboBoxTownID with all city names that exist in the databse. The city names are sorted in an alphabetic order. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="63" column="1" bodyfile="viewjobs.cpp" bodystart="485" bodyend="507"/>
+        <location file="viewjobs.h" line="63" column="1" bodyfile="viewjobs.cpp" bodystart="487" bodyend="508"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a238ec5365ef2c39baa97670769dfedca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -585,7 +585,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="64" column="1" bodyfile="viewjobs.cpp" bodystart="593" bodyend="596"/>
+        <location file="viewjobs.h" line="64" column="1" bodyfile="viewjobs.cpp" bodystart="594" bodyend="597"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -593,12 +593,12 @@
         <argsstring>()</argsstring>
         <name>getStatusIDs</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" kindref="member">ViewJobs::getStatusIDs</ref> Fills the comboBoxStatusID with all status IDs that exist in the database. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" kindref="member">ViewJobs::getStatusIDs</ref> Fills the comboBoxStatusID with all status names that exist in the database. Status names are sorted in an alphabetical order. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="65" column="1" bodyfile="viewjobs.cpp" bodystart="512" bodyend="533"/>
+        <location file="viewjobs.h" line="65" column="1" bodyfile="viewjobs.cpp" bodystart="513" bodyend="534"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a5f75b45d28ce7f4a8050ce9ce0f44350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -662,7 +662,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="68" column="1" bodyfile="viewjobs.cpp" bodystart="206" bodyend="244"/>
+        <location file="viewjobs.h" line="68" column="1" bodyfile="viewjobs.cpp" bodystart="208" bodyend="246"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a50f3a52f43e097d46e106e0aa31e9eb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -678,7 +678,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="69" column="1" bodyfile="viewjobs.cpp" bodystart="197" bodyend="200"/>
+        <location file="viewjobs.h" line="69" column="1" bodyfile="viewjobs.cpp" bodystart="199" bodyend="202"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="signal">
@@ -708,7 +708,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="79" column="1" bodyfile="viewjobs.cpp" bodystart="246" bodyend="279"/>
+        <location file="viewjobs.h" line="79" column="1" bodyfile="viewjobs.cpp" bodystart="248" bodyend="281"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a67117edf3c9bbfab4b854d516d9eb821" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -738,7 +738,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="81" column="1" bodyfile="viewjobs.cpp" bodystart="174" bodyend="184"/>
+        <location file="viewjobs.h" line="81" column="1" bodyfile="viewjobs.cpp" bodystart="176" bodyend="186"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -753,7 +753,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="84" column="1" bodyfile="viewjobs.cpp" bodystart="451" bodyend="480"/>
+        <location file="viewjobs.h" line="84" column="1" bodyfile="viewjobs.cpp" bodystart="453" bodyend="482"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1aae7a18babf211b6f46d3d2ba3209e8d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -766,7 +766,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="85" column="1" bodyfile="viewjobs.cpp" bodystart="160" bodyend="172"/>
+        <location file="viewjobs.h" line="85" column="1" bodyfile="viewjobs.cpp" bodystart="162" bodyend="174"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1a75640e3dbcc56057a84c38dae2fb8e82" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -779,7 +779,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="86" column="1" bodyfile="viewjobs.cpp" bodystart="146" bodyend="158"/>
+        <location file="viewjobs.h" line="86" column="1" bodyfile="viewjobs.cpp" bodystart="148" bodyend="160"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1a424725acff9c37e1391bb45e87e425e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -792,7 +792,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="87" column="1" bodyfile="viewjobs.cpp" bodystart="132" bodyend="144"/>
+        <location file="viewjobs.h" line="87" column="1" bodyfile="viewjobs.cpp" bodystart="134" bodyend="146"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1a54d49fe276ccdeac07037c8d503a1d60" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -805,7 +805,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="88" column="1" bodyfile="viewjobs.cpp" bodystart="117" bodyend="130"/>
+        <location file="viewjobs.h" line="88" column="1" bodyfile="viewjobs.cpp" bodystart="118" bodyend="132"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1af0a19ec06334ef7f4c684ac425688baa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -818,7 +818,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="89" column="1" bodyfile="viewjobs.cpp" bodystart="102" bodyend="115"/>
+        <location file="viewjobs.h" line="89" column="1" bodyfile="viewjobs.cpp" bodystart="102" bodyend="116"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1a921d1d75083ed21260ad109eeb4a029c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -844,7 +844,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="91" column="1" bodyfile="viewjobs.cpp" bodystart="303" bodyend="322"/>
+        <location file="viewjobs.h" line="91" column="1" bodyfile="viewjobs.cpp" bodystart="305" bodyend="324"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1ac2ba9f478da2c1336c1488ee730bdbcc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -857,7 +857,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="92" column="1" bodyfile="viewjobs.cpp" bodystart="421" bodyend="449"/>
+        <location file="viewjobs.h" line="92" column="1" bodyfile="viewjobs.cpp" bodystart="423" bodyend="451"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1ac62e33d644fa9be4245c6581c08a57a4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -870,7 +870,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="93" column="1" bodyfile="viewjobs.cpp" bodystart="391" bodyend="419"/>
+        <location file="viewjobs.h" line="93" column="1" bodyfile="viewjobs.cpp" bodystart="393" bodyend="421"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1ae36879dcfe8f2f7fb936cc5655d13417" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -883,7 +883,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="94" column="1" bodyfile="viewjobs.cpp" bodystart="369" bodyend="389"/>
+        <location file="viewjobs.h" line="94" column="1" bodyfile="viewjobs.cpp" bodystart="371" bodyend="391"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1a15504143a0fc4f0aca1bc20bbe1ab629" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -896,7 +896,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="95" column="1" bodyfile="viewjobs.cpp" bodystart="281" bodyend="300"/>
+        <location file="viewjobs.h" line="95" column="1" bodyfile="viewjobs.cpp" bodystart="283" bodyend="302"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1af3d76bcd5e9b63311ef2b0a9a6ffa83e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -909,7 +909,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="96" column="1" bodyfile="viewjobs.cpp" bodystart="324" bodyend="367"/>
+        <location file="viewjobs.h" line="96" column="1" bodyfile="viewjobs.cpp" bodystart="326" bodyend="369"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1aadb5fab1906b0ca1a015fa20b7bff81c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -922,7 +922,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="97" column="1" bodyfile="viewjobs.cpp" bodystart="186" bodyend="195"/>
+        <location file="viewjobs.h" line="97" column="1" bodyfile="viewjobs.cpp" bodystart="188" bodyend="197"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

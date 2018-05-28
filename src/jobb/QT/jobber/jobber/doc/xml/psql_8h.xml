@@ -25,6 +25,9 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="psql_8cpp" local="yes">psql.cpp</includedby>
     <incdepgraph>
+      <node id="257">
+        <label>QLinkedList</label>
+      </node>
       <node id="254">
         <label>psql.h</label>
         <link refid="psql_8h"/>
@@ -44,9 +47,6 @@
         </childnode>
         <childnode refid="262" relation="include">
         </childnode>
-      </node>
-      <node id="257">
-        <label>QLinkedList</label>
       </node>
       <node id="256">
         <label>QApplication</label>
@@ -71,11 +71,17 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="264">
-        <label>connectpsql.h</label>
-        <link refid="connectpsql_8h_source"/>
-        <childnode refid="265" relation="include">
-        </childnode>
+      <node id="273">
+        <label>showcountries.h</label>
+        <link refid="showcountries_8h_source"/>
+      </node>
+      <node id="265">
+        <label>mainwindow.h</label>
+        <link refid="mainwindow_8h_source"/>
+      </node>
+      <node id="271">
+        <label>newstatus.h</label>
+        <link refid="newstatus_8h_source"/>
       </node>
       <node id="266">
         <label>newjob.h</label>
@@ -111,55 +117,49 @@
         <childnode refid="277" relation="include">
         </childnode>
       </node>
+      <node id="269">
+        <label>newcity.cpp</label>
+        <link refid="newcity_8cpp"/>
+      </node>
+      <node id="276">
+        <label>statistics.h</label>
+        <link refid="statistics_8h_source"/>
+      </node>
+      <node id="274">
+        <label>showstatuses.h</label>
+        <link refid="showstatuses_8h_source"/>
+      </node>
       <node id="268">
         <label>newcity.h</label>
         <link refid="newcity_8h_source"/>
         <childnode refid="269" relation="include">
         </childnode>
       </node>
-      <node id="265">
-        <label>mainwindow.h</label>
-        <link refid="mainwindow_8h_source"/>
-      </node>
-      <node id="274">
-        <label>showstatuses.h</label>
-        <link refid="showstatuses_8h_source"/>
-      </node>
-      <node id="271">
-        <label>newstatus.h</label>
-        <link refid="newstatus_8h_source"/>
-      </node>
       <node id="275">
         <label>spesificjobs.h</label>
         <link refid="spesificjobs_8h_source"/>
-      </node>
-      <node id="272">
-        <label>showcities.h</label>
-        <link refid="showcities_8h_source"/>
-      </node>
-      <node id="269">
-        <label>newcity.cpp</label>
-        <link refid="newcity_8cpp"/>
       </node>
       <node id="270">
         <label>newcountry.h</label>
         <link refid="newcountry_8h_source"/>
       </node>
-      <node id="276">
-        <label>statistics.h</label>
-        <link refid="statistics_8h_source"/>
-      </node>
-      <node id="277">
-        <label>psql.cpp</label>
-        <link refid="psql_8cpp"/>
+      <node id="272">
+        <label>showcities.h</label>
+        <link refid="showcities_8h_source"/>
       </node>
       <node id="267">
         <label>viewjobs.h</label>
         <link refid="viewjobs_8h_source"/>
       </node>
-      <node id="273">
-        <label>showcountries.h</label>
-        <link refid="showcountries_8h_source"/>
+      <node id="264">
+        <label>connectpsql.h</label>
+        <link refid="connectpsql_8h_source"/>
+        <childnode refid="265" relation="include">
+        </childnode>
+      </node>
+      <node id="277">
+        <label>psql.cpp</label>
+        <link refid="psql_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classpsql" prot="public">psql</innerclass>

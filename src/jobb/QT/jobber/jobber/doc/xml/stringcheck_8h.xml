@@ -13,46 +13,28 @@
     <includedby refid="showstatuses_8h" local="yes">showstatuses.h</includedby>
     <includedby refid="stringcheck_8cpp" local="yes">stringcheck.cpp</includedby>
     <incdepgraph>
-      <node id="441">
-        <label>QString</label>
-      </node>
       <node id="440">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h"/>
         <childnode refid="441" relation="include">
         </childnode>
       </node>
+      <node id="441">
+        <label>QString</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="443">
-        <label>newjob.h</label>
-        <link refid="newjob_8h_source"/>
-      </node>
-      <node id="445">
-        <label>newcity.h</label>
-        <link refid="newcity_8h_source"/>
-        <childnode refid="446" relation="include">
-        </childnode>
-      </node>
-      <node id="451">
-        <label>showstatuses.h</label>
-        <link refid="showstatuses_8h_source"/>
+      <node id="450">
+        <label>showcountries.h</label>
+        <link refid="showcountries_8h_source"/>
       </node>
       <node id="448">
         <label>newstatus.h</label>
         <link refid="newstatus_8h_source"/>
       </node>
-      <node id="449">
-        <label>showcities.h</label>
-        <link refid="showcities_8h_source"/>
-      </node>
-      <node id="446">
-        <label>newcity.cpp</label>
-        <link refid="newcity_8cpp"/>
-      </node>
-      <node id="447">
-        <label>newcountry.h</label>
-        <link refid="newcountry_8h_source"/>
+      <node id="443">
+        <label>newjob.h</label>
+        <link refid="newjob_8h_source"/>
       </node>
       <node id="442">
         <label>stringcheck.h</label>
@@ -74,13 +56,31 @@
         <childnode refid="451" relation="include">
         </childnode>
       </node>
+      <node id="446">
+        <label>newcity.cpp</label>
+        <link refid="newcity_8cpp"/>
+      </node>
+      <node id="451">
+        <label>showstatuses.h</label>
+        <link refid="showstatuses_8h_source"/>
+      </node>
+      <node id="445">
+        <label>newcity.h</label>
+        <link refid="newcity_8h_source"/>
+        <childnode refid="446" relation="include">
+        </childnode>
+      </node>
+      <node id="447">
+        <label>newcountry.h</label>
+        <link refid="newcountry_8h_source"/>
+      </node>
+      <node id="449">
+        <label>showcities.h</label>
+        <link refid="showcities_8h_source"/>
+      </node>
       <node id="444">
         <label>viewjobs.h</label>
         <link refid="viewjobs_8h_source"/>
-      </node>
-      <node id="450">
-        <label>showcountries.h</label>
-        <link refid="showcountries_8h_source"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classstring_check" prot="public">stringCheck</innerclass>

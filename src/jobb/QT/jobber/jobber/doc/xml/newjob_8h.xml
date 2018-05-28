@@ -11,6 +11,18 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="newjob_8cpp" local="yes">newjob.cpp</includedby>
     <incdepgraph>
+      <node id="203">
+        <label>QCloseEvent</label>
+      </node>
+      <node id="205">
+        <label>QMessageBox</label>
+      </node>
+      <node id="202">
+        <label>QMainWindow</label>
+      </node>
+      <node id="194">
+        <label>QLinkedList</label>
+      </node>
       <node id="190">
         <label>newjob.h</label>
         <link refid="newjob_8h"/>
@@ -27,11 +39,11 @@
         <childnode refid="205" relation="include">
         </childnode>
       </node>
-      <node id="203">
-        <label>QCloseEvent</label>
-      </node>
-      <node id="205">
-        <label>QMessageBox</label>
+      <node id="200">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="201" relation="include">
+        </childnode>
       </node>
       <node id="191">
         <label>psql.h</label>
@@ -52,12 +64,6 @@
         </childnode>
         <childnode refid="199" relation="include">
         </childnode>
-      </node>
-      <node id="202">
-        <label>QMainWindow</label>
-      </node>
-      <node id="194">
-        <label>QLinkedList</label>
       </node>
       <node id="193">
         <label>QApplication</label>
@@ -82,12 +88,6 @@
       </node>
       <node id="195">
         <label>QException</label>
-      </node>
-      <node id="200">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h_source"/>
-        <childnode refid="201" relation="include">
-        </childnode>
       </node>
       <node id="199">
         <label>QtGui</label>

@@ -16,6 +16,32 @@
       <node id="344">
         <label>QMessageBox</label>
       </node>
+      <node id="330">
+        <label>showcountries.h</label>
+        <link refid="showcountries_8h"/>
+        <childnode refid="331" relation="include">
+        </childnode>
+        <childnode refid="332" relation="include">
+        </childnode>
+        <childnode refid="333" relation="include">
+        </childnode>
+        <childnode refid="342" relation="include">
+        </childnode>
+        <childnode refid="344" relation="include">
+        </childnode>
+      </node>
+      <node id="331">
+        <label>QMainWindow</label>
+      </node>
+      <node id="336">
+        <label>QLinkedList</label>
+      </node>
+      <node id="342">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="343" relation="include">
+        </childnode>
+      </node>
       <node id="333">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
@@ -35,12 +61,6 @@
         </childnode>
         <childnode refid="341" relation="include">
         </childnode>
-      </node>
-      <node id="331">
-        <label>QMainWindow</label>
-      </node>
-      <node id="336">
-        <label>QLinkedList</label>
       </node>
       <node id="335">
         <label>QApplication</label>
@@ -63,28 +83,8 @@
       <node id="337">
         <label>QException</label>
       </node>
-      <node id="342">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h_source"/>
-        <childnode refid="343" relation="include">
-        </childnode>
-      </node>
       <node id="341">
         <label>QtGui</label>
-      </node>
-      <node id="330">
-        <label>showcountries.h</label>
-        <link refid="showcountries_8h"/>
-        <childnode refid="331" relation="include">
-        </childnode>
-        <childnode refid="332" relation="include">
-        </childnode>
-        <childnode refid="333" relation="include">
-        </childnode>
-        <childnode refid="342" relation="include">
-        </childnode>
-        <childnode refid="344" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
     <innerclass refid="class_show_countries" prot="public">ShowCountries</innerclass>

@@ -16,6 +16,18 @@
       <node id="310">
         <label>QMessageBox</label>
       </node>
+      <node id="309">
+        <label>QMainWindow</label>
+      </node>
+      <node id="301">
+        <label>QLinkedList</label>
+      </node>
+      <node id="307">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="308" relation="include">
+        </childnode>
+      </node>
       <node id="298">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
@@ -35,12 +47,6 @@
         </childnode>
         <childnode refid="306" relation="include">
         </childnode>
-      </node>
-      <node id="309">
-        <label>QMainWindow</label>
-      </node>
-      <node id="301">
-        <label>QLinkedList</label>
       </node>
       <node id="300">
         <label>QApplication</label>
@@ -76,12 +82,6 @@
       </node>
       <node id="302">
         <label>QException</label>
-      </node>
-      <node id="307">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h_source"/>
-        <childnode refid="308" relation="include">
-        </childnode>
       </node>
       <node id="306">
         <label>QtGui</label>

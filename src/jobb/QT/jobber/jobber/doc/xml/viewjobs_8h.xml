@@ -16,6 +16,18 @@
       <node id="484">
         <label>QMessageBox</label>
       </node>
+      <node id="471">
+        <label>QMainWindow</label>
+      </node>
+      <node id="476">
+        <label>QLinkedList</label>
+      </node>
+      <node id="482">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="483" relation="include">
+        </childnode>
+      </node>
       <node id="473">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
@@ -35,12 +47,6 @@
         </childnode>
         <childnode refid="481" relation="include">
         </childnode>
-      </node>
-      <node id="471">
-        <label>QMainWindow</label>
-      </node>
-      <node id="476">
-        <label>QLinkedList</label>
       </node>
       <node id="475">
         <label>QApplication</label>
@@ -63,15 +69,6 @@
       <node id="477">
         <label>QException</label>
       </node>
-      <node id="482">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h_source"/>
-        <childnode refid="483" relation="include">
-        </childnode>
-      </node>
-      <node id="481">
-        <label>QtGui</label>
-      </node>
       <node id="470">
         <label>viewjobs.h</label>
         <link refid="viewjobs_8h"/>
@@ -85,6 +82,9 @@
         </childnode>
         <childnode refid="484" relation="include">
         </childnode>
+      </node>
+      <node id="481">
+        <label>QtGui</label>
       </node>
     </incdepgraph>
     <innerclass refid="class_view_jobs" prot="public">ViewJobs</innerclass>

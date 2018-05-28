@@ -482,18 +482,17 @@ void ViewJobs::comboboxApplicationIDChanged()
 }
 
 /**
- * @brief ViewJobs::getCityIDs Fills the comboBoxTownID with all city IDs that exist in the databse.
+ * @brief ViewJobs::getCityIDs Fills the comboBoxTownID with all city names that exist in the databse. The city names are sorted in an alphabetic order.
  */
 void ViewJobs::getCityIDs()
 {
     try
     {
-        QList<QString> list;// = new QLinkedList<int>();
-        list = p->fillList("SELECT stedsnavn FROM sted ORDER BY stedid ASC");
+        QList<QString> list;
+        list = p->fillList("SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC");
         int i = 0;
         while(i < list.count())
         {
-            //ui->comboBoxTownID->addItem(QString::number(i+1));
             ui->comboBoxTownID->addItem(list.value(i));
             i++;
         }
@@ -509,14 +508,14 @@ void ViewJobs::getCityIDs()
 }
 
 /**
- * @brief ViewJobs::getStatusIDs Fills the comboBoxStatusID with all status IDs that exist in the database.
+ * @brief ViewJobs::getStatusIDs Fills the comboBoxStatusID with all status names that exist in the database. Status names are sorted in an alphabetical order.
  */
 void ViewJobs::getStatusIDs()
 {
     try
     {
         QList<QString> list;
-        list = p->fillList("SELECT status FROM status ORDER BY statusid ASC");
+        list = p->fillList("SELECT status FROM status ORDER BY status ASC");
         int i = 0;
         while(i < list.count())
         {

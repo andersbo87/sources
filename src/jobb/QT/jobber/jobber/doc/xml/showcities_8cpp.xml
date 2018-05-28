@@ -11,6 +11,26 @@
       <node id="293">
         <label>QMessageBox</label>
       </node>
+      <node id="278">
+        <label>showcities.cpp</label>
+        <link refid="showcities_8cpp"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="294" relation="include">
+        </childnode>
+      </node>
+      <node id="292">
+        <label>QMainWindow</label>
+      </node>
+      <node id="284">
+        <label>QLinkedList</label>
+      </node>
+      <node id="290">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="291" relation="include">
+        </childnode>
+      </node>
       <node id="281">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
@@ -30,20 +50,6 @@
         </childnode>
         <childnode refid="289" relation="include">
         </childnode>
-      </node>
-      <node id="278">
-        <label>showcities.cpp</label>
-        <link refid="showcities_8cpp"/>
-        <childnode refid="279" relation="include">
-        </childnode>
-        <childnode refid="294" relation="include">
-        </childnode>
-      </node>
-      <node id="292">
-        <label>QMainWindow</label>
-      </node>
-      <node id="284">
-        <label>QLinkedList</label>
       </node>
       <node id="283">
         <label>QApplication</label>
@@ -79,12 +85,6 @@
       </node>
       <node id="285">
         <label>QException</label>
-      </node>
-      <node id="290">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h_source"/>
-        <childnode refid="291" relation="include">
-        </childnode>
       </node>
       <node id="294">
         <label>ui_showcities.h</label>

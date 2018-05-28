@@ -4,6 +4,12 @@
     <compoundname>stringcheck.cpp</compoundname>
     <includes refid="stringcheck_8h" local="yes">stringcheck.h</includes>
     <incdepgraph>
+      <node id="437">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h_source"/>
+        <childnode refid="438" relation="include">
+        </childnode>
+      </node>
       <node id="436">
         <label>stringcheck.cpp</label>
         <link refid="stringcheck_8cpp"/>
@@ -12,12 +18,6 @@
       </node>
       <node id="438">
         <label>QString</label>
-      </node>
-      <node id="437">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h_source"/>
-        <childnode refid="438" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
     <briefdescription>
