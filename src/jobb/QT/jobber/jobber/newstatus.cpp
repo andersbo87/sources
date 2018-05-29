@@ -57,11 +57,10 @@ NewStatus::NewStatus(QString windowTitle, psql *pg, QWidget *parent) :
  */
 bool NewStatus::canSave()
 {
-    if(status.length() == 0)
-        close = false;
-    else
-        close = true;
-    return close;
+    bool res = true;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditStatusName->text()))
+        res = false;
+    return res;
 }
 
 /**
@@ -152,14 +151,10 @@ void NewStatus::lineEditStatusNameChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditStatusName->undo();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
     }
 }
 

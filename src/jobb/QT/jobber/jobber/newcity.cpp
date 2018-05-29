@@ -131,24 +131,19 @@ void NewCity::lineEditCityNameChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditCityName->undo();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
     }
 }
 
 bool NewCity::canSave()
 {
-    if(cityName.length() == 0)
-        close = false;
-    else
-        close = true;
-    return close;
+    bool res = true;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditCityName->text()))
+        res = false;
+    return res;
 }
 
 void NewCity::OKButtonClicked()

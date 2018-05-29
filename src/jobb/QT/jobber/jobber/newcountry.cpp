@@ -88,10 +88,9 @@ NewCountry::~NewCountry()
  */
 bool NewCountry::canSave()
 {
-    if(getCountry().length() == 0)
-        close = false;
-    else
-        close = true;
+    bool res = true;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditCountryName->text()))
+        res = false;
     return close;
 }
 
@@ -165,14 +164,10 @@ void NewCountry::lineEditCountryNameChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument)
     {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditCountryName->undo();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
     }
 }
 

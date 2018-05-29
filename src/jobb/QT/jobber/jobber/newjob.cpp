@@ -169,12 +169,8 @@ void NewJob::titleTextChanged()
     }
     catch(invalid_argument iaex)
     {
-        QMessageBox msg;
-        msg.setWindowTitle(winTitle);
-        msg.setIcon(msg.Warning);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditTittel->undo();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
     }
 }
 
@@ -188,12 +184,8 @@ void NewJob::motivationTextChanged()
     }
     catch(invalid_argument iaex)
     {
-        QMessageBox msg;
-        msg.setWindowTitle(winTitle);
-        msg.setIcon(msg.Warning);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->textEditMotivation->undo();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
     }
 }
 
@@ -210,12 +202,8 @@ void NewJob::companyTextChanged()
     }
     catch(invalid_argument iaex)
     {
-        QMessageBox msg;
-        msg.setWindowTitle(winTitle);
-        msg.setIcon(msg.Warning);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditBedrift->undo();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
     }
 }
 
@@ -250,12 +238,8 @@ void NewJob::dateChanged()
     }
     catch(invalid_argument iaex)
     {
-        QMessageBox msg;
-        msg.setWindowTitle(winTitle);
-        msg.setIcon(msg.Warning);
-        msg.setText(iaex.what());
-        msg.exec();
-        ui->lineEditSoknadsfrist->undo();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        changed = canSave();
     }
 }
 
@@ -265,19 +249,14 @@ void NewJob::dateChanged()
  */
 bool NewJob::canSave()
 {
-    if(jobTitle.length() == 0)
-        close = false;
-    else if(company.length() == 0)
-        close = false;
-    else if(cityid == 0)
-        close = false;
-    else if(statusid == 0)
-        close = false;
-    else if(date.length() == 0)
-        close = false;
-    else
-        close = true;
-    return close;
+    bool res = true;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditTittel->text()))
+        res = false;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditBedrift->text()))
+        res = false;
+    if(stringCheck::isNullOrWhitespace(ui->lineEditSoknadsfrist->text()))
+        res = false;
+    return res;
 }
 
 void NewJob::closeEvent(QCloseEvent *event)
@@ -350,6 +329,7 @@ void NewJob::setTitle(QString newTitle)
 {
     if(stringCheck::isNullOrWhitespace(newTitle))
     {
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
         throw invalid_argument("Du må angi en jobbtittel. Denne tittelen kan ikke bestå av bare mellomrom.");
     }
     jobTitle = newTitle;
@@ -361,8 +341,10 @@ void NewJob::setTitle(QString newTitle)
  */
 void NewJob::setCompany(QString newCompany)
 {
-    if(stringCheck::isNullOrWhitespace(newCompany))
+    if(stringCheck::isNullOrWhitespace(newCompany)){
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
         throw invalid_argument("Vennligst angi hva bedriften heter.");
+    }
     company = newCompany;
 }
 
@@ -392,6 +374,7 @@ void NewJob::setCityName(QString newCityName)
 {
     if(stringCheck::isNullOrWhitespace(newCityName))
     {
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
         throw invalid_argument("Stedsnavnet kan ikke være tomt. Det kan heller ikke bare bestå av mellomrom.");
     }
     cityname = newCityName;
@@ -414,6 +397,7 @@ void NewJob::setDate(QString newDate)
 {
     if(stringCheck::isNullOrWhitespace(newDate))
     {
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
         throw invalid_argument("Du må angi en søknadsfrist. Den kan heller ikke bare bestå av mellomrom. Er det ikke oppgitt en frist, kan du bruke uttrykk som 'snarest' isteden.");
     }
     date = newDate;
