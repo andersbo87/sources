@@ -1,0 +1,14 @@
+<%include ./partials/header%>
+<div class="ui huge header">
+	Rediger status
+</div>
+<p>Her kan du redigere informasjonen om status med ID <%=data[0].statusid%>.</p>
+<form method="POST" class="ui form" action="/status/<%=data[0].statusid%>?_method=PUT">
+	<div class="item">
+		<label>Status</label>
+		<input type="text" name="status" value="<%=data[0].status%>">
+	</div>
+	<input type="submit" value="Oppdater" class="ui positive big button" name="">
+	<a class="ui negative big button" href="/status/<%=data[0].statusid%>">Avbryt</a>
+</form>
+<%include ./partials/footer%>

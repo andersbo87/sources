@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+<div class="ui huge header">
+	Ny by
+</div>
+<p>
+	Her kan du registrere en ny by i databasen.
+	Alle felt er obligatoriske.
+</p>
+<form class="ui form" action="/by" method="POST">
+	<div class="field">
+		<label>Stedsnavn</label>
+		<input type="text" name="stedsnavn">
+	</div>
+	<div class="field">
+		<label>LandID</label>
+		<input type="text" name="landid">
+	</div>
+	<input type="submit" name="Send" class="ui positive big button">
+	<a class="ui negative big button" href="/by">Avbryt</a>
+</form>
+<% include ./partials/footer %>

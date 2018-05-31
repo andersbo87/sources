@@ -1,0 +1,14 @@
+<%include ./partials/header%>
+<div class="ui huge header">
+	Rediger land
+</div>
+<p>Her kan du oppdatere informasjonen om landet med ID <%=data[0].landid%>.</p>
+<form method="POST" class="ui form" action="/land/<%=data[0].landid%>?_method=PUT">
+	<div class="item">
+		<label>Landnavn</label>
+		<input type="text" name="landnavn" value="<%=data[0].land%>">
+	</div>
+	<input type="submit" value="Oppdater" class="ui positive big button" name="">
+	<a class="ui negative big button" href="/land/<%=data[0].landid%>">Avbryt</a>
+</form>
+<%include ./partials/footer%>

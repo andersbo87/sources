@@ -1,0 +1,10 @@
+<% include ./partials/header %>
+<p>Her kan du se en oversikt over sendte jobbsøknader.</p>
+
+<% data.forEach(function(d){ %>
+	<%= d.tittel.substring(0, 20); %> <a href="/jobb/<%= d.soknadid %>">Se mer</a>
+	<br />
+<% }) %>
+
+
+<% include ./partials/footer%>

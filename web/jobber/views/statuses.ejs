@@ -1,0 +1,7 @@
+<% include ./partials/header %>
+<p>Her kan du se en oversikt over registrerte statuser.</p>
+
+<% data.forEach(function(d){ %>
+	<div><%= d.status.substring(0, 20); %> <a href="/status/<%= d.statusid %>">Se mer</a></div>
+<% }) %>
+<% include ./partials/footer %>

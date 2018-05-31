@@ -1,0 +1,16 @@
+<% include ./partials/header %>
+		<div class="ui huge header">
+			Ny by
+		</div>
+		<p>
+			Her kan du legge inn et nytt land i databasen.
+		</p>
+		<form action="/land" method="POST" class="ui form">
+			<div class="field">
+				<label>Navn</label>
+				<input type="text" name="landnavn">
+			</div>
+			<input type="submit" value="Send" class="ui positive big button" name="">
+			<a href="/land" class="ui negative big button">Avbryt</a>
+		</form>
+<% include ./partials/footer %>

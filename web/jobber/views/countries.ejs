@@ -1,0 +1,9 @@
+<% include ./partials/header %>
+<p>Her kan du se en oversikt over registrerte land.</p>
+
+<% data.forEach(function(d){ %>
+<div>
+	<%= d.land.substring(0, 20); %> <a href="/land/<%= d.landid %>">Se mer</a>
+</div>
+<% }) %>
+<% include ./partials/footer %>

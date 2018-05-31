@@ -1,0 +1,17 @@
+<% include ./partials/header %>
+<div class="ui huge header">
+	Oppdater by/sted
+</div>
+<form class="ui form" action="/by/<%= by[0].stedid%>?_method=PUT" method="POST">
+	<div class="field">
+		<label>Stedsnavn</label>
+		<input type="text" name="stedsnavn" value="<%= by[0].stedsnavn %>">
+	</div>
+	<div class="field">
+		<label>LandID</label>
+		<input type="text" name="landid" value="<%= by[0].landid %>">
+	</div>
+	<input type="submit" value="Oppdater" class="ui positive big button" name="btnUpdate">
+	<a href="/by/<%=data[0].stedid%>" class="ui negative big button">Avbryt</a>
+</form>
+<% include ./partials/footer %>

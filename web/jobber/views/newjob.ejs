@@ -1,0 +1,40 @@
+<% include ./partials/header %>
+
+<div class="ui huge header">
+	Ny jobbsøknad
+</div>
+<p>
+	Her kan du registrere en ny jobbsøknad.
+	Alle felt bortsett fra Motivason er obligatoriske.
+</p>
+
+<form class="ui form" action="/jobb" method="POST">
+	<div class="field">
+		<label>Tittel</label>
+		<input type="text" name="tittel">
+	</div>
+	<div class="field">
+		<label>Bedrift</label>
+		<input type="text" name="bedrift">
+	</div>
+	<div class="field">
+		<label>StedID</label>
+		<input type="text" name="stedid">
+	</div>
+	<div class="field">
+		<label>StatusID</label>
+		<input type="text" name="statusid">
+	</div>
+	<div class="field">
+		<label>Søknadsfrist</label>
+		<input type="text" name="soknadsfrist">
+	</div>
+	<div class="field">
+		<label>Motivasjon</label>
+		<textarea name="motivasjon"></textarea>
+	</div>
+	<input type="submit" class="ui positive big button" value="Registrer" name="">
+	<a class="ui red big button" href="/jobb">Avbryt</a>
+</form>
+
+<% include ./partials/footer %>

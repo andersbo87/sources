@@ -1,0 +1,8 @@
+<% include ./partials/header %>
+<p>Her kan du se en oversikt over registrerte steder.</p>
+
+<% data.forEach(function(d){ %>
+	<%= d.stedsnavn.substring(0, 20); %> <a href="/by/<%= d.stedid %>">Se mer</a>
+	<br />
+<% }) %>
+<% include ./partials/footer %>

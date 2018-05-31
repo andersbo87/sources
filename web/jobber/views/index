@@ -1,0 +1,3 @@
+<% include ./partials/header %>
+<p>Her vil det dukke opp en oversikt over sendte jobbsøknader.</p>
+<% include ./partials/footer%>
