@@ -21,7 +21,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-
+#include <stdlib.h>
 #include "mainwindow.h"
 #include <QApplication>
 #include <QCloseEvent>
@@ -38,7 +38,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "statistics.h"
 #include "psql.h"
 #include <pqxx/pqxx>
-
+#include <QFileDialog>
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -58,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btn_showCountries, SIGNAL(clicked(bool)), this, SLOT(btn_ShowCountries_Click()));
     connect(ui->btn_ShowStatuses, SIGNAL(clicked(bool)), this, SLOT(btn_ShowStatuses_Click()));
     connect(ui->btnStatistic, SIGNAL(clicked(bool)), this, SLOT(btnStatistic_Click()));
+    connect(ui->btn_SaveFile, SIGNAL(clicked(bool)), this, SLOT(btn_SaveFile_Click()));
     cp = new connectPsql(progName);
     p = cp->p; // Kanskje ikke verdens smarteste idé, men lar den likevel peke på psql-objektet i klassen "connectpsql" inntil videre.
     cp->exec();
@@ -175,6 +176,14 @@ void MainWindow::windowLoaded()
             msg2.exec();
             exit(1);
         }
+    }
+}
+
+void MainWindow::btn_SaveFile_Click(){
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Lagre SQL-fil"), "", tr("SQL-filer (*.sql)"));
+    if(!fileName.isEmpty()){
+        QString cmd = "PGPASSWORD=\"" + p->getPassword() + "\" pg_dump -h " + p->getHost() + " -U " + p->getUsername() + " jobber > " + fileName;
+        system(cmd.toStdString().c_str());
     }
 }
 

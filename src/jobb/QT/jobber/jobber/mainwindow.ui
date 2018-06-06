@@ -154,6 +154,19 @@
      <string>Statistikk</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="btn_SaveFile">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>160</y>
+      <width>101</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Lagre SQL-fil</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
