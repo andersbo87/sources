@@ -410,7 +410,6 @@ void ShowStatuses::buttonNextClicked()
         int currStatus = getStatusID(), counter = 1;
         while(QString::compare(p->getStatusName(currStatus + counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter++;
         }
         getStatus(currStatus +counter);
@@ -441,7 +440,6 @@ void ShowStatuses::buttonPreviousClicked()
         int currStatus = getStatusID();
         while(QString::compare(p->getStatusName(currStatus - counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter++;
         }
         getStatus(currStatus-counter);
