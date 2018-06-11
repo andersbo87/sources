@@ -411,7 +411,6 @@ void ShowCities::buttonNextClicked()
         int currentCity = getCityID(), counter = 1;
         while(QString::compare(p->getCityName(currentCity + counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter ++;
         }
         getCity(currentCity + counter);
@@ -441,7 +440,6 @@ void ShowCities::buttonPreviousClicked()
         int currentCity = getCityID(), counter=1;
         while(QString::compare(p->getCityName(currentCity - counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter ++;
         }
         getCity(currentCity -counter);

@@ -339,7 +339,6 @@ void ShowCountries::buttonNextClicked()
         int currentCountry = getCountryID(), counter = 1;
         while(QString::compare(p->getCountryName(currentCountry + counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter++;
         }
         getCountry(currentCountry + counter);
@@ -369,7 +368,6 @@ void ShowCountries::buttonPreviousClicked()
         int currentCountry = getCountryID(), counter = 1;
         while(QString::compare(p->getCountryName(currentCountry - counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter++;
         }
         getCountry(currentCountry - counter);
