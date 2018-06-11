@@ -287,7 +287,6 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
         oss << statement << motivation.toStdString();
         oss << statement << "' where soknadid=";
         oss << statement << id;
-        qDebug("DEBUG: oss.str: %s\n", oss.str().c_str());
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
         pqxx::work W(C);
         W.exec(oss.str());

@@ -398,7 +398,6 @@ void ViewJobs::buttonNextClicked()
         int currentApplication = getApplicationID(), counter = 1;
         while(QString::compare(p->getCompany(currentApplication + counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter++;
         }
         getApplication(currentApplication + counter);
@@ -428,7 +427,6 @@ void ViewJobs::buttonPreviousClicked()
         int currentApplication = getApplicationID(), counter = 1;
         while(QString::compare(p->getCompany(currentApplication - counter), "", Qt::CaseSensitive) == 0)
         {
-            qDebug("Info: Må gå enda lenger. Teller: %d\n", counter);
             counter++;
         }
         getApplication(currentApplication - counter);
