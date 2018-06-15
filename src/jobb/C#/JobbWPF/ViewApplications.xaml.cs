@@ -188,7 +188,7 @@ namespace JobbWPF
         private void getStatuses(int index)
         {
             //List<string> statusList = p.GetData("SELECT statusid FROM status order by statusid asc", 0);
-            List<string> statusList = p.GetData("SELECT status FROM status order by statusid asc", 0);
+            List<string> statusList = p.GetData("SELECT status FROM status ORDER BY status asc", 0);
             int i = 0;
             if (comboBoxStatusName.Items.Count == 0)
             {

@@ -109,6 +109,22 @@ namespace JobbWPF
             setMotivation(textBoxMotivation.Text);
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fillComboBoxCityName();
+            fillComboBoxStatusName();
+        }
+
+        private void comboBoxCityName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            setCityName(comboBoxCityName.SelectedItem.ToString());
+        }
+
+        private void comboBoxStatusName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            setStatusName(comboBoxStatusName.SelectedItem.ToString());
+        }
+
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             dataGrid.Width = this.Width-10;
@@ -152,14 +168,40 @@ namespace JobbWPF
             setCompanyName(textBoxCompanyName.Text);
         }
 
-        private void textBoxCityName_TextChanged(object sender, TextChangedEventArgs e)
+        private void fillComboBoxCityName()
         {
-            setCityName(textBoxCityName.Text);
+            try
+            {
+                List<string> list = p.getCityNames();
+                int i = 0;
+                while (i < list.Count)
+                {
+                    comboBoxCityName.Items.Add(list.ElementAt(i));
+                    i++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Noe gikk galt under lasting av eksisterende steder: " + ex.Message, progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void textBoxStatusName_TextChanged(object sender, TextChangedEventArgs e)
+        private void fillComboBoxStatusName()
         {
-            setStatusName(textBoxStatusName.Text);
+            try
+            {
+                List<string> list = p.getStatusNames();
+                int i = 0;
+                while (i < list.Count)
+                {
+                    comboBoxStatusName.Items.Add(list.ElementAt(i));
+                    i++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Noe gikk galt under lasting av eksisterende steder: " + ex.Message, progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void textBoxDeadline_TextChanged(object sender, TextChangedEventArgs e)

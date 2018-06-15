@@ -5,23 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Vis spesifikke søknader" SizeChanged="Window_SizeChanged" Height="403.866" Width="455.942" MaxHeight="403.866" ResizeMode="CanResizeWithGrip">
+        Title="Vis spesifikke søknader" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" Height="439.866" Width="439.942" MaxHeight="403.866" ResizeMode="CanResizeWithGrip">
     <Grid RenderTransformOrigin="0.564,0.476">
-        <TextBlock HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Margin="10,10,0,0" IsEnabled="False" Text="Her kan du søke etter spesifikke registrerte jobber, basert på navn, bedrift, sted, status og søknadsfrist." Height="37" Width="272"/>
-        <Label Content="Tittel" Margin="10,40" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="Bedrift" Margin="10,60" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Label Content="Stedsnavn" Margin="10,80" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="Status" Margin="10,100" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Label Content="Søknadsfrist" Margin="10,120" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="Motivasjon" Margin="10,140" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <TextBox KeyboardNavigation.TabIndex="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,45,0,0" Width="327" Name="textBoxJobTitle" TextChanged="textBoxJobTitle_TextChanged"/>
-        <TextBox KeyboardNavigation.TabIndex="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,65,0,0" Name="textBoxCompanyName" TextChanged="textBoxCompanyName_TextChanged" />
-        <TextBox KeyboardNavigation.TabIndex="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,85,0,0" Name="textBoxCityName" TextChanged="textBoxCityName_TextChanged"/>
-        <TextBox KeyboardNavigation.TabIndex="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,105,0,0" Name="textBoxStatusName" TextChanged="textBoxStatusName_TextChanged"/>
-        <TextBox KeyboardNavigation.TabIndex="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,125,0,0" Name="textBoxDeadline" TextChanged="textBoxDeadline_TextChanged"/>
-        <TextBox KeyboardNavigation.TabIndex="5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,145,0,0" Height="40" Name="textBoxMotivation" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" TextChanged="textBoxMotivation_TextChanged" />
-        <Button Name="btnSearch" Content="Søk!" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,190,0,0" Click="btnSearch_Click"/>
-        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="148" Margin="10,215,0,0" VerticalAlignment="Top" Width="407" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="259*"/>
+            <ColumnDefinition Width="173*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Margin="10,10,0,0" IsEnabled="False" Text="Her kan du søke etter spesifikke registrerte jobber, basert på navn, bedrift, sted, status og søknadsfrist." Height="37" Width="272" Grid.ColumnSpan="2"/>
+        <Label Content="Tittel" Margin="10,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Bedrift" Margin="10,60,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label Content="Stedsnavn" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Status" Margin="10,111,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Label Content="Søknadsfrist" Margin="10,131,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Motivasjon" Margin="10,151,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBox KeyboardNavigation.TabIndex="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,45,0,0" Width="327" Name="textBoxJobTitle" TextChanged="textBoxJobTitle_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox KeyboardNavigation.TabIndex="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,65,0,0" Name="textBoxCompanyName" TextChanged="textBoxCompanyName_TextChanged" Grid.ColumnSpan="2" />
+        <ComboBox HorizontalAlignment="Left" Margin="90,86,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxCityName_SelectionChanged" Name="comboBoxCityName"/>
+        <ComboBox HorizontalAlignment="Left" Margin="90, 110,0,0" VerticalAlignment="Top" Width="120" Name="comboBoxStatusName" SelectionChanged="comboBoxStatusName_SelectionChanged" />
+        <TextBox KeyboardNavigation.TabIndex="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,136,0,0" Name="textBoxDeadline" TextChanged="textBoxDeadline_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox KeyboardNavigation.TabIndex="5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="327" Margin="90,156,0,0" Height="40" Name="textBoxMotivation" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" TextChanged="textBoxMotivation_TextChanged" Grid.ColumnSpan="2" />
+        <Button Name="btnSearch" Content="Søk!" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,202,0,0" Click="btnSearch_Click"/>
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="112" Margin="10,238,0,0" VerticalAlignment="Top" Width="407" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" Grid.ColumnSpan="2">
             <!--Kodesnutten under, samt egenskapen AutoGenerateColumns i tagen over, er basert på koden som står her: http://www.wpf-tutorial.com/datagrid-control/custom-columns/-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Søknadid" Binding="{Binding applicationID}" />

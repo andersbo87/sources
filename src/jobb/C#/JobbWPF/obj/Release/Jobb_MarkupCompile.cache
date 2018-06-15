@@ -12,9 +12,9 @@ TRACE
 
 13-89735996
 
-19-1100509264
+23-1937121554
 681134750378
 App.xaml;ConnectPgsql.xaml;MainWindow.xaml;NewCountry.xaml;NewApplication.xaml;NewStatus.xaml;NewTown.xaml;Statistics.xaml;ViewApplications.xaml;ViewCountries.xaml;ViewSpecificApplications.xaml;ViewStatuses.xaml;ViewTowns.xaml;
 
-False
+True
 

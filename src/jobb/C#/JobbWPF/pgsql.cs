@@ -1548,6 +1548,40 @@ namespace JobbWPF
         }
 
         /// <summary>
+        /// Get the names of all registered cities.
+        /// </summary>
+        /// <returns>A list containing all registered cities</returns>
+        public List<string> getCityNames()
+        {
+            List<string> res = new List<string>();
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res.Add(reader.GetString(0));
+            return res;
+        }
+
+        /// <summary>
+        /// Gets the names of all existing statuses.
+        /// </summary>
+        /// <returns>A list with all statuses</returns>
+        public List<string> getStatusNames()
+        {
+            List<string> res = new List<string>();
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT status FROM status ORDER BY status ASC";
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                res.Add(reader.GetString(0));
+            return res;
+        }
+
+        /// <summary>
         /// Gets the country ID of a given application.
         /// </summary>
         /// <param name="index">The ID of the application in question.</param>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -268,6 +269,38 @@ namespace JobbWPF
         {
             st = new Statistics(title);
             st.Show();
+        }
+
+        private void btn_SaveFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.DefaultExt = ".sql";
+                dlg.Filter = "SQL file (.sql)|*.sql";
+
+                // Hindre en feil i å bli kastet om filen som skal lagres ikke finnes:
+                dlg.CheckFileExists = false;
+                dlg.CheckPathExists = false;
+                if (dlg.ShowDialog() == true)
+                {
+                    string filename = dlg.FileName;
+                    var database = "jobber";
+                    var arguments = String.Format(@" -h localhost -d{0} -U{1} -f {2} -w", database, psql.GetUsername(), filename);
+                    MessageBox.Show(arguments);
+                    Process process = new Process();
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.EnvironmentVariables["PGPASSWORD"] = psql.GetPassword();
+                    process.StartInfo.Arguments = arguments;
+                    // Linjen under forutsetter at pg_dump.exe finnes i systemvariabelen PATH
+                    process.StartInfo.FileName = "pg_dump.exe";
+                    process.Start();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Kan ikke starte pg_dump.exe: " + ex.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
