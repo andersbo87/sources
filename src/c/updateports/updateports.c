@@ -52,6 +52,7 @@ int sigint;
 char buf[BUFSIZ];
 // A "list" of a few functions used in this program.
 // These are needed to avoid the conflicting types for $function erorrs during compilation.
+void removeWhitespaceFromAnswer();
 void askReboot();
 int askUpdateFreeBSD();
 void askToReadUPDATINGfile();
@@ -326,6 +327,7 @@ void askUpdateTool()
       fprintf(stderr, "End-of-file reached or something else has gone wrong.\n");
       exit(-1);
     }
+    removeWhitespaceFromAnswer(ut);
     long ut_length = strlen(ut);
     if(ut_length != 3)
     {
@@ -733,6 +735,9 @@ int cleanOldDistfiles()
   }
   // Henter ut den nye lengden:
   long len = strlen(ans);
+  if(len > 0){
+   removeWhitespaceFromAnswer();
+  }
   if(strncmp("y", ans, 1) == 0 || strncmp("Y", ans, 1) == 0 || strncmp("", ans, 1) == 0){
     int portupgrade_status, portmaster_status, portsclean_status;
     if(strcmp(appToRun, "/usr/local/sbin/portmaster") == 0){
@@ -817,6 +822,13 @@ void askToReadUPDATINGfile()
     memmove(tmp, tmp +1, len);
   }
   long ansUPDATINGfile_length = strlen(readUPDATINGfile);
+  if(ansUPDATINGfile_length > 0){
+    // Fjerner mellomrom fra tekststrengen.
+    char *str;
+    str=readUPDATINGfile;
+    while(*str == ' ') str++;
+    if(str != readUPDATINGfile) memmove(readUPDATINGfile, str, strlen(str)+1);
+  }
   if(strncmp("y", readUPDATINGfile, 1) == 0 || strncmp("Y", readUPDATINGfile, 1) == 0 || strncmp("", readUPDATINGfile, 1) == 0)
   {
     int updating = fork();
@@ -851,6 +863,14 @@ void askToReadUPDATINGfile()
     {
 		long upd_len = strlen(updateAction);
 		memmove(upd_tmp, upd_tmp +1, upd_len);
+    }
+    long len = strlen(updateAction);
+    if(len > 0){
+      // Fjerner mellomrom fra tekststrengen.
+      char *str;
+      str=updateAction;
+      while(*str == ' ') str++;
+      if(str != updateAction) memmove(updateAction, str, strlen(str)+1);
     }
     if(strncmp("y", updateAction, 1) == 0 || strncmp("Y", updateAction, 1) == 0 || strncmp("", updateAction, 1) == 0)
     {
@@ -981,8 +1001,8 @@ int updateDarwin()
       char *tmp = strstr(line, "\t");
       while((tmp = strstr(line, "\n")) != NULL)
       {
-			long len = strlen(line);
-			memmove(tmp, tmp +1, len);
+	long len = strlen(line);
+	memmove(tmp, tmp +1, len);
       }
       char *c = line;
       char *s = NULL;
@@ -990,9 +1010,9 @@ int updateDarwin()
       char *d = line;
       while(*d != 0)
       {
-			*c=*d++;
-			if(*c != ' ')
-	  			c++;
+	*c=*d++;
+	if(*c != ' ')
+	  c++;
       }
       *c=0;
       //char *s;
@@ -1003,8 +1023,8 @@ int updateDarwin()
       const char *ptr = strchr(line, find);
       if(ptr) 
       {
-			int index = ptr - line;
-			line[index] = '\0';
+	int index = ptr - line;
+	line[index] = '\0';
       }
       printf("\033]0;Updating port %s (%d of %d)\007", line, updatedPorts, totalNumberOfPorts);
       fprintf(stdout, "Updating %s\n", line);
@@ -1013,36 +1033,36 @@ int updateDarwin()
       int update = fork();
       if(update == 0)
       {
-			char *update_arglist[5];
-			update_arglist[0] = appToRun;
-			update_arglist[1] = "-vn";
-			update_arglist[2] = "upgrade";
-			update_arglist[3] = line;
-			update_arglist[4] = NULL;
-			execvp(update_arglist[0], update_arglist);
+	char *update_arglist[5];
+	update_arglist[0] = appToRun;
+	update_arglist[1] = "-vn";
+	update_arglist[2] = "upgrade";
+	update_arglist[3] = line;
+	update_arglist[4] = NULL;
+	execvp(update_arglist[0], update_arglist);
       }
       else if(update >= 1)
       {
-			setprogname("port -v upgrade outdated");
-			waitpid(update, &status, 0);
-			if(WIFEXITED(status))
-			{
-	  			if(WEXITSTATUS(status) != 0)
-	  			{
-	    			fclose(portsFile);
-	    			//printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(status));
-	    			//exitApp(WEXITSTATUS(status));
-	    			rerun = WEXITSTATUS(status);
-	    			//updatedPorts++;
-	    			continue;
-	  			}
-	  			fprintf(stdout, "Done with %s.\n", line);
-			}
+	setprogname("port -v upgrade outdated");
+	waitpid(update, &status, 0);
+	if(WIFEXITED(status))
+	{
+	  if(WEXITSTATUS(status) != 0)
+	  {
+	    fclose(portsFile);
+	    //printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(status));
+	    //exitApp(WEXITSTATUS(status));
+	    rerun = WEXITSTATUS(status);
+	    //updatedPorts++;
+	    continue;
+	  }
+	  fprintf(stdout, "Done with %s.\n", line);
+	}
       }
       else
       {
-			fprintf(stderr, "Could not create process to run MacPorts.\n");
-			return -1;
+	fprintf(stderr, "Could not create process to run MacPorts.\n");
+	return -1;
       }
       fprintf(stdout, "Updated %d of %d ports.\n", updatedPorts, totalNumberOfPorts);
       updatedPorts++;
@@ -1101,8 +1121,8 @@ int updateDarwin()
       portsFile = fopen(hjem, "wb");
       if(portsFile == NULL)
       {
-			fprintf(stderr, "Something has gone wrong...\n");
-			return -1;
+	fprintf(stderr, "Something has gone wrong...\n");
+	return -1;
       }
     }
     //system("port list outdated &");
@@ -1129,8 +1149,8 @@ int updateDarwin()
       char *tmp = strstr(line, "\t");
       while((tmp = strstr(line, "\n")) != NULL)
       {
-			long len = strlen(line);
-			memmove(tmp, tmp +1, len);
+	long len = strlen(line);
+	memmove(tmp, tmp +1, len);
       }
       char *c = line;
       char *s = NULL;
@@ -1138,9 +1158,9 @@ int updateDarwin()
       char *d = line;
       while(*d != 0)
       {
-			*c=*d++;
-			if(*c != ' ')
-	  			c++;
+	*c=*d++;
+	if(*c != ' ')
+	  c++;
       }
       *c=0;
       //char *s;
@@ -1151,8 +1171,8 @@ int updateDarwin()
       const char *ptr = strchr(line, find);
       if(ptr) 
       {
-			int index = ptr - line;
-			line[index] = '\0';
+	int index = ptr - line;
+	line[index] = '\0';
       }
       printf("\033]0;Updating port %s (%d of %d)\007", line, updatedPorts, totalNumberOfPorts);
       fprintf(stdout, "Updating %s\n", line);
@@ -1187,8 +1207,8 @@ int updateDarwin()
       }
       else
       {
-			fprintf(stderr, "Could not create process to run MacPorts.\n");
-			return -1;
+	fprintf(stderr, "Could not create process to run MacPorts.\n");
+	return -1;
       }
       fprintf(stdout, "Updated %d of %d ports.\n", updatedPorts, totalNumberOfPorts);
       updatedPorts++;
@@ -1241,6 +1261,9 @@ void askReboot()
     memmove(tmp, tmp +1, len);
   }
   long ansUPDATINGfile_length = strlen(ans);
+  if(ansUPDATINGfile_length > 0){
+    removeWhitespaceFromAnswer();
+  }
   if(strncmp("y", ans, 1) == 0 || strncmp("Y", ans, 1) == 0 || strncmp("", ans, 1) == 0)
   {
     fprintf(stdout, "Rebooting your computer by running \"/sbin/shutdown -r now\"\n");
@@ -1329,6 +1352,9 @@ int updateBaseSystem()
 	memmove(tmp, tmp +1, len);
       }
       long ansUPDATINGfile_length = strlen(ans_baseSystem);
+      if(ansUPDATINGfile_length > 0){
+	removeWhitespaceFromAnswer();
+      }
       if(strncmp("y", ans_baseSystem, 1) == 0 || strncmp("Y", ans_baseSystem, 1) == 0 || strncmp("", ans_baseSystem, 1) == 0){
 	FILE* softUpd;
 	char *line = NULL;
@@ -1605,6 +1631,9 @@ int askUpdateFreeBSD()
     memmove(tmp, tmp +1, len);
   }
   long ansUPDATINGfile_length = strlen(ans_baseSystem);
+  if(ansUPDATINGfile_length > 0){
+    removeWhitespaceFromAnswer();
+  }
   if(strncmp("y", ans_baseSystem, 1) == 0 || strncmp("Y", ans_baseSystem, 1) == 0 || strncmp("", ans_baseSystem, 1) == 0)
   {
     setenv("PAGER", "more -e", 1);
@@ -1709,6 +1738,17 @@ void updateSunOS()
     fprintf(stderr, "Failed to create pkg process.\n");
     exit(-1);
   }
+}
+
+void removeWhitespaceFromAnswer(char *ans)
+{
+  // Fjerner mellomrom fra tekststrengen.
+    char *str;
+    str=ans;
+    while(*str == ' ')
+      str++;
+    if(str != ans)
+      memmove(ans, str, strlen(str)+1);
 }
 
 void updateLinuxZypper()
