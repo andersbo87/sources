@@ -42,6 +42,11 @@ else
 		/usr/bin/printf "\033[1mMoving old package from /usr/ports/packages/All/$oldversion.txz to /usr/ports/packages/old/$oldversion.txz\033[0m\n"
 		/bin/mv /usr/ports/packages/All/$oldversion.txz /usr/ports/packages/old/
 	    else
+		if [ ! -e /usr/ports/packages/old ]
+		then
+		    /bin/mkdir /usr/ports/packages/old
+		    /usr/bin/printf "Directory created.\n"
+		fi
 		/usr/bin/printf "\033[1m$oldversion.txz already moved to /usr/ports/packages/old/$oldversion.txz.\033[0m\n"
 	    fi
 	fi
