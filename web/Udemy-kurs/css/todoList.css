@@ -1,0 +1,16 @@
+body {
+	background: #FF8800;
+}
+
+li {
+	border: 2px solid #0000FF;
+}
+
+#spesiell {
+	background-color: yellow;
+}
+
+.completed {
+	background: #FF0088;
+	text-decoration: line-through;
+}

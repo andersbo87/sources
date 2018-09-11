@@ -1,0 +1,43 @@
+/*Elementer*/
+li {
+
+}
+
+/*Klasser*/
+.klassenavn {
+
+}
+
+/*ID*/
+#navn {
+
+}
+
+/*Star -- velger alt på siden*/
+* {
+	border: 1px solid lightgrey;
+}
+
+/*Descendant selector -- velger elementer eller klasser som er inne i et (eller flere) element(er)*/
+li a {
+	color: red;
+}
+
+/*Adjacent selector -- velger elementer som kommer etter et element*/
+h4 + ul {
+	border: 4px solid red;
+}
+
+/*Attribute selector -- velger alle elementer basert på egenskaper*/
+a[href="http://www.google.com"] {
+	background: blue;
+}
+
+/*nth of type -- velger hvert N-te spesifikke element (f.eks. hvert 3. element) i ei gruppe*/
+ul:nth-of-type(3) {
+	background: purple;
+}
+
+li:nth-of-type(3) {
+	color: green;
+}

@@ -1,0 +1,8 @@
+For å søke etter etter en film, brukes nå en URL i følgende format:
+http://omdbapi.com/?s=$navn&apikey=thewdb
+
+eller:
+http://omdbapi.com/i=$id&apikey=thewdb
+
+$navn: Navnet til en film
+$id: En films id.

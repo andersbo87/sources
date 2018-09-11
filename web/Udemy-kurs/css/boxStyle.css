@@ -1,0 +1,31 @@
+p {
+	/*Content -- width and height*/
+	/*width: 220px;*/
+	width: 50%;
+
+	/*Border*/
+	border: 2px solid blue;
+
+	/*Padding*/
+	padding-left: 30px;
+	padding-top: 1px;
+	padding-bottom: 2px;
+	padding-right: 20px;
+	/*
+	Man kan også skrive padding: $size; som setter én størrelse for alle sidene.
+	Man kan også skrive padding: $top $right $bottom $left;
+	*/
+
+	/*Margin*/
+	margin-left: 50px;
+	margin-right: 10px;
+	margin-top: 100px;
+	margin-bottom: 50px;
+	/*
+	Man kan også bruke margin: $size; som setter én størrelse for alle kantene.
+	Man kan også skrive margin: $top $right $bottom $left;
+
+	I tillegg kan man midtstille elementer med følgende kode:
+	margin: 0 auto (0 auto); Teksten i parentesen kan hoppes over.
+	*/
+}
