@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<title>YelpCamp v7</title>
+	<link rel="stylesheet" type="text/css" href="/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    </head>
+    <body>
+	<nav class="navbar navbar-default">
+	    <div class="container-fluid">
+		<div class="navbar-header">
+		    <a class="navbar-brande" href="/">
+			YelpCamp
+		    </a>
+		</div>
+		<div class="collapse navbar-collapse">
+		    <ul class="nav navbar-nav navbar-right">
+			<% if(!currentUser){ %>
+			<li>
+			    <a href="/login">Logg inn</a>
+			</li>
+			<li>
+			    <a href="/register">Registrer</a>
+			</li>
+			<% } else { %>
+			<li><a>Logget inn som <%= currentUser.username %></a></li>
+			  <li> <a href="/logout">Logg ut</a></li>
+			<% } %>
+		    </ul>
+		</div>
+	    </div>
+	</nav>
