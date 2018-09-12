@@ -1,5 +1,7 @@
-body {
+html, body {
 	background: teal;
+	height: auto !important;
+	min-height: 100%;
 }
 
 .thumbnail img {
