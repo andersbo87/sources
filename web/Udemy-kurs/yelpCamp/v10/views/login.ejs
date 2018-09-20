@@ -1,0 +1,13 @@
+<% include partials/header %>
+
+<h1>Logg inn</h1>
+<form action="/login" method="POST">
+	<input type="hidden" name="referer" value="<%= referer %>">
+	<label>Brukernavn:</label>
+	<input type="text" name="username" placeholder="Brukernavn"><br>
+	<label>Passord</label>
+	<input type="password" name="password"><br>
+	<input type="submit" value="Logg inn">
+</form>
+
+<% include partials/footer %>
