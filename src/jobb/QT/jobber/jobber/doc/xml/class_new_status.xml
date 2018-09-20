@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="class_new_status" kind="class" language="C++" prot="public">
     <compoundname>NewStatus</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="46" column="1" bodyfile="newstatus.cpp" bodystart="199" bodyend="202"/>
+        <location file="newstatus.h" line="46" column="1" bodyfile="newstatus.cpp" bodystart="194" bodyend="197"/>
       </memberdef>
       <memberdef kind="function" id="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -169,7 +169,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="47" column="1" bodyfile="newstatus.cpp" bodystart="71" bodyend="76"/>
+        <location file="newstatus.h" line="47" column="1" bodyfile="newstatus.cpp" bodystart="70" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="class_new_status_1a7ea744ad1645c5954000983d50947154" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -183,7 +183,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="48" column="1" bodyfile="newstatus.cpp" bodystart="81" bodyend="84"/>
+        <location file="newstatus.h" line="48" column="1" bodyfile="newstatus.cpp" bodystart="80" bodyend="83"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -210,7 +210,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="52" column="1" bodyfile="newstatus.cpp" bodystart="90" bodyend="145"/>
+        <location file="newstatus.h" line="52" column="1" bodyfile="newstatus.cpp" bodystart="89" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="class_new_status_1a73cf134c5e4902bdf6093e042d604b8b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -224,7 +224,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="56" column="1" bodyfile="newstatus.cpp" bodystart="58" bodyend="65"/>
+        <location file="newstatus.h" line="56" column="1" bodyfile="newstatus.cpp" bodystart="58" bodyend="64"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="59" column="1" bodyfile="newstatus.cpp" bodystart="166" bodyend="197"/>
+        <location file="newstatus.h" line="59" column="1" bodyfile="newstatus.cpp" bodystart="161" bodyend="192"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_status_1a33b9b56cb6b60f763ed9276ea4cb8d4e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newstatus.h" line="60" column="1" bodyfile="newstatus.cpp" bodystart="147" bodyend="164"/>
+        <location file="newstatus.h" line="60" column="1" bodyfile="newstatus.cpp" bodystart="146" bodyend="159"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

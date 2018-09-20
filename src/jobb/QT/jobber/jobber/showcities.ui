@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>535</width>
-    <height>194</height>
+    <width>550</width>
+    <height>192</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -31,42 +31,19 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="5">
-     <widget class="QPushButton" name="btnSave">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string>Lagre</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QLabel" name="labelCityID">
-      <property name="text">
-       <string>StedID*</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2" colspan="2">
-     <widget class="QComboBox" name="comboBoxCityID"/>
-    </item>
-    <item row="2" column="0" colspan="2">
+    <item row="2" column="0">
      <widget class="QLabel" name="labelCity">
       <property name="text">
-       <string>Stedsnavn*</string>
+       <string>Nytt stedsnavn*</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="0" colspan="2">
-     <widget class="QLabel" name="labelCountryID">
+    <item row="4" column="0">
+     <widget class="QPushButton" name="btnDelete">
       <property name="text">
-       <string>LandID*</string>
+       <string>Slett</string>
       </property>
      </widget>
-    </item>
-    <item row="3" column="2" colspan="2">
-     <widget class="QComboBox" name="comboBoxCountryID"/>
     </item>
     <item row="3" column="4">
      <widget class="QLabel" name="labelCountryName">
@@ -74,50 +51,6 @@
        <string>$countryName</string>
       </property>
      </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="btnFirst">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string>&lt;&lt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QPushButton" name="btnPrev">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string>&lt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QPushButton" name="btnNext">
-      <property name="text">
-       <string>&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="3" colspan="2">
-     <widget class="QPushButton" name="btnLast">
-      <property name="text">
-       <string>&gt;&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="6">
-     <widget class="QPushButton" name="btnDelete">
-      <property name="text">
-       <string>Slett</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2" colspan="4">
-     <widget class="QLineEdit" name="lineEditCityName"/>
     </item>
     <item row="0" column="0" colspan="7">
      <widget class="QLabel" name="labelInfo">
@@ -128,6 +61,39 @@
        <bool>true</bool>
       </property>
      </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Nåværende stedsnavn</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="btnSave">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Lagre</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="labelCountryID">
+      <property name="text">
+       <string>LandID*</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="comboBoxCityID"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="lineEditCityName"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="comboBoxCountryID"/>
     </item>
    </layout>
   </widget>

@@ -61,7 +61,7 @@ public:
 
     // Metoder som oppdaterer eksisterende data
     bool updateApplication(QString title, QString company, int cityID, int statusID, QString date, QString motivation, int id);
-    bool updateCity(QString cityName, int countryID, int id);
+    bool updateCity(QString newCityName, QString oldCityName, int countryID);
     bool updateCountry(QString countryName, int countryID);
     bool updateStatus(QString statusname, int statusID);
 

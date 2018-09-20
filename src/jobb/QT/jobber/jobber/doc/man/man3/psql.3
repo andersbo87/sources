@@ -1,4 +1,4 @@
-.TH "psql" 3 "Mon May 28 2018" "Jobber" \" -*- nroff -*-
+.TH "psql" 3 "Thu Sep 20 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -65,7 +65,7 @@ psql \- The psql class\&.
 .br
 .RI "\fBpsql::updateApplication\fP: Updates the current job application "
 .ti -1c
-.RI "bool \fBupdateCity\fP (QString cityName, int countryID, int id)"
+.RI "bool \fBupdateCity\fP (QString newCityName, QString oldCityName, int countryID)"
 .br
 .RI "\fBpsql::updateCity\fP Updates information of an existing city\&. "
 .ti -1c
@@ -111,9 +111,11 @@ psql \- The psql class\&.
 .ti -1c
 .RI "bool \fBviewApplicationExists\fP ()"
 .br
+.RI "\fBpsql::viewApplicationExists\fP Checks if any job applications exists in the database by looking up index 1 in the application table\&. "
 .ti -1c
 .RI "bool \fBviewTownExists\fP ()"
 .br
+.RI "\fBpsql::viewTownExists\fP Checks if there are any towns in the database by looking up a town with ID=1 "
 .ti -1c
 .RI "bool \fBcreateTableApplication\fP ()"
 .br
@@ -205,6 +207,7 @@ psql \- The psql class\&.
 .ti -1c
 .RI "double \fBcountDeclinedAfterInterview\fP ()"
 .br
+.RI "\fBpsql::countDeclinedAfterInterview\fP Counts the number of applications that has lead to an interview and then got rejected\&. "
 .ti -1c
 .RI "double \fBcountAccepted\fP ()"
 .br
@@ -335,6 +338,17 @@ True on successful connection and false on failure\&.
 \fBReturns:\fP
 .RS 4
 The number of accepted applications\&. 
+.RE
+.PP
+
+.SS "double psql::countDeclinedAfterInterview ()"
+
+.PP
+\fBpsql::countDeclinedAfterInterview\fP Counts the number of applications that has lead to an interview and then got rejected\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of applications that have been declined after an interview 
 .RE
 .PP
 
@@ -1270,18 +1284,18 @@ True on success and false otherwise\&.
 .RE
 .PP
 
-.SS "bool psql::updateCity (QString cityName, int countryID, int id)"
+.SS "bool psql::updateCity (QString oldCityName, QString newCityName, int countryID)"
 
 .PP
 \fBpsql::updateCity\fP Updates information of an existing city\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIcityName\fP The new name of the city 
+\fIoldCityName\fP The old name of the city to be updated 
+.br
+\fInewCityName\fP The new name of the city 
 .br
 \fIcountryID\fP The new country ID, the ID of the country where the city is located\&. 
-.br
-\fIid\fP the ID of the city to be updated\&. 
 .RE
 .PP
 \fBReturns:\fP
@@ -1322,6 +1336,28 @@ True on success and false on failure\&.
 \fBReturns:\fP
 .RS 4
 True on success and false on failure\&. 
+.RE
+.PP
+
+.SS "bool psql::viewApplicationExists ()"
+
+.PP
+\fBpsql::viewApplicationExists\fP Checks if any job applications exists in the database by looking up index 1 in the application table\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the application exists, false otherwise 
+.RE
+.PP
+
+.SS "bool psql::viewTownExists ()"
+
+.PP
+\fBpsql::viewTownExists\fP Checks if there are any towns in the database by looking up a town with ID=1 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the town with index 1 is found, false otherwise 
 .RE
 .PP
 

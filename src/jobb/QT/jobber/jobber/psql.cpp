@@ -302,12 +302,12 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
 
 /**
  * @brief psql::updateCity Updates information of an existing city.
- * @param cityName The new name of the city
+ * @param oldCityName The old name of the city to be updated
+ * @param newCityName The new name of the city
  * @param countryID The new country ID, the ID of the country where the city is located.
- * @param id the ID of the city to be updated.
  * @return
  */
-bool psql::updateCity(QString cityName, int countryID, int id)
+bool psql::updateCity(QString oldCityName, QString newCityName, int countryID)
 {
     try
     {
@@ -316,11 +316,13 @@ bool psql::updateCity(QString cityName, int countryID, int id)
         QString insertStatement = "UPDATE sted SET stedsnavn = '";
         ostringstream oss;
         oss << statement << insertStatement.toStdString();
-        oss << statement << cityName.toStdString();
+        oss << statement << newCityName.toStdString();
         oss << statement << "', landid = ";
         oss << statement << countryID;
-        oss << statement << " where stedid = ";
-        oss << statement << id;
+        oss << statement << " where stedsnavn = '";
+        oss << statement << oldCityName.toStdString();
+        oss << statement << "' and landid= ";
+        oss << statement << countryID;
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
@@ -1110,6 +1112,10 @@ double psql::countDeclinedApplications()
     }
 }
 
+/**
+ * @brief psql::countDeclinedAfterInterview Counts the number of applications that has lead to an interview and then got rejected.
+ * @return The number of applications that have been declined after an interview
+ */
 double psql::countDeclinedAfterInterview()
 {
     double res = 0;
@@ -1780,6 +1786,10 @@ bool psql::tableTownExists()
     }
 }
 
+/**
+ * @brief psql::viewApplicationExists Checks if any job applications exists in the database by looking up index 1 in the application table.
+ * @return True if the application exists, false otherwise
+ */
 bool psql::viewApplicationExists()
 {
     try
@@ -1804,6 +1814,10 @@ bool psql::viewApplicationExists()
     }
 }
 
+/**
+ * @brief psql::viewTownExists Checks if there are any towns in the database by looking up a town with ID=1
+ * @return True if the town with index 1 is found, false otherwise
+ */
 bool psql::viewTownExists()
 {
     try

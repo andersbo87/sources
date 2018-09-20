@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
   <compound refid="classconnect_psql" kind="class"><name>connectPsql</name>
     <member refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kind="variable"><name>p</name></member>
     <member refid="classconnect_psql_1a36beec0f69b64ac6b5a02beedd801cf2" kind="variable"><name>ui</name></member>
@@ -30,6 +30,7 @@
     <member refid="class_main_window_1a97575597609e5b060c1e7a84cec5a21e" kind="slot"><name>btn_ShowStatuses_Click</name></member>
     <member refid="class_main_window_1a5aff5255ffc83644d51e8a6af9500ea5" kind="slot"><name>btn_NewCountry_Click</name></member>
     <member refid="class_main_window_1a5a8f403d1782b2d23e4a8db31b043591" kind="slot"><name>btn_ShowCountries_Click</name></member>
+    <member refid="class_main_window_1a56a8a0eada3795d65040da81a1988fa4" kind="slot"><name>btn_SaveFile_Click</name></member>
     <member refid="class_main_window_1a868885039ee32b7c941c003d6dfd6fc0" kind="slot"><name>on_btnSpecificJobs_clicked</name></member>
     <member refid="class_main_window_1a1bcf3e21d50efa640c1e8fa21eccc766" kind="slot"><name>btnStatistic_Click</name></member>
     <member refid="class_main_window_1a97355a1a2226460f8a005645df7aa3c6" kind="slot"><name>windowLoaded</name></member>
@@ -149,7 +150,7 @@
     <member refid="classpsql_1ab3b5934ce3fbc4be1730d990d4142893" kind="function"><name>insertCountry</name></member>
     <member refid="classpsql_1a601ee0bdc9430b1d674a857f7c94b767" kind="function"><name>insertStatus</name></member>
     <member refid="classpsql_1a836eea3c6deb2d6a3a357193a99d6ee7" kind="function"><name>updateApplication</name></member>
-    <member refid="classpsql_1a6adf2ba381783e520c03fe5324dcb010" kind="function"><name>updateCity</name></member>
+    <member refid="classpsql_1af2d88341e21459895470da26fa1826f0" kind="function"><name>updateCity</name></member>
     <member refid="classpsql_1ae662278c5fb8ff3471ee1442e69482e2" kind="function"><name>updateCountry</name></member>
     <member refid="classpsql_1a620364c99c98e20720908deb045536a0" kind="function"><name>updateStatus</name></member>
     <member refid="classpsql_1a999ee8e2d813892411ef502ebc055a79" kind="function"><name>deleteApplication</name></member>
@@ -217,6 +218,7 @@
   <compound refid="class_show_cities" kind="class"><name>ShowCities</name>
     <member refid="class_show_cities_1a654963d7e330f28504785c6f566fc3d8" kind="variable"><name>ui</name></member>
     <member refid="class_show_cities_1ae584ed28144395d393227a66895696dd" kind="variable"><name>p</name></member>
+    <member refid="class_show_cities_1a79230f7ff11b7544eac829b0737e6492" kind="variable"><name>oldCityName</name></member>
     <member refid="class_show_cities_1a42f64916b8239929ba030aa5d1eddda5" kind="variable"><name>cityName</name></member>
     <member refid="class_show_cities_1af852d38454dccf6e55abe91ffaa52f91" kind="variable"><name>countryName</name></member>
     <member refid="class_show_cities_1a27f6bd616411e533a01ba9d37bb7baec" kind="variable"><name>winTitle</name></member>
@@ -228,10 +230,11 @@
     <member refid="class_show_cities_1ac63a26b520f35a6c650c21a20f4d662f" kind="variable"><name>cities</name></member>
     <member refid="class_show_cities_1a9104f71de61c78bf5cd1351599266aa3" kind="variable"><name>changed</name></member>
     <member refid="class_show_cities_1ad9d2b08f51c3f096dc1f3d37f0b77bec" kind="variable"><name>cityIDchanged</name></member>
+    <member refid="class_show_cities_1ad5581443169c84ab1e51b2fe18a3d9e9" kind="variable"><name>buildingList</name></member>
     <member refid="class_show_cities_1a71a514390bebd22b5e6ecbb6b731979a" kind="function"><name>ShowCities</name></member>
     <member refid="class_show_cities_1a2b37dc76d5c113c1fe5a1f3cc20b4938" kind="function"><name>~ShowCities</name></member>
     <member refid="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" kind="function"><name>getCities</name></member>
-    <member refid="class_show_cities_1a7a03bcd5374073d6689aed90cc23ce5e" kind="function"><name>getCity</name></member>
+    <member refid="class_show_cities_1af191eeab72b3bdd74f0e710face98292" kind="function"><name>getCity</name></member>
     <member refid="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" kind="function"><name>setCityID</name></member>
     <member refid="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" kind="function"><name>setCityName</name></member>
     <member refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kind="function"><name>setCountryID</name></member>
@@ -251,13 +254,10 @@
     <member refid="class_show_cities_1a1f9f7fe93d9f21dc5ae5671903bf6ca1" kind="slot"><name>comboboxCityIDChanged</name></member>
     <member refid="class_show_cities_1a912626f9b76404a4efca975ff72fe18d" kind="slot"><name>comboboxCountryIDChanged</name></member>
     <member refid="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" kind="slot"><name>lineEditCityNameChanged</name></member>
-    <member refid="class_show_cities_1aed7205043422f828eb01a7a6e8232a0a" kind="slot"><name>buttonFirstClicked</name></member>
-    <member refid="class_show_cities_1ad7b50fcfd00a0dda80e1f18b01b143f2" kind="slot"><name>buttonPreviousClicked</name></member>
-    <member refid="class_show_cities_1a62c401e3d3d9ae4b1aa49c23e1213e89" kind="slot"><name>buttonNextClicked</name></member>
-    <member refid="class_show_cities_1a9bfee33c284dd225954bd3e8c907b420" kind="slot"><name>buttonLastClicked</name></member>
     <member refid="class_show_cities_1a2c111d1f43cca0d08c3fd8d82ef44c5d" kind="slot"><name>buttonSaveClicked</name></member>
     <member refid="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" kind="slot"><name>buttonDeleteClicked</name></member>
     <member refid="class_show_cities_1a0c7cfcf4ddbfe1aba290e56228e565c5" kind="slot"><name>windowLoaded</name></member>
+    <member refid="class_show_cities_1afb40165a902c3597aaba5572de22eb17" kind="slot"><name>buildComboboxCityList</name></member>
   </compound>
   <compound refid="class_show_countries" kind="class"><name>ShowCountries</name>
     <member refid="class_show_countries_1aecdf2c418bd29719e892e66dc25941f8" kind="variable"><name>changed</name></member>

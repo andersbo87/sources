@@ -29,6 +29,11 @@ stringCheck::stringCheck()
     // Do nothing.
 }
 
+/**
+ * @brief stringCheck::isNullOrWhitespace Checks if the string is empty or if it only contains whitespaces.
+ * @param string The string in question
+ * @return True if the string is empty or only contains whitespaces. Returns false otherwise.
+ */
 bool stringCheck::isNullOrWhitespace(QString string)
 {
     if(string.isNull())

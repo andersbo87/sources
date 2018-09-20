@@ -40,12 +40,9 @@ ShowCities::ShowCities(QString windowTitle, psql *pg, QWidget *parent) :
     runs = 1;
     ui->setupUi(this);
     changed = false;
+    buildingList = false;
     setFixedHeight(height());
     setWindowFlags(( (this->windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMaximizeButtonHint));
-    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
-    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
-    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
-    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
     connect(ui->comboBoxCityID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCityIDChanged()), Qt::UniqueConnection);
     connect(ui->comboBoxCountryID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCountryIDChanged()), Qt::UniqueConnection);
     connect(ui->lineEditCityName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCityNameChanged()), Qt::UniqueConnection);
@@ -104,7 +101,7 @@ void ShowCities::setCityID(int newID)
  */
 void ShowCities::setCityName(QString newName)
 {
-    if(stringCheck::isNullOrWhitespace(newName))
+    if(stringCheck::isNullOrWhitespace(newName) && !buildingList)
         throw invalid_argument("Stedsnavnet kan ikke være tomt, og det kan ikke bare bestå av mellomrom.");
     cityName = newName;
 }
@@ -115,6 +112,8 @@ void ShowCities::setCityName(QString newName)
  */
 void ShowCities::setCountryID(int newID)
 {
+    countryID = newID;
+    /*printf("newID: %d\n", newID);
     if(newID > 0 && newID <= countries)
         countryID = newID;
     else
@@ -126,9 +125,13 @@ void ShowCities::setCountryID(int newID)
             oss << err << countries;
             throw invalid_argument(oss.str());
         }
-    }
+    }*/
 }
 
+/**
+ * @brief ShowCities::setCountryName Sets the name of the country where the current city is located.
+ * @param newName The name of the country.
+ */
 void ShowCities::setCountryName(QString newName)
 {
     if(stringCheck::isNullOrWhitespace(newName))
@@ -148,7 +151,7 @@ void ShowCities::getCity(int cityID)
         ui->lineEditCityName->setText(p->getCityName(cityID));
         ui->comboBoxCountryID->setCurrentText(QString::number(p->getCountryID(cityID)));
         ui->labelCountryName->setText(p->getCountryName(ui->comboBoxCountryID->currentText().toInt()));
-        setCityID(cityID);
+        //setCityID(cityID);
         setCountryID(ui->comboBoxCountryID->currentText().toInt());
         setCityName(ui->lineEditCityName->text());
         setCountryName(ui->labelCountryName->text());
@@ -207,13 +210,13 @@ void ShowCities::getCities()
 {
     try
     {
-        QList<QString> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        QList<QString> list = p->fillList("SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC");
         if(list.count() == 0)
         {
             QMessageBox msg;
             msg.setWindowTitle(windowTitle());
             msg.setIcon(msg.Warning);
-            msg.setText("Du har ikke lagt inn noen søknader ennå.");
+            msg.setText("Du har ikke lagt inn noen steder ennå.");
             msg.exec();
             this->close();
         }
@@ -262,7 +265,7 @@ QString ShowCities::getCityName()
 
 void ShowCities::checkChanges()
 {
-    if(isChanged())
+    if(isChanged() && !buildingList)
     {
         // Spør om endringer skal lagres.
         QMessageBox msg;
@@ -275,13 +278,14 @@ void ShowCities::checkChanges()
         if(msg.exec() == QMessageBox::Yes)
         {
             // Oppdaterer endringene i databasen.
-            if(p->updateCity(getCityName(),getCountryID(),getCityID()))
+            if(p->updateCity(oldCityName,getCityName(),getCountryID()))
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
                 msg2.setWindowTitle(winTitle);
-                msg2.setText("Stedet ble oppdatert og har følgende verdier:\nStedid: " + QString::number(getCityID()) + "\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
+                msg2.setText("Stedet ble oppdatert og har følgende verdier:\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
                 msg2.exec();
+                buildComboboxCityList();
             }
             else
             {
@@ -317,16 +321,6 @@ void ShowCities::buttonDeleteClicked()
             ui->comboBoxCityID->removeItem(ui->comboBoxCityID->currentIndex());
             setCityID(ui->comboBoxCityID->currentText().toInt());
             lastID = lastID -1;
-            if(ui->comboBoxCityID->currentText().toInt() == lastID)
-            {
-                ui->btnNext->setEnabled(false);
-                ui->btnLast->setEnabled(false);
-            }
-            if(getCityID() == 1)
-            {
-                ui->btnFirst->setEnabled(false);
-                ui->btnPrev->setEnabled(false);
-            }
         }
         else
         {
@@ -340,15 +334,32 @@ void ShowCities::buttonDeleteClicked()
     }
 }
 
+void ShowCities::buildComboboxCityList()
+{
+    buildingList = true;
+    if(ui->comboBoxCityID->count() >=1)
+    {
+        for(int i = ui->comboBoxCityID->count(); i >= 0; i--){
+            ui->comboBoxCityID->removeItem(i);
+        }
+    }
+    getCities();
+    buildingList = false;
+}
+
 void ShowCities::buttonSaveClicked()
 {
-    if(p->updateCity(getCityName(), getCountryID(), getCityID()))
+    if(p->updateCity(ui->comboBoxCityID->currentText(), getCityName(), getCountryID()))
     {
         QMessageBox success;
         success.setWindowTitle(winTitle);
         success.setIcon(success.Information);
-        success.setText("Stedet ble oppdatert og har følgende verdier:\nStedid: " + QString::number(getCityID()) + "\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
+        success.setText("Stedet ble oppdatert og har følgende verdier:\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
         success.exec();
+        setChanged(false);
+        /*ui->comboBoxCityID->removeItem(ui->comboBoxCityID->currentIndex()-1);
+        ui->comboBoxCityID->addItem(ui->lineEditCityName->text());*/
+        buildComboboxCityList();
     }
     else
     {
@@ -356,107 +367,6 @@ void ShowCities::buttonSaveClicked()
         msg.setIcon(msg.Warning);
         msg.setWindowTitle(winTitle);
         msg.setText("Noe har gått galt: " + p->getError());
-        msg.exec();
-    }
-}
-
-void ShowCities::buttonFirstClicked()
-{
-    try
-    {
-        checkChanges();
-        getCity(1);
-        ui->btnFirst->setEnabled(false);
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(true);
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowCities::buttonLastClicked()
-{
-    try
-    {
-        checkChanges();
-        ui->comboBoxCityID->setCurrentIndex(ui->comboBoxCityID->count() -1);
-        getCity(ui->comboBoxCityID->currentText().toInt());
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
-        ui->btnPrev->setEnabled(true);
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowCities::buttonNextClicked()
-{
-    try
-    {
-        checkChanges();
-        int currentCity = getCityID(), counter = 1;
-        while(QString::compare(p->getCityName(currentCity + counter), "", Qt::CaseSensitive) == 0)
-        {
-            counter ++;
-        }
-        getCity(currentCity + counter);
-        ui->btnFirst->setEnabled(true);
-        ui->btnPrev->setEnabled(true);
-        if(currentCity + 1 == lastID)
-        {
-            ui->btnLast->setEnabled(false);
-            ui->btnNext->setEnabled(false);
-        }
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowCities::buttonPreviousClicked()
-{
-    try
-    {
-        checkChanges();
-        int currentCity = getCityID(), counter=1;
-        while(QString::compare(p->getCityName(currentCity - counter), "", Qt::CaseSensitive) == 0)
-        {
-            counter ++;
-        }
-        getCity(currentCity -counter);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        if(currentCity - 1 == 1)
-        {
-            ui->btnFirst->setEnabled(false);
-            ui->btnPrev->setEnabled(false);
-        }
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
         msg.exec();
     }
 }
@@ -485,33 +395,17 @@ void ShowCities::lineEditCityNameChanged()
 
 void ShowCities::comboboxCityIDChanged()
 {
-    int currID = ui->comboBoxCityID->currentText().toInt();
+    //int currID = ui->comboBoxCityID->currentText().toInt();
+    QObject::blockSignals(true);
     checkChanges();
+    QObject::blockSignals(false);
+    QString currName = ui->comboBoxCityID->currentText();
+    int currID = p->getCityID(currName.toStdString());
+
     cityIDchanged = true;
     getCity(currID);
     cityIDchanged = false;
-    if(currID == 1)
-    {
-        ui->btnFirst->setEnabled(false);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(false);
-
-    }
-    else if(currID == lastID)
-    {
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
-        ui->btnPrev->setEnabled(true);
-    }
-    else
-    {
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(true);
-    }
+    oldCityName = ui->comboBoxCityID->currentText();
 }
 
 void ShowCities::comboboxCountryIDChanged()
@@ -530,12 +424,25 @@ void ShowCities::comboboxCountryIDChanged()
 }
 void ShowCities::windowLoaded()
 {
-    getCities();
-    getCountryIDs();
-    getCity(1);
-    setChanged(false);
-    cityIDchanged = false;
-    runs++;
+    try{
+        getCities();
+        getCountryIDs();
+        //getCity(1);
+        ui->labelCountryName->setText(p->getCountryName(ui->comboBoxCountryID->currentText().toInt()));
+        int countryID = ui->comboBoxCountryID->currentText().toInt();
+        setCountryID(countryID);
+        setChanged(false);
+        cityIDchanged = false;
+        runs++;
+    }
+    catch(QException qe)
+    {
+        QMessageBox qm;
+        qm.setIcon(qm.Warning);
+        qm.setText(qe.what());
+        qm.setWindowTitle(winTitle);
+        qm.exec();
+    }
 }
 
 void ShowCities::showEvent(QShowEvent *)
@@ -558,12 +465,12 @@ void ShowCities::closeEvent(QCloseEvent *event)
         if(res == QMessageBox::Yes)
         {
             // Oppdaterer endringene i databasen.
-            if(p->updateCity(getCityName(),getCountryID(),getCityID()))
+            if(p->updateCity(ui->comboBoxCityID->currentText(),getCityName(),getCountryID()))
             {
                 QMessageBox msg2;
                 msg2.setIcon(msg2.Information);
                 msg2.setWindowTitle(winTitle);
-                msg2.setText("Stedet ble oppdatert og har følgende verdier:\nStedid: " + QString::number(getCityID()) + "\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
+                msg2.setText("Stedet ble oppdatert og har følgende verdier:\nStedsnavn: " + getCityName() + "\nLandID: " + QString::number(getCountryID()));
                 msg2.exec();
             }
             else

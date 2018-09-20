@@ -46,7 +46,7 @@ public:
     explicit ShowCities(QString title, psql *pg, QWidget *parent = 0);
     ~ShowCities();
     void getCities();
-    void getCity(int cityID);
+    void getCity(int cityName);
     void setCityID(int newID);
     void setCityName(QString newName);
     void setCountryID(int newID);
@@ -60,7 +60,7 @@ public:
 private:
     Ui::ShowCities *ui;
     psql *p;
-    QString cityName, countryName, winTitle; // Tittelen som skal brukes i meldingsbokser.
+    QString oldCityName, cityName, countryName, winTitle; // Tittelen som skal brukes i meldingsbokser.
     int cityID, countryID, lastID, runs, countries, cities; // Countries: antall land, cities: antall steder.
     bool changed, cityIDchanged;
     void checkChanges();
@@ -70,18 +70,16 @@ private:
     void showEvent(QShowEvent *) override;
     bool isNullOrWhitespace(QString string);
     bool canSave();
+    bool buildingList;
 
 private slots:
     void comboboxCityIDChanged();
     void comboboxCountryIDChanged();
     void lineEditCityNameChanged();
-    void buttonFirstClicked();
-    void buttonPreviousClicked();
-    void buttonNextClicked();
-    void buttonLastClicked();
     void buttonSaveClicked();
     void buttonDeleteClicked();
     void windowLoaded();
+    void buildComboboxCityList();
 };
 
 #endif // SHOWCITIES_H

@@ -185,6 +185,9 @@ bool ViewJobs::canSave()
     return res;
 }
 
+/**
+ * @brief ViewJobs::windowLoaded Code to be executed after the window has been loaded.
+ */
 void ViewJobs::windowLoaded()
 {
     setChanged(false);
@@ -196,6 +199,9 @@ void ViewJobs::windowLoaded()
     soknadIDChanged = false;
 }
 
+/**
+ * @brief ViewJobs::showEvent Code to be run when the window is shown.
+ */
 void ViewJobs::showEvent(QShowEvent *)
 {
     QTimer::singleShot(50, this, SLOT(windowLoaded()));

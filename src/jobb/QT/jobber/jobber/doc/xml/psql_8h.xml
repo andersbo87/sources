@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="psql_8h" kind="file" language="C++">
     <compoundname>psql.h</compoundname>
     <includes local="no">sstream</includes>
@@ -25,16 +25,12 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="psql_8cpp" local="yes">psql.cpp</includedby>
     <incdepgraph>
-      <node id="257">
+      <node id="259">
         <label>QLinkedList</label>
       </node>
-      <node id="254">
+      <node id="256">
         <label>psql.h</label>
         <link refid="psql_8h"/>
-        <childnode refid="255" relation="include">
-        </childnode>
-        <childnode refid="256" relation="include">
-        </childnode>
         <childnode refid="257" relation="include">
         </childnode>
         <childnode refid="258" relation="include">
@@ -47,62 +43,62 @@
         </childnode>
         <childnode refid="262" relation="include">
         </childnode>
-      </node>
-      <node id="256">
-        <label>QApplication</label>
-      </node>
-      <node id="259">
-        <label>QDebug</label>
-      </node>
-      <node id="260">
-        <label>pqxx/pqxx</label>
-      </node>
-      <node id="255">
-        <label>sstream</label>
-      </node>
-      <node id="261">
-        <label>pqxx/result</label>
+        <childnode refid="263" relation="include">
+        </childnode>
+        <childnode refid="264" relation="include">
+        </childnode>
       </node>
       <node id="258">
-        <label>QException</label>
+        <label>QApplication</label>
+      </node>
+      <node id="261">
+        <label>QDebug</label>
       </node>
       <node id="262">
+        <label>pqxx/pqxx</label>
+      </node>
+      <node id="257">
+        <label>sstream</label>
+      </node>
+      <node id="263">
+        <label>pqxx/result</label>
+      </node>
+      <node id="260">
+        <label>QException</label>
+      </node>
+      <node id="264">
         <label>QtGui</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="273">
+      <node id="275">
         <label>showcountries.h</label>
         <link refid="showcountries_8h_source"/>
       </node>
-      <node id="265">
+      <node id="267">
         <label>mainwindow.h</label>
         <link refid="mainwindow_8h_source"/>
       </node>
-      <node id="271">
+      <node id="273">
         <label>newstatus.h</label>
         <link refid="newstatus_8h_source"/>
       </node>
-      <node id="266">
+      <node id="268">
         <label>newjob.h</label>
         <link refid="newjob_8h_source"/>
       </node>
-      <node id="263">
+      <node id="265">
         <label>psql.h</label>
         <link refid="psql_8h"/>
-        <childnode refid="264" relation="include">
-        </childnode>
-        <childnode refid="265" relation="include">
-        </childnode>
         <childnode refid="266" relation="include">
         </childnode>
         <childnode refid="267" relation="include">
         </childnode>
         <childnode refid="268" relation="include">
         </childnode>
-        <childnode refid="270" relation="include">
+        <childnode refid="269" relation="include">
         </childnode>
-        <childnode refid="271" relation="include">
+        <childnode refid="270" relation="include">
         </childnode>
         <childnode refid="272" relation="include">
         </childnode>
@@ -116,48 +112,52 @@
         </childnode>
         <childnode refid="277" relation="include">
         </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
       </node>
-      <node id="269">
+      <node id="271">
         <label>newcity.cpp</label>
         <link refid="newcity_8cpp"/>
       </node>
-      <node id="276">
+      <node id="278">
         <label>statistics.h</label>
         <link refid="statistics_8h_source"/>
       </node>
-      <node id="274">
+      <node id="276">
         <label>showstatuses.h</label>
         <link refid="showstatuses_8h_source"/>
       </node>
-      <node id="268">
+      <node id="270">
         <label>newcity.h</label>
         <link refid="newcity_8h_source"/>
-        <childnode refid="269" relation="include">
-        </childnode>
-      </node>
-      <node id="275">
-        <label>spesificjobs.h</label>
-        <link refid="spesificjobs_8h_source"/>
-      </node>
-      <node id="270">
-        <label>newcountry.h</label>
-        <link refid="newcountry_8h_source"/>
-      </node>
-      <node id="272">
-        <label>showcities.h</label>
-        <link refid="showcities_8h_source"/>
-      </node>
-      <node id="267">
-        <label>viewjobs.h</label>
-        <link refid="viewjobs_8h_source"/>
-      </node>
-      <node id="264">
-        <label>connectpsql.h</label>
-        <link refid="connectpsql_8h_source"/>
-        <childnode refid="265" relation="include">
+        <childnode refid="271" relation="include">
         </childnode>
       </node>
       <node id="277">
+        <label>spesificjobs.h</label>
+        <link refid="spesificjobs_8h_source"/>
+      </node>
+      <node id="272">
+        <label>newcountry.h</label>
+        <link refid="newcountry_8h_source"/>
+      </node>
+      <node id="274">
+        <label>showcities.h</label>
+        <link refid="showcities_8h_source"/>
+      </node>
+      <node id="269">
+        <label>viewjobs.h</label>
+        <link refid="viewjobs_8h_source"/>
+      </node>
+      <node id="266">
+        <label>connectpsql.h</label>
+        <link refid="connectpsql_8h_source"/>
+        <childnode refid="267" relation="include">
+        </childnode>
+      </node>
+      <node id="279">
         <label>psql.cpp</label>
         <link refid="psql_8cpp"/>
       </node>
@@ -229,7 +229,7 @@
 <codeline lineno="61"><highlight class="normal"></highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Metoder<sp/>som<sp/>oppdaterer<sp/>eksisterende<sp/>data</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateApplication(QString<sp/>title,<sp/>QString<sp/>company,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityID,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID,<sp/>QString<sp/>date,<sp/>QString<sp/>motivation,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateCity(QString<sp/>cityName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateCity(QString<sp/>newCityName,<sp/>QString<sp/>oldCityName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID);</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateCountry(QString<sp/>countryName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>countryID);</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateStatus(QString<sp/>statusname,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statusID);</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"></highlight></codeline>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="statistics_8h" kind="file" language="C++">
     <compoundname>statistics.h</compoundname>
     <includes refid="psql_8h" local="yes">psql.h</includes>
@@ -7,16 +7,12 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="statistics_8cpp" local="yes">statistics.cpp</includedby>
     <incdepgraph>
-      <node id="428">
+      <node id="430">
         <label>QLinkedList</label>
       </node>
-      <node id="425">
+      <node id="427">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="426" relation="include">
-        </childnode>
-        <childnode refid="427" relation="include">
-        </childnode>
         <childnode refid="428" relation="include">
         </childnode>
         <childnode refid="429" relation="include">
@@ -29,37 +25,41 @@
         </childnode>
         <childnode refid="433" relation="include">
         </childnode>
-      </node>
-      <node id="424">
-        <label>statistics.h</label>
-        <link refid="statistics_8h"/>
-        <childnode refid="425" relation="include">
-        </childnode>
         <childnode refid="434" relation="include">
         </childnode>
-      </node>
-      <node id="427">
-        <label>QApplication</label>
-      </node>
-      <node id="434">
-        <label>QDialog</label>
-      </node>
-      <node id="430">
-        <label>QDebug</label>
-      </node>
-      <node id="431">
-        <label>pqxx/pqxx</label>
+        <childnode refid="435" relation="include">
+        </childnode>
       </node>
       <node id="426">
-        <label>sstream</label>
-      </node>
-      <node id="432">
-        <label>pqxx/result</label>
+        <label>statistics.h</label>
+        <link refid="statistics_8h"/>
+        <childnode refid="427" relation="include">
+        </childnode>
+        <childnode refid="436" relation="include">
+        </childnode>
       </node>
       <node id="429">
-        <label>QException</label>
+        <label>QApplication</label>
+      </node>
+      <node id="436">
+        <label>QDialog</label>
+      </node>
+      <node id="432">
+        <label>QDebug</label>
       </node>
       <node id="433">
+        <label>pqxx/pqxx</label>
+      </node>
+      <node id="428">
+        <label>sstream</label>
+      </node>
+      <node id="434">
+        <label>pqxx/result</label>
+      </node>
+      <node id="431">
+        <label>QException</label>
+      </node>
+      <node id="435">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -108,7 +108,7 @@
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classstatistics_1aaa102e49836a3b719df3a82e28735adc" kindref="member">statistics</ref>(<ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classstatistics" kindref="compound">statistics</ref>(<ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="classstatistics" kindref="compound">statistics</ref>();</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>

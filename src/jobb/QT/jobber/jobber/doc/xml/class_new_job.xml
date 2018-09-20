@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="class_new_job" kind="class" language="C++" prot="public">
     <compoundname>NewJob</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -247,7 +247,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="56" column="1" bodyfile="newjob.cpp" bodystart="283" bodyend="340"/>
+        <location file="newjob.h" line="56" column="1" bodyfile="newjob.cpp" bodystart="262" bodyend="319"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -263,7 +263,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="60" column="1" bodyfile="newjob.cpp" bodystart="266" bodyend="281"/>
+        <location file="newjob.h" line="60" column="1" bodyfile="newjob.cpp" bodystart="250" bodyend="260"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1af6a55338f7b75888991a428a7cfe8860" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -314,7 +314,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="69" column="1" bodyfile="newjob.cpp" bodystart="349" bodyend="356"/>
+        <location file="newjob.h" line="69" column="1" bodyfile="newjob.cpp" bodystart="328" bodyend="336"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1ad9f522f4a6a45348ecc3ab1229b5eabb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -339,7 +339,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="70" column="1" bodyfile="newjob.cpp" bodystart="362" bodyend="367"/>
+        <location file="newjob.h" line="70" column="1" bodyfile="newjob.cpp" bodystart="342" bodyend="349"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1a66004f3c78c6d9796fc3c5ce66f2479b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -364,7 +364,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="71" column="1" bodyfile="newjob.cpp" bodystart="391" bodyend="398"/>
+        <location file="newjob.h" line="71" column="1" bodyfile="newjob.cpp" bodystart="373" bodyend="381"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1aa184d2046d0e60e82cd5840c40b99bed" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -389,7 +389,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="72" column="1" bodyfile="newjob.cpp" bodystart="404" bodyend="407"/>
+        <location file="newjob.h" line="72" column="1" bodyfile="newjob.cpp" bodystart="387" bodyend="390"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1a0a1d9067e72f797ad3b1f01d44fedb0f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -414,7 +414,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="73" column="1" bodyfile="newjob.cpp" bodystart="413" bodyend="420"/>
+        <location file="newjob.h" line="73" column="1" bodyfile="newjob.cpp" bodystart="396" bodyend="404"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1a3ddb9ee8bccdf069711406effb9d7dcd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -439,7 +439,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="74" column="1" bodyfile="newjob.cpp" bodystart="426" bodyend="429"/>
+        <location file="newjob.h" line="74" column="1" bodyfile="newjob.cpp" bodystart="410" bodyend="413"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1ab5b021c928c289b77b726cc418d194de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -464,7 +464,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="75" column="1" bodyfile="newjob.cpp" bodystart="382" bodyend="385"/>
+        <location file="newjob.h" line="75" column="1" bodyfile="newjob.cpp" bodystart="364" bodyend="367"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1aa93c07712d80644b828994a01993c27c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -478,7 +478,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="76" column="1" bodyfile="newjob.cpp" bodystart="439" bodyend="442"/>
+        <location file="newjob.h" line="76" column="1" bodyfile="newjob.cpp" bodystart="423" bodyend="426"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1ad4680ae9c009b90ce751c3c5fe60cdb5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -492,7 +492,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="77" column="1" bodyfile="newjob.cpp" bodystart="448" bodyend="451"/>
+        <location file="newjob.h" line="77" column="1" bodyfile="newjob.cpp" bodystart="432" bodyend="435"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1a0b1679fdb58a6c4d72d935595ba4e835" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -506,7 +506,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="78" column="1" bodyfile="newjob.cpp" bodystart="457" bodyend="460"/>
+        <location file="newjob.h" line="78" column="1" bodyfile="newjob.cpp" bodystart="441" bodyend="444"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1aed4a9a6fa7eab69062c1d36afd58cd75" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -520,7 +520,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="79" column="1" bodyfile="newjob.cpp" bodystart="373" bodyend="376"/>
+        <location file="newjob.h" line="79" column="1" bodyfile="newjob.cpp" bodystart="355" bodyend="358"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1aebbe015a22f5dbf60a34c33dd5c5a8e7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -534,7 +534,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="80" column="1" bodyfile="newjob.cpp" bodystart="466" bodyend="469"/>
+        <location file="newjob.h" line="80" column="1" bodyfile="newjob.cpp" bodystart="450" bodyend="453"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1abe92b6bce4e8e3485f59554a2cbad1bc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -548,7 +548,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="81" column="1" bodyfile="newjob.cpp" bodystart="475" bodyend="478"/>
+        <location file="newjob.h" line="81" column="1" bodyfile="newjob.cpp" bodystart="459" bodyend="462"/>
       </memberdef>
       <memberdef kind="function" id="class_new_job_1a665113a114684439ed3705c8c5f8eabf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -562,7 +562,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="82" column="1" bodyfile="newjob.cpp" bodystart="484" bodyend="487"/>
+        <location file="newjob.h" line="82" column="1" bodyfile="newjob.cpp" bodystart="468" bodyend="471"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -577,7 +577,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="85" column="1" bodyfile="newjob.cpp" bodystart="162" bodyend="179"/>
+        <location file="newjob.h" line="85" column="1" bodyfile="newjob.cpp" bodystart="162" bodyend="175"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_job_1ada52e101b8c61c0e15555f15b4ea09e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -590,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="86" column="1" bodyfile="newjob.cpp" bodystart="203" bodyend="220"/>
+        <location file="newjob.h" line="86" column="1" bodyfile="newjob.cpp" bodystart="195" bodyend="208"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_job_1a140c224ad2f2de3629300a34831e1ece" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -603,7 +603,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="87" column="1" bodyfile="newjob.cpp" bodystart="225" bodyend="229"/>
+        <location file="newjob.h" line="87" column="1" bodyfile="newjob.cpp" bodystart="213" bodyend="217"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_job_1a311f7cd158f34921a7ddb47f5ee6ab58" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -616,7 +616,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="88" column="1" bodyfile="newjob.cpp" bodystart="234" bodyend="238"/>
+        <location file="newjob.h" line="88" column="1" bodyfile="newjob.cpp" bodystart="222" bodyend="226"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_job_1ac8a5b6ee543c75322d1738e1b679fb5c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -629,7 +629,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="89" column="1" bodyfile="newjob.cpp" bodystart="243" bodyend="260"/>
+        <location file="newjob.h" line="89" column="1" bodyfile="newjob.cpp" bodystart="231" bodyend="244"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_job_1a593cb6c241e3e7908e4b979d180dd350" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -642,7 +642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="newjob.h" line="90" column="1" bodyfile="newjob.cpp" bodystart="181" bodyend="198"/>
+        <location file="newjob.h" line="90" column="1" bodyfile="newjob.cpp" bodystart="177" bodyend="190"/>
       </memberdef>
       <memberdef kind="slot" id="class_new_job_1acd8db3a9c080ad263bca1db5d2975b3d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

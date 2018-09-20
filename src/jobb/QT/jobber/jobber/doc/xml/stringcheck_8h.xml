@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="stringcheck_8h" kind="file" language="C++">
     <compoundname>stringcheck.h</compoundname>
     <includes local="no">QString</includes>
@@ -13,41 +13,37 @@
     <includedby refid="showstatuses_8h" local="yes">showstatuses.h</includedby>
     <includedby refid="stringcheck_8cpp" local="yes">stringcheck.cpp</includedby>
     <incdepgraph>
-      <node id="440">
-        <label>stringcheck.h</label>
-        <link refid="stringcheck_8h"/>
-        <childnode refid="441" relation="include">
-        </childnode>
-      </node>
-      <node id="441">
-        <label>QString</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="450">
-        <label>showcountries.h</label>
-        <link refid="showcountries_8h_source"/>
-      </node>
-      <node id="448">
-        <label>newstatus.h</label>
-        <link refid="newstatus_8h_source"/>
-      </node>
-      <node id="443">
-        <label>newjob.h</label>
-        <link refid="newjob_8h_source"/>
-      </node>
       <node id="442">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h"/>
         <childnode refid="443" relation="include">
         </childnode>
-        <childnode refid="444" relation="include">
-        </childnode>
+      </node>
+      <node id="443">
+        <label>QString</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="452">
+        <label>showcountries.h</label>
+        <link refid="showcountries_8h_source"/>
+      </node>
+      <node id="450">
+        <label>newstatus.h</label>
+        <link refid="newstatus_8h_source"/>
+      </node>
+      <node id="445">
+        <label>newjob.h</label>
+        <link refid="newjob_8h_source"/>
+      </node>
+      <node id="444">
+        <label>stringcheck.h</label>
+        <link refid="stringcheck_8h"/>
         <childnode refid="445" relation="include">
         </childnode>
-        <childnode refid="447" relation="include">
+        <childnode refid="446" relation="include">
         </childnode>
-        <childnode refid="448" relation="include">
+        <childnode refid="447" relation="include">
         </childnode>
         <childnode refid="449" relation="include">
         </childnode>
@@ -55,30 +51,34 @@
         </childnode>
         <childnode refid="451" relation="include">
         </childnode>
+        <childnode refid="452" relation="include">
+        </childnode>
+        <childnode refid="453" relation="include">
+        </childnode>
       </node>
-      <node id="446">
+      <node id="448">
         <label>newcity.cpp</label>
         <link refid="newcity_8cpp"/>
       </node>
-      <node id="451">
+      <node id="453">
         <label>showstatuses.h</label>
         <link refid="showstatuses_8h_source"/>
       </node>
-      <node id="445">
+      <node id="447">
         <label>newcity.h</label>
         <link refid="newcity_8h_source"/>
-        <childnode refid="446" relation="include">
+        <childnode refid="448" relation="include">
         </childnode>
       </node>
-      <node id="447">
+      <node id="449">
         <label>newcountry.h</label>
         <link refid="newcountry_8h_source"/>
       </node>
-      <node id="449">
+      <node id="451">
         <label>showcities.h</label>
         <link refid="showcities_8h_source"/>
       </node>
-      <node id="444">
+      <node id="446">
         <label>viewjobs.h</label>
         <link refid="viewjobs_8h_source"/>
       </node>
@@ -121,7 +121,7 @@
 <codeline lineno="30"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classstring_check" kindref="compound">stringCheck</ref>();</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isNullOrWhitespace(QString<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kindref="member">isNullOrWhitespace</ref>(QString<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="34"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>STRINGCHECK_H</highlight></codeline>

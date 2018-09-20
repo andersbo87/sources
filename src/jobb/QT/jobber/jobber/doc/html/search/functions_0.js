@@ -4,6 +4,7 @@ var searchData=
   ['connectdatabase',['connectDatabase',['../classpsql.html#ada485c933df77453629e3821ab19fa4c',1,'psql']]],
   ['connectpsql',['connectPsql',['../classconnect_psql.html#aee2b55cd64f5b2fac084eda4e6db0075',1,'connectPsql']]],
   ['countaccepted',['countAccepted',['../classpsql.html#a0beec2f098edc0961f27774cdd54d09b',1,'psql']]],
+  ['countdeclinedafterinterview',['countDeclinedAfterInterview',['../classpsql.html#a2ae512bc231446d5fccae84582395675',1,'psql']]],
   ['countdeclinedapplications',['countDeclinedApplications',['../classpsql.html#a40541367c3af9c0ac94e2fb92f00f53c',1,'psql']]],
   ['countinterviews',['countInterviews',['../classpsql.html#a84c1fdea2d09783a39677c4f79d924fc',1,'psql']]],
   ['countregisteredapplications',['countRegisteredApplications',['../classpsql.html#a8673a80968d293cd3ead6e6e9da8dd8a',1,'psql']]],

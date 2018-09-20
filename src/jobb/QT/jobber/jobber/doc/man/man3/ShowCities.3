@@ -1,4 +1,4 @@
-.TH "ShowCities" 3 "Mon May 28 2018" "Jobber" \" -*- nroff -*-
+.TH "ShowCities" 3 "Thu Sep 20 2018" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -23,7 +23,7 @@ Inherits QMainWindow\&.
 .br
 .RI "\fBShowCities::getCities\fP Builds a list to be used in the combobox of city IDs based on registered cities in the database\&. "
 .ti -1c
-.RI "void \fBgetCity\fP (int cityID)"
+.RI "void \fBgetCity\fP (int cityName)"
 .br
 .RI "\fBShowCities::getCity\fP Shows data about the current city based on the ID\&. "
 .ti -1c
@@ -41,6 +41,7 @@ Inherits QMainWindow\&.
 .ti -1c
 .RI "void \fBsetCountryName\fP (QString newName)"
 .br
+.RI "\fBShowCities::setCountryName\fP Sets the name of the country where the current city is located\&. "
 .ti -1c
 .RI "int \fBgetCityID\fP ()"
 .br
@@ -169,6 +170,17 @@ The country name
 \fBParameters:\fP
 .RS 4
 \fInewID\fP The new country ID 
+.RE
+.PP
+
+.SS "void ShowCities::setCountryName (QString newName)"
+
+.PP
+\fBShowCities::setCountryName\fP Sets the name of the country where the current city is located\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP The name of the country\&. 
 .RE
 .PP
 

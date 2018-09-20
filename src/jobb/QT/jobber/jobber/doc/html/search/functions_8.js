@@ -8,7 +8,7 @@ var searchData=
   ['setcompanyname',['setCompanyName',['../class_spesific_jobs.html#aeacc56572911219fddf2f1439a70ed74',1,'SpesificJobs']]],
   ['setcountry',['setCountry',['../class_new_country.html#af6fed97011d536e1a29db8112849e36b',1,'NewCountry']]],
   ['setcountryid',['setCountryID',['../class_new_city.html#a8a96f2c58640c96faf74e1f3bb956e4e',1,'NewCity::setCountryID()'],['../class_show_cities.html#a853a958ebc2c0d42d872c237d431fe25',1,'ShowCities::setCountryID()'],['../class_show_countries.html#a751b9d3c6859102f48d3ecc254135906',1,'ShowCountries::setCountryID()']]],
-  ['setcountryname',['setCountryName',['../class_show_countries.html#aefa9daeff484f4028ea5a280b280dd36',1,'ShowCountries']]],
+  ['setcountryname',['setCountryName',['../class_show_cities.html#a6974ab22950cede9fb290490bcc8f3a5',1,'ShowCities::setCountryName()'],['../class_show_countries.html#aefa9daeff484f4028ea5a280b280dd36',1,'ShowCountries::setCountryName()']]],
   ['setdate',['setDate',['../class_view_jobs.html#a7574794410eb40956f343976de97221f',1,'ViewJobs']]],
   ['setdeadline',['setDeadline',['../class_spesific_jobs.html#a80ceb9ead40dc83e0adcf6ed2b3d5465',1,'SpesificJobs']]],
   ['seterror',['setError',['../classpsql.html#a9a0d5ba32aabe6018a36fb0bc185445b',1,'psql']]],
@@ -23,6 +23,7 @@ var searchData=
   ['setusername',['setUsername',['../classpsql.html#a1488a9e4909abd172651b7be240342cb',1,'psql']]],
   ['showcities',['ShowCities',['../class_show_cities.html#a71a514390bebd22b5e6ecbb6b731979a',1,'ShowCities']]],
   ['showcountries',['ShowCountries',['../class_show_countries.html#a509e0b6ebeb2fb580e7985b81b3f77e6',1,'ShowCountries']]],
+  ['showevent',['showEvent',['../class_view_jobs.html#a50f3a52f43e097d46e106e0aa31e9eb4',1,'ViewJobs']]],
   ['showstatuses',['ShowStatuses',['../class_show_statuses.html#a5f33b2e8d68add734ceb466de0fc80ae',1,'ShowStatuses']]],
   ['spesificjobs',['SpesificJobs',['../class_spesific_jobs.html#a382c130bb70f2bf25c76ef5c720659d6',1,'SpesificJobs']]],
   ['statistics',['statistics',['../classstatistics.html#aaa102e49836a3b719df3a82e28735adc',1,'statistics']]]

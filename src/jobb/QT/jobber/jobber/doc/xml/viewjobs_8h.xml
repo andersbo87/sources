@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="viewjobs_8h" kind="file" language="C++">
     <compoundname>viewjobs.h</compoundname>
     <includes local="no">QMainWindow</includes>
@@ -10,31 +10,27 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="viewjobs_8cpp" local="yes">viewjobs.cpp</includedby>
     <incdepgraph>
-      <node id="472">
+      <node id="474">
         <label>QCloseEvent</label>
       </node>
-      <node id="484">
+      <node id="486">
         <label>QMessageBox</label>
       </node>
-      <node id="471">
+      <node id="473">
         <label>QMainWindow</label>
       </node>
-      <node id="476">
+      <node id="478">
         <label>QLinkedList</label>
       </node>
-      <node id="482">
+      <node id="484">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="483" relation="include">
+        <childnode refid="485" relation="include">
         </childnode>
       </node>
-      <node id="473">
+      <node id="475">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="474" relation="include">
-        </childnode>
-        <childnode refid="475" relation="include">
-        </childnode>
         <childnode refid="476" relation="include">
         </childnode>
         <childnode refid="477" relation="include">
@@ -47,43 +43,47 @@
         </childnode>
         <childnode refid="481" relation="include">
         </childnode>
-      </node>
-      <node id="475">
-        <label>QApplication</label>
-      </node>
-      <node id="478">
-        <label>QDebug</label>
-      </node>
-      <node id="479">
-        <label>pqxx/pqxx</label>
-      </node>
-      <node id="474">
-        <label>sstream</label>
-      </node>
-      <node id="483">
-        <label>QString</label>
-      </node>
-      <node id="480">
-        <label>pqxx/result</label>
+        <childnode refid="482" relation="include">
+        </childnode>
+        <childnode refid="483" relation="include">
+        </childnode>
       </node>
       <node id="477">
+        <label>QApplication</label>
+      </node>
+      <node id="480">
+        <label>QDebug</label>
+      </node>
+      <node id="481">
+        <label>pqxx/pqxx</label>
+      </node>
+      <node id="476">
+        <label>sstream</label>
+      </node>
+      <node id="485">
+        <label>QString</label>
+      </node>
+      <node id="482">
+        <label>pqxx/result</label>
+      </node>
+      <node id="479">
         <label>QException</label>
       </node>
-      <node id="470">
+      <node id="472">
         <label>viewjobs.h</label>
         <link refid="viewjobs_8h"/>
-        <childnode refid="471" relation="include">
-        </childnode>
-        <childnode refid="472" relation="include">
-        </childnode>
         <childnode refid="473" relation="include">
         </childnode>
-        <childnode refid="482" relation="include">
+        <childnode refid="474" relation="include">
+        </childnode>
+        <childnode refid="475" relation="include">
         </childnode>
         <childnode refid="484" relation="include">
         </childnode>
+        <childnode refid="486" relation="include">
+        </childnode>
       </node>
-      <node id="481">
+      <node id="483">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -136,29 +136,29 @@
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1ac78f48cc812a0348a233f33dc78a71cc" kindref="member">ViewJobs</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs" kindref="compound">ViewJobs</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_view_jobs" kindref="compound">ViewJobs</ref>();</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1af97593f0db01caee0febfe774a823e9c" kindref="member">getApplications</ref>();</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">getApplication</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>appID);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" kindref="member">setApplicationID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" kindref="member">setTitle</ref>(QString<sp/>newTitle);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" kindref="member">setCompany</ref>(QString<sp/>newCompany);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" kindref="member">setCityID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newTownID);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" kindref="member">setStatusID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newStatusID);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a7574794410eb40956f343976de97221f" kindref="member">setDate</ref>(QString<sp/>newDate);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" kindref="member">setMotivation</ref>(QString<sp/>newMotivation);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a086650882ad80acb4074cf697f8cddcb" kindref="member">getApplicationID</ref>();</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_view_jobs_1ae78f119d37c77a9e3e457ecfd78d7de3" kindref="member">getTitle</ref>();</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_view_jobs_1a88d7c0a7a79bc7a7e02b524587983bf8" kindref="member">getCompany</ref>();</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1adcafeca350b21a033aa630e042ee7947" kindref="member">getCityID</ref>();</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a91696fde9f0a663bae929390aac8324b" kindref="member">getStatusID</ref>();</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_view_jobs_1af046f9201cc6031e070b4f9b613a35f9" kindref="member">getDate</ref>();</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" kindref="member">getCityIDs</ref>();</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_view_jobs_1a238ec5365ef2c39baa97670769dfedca" kindref="member">getMotivation</ref>();</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" kindref="member">getStatusIDs</ref>();</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a5f75b45d28ce7f4a8050ce9ce0f44350" kindref="member">isChanged</ref>();</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a3cba868c6deadaf4b35c18982f7ec35e" kindref="member">setChanged</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>change);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a832503ca9eb4e4bf79c2fb48a59141aa" kindref="member">closeEvent</ref>(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getApplications();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getApplication(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>appID);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setApplicationID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTitle(QString<sp/>newTitle);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCompany(QString<sp/>newCompany);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCityID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newTownID);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStatusID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newStatusID);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDate(QString<sp/>newDate);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMotivation(QString<sp/>newMotivation);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getApplicationID();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getTitle();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCompany();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getCityID();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getStatusID();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getDate();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCityIDs();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getMotivation();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getStatusIDs();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isChanged();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setChanged(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>change);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>closeEvent(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>showEvent(QShowEvent<sp/>*)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="70"><highlight class="normal">signals:</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sigShowEvent();</highlight></codeline>

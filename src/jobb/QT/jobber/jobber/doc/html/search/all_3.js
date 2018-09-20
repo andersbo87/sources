@@ -4,7 +4,7 @@ var searchData=
   ['getapplicationid',['getApplicationID',['../class_view_jobs.html#a086650882ad80acb4074cf697f8cddcb',1,'ViewJobs']]],
   ['getapplications',['getApplications',['../class_view_jobs.html#af97593f0db01caee0febfe774a823e9c',1,'ViewJobs']]],
   ['getcities',['getCities',['../class_show_cities.html#a8026675035c0bce6dab846262e1da0c5',1,'ShowCities']]],
-  ['getcity',['getCity',['../class_show_cities.html#a7a03bcd5374073d6689aed90cc23ce5e',1,'ShowCities']]],
+  ['getcity',['getCity',['../class_show_cities.html#af191eeab72b3bdd74f0e710face98292',1,'ShowCities']]],
   ['getcityid',['getCityID',['../classpsql.html#af3462a12dc106e0ca8df4fa8fcf28436',1,'psql::getCityID(int applicationID)'],['../classpsql.html#a0c33b3f48064ba75abaa4b0b58eb1ccd',1,'psql::getCityID(string name)'],['../class_show_cities.html#ac81b38d6862643619d07f82fe12b5c02',1,'ShowCities::getCityID()'],['../class_view_jobs.html#adcafeca350b21a033aa630e042ee7947',1,'ViewJobs::getCityID()']]],
   ['getcityids',['getCityIDs',['../class_view_jobs.html#a6cf031afcc4a09dfca54044fdf8c4f7b',1,'ViewJobs']]],
   ['getcityname',['getCityName',['../class_new_city.html#a3be62538974fa100134d694546608877',1,'NewCity::getCityName()'],['../classpsql.html#a7acc18034ef60c8a1e69b0e1a15d8ab2',1,'psql::getCityName()'],['../class_show_cities.html#a3640b91c66939d0070c3dd6f5b9eb93c',1,'ShowCities::getCityName()'],['../class_spesific_jobs.html#a39390d9c54635a2dc60c80322a7b42ed',1,'SpesificJobs::getCityName()']]],

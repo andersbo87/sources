@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="newjob_8h" kind="file" language="C++">
     <compoundname>newjob.h</compoundname>
     <includes refid="psql_8h" local="yes">psql.h</includes>
@@ -11,47 +11,43 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="newjob_8cpp" local="yes">newjob.cpp</includedby>
     <incdepgraph>
-      <node id="203">
+      <node id="205">
         <label>QCloseEvent</label>
       </node>
-      <node id="205">
+      <node id="207">
         <label>QMessageBox</label>
       </node>
-      <node id="202">
+      <node id="204">
         <label>QMainWindow</label>
       </node>
-      <node id="194">
+      <node id="196">
         <label>QLinkedList</label>
       </node>
-      <node id="190">
+      <node id="192">
         <label>newjob.h</label>
         <link refid="newjob_8h"/>
-        <childnode refid="191" relation="include">
-        </childnode>
-        <childnode refid="200" relation="include">
+        <childnode refid="193" relation="include">
         </childnode>
         <childnode refid="202" relation="include">
-        </childnode>
-        <childnode refid="203" relation="include">
         </childnode>
         <childnode refid="204" relation="include">
         </childnode>
         <childnode refid="205" relation="include">
         </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
       </node>
-      <node id="200">
+      <node id="202">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="201" relation="include">
+        <childnode refid="203" relation="include">
         </childnode>
       </node>
-      <node id="191">
+      <node id="193">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="192" relation="include">
-        </childnode>
-        <childnode refid="193" relation="include">
-        </childnode>
         <childnode refid="194" relation="include">
         </childnode>
         <childnode refid="195" relation="include">
@@ -64,32 +60,36 @@
         </childnode>
         <childnode refid="199" relation="include">
         </childnode>
-      </node>
-      <node id="193">
-        <label>QApplication</label>
-      </node>
-      <node id="196">
-        <label>QDebug</label>
-      </node>
-      <node id="197">
-        <label>pqxx/pqxx</label>
-      </node>
-      <node id="192">
-        <label>sstream</label>
-      </node>
-      <node id="201">
-        <label>QString</label>
-      </node>
-      <node id="204">
-        <label>QPushButton</label>
-      </node>
-      <node id="198">
-        <label>pqxx/result</label>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
       </node>
       <node id="195">
-        <label>QException</label>
+        <label>QApplication</label>
+      </node>
+      <node id="198">
+        <label>QDebug</label>
       </node>
       <node id="199">
+        <label>pqxx/pqxx</label>
+      </node>
+      <node id="194">
+        <label>sstream</label>
+      </node>
+      <node id="203">
+        <label>QString</label>
+      </node>
+      <node id="206">
+        <label>QPushButton</label>
+      </node>
+      <node id="200">
+        <label>pqxx/result</label>
+      </node>
+      <node id="197">
+        <label>QException</label>
+      </node>
+      <node id="201">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -144,11 +144,11 @@
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_job_1a489279a9ec91bcac74d7dad65eb2f85a" kindref="member">NewJob</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_job" kindref="compound">NewJob</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_new_job" kindref="compound">NewJob</ref>();</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_new_job_1a84f6390f63ce01fb860b375f53f9c68d" kindref="member">closeEvent</ref>(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>closeEvent(QCloseEvent<sp/>*event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::NewJob<sp/>*ui;</highlight></codeline>

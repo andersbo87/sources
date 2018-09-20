@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="showcities_8h" kind="file" language="C++">
     <compoundname>showcities.h</compoundname>
     <includes local="no">QCloseEvent</includes>
@@ -10,31 +10,27 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="showcities_8cpp" local="yes">showcities.cpp</includedby>
     <incdepgraph>
-      <node id="297">
+      <node id="299">
         <label>QCloseEvent</label>
       </node>
-      <node id="310">
+      <node id="312">
         <label>QMessageBox</label>
       </node>
-      <node id="309">
+      <node id="311">
         <label>QMainWindow</label>
       </node>
-      <node id="301">
+      <node id="303">
         <label>QLinkedList</label>
       </node>
-      <node id="307">
+      <node id="309">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="308" relation="include">
+        <childnode refid="310" relation="include">
         </childnode>
       </node>
-      <node id="298">
+      <node id="300">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="299" relation="include">
-        </childnode>
-        <childnode refid="300" relation="include">
-        </childnode>
         <childnode refid="301" relation="include">
         </childnode>
         <childnode refid="302" relation="include">
@@ -47,43 +43,47 @@
         </childnode>
         <childnode refid="306" relation="include">
         </childnode>
+        <childnode refid="307" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
       </node>
-      <node id="300">
+      <node id="302">
         <label>QApplication</label>
       </node>
-      <node id="303">
+      <node id="305">
         <label>QDebug</label>
       </node>
-      <node id="304">
+      <node id="306">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="299">
+      <node id="301">
         <label>sstream</label>
       </node>
-      <node id="308">
+      <node id="310">
         <label>QString</label>
       </node>
-      <node id="296">
+      <node id="298">
         <label>showcities.h</label>
         <link refid="showcities_8h"/>
-        <childnode refid="297" relation="include">
+        <childnode refid="299" relation="include">
         </childnode>
-        <childnode refid="298" relation="include">
-        </childnode>
-        <childnode refid="307" relation="include">
+        <childnode refid="300" relation="include">
         </childnode>
         <childnode refid="309" relation="include">
         </childnode>
-        <childnode refid="310" relation="include">
+        <childnode refid="311" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
         </childnode>
       </node>
-      <node id="305">
+      <node id="307">
         <label>pqxx/result</label>
       </node>
-      <node id="302">
+      <node id="304">
         <label>QException</label>
       </node>
-      <node id="306">
+      <node id="308">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -136,24 +136,24 @@
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a71a514390bebd22b5e6ecbb6b731979a" kindref="member">ShowCities</ref>(QString<sp/>title,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_show_cities" kindref="compound">ShowCities</ref>(QString<sp/>title,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_show_cities" kindref="compound">ShowCities</ref>();</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" kindref="member">getCities</ref>();</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a7a03bcd5374073d6689aed90cc23ce5e" kindref="member">getCity</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityID);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" kindref="member">setCityID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" kindref="member">setCityName</ref>(QString<sp/>newName);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kindref="member">setCountryID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCities();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCity(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityName);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCityID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCityName(QString<sp/>newName);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCountryID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCountryName(QString<sp/>newName);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" kindref="member">getCityID</ref>();</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a8fa42e8a5b12579cd04ae2a8ee4a9370" kindref="member">getCountryIDs</ref>();</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>();</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_show_cities_1a3640b91c66939d0070c3dd6f5b9eb93c" kindref="member">getCityName</ref>();</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getCityID();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCountryIDs();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getCountryID();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCityName();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCountryName();</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"></highlight></codeline>
 <codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::ShowCities<sp/>*ui;</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*p;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>cityName,<sp/>countryName,<sp/>winTitle;<sp/></highlight><highlight class="comment">//<sp/>Tittelen<sp/>som<sp/>skal<sp/>brukes<sp/>i<sp/>meldingsbokser.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>oldCityName,<sp/>cityName,<sp/>countryName,<sp/>winTitle;<sp/></highlight><highlight class="comment">//<sp/>Tittelen<sp/>som<sp/>skal<sp/>brukes<sp/>i<sp/>meldingsbokser.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityID,<sp/>countryID,<sp/>lastID,<sp/>runs,<sp/>countries,<sp/>cities;<sp/></highlight><highlight class="comment">//<sp/>Countries:<sp/>antall<sp/>land,<sp/>cities:<sp/>antall<sp/>steder.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changed,<sp/>cityIDchanged;</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkChanges();</highlight></codeline>
@@ -163,21 +163,19 @@
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>showEvent(QShowEvent<sp/>*)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isNullOrWhitespace(QString<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>canSave();</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>comboboxCityIDChanged();</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>comboboxCountryIDChanged();</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>lineEditCityNameChanged();</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonFirstClicked();</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonPreviousClicked();</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonNextClicked();</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonLastClicked();</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonSaveClicked();</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonDeleteClicked();</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>windowLoaded();</highlight></codeline>
-<codeline lineno="85"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>SHOWCITIES_H</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>buildingList;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>comboboxCityIDChanged();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>comboboxCountryIDChanged();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>lineEditCityNameChanged();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonSaveClicked();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buttonDeleteClicked();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>windowLoaded();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buildComboboxCityList();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>SHOWCITIES_H</highlight></codeline>
     </programlisting>
     <location file="showcities.h"/>
   </compounddef>

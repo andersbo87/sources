@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="mainwindow_8h" kind="file" language="C++">
     <compoundname>mainwindow.h</compoundname>
     <includes refid="psql_8h" local="yes">psql.h</includes>
@@ -9,29 +9,25 @@
     <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <incdepgraph>
-      <node id="84">
+      <node id="86">
         <label>mainwindow.h</label>
         <link refid="mainwindow_8h"/>
-        <childnode refid="85" relation="include">
-        </childnode>
-        <childnode refid="94" relation="include">
-        </childnode>
-        <childnode refid="98" relation="include">
-        </childnode>
-      </node>
-      <node id="98">
-        <label>QMainWindow</label>
-      </node>
-      <node id="88">
-        <label>QLinkedList</label>
-      </node>
-      <node id="85">
-        <label>psql.h</label>
-        <link refid="psql_8h_source"/>
-        <childnode refid="86" relation="include">
-        </childnode>
         <childnode refid="87" relation="include">
         </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>QMainWindow</label>
+      </node>
+      <node id="90">
+        <label>QLinkedList</label>
+      </node>
+      <node id="87">
+        <label>psql.h</label>
+        <link refid="psql_8h_source"/>
         <childnode refid="88" relation="include">
         </childnode>
         <childnode refid="89" relation="include">
@@ -44,49 +40,53 @@
         </childnode>
         <childnode refid="93" relation="include">
         </childnode>
-      </node>
-      <node id="87">
-        <label>QApplication</label>
-      </node>
-      <node id="96">
-        <label>QDialog</label>
-      </node>
-      <node id="90">
-        <label>QDebug</label>
-      </node>
-      <node id="91">
-        <label>pqxx/pqxx</label>
-      </node>
-      <node id="95">
-        <label>QLineEdit</label>
-      </node>
-      <node id="86">
-        <label>sstream</label>
-      </node>
-      <node id="97">
-        <label>QPushButton</label>
-      </node>
-      <node id="92">
-        <label>pqxx/result</label>
-      </node>
-      <node id="89">
-        <label>QException</label>
-      </node>
-      <node id="94">
-        <label>connectpsql.h</label>
-        <link refid="connectpsql_8h_source"/>
-        <childnode refid="87" relation="include">
+        <childnode refid="94" relation="include">
         </childnode>
         <childnode refid="95" relation="include">
         </childnode>
-        <childnode refid="96" relation="include">
+      </node>
+      <node id="89">
+        <label>QApplication</label>
+      </node>
+      <node id="98">
+        <label>QDialog</label>
+      </node>
+      <node id="92">
+        <label>QDebug</label>
+      </node>
+      <node id="93">
+        <label>pqxx/pqxx</label>
+      </node>
+      <node id="97">
+        <label>QLineEdit</label>
+      </node>
+      <node id="88">
+        <label>sstream</label>
+      </node>
+      <node id="99">
+        <label>QPushButton</label>
+      </node>
+      <node id="94">
+        <label>pqxx/result</label>
+      </node>
+      <node id="91">
+        <label>QException</label>
+      </node>
+      <node id="96">
+        <label>connectpsql.h</label>
+        <link refid="connectpsql_8h_source"/>
+        <childnode refid="89" relation="include">
         </childnode>
         <childnode refid="97" relation="include">
         </childnode>
-        <childnode refid="85" relation="include">
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
         </childnode>
       </node>
-      <node id="93">
+      <node id="95">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -138,7 +138,7 @@
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="46" refid="class_main_window_1af6a0a464b2432a13ece4953de0e66441" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql" kindref="compound">connectPsql</ref><sp/>*<ref refid="class_main_window_1af6a0a464b2432a13ece4953de0e66441" kindref="member">cp</ref>;</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_main_window_1a8b244be8b7b7db1b08de2a2acb9409db" kindref="member">MainWindow</ref>(QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_main_window" kindref="compound">MainWindow</ref>(QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_main_window" kindref="compound">MainWindow</ref>();</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
@@ -155,12 +155,13 @@
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btn_ShowStatuses_Click();</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btn_NewCountry_Click();</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btn_ShowCountries_Click();</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>on_btnSpecificJobs_clicked();</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btnStatistic_Click();</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>windowLoaded();</highlight></codeline>
-<codeline lineno="72"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>MAINWINDOW_H</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btn_SaveFile_Click();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>on_btnSpecificJobs_clicked();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>btnStatistic_Click();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>windowLoaded();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>MAINWINDOW_H</highlight></codeline>
     </programlisting>
     <location file="mainwindow.h"/>
   </compounddef>
