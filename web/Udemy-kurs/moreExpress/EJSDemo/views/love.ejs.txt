@@ -1,7 +1,0 @@
-﻿<h1>Du forelsket deg i <%= thingVar %></h1>
-
-<% if(thingVar.toLowerCase() === "Rusty")%>
-	<p>Fryktelig valg! Hva er så bra med en hund?
-<%}else{%><p>Godt valg!</p><%}%> 
-
-<p>PS: Dette er filen love.ejs!</p>
