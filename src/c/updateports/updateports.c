@@ -25,6 +25,8 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#define _WITH_GETLINE
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <signal.h>
@@ -420,7 +422,9 @@ void listUpdates()
   if(Search_in_File("/.availUpdates.txt", "       0") == 0) {
     fprintf(stdout, "There are no updates available.\n");
     removeFile("/.availUpdates.txt");
-    exitApp(0);
+    if(rb)
+      askReboot();
+    exitApp(0); // Velger å ikke ta denne kodesnutten i en else, siden brukeren kan svare nei på spørsmål om omstart. 
   }
   removeFile("/.availUpdates.txt");
   fprintf(stdout, "The following ports will be updated:\n");
