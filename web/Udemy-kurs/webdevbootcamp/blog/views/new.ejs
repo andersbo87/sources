@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+	<div class="ui huge header">Nytt blogginnlegg</div>
+	<form class="ui form" action="/blogs" method="POST">
+		<div class="field">
+			<label>Tittel</label>
+			<input type="text" name="blog[title]" placeholder="Bloggtittel">			
+		</div>
+		<div class="field">
+			<label>Bilde (URL)</label>
+			<input type="text" name="blog[image]" placeholder="URL til bilde">
+		</div>
+		<div class="field">			
+			<label>Innhold</label>
+			<textarea name="blog[body]" placeholder="Innhold"></textarea>
+		</div>
+		<input type="submit" class="ui positive basic button" value="Send" name="btnSubmit">
+
+	</form>
+</div>
+<% include ./partials/footer %>

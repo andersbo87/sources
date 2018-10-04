@@ -1,0 +1,81 @@
+body {
+	background-color: #232323;
+	font-family: Arial, Verdana, sans-serif;
+	margin: 0;
+}
+
+.square {
+	width: 30%;
+	background: purple;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.66%;
+	border-radius: 15%;
+	transition: background-color 0.7s;
+	-webkit-transition: background-color 0.7s;
+	-moz-transition: background-color 0.7s;
+}
+
+#container {
+	margin: 20px auto;
+	max-width: 600px;
+}
+
+h1 {
+	color: #FFFFFF;
+	line-height: 1.1;
+	padding:20px 0;
+	text-align: center;
+	background-color: steelblue;
+	margin: 0;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+#message {
+	display: inline-block;
+	width: 20%;
+}
+
+#stripe {
+	background-color: #FFFFFF;
+	height: 30px;
+	text-align: center;
+}
+
+#colourDisplay {
+	font-size: 200%;
+}
+
+.selected {
+	color: #FFFFFF;
+	background-color: steelblue;
+}
+
+button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: steelblue;
+	letter-spacing: 1px;
+	font-size: inherit;
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	outline: none;
+}
+
+/*button::-moz-focus-inner tilsvarer outline: none over.
+Av én eller annen merkelig grunn fungerer ikke det i Firefox.
+Bruker derfor button::-moz-focus-inner i tillegg
+slik at effekten blir den samme i Firefox.*/
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button:hover {
+	color: #FFFFFF;
+	background-color: steelblue;
+}

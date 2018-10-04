@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ulike typer inndata</title>
+</head>
+<body>
+
+	<p>Foretrekker du katt eller hund?</p>
+	<form>
+		<label for="dogs">Dogs: </label>
+		<input type="radio" id="dogs" name="petChoise" value="dog">
+		<label for="cats">Cats: </label>
+		<input type="radio" id="cats" name="petChoise" value="cat">
+
+		<p>Velg din favorittfarge</p>
+		<select name="farge">
+			<option>Rød</option>
+			<option>Oransj</option>
+			<option>Gul</option>
+		</select>
+		<p>
+			Hvilket humør er du i?
+		</p>
+		<select name="humør">
+			<option value="glad">:)</option>
+			<option value="nøytral">:|</option>
+			<option value="trist">:(</option>
+		</select>
+		<textarea name="tekst" rows="10" cols="15"></textarea>
+
+		<button>Kjør!</button>
+	</form>
+</body>
+</html>
