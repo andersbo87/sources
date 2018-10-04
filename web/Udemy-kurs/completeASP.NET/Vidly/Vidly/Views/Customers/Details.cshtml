@@ -1,0 +1,16 @@
+﻿@model Vidly.Models.Customer
+@{
+    ViewBag.Title = Model.name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@Model.name</h2>
+
+<ul>
+    <li>Medlemskapstype: @Model.membershipType.membershipName</li>
+    @if(Model.birthday.HasValue)
+    {
+        <li>Fødselsdag: @Model.birthday</li>
+    }
+</ul>
+
+
