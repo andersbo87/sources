@@ -287,7 +287,6 @@ namespace JobbWPF
                     string filename = dlg.FileName;
                     var database = "jobber";
                     var arguments = String.Format(@" -h localhost -d{0} -U{1} -f {2} -w", database, psql.GetUsername(), filename);
-                    MessageBox.Show(arguments);
                     Process process = new Process();
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.EnvironmentVariables["PGPASSWORD"] = psql.GetPassword();

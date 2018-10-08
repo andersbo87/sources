@@ -14,14 +14,10 @@
         <Label Margin="10,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Land" />
 
         <!--Dynamiske elementer-->
-        <ComboBox Name="comboBoxTownID" Margin="80,35" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="comboBoxTownID_SelectionChanged" />
+        <ComboBox x:Name="comboBoxTownName" Margin="80,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="comboBoxTownName_SelectionChanged" Width="140" />
         <TextBox Name="textBoxTownName" Margin="80,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" TextChanged="textBoxTownName_TextChanged" />
         <ComboBox Name="comboBoxCountry" Margin="80,95,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="comboBoxCountry_SelectionChanged" />
-        <Button Name="btnFirst" Margin="10,124,0,0" Content="&lt;&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnFirst_Click" IsEnabled="False" ToolTip="Første treff" />
-        <Button Name="btnPrev" Margin="40,124,0,0" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnPrev_Click" IsEnabled="False" ToolTip="Forrige treff" />
         <Button Name="btnDelete" Margin="70,124,0,0" Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnDelete_Click" ToolTip="Slett" />
         <Button Name="btnUpdate" Margin="100,124,0,0" Content="O" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" IsEnabled="False" Click="btnUpdate_Click" ToolTip="Lagre endringer/Oppdater databasen" />
-        <Button Name="btnNext" Content="&gt;" Margin="130,124,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnNext_Click" ToolTip="Neste treff" />
-        <Button Name="btnLast" Content="&gt;&gt;" Margin="160,124,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Click="btnLast_Click" ToolTip="Siste treff" />
     </Grid>
 </Window>

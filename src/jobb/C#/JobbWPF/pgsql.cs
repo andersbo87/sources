@@ -1436,7 +1436,7 @@ namespace JobbWPF
         /// </summary>
         /// <param name="index">The city/town ID.</param>
         /// <returns>A list with all information about the city.</returns>
-        public List<string> GetCities(int index)
+        public List<string> GetCities(string name)
         {
             try
             {
@@ -1444,7 +1444,7 @@ namespace JobbWPF
                 List<string> data = new List<string>();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "SELECT * FROM view_sted WHERE stedid = " + index;
+                cmd.CommandText = "SELECT * FROM view_sted WHERE stedsnavn = '" + name + "'";
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -1593,6 +1593,20 @@ namespace JobbWPF
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM view_soknad WHERE soknadid=" + index;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+                ans = reader.GetInt32(0);
+            conn.Close();
+            return ans;
+        }
+
+        public int getCountryID(int cityid)
+        {
+            int ans = 0;
+            Init();
+            cmd = new NpgsqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT landid FROM sted WHERE stedid=" + cityid;
             reader = cmd.ExecuteReader();
             while (reader.Read())
                 ans = reader.GetInt32(0);
@@ -1981,16 +1995,16 @@ namespace JobbWPF
         /// <summary>
         /// Updates a town that already exists in the database.
         /// </summary>
-        /// <param name="townID">The ID of the town to be updated.</param>
+        /// <param name="oldTownName">The old name of the town to be updated.</param>
         /// <param name="newTownName">The new name of the town/city.</param>
         /// <returns></returns>
-        public bool updateTown(int townID, string newTownName, int newCountryID)
+        public bool updateTown(string oldTownName, string newTownName, int newCountryID)
         {
             try
             {
                 Init();
                 cmd.Connection = conn;
-                cmd.CommandText = "UPDATE sted SET stedsnavn='" + newTownName + "', landid=" +newCountryID + " where stedid=" + townID + ";";
+                cmd.CommandText = "UPDATE sted SET stedsnavn='" + newTownName + "', landid=" +newCountryID + " where stedsnavn='" + oldTownName + "';";
                 cmd.ExecuteNonQuery();
             }
             catch (NpgsqlOperationInProgressException noipe)
@@ -2087,10 +2101,10 @@ namespace JobbWPF
                 cmd.CommandText = sqlQuery;
                 using (var rdr = cmd.ExecuteReader())
                 {
-    while (rdr.Read())
-    {
-        data.Add(rdr.GetString(index));
-    }
+                    while (rdr.Read())
+                    {
+                        data.Add(rdr.GetString(index));
+                    }
                 }
                 return data;
             }

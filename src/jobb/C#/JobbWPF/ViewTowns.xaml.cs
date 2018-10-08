@@ -21,12 +21,14 @@ namespace JobbWPF
     /// </summary>
     public partial class ViewTowns : Window
     {
-        private string title, townName;
+        private string title, townName, oldTownName;
         private const string table = "sted", primaryKey = "stedid";
         private bool opening = false, textChanged = false;
-        private int townID, max, c, countryID;
+        private int townID, newID, countryID, countries;
         private MainWindow mw = App.mw;
         private pgsql p;
+        private bool isUpdating;
+
         public ViewTowns(string newTitle)
         {
             title = newTitle;
@@ -81,7 +83,9 @@ namespace JobbWPF
         }
         private bool canSave()
         {
-            if (String.IsNullOrWhiteSpace(textBoxTownName.Text))
+            if (String.IsNullOrWhiteSpace(comboBoxTownName.Text))
+                return false;
+            if (String.Compare(getTownName(), comboBoxTownName.Text) == 0 && townID == newID)
                 return false;
             return true;
         }
@@ -89,9 +93,16 @@ namespace JobbWPF
         {
             try
             {
-                List<string> townData = p.GetCities(index);
-                textBoxTownName.Text = townData.ElementAt(1);
-                comboBoxTownID.Text = index.ToString();
+                //comboBoxTownName.Text = index.ToString();
+                comboBoxTownName.Text = p.getCityName(index);
+                comboBoxCountry.Text = p.getCountryID(index).ToString();
+                textBoxTownName.Text = p.getCityName(index);
+                int countryID = Int32.Parse(comboBoxCountry.Text);
+                string townName = textBoxTownName.Text;
+                setTownID(p.GetCityID(comboBoxTownName.SelectedValue.ToString()));
+                setCountryID(Int32.Parse(comboBoxCountry.Text));
+                setTownName(textBoxTownName.Text);
+                setChanged(false);
                 return true;
             }
             catch (InvalidOperationException)
@@ -112,8 +123,9 @@ namespace JobbWPF
                 Close();
                 return false;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
         }
@@ -122,28 +134,6 @@ namespace JobbWPF
             if (getData(idx))
             {
                 fillCountryList(idx);
-                if (idx == Int32.Parse(comboBoxTownID.Items[0].ToString()))
-                {
-                    btnPrev.IsEnabled = false;
-                    btnFirst.IsEnabled = false;
-                    btnNext.IsEnabled = true;
-                    btnLast.IsEnabled = true;
-                }
-                else if (idx == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
-                {
-                    btnNext.IsEnabled = false;
-                    btnLast.IsEnabled = false;
-                    btnFirst.IsEnabled = true;
-                    btnPrev.IsEnabled = true;
-                }
-                else
-                {
-                    // Mulig de fire neste linjene er unødige:
-                    btnNext.IsEnabled = true;
-                    btnLast.IsEnabled = true;
-                    btnPrev.IsEnabled = true;
-                    btnFirst.IsEnabled = true;
-                }
                 setTownID(idx);
                 setChanged(false);
             }
@@ -169,19 +159,57 @@ namespace JobbWPF
             
         }
 
-        private void btnFirst_Click(object sender, RoutedEventArgs e)
+        bool handleTownSelection = true;
+        private void comboBoxTownName_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            comboBoxTownID.SelectedIndex = 0;
-        }
-
-        private void btnPrev_Click(object sender, RoutedEventArgs e)
-        {
-            int currentApp = comboBoxTownID.SelectedIndex - 1, counter = 1;
-            while (comboBoxTownID.SelectedIndex - counter == -1)
+            string currVal = comboBoxTownName.SelectedValue.ToString();
+                
+            if (handleTownSelection)
             {
-                counter++;
+                if (isChanged() && canSave())
+                {
+                    handleTownSelection = false;
+                    // Spør om endringene skal lagres
+                    MessageBoxResult msr = MessageBox.Show("Du har gjort en endring for stedID=" + getTownID() + ". Vil du lagre endringa?", title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                    if (msr == MessageBoxResult.Yes)
+                    {
+                        // Lagre endringa og gå videre.
+                        MessageBox.Show("Nytt stedsnavn: " + getTownName() + "\nGammelt navn: " + comboBoxTownName.Text + "\nStedID: " + getCountryID());
+                        if (p.updateTown(comboBoxTownName.Text, getTownName(), getCountryID()))
+                        {
+                            MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + "\nStedsnavn: " + getTownName() + "\nLandID: " + getCountryID(), title, MessageBoxButton.OK, MessageBoxImage.Information);
+                            ReBuildTownList();
+                            setChanged(false);
+                        }
+                        else // Dersom lagringsforsøket gikk galt:
+                        {
+                            MessageBoxResult msgUpdateFailed = MessageBox.Show("Endringene kunne ikke lagres. Feilmelding: " + p.getError() + " Vil du forkaste endringene og gå videre?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            if (msgUpdateFailed == MessageBoxResult.Yes)
+                            {
+                                setChanged(false);
+                            }
+                        }
+                    }
+                    else if (msr == MessageBoxResult.No)
+                    {
+                        // Fortsett uten å lagre.
+                        setChanged(false);
+                    }
+                    else
+                    {
+                        comboBoxTownName.SelectedIndex = comboBoxTownName.Items.IndexOf(oldTownName);
+                        return;
+                    }
+                }
             }
-            comboBoxTownID.SelectedIndex = comboBoxTownID.SelectedIndex - counter;
+            handleTownSelection = true;
+            if (!isUpdating)
+            {
+                int currID = p.GetCityID(comboBoxTownName.SelectedItem.ToString());
+                textChanged = false;
+                getData(currID);
+                oldTownName = comboBoxTownName.Text;
+            }
         }
 
         private void fillCountryList(int index)
@@ -212,13 +240,30 @@ namespace JobbWPF
             comboBoxCountry.Text = p.GetCountryName(p.GetCityCountryID(index));
         }
 
+        private void getCountryIDs()
+        {
+            try
+            {
+                List<string> list = p.GetData("SELECT landid FROM land ORDER BY landid ASC", 0);
+                for(int i = 0; i < list.Count; i++)
+                {
+                    comboBoxCountry.Items.Add(list.ElementAt(i));
+                    countries++;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Noe gikk galt: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
                 opening = true;
-                //reopen = false;
-                List<string> l = p.GetData("SELECT stedid FROM sted ORDER BY stedid asc", 0);
+                List<string> l = p.GetData("SELECT stedsnavn FROM sted ORDER BY stedsnavn asc", 0);
                 if (l == null)
                 {
                     MessageBox.Show("Kunne ikke opprette liste over registrerte steder.", Title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -231,27 +276,14 @@ namespace JobbWPF
                 }
                 else
                 {
-                    int i = 0;
-                    while (i < l.Count)
-                    {
-                        comboBoxTownID.Items.Add(l.ElementAt(i));
-                        i++;
-                    }
-                    max = Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString());
-                    if (c == 0)
-                    {
-                        getData(Int32.Parse(comboBoxTownID.Items[0].ToString()));
-                        c++;
-                    }
-                    if (Int32.Parse(comboBoxTownID.Text) == Int32.Parse(comboBoxTownID.Items[comboBoxTownID.Items.Count - 1].ToString()))
-                    {
-                        btnNext.IsEnabled = false;
-                        btnLast.IsEnabled = false;
-                    }
-                    fillCountryList(Int32.Parse(comboBoxTownID.Items[0].ToString()));
+                    GetCitites();
+                    getCountryIDs();
                     opening = false;
-                    setTownID(1);
+                    //setTownID(1);
                     setChanged(false);
+                    comboBoxTownName.SelectedIndex = 0;
+                    setTownID(p.GetCityID(comboBoxTownName.SelectedValue.ToString()));
+                    oldTownName = comboBoxTownName.SelectedValue.ToString();
                 }
             }
             catch (TimeoutException te)
@@ -274,7 +306,7 @@ namespace JobbWPF
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
-            int newidx = Int32.Parse(comboBoxTownID.SelectedValue.ToString());
+            //int newidx = Int32.Parse(comboBoxTownID.SelectedValue.ToString());
             if (isChanged() && canSave())
             {
                 // Spør om endringene skal lagres
@@ -282,7 +314,8 @@ namespace JobbWPF
                 if (msr == MessageBoxResult.Yes)
                 {
                     // Lagre endringa og gå videre.
-                    if (p.updateTown(getTownID(), getTownName(), getCountryID()))
+                    MessageBox.Show("Nytt stedsnavn: " + comboBoxTownName.Text + "\nGammelt navn: " + getTownName() + "\nStedID: " + getCountryID());
+                    if (p.updateTown(comboBoxTownName.Text, getTownName(), getCountryID()))
                     {
                         MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + "\nStedsnavn: " + getTownName() + "\nLandID: " + getCountryID(), title, MessageBoxButton.OK, MessageBoxImage.Information);
                         e.Cancel = false;
@@ -308,15 +341,44 @@ namespace JobbWPF
                 e.Cancel = false;
         }
 
+        private void ReBuildTownList()
+        {
+            try
+            {
+                isUpdating = true;
+                comboBoxTownName.Items.Clear();
+                isUpdating = false;
+                GetCitites();
+                comboBoxTownName.SelectedIndex = comboBoxTownName.Items.IndexOf(textBoxTownName.Text);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void GetCitites()
+        {
+            List<string> l = p.GetData("SELECT stedsnavn FROM sted ORDER BY stedsnavn asc", 0);
+            int i = 0;
+            while (i < l.Count)
+            {
+                comboBoxTownName.Items.Add(l.ElementAt(i));
+                i++;
+            }
+        }
+
         private void comboBoxCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                setCountryID(p.getCountryID(comboBoxCountry.SelectedItem.ToString()));
+                newID = int.Parse(comboBoxCountry.SelectedItem.ToString());
+                setCountryID(newID);
                 setChanged(canSave());
             }
-            catch(ArgumentException)
+            catch(ArgumentException ae)
             {
+                MessageBox.Show(ae.ToString());
                 setChanged(false);
             }
             catch(NoSuchElementException nse)
@@ -331,7 +393,7 @@ namespace JobbWPF
             MessageBoxResult del = MessageBox.Show("Er du sikker på at du vil fjerne stedid " + getTownID() + " og tilhørende data fra databasen? Dette kan ikke angres!", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (del == MessageBoxResult.Yes)
             {
-                if (p.DeleteItem(table, primaryKey, int.Parse(comboBoxTownID.Text)))
+                if (p.DeleteItem(table, primaryKey, getTownID()))
                 {
                     MessageBox.Show("Stedet med ID " + getTownID() + " er nå fjernet fra databasen. Vinduet vil nå lukkes og gjenåpnes.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     Close();
@@ -339,15 +401,16 @@ namespace JobbWPF
                     vt1.Show();
                 }
                 else
-                    MessageBox.Show("Kunne ikke fjerne stedet fra databasen. Feilmeldinga lyder som følger: " + p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Kunne ikke fjerne stedet fra databasen. Det kan hende at stedet du vil slette, brukes av andre elementer i databasen som for eksempel en søknad. Feilmeldinga lyder som følger: " + p.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (p.updateTown(getTownID(), getTownName(), getCountryID()))
+            if (p.updateTown(comboBoxTownName.Text, getTownName(), getCountryID()))
             {
                 MessageBox.Show("Endringen ble lagret i databasen. Nye verdier for stedID " + getTownID() + ":\nStedsnavn: " + getTownName() + "\nLandID: " + getCountryID(), title, MessageBoxButton.OK, MessageBoxImage.Information);
+                ReBuildTownList();
                 setChanged(false);
             }
             else
@@ -356,24 +419,7 @@ namespace JobbWPF
             }
         }
 
-        private void btnNext_Click(object sender, RoutedEventArgs e)
-        {
-            btnFirst.IsEnabled = true;
-            btnPrev.IsEnabled = true;
-            int currentApp = comboBoxTownID.SelectedIndex + 1, counter = 1;
-            while (comboBoxTownID.SelectedIndex + counter == -1)
-            {
-                counter++;
-            }
-            comboBoxTownID.SelectedIndex = comboBoxTownID.SelectedIndex + counter;
-        }
-
-        private void btnLast_Click(object sender, RoutedEventArgs e)
-        {
-            comboBoxTownID.SelectedIndex = comboBoxTownID.Items.Count - 1;
-        }
-
-        private void comboBoxTownID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void comboBoxTownID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
@@ -418,6 +464,6 @@ namespace JobbWPF
                 MessageBox.Show(ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
-        }
+        }*/
     }
 }
