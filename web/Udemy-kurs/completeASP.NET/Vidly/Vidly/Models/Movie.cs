@@ -11,12 +11,11 @@ namespace Vidly.Models
         [Display(Name = "Tittel")]
         public string name { get; set; }
         
-        [Display(Name = "Sjanger")]
-        public Genre genre { get; set; }
+        public GenreType genreType { get; set; }
 
         [Required(ErrorMessage = "Vennligst angi en sjanger.")]
         [Display(Name = "Sjanger")]
-        public byte genreId { get; set; }
+        public byte genreTypeId { get; set; }
 
         [Required(ErrorMessage = "Du må angi en dato.")]
         [Display(Name = "Utgivelsesdato")]
@@ -28,5 +27,7 @@ namespace Vidly.Models
         [Display(Name = "Antall eksemplarer på lager")]
         [Range(1,20)]
         public byte numberInStock { get; set; }
+
+        public byte numberAvailable { get; set; }
     }
 }

@@ -68,8 +68,12 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            List<Customer> customers = _context.customers.Include(c => c.membershipType).ToList();
-            return View(customers);
+            //List<Customer> customers = _context.customers.Include(c => c.membershipType).ToList();
+            if (User.IsInRole(RoleName.canManageMovies))
+                return View("List");
+
+            return View("ReadOnlyList");
+            //return View();
         }
         public ActionResult Details(int id)
         {

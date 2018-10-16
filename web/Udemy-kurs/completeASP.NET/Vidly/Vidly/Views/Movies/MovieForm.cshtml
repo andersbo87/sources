@@ -7,7 +7,7 @@
 <h2>@Model.title</h2>
 @using (Html.BeginForm("Save", "Movies"))
 {
-    @Html.ValidationSummary(true, "Vennligst rett følgende feil:")
+    @Html.ValidationSummary(false, "Vennligst rett følgende feil:")
     <div class="form-group">
         @Html.LabelFor(m => m.movie.name)
         @Html.TextBoxFor(m => m.movie.name, new { @class = "form-control" })
@@ -15,17 +15,17 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.movie.releaseDate)
-        @Html.TextBoxFor(x => x.movie.releaseDate, "{0:MMM yyyy}", new { Value = "1.1.0001", @class = "form-control" })
+        @Html.TextBoxFor(m => m.movie.releaseDate, "{0:MMM yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.movie.releaseDate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.movie.genreId)
-        @Html.DropDownListFor(m => m.movie.genreId, new SelectList(Model.genres, "id", "genereName"), "Velg fra lista under", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.movie.genreId)
+        @Html.LabelFor(m => m.movie.genreTypeId)
+        @Html.DropDownListFor(m => m.movie.genreTypeId, new SelectList(Model.genreType, "id", "genreName"), "Velg fra lista under", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.movie.genreTypeId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.movie.numberInStock)
-        @Html.TextBoxFor(m => m.movie.numberInStock, new { @class = "form-control", Value = 0, @type = "number" })
+        @Html.TextBoxFor(m => m.movie.numberInStock, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.movie.numberInStock)
     </div>
     @Html.HiddenFor(m => m.movie.id)

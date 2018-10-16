@@ -23,13 +23,16 @@ namespace Vidly.Controllers
         }
         public ViewResult Index()
         {
-            var movies = _context.movies.Include(m => m.genre).ToList();
-            return View(movies);
+            //var movies = _context.movies.Include(m => m.genreType).ToList();
+            if(User.IsInRole(RoleName.canManageMovies))
+                return View("List");
+
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
         {
-            var movie = _context.movies.Include(m => m.genre).SingleOrDefault(m => m.id == id);
+            var movie = _context.movies.Include(m => m.genreType).SingleOrDefault(m => m.id == id);
             if (movie == null)
                 return HttpNotFound();
 
@@ -45,13 +48,16 @@ namespace Vidly.Controllers
             };
         }
 
+        [Authorize(Roles = RoleName.canManageMovies)]
         public ActionResult New()
         {
-            List<Genre> genres = _context.genres.ToList();
-            Movie movie = new Movie { releaseDate = DateTime.Now };
+            List<GenreType> genreType = _context.genreType.ToList();
+            
             MovieFormViewModel viewModel = new MovieFormViewModel
             {
-                genres = genres
+                //movie = new Movie { releaseDate = DateTime.Now },
+                movie = new Movie(),
+                genreType = genreType
             };
             return View("MovieForm", viewModel);
         }
@@ -59,13 +65,15 @@ namespace Vidly.Controllers
         // Følgende funksjon skal kun aktiveres via en POST request:
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.canManageMovies)]
         public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new MovieFormViewModel(movie)
+                var viewModel = new MovieFormViewModel()
                 {
-                    genres = _context.genres.ToList()
+                    movie = movie,
+                    genreType = _context.genreType.ToList()
                 };
 
                 return View("MovieForm", viewModel);
@@ -79,7 +87,8 @@ namespace Vidly.Controllers
             {
                 Movie existingMovie = _context.movies.Single(m => m.id == movie.id);
                 existingMovie.name = movie.name;
-                existingMovie.genreId = movie.genreId;
+                existingMovie.genreTypeId = movie.genreTypeId;
+                existingMovie.genreType = movie.genreType;
                 existingMovie.releaseDate = movie.releaseDate;
                 existingMovie.numberInStock = movie.numberInStock;
             }
@@ -95,16 +104,17 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Movies");
         }
 
+        [Authorize(Roles = RoleName.canManageMovies)]
         public ActionResult Edit(int id)
         {
             Movie movie = _context.movies.SingleOrDefault(c => c.id == id);
             if (movie == null)
                 return HttpNotFound();
 
-            MovieFormViewModel viewModel = new MovieFormViewModel(movie)
+            MovieFormViewModel viewModel = new MovieFormViewModel()
             {
                 movie = movie,
-                genres = _context.genres.ToList()
+                genreType = _context.genreType.ToList()
             };
 
             return View("MovieForm", viewModel);

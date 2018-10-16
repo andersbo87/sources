@@ -8,9 +8,17 @@ namespace Vidly.Models.ViewModels
 {
     public class MovieFormViewModel
     {
-        public IEnumerable<Genre> genres { get; set; }
+        public IEnumerable<GenreType> genreType { get; set; }
         public Movie movie { get; set; }
-        public int? id { get; set; }
+        public string title
+        {
+            get
+            {
+                return movie.id != 0 ? "Rediger film" : "Ny film";
+            }
+        }
+        //        public Movie movie { get; set; }
+        /*public int? id { get; set; }
 
         
         [Required]
@@ -19,28 +27,23 @@ namespace Vidly.Models.ViewModels
 
         [Display(Name = "Sjanger")]
         [Required]
-        public byte? genreId { get; set; }
+        public byte genreId { get; set; }
 
         [Display(Name = "Utgivelsesdato")]
         [Required]
-        public DateTime releaseDate { get; set; }
+        public DateTime? releaseDate { get; set; }
 
         [Display(Name = "Antall på lager")]
+        [Range(1,20)]
         [Required]
         public byte? numbersInStock { get; set; }
 
-        public string title
-        {
-            get
-            {
-                return id != 0 ? "Rediger film" : "Ny film";
-            }
-        }
+        
         
         public MovieFormViewModel()
         {
             id = 0;
-            numbersInStock = 0;
+            //numbersInStock = 0;
         }
         public MovieFormViewModel(Movie movie)
         {
@@ -49,6 +52,6 @@ namespace Vidly.Models.ViewModels
             genreId = movie.genreId;
             releaseDate = movie.releaseDate;
             numbersInStock = movie.numberInStock;
-        }
+        }*/
     }
 }
