@@ -16,7 +16,7 @@
         <Button Content="Vis alle statuser" HorizontalAlignment="Left" Margin="105,60,0,0" VerticalAlignment="Top" Width="90" Name="btn_ViewStatuses" Click="btn_ViewStatuses_Click"/>
         <Button Content="Vis alle steder" HorizontalAlignment="Left" Margin="105,85,0,0" VerticalAlignment="Top" Width="90" Name="btn_ViewTowns" Click="btn_ViewTowns_Click"/>
         <Button Content="Vis statistikk" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="90" Name="btn_Statistics" Click="btn_Statistics_Click"></Button>
-        <Button Content="Vis spesifikke jobber" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="120" Name="btn_ViewSpecificApplications" Click="btn_ViewSpecificApplications_Click"/>
+        <Button Content="Avansert søk" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="90" Name="btn_ViewSpecificApplications" Click="btn_ViewSpecificApplications_Click"/>
         <Button Content="Lagre SQL-fil" HorizontalAlignment="Left" Margin="105,110,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.723,0.502" Name="btn_SaveFile" Click="btn_SaveFile_Click"/>
 
     </Grid>
