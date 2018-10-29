@@ -1385,7 +1385,10 @@ namespace JobbWPF
                 data.Add(reader.GetString(6)); // StatusID
                 data.Add(reader.GetString(7)); // Status
                 data.Add(reader.GetString(8)); // Soknadsfrist
-                data.Add(reader.GetString(9)); // Motivasjon
+                if (!reader.IsDBNull(9))
+                    data.Add(reader.GetString(9)); // Motivasjon
+                else
+                    data.Add("");
             }
             conn.Close();
             return data;
@@ -1810,18 +1813,26 @@ namespace JobbWPF
 
         public string getMotivation(int idx)
         {
-            string res = "";
-            Init();
-            cmd = new NpgsqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "SELECT motivasjon from view_soknad WHERE soknadid=" + idx;
-            reader = cmd.ExecuteReader();
-            while(reader.Read())
+            try
             {
-                res = reader.GetString(0);
+                string res = "";
+                Init();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT motivasjon from view_soknad WHERE soknadid=" + idx;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    res = reader.GetString(0);
+                }
+                conn.Close();
+                return res;
             }
-            conn.Close();
-            return res;
+            catch(Exception)
+            {
+                conn.Close();
+                return "";
+            }
         }
 
         /// <summary>
