@@ -1416,8 +1416,12 @@ QString psql::getMotivation(int applicationID)
         ostringstream oss;
         oss << statement << applicationID;
         pqxx::result R(N.exec(oss.str()));
-        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
-            res = QString::fromUtf8(c[0].as<string>().c_str());
+        if(R.empty())
+            return "";
+        else {
+            for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
+                res = QString::fromUtf8(c[0].as<string>().c_str());
+            }
         }
         oss.clear();
         C.disconnect();
@@ -1427,7 +1431,7 @@ QString psql::getMotivation(int applicationID)
     {
         setError(e.what());
         qDebug() << e.what();
-        throw;
+        return "";
     }
 }
 

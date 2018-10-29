@@ -751,16 +751,16 @@ void ViewJobs::getApplication(int appID)
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
+        msg.setWindowTitle("En feil har oppstått - " +winTitle);
         msg.setText(iaex.what());
         msg.exec();
     }
-    catch(std::exception &e)
+    /*catch(std::exception &e)
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
+        msg.setWindowTitle("Feil - " + winTitle);
+        msg.setText(+ e.what());
         msg.exec();
-    }
+    }*/
 }
