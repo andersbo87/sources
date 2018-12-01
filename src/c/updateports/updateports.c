@@ -112,6 +112,9 @@ void exitApp(int status)
     else
       syslog(LOG_ERR, "One or more errors occurred while running %s on %s. Returned error code: %d\n", prog_name, getOS(), status);
   }
+  if(rb) {
+    askReboot();
+  }
   exit(status);
 }
 
@@ -1244,10 +1247,10 @@ int updateDarwin()
 void askReboot()
 {
   if(strcmp(getOS(), "Darwin") == 0){
-    printf("One or more updates installed by softwareupdate requires a system reboot. Reboot now? Warning: Save eventual documents BEFORE pressing y to initiate the reboot process.\n");
+    printf("\033[0;30mOne or more updates installed by softwareupdate requires a system reboot. Warning: If there are any unsaved changes, please make sure to save those changes BEFORE pressing y to initiate the reboot process.\033[0m\n");
   }
   else if(strcmp(getOS(), "FreeBSD") == 0){
-    printf("A newer version of the FreeBSD kernel seems to have been installed. In order to use this new minor updated version, a reboot is required. Reboot now? Warning: Save eventual documents BEFORE pressing y to initiate the reboot process.\n");
+    printf("\033[1mA newer version of the FreeBSD kernel seems to have been installed. In order to use this new minor updated version, a reboot is required. Warning: If there are any unsaved changes, please make sure to save those changes BEFORE pressing y to initiate the reboot process\033[0m.\n");
   }
   printf("Would you like to reboot your computer now? (Y/n) ");
   char *ans;
@@ -2061,6 +2064,7 @@ int main(int argc, char ** argv)
   else if(strcmp(getOS(), "FreeBSD") == 0)
   {  
     syslog(LOG_NOTICE, "Running updateports on FreeBSD.\n");
+    
     if(argc == 1){
       if(checkExec("/usr/sbin/pkg")){
 	appToRun = "/usr/sbin/pkg";
