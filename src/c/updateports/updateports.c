@@ -39,6 +39,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <syslog.h>
 #include <sys/param.h>
 #include <errno.h>
+#include <netdb.h>
 
 // Global variables
 char *prog_name;
@@ -68,6 +69,7 @@ void updateOpenBSD();
 int Search_in_File(char *fname, char *str);
 void removeFile(char *name);
 void listUpdates();
+void checkConnection();
 void exitApp(int status)
 {
   if(strcmp(getOS(), "Darwin") == 0)
@@ -109,6 +111,10 @@ void exitApp(int status)
   if(status != 0){
     if(sigint)
       syslog(LOG_ERR, "One or more errors occurred while running %s on %s. Returned error code: %d (user sent SIGINT signal)\n", prog_name, getOS(), status);
+    else if(status == 100) {
+      fprintf(stderr, "%s requires an active internet connection.\n", prog_name);
+      syslog(LOG_ERR, "One or more errors occurred while running %s on %s. Returned error code: %d\n", prog_name, getOS(), status);
+    }
     else
       syslog(LOG_ERR, "One or more errors occurred while running %s on %s. Returned error code: %d\n", prog_name, getOS(), status);
   }
@@ -1998,6 +2004,20 @@ void updateOpenBSD()
   }
 }
 
+void checkConnection(char *hostname, int runs) {
+  fprintf(stdout, "Trying %s\n", hostname);
+  struct hostent *hostinfo = gethostbyname(hostname);
+  if (hostinfo == NULL){
+    runs++;
+    if(runs == 1) checkConnection("www.google.com", runs);
+    if(runs == 2) checkConnection("www.facebook.com", runs);
+    if(runs == 3) checkConnection("www.twitter.com", runs);
+    if(runs > 3) {
+      exitApp(100);
+    }
+  }
+}
+
 int main(int argc, char ** argv)
 {
 //currentcmd = "updateports";
@@ -2013,6 +2033,12 @@ int main(int argc, char ** argv)
   #ifdef SIGINFO
   signal(SIGINFO, sigInfo);
   #endif
+  fprintf(stdout, "Checking internet connection…\n");
+  checkConnection("www.vg.no", 0);
+  /*if(isConnected != 0){
+    fprintf(stderr, "%s requires an active internet connection.\n", prog_name);
+    exitApp(isConnected);
+  }*/
   fprintf(stdout, "Checking operating system... ");
   printf("%s\n", getOS());
   int opt;
