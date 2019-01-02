@@ -2005,7 +2005,6 @@ void updateOpenBSD()
 }
 
 void checkConnection(char *hostname, int runs) {
-  fprintf(stdout, "Trying %s\n", hostname);
   struct hostent *hostinfo = gethostbyname(hostname);
   if (hostinfo == NULL){
     runs++;
@@ -2015,6 +2014,9 @@ void checkConnection(char *hostname, int runs) {
     if(runs > 3) {
       exitApp(100);
     }
+  }
+  else {
+    fprintf(stdout, "connection OK\n");
   }
 }
 
@@ -2033,12 +2035,8 @@ int main(int argc, char ** argv)
   #ifdef SIGINFO
   signal(SIGINFO, sigInfo);
   #endif
-  fprintf(stdout, "Checking internet connection…\n");
-  checkConnection("www.vg.no", 0);
-  /*if(isConnected != 0){
-    fprintf(stderr, "%s requires an active internet connection.\n", prog_name);
-    exitApp(isConnected);
-  }*/
+  fprintf(stdout, "Checking internet connection… ");
+  checkConnection("ftp://ftp.freebsd.org", 0);
   fprintf(stdout, "Checking operating system... ");
   printf("%s\n", getOS());
   int opt;
