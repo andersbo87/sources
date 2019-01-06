@@ -112,7 +112,6 @@ void exitApp(int status)
     if(sigint)
       syslog(LOG_ERR, "One or more errors occurred while running %s on %s. Returned error code: %d (user sent SIGINT signal)\n", prog_name, getOS(), status);
     else if(status == 100) {
-      fprintf(stderr, "%s requires an active internet connection.\n", prog_name);
       syslog(LOG_ERR, "One or more errors occurred while running %s on %s. Returned error code: %d\n", prog_name, getOS(), status);
     }
     else
@@ -2012,6 +2011,7 @@ void checkConnection(char *hostname, int runs) {
     if(runs == 2) checkConnection("www.facebook.com", runs);
     if(runs == 3) checkConnection("www.twitter.com", runs);
     if(runs > 3) {
+      fprintf(stdout, "%s requires an active internet connection.\n", prog_name);
       exitApp(100);
     }
   }
