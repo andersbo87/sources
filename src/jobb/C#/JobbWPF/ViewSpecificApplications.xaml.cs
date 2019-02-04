@@ -127,7 +127,7 @@ namespace JobbWPF
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            dataGrid.Width = this.Width-10;
+            //dataGrid.Width = this.Width-10;
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
