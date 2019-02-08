@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="newstatus_8h" kind="file" language="C++">
     <compoundname>newstatus.h</compoundname>
     <includes local="no">QCloseEvent</includes>
@@ -10,80 +10,80 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="newstatus_8cpp" local="yes">newstatus.cpp</includedby>
     <incdepgraph>
-      <node id="229">
+      <node id="259">
         <label>QCloseEvent</label>
       </node>
-      <node id="242">
+      <node id="272">
         <label>QMessageBox</label>
       </node>
-      <node id="228">
+      <node id="258">
         <label>newstatus.h</label>
         <link refid="newstatus_8h"/>
-        <childnode refid="229" relation="include">
+        <childnode refid="259" relation="include">
         </childnode>
-        <childnode refid="230" relation="include">
+        <childnode refid="260" relation="include">
         </childnode>
-        <childnode refid="239" relation="include">
+        <childnode refid="269" relation="include">
         </childnode>
-        <childnode refid="241" relation="include">
+        <childnode refid="271" relation="include">
         </childnode>
-        <childnode refid="242" relation="include">
+        <childnode refid="272" relation="include">
         </childnode>
       </node>
-      <node id="241">
+      <node id="271">
         <label>QMainWindow</label>
       </node>
-      <node id="233">
+      <node id="263">
         <label>QLinkedList</label>
       </node>
-      <node id="239">
+      <node id="269">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="240" relation="include">
+        <childnode refid="270" relation="include">
         </childnode>
       </node>
-      <node id="230">
+      <node id="260">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="231" relation="include">
+        <childnode refid="261" relation="include">
         </childnode>
-        <childnode refid="232" relation="include">
+        <childnode refid="262" relation="include">
         </childnode>
-        <childnode refid="233" relation="include">
+        <childnode refid="263" relation="include">
         </childnode>
-        <childnode refid="234" relation="include">
+        <childnode refid="264" relation="include">
         </childnode>
-        <childnode refid="235" relation="include">
+        <childnode refid="265" relation="include">
         </childnode>
-        <childnode refid="236" relation="include">
+        <childnode refid="266" relation="include">
         </childnode>
-        <childnode refid="237" relation="include">
+        <childnode refid="267" relation="include">
         </childnode>
-        <childnode refid="238" relation="include">
+        <childnode refid="268" relation="include">
         </childnode>
       </node>
-      <node id="232">
+      <node id="262">
         <label>QApplication</label>
       </node>
-      <node id="235">
+      <node id="265">
         <label>QDebug</label>
       </node>
-      <node id="236">
+      <node id="266">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="231">
+      <node id="261">
         <label>sstream</label>
       </node>
-      <node id="240">
+      <node id="270">
         <label>QString</label>
       </node>
-      <node id="237">
+      <node id="267">
         <label>pqxx/result</label>
       </node>
-      <node id="234">
+      <node id="264">
         <label>QException</label>
       </node>
-      <node id="238">
+      <node id="268">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -135,10 +135,10 @@
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_status" kindref="compound">NewStatus</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a5a09743191f617f006bc89e4b35984bf" kindref="member">NewStatus</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_new_status" kindref="compound">NewStatus</ref>();</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStatus(QString<sp/>newStatus);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getStatus();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" kindref="member">setStatus</ref>(QString<sp/>newStatus);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_new_status_1a7ea744ad1645c5954000983d50947154" kindref="member">getStatus</ref>();</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"></highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::NewStatus<sp/>*ui;</highlight></codeline>

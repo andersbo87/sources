@@ -1,7 +1,29 @@
 var searchData=
 [
-  ['tableapplicationexists',['tableApplicationExists',['../classpsql.html#a117b616053845f1b7295b21a06f008fd',1,'psql']]],
-  ['tablecountryexists',['tableCountryExists',['../classpsql.html#ae0ab0012c58471bd3fd63c286fb22224',1,'psql']]],
-  ['tablestatusexists',['tableStatusExists',['../classpsql.html#a3f8bac89bd0cee3af77e47e5c555543d',1,'psql']]],
-  ['tabletownexists',['tableTownExists',['../classpsql.html#a717162b7d7faa0fb41b5a526e42de4ac',1,'psql']]]
+  ['setapplicationid',['setApplicationID',['../class_view_jobs.html#acd43a8c32ab9bca7e40ecc99e51da9b8',1,'ViewJobs']]],
+  ['setchanged',['setChanged',['../class_view_jobs.html#a3cba868c6deadaf4b35c18982f7ec35e',1,'ViewJobs']]],
+  ['setcityid',['setCityID',['../class_show_cities.html#acd17480ad6a64e989e9aa0b07d30141b',1,'ShowCities::setCityID()'],['../class_view_jobs.html#ad89218b37af85cac9ce6c346efb57e56',1,'ViewJobs::setCityID()']]],
+  ['setcityname',['setCityName',['../classadvanced_search.html#a285bcf54a61d42fa81a7d1a5a86c5779',1,'advancedSearch::setCityName()'],['../class_new_city.html#afe093fcb1aa6623e896c52ea35ff0481',1,'NewCity::setCityName()'],['../class_show_cities.html#acadd6c1bdb26d30e796bab4b5b2acfd9',1,'ShowCities::setCityName()']]],
+  ['setcompany',['setCompany',['../class_view_jobs.html#a596246d07be66a5aeaf14ff8e5649290',1,'ViewJobs']]],
+  ['setcompanyname',['setCompanyName',['../classadvanced_search.html#a6d817d740d8e614bf93cec866735bd7f',1,'advancedSearch']]],
+  ['setcountry',['setCountry',['../class_new_country.html#af6fed97011d536e1a29db8112849e36b',1,'NewCountry']]],
+  ['setcountryid',['setCountryID',['../class_new_city.html#a8a96f2c58640c96faf74e1f3bb956e4e',1,'NewCity::setCountryID()'],['../class_show_cities.html#a853a958ebc2c0d42d872c237d431fe25',1,'ShowCities::setCountryID()'],['../class_show_countries.html#a751b9d3c6859102f48d3ecc254135906',1,'ShowCountries::setCountryID()']]],
+  ['setcountryname',['setCountryName',['../class_show_cities.html#a6974ab22950cede9fb290490bcc8f3a5',1,'ShowCities::setCountryName()'],['../class_show_countries.html#aefa9daeff484f4028ea5a280b280dd36',1,'ShowCountries::setCountryName()']]],
+  ['setdate',['setDate',['../class_view_jobs.html#a7574794410eb40956f343976de97221f',1,'ViewJobs']]],
+  ['setdeadline',['setDeadline',['../classadvanced_search.html#aeaacf5b995f4169c38d4381e17bc0969',1,'advancedSearch']]],
+  ['seterror',['setError',['../classpsql.html#a9a0d5ba32aabe6018a36fb0bc185445b',1,'psql']]],
+  ['sethost',['setHost',['../classpsql.html#a96b3b9483f1a642c026d4b5cf505eb75',1,'psql']]],
+  ['setjobtitle',['setJobTitle',['../classadvanced_search.html#a698024f20a64fd27b1b352bce5c6f527',1,'advancedSearch']]],
+  ['setmotivation',['setMotivation',['../classadvanced_search.html#a72e3b5ac068d875070165e865a03410c',1,'advancedSearch::setMotivation()'],['../class_view_jobs.html#a53bdfabaf2b442841d676f42ebbf975f',1,'ViewJobs::setMotivation()']]],
+  ['setpassword',['setPassword',['../classpsql.html#a6c29350037550b7e5a5bb8f439c405f3',1,'psql']]],
+  ['setstatus',['setStatus',['../classadvanced_search.html#a1530d628ce32b4c867349a075b3828c3',1,'advancedSearch::setStatus()'],['../class_new_status.html#a861326c3b5c45040b933e4e65a4646e2',1,'NewStatus::setStatus()']]],
+  ['setstatusid',['setStatusID',['../class_show_statuses.html#a03eb52c13df7220ced551be7be69f822',1,'ShowStatuses::setStatusID()'],['../class_view_jobs.html#a55943415fd91377d5f701f7074ba58d6',1,'ViewJobs::setStatusID()']]],
+  ['setstatusname',['setStatusName',['../class_show_statuses.html#ac4a3c02814d6a326a0d0a6bfc8239483',1,'ShowStatuses']]],
+  ['settitle',['setTitle',['../class_view_jobs.html#abfe1969197cde57ea049c1b7d91cd4f5',1,'ViewJobs']]],
+  ['setusername',['setUsername',['../classpsql.html#a1488a9e4909abd172651b7be240342cb',1,'psql']]],
+  ['showcities',['ShowCities',['../class_show_cities.html#a71a514390bebd22b5e6ecbb6b731979a',1,'ShowCities']]],
+  ['showcountries',['ShowCountries',['../class_show_countries.html#a509e0b6ebeb2fb580e7985b81b3f77e6',1,'ShowCountries']]],
+  ['showevent',['showEvent',['../class_view_jobs.html#a50f3a52f43e097d46e106e0aa31e9eb4',1,'ViewJobs']]],
+  ['showstatuses',['ShowStatuses',['../class_show_statuses.html#a5f33b2e8d68add734ceb466de0fc80ae',1,'ShowStatuses']]],
+  ['statistics',['statistics',['../classstatistics.html#aaa102e49836a3b719df3a82e28735adc',1,'statistics']]]
 ];

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="showcities_8h" kind="file" language="C++">
     <compoundname>showcities.h</compoundname>
     <includes local="no">QCloseEvent</includes>
@@ -10,80 +10,80 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="showcities_8cpp" local="yes">showcities.cpp</includedby>
     <incdepgraph>
-      <node id="299">
+      <node id="329">
         <label>QCloseEvent</label>
       </node>
-      <node id="312">
+      <node id="342">
         <label>QMessageBox</label>
       </node>
-      <node id="311">
+      <node id="341">
         <label>QMainWindow</label>
       </node>
-      <node id="303">
+      <node id="333">
         <label>QLinkedList</label>
       </node>
-      <node id="309">
+      <node id="339">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="310" relation="include">
+        <childnode refid="340" relation="include">
         </childnode>
       </node>
-      <node id="300">
+      <node id="330">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="301" relation="include">
+        <childnode refid="331" relation="include">
         </childnode>
-        <childnode refid="302" relation="include">
+        <childnode refid="332" relation="include">
         </childnode>
-        <childnode refid="303" relation="include">
+        <childnode refid="333" relation="include">
         </childnode>
-        <childnode refid="304" relation="include">
+        <childnode refid="334" relation="include">
         </childnode>
-        <childnode refid="305" relation="include">
+        <childnode refid="335" relation="include">
         </childnode>
-        <childnode refid="306" relation="include">
+        <childnode refid="336" relation="include">
         </childnode>
-        <childnode refid="307" relation="include">
+        <childnode refid="337" relation="include">
         </childnode>
-        <childnode refid="308" relation="include">
+        <childnode refid="338" relation="include">
         </childnode>
       </node>
-      <node id="302">
+      <node id="332">
         <label>QApplication</label>
       </node>
-      <node id="305">
+      <node id="335">
         <label>QDebug</label>
       </node>
-      <node id="306">
+      <node id="336">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="301">
+      <node id="331">
         <label>sstream</label>
       </node>
-      <node id="310">
+      <node id="340">
         <label>QString</label>
       </node>
-      <node id="298">
+      <node id="328">
         <label>showcities.h</label>
         <link refid="showcities_8h"/>
-        <childnode refid="299" relation="include">
+        <childnode refid="329" relation="include">
         </childnode>
-        <childnode refid="300" relation="include">
+        <childnode refid="330" relation="include">
         </childnode>
-        <childnode refid="309" relation="include">
+        <childnode refid="339" relation="include">
         </childnode>
-        <childnode refid="311" relation="include">
+        <childnode refid="341" relation="include">
         </childnode>
-        <childnode refid="312" relation="include">
+        <childnode refid="342" relation="include">
         </childnode>
       </node>
-      <node id="307">
+      <node id="337">
         <label>pqxx/result</label>
       </node>
-      <node id="304">
+      <node id="334">
         <label>QException</label>
       </node>
-      <node id="308">
+      <node id="338">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -136,19 +136,19 @@
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_show_cities" kindref="compound">ShowCities</ref>(QString<sp/>title,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a71a514390bebd22b5e6ecbb6b731979a" kindref="member">ShowCities</ref>(QString<sp/>title,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_show_cities" kindref="compound">ShowCities</ref>();</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCities();</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCity(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityName);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCityID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCityName(QString<sp/>newName);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCountryID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCountryName(QString<sp/>newName);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getCityID();</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getCountryIDs();</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getCountryID();</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCityName();</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCountryName();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" kindref="member">getCities</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1af191eeab72b3bdd74f0e710face98292" kindref="member">getCity</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cityName);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" kindref="member">setCityID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" kindref="member">setCityName</ref>(QString<sp/>newName);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kindref="member">setCountryID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a6974ab22950cede9fb290490bcc8f3a5" kindref="member">setCountryName</ref>(QString<sp/>newName);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" kindref="member">getCityID</ref>();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a8fa42e8a5b12579cd04ae2a8ee4a9370" kindref="member">getCountryIDs</ref>();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_show_cities_1a3640b91c66939d0070c3dd6f5b9eb93c" kindref="member">getCityName</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>();</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"></highlight></codeline>
 <codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::ShowCities<sp/>*ui;</highlight></codeline>

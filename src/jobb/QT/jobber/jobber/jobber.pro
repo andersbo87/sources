@@ -50,9 +50,9 @@ SOURCES += main.cpp\
     newjob.cpp \
     newcountry.cpp \
     showcountries.cpp \
-    spesificjobs.cpp \
     statistics.cpp \
-    stringcheck.cpp
+    stringcheck.cpp \
+    advancedSearch.cpp
 
 HEADERS  += mainwindow.h \
     connectpsql.h \
@@ -65,9 +65,9 @@ HEADERS  += mainwindow.h \
     newjob.h \
     newcountry.h \
     showcountries.h \
-    spesificjobs.h \
     statistics.h \
-    stringcheck.h
+    stringcheck.h \
+    advancedSearch.h
 
 FORMS    += mainwindow.ui \
     connectpsql.ui \
@@ -79,5 +79,5 @@ FORMS    += mainwindow.ui \
     newjob.ui \
     newcountry.ui \
     showcountries.ui \
-    spesificjobs.ui \
-    statistics.ui
+    statistics.ui \
+    advancedSearch.ui

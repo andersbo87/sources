@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="newcountry_8h" kind="file" language="C++">
     <compoundname>newcountry.h</compoundname>
     <includes local="no">QCloseEvent</includes>
@@ -10,80 +10,80 @@
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="newcountry_8cpp" local="yes">newcountry.cpp</includedby>
     <incdepgraph>
-      <node id="158">
+      <node id="188">
         <label>QCloseEvent</label>
       </node>
-      <node id="171">
+      <node id="201">
         <label>QMessageBox</label>
       </node>
-      <node id="170">
+      <node id="200">
         <label>QMainWindow</label>
       </node>
-      <node id="162">
+      <node id="192">
         <label>QLinkedList</label>
       </node>
-      <node id="168">
+      <node id="198">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="169" relation="include">
+        <childnode refid="199" relation="include">
         </childnode>
       </node>
-      <node id="159">
+      <node id="189">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="160" relation="include">
+        <childnode refid="190" relation="include">
         </childnode>
-        <childnode refid="161" relation="include">
+        <childnode refid="191" relation="include">
         </childnode>
-        <childnode refid="162" relation="include">
+        <childnode refid="192" relation="include">
         </childnode>
-        <childnode refid="163" relation="include">
+        <childnode refid="193" relation="include">
         </childnode>
-        <childnode refid="164" relation="include">
+        <childnode refid="194" relation="include">
         </childnode>
-        <childnode refid="165" relation="include">
+        <childnode refid="195" relation="include">
         </childnode>
-        <childnode refid="166" relation="include">
+        <childnode refid="196" relation="include">
         </childnode>
-        <childnode refid="167" relation="include">
+        <childnode refid="197" relation="include">
         </childnode>
       </node>
-      <node id="161">
+      <node id="191">
         <label>QApplication</label>
       </node>
-      <node id="164">
+      <node id="194">
         <label>QDebug</label>
       </node>
-      <node id="165">
+      <node id="195">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="157">
+      <node id="187">
         <label>newcountry.h</label>
         <link refid="newcountry_8h"/>
-        <childnode refid="158" relation="include">
+        <childnode refid="188" relation="include">
         </childnode>
-        <childnode refid="159" relation="include">
+        <childnode refid="189" relation="include">
         </childnode>
-        <childnode refid="168" relation="include">
+        <childnode refid="198" relation="include">
         </childnode>
-        <childnode refid="170" relation="include">
+        <childnode refid="200" relation="include">
         </childnode>
-        <childnode refid="171" relation="include">
+        <childnode refid="201" relation="include">
         </childnode>
       </node>
-      <node id="160">
+      <node id="190">
         <label>sstream</label>
       </node>
-      <node id="169">
+      <node id="199">
         <label>QString</label>
       </node>
-      <node id="166">
+      <node id="196">
         <label>pqxx/result</label>
       </node>
-      <node id="163">
+      <node id="193">
         <label>QException</label>
       </node>
-      <node id="167">
+      <node id="197">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -136,10 +136,10 @@
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_country" kindref="compound">NewCountry</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_new_country_1a0ab1a95a2acd77e953f3a7aac8544880" kindref="member">NewCountry</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_new_country" kindref="compound">NewCountry</ref>();</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>getCountry();</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCountry(QString<sp/>newCountry);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_new_country_1a5d28702b9788a1debf6817443d4a7355" kindref="member">getCountry</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_new_country_1af6fed97011d536e1a29db8112849e36b" kindref="member">setCountry</ref>(QString<sp/>newCountry);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Private<sp/>variabler</highlight><highlight class="normal"></highlight></codeline>

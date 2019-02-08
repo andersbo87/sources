@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="classpsql" kind="class" language="C++" prot="public">
     <compoundname>psql</compoundname>
     <includes refid="psql_8h" local="no">psql.h</includes>
@@ -742,7 +742,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="75" column="1" bodyfile="psql.cpp" bodystart="1681" bodyend="1703"/>
+        <location file="psql.h" line="75" column="1" bodyfile="psql.cpp" bodystart="1685" bodyend="1707"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ae0ab0012c58471bd3fd63c286fb22224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -756,7 +756,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="76" column="1" bodyfile="psql.cpp" bodystart="1709" bodyend="1731"/>
+        <location file="psql.h" line="76" column="1" bodyfile="psql.cpp" bodystart="1713" bodyend="1735"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a3f8bac89bd0cee3af77e47e5c555543d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -770,7 +770,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="77" column="1" bodyfile="psql.cpp" bodystart="1737" bodyend="1759"/>
+        <location file="psql.h" line="77" column="1" bodyfile="psql.cpp" bodystart="1741" bodyend="1763"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a717162b7d7faa0fb41b5a526e42de4ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -784,7 +784,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="78" column="1" bodyfile="psql.cpp" bodystart="1765" bodyend="1787"/>
+        <location file="psql.h" line="78" column="1" bodyfile="psql.cpp" bodystart="1769" bodyend="1791"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a4c23d467c41e155a55c38b1cefb9b54b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -798,7 +798,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="79" column="1" bodyfile="psql.cpp" bodystart="1793" bodyend="1815"/>
+        <location file="psql.h" line="79" column="1" bodyfile="psql.cpp" bodystart="1797" bodyend="1819"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1aae95eb2a505c1b0b7b4d5671926ecd2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -812,7 +812,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="80" column="1" bodyfile="psql.cpp" bodystart="1821" bodyend="1843"/>
+        <location file="psql.h" line="80" column="1" bodyfile="psql.cpp" bodystart="1825" bodyend="1847"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a36f6a197a2214b9c71cfcd620334835d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -826,7 +826,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="83" column="1" bodyfile="psql.cpp" bodystart="1849" bodyend="1872"/>
+        <location file="psql.h" line="83" column="1" bodyfile="psql.cpp" bodystart="1853" bodyend="1876"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ab6e496d8471f3cd9c5c082a6ba75c25b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -840,7 +840,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="84" column="1" bodyfile="psql.cpp" bodystart="1878" bodyend="1900"/>
+        <location file="psql.h" line="84" column="1" bodyfile="psql.cpp" bodystart="1882" bodyend="1904"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a427ad0f483c8ab7a4d23912278bc69e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -854,7 +854,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="85" column="1" bodyfile="psql.cpp" bodystart="1906" bodyend="1928"/>
+        <location file="psql.h" line="85" column="1" bodyfile="psql.cpp" bodystart="1910" bodyend="1932"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a95d1f522766174bd2c6a7b94f725719c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -868,7 +868,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="86" column="1" bodyfile="psql.cpp" bodystart="1934" bodyend="1956"/>
+        <location file="psql.h" line="86" column="1" bodyfile="psql.cpp" bodystart="1938" bodyend="1960"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ad6fb8e1e7177c7996f297d477ecceb27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -882,7 +882,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="87" column="1" bodyfile="psql.cpp" bodystart="1962" bodyend="1983"/>
+        <location file="psql.h" line="87" column="1" bodyfile="psql.cpp" bodystart="1966" bodyend="1987"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ac5b1230ac405a600b67b144060b33a0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -896,7 +896,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="88" column="1" bodyfile="psql.cpp" bodystart="1989" bodyend="2010"/>
+        <location file="psql.h" line="88" column="1" bodyfile="psql.cpp" bodystart="1993" bodyend="2014"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ae9e3ee06f4a5ecd4178662dfa0655fe1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -910,7 +910,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="91" column="1" bodyfile="psql.cpp" bodystart="2151" bodyend="2172"/>
+        <location file="psql.h" line="91" column="1" bodyfile="psql.cpp" bodystart="2155" bodyend="2176"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a28f3e3d6309e3ce57493db284c099946" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -924,7 +924,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="92" column="1" bodyfile="psql.cpp" bodystart="2178" bodyend="2337"/>
+        <location file="psql.h" line="92" column="1" bodyfile="psql.cpp" bodystart="2182" bodyend="2341"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a565bfc828ecb6b5621354128773494fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -938,7 +938,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="93" column="1" bodyfile="psql.cpp" bodystart="2343" bodyend="2364"/>
+        <location file="psql.h" line="93" column="1" bodyfile="psql.cpp" bodystart="2347" bodyend="2368"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ade0c7fa4f019c3f349230af09b1de49e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -952,7 +952,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="94" column="1" bodyfile="psql.cpp" bodystart="2370" bodyend="2391"/>
+        <location file="psql.h" line="94" column="1" bodyfile="psql.cpp" bodystart="2374" bodyend="2395"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a54c75d0896ee6aad58e22c830895c106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -966,7 +966,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="97" column="1" bodyfile="psql.cpp" bodystart="2016" bodyend="2037"/>
+        <location file="psql.h" line="97" column="1" bodyfile="psql.cpp" bodystart="2020" bodyend="2041"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1aa907c84f592212451d3d59a2061adabd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -980,7 +980,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="98" column="1" bodyfile="psql.cpp" bodystart="2043" bodyend="2064"/>
+        <location file="psql.h" line="98" column="1" bodyfile="psql.cpp" bodystart="2047" bodyend="2068"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ae882aa80b2d629383fc2e60aecfd421a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -994,7 +994,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="99" column="1" bodyfile="psql.cpp" bodystart="2070" bodyend="2091"/>
+        <location file="psql.h" line="99" column="1" bodyfile="psql.cpp" bodystart="2074" bodyend="2095"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a6ce21cb5a1e77cb0c280e2932d2b557d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1008,7 +1008,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="100" column="1" bodyfile="psql.cpp" bodystart="2097" bodyend="2118"/>
+        <location file="psql.h" line="100" column="1" bodyfile="psql.cpp" bodystart="2101" bodyend="2122"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a5f51e254b67ff932f287df2184ccc043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -1185,7 +1185,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="117" column="1" bodyfile="psql.cpp" bodystart="1500" bodyend="1523"/>
+        <location file="psql.h" line="117" column="1" bodyfile="psql.cpp" bodystart="1504" bodyend="1527"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a0c33b3f48064ba75abaa4b0b58eb1ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1237,7 +1237,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="119" column="1" bodyfile="psql.cpp" bodystart="1530" bodyend="1554"/>
+        <location file="psql.h" line="119" column="1" bodyfile="psql.cpp" bodystart="1534" bodyend="1558"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a9c02c92c09cb60c35d24375673b7df06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1263,7 +1263,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="120" column="1" bodyfile="psql.cpp" bodystart="1561" bodyend="1584"/>
+        <location file="psql.h" line="120" column="1" bodyfile="psql.cpp" bodystart="1565" bodyend="1588"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a9d13aebcb6d151719769207238865e75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1936,7 +1936,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="133" column="1" bodyfile="psql.cpp" bodystart="1652" bodyend="1675"/>
+        <location file="psql.h" line="133" column="1" bodyfile="psql.cpp" bodystart="1656" bodyend="1679"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a09745cd03f09ffb2dacacaab4281915f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -1962,7 +1962,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="134" column="1" bodyfile="psql.cpp" bodystart="1469" bodyend="1492"/>
+        <location file="psql.h" line="134" column="1" bodyfile="psql.cpp" bodystart="1473" bodyend="1496"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a5724e9992e6a5c98524ab73b98f4202d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -1988,7 +1988,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="135" column="1" bodyfile="psql.cpp" bodystart="1621" bodyend="1645"/>
+        <location file="psql.h" line="135" column="1" bodyfile="psql.cpp" bodystart="1625" bodyend="1649"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a561f96bfe7e9d092077712dd6b186af8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -2014,7 +2014,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="136" column="1" bodyfile="psql.cpp" bodystart="1591" bodyend="1614"/>
+        <location file="psql.h" line="136" column="1" bodyfile="psql.cpp" bodystart="1595" bodyend="1618"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a5c2a64419a68a258071fd1f9a37c7c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -2066,7 +2066,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="138" column="1" bodyfile="psql.cpp" bodystart="1439" bodyend="1462"/>
+        <location file="psql.h" line="138" column="1" bodyfile="psql.cpp" bodystart="1443" bodyend="1466"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1aca1b2273937491e113089c1547caf49b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -2092,7 +2092,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="139" column="1" bodyfile="psql.cpp" bodystart="1408" bodyend="1432"/>
+        <location file="psql.h" line="139" column="1" bodyfile="psql.cpp" bodystart="1408" bodyend="1436"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -2108,7 +2108,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="147" column="1" bodyfile="psql.cpp" bodystart="2124" bodyend="2145"/>
+        <location file="psql.h" line="147" column="1" bodyfile="psql.cpp" bodystart="2128" bodyend="2149"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1af2c09c971cc8ec3469ee3958f348841f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2122,7 +2122,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="150" column="1" bodyfile="psql.cpp" bodystart="2397" bodyend="2418"/>
+        <location file="psql.h" line="150" column="1" bodyfile="psql.cpp" bodystart="2401" bodyend="2422"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1aa88713d35f36b1967234a31b901e9dba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2136,7 +2136,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="151" column="1" bodyfile="psql.cpp" bodystart="2424" bodyend="2445"/>
+        <location file="psql.h" line="151" column="1" bodyfile="psql.cpp" bodystart="2428" bodyend="2449"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1a8b14f7c57d1d3a7fa866e1fd3cc260ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2150,7 +2150,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="152" column="1" bodyfile="psql.cpp" bodystart="2451" bodyend="2472"/>
+        <location file="psql.h" line="152" column="1" bodyfile="psql.cpp" bodystart="2455" bodyend="2476"/>
       </memberdef>
       <memberdef kind="function" id="classpsql_1ae97d11a5958918a479d173cc63bac7f8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2164,7 +2164,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="psql.h" line="153" column="1" bodyfile="psql.cpp" bodystart="2478" bodyend="2499"/>
+        <location file="psql.h" line="153" column="1" bodyfile="psql.cpp" bodystart="2482" bodyend="2503"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

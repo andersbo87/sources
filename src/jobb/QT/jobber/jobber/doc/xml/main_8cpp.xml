@@ -1,99 +1,99 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="main_8cpp" kind="file" language="C++">
     <compoundname>main.cpp</compoundname>
     <includes refid="mainwindow_8h" local="yes">mainwindow.h</includes>
     <includes local="no">QApplication</includes>
     <includes local="no">pqxx/pqxx</includes>
     <incdepgraph>
-      <node id="35">
+      <node id="65">
         <label>mainwindow.h</label>
         <link refid="mainwindow_8h_source"/>
-        <childnode refid="36" relation="include">
+        <childnode refid="66" relation="include">
         </childnode>
-        <childnode refid="45" relation="include">
+        <childnode refid="75" relation="include">
         </childnode>
-        <childnode refid="49" relation="include">
+        <childnode refid="79" relation="include">
         </childnode>
       </node>
-      <node id="49">
+      <node id="79">
         <label>QMainWindow</label>
       </node>
-      <node id="39">
+      <node id="69">
         <label>QLinkedList</label>
       </node>
-      <node id="36">
+      <node id="66">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="37" relation="include">
+        <childnode refid="67" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="68" relation="include">
         </childnode>
-        <childnode refid="39" relation="include">
+        <childnode refid="69" relation="include">
         </childnode>
-        <childnode refid="40" relation="include">
+        <childnode refid="70" relation="include">
         </childnode>
-        <childnode refid="41" relation="include">
+        <childnode refid="71" relation="include">
         </childnode>
-        <childnode refid="42" relation="include">
+        <childnode refid="72" relation="include">
         </childnode>
-        <childnode refid="43" relation="include">
+        <childnode refid="73" relation="include">
         </childnode>
-        <childnode refid="44" relation="include">
+        <childnode refid="74" relation="include">
         </childnode>
       </node>
-      <node id="38">
+      <node id="68">
         <label>QApplication</label>
       </node>
-      <node id="47">
+      <node id="77">
         <label>QDialog</label>
       </node>
-      <node id="41">
+      <node id="71">
         <label>QDebug</label>
       </node>
-      <node id="42">
+      <node id="72">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="46">
+      <node id="76">
         <label>QLineEdit</label>
       </node>
-      <node id="37">
+      <node id="67">
         <label>sstream</label>
       </node>
-      <node id="48">
+      <node id="78">
         <label>QPushButton</label>
       </node>
-      <node id="43">
+      <node id="73">
         <label>pqxx/result</label>
       </node>
-      <node id="40">
+      <node id="70">
         <label>QException</label>
       </node>
-      <node id="45">
+      <node id="75">
         <label>connectpsql.h</label>
         <link refid="connectpsql_8h_source"/>
-        <childnode refid="38" relation="include">
+        <childnode refid="68" relation="include">
         </childnode>
-        <childnode refid="46" relation="include">
+        <childnode refid="76" relation="include">
         </childnode>
-        <childnode refid="47" relation="include">
+        <childnode refid="77" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
+        <childnode refid="78" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="66" relation="include">
         </childnode>
       </node>
-      <node id="44">
+      <node id="74">
         <label>QtGui</label>
       </node>
-      <node id="34">
+      <node id="64">
         <label>main.cpp</label>
         <link refid="main_8cpp"/>
-        <childnode refid="35" relation="include">
+        <childnode refid="65" relation="include">
         </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="68" relation="include">
         </childnode>
-        <childnode refid="42" relation="include">
+        <childnode refid="72" relation="include">
         </childnode>
       </node>
     </incdepgraph>

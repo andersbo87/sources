@@ -1,5 +1,46 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="classadvanced_search" kind="class"><name>advancedSearch</name>
+    <member refid="classadvanced_search_1a35a4411fd11058f8fb6103399134c8ba" kind="variable"><name>ui</name></member>
+    <member refid="classadvanced_search_1a913729b759865671aeafbfda9e6c3134" kind="variable"><name>winTitle</name></member>
+    <member refid="classadvanced_search_1a9af786d615dee6a1b96686e5327a9b29" kind="variable"><name>jobTitle</name></member>
+    <member refid="classadvanced_search_1ac0377c5b1339fd2744dce8d97527dc7a" kind="variable"><name>companyName</name></member>
+    <member refid="classadvanced_search_1a3f5cbae825950a89954eca9bc71c9a25" kind="variable"><name>cityName</name></member>
+    <member refid="classadvanced_search_1a5810455b1e1d20b2b00b2bb14838f672" kind="variable"><name>status</name></member>
+    <member refid="classadvanced_search_1a4bce9330334a599db5858684b40b0d2d" kind="variable"><name>deadline</name></member>
+    <member refid="classadvanced_search_1a745d149d86f315b863253e6412f5f897" kind="variable"><name>motivation</name></member>
+    <member refid="classadvanced_search_1a3409b17734ba5e015738f205203ffec7" kind="variable"><name>p</name></member>
+    <member refid="classadvanced_search_1a0ff3e39e93679f83d288d5f33684c5a2" kind="variable"><name>model</name></member>
+    <member refid="classadvanced_search_1ae9e0253869871c6af23d804fdc78d184" kind="function"><name>advancedSearch</name></member>
+    <member refid="classadvanced_search_1abe406621948b31e2656b7ec2c5cdfd7f" kind="function"><name>~advancedSearch</name></member>
+    <member refid="classadvanced_search_1a7bcbaf1e2663396daacf9b033c34238a" kind="function"><name>getJobTitle</name></member>
+    <member refid="classadvanced_search_1a5e9e9e24e83f36f9ed32bd60cecbb7de" kind="function"><name>getCompanyName</name></member>
+    <member refid="classadvanced_search_1ae061d04a2d39bcb3dc363fc56752377b" kind="function"><name>getCityName</name></member>
+    <member refid="classadvanced_search_1afc318495c6475695844bd0f22c6c1e3c" kind="function"><name>getStatus</name></member>
+    <member refid="classadvanced_search_1ae58a90dea341fa431df72e368b70267e" kind="function"><name>getDeadline</name></member>
+    <member refid="classadvanced_search_1a40af6df4af92bc7f4cff89729df2c6da" kind="function"><name>getMotivation</name></member>
+    <member refid="classadvanced_search_1a698024f20a64fd27b1b352bce5c6f527" kind="function"><name>setJobTitle</name></member>
+    <member refid="classadvanced_search_1a6d817d740d8e614bf93cec866735bd7f" kind="function"><name>setCompanyName</name></member>
+    <member refid="classadvanced_search_1a285bcf54a61d42fa81a7d1a5a86c5779" kind="function"><name>setCityName</name></member>
+    <member refid="classadvanced_search_1a1530d628ce32b4c867349a075b3828c3" kind="function"><name>setStatus</name></member>
+    <member refid="classadvanced_search_1aeaacf5b995f4169c38d4381e17bc0969" kind="function"><name>setDeadline</name></member>
+    <member refid="classadvanced_search_1a72e3b5ac068d875070165e865a03410c" kind="function"><name>setMotivation</name></member>
+    <member refid="classadvanced_search_1a459fba94afcef2073b4cd706e454d38f" kind="function"><name>getCityNames</name></member>
+    <member refid="classadvanced_search_1a1517ebc5651f4956e26f8aa055983c58" kind="function"><name>getStatuses</name></member>
+    <member refid="classadvanced_search_1a0051b212b3728264c741cbf5572b846e" kind="function"><name>appendApplicationIDs</name></member>
+    <member refid="classadvanced_search_1a1f00b156aa5625d36312bb014e29264b" kind="function"><name>appendJobTitles</name></member>
+    <member refid="classadvanced_search_1a463671a1486d062779dddd5b08b1f07e" kind="function"><name>appendCompanyNames</name></member>
+    <member refid="classadvanced_search_1a066833df334c00194d71695e12b07078" kind="function"><name>appendCityNames</name></member>
+    <member refid="classadvanced_search_1a104f2f0b13e46929ae5356b5a1aa11bf" kind="function"><name>appendStatuses</name></member>
+    <member refid="classadvanced_search_1a6fc0105abe4f221ec3efd519c5a11826" kind="function"><name>appendDeadlines</name></member>
+    <member refid="classadvanced_search_1a2f0c378d5850861bc011f02a0b0b7f60" kind="function"><name>appendMotivations</name></member>
+    <member refid="classadvanced_search_1a432811854d51059a45f62853910d4e28" kind="slot"><name>btnSearchClicked</name></member>
+    <member refid="classadvanced_search_1a91d54ec9dcccc9efbf0617d738c3b14b" kind="slot"><name>comboBoxCityNameChanged</name></member>
+    <member refid="classadvanced_search_1ab7fb02ade17239aa5d6c74b14dc46400" kind="slot"><name>comboBoxStatusChanged</name></member>
+    <member refid="classadvanced_search_1a6208e871f1d88d456e52722af302382b" kind="slot"><name>lineEditJobTitleChanged</name></member>
+    <member refid="classadvanced_search_1ab1e08d4d3894799b384534a1134e7cd4" kind="slot"><name>lineEditCompanyNameChanged</name></member>
+    <member refid="classadvanced_search_1a79fe9877497a55df5281bbf3252d49e7" kind="slot"><name>lineEditDeadlineChanged</name></member>
+  </compound>
   <compound refid="classconnect_psql" kind="class"><name>connectPsql</name>
     <member refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kind="variable"><name>p</name></member>
     <member refid="classconnect_psql_1a36beec0f69b64ac6b5a02beedd801cf2" kind="variable"><name>ui</name></member>
@@ -327,47 +368,6 @@
     <member refid="class_show_statuses_1ab85f92a8d2824b9502223c404a831090" kind="slot"><name>btnDeleteClicked</name></member>
     <member refid="class_show_statuses_1ae3326bbbb7153e26f098c299594d2f43" kind="slot"><name>windowLoaded</name></member>
   </compound>
-  <compound refid="class_spesific_jobs" kind="class"><name>SpesificJobs</name>
-    <member refid="class_spesific_jobs_1aec4e13a5c7ac6fd669b509db3dee8449" kind="variable"><name>ui</name></member>
-    <member refid="class_spesific_jobs_1ac1f69eb1710a57a31666d885201f55de" kind="variable"><name>winTitle</name></member>
-    <member refid="class_spesific_jobs_1a4ad05acb76422ffc78acbae3e9b5fc65" kind="variable"><name>jobTitle</name></member>
-    <member refid="class_spesific_jobs_1aa041f7d64f62d1c1375981d14f6e428e" kind="variable"><name>companyName</name></member>
-    <member refid="class_spesific_jobs_1a703cd612c39a53f28e5384db502c0ba1" kind="variable"><name>cityName</name></member>
-    <member refid="class_spesific_jobs_1af18958ab0d03165283703a70a7812d1c" kind="variable"><name>status</name></member>
-    <member refid="class_spesific_jobs_1add13525338b0de103260cf246295e7fc" kind="variable"><name>deadline</name></member>
-    <member refid="class_spesific_jobs_1abb5d61f6a94f2471837bd3fe32ca41c5" kind="variable"><name>motivation</name></member>
-    <member refid="class_spesific_jobs_1a6851b462db402109eafda7dc86874215" kind="variable"><name>p</name></member>
-    <member refid="class_spesific_jobs_1a92b03e1ad18b2cbf4f03d2653fef3901" kind="variable"><name>model</name></member>
-    <member refid="class_spesific_jobs_1a382c130bb70f2bf25c76ef5c720659d6" kind="function"><name>SpesificJobs</name></member>
-    <member refid="class_spesific_jobs_1a2ac947799f858d8dd3c5fd59caf332aa" kind="function"><name>~SpesificJobs</name></member>
-    <member refid="class_spesific_jobs_1afe77ad902d3e9f3cfd5f057e0a37a193" kind="function"><name>getJobTitle</name></member>
-    <member refid="class_spesific_jobs_1a51afafde9872e78e8b09e3bc00a2a161" kind="function"><name>getCompanyName</name></member>
-    <member refid="class_spesific_jobs_1a39390d9c54635a2dc60c80322a7b42ed" kind="function"><name>getCityName</name></member>
-    <member refid="class_spesific_jobs_1aefe905d920961199fec0aff37a34b50d" kind="function"><name>getStatus</name></member>
-    <member refid="class_spesific_jobs_1a4744022c02271fabfb7fca0015896c09" kind="function"><name>getDeadline</name></member>
-    <member refid="class_spesific_jobs_1a73406f6204c990c3fa3c7b9d16f1b0b9" kind="function"><name>getMotivation</name></member>
-    <member refid="class_spesific_jobs_1abb4d8e45e0a2be8197ef03057fc5c714" kind="function"><name>setJobTitle</name></member>
-    <member refid="class_spesific_jobs_1aeacc56572911219fddf2f1439a70ed74" kind="function"><name>setCompanyName</name></member>
-    <member refid="class_spesific_jobs_1a67b162aa9ad12ed8ffba061edff96cdf" kind="function"><name>setCityName</name></member>
-    <member refid="class_spesific_jobs_1a439307a28196221b7e3877983077812f" kind="function"><name>setStatus</name></member>
-    <member refid="class_spesific_jobs_1a80ceb9ead40dc83e0adcf6ed2b3d5465" kind="function"><name>setDeadline</name></member>
-    <member refid="class_spesific_jobs_1a39df1f364b1ca8e3059094708f01983c" kind="function"><name>setMotivation</name></member>
-    <member refid="class_spesific_jobs_1acbf1efeeb4000a0a1238897daa74085b" kind="function"><name>getCityNames</name></member>
-    <member refid="class_spesific_jobs_1ad1eead4bdf63388b3cbe0bb79b4b0d09" kind="function"><name>getStatuses</name></member>
-    <member refid="class_spesific_jobs_1ac1e70f4ba940154e71423aef878800c7" kind="function"><name>appendApplicationIDs</name></member>
-    <member refid="class_spesific_jobs_1a34b8f35bc269b6deeec22a17c1a5718e" kind="function"><name>appendJobTitles</name></member>
-    <member refid="class_spesific_jobs_1adbf0c9c7a84779a1c431775c1cd86993" kind="function"><name>appendCompanyNames</name></member>
-    <member refid="class_spesific_jobs_1aa0838390b6c2c12a12fbdd001f07e0d3" kind="function"><name>appendCityNames</name></member>
-    <member refid="class_spesific_jobs_1a38d8df81426779186714b6e9e3847602" kind="function"><name>appendStatuses</name></member>
-    <member refid="class_spesific_jobs_1af94e4842375f809b079ad70023678455" kind="function"><name>appendDeadlines</name></member>
-    <member refid="class_spesific_jobs_1a43a3c8b1813896c13f99ddcdb1c8e636" kind="function"><name>appendMotivations</name></member>
-    <member refid="class_spesific_jobs_1a85d1a246018409f403e50bbed479fa56" kind="slot"><name>btnSearchClicked</name></member>
-    <member refid="class_spesific_jobs_1aadde7b3b5336803ba34213af11ee3ccf" kind="slot"><name>comboBoxCityNameChanged</name></member>
-    <member refid="class_spesific_jobs_1a713cf407d89833941dc75b62385c16fd" kind="slot"><name>comboBoxStatusChanged</name></member>
-    <member refid="class_spesific_jobs_1a7700d78d12b04622bb9fd2aa5428244a" kind="slot"><name>lineEditJobTitleChanged</name></member>
-    <member refid="class_spesific_jobs_1a9a17354cf100ea9080147926a1f11b56" kind="slot"><name>lineEditCompanyNameChanged</name></member>
-    <member refid="class_spesific_jobs_1a835ef2a912e29fb0bbf1110c01f566b0" kind="slot"><name>lineEditDeadlineChanged</name></member>
-  </compound>
   <compound refid="classstatistics" kind="class"><name>statistics</name>
     <member refid="classstatistics_1a132d339d01784764b74a7b2a12b39981" kind="variable"><name>ui</name></member>
     <member refid="classstatistics_1a783eb0a813b6cf4d756e1b856470769d" kind="variable"><name>p</name></member>
@@ -445,6 +445,10 @@
   </compound>
   <compound refid="namespace_ui" kind="namespace"><name>Ui</name>
   </compound>
+  <compound refid="advanced_search_8cpp" kind="file"><name>advancedSearch.cpp</name>
+  </compound>
+  <compound refid="advanced_search_8h" kind="file"><name>advancedSearch.h</name>
+  </compound>
   <compound refid="connectpsql_8cpp" kind="file"><name>connectpsql.cpp</name>
   </compound>
   <compound refid="connectpsql_8h" kind="file"><name>connectpsql.h</name>
@@ -487,10 +491,6 @@
   <compound refid="showstatuses_8cpp" kind="file"><name>showstatuses.cpp</name>
   </compound>
   <compound refid="showstatuses_8h" kind="file"><name>showstatuses.h</name>
-  </compound>
-  <compound refid="spesificjobs_8cpp" kind="file"><name>spesificjobs.cpp</name>
-  </compound>
-  <compound refid="spesificjobs_8h" kind="file"><name>spesificjobs.h</name>
   </compound>
   <compound refid="statistics_8cpp" kind="file"><name>statistics.cpp</name>
   </compound>

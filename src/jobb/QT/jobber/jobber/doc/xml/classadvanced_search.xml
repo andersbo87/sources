@@ -1,0 +1,703 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classadvanced_search" kind="class" language="C++" prot="public">
+    <compoundname>advancedSearch</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadvanced_search_1a35a4411fd11058f8fb6103399134c8ba" prot="private" static="no" mutable="no">
+        <type>Ui::SpesicficJobs *</type>
+        <definition>Ui::SpesicficJobs* advancedSearch::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="65" column="1" bodyfile="advancedSearch.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a913729b759865671aeafbfda9e6c3134" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString advancedSearch::winTitle</definition>
+        <argsstring></argsstring>
+        <name>winTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="66" column="1" bodyfile="advancedSearch.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a9af786d615dee6a1b96686e5327a9b29" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString advancedSearch::jobTitle</definition>
+        <argsstring></argsstring>
+        <name>jobTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="66" column="1" bodyfile="advancedSearch.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1ac0377c5b1339fd2744dce8d97527dc7a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString advancedSearch::companyName</definition>
+        <argsstring></argsstring>
+        <name>companyName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="66" column="1" bodyfile="advancedSearch.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a3f5cbae825950a89954eca9bc71c9a25" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString advancedSearch::cityName</definition>
+        <argsstring></argsstring>
+        <name>cityName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="66" column="1" bodyfile="advancedSearch.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a5810455b1e1d20b2b00b2bb14838f672" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString advancedSearch::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="66" column="1" bodyfile="advancedSearch.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a4bce9330334a599db5858684b40b0d2d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString advancedSearch::deadline</definition>
+        <argsstring></argsstring>
+        <name>deadline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="66" column="1" bodyfile="advancedSearch.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a745d149d86f315b863253e6412f5f897" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString advancedSearch::motivation</definition>
+        <argsstring></argsstring>
+        <name>motivation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="66" column="1" bodyfile="advancedSearch.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a3409b17734ba5e015738f205203ffec7" prot="private" static="no" mutable="no">
+        <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+        <definition>psql* advancedSearch::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="67" column="1" bodyfile="advancedSearch.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvanced_search_1a0ff3e39e93679f83d288d5f33684c5a2" prot="private" static="no" mutable="no">
+        <type>QStandardItemModel *</type>
+        <definition>QStandardItemModel* advancedSearch::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="68" column="1" bodyfile="advancedSearch.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadvanced_search_1ae9e0253869871c6af23d804fdc78d184" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>advancedSearch::advancedSearch</definition>
+        <argsstring>(QString title, psql *pg, QWidget *parent=0)</argsstring>
+        <name>advancedSearch</name>
+        <param>
+          <type>QString</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="classpsql" kindref="compound">psql</ref> *</type>
+          <declname>pg</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1ae9e0253869871c6af23d804fdc78d184" kindref="member">advancedSearch::advancedSearch</ref> <ref refid="classadvanced_search" kindref="compound">advancedSearch</ref> class constructor </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The title to be used in windows and dialog boxes. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the psql class </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="42" column="1" bodyfile="advancedSearch.cpp" bodystart="35" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1abe406621948b31e2656b7ec2c5cdfd7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>advancedSearch::~advancedSearch</definition>
+        <argsstring>()</argsstring>
+        <name>~advancedSearch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="43" column="1" bodyfile="advancedSearch.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a7bcbaf1e2663396daacf9b033c34238a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString advancedSearch::getJobTitle</definition>
+        <argsstring>()</argsstring>
+        <name>getJobTitle</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a7bcbaf1e2663396daacf9b033c34238a" kindref="member">advancedSearch::getJobTitle</ref> Gets the job title </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The job title </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="45" column="1" bodyfile="advancedSearch.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a5e9e9e24e83f36f9ed32bd60cecbb7de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString advancedSearch::getCompanyName</definition>
+        <argsstring>()</argsstring>
+        <name>getCompanyName</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a5e9e9e24e83f36f9ed32bd60cecbb7de" kindref="member">advancedSearch::getCompanyName</ref> Gets the company name </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the company </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="46" column="1" bodyfile="advancedSearch.cpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1ae061d04a2d39bcb3dc363fc56752377b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString advancedSearch::getCityName</definition>
+        <argsstring>()</argsstring>
+        <name>getCityName</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1ae061d04a2d39bcb3dc363fc56752377b" kindref="member">advancedSearch::getCityName</ref> Gets the name of the city where the job is located </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The city name </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="47" column="1" bodyfile="advancedSearch.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1afc318495c6475695844bd0f22c6c1e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString advancedSearch::getStatus</definition>
+        <argsstring>()</argsstring>
+        <name>getStatus</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1afc318495c6475695844bd0f22c6c1e3c" kindref="member">advancedSearch::getStatus</ref> Gets the status of the job application </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the current application status (sent, declined/rejected, etc) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="48" column="1" bodyfile="advancedSearch.cpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1ae58a90dea341fa431df72e368b70267e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString advancedSearch::getDeadline</definition>
+        <argsstring>()</argsstring>
+        <name>getDeadline</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1ae58a90dea341fa431df72e368b70267e" kindref="member">advancedSearch::getDeadline</ref> Gets the deadline of the application </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The application deadline </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="49" column="1" bodyfile="advancedSearch.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a40af6df4af92bc7f4cff89729df2c6da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString advancedSearch::getMotivation</definition>
+        <argsstring>()</argsstring>
+        <name>getMotivation</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a40af6df4af92bc7f4cff89729df2c6da" kindref="member">advancedSearch::getMotivation</ref> Gets the motivation for applying for this job. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The application motivation </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="50" column="1" bodyfile="advancedSearch.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a698024f20a64fd27b1b352bce5c6f527" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::setJobTitle</definition>
+        <argsstring>(QString newTitle)</argsstring>
+        <name>setJobTitle</name>
+        <param>
+          <type>QString</type>
+          <declname>newTitle</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a698024f20a64fd27b1b352bce5c6f527" kindref="member">advancedSearch::setJobTitle</ref> Sets the title of the job </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newTitle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the job </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="53" column="1" bodyfile="advancedSearch.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a6d817d740d8e614bf93cec866735bd7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::setCompanyName</definition>
+        <argsstring>(QString newName)</argsstring>
+        <name>setCompanyName</name>
+        <param>
+          <type>QString</type>
+          <declname>newName</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a6d817d740d8e614bf93cec866735bd7f" kindref="member">advancedSearch::setCompanyName</ref> Sets the name of the company </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The company name </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="54" column="1" bodyfile="advancedSearch.cpp" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a285bcf54a61d42fa81a7d1a5a86c5779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::setCityName</definition>
+        <argsstring>(QString newCityName)</argsstring>
+        <name>setCityName</name>
+        <param>
+          <type>QString</type>
+          <declname>newCityName</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a285bcf54a61d42fa81a7d1a5a86c5779" kindref="member">advancedSearch::setCityName</ref> Sets the name of the city where the job is located. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newCityName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the city </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="55" column="1" bodyfile="advancedSearch.cpp" bodystart="138" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a1530d628ce32b4c867349a075b3828c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::setStatus</definition>
+        <argsstring>(QString newStatus)</argsstring>
+        <name>setStatus</name>
+        <param>
+          <type>QString</type>
+          <declname>newStatus</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a1530d628ce32b4c867349a075b3828c3" kindref="member">advancedSearch::setStatus</ref> Set the status of the job application </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The status of the application. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="56" column="1" bodyfile="advancedSearch.cpp" bodystart="149" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1aeaacf5b995f4169c38d4381e17bc0969" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::setDeadline</definition>
+        <argsstring>(QString newDeadline)</argsstring>
+        <name>setDeadline</name>
+        <param>
+          <type>QString</type>
+          <declname>newDeadline</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1aeaacf5b995f4169c38d4381e17bc0969" kindref="member">advancedSearch::setDeadline</ref> Sets the deadline of the application </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newDeadline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application dealine (could be a date in any format or &apos;ASAP&apos; or something) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="57" column="1" bodyfile="advancedSearch.cpp" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a72e3b5ac068d875070165e865a03410c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::setMotivation</definition>
+        <argsstring>(QString newMotivation)</argsstring>
+        <name>setMotivation</name>
+        <param>
+          <type>QString</type>
+          <declname>newMotivation</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a72e3b5ac068d875070165e865a03410c" kindref="member">advancedSearch::setMotivation</ref> Sets the reasons for applying for this job (optional) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newMotivation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The motivation. Is there something about the job or company that made you apply for that job </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="58" column="1" bodyfile="advancedSearch.cpp" bodystart="169" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a459fba94afcef2073b4cd706e454d38f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::getCityNames</definition>
+        <argsstring>()</argsstring>
+        <name>getCityNames</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a459fba94afcef2073b4cd706e454d38f" kindref="member">advancedSearch::getCityNames</ref> Fetches a list of city names to be added to the comboBoxCityName. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="61" column="1" bodyfile="advancedSearch.cpp" bodystart="178" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a1517ebc5651f4956e26f8aa055983c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::getStatuses</definition>
+        <argsstring>()</argsstring>
+        <name>getStatuses</name>
+        <briefdescription>
+<para><ref refid="classadvanced_search_1a1517ebc5651f4956e26f8aa055983c58" kindref="member">advancedSearch::getStatuses</ref> Fetches a list of status names to be added to the comboBoxStatusName </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="62" column="1" bodyfile="advancedSearch.cpp" bodystart="206" bodyend="229"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classadvanced_search_1a0051b212b3728264c741cbf5572b846e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::appendApplicationIDs</definition>
+        <argsstring>()</argsstring>
+        <name>appendApplicationIDs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="69" column="1" bodyfile="advancedSearch.cpp" bodystart="231" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a1f00b156aa5625d36312bb014e29264b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::appendJobTitles</definition>
+        <argsstring>()</argsstring>
+        <name>appendJobTitles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="70" column="1" bodyfile="advancedSearch.cpp" bodystart="245" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a463671a1486d062779dddd5b08b1f07e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::appendCompanyNames</definition>
+        <argsstring>()</argsstring>
+        <name>appendCompanyNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="71" column="1" bodyfile="advancedSearch.cpp" bodystart="260" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a066833df334c00194d71695e12b07078" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::appendCityNames</definition>
+        <argsstring>()</argsstring>
+        <name>appendCityNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="72" column="1" bodyfile="advancedSearch.cpp" bodystart="274" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a104f2f0b13e46929ae5356b5a1aa11bf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::appendStatuses</definition>
+        <argsstring>()</argsstring>
+        <name>appendStatuses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="73" column="1" bodyfile="advancedSearch.cpp" bodystart="288" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a6fc0105abe4f221ec3efd519c5a11826" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::appendDeadlines</definition>
+        <argsstring>()</argsstring>
+        <name>appendDeadlines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="74" column="1" bodyfile="advancedSearch.cpp" bodystart="302" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvanced_search_1a2f0c378d5850861bc011f02a0b0b7f60" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::appendMotivations</definition>
+        <argsstring>()</argsstring>
+        <name>appendMotivations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="75" column="1" bodyfile="advancedSearch.cpp" bodystart="316" bodyend="328"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classadvanced_search_1a432811854d51059a45f62853910d4e28" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::btnSearchClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnSearchClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="78" column="1" bodyfile="advancedSearch.cpp" bodystart="331" bodyend="353"/>
+      </memberdef>
+      <memberdef kind="slot" id="classadvanced_search_1a91d54ec9dcccc9efbf0617d738c3b14b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::comboBoxCityNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>comboBoxCityNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="79" column="1" bodyfile="advancedSearch.cpp" bodystart="370" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="slot" id="classadvanced_search_1ab7fb02ade17239aa5d6c74b14dc46400" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::comboBoxStatusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>comboBoxStatusChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="80" column="1" bodyfile="advancedSearch.cpp" bodystart="375" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="slot" id="classadvanced_search_1a6208e871f1d88d456e52722af302382b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::lineEditJobTitleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditJobTitleChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="81" column="1" bodyfile="advancedSearch.cpp" bodystart="355" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="slot" id="classadvanced_search_1ab1e08d4d3894799b384534a1134e7cd4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::lineEditCompanyNameChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditCompanyNameChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="82" column="1" bodyfile="advancedSearch.cpp" bodystart="360" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="slot" id="classadvanced_search_1a79fe9877497a55df5281bbf3252d49e7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advancedSearch::lineEditDeadlineChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lineEditDeadlineChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="advancedSearch.h" line="83" column="1" bodyfile="advancedSearch.cpp" bodystart="365" bodyend="368"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QMainWindow</label>
+      </node>
+      <node id="0">
+        <label>advancedSearch</label>
+        <link refid="classadvanced_search"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QMainWindow</label>
+      </node>
+      <node id="2">
+        <label>advancedSearch</label>
+        <link refid="classadvanced_search"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="advancedSearch.h" line="38" column="1" bodyfile="advancedSearch.h" bodystart="37" bodyend="85"/>
+    <listofallmembers>
+      <member refid="classadvanced_search_1ae9e0253869871c6af23d804fdc78d184" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>advancedSearch</name></member>
+      <member refid="classadvanced_search_1a0051b212b3728264c741cbf5572b846e" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>appendApplicationIDs</name></member>
+      <member refid="classadvanced_search_1a066833df334c00194d71695e12b07078" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>appendCityNames</name></member>
+      <member refid="classadvanced_search_1a463671a1486d062779dddd5b08b1f07e" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>appendCompanyNames</name></member>
+      <member refid="classadvanced_search_1a6fc0105abe4f221ec3efd519c5a11826" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>appendDeadlines</name></member>
+      <member refid="classadvanced_search_1a1f00b156aa5625d36312bb014e29264b" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>appendJobTitles</name></member>
+      <member refid="classadvanced_search_1a2f0c378d5850861bc011f02a0b0b7f60" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>appendMotivations</name></member>
+      <member refid="classadvanced_search_1a104f2f0b13e46929ae5356b5a1aa11bf" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>appendStatuses</name></member>
+      <member refid="classadvanced_search_1a432811854d51059a45f62853910d4e28" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>btnSearchClicked</name></member>
+      <member refid="classadvanced_search_1a3f5cbae825950a89954eca9bc71c9a25" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>cityName</name></member>
+      <member refid="classadvanced_search_1a91d54ec9dcccc9efbf0617d738c3b14b" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>comboBoxCityNameChanged</name></member>
+      <member refid="classadvanced_search_1ab7fb02ade17239aa5d6c74b14dc46400" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>comboBoxStatusChanged</name></member>
+      <member refid="classadvanced_search_1ac0377c5b1339fd2744dce8d97527dc7a" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>companyName</name></member>
+      <member refid="classadvanced_search_1a4bce9330334a599db5858684b40b0d2d" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>deadline</name></member>
+      <member refid="classadvanced_search_1ae061d04a2d39bcb3dc363fc56752377b" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getCityName</name></member>
+      <member refid="classadvanced_search_1a459fba94afcef2073b4cd706e454d38f" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getCityNames</name></member>
+      <member refid="classadvanced_search_1a5e9e9e24e83f36f9ed32bd60cecbb7de" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getCompanyName</name></member>
+      <member refid="classadvanced_search_1ae58a90dea341fa431df72e368b70267e" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getDeadline</name></member>
+      <member refid="classadvanced_search_1a7bcbaf1e2663396daacf9b033c34238a" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getJobTitle</name></member>
+      <member refid="classadvanced_search_1a40af6df4af92bc7f4cff89729df2c6da" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getMotivation</name></member>
+      <member refid="classadvanced_search_1afc318495c6475695844bd0f22c6c1e3c" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getStatus</name></member>
+      <member refid="classadvanced_search_1a1517ebc5651f4956e26f8aa055983c58" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>getStatuses</name></member>
+      <member refid="classadvanced_search_1a9af786d615dee6a1b96686e5327a9b29" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>jobTitle</name></member>
+      <member refid="classadvanced_search_1ab1e08d4d3894799b384534a1134e7cd4" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>lineEditCompanyNameChanged</name></member>
+      <member refid="classadvanced_search_1a79fe9877497a55df5281bbf3252d49e7" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>lineEditDeadlineChanged</name></member>
+      <member refid="classadvanced_search_1a6208e871f1d88d456e52722af302382b" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>lineEditJobTitleChanged</name></member>
+      <member refid="classadvanced_search_1a0ff3e39e93679f83d288d5f33684c5a2" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>model</name></member>
+      <member refid="classadvanced_search_1a745d149d86f315b863253e6412f5f897" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>motivation</name></member>
+      <member refid="classadvanced_search_1a3409b17734ba5e015738f205203ffec7" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>p</name></member>
+      <member refid="classadvanced_search_1a285bcf54a61d42fa81a7d1a5a86c5779" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>setCityName</name></member>
+      <member refid="classadvanced_search_1a6d817d740d8e614bf93cec866735bd7f" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>setCompanyName</name></member>
+      <member refid="classadvanced_search_1aeaacf5b995f4169c38d4381e17bc0969" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>setDeadline</name></member>
+      <member refid="classadvanced_search_1a698024f20a64fd27b1b352bce5c6f527" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>setJobTitle</name></member>
+      <member refid="classadvanced_search_1a72e3b5ac068d875070165e865a03410c" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>setMotivation</name></member>
+      <member refid="classadvanced_search_1a1530d628ce32b4c867349a075b3828c3" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>setStatus</name></member>
+      <member refid="classadvanced_search_1a5810455b1e1d20b2b00b2bb14838f672" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>status</name></member>
+      <member refid="classadvanced_search_1a35a4411fd11058f8fb6103399134c8ba" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>ui</name></member>
+      <member refid="classadvanced_search_1a913729b759865671aeafbfda9e6c3134" prot="private" virt="non-virtual"><scope>advancedSearch</scope><name>winTitle</name></member>
+      <member refid="classadvanced_search_1abe406621948b31e2656b7ec2c5cdfd7f" prot="public" virt="non-virtual"><scope>advancedSearch</scope><name>~advancedSearch</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

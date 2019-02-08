@@ -1,0 +1,229 @@
+.TH "advancedSearch" 3 "Fri Feb 8 2019" "Jobber" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+advancedSearch
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBadvancedSearch\fP (QString title, \fBpsql\fP *pg, QWidget *parent=0)"
+.br
+.RI "\fBadvancedSearch::advancedSearch\fP \fBadvancedSearch\fP class constructor "
+.ti -1c
+.RI "QString \fBgetJobTitle\fP ()"
+.br
+.RI "\fBadvancedSearch::getJobTitle\fP Gets the job title "
+.ti -1c
+.RI "QString \fBgetCompanyName\fP ()"
+.br
+.RI "\fBadvancedSearch::getCompanyName\fP Gets the company name "
+.ti -1c
+.RI "QString \fBgetCityName\fP ()"
+.br
+.RI "\fBadvancedSearch::getCityName\fP Gets the name of the city where the job is located "
+.ti -1c
+.RI "QString \fBgetStatus\fP ()"
+.br
+.RI "\fBadvancedSearch::getStatus\fP Gets the status of the job application "
+.ti -1c
+.RI "QString \fBgetDeadline\fP ()"
+.br
+.RI "\fBadvancedSearch::getDeadline\fP Gets the deadline of the application "
+.ti -1c
+.RI "QString \fBgetMotivation\fP ()"
+.br
+.RI "\fBadvancedSearch::getMotivation\fP Gets the motivation for applying for this job\&. "
+.ti -1c
+.RI "void \fBsetJobTitle\fP (QString newTitle)"
+.br
+.RI "\fBadvancedSearch::setJobTitle\fP Sets the title of the job "
+.ti -1c
+.RI "void \fBsetCompanyName\fP (QString newName)"
+.br
+.RI "\fBadvancedSearch::setCompanyName\fP Sets the name of the company "
+.ti -1c
+.RI "void \fBsetCityName\fP (QString newCityName)"
+.br
+.RI "\fBadvancedSearch::setCityName\fP Sets the name of the city where the job is located\&. "
+.ti -1c
+.RI "void \fBsetStatus\fP (QString newStatus)"
+.br
+.RI "\fBadvancedSearch::setStatus\fP Set the status of the job application "
+.ti -1c
+.RI "void \fBsetDeadline\fP (QString newDeadline)"
+.br
+.RI "\fBadvancedSearch::setDeadline\fP Sets the deadline of the application "
+.ti -1c
+.RI "void \fBsetMotivation\fP (QString newMotivation)"
+.br
+.RI "\fBadvancedSearch::setMotivation\fP Sets the reasons for applying for this job (optional) "
+.ti -1c
+.RI "void \fBgetCityNames\fP ()"
+.br
+.RI "\fBadvancedSearch::getCityNames\fP Fetches a list of city names to be added to the comboBoxCityName\&. "
+.ti -1c
+.RI "void \fBgetStatuses\fP ()"
+.br
+.RI "\fBadvancedSearch::getStatuses\fP Fetches a list of status names to be added to the comboBoxStatusName "
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "advancedSearch::advancedSearch (QString title, \fBpsql\fP * pg, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBadvancedSearch::advancedSearch\fP \fBadvancedSearch\fP class constructor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItitle\fP The title to be used in windows and dialog boxes\&. 
+.br
+\fIpg\fP Pointer to the psql class 
+.br
+\fIparent\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QString advancedSearch::getCityName ()"
+
+.PP
+\fBadvancedSearch::getCityName\fP Gets the name of the city where the job is located 
+.PP
+\fBReturns:\fP
+.RS 4
+The city name 
+.RE
+.PP
+
+.SS "QString advancedSearch::getCompanyName ()"
+
+.PP
+\fBadvancedSearch::getCompanyName\fP Gets the company name 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the company 
+.RE
+.PP
+
+.SS "QString advancedSearch::getDeadline ()"
+
+.PP
+\fBadvancedSearch::getDeadline\fP Gets the deadline of the application 
+.PP
+\fBReturns:\fP
+.RS 4
+The application deadline 
+.RE
+.PP
+
+.SS "QString advancedSearch::getJobTitle ()"
+
+.PP
+\fBadvancedSearch::getJobTitle\fP Gets the job title 
+.PP
+\fBReturns:\fP
+.RS 4
+The job title 
+.RE
+.PP
+
+.SS "QString advancedSearch::getMotivation ()"
+
+.PP
+\fBadvancedSearch::getMotivation\fP Gets the motivation for applying for this job\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The application motivation 
+.RE
+.PP
+
+.SS "QString advancedSearch::getStatus ()"
+
+.PP
+\fBadvancedSearch::getStatus\fP Gets the status of the job application 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the current application status (sent, declined/rejected, etc) 
+.RE
+.PP
+
+.SS "void advancedSearch::setCityName (QString newCityName)"
+
+.PP
+\fBadvancedSearch::setCityName\fP Sets the name of the city where the job is located\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewCityName\fP The name of the city 
+.RE
+.PP
+
+.SS "void advancedSearch::setCompanyName (QString newName)"
+
+.PP
+\fBadvancedSearch::setCompanyName\fP Sets the name of the company 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewName\fP The company name 
+.RE
+.PP
+
+.SS "void advancedSearch::setDeadline (QString newDeadline)"
+
+.PP
+\fBadvancedSearch::setDeadline\fP Sets the deadline of the application 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewDeadline\fP The application dealine (could be a date in any format or 'ASAP' or something) 
+.RE
+.PP
+
+.SS "void advancedSearch::setJobTitle (QString newTitle)"
+
+.PP
+\fBadvancedSearch::setJobTitle\fP Sets the title of the job 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewTitle\fP The name of the job 
+.RE
+.PP
+
+.SS "void advancedSearch::setMotivation (QString newMotivation)"
+
+.PP
+\fBadvancedSearch::setMotivation\fP Sets the reasons for applying for this job (optional) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewMotivation\fP The motivation\&. Is there something about the job or company that made you apply for that job 
+.RE
+.PP
+
+.SS "void advancedSearch::setStatus (QString newStatus)"
+
+.PP
+\fBadvancedSearch::setStatus\fP Set the status of the job application 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewStatus\fP The status of the application\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Jobber from the source code\&.

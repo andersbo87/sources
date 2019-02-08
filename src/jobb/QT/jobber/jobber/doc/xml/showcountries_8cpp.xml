@@ -1,95 +1,95 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="showcountries_8cpp" kind="file" language="C++">
     <compoundname>showcountries.cpp</compoundname>
     <includes refid="showcountries_8h" local="yes">showcountries.h</includes>
     <includes local="yes">ui_showcountries.h</includes>
     <incdepgraph>
-      <node id="317">
+      <node id="347">
         <label>QCloseEvent</label>
       </node>
-      <node id="329">
+      <node id="359">
         <label>QMessageBox</label>
       </node>
-      <node id="315">
+      <node id="345">
         <label>showcountries.h</label>
         <link refid="showcountries_8h_source"/>
-        <childnode refid="316" relation="include">
+        <childnode refid="346" relation="include">
         </childnode>
-        <childnode refid="317" relation="include">
+        <childnode refid="347" relation="include">
         </childnode>
-        <childnode refid="318" relation="include">
+        <childnode refid="348" relation="include">
         </childnode>
-        <childnode refid="327" relation="include">
+        <childnode refid="357" relation="include">
         </childnode>
-        <childnode refid="329" relation="include">
+        <childnode refid="359" relation="include">
         </childnode>
       </node>
-      <node id="330">
+      <node id="360">
         <label>ui_showcountries.h</label>
       </node>
-      <node id="316">
+      <node id="346">
         <label>QMainWindow</label>
       </node>
-      <node id="321">
+      <node id="351">
         <label>QLinkedList</label>
       </node>
-      <node id="327">
+      <node id="357">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="328" relation="include">
+        <childnode refid="358" relation="include">
         </childnode>
       </node>
-      <node id="318">
+      <node id="348">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="319" relation="include">
+        <childnode refid="349" relation="include">
         </childnode>
-        <childnode refid="320" relation="include">
+        <childnode refid="350" relation="include">
         </childnode>
-        <childnode refid="321" relation="include">
+        <childnode refid="351" relation="include">
         </childnode>
-        <childnode refid="322" relation="include">
+        <childnode refid="352" relation="include">
         </childnode>
-        <childnode refid="323" relation="include">
+        <childnode refid="353" relation="include">
         </childnode>
-        <childnode refid="324" relation="include">
+        <childnode refid="354" relation="include">
         </childnode>
-        <childnode refid="325" relation="include">
+        <childnode refid="355" relation="include">
         </childnode>
-        <childnode refid="326" relation="include">
+        <childnode refid="356" relation="include">
         </childnode>
       </node>
-      <node id="320">
+      <node id="350">
         <label>QApplication</label>
       </node>
-      <node id="323">
+      <node id="353">
         <label>QDebug</label>
       </node>
-      <node id="324">
+      <node id="354">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="319">
+      <node id="349">
         <label>sstream</label>
       </node>
-      <node id="314">
+      <node id="344">
         <label>showcountries.cpp</label>
         <link refid="showcountries_8cpp"/>
-        <childnode refid="315" relation="include">
+        <childnode refid="345" relation="include">
         </childnode>
-        <childnode refid="330" relation="include">
+        <childnode refid="360" relation="include">
         </childnode>
       </node>
-      <node id="328">
+      <node id="358">
         <label>QString</label>
       </node>
-      <node id="325">
+      <node id="355">
         <label>pqxx/result</label>
       </node>
-      <node id="322">
+      <node id="352">
         <label>QException</label>
       </node>
-      <node id="326">
+      <node id="356">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -182,8 +182,8 @@
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxLandID-&gt;setCurrentText(QString::number(countryID));</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEditCountryName-&gt;setText(p-&gt;<ref refid="classpsql_1a5724e9992e6a5c98524ab73b98f4202d" kindref="member">getCountryName</ref>(countryID));</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kindref="member">setCountryID</ref>(countryID);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_cities_1a6974ab22950cede9fb290490bcc8f3a5" kindref="member">setCountryName</ref>(ui-&gt;lineEditCountryName-&gt;text());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" kindref="member">setCountryID</ref>(countryID);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" kindref="member">setCountryName</ref>(ui-&gt;lineEditCountryName-&gt;text());</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(std::exception<sp/>&amp;e)</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -260,12 +260,12 @@
 <codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(msg.exec()<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Oppdaterer<sp/>endringene<sp/>i<sp/>databasen.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ae662278c5fb8ff3471ee1442e69482e2" kindref="member">updateCountry</ref>(<ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>(),<sp/><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>()))</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ae662278c5fb8ff3471ee1442e69482e2" kindref="member">updateCountry</ref>(<ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>(),<sp/><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>()))</highlight></codeline>
 <codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg2;</highlight></codeline>
 <codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setIcon(msg2.Information);</highlight></codeline>
 <codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setWindowTitle(winTitle);</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>ble<sp/>oppdatert<sp/>og<sp/>har<sp/>følgende<sp/>verdier:\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>());</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>ble<sp/>oppdatert<sp/>og<sp/>har<sp/>følgende<sp/>verdier:\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>());</highlight></codeline>
 <codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.exec();</highlight></codeline>
 <codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -291,25 +291,25 @@
 <codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>confirm.setStandardButtons(confirm.Yes);</highlight></codeline>
 <codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>confirm.addButton(confirm.No);</highlight></codeline>
 <codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>confirm.setDefaultButton(confirm.Yes);</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>confirm.setText(</highlight><highlight class="stringliteral">&quot;Du<sp/>er<sp/>i<sp/>ferd<sp/>med<sp/>å<sp/>fjerne<sp/>landet<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>fra<sp/>databasen.<sp/>Dette<sp/>kan<sp/>ikke<sp/>angres.<sp/>Vil<sp/>du<sp/>fortsette?&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>confirm.setText(</highlight><highlight class="stringliteral">&quot;Du<sp/>er<sp/>i<sp/>ferd<sp/>med<sp/>å<sp/>fjerne<sp/>landet<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>fra<sp/>databasen.<sp/>Dette<sp/>kan<sp/>ikke<sp/>angres.<sp/>Vil<sp/>du<sp/>fortsette?&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(confirm.exec()<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a914bf8701fbed4ff80edcd0d09c7c3fd" kindref="member">deleteCountry</ref>(<ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>()))</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a914bf8701fbed4ff80edcd0d09c7c3fd" kindref="member">deleteCountry</ref>(<ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>()))</highlight></codeline>
 <codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>success;</highlight></codeline>
 <codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setIcon(success.Information);</highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ble<sp/>fjernet<sp/>fra<sp/>databasen.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>ble<sp/>fjernet<sp/>fra<sp/>databasen.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.exec();</highlight></codeline>
 <codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxLandID-&gt;removeItem(ui-&gt;comboBoxLandID-&gt;currentIndex());</highlight></codeline>
 <codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastID<sp/>=<sp/>lastID<sp/>-1;</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kindref="member">setCountryID</ref>(ui-&gt;comboBoxLandID-&gt;currentText().toInt());</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" kindref="member">setCountryID</ref>(ui-&gt;comboBoxLandID-&gt;currentText().toInt());</highlight></codeline>
 <codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ui-&gt;comboBoxLandID-&gt;currentText().toInt()<sp/>==<sp/>lastID)</highlight></codeline>
 <codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>()<sp/>==<sp/>1)</highlight></codeline>
 <codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
@@ -329,12 +329,12 @@
 <codeline lineno="269"><highlight class="normal"></highlight></codeline>
 <codeline lineno="270"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ShowCountries::btnSaveClicked()</highlight></codeline>
 <codeline lineno="271"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ae662278c5fb8ff3471ee1442e69482e2" kindref="member">updateCountry</ref>(<ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>(),<sp/><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>()))</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ae662278c5fb8ff3471ee1442e69482e2" kindref="member">updateCountry</ref>(<ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>(),<sp/><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>()))</highlight></codeline>
 <codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>success;</highlight></codeline>
 <codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setIcon(success.Information);</highlight></codeline>
-<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>ble<sp/>oppdatert<sp/>og<sp/>har<sp/>følgende<sp/>verdier:\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>());</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>ble<sp/>oppdatert<sp/>og<sp/>har<sp/>følgende<sp/>verdier:\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>());</highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.exec();</highlight></codeline>
 <codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
@@ -353,7 +353,7 @@
 <codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getCountry(1);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">getCountry</ref>(1);</highlight></codeline>
 <codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
@@ -375,7 +375,7 @@
 <codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
 <codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxLandID-&gt;setCurrentIndex(ui-&gt;comboBoxLandID-&gt;count()-1);</highlight></codeline>
-<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getCountry(ui-&gt;comboBoxLandID-&gt;currentText().toInt());</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">getCountry</ref>(ui-&gt;comboBoxLandID-&gt;currentText().toInt());</highlight></codeline>
 <codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
@@ -396,12 +396,12 @@
 <codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentCountry<sp/>=<sp/><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>(),<sp/>counter<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentCountry<sp/>=<sp/><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>(),<sp/>counter<sp/>=<sp/>1;</highlight></codeline>
 <codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(QString::compare(p-&gt;<ref refid="classpsql_1a5724e9992e6a5c98524ab73b98f4202d" kindref="member">getCountryName</ref>(currentCountry<sp/>+<sp/>counter),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>Qt::CaseSensitive)<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter++;</highlight></codeline>
 <codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getCountry(currentCountry<sp/>+<sp/>counter);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">getCountry</ref>(currentCountry<sp/>+<sp/>counter);</highlight></codeline>
 <codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(currentCountry<sp/>+<sp/>1<sp/>==<sp/>lastID)</highlight></codeline>
@@ -425,12 +425,12 @@
 <codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentCountry<sp/>=<sp/><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>(),<sp/>counter<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentCountry<sp/>=<sp/><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>(),<sp/>counter<sp/>=<sp/>1;</highlight></codeline>
 <codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(QString::compare(p-&gt;<ref refid="classpsql_1a5724e9992e6a5c98524ab73b98f4202d" kindref="member">getCountryName</ref>(currentCountry<sp/>-<sp/>counter),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>Qt::CaseSensitive)<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter++;</highlight></codeline>
 <codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getCountry(currentCountry<sp/>-<sp/>counter);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">getCountry</ref>(currentCountry<sp/>-<sp/>counter);</highlight></codeline>
 <codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(currentCountry<sp/>-<sp/>1<sp/>==<sp/>1)</highlight></codeline>
@@ -454,7 +454,7 @@
 <codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currID<sp/>=<sp/>ui-&gt;comboBoxLandID-&gt;currentText().toInt();</highlight></codeline>
 <codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
 <codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/>countryIDchanged<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/>getCountry(currID);</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">getCountry</ref>(currID);</highlight></codeline>
 <codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/>countryIDchanged<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(currID<sp/>==<sp/>1)</highlight></codeline>
 <codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -484,7 +484,7 @@
 <codeline lineno="424"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="425"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_cities_1a6974ab22950cede9fb290490bcc8f3a5" kindref="member">setCountryName</ref>(ui-&gt;lineEditCountryName-&gt;text());</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" kindref="member">setCountryName</ref>(ui-&gt;lineEditCountryName-&gt;text());</highlight></codeline>
 <codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!countryIDchanged)</highlight></codeline>
 <codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setChanged(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -496,8 +496,8 @@
 <codeline lineno="436"><highlight class="normal"></highlight></codeline>
 <codeline lineno="437"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ShowCountries::windowLoaded()</highlight></codeline>
 <codeline lineno="438"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/>getCountries();</highlight></codeline>
-<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/>getCountry(1);</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" kindref="member">getCountries</ref>();</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">getCountry</ref>(1);</highlight></codeline>
 <codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/>countryIDchanged<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/>changed<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="443"><highlight class="normal">}</highlight></codeline>
@@ -523,12 +523,12 @@
 <codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(res<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Oppdaterer<sp/>endringene<sp/>i<sp/>databasen.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ae662278c5fb8ff3471ee1442e69482e2" kindref="member">updateCountry</ref>(<ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>(),<sp/><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>()))</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1ae662278c5fb8ff3471ee1442e69482e2" kindref="member">updateCountry</ref>(<ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>(),<sp/><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>()))</highlight></codeline>
 <codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg2;</highlight></codeline>
 <codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setIcon(msg2.Information);</highlight></codeline>
 <codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setWindowTitle(winTitle);</highlight></codeline>
-<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>ble<sp/>oppdatert<sp/>og<sp/>har<sp/>følgende<sp/>verdier:\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">getCountryID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">getCountryName</ref>());</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setText(</highlight><highlight class="stringliteral">&quot;Landet<sp/>ble<sp/>oppdatert<sp/>og<sp/>har<sp/>følgende<sp/>verdier:\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">getCountryID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">getCountryName</ref>());</highlight></codeline>
 <codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.exec();</highlight></codeline>
 <codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>

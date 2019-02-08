@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['connectpsql',['connectPsql',['../classconnect_psql.html',1,'']]]
+  ['advancedsearch',['advancedSearch',['../classadvanced_search.html',1,'']]]
 ];

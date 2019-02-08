@@ -1,28 +1,4 @@
 var searchData=
 [
-  ['closeevent',['closeEvent',['../class_new_job.html#a84f6390f63ce01fb860b375f53f9c68d',1,'NewJob::closeEvent()'],['../class_view_jobs.html#a832503ca9eb4e4bf79c2fb48a59141aa',1,'ViewJobs::closeEvent()']]],
-  ['connectdatabase',['connectDatabase',['../classpsql.html#ada485c933df77453629e3821ab19fa4c',1,'psql']]],
-  ['connectpsql',['connectPsql',['../classconnect_psql.html#aee2b55cd64f5b2fac084eda4e6db0075',1,'connectPsql']]],
-  ['countaccepted',['countAccepted',['../classpsql.html#a0beec2f098edc0961f27774cdd54d09b',1,'psql']]],
-  ['countdeclinedafterinterview',['countDeclinedAfterInterview',['../classpsql.html#a2ae512bc231446d5fccae84582395675',1,'psql']]],
-  ['countdeclinedapplications',['countDeclinedApplications',['../classpsql.html#a40541367c3af9c0ac94e2fb92f00f53c',1,'psql']]],
-  ['countinterviews',['countInterviews',['../classpsql.html#a84c1fdea2d09783a39677c4f79d924fc',1,'psql']]],
-  ['countregisteredapplications',['countRegisteredApplications',['../classpsql.html#a8673a80968d293cd3ead6e6e9da8dd8a',1,'psql']]],
-  ['countsentapplications',['countSentApplications',['../classpsql.html#af5e6768f6c51ac7b94571505f7a628e4',1,'psql']]],
-  ['counttotalapplications',['countTotalApplications',['../classpsql.html#a496d0a426a1539bf9babd1dd4e9fcd96',1,'psql']]],
-  ['countwrittenbutnotsent',['countWrittenButNotSent',['../classpsql.html#a70ad9f4b00735a55232f46da4edd2edc',1,'psql']]],
-  ['createprocedurenewapplicationid',['createProcedureNewApplicationID',['../classpsql.html#ae9e3ee06f4a5ecd4178662dfa0655fe1',1,'psql']]],
-  ['createprocedurenewcountryid',['createProcedureNewCountryID',['../classpsql.html#a565bfc828ecb6b5621354128773494fd',1,'psql']]],
-  ['createprocedurenewtownid',['createProcedureNewTownID',['../classpsql.html#ade0c7fa4f019c3f349230af09b1de49e',1,'psql']]],
-  ['createprocedureupdateapplication',['createProcedureUpdateApplication',['../classpsql.html#a28f3e3d6309e3ce57493db284c099946',1,'psql']]],
-  ['createsequenceapplicationidseq',['createSequenceApplicationIDSeq',['../classpsql.html#a54c75d0896ee6aad58e22c830895c106',1,'psql']]],
-  ['createsequencecountryidseq',['createSequenceCountryIDSeq',['../classpsql.html#aa907c84f592212451d3d59a2061adabd',1,'psql']]],
-  ['createsequencestatusidseq',['createSequenceStatusIDSeq',['../classpsql.html#ae882aa80b2d629383fc2e60aecfd421a',1,'psql']]],
-  ['createsequencetownidseq',['createSequenceTownIDSeq',['../classpsql.html#a6ce21cb5a1e77cb0c280e2932d2b557d',1,'psql']]],
-  ['createtableapplication',['createTableApplication',['../classpsql.html#a36f6a197a2214b9c71cfcd620334835d',1,'psql']]],
-  ['createtablecountry',['createTableCountry',['../classpsql.html#ab6e496d8471f3cd9c5c082a6ba75c25b',1,'psql']]],
-  ['createtablestatus',['createTableStatus',['../classpsql.html#a427ad0f483c8ab7a4d23912278bc69e8',1,'psql']]],
-  ['createtabletown',['createTableTown',['../classpsql.html#a95d1f522766174bd2c6a7b94f725719c',1,'psql']]],
-  ['createviewapplication',['createViewApplication',['../classpsql.html#ad6fb8e1e7177c7996f297d477ecceb27',1,'psql']]],
-  ['createviewtowns',['createViewTowns',['../classpsql.html#ac5b1230ac405a600b67b144060b33a0d',1,'psql']]]
+  ['advancedsearch',['advancedSearch',['../classadvanced_search.html#ae9e0253869871c6af23d804fdc78d184',1,'advancedSearch']]]
 ];

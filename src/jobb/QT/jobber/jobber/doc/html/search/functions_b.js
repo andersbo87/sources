@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['viewapplicationexists',['viewApplicationExists',['../classpsql.html#a4c23d467c41e155a55c38b1cefb9b54b',1,'psql']]],
-  ['viewjobs',['ViewJobs',['../class_view_jobs.html#ac78f48cc812a0348a233f33dc78a71cc',1,'ViewJobs']]],
-  ['viewtownexists',['viewTownExists',['../classpsql.html#aae95eb2a505c1b0b7b4d5671926ecd2f',1,'psql']]]
+  ['updateapplication',['updateApplication',['../classpsql.html#a836eea3c6deb2d6a3a357193a99d6ee7',1,'psql']]],
+  ['updatecity',['updateCity',['../classpsql.html#af2d88341e21459895470da26fa1826f0',1,'psql']]],
+  ['updatecountry',['updateCountry',['../classpsql.html#ae662278c5fb8ff3471ee1442e69482e2',1,'psql']]],
+  ['updatestatus',['updateStatus',['../classpsql.html#a620364c99c98e20720908deb045536a0',1,'psql']]]
 ];

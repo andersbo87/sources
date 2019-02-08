@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="psql_8h" kind="file" language="C++">
     <compoundname>psql.h</compoundname>
     <includes local="no">sstream</includes>
@@ -10,6 +10,7 @@
     <includes local="no">pqxx/pqxx</includes>
     <includes local="no">pqxx/result</includes>
     <includes local="no">QtGui</includes>
+    <includedby refid="advanced_search_8h" local="yes">advancedSearch.h</includedby>
     <includedby refid="connectpsql_8h" local="yes">connectpsql.h</includedby>
     <includedby refid="mainwindow_8h" local="yes">mainwindow.h</includedby>
     <includedby refid="newjob_8h" local="yes">newjob.h</includedby>
@@ -20,144 +21,143 @@
     <includedby refid="showcities_8h" local="yes">showcities.h</includedby>
     <includedby refid="showcountries_8h" local="yes">showcountries.h</includedby>
     <includedby refid="showstatuses_8h" local="yes">showstatuses.h</includedby>
-    <includedby refid="spesificjobs_8h" local="yes">spesificjobs.h</includedby>
     <includedby refid="statistics_8h" local="yes">statistics.h</includedby>
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <includedby refid="psql_8cpp" local="yes">psql.cpp</includedby>
     <incdepgraph>
-      <node id="259">
+      <node id="289">
         <label>QLinkedList</label>
       </node>
-      <node id="256">
+      <node id="286">
         <label>psql.h</label>
         <link refid="psql_8h"/>
-        <childnode refid="257" relation="include">
+        <childnode refid="287" relation="include">
         </childnode>
-        <childnode refid="258" relation="include">
+        <childnode refid="288" relation="include">
         </childnode>
-        <childnode refid="259" relation="include">
+        <childnode refid="289" relation="include">
         </childnode>
-        <childnode refid="260" relation="include">
+        <childnode refid="290" relation="include">
         </childnode>
-        <childnode refid="261" relation="include">
+        <childnode refid="291" relation="include">
         </childnode>
-        <childnode refid="262" relation="include">
+        <childnode refid="292" relation="include">
         </childnode>
-        <childnode refid="263" relation="include">
+        <childnode refid="293" relation="include">
         </childnode>
-        <childnode refid="264" relation="include">
+        <childnode refid="294" relation="include">
         </childnode>
       </node>
-      <node id="258">
+      <node id="288">
         <label>QApplication</label>
       </node>
-      <node id="261">
+      <node id="291">
         <label>QDebug</label>
       </node>
-      <node id="262">
+      <node id="292">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="257">
+      <node id="287">
         <label>sstream</label>
       </node>
-      <node id="263">
+      <node id="293">
         <label>pqxx/result</label>
       </node>
-      <node id="260">
+      <node id="290">
         <label>QException</label>
       </node>
-      <node id="264">
+      <node id="294">
         <label>QtGui</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="275">
+      <node id="306">
         <label>showcountries.h</label>
         <link refid="showcountries_8h_source"/>
       </node>
-      <node id="267">
+      <node id="298">
         <label>mainwindow.h</label>
         <link refid="mainwindow_8h_source"/>
       </node>
-      <node id="273">
+      <node id="304">
         <label>newstatus.h</label>
         <link refid="newstatus_8h_source"/>
       </node>
-      <node id="268">
+      <node id="299">
         <label>newjob.h</label>
         <link refid="newjob_8h_source"/>
       </node>
-      <node id="265">
+      <node id="295">
         <label>psql.h</label>
         <link refid="psql_8h"/>
-        <childnode refid="266" relation="include">
+        <childnode refid="296" relation="include">
         </childnode>
-        <childnode refid="267" relation="include">
+        <childnode refid="297" relation="include">
         </childnode>
-        <childnode refid="268" relation="include">
+        <childnode refid="298" relation="include">
         </childnode>
-        <childnode refid="269" relation="include">
+        <childnode refid="299" relation="include">
         </childnode>
-        <childnode refid="270" relation="include">
+        <childnode refid="300" relation="include">
         </childnode>
-        <childnode refid="272" relation="include">
+        <childnode refid="301" relation="include">
         </childnode>
-        <childnode refid="273" relation="include">
+        <childnode refid="303" relation="include">
         </childnode>
-        <childnode refid="274" relation="include">
+        <childnode refid="304" relation="include">
         </childnode>
-        <childnode refid="275" relation="include">
+        <childnode refid="305" relation="include">
         </childnode>
-        <childnode refid="276" relation="include">
+        <childnode refid="306" relation="include">
         </childnode>
-        <childnode refid="277" relation="include">
+        <childnode refid="307" relation="include">
         </childnode>
-        <childnode refid="278" relation="include">
+        <childnode refid="308" relation="include">
         </childnode>
-        <childnode refid="279" relation="include">
+        <childnode refid="309" relation="include">
         </childnode>
       </node>
-      <node id="271">
+      <node id="302">
         <label>newcity.cpp</label>
         <link refid="newcity_8cpp"/>
       </node>
-      <node id="278">
+      <node id="308">
         <label>statistics.h</label>
         <link refid="statistics_8h_source"/>
       </node>
-      <node id="276">
+      <node id="307">
         <label>showstatuses.h</label>
         <link refid="showstatuses_8h_source"/>
       </node>
-      <node id="270">
+      <node id="301">
         <label>newcity.h</label>
         <link refid="newcity_8h_source"/>
-        <childnode refid="271" relation="include">
+        <childnode refid="302" relation="include">
         </childnode>
       </node>
-      <node id="277">
-        <label>spesificjobs.h</label>
-        <link refid="spesificjobs_8h_source"/>
-      </node>
-      <node id="272">
+      <node id="303">
         <label>newcountry.h</label>
         <link refid="newcountry_8h_source"/>
       </node>
-      <node id="274">
+      <node id="305">
         <label>showcities.h</label>
         <link refid="showcities_8h_source"/>
       </node>
-      <node id="269">
+      <node id="300">
         <label>viewjobs.h</label>
         <link refid="viewjobs_8h_source"/>
       </node>
-      <node id="266">
+      <node id="296">
+        <label>advancedSearch.h</label>
+        <link refid="advanced_search_8h_source"/>
+      </node>
+      <node id="297">
         <label>connectpsql.h</label>
         <link refid="connectpsql_8h_source"/>
-        <childnode refid="267" relation="include">
+        <childnode refid="298" relation="include">
         </childnode>
       </node>
-      <node id="279">
+      <node id="309">
         <label>psql.cpp</label>
         <link refid="psql_8cpp"/>
       </node>

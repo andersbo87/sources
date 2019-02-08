@@ -1,101 +1,101 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="newcity_8cpp" kind="file" language="C++">
     <compoundname>newcity.cpp</compoundname>
     <includes refid="newcity_8h" local="yes">newcity.h</includes>
     <includes local="yes">ui_newcity.h</includes>
     <includes local="no">QPushButton</includes>
     <incdepgraph>
-      <node id="115">
+      <node id="145">
         <label>QCloseEvent</label>
       </node>
-      <node id="117">
+      <node id="147">
         <label>QMessageBox</label>
       </node>
-      <node id="116">
+      <node id="146">
         <label>QMainWindow</label>
       </node>
-      <node id="107">
+      <node id="137">
         <label>QLinkedList</label>
       </node>
-      <node id="113">
+      <node id="143">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="114" relation="include">
+        <childnode refid="144" relation="include">
         </childnode>
       </node>
-      <node id="104">
+      <node id="134">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="105" relation="include">
+        <childnode refid="135" relation="include">
         </childnode>
-        <childnode refid="106" relation="include">
+        <childnode refid="136" relation="include">
         </childnode>
-        <childnode refid="107" relation="include">
+        <childnode refid="137" relation="include">
         </childnode>
-        <childnode refid="108" relation="include">
+        <childnode refid="138" relation="include">
         </childnode>
-        <childnode refid="109" relation="include">
+        <childnode refid="139" relation="include">
         </childnode>
-        <childnode refid="110" relation="include">
+        <childnode refid="140" relation="include">
         </childnode>
-        <childnode refid="111" relation="include">
+        <childnode refid="141" relation="include">
         </childnode>
-        <childnode refid="112" relation="include">
+        <childnode refid="142" relation="include">
         </childnode>
       </node>
-      <node id="102">
+      <node id="132">
         <label>newcity.cpp</label>
         <link refid="newcity_8cpp"/>
-        <childnode refid="103" relation="include">
+        <childnode refid="133" relation="include">
         </childnode>
-        <childnode refid="118" relation="include">
+        <childnode refid="148" relation="include">
         </childnode>
-        <childnode refid="119" relation="include">
+        <childnode refid="149" relation="include">
         </childnode>
       </node>
-      <node id="103">
+      <node id="133">
         <label>newcity.h</label>
         <link refid="newcity_8h_source"/>
-        <childnode refid="104" relation="include">
+        <childnode refid="134" relation="include">
         </childnode>
-        <childnode refid="113" relation="include">
+        <childnode refid="143" relation="include">
         </childnode>
-        <childnode refid="115" relation="include">
+        <childnode refid="145" relation="include">
         </childnode>
-        <childnode refid="116" relation="include">
+        <childnode refid="146" relation="include">
         </childnode>
-        <childnode refid="117" relation="include">
+        <childnode refid="147" relation="include">
         </childnode>
       </node>
-      <node id="106">
+      <node id="136">
         <label>QApplication</label>
       </node>
-      <node id="118">
+      <node id="148">
         <label>ui_newcity.h</label>
       </node>
-      <node id="109">
+      <node id="139">
         <label>QDebug</label>
       </node>
-      <node id="110">
+      <node id="140">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="105">
+      <node id="135">
         <label>sstream</label>
       </node>
-      <node id="114">
+      <node id="144">
         <label>QString</label>
       </node>
-      <node id="119">
+      <node id="149">
         <label>QPushButton</label>
       </node>
-      <node id="111">
+      <node id="141">
         <label>pqxx/result</label>
       </node>
-      <node id="108">
+      <node id="138">
         <label>QException</label>
       </node>
-      <node id="112">
+      <node id="142">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -189,8 +189,8 @@
 <codeline lineno="96"><highlight class="normal"></highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>NewCity::countryIDchanged()</highlight></codeline>
 <codeline lineno="98"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>setCountryID(ui-&gt;comboBox-&gt;currentText().toInt());</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelCountryName-&gt;setText(p-&gt;<ref refid="classpsql_1a5724e9992e6a5c98524ab73b98f4202d" kindref="member">getCountryName</ref>(getCountryID()));</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_new_city_1a8a96f2c58640c96faf74e1f3bb956e4e" kindref="member">setCountryID</ref>(ui-&gt;comboBox-&gt;currentText().toInt());</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;labelCountryName-&gt;setText(p-&gt;<ref refid="classpsql_1a5724e9992e6a5c98524ab73b98f4202d" kindref="member">getCountryName</ref>(<ref refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" kindref="member">getCountryID</ref>()));</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>changed<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="102"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"></highlight></codeline>
@@ -212,7 +212,7 @@
 <codeline lineno="127"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setCityName(ui-&gt;lineEditCityName-&gt;text());</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_new_city_1afe093fcb1aa6623e896c52ea35ff0481" kindref="member">setCityName</ref>(ui-&gt;lineEditCityName-&gt;text());</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;buttonBox-&gt;button(QDialogButtonBox::Ok)-&gt;setEnabled(canSave());</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>changed<sp/>=<sp/>canSave();</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -236,13 +236,13 @@
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(canSave())</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lagrer<sp/>dataen<sp/>i<sp/>databasen.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a767b85014d9df3eac148730f18888d6d" kindref="member">insertCity</ref>(getCityName(),<sp/>getCountryID()))</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a767b85014d9df3eac148730f18888d6d" kindref="member">insertCity</ref>(<ref refid="class_new_city_1a3be62538974fa100134d694546608877" kindref="member">getCityName</ref>(),<sp/><ref refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" kindref="member">getCountryID</ref>()))</highlight></codeline>
 <codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lukker<sp/>vinduet.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>stedet<sp/>ble<sp/>lagt<sp/>inn<sp/>med<sp/>følgende<sp/>data:\nStedsnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getCityName()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number((getCountryID())));</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>stedet<sp/>ble<sp/>lagt<sp/>inn<sp/>med<sp/>følgende<sp/>data:\nStedsnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_new_city_1a3be62538974fa100134d694546608877" kindref="member">getCityName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number((<ref refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" kindref="member">getCountryID</ref>())));</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
 <codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>changed<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hide();</highlight></codeline>
@@ -288,13 +288,13 @@
 <codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>res<sp/>=<sp/>msg.exec();</highlight></codeline>
 <codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(res<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a767b85014d9df3eac148730f18888d6d" kindref="member">insertCity</ref>(getCityName(),<sp/>getCountryID()))</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a767b85014d9df3eac148730f18888d6d" kindref="member">insertCity</ref>(<ref refid="class_new_city_1a3be62538974fa100134d694546608877" kindref="member">getCityName</ref>(),<sp/><ref refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" kindref="member">getCountryID</ref>()))</highlight></codeline>
 <codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lukker<sp/>vinduet.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
 <codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>stedet<sp/>ble<sp/>lagt<sp/>inn<sp/>med<sp/>følgende<sp/>data:\nStedsnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getCityName()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number((getCountryID())));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>stedet<sp/>ble<sp/>lagt<sp/>inn<sp/>med<sp/>følgende<sp/>data:\nStedsnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_new_city_1a3be62538974fa100134d694546608877" kindref="member">getCityName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number((<ref refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" kindref="member">getCountryID</ref>())));</highlight></codeline>
 <codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
 <codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal">-&gt;accept();</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -314,13 +314,13 @@
 <codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a767b85014d9df3eac148730f18888d6d" kindref="member">insertCity</ref>(getCityName(),<sp/>getCountryID()))</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a767b85014d9df3eac148730f18888d6d" kindref="member">insertCity</ref>(<ref refid="class_new_city_1a3be62538974fa100134d694546608877" kindref="member">getCityName</ref>(),<sp/><ref refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" kindref="member">getCountryID</ref>()))</highlight></codeline>
 <codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lukker<sp/>vinduet.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
 <codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>stedet<sp/>ble<sp/>lagt<sp/>inn<sp/>med<sp/>følgende<sp/>data:\nStedsnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getCityName()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number((getCountryID())));</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Det<sp/>nye<sp/>stedet<sp/>ble<sp/>lagt<sp/>inn<sp/>med<sp/>følgende<sp/>data:\nStedsnavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_new_city_1a3be62538974fa100134d694546608877" kindref="member">getCityName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nLandid:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number((<ref refid="class_new_city_1a743baefdc6604f1bf8da124056939b0c" kindref="member">getCountryID</ref>())));</highlight></codeline>
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
 <codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal">-&gt;accept();</highlight></codeline>
 <codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

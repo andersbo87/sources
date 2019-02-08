@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="class_show_statuses" kind="class" language="C++" prot="public">
     <compoundname>ShowStatuses</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -552,24 +552,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="39">
+      <node id="43">
         <label>QMainWindow</label>
       </node>
-      <node id="38">
+      <node id="42">
         <label>ShowStatuses</label>
         <link refid="class_show_statuses"/>
-        <childnode refid="39" relation="public-inheritance">
+        <childnode refid="43" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="41">
+      <node id="45">
         <label>QMainWindow</label>
       </node>
-      <node id="40">
+      <node id="44">
         <label>ShowStatuses</label>
         <link refid="class_show_statuses"/>
-        <childnode refid="41" relation="public-inheritance">
+        <childnode refid="45" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

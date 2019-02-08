@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="mainwindow_8h" kind="file" language="C++">
     <compoundname>mainwindow.h</compoundname>
     <includes refid="psql_8h" local="yes">psql.h</includes>
@@ -9,84 +9,84 @@
     <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
     <includedby refid="mainwindow_8cpp" local="yes">mainwindow.cpp</includedby>
     <incdepgraph>
-      <node id="86">
+      <node id="116">
         <label>mainwindow.h</label>
         <link refid="mainwindow_8h"/>
-        <childnode refid="87" relation="include">
+        <childnode refid="117" relation="include">
         </childnode>
-        <childnode refid="96" relation="include">
+        <childnode refid="126" relation="include">
         </childnode>
-        <childnode refid="100" relation="include">
+        <childnode refid="130" relation="include">
         </childnode>
       </node>
-      <node id="100">
+      <node id="130">
         <label>QMainWindow</label>
       </node>
-      <node id="90">
+      <node id="120">
         <label>QLinkedList</label>
       </node>
-      <node id="87">
+      <node id="117">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="88" relation="include">
+        <childnode refid="118" relation="include">
         </childnode>
-        <childnode refid="89" relation="include">
+        <childnode refid="119" relation="include">
         </childnode>
-        <childnode refid="90" relation="include">
+        <childnode refid="120" relation="include">
         </childnode>
-        <childnode refid="91" relation="include">
+        <childnode refid="121" relation="include">
         </childnode>
-        <childnode refid="92" relation="include">
+        <childnode refid="122" relation="include">
         </childnode>
-        <childnode refid="93" relation="include">
+        <childnode refid="123" relation="include">
         </childnode>
-        <childnode refid="94" relation="include">
+        <childnode refid="124" relation="include">
         </childnode>
-        <childnode refid="95" relation="include">
+        <childnode refid="125" relation="include">
         </childnode>
       </node>
-      <node id="89">
+      <node id="119">
         <label>QApplication</label>
       </node>
-      <node id="98">
+      <node id="128">
         <label>QDialog</label>
       </node>
-      <node id="92">
+      <node id="122">
         <label>QDebug</label>
       </node>
-      <node id="93">
+      <node id="123">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="97">
+      <node id="127">
         <label>QLineEdit</label>
       </node>
-      <node id="88">
+      <node id="118">
         <label>sstream</label>
       </node>
-      <node id="99">
+      <node id="129">
         <label>QPushButton</label>
       </node>
-      <node id="94">
+      <node id="124">
         <label>pqxx/result</label>
       </node>
-      <node id="91">
+      <node id="121">
         <label>QException</label>
       </node>
-      <node id="96">
+      <node id="126">
         <label>connectpsql.h</label>
         <link refid="connectpsql_8h_source"/>
-        <childnode refid="89" relation="include">
+        <childnode refid="119" relation="include">
         </childnode>
-        <childnode refid="97" relation="include">
+        <childnode refid="127" relation="include">
         </childnode>
-        <childnode refid="98" relation="include">
+        <childnode refid="128" relation="include">
         </childnode>
-        <childnode refid="99" relation="include">
+        <childnode refid="129" relation="include">
         </childnode>
-        <childnode refid="87" relation="include">
+        <childnode refid="117" relation="include">
         </childnode>
       </node>
-      <node id="95">
+      <node id="125">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -138,7 +138,7 @@
 <codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="46" refid="class_main_window_1af6a0a464b2432a13ece4953de0e66441" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql" kindref="compound">connectPsql</ref><sp/>*<ref refid="class_main_window_1af6a0a464b2432a13ece4953de0e66441" kindref="member">cp</ref>;</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_main_window" kindref="compound">MainWindow</ref>(QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_main_window_1a8b244be8b7b7db1b08de2a2acb9409db" kindref="member">MainWindow</ref>(QWidget<sp/>*parent<sp/>=<sp/>0);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="class_main_window" kindref="compound">MainWindow</ref>();</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>

@@ -1,95 +1,95 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="showstatuses_8cpp" kind="file" language="C++">
     <compoundname>showstatuses.cpp</compoundname>
     <includes refid="showstatuses_8h" local="yes">showstatuses.h</includes>
     <includes local="yes">ui_showstatuses.h</includes>
     <incdepgraph>
-      <node id="350">
+      <node id="380">
         <label>QCloseEvent</label>
       </node>
-      <node id="363">
+      <node id="393">
         <label>QMessageBox</label>
       </node>
-      <node id="348">
+      <node id="378">
         <label>showstatuses.cpp</label>
         <link refid="showstatuses_8cpp"/>
-        <childnode refid="349" relation="include">
+        <childnode refid="379" relation="include">
         </childnode>
-        <childnode refid="364" relation="include">
+        <childnode refid="394" relation="include">
         </childnode>
       </node>
-      <node id="362">
+      <node id="392">
         <label>QMainWindow</label>
       </node>
-      <node id="354">
+      <node id="384">
         <label>QLinkedList</label>
       </node>
-      <node id="360">
+      <node id="390">
         <label>stringcheck.h</label>
         <link refid="stringcheck_8h_source"/>
-        <childnode refid="361" relation="include">
+        <childnode refid="391" relation="include">
         </childnode>
       </node>
-      <node id="351">
+      <node id="381">
         <label>psql.h</label>
         <link refid="psql_8h_source"/>
-        <childnode refid="352" relation="include">
+        <childnode refid="382" relation="include">
         </childnode>
-        <childnode refid="353" relation="include">
+        <childnode refid="383" relation="include">
         </childnode>
-        <childnode refid="354" relation="include">
+        <childnode refid="384" relation="include">
         </childnode>
-        <childnode refid="355" relation="include">
+        <childnode refid="385" relation="include">
         </childnode>
-        <childnode refid="356" relation="include">
+        <childnode refid="386" relation="include">
         </childnode>
-        <childnode refid="357" relation="include">
+        <childnode refid="387" relation="include">
         </childnode>
-        <childnode refid="358" relation="include">
+        <childnode refid="388" relation="include">
         </childnode>
-        <childnode refid="359" relation="include">
+        <childnode refid="389" relation="include">
         </childnode>
       </node>
-      <node id="349">
+      <node id="379">
         <label>showstatuses.h</label>
         <link refid="showstatuses_8h_source"/>
-        <childnode refid="350" relation="include">
+        <childnode refid="380" relation="include">
         </childnode>
-        <childnode refid="351" relation="include">
+        <childnode refid="381" relation="include">
         </childnode>
-        <childnode refid="360" relation="include">
+        <childnode refid="390" relation="include">
         </childnode>
-        <childnode refid="362" relation="include">
+        <childnode refid="392" relation="include">
         </childnode>
-        <childnode refid="363" relation="include">
+        <childnode refid="393" relation="include">
         </childnode>
       </node>
-      <node id="353">
+      <node id="383">
         <label>QApplication</label>
       </node>
-      <node id="356">
+      <node id="386">
         <label>QDebug</label>
       </node>
-      <node id="357">
+      <node id="387">
         <label>pqxx/pqxx</label>
       </node>
-      <node id="352">
+      <node id="382">
         <label>sstream</label>
       </node>
-      <node id="361">
+      <node id="391">
         <label>QString</label>
       </node>
-      <node id="358">
+      <node id="388">
         <label>pqxx/result</label>
       </node>
-      <node id="364">
+      <node id="394">
         <label>ui_showstatuses.h</label>
       </node>
-      <node id="355">
+      <node id="385">
         <label>QException</label>
       </node>
-      <node id="359">
+      <node id="389">
         <label>QtGui</label>
       </node>
     </incdepgraph>
@@ -186,8 +186,8 @@
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxStatusID-&gt;setCurrentText(QString::number(statusID));</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEdit-&gt;setText(p-&gt;<ref refid="classpsql_1a5c2a64419a68a258071fd1f9a37c7c09" kindref="member">getStatusName</ref>(statusID));</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setStatusID(statusID);</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setStatusName(ui-&gt;lineEdit-&gt;text());</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a03eb52c13df7220ced551be7be69f822" kindref="member">setStatusID</ref>(statusID);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1ac4a3c02814d6a326a0d0a6bfc8239483" kindref="member">setStatusName</ref>(ui-&gt;lineEdit-&gt;text());</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(invalid_argument<sp/>iaex)</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -257,8 +257,8 @@
 <codeline lineno="186"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Private<sp/>metoder</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="187"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ShowStatuses::windowLoaded()</highlight></codeline>
 <codeline lineno="188"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>getStatuses();</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>getStatus(1);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a78ceb898d01bd2892e1ef942672666ec" kindref="member">getStatuses</ref>();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(1);</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>changed<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>statusIDchanged<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="193"><highlight class="normal">}</highlight></codeline>
@@ -283,12 +283,12 @@
 <codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>res<sp/>=<sp/>msg.exec();</highlight></codeline>
 <codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(res<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a620364c99c98e20720908deb045536a0" kindref="member">updateStatus</ref>(getStatusName(),<sp/>getStatusID()))</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a620364c99c98e20720908deb045536a0" kindref="member">updateStatus</ref>(<ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>(),<sp/><ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>()))</highlight></codeline>
 <codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg2;</highlight></codeline>
 <codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setIcon(msg2.Information);</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>ble<sp/>oppdatert<sp/>slik<sp/>at<sp/>den<sp/>har<sp/>følende<sp/>verdier:\nStatusID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(getStatusID())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nNavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getStatusName());</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>ble<sp/>oppdatert<sp/>slik<sp/>at<sp/>den<sp/>har<sp/>følende<sp/>verdier:\nStatusID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nNavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>());</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg2.exec();</highlight></codeline>
 <codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
@@ -332,12 +332,12 @@
 <codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Du<sp/>har<sp/>noen<sp/>ulagrede<sp/>endringer.<sp/>Vil<sp/>du<sp/>lagre<sp/>disse?&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(msg.exec()<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a620364c99c98e20720908deb045536a0" kindref="member">updateStatus</ref>(getStatusName(),<sp/>getStatusID()))</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a620364c99c98e20720908deb045536a0" kindref="member">updateStatus</ref>(<ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>(),<sp/><ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>()))</highlight></codeline>
 <codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>success;</highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setIcon(success.Information);</highlight></codeline>
-<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>ble<sp/>oppdatert<sp/>slik<sp/>at<sp/>den<sp/>har<sp/>følende<sp/>verdier:\nStatusID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(getStatusID())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nNavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getStatusName());</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>ble<sp/>oppdatert<sp/>slik<sp/>at<sp/>den<sp/>har<sp/>følende<sp/>verdier:\nStatusID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nNavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>());</highlight></codeline>
 <codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.exec();</highlight></codeline>
 <codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
@@ -356,12 +356,12 @@
 <codeline lineno="296"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Metoder<sp/>definert<sp/>under<sp/>&quot;private<sp/>slots&quot;:</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="297"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ShowStatuses::btnSaveClicked()</highlight></codeline>
 <codeline lineno="298"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a620364c99c98e20720908deb045536a0" kindref="member">updateStatus</ref>(getStatusName(),<sp/>getStatusID()))</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a620364c99c98e20720908deb045536a0" kindref="member">updateStatus</ref>(<ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>(),<sp/><ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>()))</highlight></codeline>
 <codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
 <codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>ble<sp/>oppdatert<sp/>slik<sp/>at<sp/>den<sp/>har<sp/>følende<sp/>verdier:\nStatusID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(getStatusID())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nNavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>getStatusName());</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>ble<sp/>oppdatert<sp/>slik<sp/>at<sp/>den<sp/>har<sp/>følende<sp/>verdier:\nStatusID:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>QString::number(<ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\nNavn:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>());</highlight></codeline>
 <codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
 <codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
@@ -386,22 +386,22 @@
 <codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>confirm.setText(</highlight><highlight class="stringliteral">&quot;Du<sp/>er<sp/>i<sp/>ferd<sp/>med<sp/>å<sp/>fjerne<sp/>statusen<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>ui-&gt;lineEdit-&gt;text()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\&quot;.<sp/>Denne<sp/>handlingen<sp/>kan<sp/>ikke<sp/>angres.<sp/>Er<sp/>du<sp/>sikker<sp/>på<sp/>at<sp/>du<sp/>vil<sp/>fortsette?&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(confirm.exec()<sp/>==<sp/>QMessageBox::Yes)</highlight></codeline>
 <codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a26fc592cfb9f484e1bee62af527f2b95" kindref="member">deleteStatus</ref>(getStatusID()))</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(p-&gt;<ref refid="classpsql_1a26fc592cfb9f484e1bee62af527f2b95" kindref="member">deleteStatus</ref>(<ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>()))</highlight></codeline>
 <codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>success;</highlight></codeline>
 <codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setWindowTitle(winTitle);</highlight></codeline>
 <codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setIcon(success.Information);</highlight></codeline>
-<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>getStatusName()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>ble<sp/>fjernet<sp/>fra<sp/>databasen.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.setText(</highlight><highlight class="stringliteral">&quot;Statusen<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_show_statuses_1a311ebb73bbc52089506fb31d7936bcb3" kindref="member">getStatusName</ref>()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>ble<sp/>fjernet<sp/>fra<sp/>databasen.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>success.exec();</highlight></codeline>
 <codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxStatusID-&gt;removeItem(ui-&gt;comboBoxStatusID-&gt;currentIndex());</highlight></codeline>
 <codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastID<sp/>=<sp/>lastID<sp/>-1;</highlight></codeline>
-<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setStatusID(ui-&gt;comboBoxStatusID-&gt;currentText().toInt());</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a03eb52c13df7220ced551be7be69f822" kindref="member">setStatusID</ref>(ui-&gt;comboBoxStatusID-&gt;currentText().toInt());</highlight></codeline>
 <codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ui-&gt;comboBoxStatusID-&gt;currentText().toInt()<sp/>==<sp/>lastID)</highlight></codeline>
 <codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(getStatusID()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>()<sp/>==<sp/>1)</highlight></codeline>
 <codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
@@ -424,7 +424,7 @@
 <codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getStatus(1);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(1);</highlight></codeline>
 <codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
@@ -446,7 +446,7 @@
 <codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
 <codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxStatusID-&gt;setCurrentIndex(ui-&gt;comboBoxStatusID-&gt;count()-1);</highlight></codeline>
-<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getStatus(ui-&gt;comboBoxStatusID-&gt;currentText().toInt());</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(ui-&gt;comboBoxStatusID-&gt;currentText().toInt());</highlight></codeline>
 <codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
@@ -467,12 +467,12 @@
 <codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currStatus<sp/>=<sp/>getStatusID(),<sp/>counter<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currStatus<sp/>=<sp/><ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>(),<sp/>counter<sp/>=<sp/>1;</highlight></codeline>
 <codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(QString::compare(p-&gt;<ref refid="classpsql_1a5c2a64419a68a258071fd1f9a37c7c09" kindref="member">getStatusName</ref>(currStatus<sp/>+<sp/>counter),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>Qt::CaseSensitive)<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter++;</highlight></codeline>
 <codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getStatus(currStatus<sp/>+counter);</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(currStatus<sp/>+counter);</highlight></codeline>
 <codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="417"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(currStatus<sp/>+1<sp/>==<sp/>lastID)</highlight></codeline>
@@ -497,12 +497,12 @@
 <codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>counter<sp/>=1;</highlight></codeline>
 <codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currStatus<sp/>=<sp/>getStatusID();</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currStatus<sp/>=<sp/><ref refid="class_show_statuses_1accb269831b12a839751cb7ae2822dfe1" kindref="member">getStatusID</ref>();</highlight></codeline>
 <codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(QString::compare(p-&gt;<ref refid="classpsql_1a5c2a64419a68a258071fd1f9a37c7c09" kindref="member">getStatusName</ref>(currStatus<sp/>-<sp/>counter),<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>Qt::CaseSensitive)<sp/>==<sp/>0)</highlight></codeline>
 <codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter++;</highlight></codeline>
 <codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>getStatus(currStatus-counter);</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(currStatus-counter);</highlight></codeline>
 <codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(currStatus-1<sp/>==<sp/>1)</highlight></codeline>
@@ -526,7 +526,7 @@
 <codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currID<sp/>=<sp/>ui-&gt;comboBoxStatusID-&gt;currentText().toInt();</highlight></codeline>
 <codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
 <codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/>statusIDchanged<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/>getStatus(currID);</highlight></codeline>
+<codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1a688fb68ab4f0e65666b61137aa70aed9" kindref="member">getStatus</ref>(currID);</highlight></codeline>
 <codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/>statusIDchanged<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(currID<sp/>==<sp/>1)</highlight></codeline>
 <codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -556,7 +556,7 @@
 <codeline lineno="496"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setStatusName(ui-&gt;lineEdit-&gt;text());</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_show_statuses_1ac4a3c02814d6a326a0d0a6bfc8239483" kindref="member">setStatusName</ref>(ui-&gt;lineEdit-&gt;text());</highlight></codeline>
 <codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!statusIDchanged)</highlight></codeline>
 <codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setChanged(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>

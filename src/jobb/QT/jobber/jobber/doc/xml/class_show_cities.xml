@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="class_show_cities" kind="class" language="C++" prot="public">
     <compoundname>ShowCities</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -679,24 +679,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="31">
+      <node id="35">
         <label>QMainWindow</label>
       </node>
-      <node id="30">
+      <node id="34">
         <label>ShowCities</label>
         <link refid="class_show_cities"/>
-        <childnode refid="31" relation="public-inheritance">
+        <childnode refid="35" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="33">
+      <node id="37">
         <label>QMainWindow</label>
       </node>
-      <node id="32">
+      <node id="36">
         <label>ShowCities</label>
         <link refid="class_show_cities"/>
-        <childnode refid="33" relation="public-inheritance">
+        <childnode refid="37" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
