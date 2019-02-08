@@ -22,17 +22,17 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "spesificjobs.h"
-#include "ui_spesificjobs.h"
+#include "advancedSearch.h"
+#include "ui_advancedSearch.h"
 
 // Konstruktør og destruktør
 /**
- * @brief SpesificJobs::SpesificJobs SpesificJobs class constructor
+ * @brief advancedSearch::advancedSearch advancedSearch class constructor
  * @param title The title to be used in windows and dialog boxes.
  * @param pg Pointer to the psql class
  * @param parent
  */
-SpesificJobs::SpesificJobs(QString title, psql *pg, QWidget *parent) :
+advancedSearch::advancedSearch(QString title, psql *pg, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SpesicficJobs)
 {
@@ -50,7 +50,7 @@ SpesificJobs::SpesificJobs(QString title, psql *pg, QWidget *parent) :
     getStatuses();
 }
 
-SpesificJobs::~SpesificJobs()
+advancedSearch::~advancedSearch()
 {
     delete ui;
 }
@@ -59,83 +59,83 @@ SpesificJobs::~SpesificJobs()
 // "Getters"
 
 /**
- * @brief SpesificJobs::getJobTitle Gets the job title
+ * @brief advancedSearch::getJobTitle Gets the job title
  * @return The job title
  */
-QString SpesificJobs::getJobTitle()
+QString advancedSearch::getJobTitle()
 {
     return jobTitle;
 }
 
 /**
- * @brief SpesificJobs::getCompanyName Gets the company name
+ * @brief advancedSearch::getCompanyName Gets the company name
  * @return The name of the company
  */
-QString SpesificJobs::getCompanyName()
+QString advancedSearch::getCompanyName()
 {
     return companyName;
 }
 
 /**
- * @brief SpesificJobs::getCityName Gets the name of the city where the job is located
+ * @brief advancedSearch::getCityName Gets the name of the city where the job is located
  * @return The city name
  */
-QString SpesificJobs::getCityName()
+QString advancedSearch::getCityName()
 {
     return cityName;
 }
 
 /**
- * @brief SpesificJobs::getStatus Gets the status of the job application
+ * @brief advancedSearch::getStatus Gets the status of the job application
  * @return The name of the current application status (sent, declined/rejected, etc)
  */
-QString SpesificJobs::getStatus()
+QString advancedSearch::getStatus()
 {
     return status;
 }
 
 /**
- * @brief SpesificJobs::getDeadline Gets the deadline of the application
+ * @brief advancedSearch::getDeadline Gets the deadline of the application
  * @return The application deadline
  */
-QString SpesificJobs::getDeadline()
+QString advancedSearch::getDeadline()
 {
     return deadline;
 }
 
 /**
- * @brief SpesificJobs::getMotivation Gets the motivation for applying for this job.
+ * @brief advancedSearch::getMotivation Gets the motivation for applying for this job.
  * @return The application motivation
  */
-QString SpesificJobs::getMotivation()
+QString advancedSearch::getMotivation()
 {
     return motivation;
 }
 
 // "Setters" - metoder som angir verdier
 /**
- * @brief SpesificJobs::setJobTitle Sets the title of the job
+ * @brief advancedSearch::setJobTitle Sets the title of the job
  * @param newTitle The name of the job
  */
-void SpesificJobs::setJobTitle(QString newTitle)
+void advancedSearch::setJobTitle(QString newTitle)
 {
     jobTitle = newTitle;
 }
 
 /**
- * @brief SpesificJobs::setCompanyName Sets the name of the company
+ * @brief advancedSearch::setCompanyName Sets the name of the company
  * @param newName The company name
  */
-void SpesificJobs::setCompanyName(QString newName)
+void advancedSearch::setCompanyName(QString newName)
 {
     companyName = newName;
 }
 
 /**
- * @brief SpesificJobs::setCityName Sets the name of the city where the job is located.
+ * @brief advancedSearch::setCityName Sets the name of the city where the job is located.
  * @param newCityName The name of the city
  */
-void SpesificJobs::setCityName(QString newCityName)
+void advancedSearch::setCityName(QString newCityName)
 {
     if(QString::compare(newCityName, "Ingen spesielle steder", Qt::CaseSensitive) == 0)
         return;
@@ -143,10 +143,10 @@ void SpesificJobs::setCityName(QString newCityName)
 }
 
 /**
- * @brief SpesificJobs::setStatus Set the status of the job application
+ * @brief advancedSearch::setStatus Set the status of the job application
  * @param newStatus The status of the application.
  */
-void SpesificJobs::setStatus(QString newStatus)
+void advancedSearch::setStatus(QString newStatus)
 {
     if(QString::compare(newStatus, "Ingen spesielle statuser", Qt::CaseSensitive) == 0)
         return;
@@ -154,28 +154,28 @@ void SpesificJobs::setStatus(QString newStatus)
 }
 
 /**
- * @brief SpesificJobs::setDeadline Sets the deadline of the application
+ * @brief advancedSearch::setDeadline Sets the deadline of the application
  * @param newDeadline The application dealine (could be a date in any format or 'ASAP' or something)
  */
-void SpesificJobs::setDeadline(QString newDeadline)
+void advancedSearch::setDeadline(QString newDeadline)
 {
     deadline = newDeadline;
 }
 
 /**
- * @brief SpesificJobs::setMotivation Sets the reasons for applying for this job (optional)
+ * @brief advancedSearch::setMotivation Sets the reasons for applying for this job (optional)
  * @param newMotivation The motivation. Is there something about the job or company that made you apply for that job
  */
-void SpesificJobs::setMotivation(QString newMotivation)
+void advancedSearch::setMotivation(QString newMotivation)
 {
     motivation = newMotivation;
 }
 
 // Andre offentlige metoder:
 /**
- * @brief SpesificJobs::getCityNames Fetches a list of city names to be added to the comboBoxCityName.
+ * @brief advancedSearch::getCityNames Fetches a list of city names to be added to the comboBoxCityName.
  */
-void SpesificJobs::getCityNames()
+void advancedSearch::getCityNames()
 {
     ui->comboBoxCityName->addItem("Ingen spesielle steder");
     try
@@ -201,9 +201,9 @@ void SpesificJobs::getCityNames()
 }
 
 /**
- * @brief SpesificJobs::getStatuses Fetches a list of status names to be added to the comboBoxStatusName
+ * @brief advancedSearch::getStatuses Fetches a list of status names to be added to the comboBoxStatusName
  */
-void SpesificJobs::getStatuses()
+void advancedSearch::getStatuses()
 {
     ui->comboBoxStatusName->addItem("Ingen spesielle statuser");
     try
@@ -228,7 +228,7 @@ void SpesificJobs::getStatuses()
     }
 }
 
-void SpesificJobs::appendApplicationIDs()
+void advancedSearch::appendApplicationIDs()
 {
     QList<QStandardItem *> list;
     QList<int> res = p->getSpecificApplicationIDs(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
@@ -242,7 +242,7 @@ void SpesificJobs::appendApplicationIDs()
     }
     model->appendColumn(list);
 }
-void SpesificJobs::appendJobTitles()
+void advancedSearch::appendJobTitles()
 {
     QList<QStandardItem *> list;
     QList<QString> jobTitles = p->getSpecificJobNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
@@ -257,7 +257,7 @@ void SpesificJobs::appendJobTitles()
     }
     model->appendColumn(list);
 }
-void SpesificJobs::appendCompanyNames()
+void advancedSearch::appendCompanyNames()
 {
     QList<QStandardItem *> list;
     QList<QString> companyNames = p->getSpecificCompanyNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
@@ -271,7 +271,7 @@ void SpesificJobs::appendCompanyNames()
     model->appendColumn(list);
 }
 
-void SpesificJobs::appendCityNames()
+void advancedSearch::appendCityNames()
 {
     QList<QString> cityNames = p->getSpecificCityNames(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
     QList<QStandardItem *> list;
@@ -285,7 +285,7 @@ void SpesificJobs::appendCityNames()
     model->appendColumn(list);
 }
 
-void SpesificJobs::appendStatuses()
+void advancedSearch::appendStatuses()
 {
     QList<QStandardItem *> list;
     QList<QString> statuses = p->getSpecificStatuses(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
@@ -299,7 +299,7 @@ void SpesificJobs::appendStatuses()
     model->appendColumn(list);
 }
 
-void SpesificJobs::appendDeadlines()
+void advancedSearch::appendDeadlines()
 {
     QList<QStandardItem *> list;
     QList<QString> deadlines = p->getSpecificDeadlines(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
@@ -313,7 +313,7 @@ void SpesificJobs::appendDeadlines()
     model->appendColumn(list);
 }
 
-void SpesificJobs::appendMotivations()
+void advancedSearch::appendMotivations()
 {
     QList<QStandardItem *> list;
     QList<QString> motivations = p->getSpecificMotivations(getJobTitle().toStdString(), getCompanyName().toStdString(), getCityName().toStdString(), getStatus().toStdString(), getDeadline().toStdString(), getMotivation().toStdString());
@@ -328,7 +328,7 @@ void SpesificJobs::appendMotivations()
 }
 
 // Metoder som er plassert under private slots:
-void SpesificJobs::btnSearchClicked()
+void advancedSearch::btnSearchClicked()
 {
     model = new QStandardItemModel(this);
     appendApplicationIDs();
@@ -352,27 +352,27 @@ void SpesificJobs::btnSearchClicked()
     }
 }
 
-void SpesificJobs::lineEditJobTitleChanged()
+void advancedSearch::lineEditJobTitleChanged()
 {
     setJobTitle(ui->lineEditJobTitle->text());
 }
 
-void SpesificJobs::lineEditCompanyNameChanged()
+void advancedSearch::lineEditCompanyNameChanged()
 {
     setCompanyName(ui->lineEditCompanyName->text());
 }
 
-void SpesificJobs::lineEditDeadlineChanged()
+void advancedSearch::lineEditDeadlineChanged()
 {
     setDeadline(ui->lineEditDeadline->text());
 }
 
-void SpesificJobs::comboBoxCityNameChanged()
+void advancedSearch::comboBoxCityNameChanged()
 {
     setCityName(ui->comboBoxCityName->currentText());
 }
 
-void SpesificJobs::comboBoxStatusChanged()
+void advancedSearch::comboBoxStatusChanged()
 {
     setStatus(ui->comboBoxStatusName->currentText());
 }

@@ -1281,7 +1281,7 @@ QList<QString> psql::getCityNames()
     {
         QList<QString> list;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        string query = "SELECT stedsnavn FROM sted ORDER BY stedid ASC";
+        string query = "SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(query));
         int i = 1;
@@ -1313,7 +1313,7 @@ QList<QString> psql::getStatuses()
     {
         QList<QString> list;
         pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
-        string query = "SELECT status FROM status ORDER BY statusid ASC";
+        string query = "SELECT status FROM status ORDER BY status ASC";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(query));
         int i = 1;

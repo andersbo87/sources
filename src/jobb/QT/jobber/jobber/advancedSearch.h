@@ -34,13 +34,13 @@ namespace Ui {
 class SpesicficJobs;
 }
 
-class SpesificJobs : public QMainWindow
+class advancedSearch : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit SpesificJobs(QString title, psql *pg, QWidget *parent = 0);
-    ~SpesificJobs();
+    explicit advancedSearch(QString title, psql *pg, QWidget *parent = 0);
+    ~advancedSearch();
     // "Getters":
     QString getJobTitle();
     QString getCompanyName();

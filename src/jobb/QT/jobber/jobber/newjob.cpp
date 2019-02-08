@@ -53,6 +53,7 @@ NewJob::NewJob(QString windowTitle, psql *pg, QWidget *parent) : QMainWindow(par
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(OKButtonClicked()), Qt::UniqueConnection);
     connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
     getStatusIDs();
+    ui->comboBoxStatusID->setCurrentText(p->getStatusName(1));
     getCityIDs();
 }
 
@@ -138,7 +139,7 @@ void NewJob::getStatusIDs()
     try
     {
         QList<QString> list;
-        list = p->fillList("SELECT status FROM status ORDER BY statusid ASC");
+        list = p->fillList("SELECT status FROM status ORDER BY status ASC");
         int i = 0;
         while(i < list.count())
         {
