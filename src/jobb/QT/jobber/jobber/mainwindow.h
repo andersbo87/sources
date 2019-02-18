@@ -67,6 +67,7 @@ private slots:
     void btn_NewCountry_Click();
     void btn_ShowCountries_Click();
     void btn_SaveFile_Click();
+    void btn_loadDB_Click();
     void on_btnSpecificJobs_clicked();
     void btnStatistic_Click();
     void windowLoaded();

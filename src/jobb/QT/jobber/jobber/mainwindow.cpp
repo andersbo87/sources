@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btn_ShowStatuses, SIGNAL(clicked(bool)), this, SLOT(btn_ShowStatuses_Click()));
     connect(ui->btnStatistic, SIGNAL(clicked(bool)), this, SLOT(btnStatistic_Click()));
     connect(ui->btn_SaveFile, SIGNAL(clicked(bool)), this, SLOT(btn_SaveFile_Click()));
+    connect(ui->btn_loadDB, SIGNAL(clicked(bool)), this, SLOT(btn_loadDB_Click()));
     cp = new connectPsql(progName);
     p = cp->p; // Kanskje ikke verdens smarteste idé, men lar den likevel peke på psql-objektet i klassen "connectpsql" inntil videre.
     cp->exec();
@@ -179,6 +180,34 @@ void MainWindow::windowLoaded()
     }
 }
 
+/**
+ * @brief MainWindow::btn_loadDB_Click Deletes the database and recreates it from a SQL file
+ */
+void MainWindow::btn_loadDB_Click(){
+    QMessageBox msg;
+    msg.setIcon(msg.Question);
+    msg.setText("Dette vil slette og gjenopprette databasen fra en SQL-fil. Vil du fortsette?");
+    msg.setWindowTitle(windowTitle());
+    msg.setStandardButtons(msg.Yes);
+    msg.addButton(msg.No);
+    msg.setDefaultButton(msg.Yes);
+    if(msg.exec() == QMessageBox::Yes)
+    {
+        QString fileName = QFileDialog::getOpenFileName(this, tr("Åpne SQL-fil"), "", tr("SQL-filer (*.sql)"));
+        if(!fileName.isEmpty()){
+            QString rmdb = "PGPASSWORD=\"" + p->getPassword() + "\" dropdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
+            QString mkdb = "PGPASSWORD=\"" + p->getPassword() + "\" createdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
+            QString psql = "PGPASSWORD=\"" + p->getPassword() + "\" psql -h " + p->getHost() + " -U " + p->getUsername() + " jobber -f " + fileName;
+            system(rmdb.toStdString().c_str());
+            system(mkdb.toStdString().c_str());
+            system(psql.toStdString().c_str());
+        }
+    }
+}
+
+/**
+ * @brief MainWindow::btn_SaveFile_Click Creates a SQL file with the existing database contents.
+ */
 void MainWindow::btn_SaveFile_Click(){
     QString fileName = QFileDialog::getSaveFileName(this, tr("Lagre SQL-fil"), "", tr("SQL-filer (*.sql)"));
     if(!fileName.isEmpty()){
