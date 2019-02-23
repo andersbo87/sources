@@ -130,8 +130,10 @@ void ctrl_z(int sig_num)
   signal(SIGTSTP, ctrl_z);
   fprintf(stdout, "Stopping…\n");
   // Fetches the window title
+  #ifndef __sun
   FILE *pipe = popen("xdotool getactivewindow getwindowname", "r");
   fgets(buf, BUFSIZ, pipe);
+  #endif
   syslog(LOG_ERR, "%s has been stopped by the user.\n", prog_name);
   kill(getpid(), SIGSTOP);
 }

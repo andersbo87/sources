@@ -3,6 +3,7 @@ DOT = $(shell cc --version 2>/dev/null)
 FILE=/usr/bin/xdotool
 ALTFILE=/usr/local/bin/xdotool
 updateports:
+ifneq ($(UNAME_S), SunOS)
 ifeq ($(shell test -e $(FILE) && echo -n yes), yes)
 	@echo Found xdotool at $(FILE).
 else ifeq ($(shell test -e $(ALTFILE) && echo -n yes), yes)
@@ -11,13 +12,18 @@ else
 	FILE_EXISTS=0
 	$(error File $(ALTFILE) or $(FILE) does not exist)
 endif
+endif
 ifdef DOT
 ifneq ($(DOT), )
 	@echo "Found $(DOT)"
 	cc -o updateports updateports.c
 else
 	@echo "Not found. Trying gcc..."
+ifeq ($(UNAME_S), SunOS)
+	gcc -o updateports -lnsl updateports.c
+else
 	gcc -o updateports updateports.c
+endif
 endif
 endif
 install: updateports
