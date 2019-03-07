@@ -407,6 +407,8 @@ int runPortsnap()
   else if(portsnap >= 0)
   {
     setprogname("portmaster fetch update");
+    printf("\033]0;Updating the ports tree by running /usr/sbin/portmaster fetch update\007");
+    printf("Updating the ports tree by running /usr/sbin/portmaster fetch update…\n");
     waitpid(portsnap, &portsnap_status, 0);
     if(WIFEXITED(portsnap_status))
     {
@@ -705,6 +707,8 @@ int updateFreeBSD()
     else if(pkg >= 1)
     {
       setprogname("pkg upgrade");
+      printf("\033]0;Updating installed applications by running /usr/sbin/pkg upgrade…\007");
+      printf("Updating installed applications by running /usr/sbin/pkg upgrade…\n");
       waitpid(pkg, &pkg_status, 0);
       if(WIFEXITED(pkg_status)){
 	if(WEXITSTATUS(pkg_status) != 0){
