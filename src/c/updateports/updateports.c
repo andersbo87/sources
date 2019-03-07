@@ -737,7 +737,6 @@ int updateFreeBSD()
 int cleanOldDistfiles()
 {
   //printf("\n");
-  printf("\033]0;Done updating ports\007");
   printf("Do you want to remove old and unused distfiles (if there are any)? (Y/n) ");
   char *ans;
   size_t ans_linecap = 0;

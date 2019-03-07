@@ -1,6 +1,7 @@
 #!/bin/sh
 
 removeOld(){
+    /usr/bin/printf "\033]0;Done updating ports\007"
     /usr/bin/printf "Do you want to remove old packages? (y/n) "
     read ans
     if [ "$ans" == "y" -o "$ans" == "Y" ]
