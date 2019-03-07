@@ -1855,7 +1855,8 @@ void updateLinux()
 {
   // This assumes that the user uses apt-get.
   int status = 0;
-  printf("\033]0;Updating Linux base system and installed applications\007");
+  printf("\033]0;Updating package information by running /usr/bin/apt update\007");
+  printf("Updating package information by running /usr/bin/apt update\n");
   int aptupdate = fork();
   if(aptupdate == 0)
   {
@@ -1879,6 +1880,10 @@ void updateLinux()
 	printf("\033]0;\007");
 	exit(status);
       }
+      else{
+	printf("\033]0;\007");
+	printf("\n");
+      }
     }
   }
   else
@@ -1887,8 +1892,8 @@ void updateLinux()
     printf("\033]0;\007");
     exit(-1);
   }
-  printf("\033]0;\007");
-  printf("\033]0;Running apt-get dist-upgrade on Linux\007");
+  printf("\033]0;Fetching new software by running /usr/bin/apt dist-upgrade\007");
+  printf("Fetching new software by running /usr/bin/apt dist-upgrade\n");
   int aptdistupgrade = fork();
   if(aptdistupgrade == 0)
   {
@@ -1907,6 +1912,10 @@ void updateLinux()
 	printf("\033]0;\007");
 	exit(status);
       }
+      else{
+	printf("\033]0;\007");
+	printf("\n");
+      }
     }
   }
   else
@@ -1915,9 +1924,9 @@ void updateLinux()
     printf("\033]0;\007");
     exit(-1);
   }
+  printf("\033]0;Removing old and unused software using /usr/bin/apt autoremove -y\007");
+  printf("Removing old and unused softare by running /usr/bin/apt autoremove -y\n");
   int aptautoremove = fork();
-  printf("\033]0;\007");
-  printf("\033]0;Running /usr/bin/apt autoremove -y.\007");
   if(aptautoremove == 0){
     char *aptautorm[4];
     aptautorm[0] = "/usr/bin/apt";
