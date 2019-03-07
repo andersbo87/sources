@@ -1409,6 +1409,8 @@ int updateBaseSystem()
 	}
 	else if(checkUpdates >= 1){
 	  setprogname("softwareupdate -l");
+	  printf("\033]0;Checking for updates for macOS by running /usr/sbin/softwareupdate -l\007");
+	  fprintf(stdout, "Checking for updates for macOS by running /usr/sbin/softwareupdate -l…\n");
 	  waitpid(checkUpdates, &status, 0);
 	  if(WIFEXITED(status)){
 	    if(WEXITSTATUS(status) != 0)
@@ -1436,6 +1438,8 @@ int updateBaseSystem()
 	  }
 	  else if(installUpdates >= 1){
 	    setprogname("softwareupdate -ia");
+	    printf("\033]0;Installing updates for macOS by running /usr/sbin/softwareupdate -ia\007");
+	    fprintf(stdout, "Installing updates for macOS by running /usr/sbin/softwareupdate -ia…\n");
 	    waitpid(installUpdates, &status, 0);
 	    if(WIFEXITED(status)){
 	      if(WEXITSTATUS(status) != 0)
@@ -1490,7 +1494,7 @@ int updateBaseSystem()
 	new = open(home, O_WRONLY);
 	dup2(new, 1);
 	close(new);
-	/* your code here ... */
+
 	execvp(checkUpd_arglist[0], checkUpd_arglist);
 	fflush(stdout);
 	dup2(bak, 1);FILE* softUpd;
@@ -1520,7 +1524,7 @@ int updateBaseSystem()
 	  new = open(home, O_WRONLY);
 	  dup2(new, 1);
 	  close(new);
-	  /* your code here ... */
+	  
 	  execvp(checkUpd_arglist[0], checkUpd_arglist);
 	  fflush(stdout);
 	  dup2(bak, 1);
@@ -1528,6 +1532,8 @@ int updateBaseSystem()
 	}
 	else if(checkUpdates >= 1){
 	  setprogname("softwareupdate -l");
+	  printf("\033]0;Checking for updates for macOS by running /usr/sbin/softwareupdate -l\007");
+	  fprintf(stdout, "Checking for updates for macOS by running /usr/sbin/softwareupdate -l…\n");
 	  waitpid(checkUpdates, &status, 0);
 	  if(WIFEXITED(status)){
 	    if(WEXITSTATUS(status) != 0)
@@ -1564,6 +1570,14 @@ int updateBaseSystem()
 	  }
 	  else if(installUpdates >= 1){
 	    setprogname("softwareupdate -ia");
+	    if(verbose == 1) {
+		printf("\033]0;Installing updates for macOS by running /usr/sbin/softwareupdate -iav\007");
+		fprintf(stdout, "Installing updates for macOS by running /usr/sbin/softwareupdate -iav…\n");
+	    }
+	    else {
+		printf("\033]0;Installing updates for macOS by running /usr/sbin/softwareupdate -ia\007");
+	 	fprintf(stdout, "Installing updates for macOS by running /usr/sbin/softwareupdate -ia…\n");
+	    }
 	    waitpid(installUpdates, &status, 0);
 	    if(WIFEXITED(status)){
 	      if(WEXITSTATUS(status) != 0)
@@ -1665,6 +1679,8 @@ int askUpdateFreeBSD()
     fclose(FreeBSDupdate);
     char cmd[150] = "freebsd-update fetch install --not-running-from-cron | tee -a ";
     strcat(cmd, fhome);
+    printf("\033]0;Updating FreeBSD base system by running /usr/sbin/freebsd-update fetch install\007");
+    fprintf(stdout, "Updating FreeBSD base system by running /usr/sbin/freebsd-update fetch install…\n");
     res = system(cmd);
     // Print the output of the command generated above to file rather than stdout:
     int bak, new;
@@ -1716,9 +1732,9 @@ void updateSunOS()
     {
       if(WEXITSTATUS(status) != 0)
       {
-			fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
-			printf("\033]0;\007");
-			exit(status);
+	fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
+	printf("\033]0;\007");
+	exit(status);
       }
     }
   }
