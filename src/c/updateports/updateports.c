@@ -1798,6 +1798,8 @@ void updateLinuxZypper()
       exitApp(res);
   }
   else if(zypperref >= 1){
+    printf("\033]0;Updating package information by running /usr/bin/zypper ref\007");
+    printf("Updating package information by running /usr/bin/zypper ref\n");
     waitpid(zypperref, NULL, 0);
     if(WIFEXITED(status)){
       if(WEXITSTATUS(status) != 0){
@@ -1825,6 +1827,8 @@ void updateLinuxZypper()
   }
   else if(zypperdup >= 1)
   {
+    printf("\033]0;Updating distribution by running /usr/bin/zypper dup\007");
+    printf("Updating distribution by running /usr/bin/zypper dup\n");
     waitpid(zypperdup, NULL, 0);
     if(WIFEXITED(status)){
       if(WEXITSTATUS(status) != 0){
