@@ -1876,6 +1876,15 @@ void updateLinuxZypper()
 
 void updateLinux()
 {
+  // Check if the user uses OpenSuse
+  system("hostnamectl | grep \"Operating System:\" | cut -c 21- | cut -d \" \" -f1 > /.LinuxDistro.txt");
+  if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
+	fprintf(stdout, "openSUSE\n");
+	updateLinuxZypper();
+	removeFile("/.LinuxDistro.txt");
+	return;
+  }
+  removeFile("/.LinuxDistro.txt");
   // This assumes that the user uses apt-get.
   int status = 0;
   printf("\033]0;Updating package information by running /usr/bin/apt update\007");
