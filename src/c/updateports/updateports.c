@@ -1874,6 +1874,72 @@ void updateLinuxZypper()
   }
 }
 
+void updateLinuxYum()
+{
+  int status, res, err;
+  printf("\033]0;Updating distribution by running /usr/bin/yum upgrade\007");
+  printf("Updating distribution by running /usr/bin/yum upgrade\n");
+  int yumUpdate = fork();
+  if(yumUpdate == 0) {
+    char *yumUpdate_arglist[3];
+    yumUpdate_arglist[0] = "/usr/bin/yum";
+    yumUpdate_arglist[1] = "upgrade";
+    yumUpdate_arglist[2] = NULL;
+    res = execvp(yumUpdate_arglist[0], yumUpdate_arglist);
+    if(res != 0){
+      exitApp(res);
+    }
+  }
+  else if(yumUpdate >= 1)
+  {
+    waitpid(yumUpdate, NULL, 0);
+    if(WIFEXITED(status)){
+      if(WEXITSTATUS(status) != 0){
+	fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
+	printf("\033]0;\007");
+	exit(status);
+      }
+    }
+  }
+  else
+  {
+    fprintf(stderr, "Failed to create yum process.\n");
+    printf("\033]0;\007");
+    exit(-1);
+  }
+
+  printf("\033]0;Updating distribution by running /usr/bin/yum autoremove\007");
+  printf("Updating distribution by running /usr/bin/yum autoremove\n");
+  int yumRemove = fork();
+  if(yumRemove == 0) {
+    char *yumRemove_arglist[3];
+    yumRemove_arglist[0] = "/usr/bin/yum";
+    yumRemove_arglist[1] = "autoremove";
+    yumRemove_arglist[2] = NULL;
+    res = execvp(yumRemove_arglist[0], yumRemove_arglist);
+    if(res != 0){
+      exitApp(res);
+    }
+  }
+  else if(yumRemove >= 1)
+  {
+    waitpid(yumRemove, NULL, 0);
+    if(WIFEXITED(status)){
+      if(WEXITSTATUS(status) != 0){
+	fprintf(stderr, "Something has gone wrong and updateports will quit. Exit status: %d\n", status);
+	printf("\033]0;\007");
+	exit(status);
+      }
+    }
+  }
+  else
+  {
+    fprintf(stderr, "Failed to create yum process.\n");
+    printf("\033]0;\007");
+    exit(-1);
+  }
+}
+
 void updateLinux()
 {
   // Check if the user uses OpenSuse
@@ -1883,6 +1949,11 @@ void updateLinux()
 	updateLinuxZypper();
 	removeFile("/.LinuxDistro.txt");
 	return;
+  }
+  else if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
+    fprintf(stdout, "CentOS\n");
+    removeFile("/.LinuxDistro.txt");
+    return;
   }
   removeFile("/.LinuxDistro.txt");
   // This assumes that the user uses apt-get.
