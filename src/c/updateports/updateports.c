@@ -1883,8 +1883,9 @@ void updateLinuxYum()
   if(yumUpdate == 0) {
     char *yumUpdate_arglist[3];
     yumUpdate_arglist[0] = "/usr/bin/yum";
-    yumUpdate_arglist[1] = "upgrade";
-    yumUpdate_arglist[2] = NULL;
+    yumUpdate_arglist[1] = "-y";
+    yumUpdate_arglist[2] = "upgrade";
+    yumUpdate_arglist[3] = NULL;
     res = execvp(yumUpdate_arglist[0], yumUpdate_arglist);
     if(res != 0){
       exitApp(res);
@@ -1908,14 +1909,15 @@ void updateLinuxYum()
     exit(-1);
   }
 
-  printf("\033]0;Updating distribution by running /usr/bin/yum autoremove\007");
-  printf("Updating distribution by running /usr/bin/yum autoremove\n");
+  printf("\033]0;Removing obsolete packages by running /usr/bin/yum autoremove\007");
+  printf("Removing obsolete packages by running /usr/bin/yum autoremove\n");
   int yumRemove = fork();
   if(yumRemove == 0) {
-    char *yumRemove_arglist[3];
+    char *yumRemove_arglist[4];
     yumRemove_arglist[0] = "/usr/bin/yum";
-    yumRemove_arglist[1] = "autoremove";
-    yumRemove_arglist[2] = NULL;
+    yumRemove_arglist[1] = "-y";
+    yumRemove_arglist[2] = "autoremove";
+    yumRemove_arglist[3] = NULL;
     res = execvp(yumRemove_arglist[0], yumRemove_arglist);
     if(res != 0){
       exitApp(res);
@@ -1952,6 +1954,7 @@ void updateLinux()
   }
   else if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
     fprintf(stdout, "CentOS\n");
+    updateLinuxYum();
     removeFile("/.LinuxDistro.txt");
     return;
   }
