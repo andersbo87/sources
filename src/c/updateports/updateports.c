@@ -1881,7 +1881,7 @@ void updateLinuxYum()
   printf("Updating distribution by running /usr/bin/yum upgrade\n");
   int yumUpdate = fork();
   if(yumUpdate == 0) {
-    char *yumUpdate_arglist[3];
+    char *yumUpdate_arglist[4];
     yumUpdate_arglist[0] = "/usr/bin/yum";
     yumUpdate_arglist[1] = "-y";
     yumUpdate_arglist[2] = "upgrade";
