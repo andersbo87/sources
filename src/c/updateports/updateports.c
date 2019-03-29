@@ -44,7 +44,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Global variables
 char *prog_name;
 char *appToRun;
-//char *currentcmd;// = "hello world"; // currentcmd is basically the command that is running, which will be printed when the SIGINFO signal is received.
 int verbose; //MacPorts on Darwin can print verbose messages, like make(1) does on FreeBSD.
 int softupdate;
 int interactive; // variable to be used to activate the -i option when using portmaster.
@@ -100,10 +99,8 @@ void exitApp(int status)
     else
     {
      fprintf(stderr, "Could not create MacPorts process.\n");
-     //return -1;
     }
      char *hjem = getenv("HOME");
-    //strcat(hjem, "/ports.txt");
     remove(hjem);
     printf("\033]0;\007");
   }
@@ -163,7 +160,6 @@ void ctrl_c(int sig_num)
   signal(SIGINT, ctrl_c);
   fprintf(stdout, "Quitting...\n");
   sigint = 1;
-  //exitApp(1);
   exitApp(sig_num);
 }
 
@@ -184,7 +180,6 @@ void segFault(int sig_num)
   fprintf(stderr, "%s must quit because of a segmentation violation. If core dumps are enabled, a core dump will be created.\n", prog_name);
   signal(sig_num, SIG_DFL);
   exitApp(sig_num);
-  //kill(getpid(), sig_num);
 }
 
 #ifdef SIGINFO
@@ -217,7 +212,7 @@ char* getOS()
   #elif __linux__
   return "Linux";
   #elif __sun
-  return "SunOS"; // SunOS = Solaris.
+  return "SunOS"; // SunOS = Solaris or its open-source counterparts.
   #elif __OpenBSD__
   return "OpenBSD";
   #else
@@ -355,7 +350,7 @@ void askUpdateTool()
 	long len = strlen(ut);
 	memmove(tmp, tmp +1, len);
       }
-      //end of newline removal.
+      //End of newline removal.
       if(strcmp("pm", ut) == 0)
       {
 	printf("Will use Portmaster.\n");
@@ -494,7 +489,7 @@ int updateFreeBSD()
 	waitpid(portmaster, &portmaster_status, 0);
 	if(WIFEXITED(portmaster_status)){
 	  if(WEXITSTATUS(portmaster_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portmaster_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portmaster_status));
 	    exitApp(WEXITSTATUS(portmaster_status));
 	  }
 	}
@@ -518,7 +513,7 @@ int updateFreeBSD()
 	waitpid(portmaster, &portmaster_status, 0);
 	if(WIFEXITED(portmaster_status)){
 	  if(WEXITSTATUS(portmaster_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portmaster_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portmaster_status));
 	    exitApp(WEXITSTATUS(portmaster_status));
 	  }
 	}
@@ -528,7 +523,6 @@ int updateFreeBSD()
 	return -1;
       }
     }
-    //printf("\033]0;\007");
     system("rmoldpackages_updateports removeOld");
     cleanOldDistfiles();
   }
@@ -550,7 +544,7 @@ int updateFreeBSD()
 	waitpid(portFetch, &portFetch_status, 0);
 	if(WIFEXITED(portFetch_status)){
 	  if(WEXITSTATUS(portFetch_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portFetch_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portFetch_status));
 	    exitApp(WEXITSTATUS(portFetch_status));
 	  }
 	}
@@ -574,7 +568,7 @@ int updateFreeBSD()
 	waitpid(portupgrade, &portupgrade_status, 0);
 	if(WIFEXITED(portupgrade_status)){
 	  if(WEXITSTATUS(portupgrade_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portupgrade_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portupgrade_status));
 	    exitApp(WEXITSTATUS(portupgrade_status));
 	  }
 	}
@@ -601,7 +595,7 @@ int updateFreeBSD()
 	waitpid(portFetch, &portFetch_status, 0);
 	if(WIFEXITED(portFetch_status)){
 	  if(WEXITSTATUS(portFetch_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portFetch_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portFetch_status));
 	    exitApp(WEXITSTATUS(portFetch_status));
 	  }
 	}
@@ -625,7 +619,7 @@ int updateFreeBSD()
 	waitpid(portupgrade, &portupgrade_status, 0);
 	if(WIFEXITED(portupgrade_status)){
 	  if(WEXITSTATUS(portupgrade_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portupgrade_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portupgrade_status));
 	    exitApp(WEXITSTATUS(portupgrade_status));
 	  }
 	}
@@ -652,7 +646,7 @@ int updateFreeBSD()
 	waitpid(portFetch, &portFetch_status, 0);
 	if(WIFEXITED(portFetch_status)){
 	  if(WEXITSTATUS(portFetch_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portFetch_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portFetch_status));
 	    exitApp(WEXITSTATUS(portFetch_status));
 	  }
 	}
@@ -676,7 +670,7 @@ int updateFreeBSD()
 	waitpid(portupgrade, &portupgrade_status, 0);
 	if(WIFEXITED(portupgrade_status)){
 	  if(WEXITSTATUS(portupgrade_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portupgrade_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portupgrade_status));
 	    exitApp(WEXITSTATUS(portupgrade_status));
 	  }
 	}
@@ -686,7 +680,6 @@ int updateFreeBSD()
 	return -1;
       }
     }
-    //printf("\033]0;\007");
     system("rmoldpackages_updateports removeOld");
     cleanOldDistfiles();
   }
@@ -712,7 +705,7 @@ int updateFreeBSD()
       waitpid(pkg, &pkg_status, 0);
       if(WIFEXITED(pkg_status)){
 	if(WEXITSTATUS(pkg_status) != 0){
-	  printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(pkg_status));
+	  printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(pkg_status));
 	  exitApp(WEXITSTATUS(pkg_status));
 	}
       }
@@ -725,7 +718,6 @@ int updateFreeBSD()
   }
   if(rb)
   {
-    // insert code here…
     askReboot();
   }
   return 0;
@@ -736,7 +728,6 @@ int updateFreeBSD()
 #ifndef __linux__
 int cleanOldDistfiles()
 {
-  //printf("\n");
   printf("Do you want to remove old and unused distfiles (if there are any)? (Y/n) ");
   char *ans;
   size_t ans_linecap = 0;
@@ -773,7 +764,7 @@ int cleanOldDistfiles()
 	waitpid(portmaster, &portmaster_status, 0);
 	if(WIFEXITED(portmaster_status)){
 	  if(WEXITSTATUS(portmaster_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portmaster_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portmaster_status));
 	    exitApp(WEXITSTATUS(portmaster_status));
 	  }
 	}
@@ -798,7 +789,7 @@ int cleanOldDistfiles()
 	waitpid(portsclean, &portsclean_status, 0);
 	if(WIFEXITED(portsclean_status)){
 	  if(WEXITSTATUS(portsclean_status) != 0){
-	    printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(portsclean_status));
+	    printf("Something has gone wrong and the updating process has been stopped.\nThe returned status code was: %d\n", WEXITSTATUS(portsclean_status));
 	    exitApp(WEXITSTATUS(portsclean_status));
 	  }
 	}
@@ -822,7 +813,7 @@ int cleanOldDistfiles()
 void askToReadUPDATINGfile()
 {
   printf("\033]0;Updating %s base and ports system\007", getOS());
-  //printf("\n");
+  
   printf("Would you like to read /usr/ports/UPDATING?(Y/n) ");
   char *readUPDATINGfile;
   size_t updatingfile_linecap = 0;
@@ -901,7 +892,8 @@ void askToReadUPDATINGfile()
 			fprintf(stderr, "End-of-file reached or something else has gone wrong.\n");
 			exit(-1);
       }
-      //using the system() system call to execute nessesary commands. of course this is a bit dangerous, but for now I like to keep things simple...
+      /* Using the system() system call to execute nessesary commands. 
+	Of course this is a bit dangerous, but for now I like to keep things simple...*/
       system(command);
       askToReadUPDATINGfile();
     }
@@ -935,8 +927,7 @@ int updateDarwin()
 {
   #ifndef __linux__
   int rerun=0;
-  // this assumes that the MacPort utility has been installed to /opt/local/bin/port. The same will go for Fink and HomeBrew when I add support for those tools as well.
-  //printf("%s\n", strcat(getenv("HOME"), "/ports.txt"));
+  // This assumes that the MacPort utility has been installed to /opt/local/bin/port. The same will go for Fink and HomeBrew when I add support for those tools as well.
   char *hjem = getenv("HOME");
   strcat(hjem, "/ports.txt");
   if(checkExec("/opt/local/bin/port"))
@@ -981,8 +972,7 @@ int updateDarwin()
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
-    //portsFile = fopen("$HOME/ports.txt", "r");
-    //portsFile = fopen(strcat(getenv("HOME"), "/ports.txt"), "r");
+    
     portsFile = fopen(hjem, "r");
     int numberOfPorts = 0, totalNumberOfPorts = 0;
     if(portsFile == NULL)
@@ -994,7 +984,7 @@ int updateDarwin()
 			return -1;
       }
     }
-    //system("port list outdated &");
+    
     char portCommand[100] = "port list outdated | /usr/bin/tee -a ";
     strcat(portCommand, hjem);
     strcat(portCommand, " &>/dev/null");
@@ -1008,9 +998,7 @@ int updateDarwin()
     printf("Total number of ports to be updated: %d\n", totalNumberOfPorts);
     printf("\033]0;%d ports to be updated\007", totalNumberOfPorts);
     fclose(portsFile);
-    //fopen("/Users/andersbo/ports.txt", "r");
     fopen(hjem, "r");
-    //char *s, *new_string = NULL;
     int updatedPorts = 1;
     while((read = getline(&line, &len, portsFile)) != -1)
     {
@@ -1023,7 +1011,6 @@ int updateDarwin()
       }
       char *c = line;
       char *s = NULL;
-      //char c[strlen(line)] = " ";
       char *d = line;
       while(*d != 0)
       {
@@ -1032,10 +1019,6 @@ int updateDarwin()
 	  c++;
       }
       *c=0;
-      //char *s;
-      /*char **buf = line;
-      s = strchr(buf, '@');
-      printf("Found a @ at %s\n", s);*/
       char find = '@';
       const char *ptr = strchr(line, find);
       if(ptr) 
@@ -1067,10 +1050,7 @@ int updateDarwin()
 	  if(WEXITSTATUS(status) != 0)
 	  {
 	    fclose(portsFile);
-	    //printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(status));
-	    //exitApp(WEXITSTATUS(status));
 	    rerun = WEXITSTATUS(status);
-	    //updatedPorts++;
 	    continue;
 	  }
 	  fprintf(stdout, "Done with %s.\n", line);
@@ -1089,7 +1069,6 @@ int updateDarwin()
     fclose(portsFile);
      // And then, let's remove the ports.txt file:
     char *hjem = getenv("HOME");
-    //strcat(hjem, "/ports.txt");
     removeFile(hjem);
     printf("\033]0;\007");
   }
@@ -1129,8 +1108,7 @@ int updateDarwin()
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
-    //portsFile = fopen("$HOME/ports.txt", "r");
-    //portsFile = fopen(strcat(getenv("HOME"), "/ports.txt"), "r");
+    
     portsFile = fopen(hjem, "r");
     int numberOfPorts = 0, totalNumberOfPorts = 0;
     if(portsFile == NULL)
@@ -1142,7 +1120,7 @@ int updateDarwin()
 	return -1;
       }
     }
-    //system("port list outdated &");
+    
     char portCommand[100] = "port list outdated | /usr/bin/tee -a ";
     strcat(portCommand, hjem);
     strcat(portCommand, " &>/dev/null");
@@ -1158,7 +1136,6 @@ int updateDarwin()
     printf("\033]0;%d ports to be updated\007", totalNumberOfPorts);
     fclose(portsFile);
     fopen("/Users/andersbo/ports.txt", "r");
-    //char *s, *new_string = NULL;
     int updatedPorts = 1;
     while((read = getline(&line, &len, portsFile)) != -1)
     {
@@ -1171,7 +1148,6 @@ int updateDarwin()
       }
       char *c = line;
       char *s = NULL;
-      //char c[strlen(line)] = " ";
       char *d = line;
       while(*d != 0)
       {
@@ -1180,10 +1156,6 @@ int updateDarwin()
 	  c++;
       }
       *c=0;
-      //char *s;
-      /*char **buf = line;
-      s = strchr(buf, '@');
-      printf("Found a @ at %s\n", s);*/
       char find = '@';
       const char *ptr = strchr(line, find);
       if(ptr) 
@@ -1214,8 +1186,6 @@ int updateDarwin()
 	if(WIFEXITED(status)){
 	  if(WEXITSTATUS(status) != 0){
 	    fclose(portsFile);
-	    //printf("Something has gone wrong and the updating process has been stopped.\n The returned status code was: %d\n", WEXITSTATUS(status));
-	    //exitApp(WEXITSTATUS(status));
 	    rerun =  WEXITSTATUS(status);
 	    continue;
 	  }
@@ -1235,7 +1205,6 @@ int updateDarwin()
     fclose(portsFile);
      // And then, let's remove the ports.txt file:
     char *hjem = getenv("HOME");
-    //strcat(hjem, "/ports.txt");
     removeFile(hjem);
     printf("\033]0;\007");
   }
@@ -1247,7 +1216,6 @@ int updateDarwin()
   }
   if(rb)
   {
-    // insert code here…
     askReboot();
   }
   return 0;
@@ -1313,15 +1281,12 @@ int Search_in_File(char *fname, char *str)
   
   while(fgets(temp, 512, fp) != NULL) {
     if((strstr(temp, str)) != NULL) {
-      //printf("A match found on line: %d\n", line_num);
-      //printf("\n%s\n", temp);
       find_result++;
     }
     line_num++;
   }
   
   if(find_result == 0) {
-    //printf("\nSorry, couldn't find a match.\n");
     if(fp) {
       fclose(fp);
     }
@@ -1343,10 +1308,7 @@ int updateBaseSystem()
 {
   printf("\033]0;Updating %s operating system and installed applications\007", getOS());
   fprintf(stdout, "Updating %s operating system and installed applications…\n", getOS());
-  //printf("\n");
-  /*#ifdef SIGINFO
-  signal(SIGINFO, sigInfo);
-  #endif*/
+  
   int status;
   #ifndef __linux__
   char *sys_home = getenv("HOME");
@@ -1400,7 +1362,7 @@ int updateBaseSystem()
 	  new = open(home, O_WRONLY);
 	  dup2(new, 1);
 	  close(new);
-	  /* your code here ... */
+
 	  execvp(checkUpd_arglist[0], checkUpd_arglist);
 	  fflush(stdout);
 	  dup2(bak, 1);
@@ -1629,7 +1591,6 @@ int updateBaseSystem()
       return askUpdateFreeBSD();
     }
   }
-  //sys_home = NULL;
   char find = '.';
   const char *ptr = strchr(sys_home, find);
   if(ptr) 
@@ -1673,7 +1634,6 @@ int askUpdateFreeBSD()
     size_t len = 0;
     ssize_t read;
     char *fhome = ".FreeBSD.txt"; //getenv("HOME");
-    //strcat(fhome, "/.FreeBSD.txt");
     FreeBSDupdate = fopen(fhome,"w");
     fclose(FreeBSDupdate);
     char cmd[150] = "freebsd-update fetch install --not-running-from-cron | tee -a ";
@@ -2060,9 +2020,9 @@ void updateLinux()
 }
 
 /*
-* Oppdateringsprosessen her foreger ved at /usr/ports/infrastructures/bin/out-of-date kjxres.
+* Oppdateringsprosessen her foregår ved at /usr/ports/infrastructures/bin/out-of-date kjøres.
 * Dersom dette programmet finner utdaterte porter, oppdateres disse.
-* (vet ikke helt hvordan akkurat ne.)
+* (vet ikke helt hvordan akkurat nå.)
 */
 void updateOpenBSD()
 {
@@ -2075,8 +2035,6 @@ void updateOpenBSD()
     char *cvs[4];
     cvs[0] = "cvs";
     cvs[1] = "up";
-    //cvs[2] = "-r";
-    //cvs[3] = "TAG";
     cvs[2] = "-Pd";
     cvs[3] = NULL;
     execvp(cvs[0], cvs);
@@ -2121,6 +2079,7 @@ void updateOpenBSD()
 }
 
 void checkConnection(char *hostname, int runs) {
+  fprintf(stdout, "Trying %s… ", hostname);
   struct hostent *hostinfo = gethostbyname(hostname);
   if (hostinfo == NULL){
     runs++;
@@ -2128,18 +2087,17 @@ void checkConnection(char *hostname, int runs) {
     if(runs == 2) checkConnection("www.facebook.com", runs);
     if(runs == 3) checkConnection("www.twitter.com", runs);
     if(runs > 3) {
-      fprintf(stdout, "%s requires an active internet connection.\n", prog_name);
+      fprintf(stderr, "%s requires an active internet connection.\n", prog_name);
       exitApp(100);
     }
   }
   else {
-    fprintf(stdout, "connection OK\n");
+    fprintf(stdout, "Connection OK\n");
   }
 }
 
 int main(int argc, char ** argv)
 {
-//currentcmd = "updateports";
   prog_name = "updateports";
   portmaster_arg = 0;
   portupgrade_arg = 0;
@@ -2153,8 +2111,8 @@ int main(int argc, char ** argv)
   signal(SIGINFO, sigInfo);
   #endif
   fprintf(stdout, "Checking internet connection… ");
-  checkConnection("ftp://ftp.freebsd.org", 0);
-  fprintf(stdout, "Checking operating system... ");
+  checkConnection("www.freebsd.org", 0);
+  fprintf(stdout, "Checking operating system… ");
   printf("%s\n", getOS());
   int opt;
   if(strcmp(getOS(), "NetBSD") == 0){
@@ -2259,11 +2217,6 @@ int main(int argc, char ** argv)
 	    exitApp(1);
 	  }
 	case 'i':
-	  /*if(strcmp(appToRun, "null") == 0){
-	    fprintf(stderr, "The -i flag can only be used with the Portmaster or Portupgrade utility.\n");
-	    exitApp(2);
-	  }
-	  else*/
 	    interactive =1;
 	  break;
 	case '?':
@@ -2283,7 +2236,6 @@ int main(int argc, char ** argv)
       fprintf(stderr, "Something has gone wrong and the updating process has been stopped.\n");
       syslog(LOG_ERR, "Something has gone wrong and the updating process has been stopped.\n");
       exitApp(retVal);
-      //return retVal;
     }
     syslog(LOG_NOTICE, "Done running updateports on FreeBSD.\n");
   }
@@ -2309,89 +2261,11 @@ int main(int argc, char ** argv)
     {
       fprintf(stderr, "Something has gone wrong and the updating process has been stopped.\n");
       exitApp(retVal);
-      //return retVal;
     }
     else{
       printf("Done.\n");
       syslog(LOG_NOTICE, "updateports is now complete.\n");
     }
-    /*if(argc == 2)
-    {
-      if(strcmp(argv[1], "-y") == 0)
-      {
-	softupdate = 1;
-      }
-      else if(strcmp(argv[1], "-v") == 0)
-      {
-	verbose = 1;	
-      }
-      else if(strcmp(argv[1], "-pm") == 0)
-	{
-	  fprintf(stderr, "Only users of FreeBSD can use the -pm option.\n");
-	  return 1;
-	}
-      else if(strcmp(argv[1], "-pu") == 0)
-	{
-	  fprintf(stderr, "Only users of FreeBSD can use the -pu option.\n");
-	  return 1;
-	}
-      else
-      {
-	fprintf(stderr, "You typed an illegal option.\n");
-	return 1;
-      }
-      updateBaseSystem();
-      int retVal = updateDarwin();
-      if(retVal != 0)
-	{
-	  fprintf(stderr, "Something has gone wrong and the updating process has been stopped.\n");
-	  return retVal;
-	}
-      else
-	printf("Done.\n");
-    }
-    else if(argc == 3)
-    {
-      if(strcmp(argv[2], "-v") == 0)
-      {
-	verbose = 1;
-      }
-      else if(strcmp(argv[2], "-y") == 0)
-      {
-	softupdate = 1;
-      }
-      else
-      {
-	fprintf(stderr, "You typed an illegal option.\n");
-	return 1;
-      }
-      int retVal = updateDarwin();
-      if(retVal != 0)
-	{
-	  fprintf(stderr, "Something has gone wrong and the updating process has been stopped.\n");
-	  return retVal;
-	}
-      else
-      {
-	printf("Done.\n");
-        syslog(LOG_NOTICE, "updateports is now complete.\n");
-      }
-    }
-    else
-    {
-      updateBaseSystem();
-      int retVal = updateDarwin();
-      if(retVal != 0)
-	{
-	  fprintf(stderr, "Something has gone wrong and the updating process has been stopped.\n");
-	  return retVal;
-	}
-      else
-      {
-	printf("Done.\n");
-	syslog(LOG_NOTICE, "updateports is now complete.\n");
-      }
-    }*/
   }
   return 0;
 }
