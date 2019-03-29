@@ -3,7 +3,7 @@
 .\"man mdoc.samples for a complete listing of options
 .\"man mdoc for the short list of editing options
 .\"/usr/share/misc/mdoc.template
-.Dd 4/28/13               \" DATE 
+.Dd 28/4/13            \" DATE
 .Dt updateports 8      \" Program name and manual section number 
 .Os FreeBSD 11.0
 .Sh NAME                 \" Section Header - required - don't modify 
@@ -22,10 +22,15 @@
 .Op Fl P
 .Sh DESCRIPTION          \" Section Header - required - don't modify
 .Nm
-is a script designed to update installed ports on a variety of UNIX and UNIX-like operating systems.
-Depending on which operating system you are running, the script calls one or several other tools (like apt-get on Linux, portsnap and then Portmaster or Portupgrade on FreeBSD) and executes those. 
+is a script designed to update installed ports on a variety of UNIX and UNIX-like operating systems. Depending on which operating system you are running, the script calls one or several other tools (like apt, yum or zypper on Linux, pkg(1) on SunOS, freebsd-update(8) and pkg(8) on FreeBSD and softwareupdate(8) and port(1) on MacOS) and executes these tools. If the
+.Fl p
+or
+.Fl P
+option is used on FreeBSD,
 .Nm
-is an interactive script (except for Linux and SunOS) which might ask several questions during the execution.
+will first execute portsnap and then portmaster or portupgrade. 
+.Nm
+is an interactive tool (except for Linux and SunOS) which might ask several questions during the execution.
 .Pp
 If the user is running FreeBSD and does not use any of the options below,
 .Nm
@@ -64,7 +69,16 @@ on Linux, NetBSD, OpenBSD and Solaris does not accept any of the options listed 
 .Xr pkg 8 (FreeBSD),
 .Xr portmaster 8 (FreeBSD),
 .Xr portsnap 8 (FreeBSD)
-.\" .Sh BUGS              \" Document known, unremedied bugs 
+.Sh BUGS              \" Document known, unremedied bugs
+If the user applies the
+.Fl p
+and
+.Fl i
+options and answers no to all questions,
+.Nm
+still asks to delete old packages and unused distfiles, as if an update executed.
 .Sh HISTORY           \" Document history if command behaves in a unique manner
 .Nm
-first appeared on Mac OS X 10.8.3 and FreeBSD 9.1. It was then extended to support the latest versions of OpenBSD, NetBSD, Linux and Solaris.
+first appeared on Mac OS X 10.8.3 and FreeBSD 9.1. It was then extended to support the latest versions of OpenBSD, NetBSD, Linux and Solaris as well as its open-source counterparts.
+
+This manual page was last modfied on 29th March 2019.
