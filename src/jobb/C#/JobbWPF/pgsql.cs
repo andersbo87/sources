@@ -37,7 +37,7 @@ namespace JobbWPF
 {
     class pgsql
     {
-        private NpgsqlConnection conn;
+        //private NpgsqlConnection conn;
         private NpgsqlCommand cmd;
         private NpgsqlDataReader reader;
         private String username, password;
@@ -54,11 +54,11 @@ namespace JobbWPF
         /// <summary>
         /// Initializes the database
         /// </summary>
-        public bool Init()
+        /*public bool Init()
         {
             try
             {
-                conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database);
+                conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
                 conn.Open();
                 cmd = new NpgsqlCommand();
                 return true;
@@ -82,7 +82,7 @@ namespace JobbWPF
                 setError(e.Message);
                 throw e; // Kaster unntaket videre. Normalt sett vil dette kun påvirke koden i connectPgsql.cs, med mindre den eksterne serveren kobles fra.
             }
-        }
+        }*/
 
         // Metoder som sjekker om tabellene finnes i databasen.
         // Det skal være fire tabeller: Søknad, sted, land og status
@@ -94,9 +94,10 @@ namespace JobbWPF
         /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
         public bool tableTownExists()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "SELECT stedid FROM sted WHERE stedid=1";
@@ -119,9 +120,10 @@ namespace JobbWPF
         /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
         public bool tableApplicationExists()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "SELECT soknadid FROM soknad WHERE soknadid=1";
@@ -144,10 +146,10 @@ namespace JobbWPF
         /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
         public bool tableCountryExists()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                cmd = new NpgsqlCommand();
+                conn.Open(); cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "SELECT landid FROM land WHERE landid=1";
                 reader = cmd.ExecuteReader();
@@ -169,10 +171,10 @@ namespace JobbWPF
         /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
         public bool tableStatusExists()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                cmd = new NpgsqlCommand();
+                conn.Open(); cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "SELECT statusid FROM status WHERE statusid=1";
                 reader = cmd.ExecuteReader();
@@ -194,9 +196,10 @@ namespace JobbWPF
         /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
         public bool viewApplicationExists()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "SELECT soknadid FROM view_soknad WHERE soknadid=1";
@@ -219,10 +222,10 @@ namespace JobbWPF
         /// <returns>True on success (the table exists and is accessible) and false otherwise.</returns>
         public bool viewTownExists()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                cmd = new NpgsqlCommand();
+                conn.Open(); cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "SELECT stedid FROM view_sted WHERE stedid=1";
                 reader = cmd.ExecuteReader();
@@ -243,10 +246,11 @@ namespace JobbWPF
 
         public bool createTableTowns()
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
                 createSequenceStedidSeq();
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TABLE public.sted(stedid integer NOT NULL DEFAULT nextval('stedid_seq'::regclass), stedsnavn text COLLATE pg_catalog.\"default\" NOT NULL, landid integer NOT NULL, CONSTRAINT sted_pkey PRIMARY KEY(stedid), CONSTRAINT unikt_sted UNIQUE(stedsnavn), CONSTRAINT sted_landid_fkey FOREIGN KEY(landid) REFERENCES public.land(landid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION) WITH(OIDS = FALSE) TABLESPACE pg_default;";
@@ -266,11 +270,12 @@ namespace JobbWPF
 
         public bool createTableApplications()
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
                 createSequenceSoknadidSeq();
                 createFunctionEmpty();
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TABLE public.soknad(soknadid integer NOT NULL DEFAULT nextval('soknadid_seq'::regclass), tittel text COLLATE pg_catalog.\"default\" NOT NULL, bedrift text COLLATE pg_catalog.\"default\" NOT NULL, stedid integer NOT NULL, statusid integer NOT NULL, soknadsfrist text COLLATE pg_catalog.\"default\" NOT NULL, motivasjon text COLLATE pg_catalog.\"default\", CONSTRAINT soknad_pkey PRIMARY KEY(soknadid), CONSTRAINT unik_soknad UNIQUE(tittel, bedrift, stedid), CONSTRAINT soknad_statusid_fkey FOREIGN KEY(statusid) REFERENCES public.status(statusid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT soknad_stedid_fkey FOREIGN KEY(stedid) REFERENCES public.sted(stedid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT chk CHECK(NOT empty(tittel)), CONSTRAINT chkbedriftnotempty CHECK(NOT empty(bedrift)), CONSTRAINT chksoknadsfristnotempty CHECK(NOT empty(soknadsfrist)))WITH(OIDS = FALSE)TABLESPACE pg_default;";
@@ -290,10 +295,11 @@ namespace JobbWPF
 
         public bool createTableCountries()
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
                 createSequenceLandidSeq();
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TABLE public.land(landid integer NOT NULL DEFAULT nextval('landid_seq'::regclass), land text COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT land_pkey PRIMARY KEY(landid), CONSTRAINT unikt_land UNIQUE(land))WITH(OIDS = FALSE)TABLESPACE pg_default; ";
@@ -313,10 +319,11 @@ namespace JobbWPF
 
         public bool createTableStatuses()
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
                 createSequenceStatusidSeq();
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TABLE public.status(statusid integer NOT NULL DEFAULT nextval('statusid_seq'::regclass), status character varying(30) COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT status_pkey PRIMARY KEY(statusid), CONSTRAINT unik_status UNIQUE(status))WITH(OIDS = FALSE)TABLESPACE pg_default;";
@@ -342,9 +349,10 @@ namespace JobbWPF
 
         public bool createViewApplications()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE OR REPLACE VIEW public.view_soknad AS SELECT soknad.soknadid, soknad.tittel, soknad.bedrift, soknad.soknadsfrist, soknad.stedid, sted.stedsnavn, sted.landid, land.land, soknad.statusid, status.status, soknad.motivasjon FROM soknad JOIN sted ON sted.stedid = soknad.stedid JOIN land ON land.landid = sted.landid JOIN status ON status.statusid = soknad.statusid ORDER BY soknad.soknadid;";
@@ -364,9 +372,10 @@ namespace JobbWPF
 
         public bool createViewTown()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE OR REPLACE VIEW public.view_sted AS SELECT sted.stedid, sted.stedsnavn, sted.landid, land.land FROM sted JOIN land ON land.landid = sted.landid;";
@@ -388,9 +397,10 @@ namespace JobbWPF
         // Metoder som oppretter sekvenser som brukes til å automatisk øke ID med 1.
         private void createSequenceLandidSeq()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE SEQUENCE landid_seq;";
@@ -407,9 +417,10 @@ namespace JobbWPF
         }
         private void createSequenceStedidSeq()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE SEQUENCE stedid_seq;";
@@ -426,9 +437,10 @@ namespace JobbWPF
         }
         private void createSequenceSoknadidSeq()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE SEQUENCE soknadid_seq;";
@@ -445,9 +457,10 @@ namespace JobbWPF
         }
         private void createSequenceStatusidSeq()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE SEQUENCE statusid_seq;";
@@ -467,9 +480,10 @@ namespace JobbWPF
         // Disse metodene kjøres som del av metodene over og er derfor private.
         public bool createFunctionEmpty()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE OR REPLACE FUNCTION public.empty(text) RETURNS boolean LANGUAGE 'sql' COST 100 IMMUTABLE AS $BODY$ SELECT $1 ~'^[[:space:]]*$'; $BODY$; COMMENT ON FUNCTION public.empty(text) IS 'Sjekke innholdet i en streng. Returnerer sann om strengen er tom eller bare inneholder mellomrom, og falsk ellers.';";
@@ -487,9 +501,10 @@ namespace JobbWPF
         }
         public bool createProcedureNewCountryID()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE FUNCTION public.nylandid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid; RETURN NEW; END; $BODY$; ";
@@ -509,9 +524,10 @@ namespace JobbWPF
 
         public bool createProcedureNewApplicationID()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE FUNCTION nysoknadid() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE NOTICE 'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid; RETURN NEW; END; $$; ";
@@ -531,9 +547,10 @@ namespace JobbWPF
 
         public bool createProcedureNewTownID()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE FUNCTION nystedid() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid; RETURN NEW; END; $$";
@@ -553,9 +570,10 @@ namespace JobbWPF
 
         public bool createProcedureUpdateApplication()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 //cmd.CommandText = "CREATE FUNCTION updatesoknad() RETURNS trigger LANGUAGE plpgsql AS $$DECLARE counter_ integer:= 0; tablename_ text := 'temptable'; oldStatus text; newStatus text; max int; updated boolean := false; BEGIN begin --raise notice 'Creating table %', tablename_; execute 'create temporary table ' || tablename_ || ' (counter integer) on commit drop'; execute 'insert into ' || tablename_ || ' (counter) values(0)'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; exception when duplicate_table then null; end; execute 'select counter from ' || tablename_ into counter_; execute 'update ' || tablename_ || ' set counter = counter + 1'; --raise notice 'updating'; execute 'select counter from ' || tablename_ into counter_; --raise notice 'Actual value for counter= [%]', counter_; max:= count(soknadid) from soknad; if counter_ = max then raise exception 'Kan ikke oppdatere mer enn Ã©n rad om gangen.'; end if; if NEW.soknadid != OLD.soknadid then raise notice 'Søknadid-en ble endret fra % til %.', OLD.soknadid, NEW.soknadid; updated = true; end if; if NEW.tittel != OLD.tittel then raise notice 'Søknaden med ID % har fÃ¥tt endret tittel fra % til %.', OLD.soknadid, OLD.tittel, NEW.tittel; updated = true; end if; if NEW.bedrift != OLD.bedrift then raise notice 'Søknaden med ID % har fÃ¥tt endret bedrift fra % til %.', OLD.soknadid, OLD.bedrift, NEW.bedrift; updated = true; end if; if NEW.stedid != OLD.stedid then raise notice 'Søknaden med ID % har fÃ¥tt endret stedid fra % til %.', OLD.soknadid, OLD.stedid, NEW.stedid; updated = true; end if; if NEW.soknadsfrist != OLD.soknadsfrist then raise notice 'Søknaden med ID % har fÃ¥tt endret søknadsfrist fra % til %.', OLD.soknadid, OLD.soknadsfrist, NEW.soknadsfrist; updated = true; end if; if NEW.motivasjon != OLD.motivasjon then raise notice 'Søknaden med ID % har fÃ¥tt endret motivasjon fra % til %.', OLD.soknadid, OLD.motivasjon, NEW.motivasjon; updated = true; end if; if NEW.statusid != OLD.statusid then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; if NEW.statusid = 1 then newStatus = 'Registrert'; elsif NEW.statusid = 2 then newStatus = 'Sendt'; elsif NEW.statusid = 3 then newStatus = 'Interessert, mulig intervju'; elsif NEW.statusid = 4 then newStatus = 'Avvist'; elsif NEW.statusid = 5 then newStatus = 'Søknad skrevet, men ikke sendt'; elsif NEW.statusid = 6 then newStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har fÃ¥tt endret statusid fra % (%) til % (%).', OLD.soknadid, OLD.statusid, oldStatus, NEW.statusid, newStatus; elsif NEW.statusid = OLD.statusid then if updated = false then if OLD.statusid = 1 then oldStatus = 'Registrert'; elsif OLD.statusid = 2 then oldStatus = 'Sendt'; elsif OLD.statusid = 3 then oldStatus = 'Interessert, mulig intervju'; elsif OLD.statusid = 4 then oldStatus = 'Avvist'; elsif OLD.statusid = 5 then oldStatus = 'Søknad skrevet, men ikke sendt'; elsif OLD.statusid = 6 then oldStatus = 'Godtatt, klar for jobb'; end if; raise notice 'Søknaden med ID % har IKKE fått endret status. Statusen forblir % (%).', OLD.soknadid, OLD.statusid, oldStatus; end if; end if; RETURN NEW; END; $$;";
@@ -713,9 +731,10 @@ namespace JobbWPF
 
         private bool createTriggerNewCountryID()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_nyttland AFTER INSERT ON public.land FOR EACH ROW EXECUTE PROCEDURE public.nylandid();";
@@ -735,9 +754,10 @@ namespace JobbWPF
 
         private bool createTriggerNewApplicationID()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_nysoknad AFTER INSERT ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.nysoknadid();";
@@ -757,9 +777,10 @@ namespace JobbWPF
 
         private bool createTriggerNewTownID()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_nyttsted AFTER INSERT ON public.sted FOR EACH ROW EXECUTE PROCEDURE public.nystedid();";
@@ -779,9 +800,10 @@ namespace JobbWPF
 
         private bool createTriggerUpdateApplication()
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "CREATE TRIGGER trg_oppdatersoknad AFTER UPDATE ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.updatesoknad();";
@@ -822,7 +844,8 @@ namespace JobbWPF
         public string[] GetTitle(string sqlQuery)
         {
             string[] res = null;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand(sqlQuery);
             cmd.Connection = conn;
             NpgsqlDataAdapter nad = new NpgsqlDataAdapter(cmd);
@@ -863,7 +886,8 @@ namespace JobbWPF
         {
             StringBuilder sb = new StringBuilder();
             string[] res = null;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand(sqlQuery);
             cmd.Connection = conn;
             NpgsqlDataAdapter nad = new NpgsqlDataAdapter(cmd);
@@ -919,11 +943,12 @@ namespace JobbWPF
         /// <returns></returns>
         public string ExecQry(string sqlQuery)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
                 string res = "";
                 StringBuilder sb = new StringBuilder();
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand(sqlQuery);
                 cmd.Connection = conn;
                 NpgsqlDataAdapter nad = new NpgsqlDataAdapter(cmd);
@@ -1065,9 +1090,10 @@ namespace JobbWPF
         /// <returns>True if the insert succeeds and false if it fails</returns>
         public bool InsertStatus(string status)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand("INSERT INTO status (status) VALUES('" + status + "');", conn);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1106,9 +1132,10 @@ namespace JobbWPF
         /// <returns>True if the insert succeeds and false if it fails</returns>
         public bool InsertTown(string townName, int countryID)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand("INSERT INTO sted (stedsnavn, landid) VALUES('" + townName + "', " + countryID + ");", conn);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1146,9 +1173,10 @@ namespace JobbWPF
         /// <returns>True if the insert succeeds and false if it fails</returns>
         public bool InsertCountry(string countryName)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand("INSERT INTO land (land) VALUES('" + countryName + "');", conn);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -1191,9 +1219,10 @@ namespace JobbWPF
         /// <returns>True if the insert succeeds and false if it fails</returns>
         public bool InsertApplication(string title, string company, int townID, int statusID, string date, string motivation)
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
+                conn.Open();
                 cmd = new NpgsqlCommand("INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist, motivasjon) VALUES('" + title + "', '" + company + "'," + townID + ", " + statusID + ", '" + date + "','" + motivation + "');", conn);
                 cmd.ExecuteNonQuery();
 
@@ -1232,7 +1261,8 @@ namespace JobbWPF
         public double countTotalApplications()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad";
@@ -1249,7 +1279,8 @@ namespace JobbWPF
         public double countUnansweredApplications()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=2";
@@ -1266,7 +1297,8 @@ namespace JobbWPF
         public double countRegisteredNotSentApplications()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=1";
@@ -1283,7 +1315,8 @@ namespace JobbWPF
         public double countDeclinedAfterInterview()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=6";
@@ -1300,7 +1333,8 @@ namespace JobbWPF
         public double countDeclinedApplications()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=4";
@@ -1317,7 +1351,8 @@ namespace JobbWPF
         public double countAcceptedForInterview()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=3";
@@ -1334,7 +1369,8 @@ namespace JobbWPF
         public double countAcceptedForWork()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=7";
@@ -1351,7 +1387,8 @@ namespace JobbWPF
         public double countWrittenButNotSent()
         {
             int res = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad WHERE statusid=5";
@@ -1368,7 +1405,8 @@ namespace JobbWPF
         /// <returns>A list of string that contains all information about the current job.</returns>
         public List<string> GetApplications(int index)
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             List<string> data = new List<string>();
             cmd.Connection = conn;
@@ -1402,7 +1440,8 @@ namespace JobbWPF
         public string getCompany(int appID)
         {
             string res = "";
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT bedrift FROM soknad WHERE soknadid = " + appID + "ORDER BY statusid asc";
@@ -1419,7 +1458,8 @@ namespace JobbWPF
         /// <returns>A list of strings with all information about the status.</returns>
         public List<string> GetStatuses(int index)
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             List<string> data = new List<string>();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
@@ -1443,7 +1483,8 @@ namespace JobbWPF
         {
             try
             {
-                Init();
+                NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+                conn.Open();
                 List<string> data = new List<string>();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
@@ -1478,7 +1519,8 @@ namespace JobbWPF
         /// <returns>The list with the country data.</returns>
         public List<string> GetCountries(int index)
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             List<string> data = new List<string>();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
@@ -1501,7 +1543,8 @@ namespace JobbWPF
         public int GetCityID(string name)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT stedid FROM sted WHERE stedsnavn='" + name + "'";
@@ -1520,7 +1563,8 @@ namespace JobbWPF
         public int GetCityID(int index)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT stedid FROM view_soknad WHERE soknadid=" + index;
@@ -1539,7 +1583,8 @@ namespace JobbWPF
         public string getCityName(int index)
         {
             string res = "";
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT stedsnavn FROM STED where stedid=" + index;
@@ -1557,7 +1602,8 @@ namespace JobbWPF
         public List<string> getCityNames()
         {
             List<string> res = new List<string>();
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC";
@@ -1574,7 +1620,8 @@ namespace JobbWPF
         public List<string> getStatusNames()
         {
             List<string> res = new List<string>();
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT status FROM status ORDER BY status ASC";
@@ -1592,7 +1639,8 @@ namespace JobbWPF
         public int GetApplicationCountryID(int index)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM view_soknad WHERE soknadid=" + index;
@@ -1606,7 +1654,8 @@ namespace JobbWPF
         public int getCountryID(int cityid)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM sted WHERE stedid=" + cityid;
@@ -1625,7 +1674,8 @@ namespace JobbWPF
         public int getCountryID(string name)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM land WHERE land='" + name + "'";
@@ -1642,13 +1692,15 @@ namespace JobbWPF
         public ArrayList GetApplicationIDs()
         {
             ArrayList res = new ArrayList();
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT soknadid FROM soknad ORDER BY soknadid ASC";
             reader = cmd.ExecuteReader();
             while (reader.Read())
                 res.Add(reader.GetInt32(0));
+            conn.Close();
             return res;
         }
 
@@ -1659,13 +1711,15 @@ namespace JobbWPF
         public ArrayList GetCountryIDs()
         {
             ArrayList res = new ArrayList();
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM land ORDER BY landid ASC";
             reader = cmd.ExecuteReader();
             while (reader.Read())
                 res.Add(reader.GetInt32(0));
+            conn.Close();
             return res;
         }
 
@@ -1676,13 +1730,15 @@ namespace JobbWPF
         public ArrayList GetStatusIDs()
         {
             ArrayList res = new ArrayList();
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT statusid FROM status ORDER BY statusid ASC";
             reader = cmd.ExecuteReader();
             while (reader.Read())
                 res.Add(reader.GetInt32(0));
+            conn.Close();
             return res;
         }
 
@@ -1693,13 +1749,15 @@ namespace JobbWPF
         public ArrayList GetTownIDs()
         {
             ArrayList res = new ArrayList();
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT stedid FROM sted ORDER BY stedid ASC";
             reader = cmd.ExecuteReader();
             while (reader.Read())
                 res.Add(reader.GetInt32(0));
+            conn.Close();
             return res;
         }
 
@@ -1711,7 +1769,8 @@ namespace JobbWPF
         public int GetCityCountryID(int index)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM view_sted WHERE stedid=" + index;
@@ -1730,7 +1789,8 @@ namespace JobbWPF
         public int GetCityCountryID(string townName)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT landid FROM view_sted WHERE stedsnavn='" + townName +"'";
@@ -1749,9 +1809,10 @@ namespace JobbWPF
         public string GetCountryName(int index)
         {
             string res = "";
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand("SELECT land FROM land WHERE landid=" + index + ";", conn);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -1777,7 +1838,8 @@ namespace JobbWPF
         public int GetStatusID(string statusname)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT statusID from status WHERE status='" + statusname + "'";
@@ -1798,7 +1860,8 @@ namespace JobbWPF
         public int GetStatusID(int index)
         {
             int ans = 0;
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT statusID from view_soknad WHERE soknadid=" + index;
@@ -1813,10 +1876,11 @@ namespace JobbWPF
 
         public string getMotivation(int idx)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
                 string res = "";
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "SELECT motivasjon from view_soknad WHERE soknadid=" + idx;
@@ -1843,7 +1907,8 @@ namespace JobbWPF
         public string getStatusName(int idx)
         {
             string res = "";
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            conn.Open();
             cmd = new NpgsqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "SELECT status FROM status WHERE statusid=" + idx;
@@ -1866,9 +1931,10 @@ namespace JobbWPF
         /// <returns>True on success and false on failure.</returns>
         public bool updateApplication(int appID, string newAppTitle, string newCompany, int newTownID, int newStatusID, string newDeadline, string newMotivation)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE soknad SET tittel='" + newAppTitle + "', bedrift='" +newCompany + "', stedID=" + newTownID + ", statusID=" + newStatusID + ", soknadsfrist='" + newDeadline + "', motivasjon='" + newMotivation + "' where soknadid=" + appID + ";";
                 cmd.ExecuteNonQuery();
@@ -1915,9 +1981,10 @@ namespace JobbWPF
         /// <returns>True on success and false on failure.</returns>
         public bool updateCountry(int countryID, string newCountryName)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE land SET land='" + newCountryName + "' where landid=" + countryID + ";";
                 cmd.ExecuteNonQuery();
@@ -1963,9 +2030,10 @@ namespace JobbWPF
         /// <returns>True on success and false on failure.</returns>
         public bool updateStatus(int statusID, string newStatusName)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE status SET status='" + newStatusName + "' where statusid=" + statusID + ";";
                 cmd.ExecuteNonQuery();
@@ -2011,9 +2079,10 @@ namespace JobbWPF
         /// <returns></returns>
         public bool updateTown(string oldTownName, string newTownName, int newCountryID)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd.Connection = conn;
                 cmd.CommandText = "UPDATE sted SET stedsnavn='" + newTownName + "', landid=" +newCountryID + " where stedsnavn='" + oldTownName + "';";
                 cmd.ExecuteNonQuery();
@@ -2059,9 +2128,10 @@ namespace JobbWPF
         /// <param name="index">The index (number) of the item to be deleted.</param>
         public bool DeleteItem(string table, string columnName, int index)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             try
             {
-                Init();
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = "DELETE FROM " + table + " WHERE " + columnName + " = " + index;
@@ -2103,10 +2173,11 @@ namespace JobbWPF
 
         public List<string> GetData(string sqlQuery, int index)
         {
-            Init();
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
             cmd = new NpgsqlCommand();
             try
             {
+                conn.Open();
                 data = new List<string>();
                 cmd.Connection = conn;
                 cmd.CommandText = sqlQuery;
@@ -2148,7 +2219,8 @@ namespace JobbWPF
             List<jobb> data = new List<jobb>();
             try
             {
-                Init();
+                NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+                conn.Open();
                 cmd = new NpgsqlCommand();
                 cmd.Connection = conn;
                 int i = 0;

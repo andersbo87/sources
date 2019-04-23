@@ -350,8 +350,8 @@ namespace JobbWPF
         // Automatisk genererte private metoder:
         private void viewApplications_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 opening = true;
                 reopen = false;
                 List<string> l = p.GetData("SELECT soknadid FROM view_soknad ORDER BY soknadid asc", 0);
@@ -391,7 +391,7 @@ namespace JobbWPF
                     setApplicationID(1);
                     comboBoxApplicationID.Focus();
                 }
-            }
+            /*}
             catch (TimeoutException te)
             {
                 MessageBox.Show("En feil oppstod under henting av data. Er serveren fortsatt online? Feilmeldingen lyder slik: " + te.ToString(), progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -399,9 +399,9 @@ namespace JobbWPF
             }
             catch (Exception ex)
             {
-                MessageBox.Show("En feil har oppstått under henting av data. Er serveren fortsatt online? Feilmeldinga lyder: " + ex.Message, progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("En feil har oppstått under henting av data. Er serveren fortsatt online? Feilmeldinga lyder: " + ex.ToString(), progTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 Close();
-            }
+            }*/
         }
 
         private void comboBoxApplicationID_SelectionChanged(object sender, SelectionChangedEventArgs e)

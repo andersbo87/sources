@@ -60,15 +60,6 @@ namespace JobbWPF
             // Koden i testen under sjekker om brukeren har klikket OK.
             if (cp.DialogResult.HasValue && cp.DialogResult.Value)
             {
-                try
-                {
-                    psql.Init();
-                }
-                catch(Exception e)
-                {
-                    MessageBox.Show("Kan ikke koble til databasen: " + e.Message, title, MessageBoxButton.OK, MessageBoxImage.Error);
-                    initialize();
-                }
                 if (!psql.tableCountryExists())
                 {
                     MessageBox.Show("Tabellen med oversikt over registrerte land finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
@@ -271,6 +262,76 @@ namespace JobbWPF
             st.Show();
         }
 
+        private void dropDatabase()
+        {
+            try
+            {
+                var database = "jobber";
+                var arguments = String.Format(@" -h localhost -U{0} -w {1}", psql.GetUsername(), database);
+                Process process = new Process();
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.EnvironmentVariables["PGPASSWORD"] = psql.GetPassword();
+                process.StartInfo.Arguments = arguments;
+                // Linjen under forutsetter at dropdb.exe finnes i systemvariabelen PATH
+                process.StartInfo.FileName = "dropdb.exe";
+                process.Start();
+                while(true)
+                {
+                    if (process.HasExited == true)
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        private void createDatabase()
+        {
+            try
+            {
+                var database = "jobber";
+                var arguments = String.Format(@" -h localhost -U{0} -w {1}", psql.GetUsername(), database);
+                Process process = new Process();
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.EnvironmentVariables["PGPASSWORD"] = psql.GetPassword();
+                process.StartInfo.Arguments = arguments;
+                // Linjen under forutsetter at createdb.exe finnes i systemvariabelen PATH
+                process.StartInfo.FileName = "createdb.exe";
+                process.Start();
+                while (true)
+                {
+                    if (process.HasExited == true)
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        private void restoreDatabase(string fileName)
+        {
+            try
+            {
+                var database = "jobber";
+                var arguments = String.Format(@" -h localhost -d{0} -U{1} -f {2} -w", database, psql.GetUsername(), fileName);
+                Process process = new Process();
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.EnvironmentVariables["PGPASSWORD"] = psql.GetPassword();
+                process.StartInfo.Arguments = arguments;
+                // Linjen under forutsetter at pg_dump.exe finnes i systemvariabelen PATH
+                process.StartInfo.FileName = "psql.exe";
+                process.Start();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         private void btn_SaveFile_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -299,6 +360,31 @@ namespace JobbWPF
             catch(Exception ex)
             {
                 MessageBox.Show("Kan ikke starte pg_dump.exe: " + ex.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btn_openSQLFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+                dlg.DefaultExt = ".sql";
+                dlg.Filter = "SQL file (.sql)|*.sql";
+                if (dlg.ShowDialog() == true)
+                {
+                    MessageBoxResult res = MessageBox.Show("Dette vil fjerne den eksisterende databasen og erstatte denne med innholdet i " + dlg.FileName + ". Dette kan ikke angres. Vil du fortsette?", title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (res == MessageBoxResult.Yes)
+                    {
+                        string file = dlg.FileName;
+                        dropDatabase();
+                        createDatabase();
+                        restoreDatabase(file);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
     }
