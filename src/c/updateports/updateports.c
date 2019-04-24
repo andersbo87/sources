@@ -2079,7 +2079,7 @@ void updateOpenBSD()
 }
 
 void checkConnection(char *hostname, int runs) {
-  fprintf(stdout, "Trying %s… ", hostname);
+  fprintf(stdout, "Trying %s…\n", hostname);
   struct hostent *hostinfo = gethostbyname(hostname);
   if (hostinfo == NULL){
     runs++;
