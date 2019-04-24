@@ -148,13 +148,20 @@ void ShowCities::getCity(int cityID)
     try
     {
         ui->comboBoxCityID->setCurrentText(QString::number(cityID));
-        ui->lineEditCityName->setText(p->getCityName(cityID));
-        ui->comboBoxCountryID->setCurrentText(QString::number(p->getCountryID(cityID)));
-        ui->labelCountryName->setText(p->getCountryName(ui->comboBoxCountryID->currentText().toInt()));
-        //setCityID(cityID);
-        setCountryID(ui->comboBoxCountryID->currentText().toInt());
-        setCityName(ui->lineEditCityName->text());
-        setCountryName(ui->labelCountryName->text());
+        int actualId = ui->comboBoxCityID->currentText().toInt();
+        if(actualId == cityID) {
+            ui->lineEditCityName->setText(p->getCityName(cityID));
+            ui->comboBoxCountryID->setCurrentText(QString::number(p->getCountryID(cityID)));
+            ui->labelCountryName->setText(p->getCountryName(ui->comboBoxCountryID->currentText().toInt()));
+            setCityID(cityID);
+            setCountryID(ui->comboBoxCountryID->currentText().toInt());
+            setCityName(ui->lineEditCityName->text());
+            setCountryName(ui->labelCountryName->text());
+        }
+        else {
+            cityID++;
+            getCity(cityID);
+        }
     }
     catch(invalid_argument iaex)
     {
@@ -210,7 +217,8 @@ void ShowCities::getCities()
 {
     try
     {
-        QList<QString> list = p->fillList("SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC");
+        QList<QString> list = p->fillList("SELECT stedid FROM sted ORDER BY stedid ASC");
+        int i = 0;
         if(list.count() == 0)
         {
             QMessageBox msg;
@@ -222,11 +230,11 @@ void ShowCities::getCities()
         }
         else
         {
-            int i = 0;
-            for(QList<QString>::iterator iter = list.begin(); iter != list.end(); iter++)
+            QList<QString>::iterator iter = list.begin();
+            while(iter != list.end())
             {
-                //ui->comboBoxCityID->addItem(QString::number(list.value(i)));
                 ui->comboBoxCityID->addItem(list.value(i));
+                iter++;
                 i++;
             }
             lastID = i;
@@ -347,6 +355,107 @@ void ShowCities::buildComboboxCityList()
     buildingList = false;
 }
 
+void ShowCities::btnFirstClicked()
+{
+    try
+    {
+        checkChanges();
+        getCity(1);
+        ui->btnFirst->setEnabled(false);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        ui->btnPrev->setEnabled(false);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
+}
+
+void ShowCities::btnPrevClicked()
+{
+    try
+    {
+        checkChanges();
+        int currentCity = getCityID(), counter = 1;
+        while(QString::compare(p->getCountryName(currentCity - counter), "", Qt::CaseSensitive) == 0)
+        {
+            counter++;
+        }
+        getCity(currentCity - counter);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        if(currentCity - 1 == 1)
+        {
+            ui->btnFirst->setEnabled(false);
+            ui->btnPrev->setEnabled(false);
+        }
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
+}
+
+void ShowCities::btnNextClicked()
+{
+    try
+    {
+        checkChanges();
+        int currentCity = getCityID(), counter = 1;
+        while(QString::compare(p->getCountryName(currentCity + counter), "", Qt::CaseSensitive) == 0)
+        {
+            counter++;
+        }
+        getCity(currentCity + counter);
+        ui->btnFirst->setEnabled(true);
+        ui->btnPrev->setEnabled(true);
+        if(currentCity + 1 == lastID)
+        {
+            ui->btnLast->setEnabled(false);
+            ui->btnNext->setEnabled(false);
+        }
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
+}
+
+void ShowCities::btnLastClicked()
+{
+    try
+    {
+        checkChanges();
+        ui->comboBoxCityID->setCurrentIndex(ui->comboBoxCityID->count()-1);
+        getCity(ui->comboBoxCityID->currentText().toInt());
+        ui->btnFirst->setEnabled(true);
+        ui->btnLast->setEnabled(false);
+        ui->btnNext->setEnabled(false);
+        ui->btnPrev->setEnabled(true);
+    }
+    catch(std::exception &e)
+    {
+        QMessageBox msg;
+        msg.setIcon(msg.Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText(e.what());
+        msg.exec();
+    }
+}
+
 void ShowCities::buttonSaveClicked()
 {
     if(p->updateCity(ui->comboBoxCityID->currentText(), getCityName(), getCountryID()))
@@ -396,6 +505,47 @@ void ShowCities::lineEditCityNameChanged()
 void ShowCities::comboboxCityIDChanged()
 {
     //int currID = ui->comboBoxCityID->currentText().toInt();
+
+    /*
+     * // Get the first item and store that in a variable:
+    int firstItem = 1;
+    while(ui->comboBoxApplicationID->findText(QString::number(firstItem)) == -1){
+        firstItem++;
+    }
+    */
+    int currID = ui->comboBoxCityID->currentText().toInt();
+    // Get the first item and store that in a variable:
+    int firstItem = 1;
+    while(ui->comboBoxCityID->findText(QString::number(firstItem)) == -1){
+        firstItem++;
+    }
+    checkChanges();
+    cityIDchanged = true;
+    getCity(currID);
+    cityIDchanged = false;
+    if(currID == firstItem)
+    {
+        ui->btnFirst->setEnabled(false);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        ui->btnPrev->setEnabled(false);
+
+    }
+    else if(currID == lastID || ui->comboBoxCityID->currentIndex() == ui->comboBoxCityID->count()-1)
+    {
+        ui->btnFirst->setEnabled(true);
+        ui->btnLast->setEnabled(false);
+        ui->btnNext->setEnabled(false);
+        ui->btnPrev->setEnabled(true);
+    }
+    else
+    {
+        ui->btnFirst->setEnabled(true);
+        ui->btnLast->setEnabled(true);
+        ui->btnNext->setEnabled(true);
+        ui->btnPrev->setEnabled(true);
+    }
+    /*
     QObject::blockSignals(true);
     checkChanges();
     QObject::blockSignals(false);
@@ -406,6 +556,7 @@ void ShowCities::comboboxCityIDChanged()
     getCity(currID);
     cityIDchanged = false;
     oldCityName = ui->comboBoxCityID->currentText();
+    */
 }
 
 void ShowCities::comboboxCountryIDChanged()
@@ -427,7 +578,7 @@ void ShowCities::windowLoaded()
     try{
         getCities();
         getCountryIDs();
-        //getCity(1);
+        getCity(1);
         ui->labelCountryName->setText(p->getCountryName(ui->comboBoxCountryID->currentText().toInt()));
         int countryID = ui->comboBoxCountryID->currentText().toInt();
         setCountryID(countryID);

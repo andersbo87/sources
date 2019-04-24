@@ -110,6 +110,15 @@ void psql::setHost(QString newHost)
     host = newHost;
 }
 
+/**
+ * @brief psql::setPort Sets the port on the host system. 5432 or 5433 are the default ones.
+ * @param newPort The port number.
+ */
+void psql::setPort(int newPort)
+{
+    port = newPort;
+}
+
 /*
  * Metoder som setter data inn i databasen:
 */
@@ -128,7 +137,7 @@ bool psql::insertApplication(QString title, QString company, int cityID, int sta
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString insertStatement = "INSERT INTO soknad (tittel, bedrift, stedid, statusid, soknadsfrist, motivasjon) VALUES('";
         ostringstream oss;
@@ -169,7 +178,7 @@ bool psql::insertCity(QString cityName, int countryID)
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString insertStatement = "INSERT INTO sted (stedsnavn, landid) VALUES('";
         ostringstream oss;
@@ -200,7 +209,7 @@ bool psql::insertCountry(QString countryName)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string stmt = "";
         QString insertStmt = "INSERT INTO land (land) VALUES('";
         ostringstream oss;
@@ -229,7 +238,7 @@ bool psql::insertStatus(QString statusName)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString insertStatement = "INSERT INTO status (status) values('";
         ostringstream oss;
@@ -287,7 +296,7 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
         oss << statement << motivation.toStdString();
         oss << statement << "' where soknadid=";
         oss << statement << id;
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
@@ -311,7 +320,7 @@ bool psql::updateCity(QString oldCityName, QString newCityName, int countryID)
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString insertStatement = "UPDATE sted SET stedsnavn = '";
         ostringstream oss;
@@ -345,7 +354,7 @@ bool psql::updateCountry(QString countryName, int countryID)
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString insertStatement = "UPDATE land SET land = '";
         ostringstream oss;
@@ -375,7 +384,7 @@ bool psql::updateStatus(QString statusname, int statusID)
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString insertStatement = "UPDATE status SET status = '";
         ostringstream oss;
@@ -408,7 +417,7 @@ bool psql::deleteApplication(int applicationID)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string SQL;
         QString stmt="DELETE FROM soknad WHERE soknadid=";
         ostringstream oss;
@@ -436,7 +445,7 @@ bool psql::deleteCity(int cityID)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string SQL;
         QString stmt = "DELETE FROM sted WHERE stedid=";
         ostringstream oss;
@@ -464,7 +473,7 @@ bool psql::deleteCountry(int countryID)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string SQL;
         QString stmt = "DELETE FROM land WHERE landid=";
         ostringstream oss;
@@ -492,7 +501,7 @@ bool psql::deleteStatus(int statusID)
 {
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string SQL;
         QString stmt = "DELETE FROM status WHERE statusid=";
         ostringstream oss;
@@ -520,8 +529,8 @@ bool psql::connectDatabase()
     try
     {
         //printf("user: %s\n", username.toStdString().c_str());
-        connectionString = "dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432";
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        connectionString = "dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString();
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         if(C.is_open())
         {
             //C.disconnect();
@@ -555,7 +564,7 @@ QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, st
     {
         QList<QString> list;
         //QList<int>::iterator iterator;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         QString stmt = "SELECT tittel FROM view_soknad WHERE tittel like '%";
         string sql;
         stringstream oss;
@@ -614,7 +623,7 @@ QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName
     try
     {
         QList<QString> list;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         QString stmt = "SELECT bedrift FROM view_soknad WHERE tittel like '%";
         string sql;
         stringstream oss;
@@ -674,7 +683,7 @@ QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, s
     {
         QList<QString> list;
         //QList<int>::iterator iterator;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         QString stmt = "SELECT soknadsfrist FROM view_soknad WHERE tittel like '%";
         string sql;
         stringstream oss;
@@ -733,7 +742,7 @@ QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, s
     try
     {
         QList<QString> list;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         QString stmt = "SELECT stedsnavn FROM view_soknad WHERE tittel like '%";
         string sql;
         stringstream oss;
@@ -793,7 +802,7 @@ QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, st
     {
         QList<QString> list;
         //QList<int>::iterator iterator;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         QString stmt = "SELECT status FROM view_soknad WHERE tittel like '%";
         string sql;
         stringstream oss;
@@ -853,7 +862,7 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
     {
         QList<int> list;
         QList<int>::iterator iterator;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         QString stmt = "SELECT soknadid FROM view_soknad WHERE tittel like '%";
         string sql;
         stringstream oss;
@@ -913,7 +922,7 @@ QList<QString> psql::getSpecificMotivations(string jobTitle, string companyName,
     try
     {
         QList<QString> list;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         QString stmt = "SELECT motivasjon FROM view_soknad WHERE tittel like '%";
         string sql;
         stringstream oss;
@@ -972,7 +981,7 @@ double psql::countTotalApplications()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad";
         ostringstream oss;
@@ -1002,7 +1011,7 @@ double psql::countRegisteredApplications()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad group by statusid having statusid=1";
         ostringstream oss;
@@ -1032,7 +1041,7 @@ double psql::countSentApplications()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad group by statusid having statusid=2";
         ostringstream oss;
@@ -1062,7 +1071,7 @@ double psql::countInterviews()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad group by statusid having statusid=3";
         ostringstream oss;
@@ -1092,7 +1101,7 @@ double psql::countDeclinedApplications()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad group by statusid having statusid=4";
         ostringstream oss;
@@ -1122,7 +1131,7 @@ double psql::countDeclinedAfterInterview()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad group by statusid having statusid=6";
         ostringstream oss;
@@ -1152,7 +1161,7 @@ double psql::countWrittenButNotSent()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad group by statusid having statusid=5";
         ostringstream oss;
@@ -1182,7 +1191,7 @@ double psql::countAccepted()
     string stmt;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "select count(statusid) from soknad group by statusid having statusid=7";
         ostringstream oss;
@@ -1215,7 +1224,7 @@ int psql::getStatusID(string name)
     string stmt;// = name.toStdString();
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "SELECT statusid FROM status WHERE status = '";
         ostringstream oss;
@@ -1248,7 +1257,7 @@ int psql::getCityID(string name)
     string stmt;// = name.toStdString();
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         QString statement = "SELECT stedid FROM sted WHERE stedsnavn = '";
         ostringstream oss;
@@ -1280,7 +1289,7 @@ QList<QString> psql::getCityNames()
     try
     {
         QList<QString> list;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string query = "SELECT stedsnavn FROM sted ORDER BY stedsnavn ASC";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(query));
@@ -1312,7 +1321,7 @@ QList<QString> psql::getStatuses()
     try
     {
         QList<QString> list;
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string query = "SELECT status FROM status ORDER BY status ASC";
         pqxx::nontransaction nt(conn);
         pqxx::result res(nt.exec(query));
@@ -1347,7 +1356,7 @@ QList<QString> psql::fillList(const char *sqlSporring)
         QList<QString> list;// = new QLinkedList<int>();
         QList<QString>::iterator iterator;
 
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         pqxx::result R(N.exec(sqlSporring));
         int i = 1;
@@ -1380,7 +1389,7 @@ QString psql::getStatusName(int s)
     QString res = "";
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT status FROM status WHERE statusid = ";
         ostringstream oss;
@@ -1410,7 +1419,7 @@ QString psql::getMotivation(int applicationID)
     QString res = "";
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT motivasjon FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1445,7 +1454,7 @@ QString psql::getTitle(int applicationID)
     QString res = "";
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT tittel FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1475,7 +1484,7 @@ QString psql::getCompany(int applicationID)
     QString res = "";
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT bedrift FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1506,7 +1515,7 @@ int psql::getCityID(int applicationID)
     int res = 0;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT stedid FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1536,7 +1545,7 @@ int psql::getCountryID(int cityID)
     int res = 0;
     try
     {
-        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection conn("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction nt(conn);
         string statement = "SELECT landid FROM sted WHERE stedid = ";
         ostringstream oss;
@@ -1567,7 +1576,7 @@ int psql::getStatusID(int applicationID)
     int res = 0;
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT statusid FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1597,7 +1606,7 @@ QString psql::getDate(int applicationID)
     QString res = "";
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT soknadsfrist FROM soknad WHERE soknadid = ";
         ostringstream oss;
@@ -1627,7 +1636,7 @@ QString psql::getCountryName(int countryID)
     QString res = "";
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT land FROM land WHERE landid = ";
         ostringstream oss;
@@ -1658,7 +1667,7 @@ QString psql::getCityName(int cityNumber)
     QString res = "";
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string statement = "SELECT stedsnavn FROM sted WHERE stedid = ";
         ostringstream oss;
@@ -1686,7 +1695,7 @@ bool psql::tableApplicationExists()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string stmt = "";
         QString res, statement = "select soknadid from soknad where soknadid=1";
@@ -1714,7 +1723,7 @@ bool psql::tableCountryExists()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string stmt = "";
         QString res, statement = "select landid from land where landid=1";
@@ -1742,7 +1751,7 @@ bool psql::tableStatusExists()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string stmt = "";
         QString res, statement = "select statusid from status where statusid=1";
@@ -1770,7 +1779,7 @@ bool psql::tableTownExists()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string stmt = "";
         QString res, statement = "select stedid from sted where stedid=1";
@@ -1798,7 +1807,7 @@ bool psql::viewApplicationExists()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string stmt = "";
         QString res, statement = "select soknadid from view_soknad where soknadid=1";
@@ -1826,7 +1835,7 @@ bool psql::viewTownExists()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         pqxx::nontransaction N(C);
         string stmt = "";
         QString res, statement = "select stedid from view_sted where stedid=1";
@@ -1856,7 +1865,7 @@ bool psql::createTableApplication()
     {
         createSequenceApplicationIDSeq();
         createFunctionEmptyText();
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TABLE public.soknad(soknadid integer NOT NULL DEFAULT nextval('soknadid_seq'::regclass),tittel text COLLATE pg_catalog.\"default\" NOT NULL, bedrift text COLLATE pg_catalog.\"default\" NOT NULL, stedid integer NOT NULL, statusid integer NOT NULL, soknadsfrist text COLLATE pg_catalog.\"default\" NOT NULL, motivasjon text COLLATE pg_catalog.\"default\", CONSTRAINT soknad_pkey PRIMARY KEY (soknadid), CONSTRAINT unik_soknad UNIQUE (tittel, bedrift, stedid), CONSTRAINT soknad_statusid_fkey FOREIGN KEY (statusid) REFERENCES public.status (statusid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT soknad_stedid_fkey FOREIGN KEY (stedid) REFERENCES public.sted (stedid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION, CONSTRAINT chk CHECK (NOT empty(tittel)), CONSTRAINT chkbedriftnotempty CHECK (NOT empty(bedrift)), CONSTRAINT chksoknadsfristnotempty CHECK (NOT empty(soknadsfrist))) WITH (OIDS = FALSE) TABLESPACE pg_default;";
         ostringstream oss;
@@ -1884,7 +1893,7 @@ bool psql::createTableCountry()
     try
     {
         createSequenceCountryIDSeq();
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TABLE public.land(landid integer NOT NULL DEFAULT nextval('landid_seq'::regclass), land text COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT land_pkey PRIMARY KEY (landid), CONSTRAINT unikt_land UNIQUE (land))WITH (OIDS = FALSE) TABLESPACE pg_default;";
         ostringstream oss;
@@ -1912,7 +1921,7 @@ bool psql::createTableStatus()
     try
     {
         createSequenceStatusIDSeq();
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TABLE public.status(statusid integer NOT NULL DEFAULT nextval('statusid_seq'::regclass), status character varying(30) COLLATE pg_catalog.\"default\" NOT NULL, CONSTRAINT status_pkey PRIMARY KEY (statusid), CONSTRAINT unik_status UNIQUE (status)) WITH (OIDS = FALSE) TABLESPACE pg_default;";
         ostringstream oss;
@@ -1940,7 +1949,7 @@ bool psql::createTableTown()
     try
     {
         createSequenceTownIDSeq();
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TABLE public.sted (stedid integer NOT NULL DEFAULT nextval('stedid_seq'::regclass), stedsnavn text COLLATE pg_catalog.\"default\" NOT NULL, landid integer NOT NULL, CONSTRAINT sted_pkey PRIMARY KEY (stedid), CONSTRAINT unikt_sted UNIQUE (stedsnavn), CONSTRAINT sted_landid_fkey FOREIGN KEY (landid) REFERENCES public.land (landid) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION) WITH (OIDS = FALSE) TABLESPACE pg_default;";
         ostringstream oss;
@@ -1967,7 +1976,7 @@ bool psql::createViewApplication()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE OR REPLACE VIEW public.view_soknad AS SELECT soknad.soknadid, soknad.tittel, soknad.bedrift, soknad.soknadsfrist, soknad.stedid, sted.stedsnavn, sted.landid, land.land, soknad.statusid, status.status, soknad.motivasjon FROM soknad JOIN sted ON sted.stedid = soknad.stedid JOIN land ON land.landid = sted.landid JOIN status ON status.statusid = soknad.statusid ORDER BY soknad.soknadid;";
         ostringstream oss;
@@ -1994,7 +2003,7 @@ bool psql::createViewTowns()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE OR REPLACE VIEW public.view_sted AS SELECT sted.stedid, sted.stedsnavn, sted.landid, land.land FROM sted JOIN land ON land.landid = sted.landid;";
         ostringstream oss;
@@ -2021,7 +2030,7 @@ bool psql::createSequenceApplicationIDSeq()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE SEQUENCE soknadid_seq";
         ostringstream oss;
@@ -2048,7 +2057,7 @@ bool psql::createSequenceCountryIDSeq()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE SEQUENCE landid_seq";
         ostringstream oss;
@@ -2075,7 +2084,7 @@ bool psql::createSequenceStatusIDSeq()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE SEQUENCE statusid_seq";
         ostringstream oss;
@@ -2102,7 +2111,7 @@ bool psql::createSequenceTownIDSeq()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE SEQUENCE stedid_seq";
         ostringstream oss;
@@ -2129,7 +2138,7 @@ bool psql::createFunctionEmptyText()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE OR REPLACE FUNCTION public.empty(text) RETURNS boolean LANGUAGE 'sql' COST 100 IMMUTABLE AS $BODY$ SELECT $1 ~ '^[[:space:]]*$'; $BODY$; COMMENT ON FUNCTION public.empty(text) IS 'Sjekke innholdet i en streng. Returnerer sann om strengen er tom eller bare inneholder mellomrom, og falsk ellers.';";
         ostringstream oss;
@@ -2156,7 +2165,7 @@ bool psql::createProcedureNewApplicationID()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE FUNCTION public.nysoknadid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Søknad med ID % ble lagt inn i databasen.', NEW.soknadid; RETURN NEW; END; $BODY$;";
         ostringstream oss;
@@ -2183,7 +2192,7 @@ bool psql::createProcedureUpdateApplication()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt =
                 "CREATE FUNCTION updatesoknad() RETURNS trigger \n"
@@ -2348,7 +2357,7 @@ bool psql::createProcedureNewCountryID()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE FUNCTION public.nylandid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Landet % med ID % ble lagt inn i databasen.', NEW.land, NEW.landid;  RETURN NEW; END; $BODY$;";
         ostringstream oss;
@@ -2375,7 +2384,7 @@ bool psql::createProcedureNewTownID()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE FUNCTION public.nystedid() RETURNS trigger LANGUAGE 'plpgsql' COST 100 VOLATILE NOT LEAKPROOF AS $BODY$ BEGIN RAISE NOTICE 'Sted % med ID % ble lagt inn i databasen.', NEW.stedsnavn, NEW.stedid; RETURN NEW; END; $BODY$;";
         ostringstream oss;
@@ -2402,7 +2411,7 @@ bool psql::createTriggerNewApplicationID()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TRIGGER trg_nysoknad AFTER INSERT ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.nysoknadid();";
         ostringstream oss;
@@ -2429,7 +2438,7 @@ bool psql::createTriggerUpdateApplication()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TRIGGER trg_oppdatersoknad AFTER UPDATE  ON public.soknad FOR EACH ROW EXECUTE PROCEDURE public.updatesoknad();";
         ostringstream oss;
@@ -2456,7 +2465,7 @@ bool psql::createTriggerNewCountryID()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TRIGGER trg_nyttland AFTER INSERT ON public.land FOR EACH ROW EXECUTE PROCEDURE public.nylandid();";
         ostringstream oss;
@@ -2483,7 +2492,7 @@ bool psql::createTriggerNewTownID()
 {
     try
     {
-        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = 5432");
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         string statement = "";
         QString stmt = "CREATE TRIGGER trg_nyttsted AFTER INSERT ON public.sted FOR EACH ROW EXECUTE PROCEDURE public.nystedid();";
         ostringstream oss;

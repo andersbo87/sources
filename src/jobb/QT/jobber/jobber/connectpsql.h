@@ -59,6 +59,7 @@ private:
     void accept();
     QString userName,host, password, winTitle; // winTitle: Tittelen i den eneste meldingsboksen som kan produseres av denne klassen.
 private slots:
+    void portTextChanged();
     void userTextChanged();
     void passwordTextChanged();
     void hostTextChanged();

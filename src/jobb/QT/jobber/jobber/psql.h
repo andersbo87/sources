@@ -49,6 +49,7 @@ public:
     void setHost(QString newHost);
     void setPassword(QString newPassword);
     void setUsername(QString newUser);
+    void setPort(int port);
 
     // Koble til databasen:
     bool connectDatabase();
@@ -141,6 +142,7 @@ public:
 
 private:
     QString errMsg, username, host, password, winTitle; // winTitle: Tittelen på meldinger i meldingsbokser. errMsg: Feilmelding som settes i metoder som ikke går som de skal.
+    int port; // Port for either network or localhost. 5432 or 5433 seem to be the most regular ones.
     std::string connectionString;
 
     // Metode som brukes til å lage en "stored procedure" som returnerer en boolsk verdi:

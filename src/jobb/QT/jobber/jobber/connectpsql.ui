@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>622</width>
-    <height>200</height>
+    <height>219</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -47,24 +47,45 @@
    <item row="1" column="1">
     <widget class="QLineEdit" name="lineEdit_Host"/>
    </item>
-   <item row="2" column="0">
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Port</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="lineEdit_Port">
+     <property name="toolTip">
+      <string>Hvilken port som skal brukes. Vanlige porter er 5432 og 5433.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
     <widget class="QLabel" name="label_2">
      <property name="text">
       <string>Brukernavn</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="4" column="1">
     <widget class="QLineEdit" name="lineEdit_User"/>
    </item>
-   <item row="3" column="0">
+   <item row="5" column="0">
     <widget class="QLabel" name="label_3">
      <property name="text">
       <string>Passord</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="lineEdit_Password">
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -74,17 +95,11 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="1">
-    <widget class="QLineEdit" name="lineEdit_Password">
-     <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <tabstops>
   <tabstop>lineEdit_Host</tabstop>
+  <tabstop>lineEdit_Port</tabstop>
   <tabstop>lineEdit_User</tabstop>
   <tabstop>lineEdit_Password</tabstop>
  </tabstops>

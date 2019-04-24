@@ -457,12 +457,18 @@ void ViewJobs::buttonPreviousClicked()
 void ViewJobs::comboboxApplicationIDChanged()
 {
     int id = ui->comboBoxApplicationID->currentText().toInt();
+
+    // Get the first item and store that in a variable:
+    int firstItem = 1;
+    while(ui->comboBoxApplicationID->findText(QString::number(firstItem)) == -1){
+        firstItem++;
+    }
     checkChanges();
     soknadIDChanged = true;
     getApplication(id);
     //setApplicationID(id);
     soknadIDChanged = false;
-    if(id == 1)
+    if(id == firstItem)
     {
         ui->btnFirst->setEnabled(false);
         ui->btnPrev->setEnabled(false);
@@ -728,24 +734,32 @@ void ViewJobs::getApplication(int appID)
     try
     {
         ui->comboBoxApplicationID->setCurrentText(QString::number(appID));
-        ui->lineEditTitle->setText(p->getTitle(appID));
-        ui->lineEditCompany->setText(p->getCompany(appID));
-        ui->comboBoxTownID->setCurrentText(p->getCityName(p->getCityID(appID)));
-        //ui->comboBoxStatusID->setCurrentText(QString::number(p->getStatusID(appID)));
-        ui->comboBoxStatusID->setCurrentText(p->getStatusName(p->getStatusID(appID)));
-        ui->lineEditDeadline->setText(p->getDate(appID));
-        bool old = ui->textEditMotivation->blockSignals(true);
-        ui->textEditMotivation->setText(p->getMotivation(appID));
-        ui->textEditMotivation->blockSignals(old);
-        setApplicationID(appID);
-        setTitle(ui->lineEditTitle->text());
-        setCompany(ui->lineEditCompany->text());
-        //setCityID(ui->comboBoxTownID->currentText().toInt());
-        setCityID(p->getCityID(appID));
-        //setStatusID(ui->comboBoxStatusID->currentText().toInt());
-        setStatusID(p->getStatusID(appID));
-        setDate(ui->lineEditDeadline->text());
-        setMotivation(ui->textEditMotivation->toPlainText());
+        // Get the actual ID of the application. In some cases, the "actual" ID might be different from the desired one.
+        int actualId = ui->comboBoxApplicationID->currentText().toInt();
+        if(actualId == appID){
+            ui->lineEditTitle->setText(p->getTitle(appID));
+            ui->lineEditCompany->setText(p->getCompany(appID));
+            ui->comboBoxTownID->setCurrentText(p->getCityName(p->getCityID(appID)));
+            //ui->comboBoxStatusID->setCurrentText(QString::number(p->getStatusID(appID)));
+            ui->comboBoxStatusID->setCurrentText(p->getStatusName(p->getStatusID(appID)));
+            ui->lineEditDeadline->setText(p->getDate(appID));
+            bool old = ui->textEditMotivation->blockSignals(true);
+            ui->textEditMotivation->setText(p->getMotivation(appID));
+            ui->textEditMotivation->blockSignals(old);
+            setApplicationID(appID);
+            setTitle(ui->lineEditTitle->text());
+            setCompany(ui->lineEditCompany->text());
+            //setCityID(ui->comboBoxTownID->currentText().toInt());
+            setCityID(p->getCityID(appID));
+            //setStatusID(ui->comboBoxStatusID->currentText().toInt());
+            setStatusID(p->getStatusID(appID));
+            setDate(ui->lineEditDeadline->text());
+            setMotivation(ui->textEditMotivation->toPlainText());
+        }
+        else { // If the desired ID does not exist, increase by one and try again.
+            appID++;
+            getApplication(appID);
+        }
     }
     catch(invalid_argument iaex)
     {

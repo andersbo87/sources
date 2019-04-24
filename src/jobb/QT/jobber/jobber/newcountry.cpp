@@ -91,7 +91,7 @@ bool NewCountry::canSave()
     bool res = true;
     if(stringCheck::isNullOrWhitespace(ui->lineEditCountryName->text()))
         res = false;
-    return close;
+    return res;
 }
 
 /**
@@ -164,9 +164,10 @@ void NewCountry::lineEditCountryNameChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument)
+    catch(invalid_argument &ia)
     {
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
+        fprintf(stderr, "%s\n", ia.what());
         changed = canSave();
     }
 }

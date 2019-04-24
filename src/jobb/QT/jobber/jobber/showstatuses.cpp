@@ -464,11 +464,16 @@ void ShowStatuses::buttonPreviousClicked()
 void ShowStatuses::comboboxStatusIDChanged()
 {
     int currID = ui->comboBoxStatusID->currentText().toInt();
+    // Get the first item and store that in a variable:
+    int firstItem = 1;
+    while(ui->comboBoxStatusID->findText(QString::number(firstItem)) == -1){
+        firstItem++;
+    }
     checkChanges();
     statusIDchanged = true;
     getStatus(currID);
     statusIDchanged = false;
-    if(currID == 1)
+    if(currID == firstItem)
     {
         ui->btnFirst->setEnabled(false);
         ui->btnLast->setEnabled(true);

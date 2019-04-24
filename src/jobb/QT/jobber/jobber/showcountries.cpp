@@ -392,11 +392,16 @@ void ShowCountries::buttonPreviousClicked()
 void ShowCountries::comboboxCountryIDChanged()
 {
     int currID = ui->comboBoxLandID->currentText().toInt();
+    // Get the first item and store that in a variable:
+    int firstItem = 1;
+    while(ui->comboBoxLandID->findText(QString::number(firstItem)) == -1){
+        firstItem++;
+    }
     checkChanges();
     countryIDchanged = true;
     getCountry(currID);
     countryIDchanged = false;
-    if(currID == 1)
+    if(currID == firstItem)
     {
         ui->btnFirst->setEnabled(false);
         ui->btnLast->setEnabled(true);

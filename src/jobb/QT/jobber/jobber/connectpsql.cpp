@@ -46,6 +46,8 @@ connectPsql::connectPsql(QString windowTitle, QWidget *parent) :
     connect(ui->lineEdit_User, SIGNAL(textChanged(QString)), this, SLOT(userTextChanged()));
     connect(ui->lineEdit_Host, SIGNAL(textChanged(QString)), this, SLOT(hostTextChanged()));
     connect(ui->lineEdit_Password, SIGNAL(textChanged(QString)), this, SLOT(passwordTextChanged()));
+    connect(ui->lineEdit_Port, SIGNAL(textChanged(QString)), this, SLOT(portTextChanged()));
+    ui->lineEdit_Port->setText("5432");
     ui->lineEdit_Host->setFocusPolicy(Qt::StrongFocus);
     ui->lineEdit_Host->setFocus();
     this->setMinimumSize(400,185);
@@ -64,6 +66,23 @@ void connectPsql::accept()
         msg.setIcon(msg.Information);
         msg.setWindowTitle(winTitle);
         msg.setText("Oppkoblingen til databasen mislyktes. Feilmelding: " + p->getError());
+        msg.exec();
+    }
+}
+
+void connectPsql::portTextChanged()
+{
+    try {
+       if(ui->lineEdit_Port->text().length() > 0)
+       {
+           p->setPort(ui->lineEdit_Port->text().toInt());
+       }
+    }
+    catch (std::exception) {
+        QMessageBox msg;
+        msg.setIcon(QMessageBox::Warning);
+        msg.setWindowTitle(winTitle);
+        msg.setText("Vennligst angi et heltall");
         msg.exec();
     }
 }
