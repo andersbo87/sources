@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="connectpsql_8cpp" kind="file" language="C++">
     <compoundname>connectpsql.cpp</compoundname>
     <includes refid="connectpsql_8h" local="yes">connectpsql.h</includes>
@@ -142,7 +142,7 @@
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><ref refid="classconnect_psql_1aee2b55cd64f5b2fac084eda4e6db0075" kindref="member">connectPsql::connectPsql</ref>(QString<sp/>windowTitle,<sp/>QWidget<sp/>*parent)<sp/>:</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>QDialog(parent),</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/><ref refid="namespace_ui" kindref="compound">Ui</ref>::<ref refid="classconnect_psql" kindref="compound">connectPsql</ref>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/>Ui::<ref refid="classconnect_psql" kindref="compound">connectPsql</ref>)</highlight></codeline>
 <codeline lineno="38"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>winTitle<sp/>=<sp/>windowTitle;</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>p<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classpsql" kindref="compound">psql</ref>(winTitle);<sp/></highlight><highlight class="comment">//<sp/>Ikke<sp/>verdens<sp/>beste<sp/>idé<sp/>å<sp/>gjøre<sp/>denne<sp/>&quot;offentlig&quot;,<sp/>men<sp/>for<sp/>enkelthetens<sp/>skyld,<sp/>i<sp/>og<sp/>med<sp/>at<sp/>jeg<sp/>er<sp/>ny…</highlight><highlight class="normal"></highlight></codeline>
@@ -154,47 +154,66 @@
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui-&gt;lineEdit_User,<sp/>SIGNAL(textChanged(QString)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(userTextChanged()));</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui-&gt;lineEdit_Host,<sp/>SIGNAL(textChanged(QString)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(hostTextChanged()));</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui-&gt;lineEdit_Password,<sp/>SIGNAL(textChanged(QString)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(passwordTextChanged()));</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;lineEdit_Host-&gt;setFocusPolicy(Qt::StrongFocus);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;lineEdit_Host-&gt;setFocus();</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;setMinimumSize(400,185);</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//this-&gt;setMaximumSize(400,185);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::accept()</highlight></codeline>
-<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1ada485c933df77453629e3821ab19fa4c" kindref="member">connectDatabase</ref>())</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDialog::accept();</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Oppkoblingen<sp/>til<sp/>databasen<sp/>mislyktes.<sp/>Feilmelding:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a5f51e254b67ff932f287df2184ccc043" kindref="member">getError</ref>());</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::userTextChanged()</highlight></codeline>
-<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//userName<sp/>=<sp/>ui-&gt;plainTextEdit-&gt;toPlainText();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a1488a9e4909abd172651b7be240342cb" kindref="member">setUsername</ref>(ui-&gt;lineEdit_User-&gt;text());</highlight></codeline>
-<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::passwordTextChanged()</highlight></codeline>
-<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a6c29350037550b7e5a5bb8f439c405f3" kindref="member">setPassword</ref>(ui-&gt;lineEdit_Password-&gt;text());</highlight></codeline>
-<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::hostTextChanged()</highlight></codeline>
-<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a96b3b9483f1a642c026d4b5cf505eb75" kindref="member">setHost</ref>(ui-&gt;lineEdit_Host-&gt;text());</highlight></codeline>
-<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="95"><highlight class="normal">connectPsql::~connectPsql()</highlight></codeline>
-<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ui;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui-&gt;lineEdit_Port,<sp/>SIGNAL(textChanged(QString)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(portTextChanged()));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;lineEdit_Port-&gt;setText(</highlight><highlight class="stringliteral">&quot;5432&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;lineEdit_Host-&gt;setFocusPolicy(Qt::StrongFocus);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;lineEdit_Host-&gt;setFocus();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;setMinimumSize(400,185);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//this-&gt;setMaximumSize(400,185);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::accept()</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1ada485c933df77453629e3821ab19fa4c" kindref="member">connectDatabase</ref>())</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDialog::accept();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Information);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Oppkoblingen<sp/>til<sp/>databasen<sp/>mislyktes.<sp/>Feilmelding:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a5f51e254b67ff932f287df2184ccc043" kindref="member">getError</ref>());</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::portTextChanged()</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ui-&gt;lineEdit_Port-&gt;text().length()<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a62447c990c5c9f8deb6b8f6497117bfc" kindref="member">setPort</ref>(ui-&gt;lineEdit_Port-&gt;text().toInt());</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(std::exception)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(QMessageBox::Warning);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Vennligst<sp/>angi<sp/>et<sp/>heltall&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::userTextChanged()</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//userName<sp/>=<sp/>ui-&gt;plainTextEdit-&gt;toPlainText();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a1488a9e4909abd172651b7be240342cb" kindref="member">setUsername</ref>(ui-&gt;lineEdit_User-&gt;text());</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::passwordTextChanged()</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a6c29350037550b7e5a5bb8f439c405f3" kindref="member">setPassword</ref>(ui-&gt;lineEdit_Password-&gt;text());</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>connectPsql::hostTextChanged()</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" kindref="member">p</ref>-&gt;<ref refid="classpsql_1a96b3b9483f1a642c026d4b5cf505eb75" kindref="member">setHost</ref>(ui-&gt;lineEdit_Host-&gt;text());</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">connectPsql::~connectPsql()</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>ui;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="connectpsql.cpp"/>
   </compounddef>

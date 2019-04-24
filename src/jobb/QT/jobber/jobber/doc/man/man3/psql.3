@@ -1,4 +1,4 @@
-.TH "psql" 3 "Fri Feb 8 2019" "Jobber" \" -*- nroff -*-
+.TH "psql" 3 "Wed Apr 24 2019" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -40,6 +40,10 @@ psql \- The psql class\&.
 .RI "void \fBsetUsername\fP (QString newUser)"
 .br
 .RI "\fBpsql::setUsername\fP: Sets the new username "
+.ti -1c
+.RI "void \fBsetPort\fP (int port)"
+.br
+.RI "\fBpsql::setPort\fP Sets the port on the host system\&. 5432 or 5433 are the default ones\&. "
 .ti -1c
 .RI "bool \fBconnectDatabase\fP ()"
 .br
@@ -1198,6 +1202,17 @@ True on success and false on failure
 \fBParameters:\fP
 .RS 4
 \fInewPassword\fP The new password 
+.RE
+.PP
+
+.SS "void psql::setPort (int newPort)"
+
+.PP
+\fBpsql::setPort\fP Sets the port on the host system\&. 5432 or 5433 are the default ones\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewPort\fP The port number\&. 
 .RE
 .PP
 

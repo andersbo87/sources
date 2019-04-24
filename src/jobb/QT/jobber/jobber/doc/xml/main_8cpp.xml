@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="main_8cpp" kind="file" language="C++">
     <compoundname>main.cpp</compoundname>
     <includes refid="mainwindow_8h" local="yes">mainwindow.h</includes>
@@ -154,7 +154,7 @@
 <codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mainwindow.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pqxx/pqxx&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacepqxx" kindref="compound">pqxx</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">pqxx;</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[])</highlight></codeline>

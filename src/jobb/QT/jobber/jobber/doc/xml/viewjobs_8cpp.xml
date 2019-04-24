@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="viewjobs_8cpp" kind="file" language="C++">
     <compoundname>viewjobs.cpp</compoundname>
     <includes refid="viewjobs_8h" local="yes">viewjobs.h</includes>
@@ -127,7 +127,7 @@
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><ref refid="class_view_jobs_1ac78f48cc812a0348a233f33dc78a71cc" kindref="member">ViewJobs::ViewJobs</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent)<sp/>:</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>QMainWindow(parent),</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/><ref refid="namespace_ui" kindref="compound">Ui</ref>::<ref refid="class_view_jobs" kindref="compound">ViewJobs</ref>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/>Ui::<ref refid="class_view_jobs" kindref="compound">ViewJobs</ref>)</highlight></codeline>
 <codeline lineno="37"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>setWindowFlags((<sp/>(this-&gt;windowFlags()<sp/>|<sp/>Qt::CustomizeWindowHint)<sp/>&amp;<sp/>~Qt::WindowMaximizeButtonHint));</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
@@ -533,244 +533,258 @@
 <codeline lineno="457"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ViewJobs::comboboxApplicationIDChanged()</highlight></codeline>
 <codeline lineno="458"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>ui-&gt;comboBoxApplicationID-&gt;currentText().toInt();</highlight></codeline>
-<codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
-<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/>soknadIDChanged<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="462"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">getApplication</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setApplicationID(id);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/>soknadIDChanged<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>==<sp/>1)</highlight></codeline>
-<codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ui-&gt;comboBoxApplicationID-&gt;currentIndex()<sp/>==<sp/>ui-&gt;comboBoxApplicationID-&gt;count()-1)</highlight></codeline>
-<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="476"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="486"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="487"><highlight class="normal"></highlight></codeline>
-<codeline lineno="491"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" kindref="member">ViewJobs::getCityIDs</ref>()</highlight></codeline>
-<codeline lineno="492"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="493"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="494"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="495"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>list;</highlight></codeline>
-<codeline lineno="496"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list<sp/>=<sp/>p-&gt;<ref refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kindref="member">fillList</ref>(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>stedsnavn<sp/>FROM<sp/>sted<sp/>ORDER<sp/>BY<sp/>stedsnavn<sp/>ASC&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(i<sp/>&lt;<sp/>list.count())</highlight></codeline>
-<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxTownID-&gt;addItem(list.value(i));</highlight></codeline>
-<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
-<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(std::exception<sp/>&amp;e)</highlight></codeline>
-<codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
-<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
-<codeline lineno="508"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
-<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(e.what());</highlight></codeline>
-<codeline lineno="510"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
-<codeline lineno="511"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="512"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="513"><highlight class="normal"></highlight></codeline>
-<codeline lineno="517"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" kindref="member">ViewJobs::getStatusIDs</ref>()</highlight></codeline>
-<codeline lineno="518"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="519"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="520"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="521"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>list;</highlight></codeline>
-<codeline lineno="522"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list<sp/>=<sp/>p-&gt;<ref refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kindref="member">fillList</ref>(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>status<sp/>FROM<sp/>status<sp/>ORDER<sp/>BY<sp/>status<sp/>ASC&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(i<sp/>&lt;<sp/>list.count())</highlight></codeline>
-<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxStatusID-&gt;addItem(list.value(i));</highlight></codeline>
-<codeline lineno="527"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
-<codeline lineno="528"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="529"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="530"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(std::exception<sp/>&amp;e)</highlight></codeline>
-<codeline lineno="531"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="532"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
-<codeline lineno="533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
-<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
-<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(e.what());</highlight></codeline>
-<codeline lineno="536"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
-<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="538"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="539"><highlight class="normal"></highlight></codeline>
-<codeline lineno="544"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a086650882ad80acb4074cf697f8cddcb" kindref="member">ViewJobs::getApplicationID</ref>()</highlight></codeline>
-<codeline lineno="545"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="546"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>applicationid;</highlight></codeline>
-<codeline lineno="547"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="548"><highlight class="normal"></highlight></codeline>
-<codeline lineno="553"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1ae78f119d37c77a9e3e457ecfd78d7de3" kindref="member">ViewJobs::getTitle</ref>()</highlight></codeline>
-<codeline lineno="554"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="555"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>jobTitle;</highlight></codeline>
-<codeline lineno="556"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="557"><highlight class="normal"></highlight></codeline>
-<codeline lineno="562"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1a88d7c0a7a79bc7a7e02b524587983bf8" kindref="member">ViewJobs::getCompany</ref>()</highlight></codeline>
-<codeline lineno="563"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="564"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>company;</highlight></codeline>
-<codeline lineno="565"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="566"><highlight class="normal"></highlight></codeline>
-<codeline lineno="571"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1adcafeca350b21a033aa630e042ee7947" kindref="member">ViewJobs::getCityID</ref>()</highlight></codeline>
-<codeline lineno="572"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cityid;</highlight></codeline>
-<codeline lineno="574"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="575"><highlight class="normal"></highlight></codeline>
-<codeline lineno="580"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a91696fde9f0a663bae929390aac8324b" kindref="member">ViewJobs::getStatusID</ref>()</highlight></codeline>
-<codeline lineno="581"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="582"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>statusid;</highlight></codeline>
-<codeline lineno="583"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="584"><highlight class="normal"></highlight></codeline>
-<codeline lineno="589"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1af046f9201cc6031e070b4f9b613a35f9" kindref="member">ViewJobs::getDate</ref>()</highlight></codeline>
-<codeline lineno="590"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="591"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>date;</highlight></codeline>
-<codeline lineno="592"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="593"><highlight class="normal"></highlight></codeline>
-<codeline lineno="598"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1a238ec5365ef2c39baa97670769dfedca" kindref="member">ViewJobs::getMotivation</ref>()</highlight></codeline>
-<codeline lineno="599"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="600"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>motivation;</highlight></codeline>
-<codeline lineno="601"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="602"><highlight class="normal"></highlight></codeline>
-<codeline lineno="607"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" kindref="member">ViewJobs::setMotivation</ref>(QString<sp/>newMotivation)</highlight></codeline>
-<codeline lineno="608"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="609"><highlight class="normal"><sp/><sp/><sp/><sp/>motivation<sp/>=<sp/>newMotivation;</highlight></codeline>
-<codeline lineno="610"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="611"><highlight class="normal"></highlight></codeline>
-<codeline lineno="616"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" kindref="member">ViewJobs::setApplicationID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID)</highlight></codeline>
-<codeline lineno="617"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="618"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(newID<sp/>&gt;<sp/>0)</highlight></codeline>
-<codeline lineno="619"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>applicationid<sp/>=<sp/>newID;</highlight></codeline>
-<codeline lineno="620"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="621"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;SøknadID<sp/>må<sp/>være<sp/>større<sp/>enn<sp/>0.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="622"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="623"><highlight class="normal"></highlight></codeline>
-<codeline lineno="628"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" kindref="member">ViewJobs::setTitle</ref>(QString<sp/>newTitle)</highlight></codeline>
-<codeline lineno="629"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="630"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kindref="member">stringCheck::isNullOrWhitespace</ref>(newTitle))</highlight></codeline>
-<codeline lineno="631"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;Tittelen<sp/>kan<sp/>ikke<sp/>være<sp/>tom.<sp/>Tittelen<sp/>kan<sp/>heller<sp/>ikke<sp/>bare<sp/>bestå<sp/>av<sp/>mellomrom.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="632"><highlight class="normal"><sp/><sp/><sp/><sp/>jobTitle<sp/>=<sp/>newTitle;</highlight></codeline>
-<codeline lineno="633"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="634"><highlight class="normal"></highlight></codeline>
-<codeline lineno="639"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" kindref="member">ViewJobs::setCompany</ref>(QString<sp/>newCompany)</highlight></codeline>
-<codeline lineno="640"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="641"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kindref="member">stringCheck::isNullOrWhitespace</ref>(newCompany))</highlight></codeline>
-<codeline lineno="642"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;Bedriftsnavnet<sp/>kan<sp/>ikke<sp/>være<sp/>tomt<sp/>og<sp/>kan<sp/>heller<sp/>ikke<sp/>bare<sp/>bestå<sp/>av<sp/>mellomrom.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="643"><highlight class="normal"><sp/><sp/><sp/><sp/>company<sp/>=<sp/>newCompany;</highlight></codeline>
-<codeline lineno="644"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="645"><highlight class="normal"></highlight></codeline>
-<codeline lineno="650"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" kindref="member">ViewJobs::setCityID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newTownID)</highlight></codeline>
-<codeline lineno="651"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="652"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(newTownID<sp/>&gt;<sp/>0)</highlight></codeline>
-<codeline lineno="653"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cityid<sp/>=<sp/>newTownID;</highlight></codeline>
-<codeline lineno="654"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="655"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;StedID<sp/>må<sp/>ha<sp/>verdi<sp/>&gt;<sp/>0.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="656"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="657"><highlight class="normal"></highlight></codeline>
-<codeline lineno="662"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" kindref="member">ViewJobs::setStatusID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newStatusID)</highlight></codeline>
-<codeline lineno="663"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="664"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(newStatusID<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>newStatusID<sp/>&lt;=<sp/>7)</highlight></codeline>
-<codeline lineno="665"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statusid<sp/>=<sp/>newStatusID;</highlight></codeline>
-<codeline lineno="666"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="667"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;StatusID<sp/>må<sp/>ha<sp/>verdi<sp/>&gt;0<sp/>og<sp/>&lt;7.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="668"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="669"><highlight class="normal"></highlight></codeline>
-<codeline lineno="674"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a7574794410eb40956f343976de97221f" kindref="member">ViewJobs::setDate</ref>(QString<sp/>newDate)</highlight></codeline>
-<codeline lineno="675"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="676"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kindref="member">stringCheck::isNullOrWhitespace</ref>(newDate))</highlight></codeline>
-<codeline lineno="677"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;Søknadsfristen<sp/>kan<sp/>ikke<sp/>være<sp/>tom<sp/>og<sp/>den<sp/>kan<sp/>heller<sp/>ikke<sp/>bare<sp/>bestå<sp/>av<sp/>mellomrom.<sp/>Er<sp/>det<sp/>ikke<sp/>angitt<sp/>frist,<sp/>kan<sp/>du<sp/>skrive<sp/>&apos;Snarest&apos;<sp/>eller<sp/>tilsvarende<sp/>isteden.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="678"><highlight class="normal"><sp/><sp/><sp/><sp/>date<sp/>=<sp/>newDate;</highlight></codeline>
-<codeline lineno="679"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="680"><highlight class="normal"></highlight></codeline>
-<codeline lineno="684"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1af97593f0db01caee0febfe774a823e9c" kindref="member">ViewJobs::getApplications</ref>()</highlight></codeline>
-<codeline lineno="685"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="686"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="687"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="688"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>list;</highlight></codeline>
-<codeline lineno="689"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list<sp/>=<sp/>p-&gt;<ref refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kindref="member">fillList</ref>(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>soknadid<sp/>FROM<sp/>soknad<sp/>ORDER<sp/>BY<sp/>soknadid<sp/>ASC&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="690"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="691"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(list.count()<sp/>==<sp/>0)</highlight></codeline>
-<codeline lineno="692"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="693"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
-<codeline lineno="694"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(windowTitle());</highlight></codeline>
-<codeline lineno="695"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
-<codeline lineno="696"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Du<sp/>har<sp/>ikke<sp/>lagt<sp/>inn<sp/>noen<sp/>søknader<sp/>ennå.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="697"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
-<codeline lineno="698"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;close();</highlight></codeline>
-<codeline lineno="699"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="700"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="701"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="702"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;::iterator<sp/>iter<sp/>=<sp/>list.begin();</highlight></codeline>
-<codeline lineno="703"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(iter<sp/>!=<sp/>list.end())</highlight></codeline>
-<codeline lineno="704"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="705"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxApplicationID-&gt;addItem(list.value(i));</highlight></codeline>
-<codeline lineno="706"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
-<codeline lineno="707"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter++;</highlight></codeline>
-<codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="709"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastid<sp/>=<sp/>i;</highlight></codeline>
-<codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="712"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(std::exception<sp/>&amp;e)</highlight></codeline>
-<codeline lineno="713"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="714"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
-<codeline lineno="715"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
-<codeline lineno="716"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
-<codeline lineno="717"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(e.what());</highlight></codeline>
-<codeline lineno="718"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
-<codeline lineno="719"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="720"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="721"><highlight class="normal"></highlight></codeline>
-<codeline lineno="726"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">ViewJobs::getApplication</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>appID)</highlight></codeline>
-<codeline lineno="727"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="728"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="729"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="730"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxApplicationID-&gt;setCurrentText(QString::number(appID));</highlight></codeline>
-<codeline lineno="731"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEditTitle-&gt;setText(p-&gt;<ref refid="classpsql_1ada9e3be3e0866011edf53e30ec510afc" kindref="member">getTitle</ref>(appID));</highlight></codeline>
-<codeline lineno="732"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEditCompany-&gt;setText(p-&gt;<ref refid="classpsql_1a09745cd03f09ffb2dacacaab4281915f" kindref="member">getCompany</ref>(appID));</highlight></codeline>
-<codeline lineno="733"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxTownID-&gt;setCurrentText(p-&gt;<ref refid="classpsql_1a7acc18034ef60c8a1e69b0e1a15d8ab2" kindref="member">getCityName</ref>(p-&gt;<ref refid="classpsql_1af3462a12dc106e0ca8df4fa8fcf28436" kindref="member">getCityID</ref>(appID)));</highlight></codeline>
-<codeline lineno="734"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ui-&gt;comboBoxStatusID-&gt;setCurrentText(QString::number(p-&gt;getStatusID(appID)));</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="735"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxStatusID-&gt;setCurrentText(p-&gt;<ref refid="classpsql_1a5c2a64419a68a258071fd1f9a37c7c09" kindref="member">getStatusName</ref>(p-&gt;<ref refid="classpsql_1a9c02c92c09cb60c35d24375673b7df06" kindref="member">getStatusID</ref>(appID)));</highlight></codeline>
-<codeline lineno="736"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEditDeadline-&gt;setText(p-&gt;<ref refid="classpsql_1a561f96bfe7e9d092077712dd6b186af8" kindref="member">getDate</ref>(appID));</highlight></codeline>
-<codeline lineno="737"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>old<sp/>=<sp/>ui-&gt;textEditMotivation-&gt;blockSignals(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="738"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;textEditMotivation-&gt;setText(p-&gt;<ref refid="classpsql_1aca1b2273937491e113089c1547caf49b" kindref="member">getMotivation</ref>(appID));</highlight></codeline>
-<codeline lineno="739"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;textEditMotivation-&gt;blockSignals(old);</highlight></codeline>
-<codeline lineno="740"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" kindref="member">setApplicationID</ref>(appID);</highlight></codeline>
-<codeline lineno="741"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" kindref="member">setTitle</ref>(ui-&gt;lineEditTitle-&gt;text());</highlight></codeline>
-<codeline lineno="742"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" kindref="member">setCompany</ref>(ui-&gt;lineEditCompany-&gt;text());</highlight></codeline>
-<codeline lineno="743"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setCityID(ui-&gt;comboBoxTownID-&gt;currentText().toInt());</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="744"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" kindref="member">setCityID</ref>(p-&gt;<ref refid="classpsql_1af3462a12dc106e0ca8df4fa8fcf28436" kindref="member">getCityID</ref>(appID));</highlight></codeline>
-<codeline lineno="745"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setStatusID(ui-&gt;comboBoxStatusID-&gt;currentText().toInt());</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="746"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" kindref="member">setStatusID</ref>(p-&gt;<ref refid="classpsql_1a9c02c92c09cb60c35d24375673b7df06" kindref="member">getStatusID</ref>(appID));</highlight></codeline>
-<codeline lineno="747"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a7574794410eb40956f343976de97221f" kindref="member">setDate</ref>(ui-&gt;lineEditDeadline-&gt;text());</highlight></codeline>
-<codeline lineno="748"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" kindref="member">setMotivation</ref>(ui-&gt;textEditMotivation-&gt;toPlainText());</highlight></codeline>
-<codeline lineno="749"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="750"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(invalid_argument<sp/>iaex)</highlight></codeline>
-<codeline lineno="751"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="752"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
-<codeline lineno="753"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
-<codeline lineno="754"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(</highlight><highlight class="stringliteral">&quot;En<sp/>feil<sp/>har<sp/>oppstått<sp/>-<sp/>&quot;</highlight><highlight class="normal"><sp/>+winTitle);</highlight></codeline>
-<codeline lineno="755"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(iaex.what());</highlight></codeline>
-<codeline lineno="756"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
-<codeline lineno="757"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="758"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*catch(std::exception<sp/>&amp;e)</highlight></codeline>
-<codeline lineno="759"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="760"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
-<codeline lineno="761"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
-<codeline lineno="762"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(&quot;Feil<sp/>-<sp/>&quot;<sp/>+<sp/>winTitle);</highlight></codeline>
-<codeline lineno="763"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(+<sp/>e.what());</highlight></codeline>
-<codeline lineno="764"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
-<codeline lineno="765"><highlight class="comment"><sp/><sp/><sp/><sp/>}*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="766"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"></highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>first<sp/>item<sp/>and<sp/>store<sp/>that<sp/>in<sp/>a<sp/>variable:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>firstItem<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(ui-&gt;comboBoxApplicationID-&gt;findText(QString::number(firstItem))<sp/>==<sp/>-1){</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>firstItem++;</highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/>checkChanges();</highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/>soknadIDChanged<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">getApplication</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setApplicationID(id);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/>soknadIDChanged<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>==<sp/>firstItem)</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="476"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="477"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ui-&gt;comboBoxApplicationID-&gt;currentIndex()<sp/>==<sp/>ui-&gt;comboBoxApplicationID-&gt;count()-1)</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnFirst-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="488"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnPrev-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnLast-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;btnNext-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="491"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="492"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="493"><highlight class="normal"></highlight></codeline>
+<codeline lineno="497"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" kindref="member">ViewJobs::getCityIDs</ref>()</highlight></codeline>
+<codeline lineno="498"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>list;</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list<sp/>=<sp/>p-&gt;<ref refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kindref="member">fillList</ref>(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>stedsnavn<sp/>FROM<sp/>sted<sp/>ORDER<sp/>BY<sp/>stedsnavn<sp/>ASC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(i<sp/>&lt;<sp/>list.count())</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxTownID-&gt;addItem(list.value(i));</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="510"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(std::exception<sp/>&amp;e)</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="512"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="513"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
+<codeline lineno="514"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(e.what());</highlight></codeline>
+<codeline lineno="516"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="517"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="518"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="519"><highlight class="normal"></highlight></codeline>
+<codeline lineno="523"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" kindref="member">ViewJobs::getStatusIDs</ref>()</highlight></codeline>
+<codeline lineno="524"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="527"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>list;</highlight></codeline>
+<codeline lineno="528"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list<sp/>=<sp/>p-&gt;<ref refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kindref="member">fillList</ref>(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>status<sp/>FROM<sp/>status<sp/>ORDER<sp/>BY<sp/>status<sp/>ASC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="529"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(i<sp/>&lt;<sp/>list.count())</highlight></codeline>
+<codeline lineno="531"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="532"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxStatusID-&gt;addItem(list.value(i));</highlight></codeline>
+<codeline lineno="533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="536"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(std::exception<sp/>&amp;e)</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="538"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="539"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
+<codeline lineno="540"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
+<codeline lineno="541"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(e.what());</highlight></codeline>
+<codeline lineno="542"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="544"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="545"><highlight class="normal"></highlight></codeline>
+<codeline lineno="550"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a086650882ad80acb4074cf697f8cddcb" kindref="member">ViewJobs::getApplicationID</ref>()</highlight></codeline>
+<codeline lineno="551"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="552"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>applicationid;</highlight></codeline>
+<codeline lineno="553"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="554"><highlight class="normal"></highlight></codeline>
+<codeline lineno="559"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1ae78f119d37c77a9e3e457ecfd78d7de3" kindref="member">ViewJobs::getTitle</ref>()</highlight></codeline>
+<codeline lineno="560"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="561"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>jobTitle;</highlight></codeline>
+<codeline lineno="562"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="563"><highlight class="normal"></highlight></codeline>
+<codeline lineno="568"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1a88d7c0a7a79bc7a7e02b524587983bf8" kindref="member">ViewJobs::getCompany</ref>()</highlight></codeline>
+<codeline lineno="569"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="570"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>company;</highlight></codeline>
+<codeline lineno="571"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="572"><highlight class="normal"></highlight></codeline>
+<codeline lineno="577"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1adcafeca350b21a033aa630e042ee7947" kindref="member">ViewJobs::getCityID</ref>()</highlight></codeline>
+<codeline lineno="578"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="579"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cityid;</highlight></codeline>
+<codeline lineno="580"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="581"><highlight class="normal"></highlight></codeline>
+<codeline lineno="586"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a91696fde9f0a663bae929390aac8324b" kindref="member">ViewJobs::getStatusID</ref>()</highlight></codeline>
+<codeline lineno="587"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="588"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>statusid;</highlight></codeline>
+<codeline lineno="589"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="590"><highlight class="normal"></highlight></codeline>
+<codeline lineno="595"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1af046f9201cc6031e070b4f9b613a35f9" kindref="member">ViewJobs::getDate</ref>()</highlight></codeline>
+<codeline lineno="596"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="597"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>date;</highlight></codeline>
+<codeline lineno="598"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="599"><highlight class="normal"></highlight></codeline>
+<codeline lineno="604"><highlight class="normal">QString<sp/><ref refid="class_view_jobs_1a238ec5365ef2c39baa97670769dfedca" kindref="member">ViewJobs::getMotivation</ref>()</highlight></codeline>
+<codeline lineno="605"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="606"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>motivation;</highlight></codeline>
+<codeline lineno="607"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="608"><highlight class="normal"></highlight></codeline>
+<codeline lineno="613"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" kindref="member">ViewJobs::setMotivation</ref>(QString<sp/>newMotivation)</highlight></codeline>
+<codeline lineno="614"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="615"><highlight class="normal"><sp/><sp/><sp/><sp/>motivation<sp/>=<sp/>newMotivation;</highlight></codeline>
+<codeline lineno="616"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="617"><highlight class="normal"></highlight></codeline>
+<codeline lineno="622"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" kindref="member">ViewJobs::setApplicationID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newID)</highlight></codeline>
+<codeline lineno="623"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="624"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(newID<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="625"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>applicationid<sp/>=<sp/>newID;</highlight></codeline>
+<codeline lineno="626"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="627"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;SøknadID<sp/>må<sp/>være<sp/>større<sp/>enn<sp/>0.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="628"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="629"><highlight class="normal"></highlight></codeline>
+<codeline lineno="634"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" kindref="member">ViewJobs::setTitle</ref>(QString<sp/>newTitle)</highlight></codeline>
+<codeline lineno="635"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="636"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kindref="member">stringCheck::isNullOrWhitespace</ref>(newTitle))</highlight></codeline>
+<codeline lineno="637"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;Tittelen<sp/>kan<sp/>ikke<sp/>være<sp/>tom.<sp/>Tittelen<sp/>kan<sp/>heller<sp/>ikke<sp/>bare<sp/>bestå<sp/>av<sp/>mellomrom.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="638"><highlight class="normal"><sp/><sp/><sp/><sp/>jobTitle<sp/>=<sp/>newTitle;</highlight></codeline>
+<codeline lineno="639"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="640"><highlight class="normal"></highlight></codeline>
+<codeline lineno="645"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" kindref="member">ViewJobs::setCompany</ref>(QString<sp/>newCompany)</highlight></codeline>
+<codeline lineno="646"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="647"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kindref="member">stringCheck::isNullOrWhitespace</ref>(newCompany))</highlight></codeline>
+<codeline lineno="648"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;Bedriftsnavnet<sp/>kan<sp/>ikke<sp/>være<sp/>tomt<sp/>og<sp/>kan<sp/>heller<sp/>ikke<sp/>bare<sp/>bestå<sp/>av<sp/>mellomrom.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="649"><highlight class="normal"><sp/><sp/><sp/><sp/>company<sp/>=<sp/>newCompany;</highlight></codeline>
+<codeline lineno="650"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="651"><highlight class="normal"></highlight></codeline>
+<codeline lineno="656"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" kindref="member">ViewJobs::setCityID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newTownID)</highlight></codeline>
+<codeline lineno="657"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="658"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(newTownID<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="659"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cityid<sp/>=<sp/>newTownID;</highlight></codeline>
+<codeline lineno="660"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="661"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;StedID<sp/>må<sp/>ha<sp/>verdi<sp/>&gt;<sp/>0.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="662"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="663"><highlight class="normal"></highlight></codeline>
+<codeline lineno="668"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" kindref="member">ViewJobs::setStatusID</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newStatusID)</highlight></codeline>
+<codeline lineno="669"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="670"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(newStatusID<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>newStatusID<sp/>&lt;=<sp/>7)</highlight></codeline>
+<codeline lineno="671"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>statusid<sp/>=<sp/>newStatusID;</highlight></codeline>
+<codeline lineno="672"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="673"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;StatusID<sp/>må<sp/>ha<sp/>verdi<sp/>&gt;0<sp/>og<sp/>&lt;7.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="674"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="675"><highlight class="normal"></highlight></codeline>
+<codeline lineno="680"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1a7574794410eb40956f343976de97221f" kindref="member">ViewJobs::setDate</ref>(QString<sp/>newDate)</highlight></codeline>
+<codeline lineno="681"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="682"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classstring_check_1a25a6eebd6a36799e3a2c8335288929d2" kindref="member">stringCheck::isNullOrWhitespace</ref>(newDate))</highlight></codeline>
+<codeline lineno="683"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>invalid_argument(</highlight><highlight class="stringliteral">&quot;Søknadsfristen<sp/>kan<sp/>ikke<sp/>være<sp/>tom<sp/>og<sp/>den<sp/>kan<sp/>heller<sp/>ikke<sp/>bare<sp/>bestå<sp/>av<sp/>mellomrom.<sp/>Er<sp/>det<sp/>ikke<sp/>angitt<sp/>frist,<sp/>kan<sp/>du<sp/>skrive<sp/>&apos;Snarest&apos;<sp/>eller<sp/>tilsvarende<sp/>isteden.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="684"><highlight class="normal"><sp/><sp/><sp/><sp/>date<sp/>=<sp/>newDate;</highlight></codeline>
+<codeline lineno="685"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="686"><highlight class="normal"></highlight></codeline>
+<codeline lineno="690"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1af97593f0db01caee0febfe774a823e9c" kindref="member">ViewJobs::getApplications</ref>()</highlight></codeline>
+<codeline lineno="691"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="692"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="693"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="694"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;<sp/>list;</highlight></codeline>
+<codeline lineno="695"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list<sp/>=<sp/>p-&gt;<ref refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kindref="member">fillList</ref>(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>soknadid<sp/>FROM<sp/>soknad<sp/>ORDER<sp/>BY<sp/>soknadid<sp/>ASC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="696"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="697"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(list.count()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="698"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="699"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="700"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(windowTitle());</highlight></codeline>
+<codeline lineno="701"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
+<codeline lineno="702"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(</highlight><highlight class="stringliteral">&quot;Du<sp/>har<sp/>ikke<sp/>lagt<sp/>inn<sp/>noen<sp/>søknader<sp/>ennå.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="703"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="704"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;close();</highlight></codeline>
+<codeline lineno="705"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="706"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="707"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QList&lt;QString&gt;::iterator<sp/>iter<sp/>=<sp/>list.begin();</highlight></codeline>
+<codeline lineno="709"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(iter<sp/>!=<sp/>list.end())</highlight></codeline>
+<codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxApplicationID-&gt;addItem(list.value(i));</highlight></codeline>
+<codeline lineno="712"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="713"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iter++;</highlight></codeline>
+<codeline lineno="714"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="715"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastid<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="716"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="717"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="718"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(std::exception<sp/>&amp;e)</highlight></codeline>
+<codeline lineno="719"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="720"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="721"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
+<codeline lineno="722"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(winTitle);</highlight></codeline>
+<codeline lineno="723"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(e.what());</highlight></codeline>
+<codeline lineno="724"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="725"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="726"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="727"><highlight class="normal"></highlight></codeline>
+<codeline lineno="732"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">ViewJobs::getApplication</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>appID)</highlight></codeline>
+<codeline lineno="733"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="734"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="735"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="736"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxApplicationID-&gt;setCurrentText(QString::number(appID));</highlight></codeline>
+<codeline lineno="737"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>actual<sp/>ID<sp/>of<sp/>the<sp/>application.<sp/>In<sp/>some<sp/>cases,<sp/>the<sp/>&quot;actual&quot;<sp/>ID<sp/>might<sp/>be<sp/>different<sp/>from<sp/>the<sp/>desired<sp/>one.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="738"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>actualId<sp/>=<sp/>ui-&gt;comboBoxApplicationID-&gt;currentText().toInt();</highlight></codeline>
+<codeline lineno="739"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(actualId<sp/>==<sp/>appID){</highlight></codeline>
+<codeline lineno="740"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEditTitle-&gt;setText(p-&gt;<ref refid="classpsql_1ada9e3be3e0866011edf53e30ec510afc" kindref="member">getTitle</ref>(appID));</highlight></codeline>
+<codeline lineno="741"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEditCompany-&gt;setText(p-&gt;<ref refid="classpsql_1a09745cd03f09ffb2dacacaab4281915f" kindref="member">getCompany</ref>(appID));</highlight></codeline>
+<codeline lineno="742"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxTownID-&gt;setCurrentText(p-&gt;<ref refid="classpsql_1a7acc18034ef60c8a1e69b0e1a15d8ab2" kindref="member">getCityName</ref>(p-&gt;<ref refid="classpsql_1af3462a12dc106e0ca8df4fa8fcf28436" kindref="member">getCityID</ref>(appID)));</highlight></codeline>
+<codeline lineno="743"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ui-&gt;comboBoxStatusID-&gt;setCurrentText(QString::number(p-&gt;getStatusID(appID)));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="744"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;comboBoxStatusID-&gt;setCurrentText(p-&gt;<ref refid="classpsql_1a5c2a64419a68a258071fd1f9a37c7c09" kindref="member">getStatusName</ref>(p-&gt;<ref refid="classpsql_1a9c02c92c09cb60c35d24375673b7df06" kindref="member">getStatusID</ref>(appID)));</highlight></codeline>
+<codeline lineno="745"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;lineEditDeadline-&gt;setText(p-&gt;<ref refid="classpsql_1a561f96bfe7e9d092077712dd6b186af8" kindref="member">getDate</ref>(appID));</highlight></codeline>
+<codeline lineno="746"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>old<sp/>=<sp/>ui-&gt;textEditMotivation-&gt;blockSignals(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="747"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;textEditMotivation-&gt;setText(p-&gt;<ref refid="classpsql_1aca1b2273937491e113089c1547caf49b" kindref="member">getMotivation</ref>(appID));</highlight></codeline>
+<codeline lineno="748"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui-&gt;textEditMotivation-&gt;blockSignals(old);</highlight></codeline>
+<codeline lineno="749"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" kindref="member">setApplicationID</ref>(appID);</highlight></codeline>
+<codeline lineno="750"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" kindref="member">setTitle</ref>(ui-&gt;lineEditTitle-&gt;text());</highlight></codeline>
+<codeline lineno="751"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" kindref="member">setCompany</ref>(ui-&gt;lineEditCompany-&gt;text());</highlight></codeline>
+<codeline lineno="752"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setCityID(ui-&gt;comboBoxTownID-&gt;currentText().toInt());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="753"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" kindref="member">setCityID</ref>(p-&gt;<ref refid="classpsql_1af3462a12dc106e0ca8df4fa8fcf28436" kindref="member">getCityID</ref>(appID));</highlight></codeline>
+<codeline lineno="754"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setStatusID(ui-&gt;comboBoxStatusID-&gt;currentText().toInt());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="755"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" kindref="member">setStatusID</ref>(p-&gt;<ref refid="classpsql_1a9c02c92c09cb60c35d24375673b7df06" kindref="member">getStatusID</ref>(appID));</highlight></codeline>
+<codeline lineno="756"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a7574794410eb40956f343976de97221f" kindref="member">setDate</ref>(ui-&gt;lineEditDeadline-&gt;text());</highlight></codeline>
+<codeline lineno="757"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" kindref="member">setMotivation</ref>(ui-&gt;textEditMotivation-&gt;toPlainText());</highlight></codeline>
+<codeline lineno="758"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="759"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>desired<sp/>ID<sp/>does<sp/>not<sp/>exist,<sp/>increase<sp/>by<sp/>one<sp/>and<sp/>try<sp/>again.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="760"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>appID++;</highlight></codeline>
+<codeline lineno="761"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">getApplication</ref>(appID);</highlight></codeline>
+<codeline lineno="762"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="763"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="764"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal">(invalid_argument<sp/>iaex)</highlight></codeline>
+<codeline lineno="765"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="766"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="767"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
+<codeline lineno="768"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(</highlight><highlight class="stringliteral">&quot;En<sp/>feil<sp/>har<sp/>oppstått<sp/>-<sp/>&quot;</highlight><highlight class="normal"><sp/>+winTitle);</highlight></codeline>
+<codeline lineno="769"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(iaex.what());</highlight></codeline>
+<codeline lineno="770"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="771"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="772"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*catch(std::exception<sp/>&amp;e)</highlight></codeline>
+<codeline lineno="773"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="774"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox<sp/>msg;</highlight></codeline>
+<codeline lineno="775"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setIcon(msg.Warning);</highlight></codeline>
+<codeline lineno="776"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setWindowTitle(&quot;Feil<sp/>-<sp/>&quot;<sp/>+<sp/>winTitle);</highlight></codeline>
+<codeline lineno="777"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.setText(+<sp/>e.what());</highlight></codeline>
+<codeline lineno="778"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.exec();</highlight></codeline>
+<codeline lineno="779"><highlight class="comment"><sp/><sp/><sp/><sp/>}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="780"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="viewjobs.cpp"/>
   </compounddef>

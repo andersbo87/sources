@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="classadvanced_search" kind="class" language="C++" prot="public">
     <compoundname>advancedSearch</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -155,31 +155,36 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="classadvanced_search_1ae9e0253869871c6af23d804fdc78d184" kindref="member">advancedSearch::advancedSearch</ref> <ref refid="classadvanced_search" kindref="compound">advancedSearch</ref> class constructor </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1ae9e0253869871c6af23d804fdc78d184" kindref="member">advancedSearch::advancedSearch</ref> <ref refid="classadvanced_search" kindref="compound">advancedSearch</ref> class constructor </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>title</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The title to be used in windows and dialog boxes. </para></parameterdescription>
+<para>The title to be used in windows and dialog boxes. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pg</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Pointer to the psql class </para></parameterdescription>
+<para>Pointer to the psql class </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="42" column="1" bodyfile="advancedSearch.cpp" bodystart="35" bodyend="51"/>
@@ -203,10 +208,13 @@
         <argsstring>()</argsstring>
         <name>getJobTitle</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a7bcbaf1e2663396daacf9b033c34238a" kindref="member">advancedSearch::getJobTitle</ref> Gets the job title </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a7bcbaf1e2663396daacf9b033c34238a" kindref="member">advancedSearch::getJobTitle</ref> Gets the job title </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The job title </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The job title </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="45" column="1" bodyfile="advancedSearch.cpp" bodystart="65" bodyend="68"/>
@@ -217,10 +225,13 @@
         <argsstring>()</argsstring>
         <name>getCompanyName</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a5e9e9e24e83f36f9ed32bd60cecbb7de" kindref="member">advancedSearch::getCompanyName</ref> Gets the company name </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a5e9e9e24e83f36f9ed32bd60cecbb7de" kindref="member">advancedSearch::getCompanyName</ref> Gets the company name </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The name of the company </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The name of the company </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="46" column="1" bodyfile="advancedSearch.cpp" bodystart="74" bodyend="77"/>
@@ -231,10 +242,13 @@
         <argsstring>()</argsstring>
         <name>getCityName</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1ae061d04a2d39bcb3dc363fc56752377b" kindref="member">advancedSearch::getCityName</ref> Gets the name of the city where the job is located </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1ae061d04a2d39bcb3dc363fc56752377b" kindref="member">advancedSearch::getCityName</ref> Gets the name of the city where the job is located </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The city name </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The city name </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="47" column="1" bodyfile="advancedSearch.cpp" bodystart="83" bodyend="86"/>
@@ -245,10 +259,13 @@
         <argsstring>()</argsstring>
         <name>getStatus</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1afc318495c6475695844bd0f22c6c1e3c" kindref="member">advancedSearch::getStatus</ref> Gets the status of the job application </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1afc318495c6475695844bd0f22c6c1e3c" kindref="member">advancedSearch::getStatus</ref> Gets the status of the job application </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The name of the current application status (sent, declined/rejected, etc) </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The name of the current application status (sent, declined/rejected, etc) </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="48" column="1" bodyfile="advancedSearch.cpp" bodystart="92" bodyend="95"/>
@@ -259,10 +276,13 @@
         <argsstring>()</argsstring>
         <name>getDeadline</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1ae58a90dea341fa431df72e368b70267e" kindref="member">advancedSearch::getDeadline</ref> Gets the deadline of the application </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1ae58a90dea341fa431df72e368b70267e" kindref="member">advancedSearch::getDeadline</ref> Gets the deadline of the application </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The application deadline </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The application deadline </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="49" column="1" bodyfile="advancedSearch.cpp" bodystart="101" bodyend="104"/>
@@ -273,10 +293,13 @@
         <argsstring>()</argsstring>
         <name>getMotivation</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a40af6df4af92bc7f4cff89729df2c6da" kindref="member">advancedSearch::getMotivation</ref> Gets the motivation for applying for this job. </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a40af6df4af92bc7f4cff89729df2c6da" kindref="member">advancedSearch::getMotivation</ref> Gets the motivation for applying for this job. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The application motivation </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The application motivation </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="50" column="1" bodyfile="advancedSearch.cpp" bodystart="110" bodyend="113"/>
@@ -291,17 +314,20 @@
           <declname>newTitle</declname>
         </param>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a698024f20a64fd27b1b352bce5c6f527" kindref="member">advancedSearch::setJobTitle</ref> Sets the title of the job </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a698024f20a64fd27b1b352bce5c6f527" kindref="member">advancedSearch::setJobTitle</ref> Sets the title of the job </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name of the job </para></parameterdescription>
+<para>The name of the job </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="53" column="1" bodyfile="advancedSearch.cpp" bodystart="120" bodyend="123"/>
@@ -316,17 +342,20 @@
           <declname>newName</declname>
         </param>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a6d817d740d8e614bf93cec866735bd7f" kindref="member">advancedSearch::setCompanyName</ref> Sets the name of the company </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a6d817d740d8e614bf93cec866735bd7f" kindref="member">advancedSearch::setCompanyName</ref> Sets the name of the company </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The company name </para></parameterdescription>
+<para>The company name </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="54" column="1" bodyfile="advancedSearch.cpp" bodystart="129" bodyend="132"/>
@@ -341,17 +370,20 @@
           <declname>newCityName</declname>
         </param>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a285bcf54a61d42fa81a7d1a5a86c5779" kindref="member">advancedSearch::setCityName</ref> Sets the name of the city where the job is located. </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a285bcf54a61d42fa81a7d1a5a86c5779" kindref="member">advancedSearch::setCityName</ref> Sets the name of the city where the job is located. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newCityName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name of the city </para></parameterdescription>
+<para>The name of the city </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="55" column="1" bodyfile="advancedSearch.cpp" bodystart="138" bodyend="143"/>
@@ -366,17 +398,20 @@
           <declname>newStatus</declname>
         </param>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a1530d628ce32b4c867349a075b3828c3" kindref="member">advancedSearch::setStatus</ref> Set the status of the job application </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a1530d628ce32b4c867349a075b3828c3" kindref="member">advancedSearch::setStatus</ref> Set the status of the job application </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newStatus</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The status of the application. </para></parameterdescription>
+<para>The status of the application. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="56" column="1" bodyfile="advancedSearch.cpp" bodystart="149" bodyend="154"/>
@@ -391,17 +426,20 @@
           <declname>newDeadline</declname>
         </param>
         <briefdescription>
-<para><ref refid="classadvanced_search_1aeaacf5b995f4169c38d4381e17bc0969" kindref="member">advancedSearch::setDeadline</ref> Sets the deadline of the application </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1aeaacf5b995f4169c38d4381e17bc0969" kindref="member">advancedSearch::setDeadline</ref> Sets the deadline of the application </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newDeadline</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The application dealine (could be a date in any format or &apos;ASAP&apos; or something) </para></parameterdescription>
+<para>The application dealine (could be a date in any format or &apos;ASAP&apos; or something) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="57" column="1" bodyfile="advancedSearch.cpp" bodystart="160" bodyend="163"/>
@@ -416,17 +454,20 @@
           <declname>newMotivation</declname>
         </param>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a72e3b5ac068d875070165e865a03410c" kindref="member">advancedSearch::setMotivation</ref> Sets the reasons for applying for this job (optional) </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a72e3b5ac068d875070165e865a03410c" kindref="member">advancedSearch::setMotivation</ref> Sets the reasons for applying for this job (optional) </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newMotivation</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The motivation. Is there something about the job or company that made you apply for that job </para></parameterdescription>
+<para>The motivation. Is there something about the job or company that made you apply for that job </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="advancedSearch.h" line="58" column="1" bodyfile="advancedSearch.cpp" bodystart="169" bodyend="172"/>
@@ -437,7 +478,8 @@
         <argsstring>()</argsstring>
         <name>getCityNames</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a459fba94afcef2073b4cd706e454d38f" kindref="member">advancedSearch::getCityNames</ref> Fetches a list of city names to be added to the comboBoxCityName. </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a459fba94afcef2073b4cd706e454d38f" kindref="member">advancedSearch::getCityNames</ref> Fetches a list of city names to be added to the comboBoxCityName. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -450,7 +492,8 @@
         <argsstring>()</argsstring>
         <name>getStatuses</name>
         <briefdescription>
-<para><ref refid="classadvanced_search_1a1517ebc5651f4956e26f8aa055983c58" kindref="member">advancedSearch::getStatuses</ref> Fetches a list of status names to be added to the comboBoxStatusName </para>        </briefdescription>
+<para><ref refid="classadvanced_search_1a1517ebc5651f4956e26f8aa055983c58" kindref="member">advancedSearch::getStatuses</ref> Fetches a list of status names to be added to the comboBoxStatusName </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>

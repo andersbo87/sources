@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="connectpsql_8h" kind="file" language="C++">
     <compoundname>connectpsql.h</compoundname>
     <includes local="no">QApplication</includes>
@@ -129,7 +129,7 @@
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPushButton&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;psql.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_ui" kindref="compound">Ui</ref><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Ui<sp/>{</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classconnect_psql" kindref="compound">connectPsql</ref>;</highlight></codeline>
 <codeline lineno="35"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
@@ -149,12 +149,13 @@
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>accept();</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>userName,host,<sp/>password,<sp/>winTitle;<sp/></highlight><highlight class="comment">//<sp/>winTitle:<sp/>Tittelen<sp/>i<sp/>den<sp/>eneste<sp/>meldingsboksen<sp/>som<sp/>kan<sp/>produseres<sp/>av<sp/>denne<sp/>klassen.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>userTextChanged();</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>passwordTextChanged();</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>hostTextChanged();</highlight></codeline>
-<codeline lineno="65"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>CONNECTPSQL_H</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>portTextChanged();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>userTextChanged();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>passwordTextChanged();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>hostTextChanged();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>CONNECTPSQL_H</highlight></codeline>
     </programlisting>
     <location file="connectpsql.h"/>
   </compounddef>

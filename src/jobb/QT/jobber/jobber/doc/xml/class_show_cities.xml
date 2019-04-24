@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="class_show_cities" kind="class" language="C++" prot="public">
     <compoundname>ShowCities</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -222,31 +222,36 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="class_show_cities" kindref="compound">ShowCities</ref> The ShowCitis class constructor. </para>        </briefdescription>
+<para><ref refid="class_show_cities" kindref="compound">ShowCities</ref> The ShowCitis class constructor. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>windowTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The title to be used in windows, message boxes and other things. </para></parameterdescription>
+<para>The title to be used in windows, message boxes and other things. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pg</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A pointer to the PostgreSQL database </para></parameterdescription>
+<para>A pointer to the PostgreSQL database </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="46" column="1" bodyfile="showcities.cpp" bodystart="34" bodyend="51"/>
@@ -262,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="47" column="1" bodyfile="showcities.cpp" bodystart="493" bodyend="496"/>
+        <location file="showcities.h" line="47" column="1" bodyfile="showcities.cpp" bodystart="644" bodyend="647"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -270,12 +275,13 @@
         <argsstring>()</argsstring>
         <name>getCities</name>
         <briefdescription>
-<para><ref refid="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" kindref="member">ShowCities::getCities</ref> Builds a list to be used in the combobox of city IDs based on registered cities in the database. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" kindref="member">ShowCities::getCities</ref> Builds a list to be used in the combobox of city IDs based on registered cities in the database. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="48" column="1" bodyfile="showcities.cpp" bodystart="209" bodyend="244"/>
+        <location file="showcities.h" line="48" column="1" bodyfile="showcities.cpp" bodystart="216" bodyend="252"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1af191eeab72b3bdd74f0e710face98292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -288,20 +294,23 @@
           <defname>cityID</defname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_cities_1af191eeab72b3bdd74f0e710face98292" kindref="member">ShowCities::getCity</ref> Shows data about the current city based on the ID. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1af191eeab72b3bdd74f0e710face98292" kindref="member">ShowCities::getCity</ref> Shows data about the current city based on the ID. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>cityID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The ID of the city in question. </para></parameterdescription>
+<para>The ID of the city in question. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="49" column="1" bodyfile="showcities.cpp" bodystart="146" bodyend="178"/>
+        <location file="showcities.h" line="49" column="1" bodyfile="showcities.cpp" bodystart="146" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -313,17 +322,20 @@
           <declname>newID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" kindref="member">ShowCities::setCityID</ref> Sets a new city ID. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" kindref="member">ShowCities::setCityID</ref> Sets a new city ID. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The ID of the new city in question. </para></parameterdescription>
+<para>The ID of the new city in question. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="50" column="1" bodyfile="showcities.cpp" bodystart="85" bodyend="96"/>
@@ -338,17 +350,20 @@
           <declname>newName</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" kindref="member">ShowCities::setCityName</ref> Sets the name of the city. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" kindref="member">ShowCities::setCityName</ref> Sets the name of the city. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new city name to be used. </para></parameterdescription>
+<para>The new city name to be used. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="51" column="1" bodyfile="showcities.cpp" bodystart="102" bodyend="107"/>
@@ -363,17 +378,20 @@
           <declname>newID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kindref="member">ShowCities::setCountryID</ref> Sets the ID of the country in which the city exists. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" kindref="member">ShowCities::setCountryID</ref> Sets the ID of the country in which the city exists. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new country ID </para></parameterdescription>
+<para>The new country ID </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="52" column="1" bodyfile="showcities.cpp" bodystart="113" bodyend="129"/>
@@ -388,17 +406,20 @@
           <declname>newName</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_cities_1a6974ab22950cede9fb290490bcc8f3a5" kindref="member">ShowCities::setCountryName</ref> Sets the name of the country where the current city is located. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1a6974ab22950cede9fb290490bcc8f3a5" kindref="member">ShowCities::setCountryName</ref> Sets the name of the country where the current city is located. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name of the country. </para></parameterdescription>
+<para>The name of the country. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="53" column="1" bodyfile="showcities.cpp" bodystart="135" bodyend="140"/>
@@ -409,10 +430,13 @@
         <argsstring>()</argsstring>
         <name>getCityID</name>
         <briefdescription>
-<para><ref refid="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" kindref="member">ShowCities::getCityID</ref> Gets the current city ID. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" kindref="member">ShowCities::getCityID</ref> Gets the current city ID. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The city ID. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The city ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="54" column="1" bodyfile="showcities.cpp" bodystart="57" bodyend="60"/>
@@ -423,12 +447,13 @@
         <argsstring>()</argsstring>
         <name>getCountryIDs</name>
         <briefdescription>
-<para><ref refid="class_show_cities_1a8fa42e8a5b12579cd04ae2a8ee4a9370" kindref="member">ShowCities::getCountryIDs</ref> Builds a list of countries based on existing data in the database. That data will be used to fill the comboBoxCountryID. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1a8fa42e8a5b12579cd04ae2a8ee4a9370" kindref="member">ShowCities::getCountryIDs</ref> Builds a list of countries based on existing data in the database. That data will be used to fill the comboBoxCountryID. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="55" column="1" bodyfile="showcities.cpp" bodystart="184" bodyend="204"/>
+        <location file="showcities.h" line="55" column="1" bodyfile="showcities.cpp" bodystart="191" bodyend="211"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a8f66380734928e926a732a0088c1d998" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -436,10 +461,13 @@
         <argsstring>()</argsstring>
         <name>getCountryID</name>
         <briefdescription>
-<para><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">ShowCities::getCountryID</ref> Gets the ID of the country where the current city is located. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1a8f66380734928e926a732a0088c1d998" kindref="member">ShowCities::getCountryID</ref> Gets the ID of the country where the current city is located. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The country ID. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The country ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="56" column="1" bodyfile="showcities.cpp" bodystart="75" bodyend="78"/>
@@ -450,13 +478,16 @@
         <argsstring>()</argsstring>
         <name>getCityName</name>
         <briefdescription>
-<para><ref refid="class_show_cities_1a3640b91c66939d0070c3dd6f5b9eb93c" kindref="member">ShowCities::getCityName</ref> Gets the name of the current city. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1a3640b91c66939d0070c3dd6f5b9eb93c" kindref="member">ShowCities::getCityName</ref> Gets the name of the current city. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The name of the city </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The name of the city </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="57" column="1" bodyfile="showcities.cpp" bodystart="261" bodyend="264"/>
+        <location file="showcities.h" line="57" column="1" bodyfile="showcities.cpp" bodystart="269" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -464,10 +495,13 @@
         <argsstring>()</argsstring>
         <name>getCountryName</name>
         <briefdescription>
-<para><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">ShowCities::getCountryName</ref> Gets the name of the country where the current city is located. </para>        </briefdescription>
+<para><ref refid="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" kindref="member">ShowCities::getCountryName</ref> Gets the name of the country where the current city is located. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The country name </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The country name </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcities.h" line="58" column="1" bodyfile="showcities.cpp" bodystart="66" bodyend="69"/>
@@ -485,7 +519,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="66" column="1" bodyfile="showcities.cpp" bodystart="266" bodyend="301"/>
+        <location file="showcities.h" line="66" column="1" bodyfile="showcities.cpp" bodystart="274" bodyend="309"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1aa16f8e2104a6424342285edc2d1e78b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -498,7 +532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="67" column="1" bodyfile="showcities.cpp" bodystart="246" bodyend="249"/>
+        <location file="showcities.h" line="67" column="1" bodyfile="showcities.cpp" bodystart="254" bodyend="257"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1ace0a3ca94beaf1301a27cddd417f31ad" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -515,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="68" column="1" bodyfile="showcities.cpp" bodystart="251" bodyend="255"/>
+        <location file="showcities.h" line="68" column="1" bodyfile="showcities.cpp" bodystart="259" bodyend="263"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a99aacd915ba6e9a8bc9a6f117eb77c54" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -532,7 +566,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="69" column="1" bodyfile="showcities.cpp" bodystart="452" bodyend="491"/>
+        <location file="showcities.h" line="69" column="1" bodyfile="showcities.cpp" bodystart="603" bodyend="642"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a2b35f33f8cb6602b6c10c4e1cb0eed31" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -548,7 +582,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="70" column="1" bodyfile="showcities.cpp" bodystart="448" bodyend="451"/>
+        <location file="showcities.h" line="70" column="1" bodyfile="showcities.cpp" bodystart="599" bodyend="602"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a7fd9c66875dee479b8e612e02c5149bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -578,7 +612,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="72" column="1" bodyfile="showcities.cpp" bodystart="374" bodyend="380"/>
+        <location file="showcities.h" line="72" column="1" bodyfile="showcities.cpp" bodystart="483" bodyend="489"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -593,7 +627,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="76" column="1" bodyfile="showcities.cpp" bodystart="396" bodyend="409"/>
+        <location file="showcities.h" line="76" column="1" bodyfile="showcities.cpp" bodystart="505" bodyend="560"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a912626f9b76404a4efca975ff72fe18d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -606,7 +640,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="77" column="1" bodyfile="showcities.cpp" bodystart="411" bodyend="424"/>
+        <location file="showcities.h" line="77" column="1" bodyfile="showcities.cpp" bodystart="562" bodyend="575"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -619,7 +653,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="78" column="1" bodyfile="showcities.cpp" bodystart="382" bodyend="394"/>
+        <location file="showcities.h" line="78" column="1" bodyfile="showcities.cpp" bodystart="491" bodyend="503"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a2c111d1f43cca0d08c3fd8d82ef44c5d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -632,7 +666,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="79" column="1" bodyfile="showcities.cpp" bodystart="350" bodyend="372"/>
+        <location file="showcities.h" line="79" column="1" bodyfile="showcities.cpp" bodystart="459" bodyend="481"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -645,7 +679,59 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="80" column="1" bodyfile="showcities.cpp" bodystart="303" bodyend="335"/>
+        <location file="showcities.h" line="80" column="1" bodyfile="showcities.cpp" bodystart="311" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1a0405d6d081de28d55991d818c889dfe3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::btnFirstClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnFirstClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="81" column="1" bodyfile="showcities.cpp" bodystart="358" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1aecf18b573c5797a4b6712c5fa860adb2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::btnPrevClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnPrevClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="82" column="1" bodyfile="showcities.cpp" bodystart="379" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1ab37862ffb08f0b35676eff65dce2b3bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::btnNextClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnNextClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="83" column="1" bodyfile="showcities.cpp" bodystart="408" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_show_cities_1a37e388d95978727781325487d75845d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCities::btnLastClicked</definition>
+        <argsstring>()</argsstring>
+        <name>btnLastClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcities.h" line="84" column="1" bodyfile="showcities.cpp" bodystart="437" bodyend="457"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a0c7cfcf4ddbfe1aba290e56228e565c5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -658,7 +744,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="81" column="1" bodyfile="showcities.cpp" bodystart="425" bodyend="446"/>
+        <location file="showcities.h" line="85" column="1" bodyfile="showcities.cpp" bodystart="576" bodyend="597"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1afb40165a902c3597aaba5572de22eb17" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -671,11 +757,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="82" column="1" bodyfile="showcities.cpp" bodystart="337" bodyend="348"/>
+        <location file="showcities.h" line="86" column="1" bodyfile="showcities.cpp" bodystart="345" bodyend="356"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="class_show_cities" kindref="compound">ShowCities</ref> class. </para>    </briefdescription>
+<para>The <ref refid="class_show_cities" kindref="compound">ShowCities</ref> class. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
@@ -700,8 +787,12 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="showcities.h" line="41" column="1" bodyfile="showcities.h" bodystart="40" bodyend="83"/>
+    <location file="showcities.h" line="41" column="1" bodyfile="showcities.h" bodystart="40" bodyend="87"/>
     <listofallmembers>
+      <member refid="class_show_cities_1a0405d6d081de28d55991d818c889dfe3" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnFirstClicked</name></member>
+      <member refid="class_show_cities_1a37e388d95978727781325487d75845d7" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnLastClicked</name></member>
+      <member refid="class_show_cities_1ab37862ffb08f0b35676eff65dce2b3bb" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnNextClicked</name></member>
+      <member refid="class_show_cities_1aecf18b573c5797a4b6712c5fa860adb2" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnPrevClicked</name></member>
       <member refid="class_show_cities_1afb40165a902c3597aaba5572de22eb17" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buildComboboxCityList</name></member>
       <member refid="class_show_cities_1ad5581443169c84ab1e51b2fe18a3d9e9" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buildingList</name></member>
       <member refid="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonDeleteClicked</name></member>

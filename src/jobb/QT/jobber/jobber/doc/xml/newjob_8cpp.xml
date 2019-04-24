@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="newjob_8cpp" kind="file" language="C++">
     <compoundname>newjob.cpp</compoundname>
     <includes refid="newjob_8h" local="yes">newjob.h</includes>
@@ -131,7 +131,7 @@
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ui_newjob.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Konstruktør</highlight></codeline>
-<codeline lineno="35"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_new_job_1a489279a9ec91bcac74d7dad65eb2f85a" kindref="member">NewJob::NewJob</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent)<sp/>:<sp/>QMainWindow(parent),<sp/>ui(new<sp/><ref refid="namespace_ui" kindref="compound">Ui</ref>::<ref refid="class_new_job" kindref="compound">NewJob</ref>)</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"></highlight><highlight class="normal"><ref refid="class_new_job_1a489279a9ec91bcac74d7dad65eb2f85a" kindref="member">NewJob::NewJob</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent)<sp/>:<sp/>QMainWindow(parent),<sp/>ui(new<sp/>Ui::<ref refid="class_new_job" kindref="compound">NewJob</ref>)</highlight></codeline>
 <codeline lineno="36"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>setWindowFlags((<sp/>(this-&gt;windowFlags()<sp/>|<sp/>Qt::CustomizeWindowHint)<sp/>&amp;<sp/>~Qt::WindowMaximizeButtonHint));</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>

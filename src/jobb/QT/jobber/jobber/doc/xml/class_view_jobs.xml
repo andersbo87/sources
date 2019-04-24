@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="class_view_jobs" kind="class" language="C++" prot="public">
     <compoundname>ViewJobs</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -221,31 +221,36 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs" kindref="compound">ViewJobs</ref> The <ref refid="class_view_jobs" kindref="compound">ViewJobs</ref> class constructor. </para>        </briefdescription>
+<para><ref refid="class_view_jobs" kindref="compound">ViewJobs</ref> The <ref refid="class_view_jobs" kindref="compound">ViewJobs</ref> class constructor. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>windowTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The name to be used as titles in windows and message boxes. </para></parameterdescription>
+<para>The name to be used as titles in windows and message boxes. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pg</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A pointer to the PostgreSQL database class. </para></parameterdescription>
+<para>A pointer to the PostgreSQL database class. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="viewjobs.h" line="46" column="1" bodyfile="viewjobs.cpp" bodystart="34" bodyend="58"/>
@@ -269,12 +274,13 @@
         <argsstring>()</argsstring>
         <name>getApplications</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1af97593f0db01caee0febfe774a823e9c" kindref="member">ViewJobs::getApplications</ref> Fills the comboBoxApplicationID with all application IDs in the database. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1af97593f0db01caee0febfe774a823e9c" kindref="member">ViewJobs::getApplications</ref> Fills the comboBoxApplicationID with all application IDs in the database. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="48" column="1" bodyfile="viewjobs.cpp" bodystart="684" bodyend="720"/>
+        <location file="viewjobs.h" line="48" column="1" bodyfile="viewjobs.cpp" bodystart="690" bodyend="726"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -286,20 +292,23 @@
           <declname>appID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">ViewJobs::getApplication</ref> Fills the window with information based on the application ID. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1ae9c1c806aa1dd5082b38a1dc9cbec39e" kindref="member">ViewJobs::getApplication</ref> Fills the window with information based on the application ID. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>appID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the application ID to be used. </para></parameterdescription>
+<para>the application ID to be used. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="49" column="1" bodyfile="viewjobs.cpp" bodystart="726" bodyend="766"/>
+        <location file="viewjobs.h" line="49" column="1" bodyfile="viewjobs.cpp" bodystart="732" bodyend="780"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -311,20 +320,23 @@
           <declname>newID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" kindref="member">ViewJobs::setApplicationID</ref> sets a new application ID. Note that this does NOT change the ID of the current application. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1acd43a8c32ab9bca7e40ecc99e51da9b8" kindref="member">ViewJobs::setApplicationID</ref> sets a new application ID. Note that this does NOT change the ID of the current application. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the new ID. </para></parameterdescription>
+<para>the new ID. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="50" column="1" bodyfile="viewjobs.cpp" bodystart="616" bodyend="622"/>
+        <location file="viewjobs.h" line="50" column="1" bodyfile="viewjobs.cpp" bodystart="622" bodyend="628"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -336,20 +348,23 @@
           <declname>newTitle</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" kindref="member">ViewJobs::setTitle</ref> Sets a new job title. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1abfe1969197cde57ea049c1b7d91cd4f5" kindref="member">ViewJobs::setTitle</ref> Sets a new job title. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new job/position title to be used. </para></parameterdescription>
+<para>The new job/position title to be used. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="51" column="1" bodyfile="viewjobs.cpp" bodystart="628" bodyend="633"/>
+        <location file="viewjobs.h" line="51" column="1" bodyfile="viewjobs.cpp" bodystart="634" bodyend="639"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -361,20 +376,23 @@
           <declname>newCompany</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" kindref="member">ViewJobs::setCompany</ref> Sets a new employer company name. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a596246d07be66a5aeaf14ff8e5649290" kindref="member">ViewJobs::setCompany</ref> Sets a new employer company name. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newCompany</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the new company name. </para></parameterdescription>
+<para>the new company name. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="52" column="1" bodyfile="viewjobs.cpp" bodystart="639" bodyend="644"/>
+        <location file="viewjobs.h" line="52" column="1" bodyfile="viewjobs.cpp" bodystart="645" bodyend="650"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -386,20 +404,23 @@
           <declname>newTownID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" kindref="member">ViewJobs::setCityID</ref> Sets a new city ID. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1ad89218b37af85cac9ce6c346efb57e56" kindref="member">ViewJobs::setCityID</ref> Sets a new city ID. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newTownID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the new city ID. </para></parameterdescription>
+<para>the new city ID. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="53" column="1" bodyfile="viewjobs.cpp" bodystart="650" bodyend="656"/>
+        <location file="viewjobs.h" line="53" column="1" bodyfile="viewjobs.cpp" bodystart="656" bodyend="662"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -411,20 +432,23 @@
           <declname>newStatusID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" kindref="member">ViewJobs::setStatusID</ref> Sets a new status ID for the current job. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a55943415fd91377d5f701f7074ba58d6" kindref="member">ViewJobs::setStatusID</ref> Sets a new status ID for the current job. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newStatusID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the ID of the application&apos;s updated status. </para></parameterdescription>
+<para>the ID of the application&apos;s updated status. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="54" column="1" bodyfile="viewjobs.cpp" bodystart="662" bodyend="668"/>
+        <location file="viewjobs.h" line="54" column="1" bodyfile="viewjobs.cpp" bodystart="668" bodyend="674"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a7574794410eb40956f343976de97221f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -436,20 +460,23 @@
           <declname>newDate</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a7574794410eb40956f343976de97221f" kindref="member">ViewJobs::setDate</ref> Sets a new application deadline for the job application. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a7574794410eb40956f343976de97221f" kindref="member">ViewJobs::setDate</ref> Sets a new application deadline for the job application. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newDate</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new deadline for the current job application. </para></parameterdescription>
+<para>The new deadline for the current job application. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="55" column="1" bodyfile="viewjobs.cpp" bodystart="674" bodyend="679"/>
+        <location file="viewjobs.h" line="55" column="1" bodyfile="viewjobs.cpp" bodystart="680" bodyend="685"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -461,20 +488,23 @@
           <declname>newMotivation</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" kindref="member">ViewJobs::setMotivation</ref> Sets the new job motivation. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a53bdfabaf2b442841d676f42ebbf975f" kindref="member">ViewJobs::setMotivation</ref> Sets the new job motivation. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newMotivation</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A string explaining what motivated the user to apply for this job. </para></parameterdescription>
+<para>A string explaining what motivated the user to apply for this job. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="56" column="1" bodyfile="viewjobs.cpp" bodystart="607" bodyend="610"/>
+        <location file="viewjobs.h" line="56" column="1" bodyfile="viewjobs.cpp" bodystart="613" bodyend="616"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a086650882ad80acb4074cf697f8cddcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -482,13 +512,16 @@
         <argsstring>()</argsstring>
         <name>getApplicationID</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a086650882ad80acb4074cf697f8cddcb" kindref="member">ViewJobs::getApplicationID</ref> Gets the current application ID. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a086650882ad80acb4074cf697f8cddcb" kindref="member">ViewJobs::getApplicationID</ref> Gets the current application ID. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The current application ID. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The current application ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="57" column="1" bodyfile="viewjobs.cpp" bodystart="544" bodyend="547"/>
+        <location file="viewjobs.h" line="57" column="1" bodyfile="viewjobs.cpp" bodystart="550" bodyend="553"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1ae78f119d37c77a9e3e457ecfd78d7de3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -496,13 +529,16 @@
         <argsstring>()</argsstring>
         <name>getTitle</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1ae78f119d37c77a9e3e457ecfd78d7de3" kindref="member">ViewJobs::getTitle</ref> Gets the application ID. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1ae78f119d37c77a9e3e457ecfd78d7de3" kindref="member">ViewJobs::getTitle</ref> Gets the application ID. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the current title. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the current title. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="58" column="1" bodyfile="viewjobs.cpp" bodystart="553" bodyend="556"/>
+        <location file="viewjobs.h" line="58" column="1" bodyfile="viewjobs.cpp" bodystart="559" bodyend="562"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a88d7c0a7a79bc7a7e02b524587983bf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -510,13 +546,16 @@
         <argsstring>()</argsstring>
         <name>getCompany</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a88d7c0a7a79bc7a7e02b524587983bf8" kindref="member">ViewJobs::getCompany</ref> Gets the current employer company. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a88d7c0a7a79bc7a7e02b524587983bf8" kindref="member">ViewJobs::getCompany</ref> Gets the current employer company. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the current company. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the current company. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="59" column="1" bodyfile="viewjobs.cpp" bodystart="562" bodyend="565"/>
+        <location file="viewjobs.h" line="59" column="1" bodyfile="viewjobs.cpp" bodystart="568" bodyend="571"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1adcafeca350b21a033aa630e042ee7947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -524,13 +563,16 @@
         <argsstring>()</argsstring>
         <name>getCityID</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1adcafeca350b21a033aa630e042ee7947" kindref="member">ViewJobs::getCityID</ref> Gets the ID of the city where the job is located. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1adcafeca350b21a033aa630e042ee7947" kindref="member">ViewJobs::getCityID</ref> Gets the ID of the city where the job is located. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the ID of the city where the job is located. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the ID of the city where the job is located. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="60" column="1" bodyfile="viewjobs.cpp" bodystart="571" bodyend="574"/>
+        <location file="viewjobs.h" line="60" column="1" bodyfile="viewjobs.cpp" bodystart="577" bodyend="580"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a91696fde9f0a663bae929390aac8324b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -538,13 +580,16 @@
         <argsstring>()</argsstring>
         <name>getStatusID</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a91696fde9f0a663bae929390aac8324b" kindref="member">ViewJobs::getStatusID</ref> Gets the current status ID of the job application. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a91696fde9f0a663bae929390aac8324b" kindref="member">ViewJobs::getStatusID</ref> Gets the current status ID of the job application. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the application&apos;s current status ID. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the application&apos;s current status ID. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="61" column="1" bodyfile="viewjobs.cpp" bodystart="580" bodyend="583"/>
+        <location file="viewjobs.h" line="61" column="1" bodyfile="viewjobs.cpp" bodystart="586" bodyend="589"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1af046f9201cc6031e070b4f9b613a35f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -552,13 +597,16 @@
         <argsstring>()</argsstring>
         <name>getDate</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1af046f9201cc6031e070b4f9b613a35f9" kindref="member">ViewJobs::getDate</ref> Gets the current application&apos;s dealine. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1af046f9201cc6031e070b4f9b613a35f9" kindref="member">ViewJobs::getDate</ref> Gets the current application&apos;s dealine. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The deadline of the current application. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The deadline of the current application. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="62" column="1" bodyfile="viewjobs.cpp" bodystart="589" bodyend="592"/>
+        <location file="viewjobs.h" line="62" column="1" bodyfile="viewjobs.cpp" bodystart="595" bodyend="598"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -566,12 +614,13 @@
         <argsstring>()</argsstring>
         <name>getCityIDs</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" kindref="member">ViewJobs::getCityIDs</ref> Fills the comboBoxTownID with all city names that exist in the databse. The city names are sorted in an alphabetic order. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a6cf031afcc4a09dfca54044fdf8c4f7b" kindref="member">ViewJobs::getCityIDs</ref> Fills the comboBoxTownID with all city names that exist in the databse. The city names are sorted in an alphabetic order. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="63" column="1" bodyfile="viewjobs.cpp" bodystart="491" bodyend="512"/>
+        <location file="viewjobs.h" line="63" column="1" bodyfile="viewjobs.cpp" bodystart="497" bodyend="518"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a238ec5365ef2c39baa97670769dfedca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -579,13 +628,16 @@
         <argsstring>()</argsstring>
         <name>getMotivation</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a238ec5365ef2c39baa97670769dfedca" kindref="member">ViewJobs::getMotivation</ref> Gets the current job motivation. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a238ec5365ef2c39baa97670769dfedca" kindref="member">ViewJobs::getMotivation</ref> Gets the current job motivation. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>A string containing what motivated the user to apply for this job. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>A string containing what motivated the user to apply for this job. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="64" column="1" bodyfile="viewjobs.cpp" bodystart="598" bodyend="601"/>
+        <location file="viewjobs.h" line="64" column="1" bodyfile="viewjobs.cpp" bodystart="604" bodyend="607"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -593,12 +645,13 @@
         <argsstring>()</argsstring>
         <name>getStatusIDs</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" kindref="member">ViewJobs::getStatusIDs</ref> Fills the comboBoxStatusID with all status names that exist in the database. Status names are sorted in an alphabetical order. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1adabe196e81c74d17c436de1a6ea12099" kindref="member">ViewJobs::getStatusIDs</ref> Fills the comboBoxStatusID with all status names that exist in the database. Status names are sorted in an alphabetical order. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="65" column="1" bodyfile="viewjobs.cpp" bodystart="517" bodyend="538"/>
+        <location file="viewjobs.h" line="65" column="1" bodyfile="viewjobs.cpp" bodystart="523" bodyend="544"/>
       </memberdef>
       <memberdef kind="function" id="class_view_jobs_1a5f75b45d28ce7f4a8050ce9ce0f44350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -606,10 +659,13 @@
         <argsstring>()</argsstring>
         <name>isChanged</name>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a5f75b45d28ce7f4a8050ce9ce0f44350" kindref="member">ViewJobs::isChanged</ref> Checks if there have been any unsaved changes to the current record. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a5f75b45d28ce7f4a8050ce9ce0f44350" kindref="member">ViewJobs::isChanged</ref> Checks if there have been any unsaved changes to the current record. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>True if there are unsaved changes and false otherwise. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>True if there are unsaved changes and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="viewjobs.h" line="66" column="1" bodyfile="viewjobs.cpp" bodystart="74" bodyend="77"/>
@@ -624,17 +680,20 @@
           <declname>change</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a3cba868c6deadaf4b35c18982f7ec35e" kindref="member">ViewJobs::setChanged</ref> Sets the changed variable to true if there are unsaved changes, and false if those changes have been saved. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a3cba868c6deadaf4b35c18982f7ec35e" kindref="member">ViewJobs::setChanged</ref> Sets the changed variable to true if there are unsaved changes, and false if those changes have been saved. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>change</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>true if a record has been changed and false if that record has been saved </para></parameterdescription>
+<para>true if a record has been changed and false if that record has been saved </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="viewjobs.h" line="67" column="1" bodyfile="viewjobs.cpp" bodystart="83" bodyend="87"/>
@@ -649,17 +708,20 @@
           <declname>event</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a832503ca9eb4e4bf79c2fb48a59141aa" kindref="member">ViewJobs::closeEvent</ref> Code to be executed when the user has ordered the window to be closed. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a832503ca9eb4e4bf79c2fb48a59141aa" kindref="member">ViewJobs::closeEvent</ref> Code to be executed when the user has ordered the window to be closed. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>event</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>No help available, sorry </para></parameterdescription>
+<para>No help available, sorry </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="viewjobs.h" line="68" column="1" bodyfile="viewjobs.cpp" bodystart="214" bodyend="252"/>
@@ -673,7 +735,8 @@
           <type>QShowEvent *</type>
         </param>
         <briefdescription>
-<para><ref refid="class_view_jobs_1a50f3a52f43e097d46e106e0aa31e9eb4" kindref="member">ViewJobs::showEvent</ref> Code to be run when the window is shown. </para>        </briefdescription>
+<para><ref refid="class_view_jobs_1a50f3a52f43e097d46e106e0aa31e9eb4" kindref="member">ViewJobs::showEvent</ref> Code to be run when the window is shown. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -753,7 +816,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="viewjobs.h" line="84" column="1" bodyfile="viewjobs.cpp" bodystart="457" bodyend="486"/>
+        <location file="viewjobs.h" line="84" column="1" bodyfile="viewjobs.cpp" bodystart="457" bodyend="492"/>
       </memberdef>
       <memberdef kind="slot" id="class_view_jobs_1aae7a18babf211b6f46d3d2ba3209e8d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -917,7 +980,8 @@
         <argsstring>()</argsstring>
         <name>windowLoaded</name>
         <briefdescription>
-<para>ViewJobs::windowLoaded Code to be executed after the window has been loaded. </para>        </briefdescription>
+<para>ViewJobs::windowLoaded Code to be executed after the window has been loaded. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -926,7 +990,8 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="class_view_jobs" kindref="compound">ViewJobs</ref> class. </para>    </briefdescription>
+<para>The <ref refid="class_view_jobs" kindref="compound">ViewJobs</ref> class. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>

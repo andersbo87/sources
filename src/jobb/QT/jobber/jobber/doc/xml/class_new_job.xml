@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="class_new_job" kind="class" language="C++" prot="public">
     <compoundname>NewJob</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -182,31 +182,36 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="class_new_job" kindref="compound">NewJob</ref> The <ref refid="class_new_job" kindref="compound">NewJob</ref> class constructor. </para>        </briefdescription>
+<para><ref refid="class_new_job" kindref="compound">NewJob</ref> The <ref refid="class_new_job" kindref="compound">NewJob</ref> class constructor. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>windowTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The title to be used in message boxes and other things. </para></parameterdescription>
+<para>The title to be used in message boxes and other things. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pg</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A pointer to the PostgreSQL database. </para></parameterdescription>
+<para>A pointer to the PostgreSQL database. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="48" column="1" bodyfile="newjob.cpp" bodystart="35" bodyend="58"/>
@@ -234,17 +239,20 @@
           <declname>event</declname>
         </param>
         <briefdescription>
-<para>closeEvent Code to be executed when the window closes </para>        </briefdescription>
+<para>closeEvent Code to be executed when the window closes </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>event</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>This pointer points to the QCloseEvent class that contains functions to prvent the window from closing. </para></parameterdescription>
+<para>This pointer points to the QCloseEvent class that contains functions to prvent the window from closing. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="56" column="1" bodyfile="newjob.cpp" bodystart="263" bodyend="320"/>
@@ -257,10 +265,13 @@
         <argsstring>()</argsstring>
         <name>canSave</name>
         <briefdescription>
-<para>Checks if all textboxes contains at least one character. </para>        </briefdescription>
+<para>Checks if all textboxes contains at least one character. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>True if all textboxes has at least one character, and false otherwise. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>True if all textboxes has at least one character, and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="60" column="1" bodyfile="newjob.cpp" bodystart="251" bodyend="261"/>
@@ -271,7 +282,8 @@
         <argsstring>()</argsstring>
         <name>getCityIDs</name>
         <briefdescription>
-<para>Creates a list of city IDs to be added to a combobox. </para>        </briefdescription>
+<para>Creates a list of city IDs to be added to a combobox. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -284,7 +296,8 @@
         <argsstring>()</argsstring>
         <name>getStatusIDs</name>
         <briefdescription>
-<para>Creates a list of status IDs to be added to a combobox. </para>        </briefdescription>
+<para>Creates a list of status IDs to be added to a combobox. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -301,17 +314,20 @@
           <declname>newTitle</declname>
         </param>
         <briefdescription>
-<para>NewJob::setTitle: Sets a new job title. </para>        </briefdescription>
+<para>NewJob::setTitle: Sets a new job title. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new job title. </para></parameterdescription>
+<para>The new job title. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="69" column="1" bodyfile="newjob.cpp" bodystart="329" bodyend="337"/>
@@ -326,17 +342,20 @@
           <declname>newCompany</declname>
         </param>
         <briefdescription>
-<para>NewJob::setCompany: Sets a new job company. </para>        </briefdescription>
+<para>NewJob::setCompany: Sets a new job company. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newCompany</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new job company </para></parameterdescription>
+<para>The new job company </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="70" column="1" bodyfile="newjob.cpp" bodystart="343" bodyend="350"/>
@@ -351,17 +370,20 @@
           <declname>newCityName</declname>
         </param>
         <briefdescription>
-<para>NewJob::setCityName: Sets the name of the city in which the job is located. </para>        </briefdescription>
+<para>NewJob::setCityName: Sets the name of the city in which the job is located. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newCityName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the name of the city in which the job is located. </para></parameterdescription>
+<para>the name of the city in which the job is located. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="71" column="1" bodyfile="newjob.cpp" bodystart="374" bodyend="382"/>
@@ -376,17 +398,20 @@
           <declname>newStatusID</declname>
         </param>
         <briefdescription>
-<para>NewJob::setStatusID: Sets the status ID of the job application. </para>        </briefdescription>
+<para>NewJob::setStatusID: Sets the status ID of the job application. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newStatusID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new status ID of the job application </para></parameterdescription>
+<para>The new status ID of the job application </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="72" column="1" bodyfile="newjob.cpp" bodystart="388" bodyend="391"/>
@@ -401,17 +426,20 @@
           <declname>newDate</declname>
         </param>
         <briefdescription>
-<para>NewJob::setDate: Sets the deadline for when the job application has to be sent. </para>        </briefdescription>
+<para>NewJob::setDate: Sets the deadline for when the job application has to be sent. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newDate</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The deadline of the new job. </para></parameterdescription>
+<para>The deadline of the new job. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="73" column="1" bodyfile="newjob.cpp" bodystart="397" bodyend="405"/>
@@ -426,17 +454,20 @@
           <declname>newMotivation</declname>
         </param>
         <briefdescription>
-<para>NewJob::setMotivation Sets the motivation for the current job. </para>        </briefdescription>
+<para>NewJob::setMotivation Sets the motivation for the current job. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newMotivation</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A string containing information about what motivated the user to apply for this job. </para></parameterdescription>
+<para>A string containing information about what motivated the user to apply for this job. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="74" column="1" bodyfile="newjob.cpp" bodystart="411" bodyend="414"/>
@@ -451,17 +482,20 @@
           <declname>newID</declname>
         </param>
         <briefdescription>
-<para>NewJob::setCityID Sets the ID of the existing city where the job is located. </para>        </briefdescription>
+<para>NewJob::setCityID Sets the ID of the existing city where the job is located. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The ID of the city where the job is located. </para></parameterdescription>
+<para>The ID of the city where the job is located. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="75" column="1" bodyfile="newjob.cpp" bodystart="365" bodyend="368"/>
@@ -472,10 +506,13 @@
         <argsstring>()</argsstring>
         <name>getTitle</name>
         <briefdescription>
-<para>NewJob::getTitle: Gets the position title. </para>        </briefdescription>
+<para>NewJob::getTitle: Gets the position title. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The position title </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The position title </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="76" column="1" bodyfile="newjob.cpp" bodystart="424" bodyend="427"/>
@@ -486,10 +523,13 @@
         <argsstring>()</argsstring>
         <name>getCompany</name>
         <briefdescription>
-<para>NewJob::getCompany: Gets the name of the company. </para>        </briefdescription>
+<para>NewJob::getCompany: Gets the name of the company. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The name of the company </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The name of the company </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="77" column="1" bodyfile="newjob.cpp" bodystart="433" bodyend="436"/>
@@ -500,10 +540,13 @@
         <argsstring>()</argsstring>
         <name>getCityName</name>
         <briefdescription>
-<para>NewJob::getCityID: Gets the ID of the city where the job is located. </para>        </briefdescription>
+<para>NewJob::getCityID: Gets the ID of the city where the job is located. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the ID of the city where the job is located. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the ID of the city where the job is located. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="78" column="1" bodyfile="newjob.cpp" bodystart="442" bodyend="445"/>
@@ -514,10 +557,13 @@
         <argsstring>()</argsstring>
         <name>getCityID</name>
         <briefdescription>
-<para>NewJob::getCityID Gets the ID of the city where the job is located. </para>        </briefdescription>
+<para>NewJob::getCityID Gets the ID of the city where the job is located. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The ID of the city where the job is located. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The ID of the city where the job is located. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="79" column="1" bodyfile="newjob.cpp" bodystart="356" bodyend="359"/>
@@ -528,10 +574,13 @@
         <argsstring>()</argsstring>
         <name>getStatusID</name>
         <briefdescription>
-<para>NewJob::getStatusID: Gets the current status ID of the job. </para>        </briefdescription>
+<para>NewJob::getStatusID: Gets the current status ID of the job. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>the ID of the job&apos;s status </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>the ID of the job&apos;s status </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="80" column="1" bodyfile="newjob.cpp" bodystart="451" bodyend="454"/>
@@ -542,10 +591,13 @@
         <argsstring>()</argsstring>
         <name>getDate</name>
         <briefdescription>
-<para>NewJob::getDate: Gets the job&apos;s current application deadline. </para>        </briefdescription>
+<para>NewJob::getDate: Gets the job&apos;s current application deadline. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The deadline of the job </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The deadline of the job </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="81" column="1" bodyfile="newjob.cpp" bodystart="460" bodyend="463"/>
@@ -556,10 +608,13 @@
         <argsstring>()</argsstring>
         <name>getMotivation</name>
         <briefdescription>
-<para>NewJob::getMotivation Gets the job&apos;s current motivations (what motivated the user to apply for this job?) </para>        </briefdescription>
+<para>NewJob::getMotivation Gets the job&apos;s current motivations (what motivated the user to apply for this job?) </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para></para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newjob.h" line="82" column="1" bodyfile="newjob.cpp" bodystart="469" bodyend="472"/>
@@ -572,7 +627,8 @@
         <argsstring>()</argsstring>
         <name>titleTextChanged</name>
         <briefdescription>
-<para>Executes when the contents of the text box lineEditTitle is changed. </para>        </briefdescription>
+<para>Executes when the contents of the text box lineEditTitle is changed. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -585,7 +641,8 @@
         <argsstring>()</argsstring>
         <name>companyTextChanged</name>
         <briefdescription>
-<para>Executes when the contents of the text box lineEditCompany is changed. </para>        </briefdescription>
+<para>Executes when the contents of the text box lineEditCompany is changed. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -598,7 +655,8 @@
         <argsstring>()</argsstring>
         <name>cityIDchanged</name>
         <briefdescription>
-<para>Executes when the selected item of the combobox comboBoxSted is changed. </para>        </briefdescription>
+<para>Executes when the selected item of the combobox comboBoxSted is changed. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -611,7 +669,8 @@
         <argsstring>()</argsstring>
         <name>statusIDchanged</name>
         <briefdescription>
-<para>Executes when the selected item of the combobox comboBoxStatusID is changed. </para>        </briefdescription>
+<para>Executes when the selected item of the combobox comboBoxStatusID is changed. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -624,7 +683,8 @@
         <argsstring>()</argsstring>
         <name>dateChanged</name>
         <briefdescription>
-<para>Executes when the contents of the text box lineEditDate is changed. </para>        </briefdescription>
+<para>Executes when the contents of the text box lineEditDate is changed. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -672,7 +732,8 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="class_new_job" kindref="compound">NewJob</ref> class. </para>    </briefdescription>
+<para>The <ref refid="class_new_job" kindref="compound">NewJob</ref> class. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>

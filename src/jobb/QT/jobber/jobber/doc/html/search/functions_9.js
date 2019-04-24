@@ -16,6 +16,7 @@ var searchData=
   ['setjobtitle',['setJobTitle',['../classadvanced_search.html#a698024f20a64fd27b1b352bce5c6f527',1,'advancedSearch']]],
   ['setmotivation',['setMotivation',['../classadvanced_search.html#a72e3b5ac068d875070165e865a03410c',1,'advancedSearch::setMotivation()'],['../class_view_jobs.html#a53bdfabaf2b442841d676f42ebbf975f',1,'ViewJobs::setMotivation()']]],
   ['setpassword',['setPassword',['../classpsql.html#a6c29350037550b7e5a5bb8f439c405f3',1,'psql']]],
+  ['setport',['setPort',['../classpsql.html#a62447c990c5c9f8deb6b8f6497117bfc',1,'psql']]],
   ['setstatus',['setStatus',['../classadvanced_search.html#a1530d628ce32b4c867349a075b3828c3',1,'advancedSearch::setStatus()'],['../class_new_status.html#a861326c3b5c45040b933e4e65a4646e2',1,'NewStatus::setStatus()']]],
   ['setstatusid',['setStatusID',['../class_show_statuses.html#a03eb52c13df7220ced551be7be69f822',1,'ShowStatuses::setStatusID()'],['../class_view_jobs.html#a55943415fd91377d5f701f7074ba58d6',1,'ViewJobs::setStatusID()']]],
   ['setstatusname',['setStatusName',['../class_show_statuses.html#ac4a3c02814d6a326a0d0a6bfc8239483',1,'ShowStatuses']]],

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.15">
   <compound refid="classadvanced_search" kind="class"><name>advancedSearch</name>
     <member refid="classadvanced_search_1a35a4411fd11058f8fb6103399134c8ba" kind="variable"><name>ui</name></member>
     <member refid="classadvanced_search_1a913729b759865671aeafbfda9e6c3134" kind="variable"><name>winTitle</name></member>
@@ -51,6 +51,7 @@
     <member refid="classconnect_psql_1aee2b55cd64f5b2fac084eda4e6db0075" kind="function"><name>connectPsql</name></member>
     <member refid="classconnect_psql_1a05a9846086c8bf231df64427ad469fb6" kind="function"><name>~connectPsql</name></member>
     <member refid="classconnect_psql_1a8d623dff6677fe5e3906ac5d3b2b8d0e" kind="function"><name>accept</name></member>
+    <member refid="classconnect_psql_1a6b11770e938266ffa436f9c2fce03b69" kind="slot"><name>portTextChanged</name></member>
     <member refid="classconnect_psql_1af145352c56458911344fe23f5eb2f288" kind="slot"><name>userTextChanged</name></member>
     <member refid="classconnect_psql_1ae47dabdadcc79da377f58cfb662886a3" kind="slot"><name>passwordTextChanged</name></member>
     <member refid="classconnect_psql_1a2cef2bfaacf41afa4f983b4b77947dd9" kind="slot"><name>hostTextChanged</name></member>
@@ -72,6 +73,7 @@
     <member refid="class_main_window_1a5aff5255ffc83644d51e8a6af9500ea5" kind="slot"><name>btn_NewCountry_Click</name></member>
     <member refid="class_main_window_1a5a8f403d1782b2d23e4a8db31b043591" kind="slot"><name>btn_ShowCountries_Click</name></member>
     <member refid="class_main_window_1a56a8a0eada3795d65040da81a1988fa4" kind="slot"><name>btn_SaveFile_Click</name></member>
+    <member refid="class_main_window_1ad0c53c75cc1432172502197ca4a4daa0" kind="slot"><name>btn_loadDB_Click</name></member>
     <member refid="class_main_window_1a868885039ee32b7c941c003d6dfd6fc0" kind="slot"><name>on_btnSpecificJobs_clicked</name></member>
     <member refid="class_main_window_1a1bcf3e21d50efa640c1e8fa21eccc766" kind="slot"><name>btnStatistic_Click</name></member>
     <member refid="class_main_window_1a97355a1a2226460f8a005645df7aa3c6" kind="slot"><name>windowLoaded</name></member>
@@ -177,6 +179,7 @@
     <member refid="classpsql_1ab6ba33b32955d9343406b4ac327f673d" kind="variable"><name>host</name></member>
     <member refid="classpsql_1a735c3b7e0782f90495a6a27e080ed293" kind="variable"><name>password</name></member>
     <member refid="classpsql_1a164c18771a65b0ae842d59e4c440a994" kind="variable"><name>winTitle</name></member>
+    <member refid="classpsql_1aeffa77997969517f61470a42bac39398" kind="variable"><name>port</name></member>
     <member refid="classpsql_1a84d762f07116e20fd58793b6b0327199" kind="variable"><name>connectionString</name></member>
     <member refid="classpsql_1aaff5fe0931dce097850982e44e6361af" kind="function"><name>psql</name></member>
     <member refid="classpsql_1aecc9fd93dc5ca0c4f4a63d445a36d166" kind="function"><name>getUsername</name></member>
@@ -185,6 +188,7 @@
     <member refid="classpsql_1a96b3b9483f1a642c026d4b5cf505eb75" kind="function"><name>setHost</name></member>
     <member refid="classpsql_1a6c29350037550b7e5a5bb8f439c405f3" kind="function"><name>setPassword</name></member>
     <member refid="classpsql_1a1488a9e4909abd172651b7be240342cb" kind="function"><name>setUsername</name></member>
+    <member refid="classpsql_1a62447c990c5c9f8deb6b8f6497117bfc" kind="function"><name>setPort</name></member>
     <member refid="classpsql_1ada485c933df77453629e3821ab19fa4c" kind="function"><name>connectDatabase</name></member>
     <member refid="classpsql_1a03f773904e698853caa0fcdb1f5b3809" kind="function"><name>insertApplication</name></member>
     <member refid="classpsql_1a767b85014d9df3eac148730f18888d6d" kind="function"><name>insertCity</name></member>
@@ -297,6 +301,10 @@
     <member refid="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" kind="slot"><name>lineEditCityNameChanged</name></member>
     <member refid="class_show_cities_1a2c111d1f43cca0d08c3fd8d82ef44c5d" kind="slot"><name>buttonSaveClicked</name></member>
     <member refid="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" kind="slot"><name>buttonDeleteClicked</name></member>
+    <member refid="class_show_cities_1a0405d6d081de28d55991d818c889dfe3" kind="slot"><name>btnFirstClicked</name></member>
+    <member refid="class_show_cities_1aecf18b573c5797a4b6712c5fa860adb2" kind="slot"><name>btnPrevClicked</name></member>
+    <member refid="class_show_cities_1ab37862ffb08f0b35676eff65dce2b3bb" kind="slot"><name>btnNextClicked</name></member>
+    <member refid="class_show_cities_1a37e388d95978727781325487d75845d7" kind="slot"><name>btnLastClicked</name></member>
     <member refid="class_show_cities_1a0c7cfcf4ddbfe1aba290e56228e565c5" kind="slot"><name>windowLoaded</name></member>
     <member refid="class_show_cities_1afb40165a902c3597aaba5572de22eb17" kind="slot"><name>buildComboboxCityList</name></member>
   </compound>

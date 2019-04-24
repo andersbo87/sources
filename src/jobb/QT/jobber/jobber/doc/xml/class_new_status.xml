@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="class_new_status" kind="class" language="C++" prot="public">
     <compoundname>NewStatus</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -104,31 +104,36 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="class_new_status" kindref="compound">NewStatus</ref> <ref refid="class_new_status" kindref="compound">NewStatus</ref> class constructor. </para>        </briefdescription>
+<para><ref refid="class_new_status" kindref="compound">NewStatus</ref> <ref refid="class_new_status" kindref="compound">NewStatus</ref> class constructor. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>windowTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The title to be used with message boxes (QMessageBox) </para></parameterdescription>
+<para>The title to be used with message boxes (QMessageBox) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pg</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A pointer to the PostgreSQL database class </para></parameterdescription>
+<para>A pointer to the PostgreSQL database class </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newstatus.h" line="45" column="1" bodyfile="newstatus.cpp" bodystart="35" bodyend="52"/>
@@ -156,17 +161,20 @@
           <declname>newStatus</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" kindref="member">NewStatus::setStatus</ref> Sets the new status name. </para>        </briefdescription>
+<para><ref refid="class_new_status_1a861326c3b5c45040b933e4e65a4646e2" kindref="member">NewStatus::setStatus</ref> Sets the new status name. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newStatus</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the name of the new status </para></parameterdescription>
+<para>the name of the new status </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newstatus.h" line="47" column="1" bodyfile="newstatus.cpp" bodystart="70" bodyend="75"/>
@@ -177,10 +185,13 @@
         <argsstring>()</argsstring>
         <name>getStatus</name>
         <briefdescription>
-<para><ref refid="class_new_status_1a7ea744ad1645c5954000983d50947154" kindref="member">NewStatus::getStatus</ref> Gets the current status name. </para>        </briefdescription>
+<para><ref refid="class_new_status_1a7ea744ad1645c5954000983d50947154" kindref="member">NewStatus::getStatus</ref> Gets the current status name. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The status name to be returned. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The status name to be returned. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newstatus.h" line="48" column="1" bodyfile="newstatus.cpp" bodystart="80" bodyend="83"/>
@@ -197,17 +208,20 @@
           <declname>event</declname>
         </param>
         <briefdescription>
-<para>closeEvent Code to be executed when the window closes </para>        </briefdescription>
+<para>closeEvent Code to be executed when the window closes </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>event</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>This pointer points to the QCloseEvent class that contains functions to prvent the window from closing. </para></parameterdescription>
+<para>This pointer points to the QCloseEvent class that contains functions to prvent the window from closing. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newstatus.h" line="52" column="1" bodyfile="newstatus.cpp" bodystart="89" bodyend="144"/>
@@ -218,10 +232,13 @@
         <argsstring>()</argsstring>
         <name>canSave</name>
         <briefdescription>
-<para>NewStatus::canSave Checks if the changes can be saved. </para>        </briefdescription>
+<para>NewStatus::canSave Checks if the changes can be saved. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>True if the changes can be saved and false otherwise. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>True if the changes can be saved and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="newstatus.h" line="56" column="1" bodyfile="newstatus.cpp" bodystart="58" bodyend="64"/>
@@ -256,7 +273,8 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="class_new_status" kindref="compound">NewStatus</ref> class. </para>    </briefdescription>
+<para>The <ref refid="class_new_status" kindref="compound">NewStatus</ref> class. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>

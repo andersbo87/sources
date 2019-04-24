@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="class_show_countries" kind="class" language="C++" prot="public">
     <compoundname>ShowCountries</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -142,31 +142,36 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="class_show_countries" kindref="compound">ShowCountries</ref> The <ref refid="class_show_countries" kindref="compound">ShowCountries</ref> class constructor. </para>        </briefdescription>
+<para><ref refid="class_show_countries" kindref="compound">ShowCountries</ref> The <ref refid="class_show_countries" kindref="compound">ShowCountries</ref> class constructor. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>windowTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The title to be used with message boxes (QMessageBox) </para></parameterdescription>
+<para>The title to be used with message boxes (QMessageBox) </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>pg</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A pointer to the PostgreSQL database class. </para></parameterdescription>
+<para>A pointer to the PostgreSQL database class. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="44" column="1" bodyfile="showcountries.cpp" bodystart="34" bodyend="53"/>
@@ -182,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="45" column="1" bodyfile="showcountries.cpp" bodystart="490" bodyend="493"/>
+        <location file="showcountries.h" line="45" column="1" bodyfile="showcountries.cpp" bodystart="495" bodyend="498"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -190,7 +195,8 @@
         <argsstring>()</argsstring>
         <name>getCountries</name>
         <briefdescription>
-<para><ref refid="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" kindref="member">ShowCountries::getCountries</ref> Builds a QLinkedList of integers. This list is then added to the combobox. </para>        </briefdescription>
+<para><ref refid="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" kindref="member">ShowCountries::getCountries</ref> Builds a QLinkedList of integers. This list is then added to the combobox. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -207,17 +213,20 @@
           <declname>countryID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">ShowCountries::getCountry</ref> Fetches information about the current country and fills the combobox and textbox with the new information. </para>        </briefdescription>
+<para><ref refid="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" kindref="member">ShowCountries::getCountry</ref> Fetches information about the current country and fills the combobox and textbox with the new information. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>countryID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The ID of the country in question. </para></parameterdescription>
+<para>The ID of the country in question. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="49" column="1" bodyfile="showcountries.cpp" bodystart="105" bodyend="122"/>
@@ -228,10 +237,13 @@
         <argsstring>()</argsstring>
         <name>getCountryID</name>
         <briefdescription>
-<para><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">ShowCountries::getCountryID</ref> Gets the ID of the current country. </para>        </briefdescription>
+<para><ref refid="class_show_countries_1a02956713871e89645487500f3c9b77b8" kindref="member">ShowCountries::getCountryID</ref> Gets the ID of the current country. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The identification number to be returned </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The identification number to be returned </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="50" column="1" bodyfile="showcountries.cpp" bodystart="60" bodyend="63"/>
@@ -242,10 +254,13 @@
         <argsstring>()</argsstring>
         <name>getCountryName</name>
         <briefdescription>
-<para><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">ShowCountries::getCountryName</ref> Gets the name of the current country. </para>        </briefdescription>
+<para><ref refid="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" kindref="member">ShowCountries::getCountryName</ref> Gets the name of the current country. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>The name of the country </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>The name of the country </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="51" column="1" bodyfile="showcountries.cpp" bodystart="69" bodyend="72"/>
@@ -260,17 +275,20 @@
           <declname>newID</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" kindref="member">ShowCountries::setCountryID</ref> Sets the current identification number of a country. </para>        </briefdescription>
+<para><ref refid="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" kindref="member">ShowCountries::setCountryID</ref> Sets the current identification number of a country. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newID</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new country ID </para></parameterdescription>
+<para>The new country ID </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="52" column="1" bodyfile="showcountries.cpp" bodystart="79" bodyend="87"/>
@@ -285,17 +303,20 @@
           <declname>newName</declname>
         </param>
         <briefdescription>
-<para><ref refid="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" kindref="member">ShowCountries::setCountryName</ref> Sets a new name of the current country. </para>        </briefdescription>
+<para><ref refid="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" kindref="member">ShowCountries::setCountryName</ref> Sets a new name of the current country. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>newName</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The new name of the country </para></parameterdescription>
+<para>The new name of the country </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="53" column="1" bodyfile="showcountries.cpp" bodystart="93" bodyend="98"/>
@@ -308,7 +329,8 @@
         <argsstring>()</argsstring>
         <name>checkChanges</name>
         <briefdescription>
-<para>ShowCountries::checkChanges Checks if there are unsaved changes. </para>        </briefdescription>
+<para>ShowCountries::checkChanges Checks if there are unsaved changes. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -330,7 +352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="65" column="1" bodyfile="showcountries.cpp" bodystart="450" bodyend="489"/>
+        <location file="showcountries.h" line="65" column="1" bodyfile="showcountries.cpp" bodystart="455" bodyend="494"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a5052803c523df8fddd5ad1b60279a390" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -346,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="66" column="1" bodyfile="showcountries.cpp" bodystart="445" bodyend="448"/>
+        <location file="showcountries.h" line="66" column="1" bodyfile="showcountries.cpp" bodystart="450" bodyend="453"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1aa85731fff2063eca9c9ac5114f129a95" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -354,10 +376,13 @@
         <argsstring>()</argsstring>
         <name>isChanged</name>
         <briefdescription>
-<para>ShowCountries::isChanged Checks if there are unsaved changes in the current record. </para>        </briefdescription>
+<para>ShowCountries::isChanged Checks if there are unsaved changes in the current record. </para>
+        </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para>True if ther have been one or more changes and false otherwise. </para></simplesect>
-</para>        </detaileddescription>
+<para><simplesect kind="return"><para>True if ther have been one or more changes and false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="67" column="1" bodyfile="showcountries.cpp" bodystart="170" bodyend="173"/>
@@ -372,17 +397,20 @@
           <declname>change</declname>
         </param>
         <briefdescription>
-<para>ShowCountries::setChanged Use this method once a change have been saved to the database or if the user is modifying some data. </para>        </briefdescription>
+<para>ShowCountries::setChanged Use this method once a change have been saved to the database or if the user is modifying some data. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>change</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>True if there have been one or more changes and false if the changes have been saved. </para></parameterdescription>
+<para>True if there have been one or more changes and false if the changes have been saved. </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
         <location file="showcountries.h" line="68" column="1" bodyfile="showcountries.cpp" bodystart="179" bodyend="183"/>
@@ -469,7 +497,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="76" column="1" bodyfile="showcountries.cpp" bodystart="392" bodyend="421"/>
+        <location file="showcountries.h" line="76" column="1" bodyfile="showcountries.cpp" bodystart="392" bodyend="426"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_countries_1a3f6e1184b4cdb13635bc903418e076b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -482,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="77" column="1" bodyfile="showcountries.cpp" bodystart="423" bodyend="435"/>
+        <location file="showcountries.h" line="77" column="1" bodyfile="showcountries.cpp" bodystart="428" bodyend="440"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_countries_1abd06adcfa6e0f5b56d4c1e1594704a64" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -521,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="80" column="1" bodyfile="showcountries.cpp" bodystart="437" bodyend="443"/>
+        <location file="showcountries.h" line="80" column="1" bodyfile="showcountries.cpp" bodystart="442" bodyend="448"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

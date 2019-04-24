@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="advanced_search_8cpp" kind="file" language="C++">
     <compoundname>advancedSearch.cpp</compoundname>
     <includes refid="advanced_search_8h" local="yes">advancedSearch.h</includes>
@@ -119,7 +119,7 @@
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Konstruktør<sp/>og<sp/>destruktør</highlight></codeline>
 <codeline lineno="35"><highlight class="comment"></highlight><highlight class="normal"><ref refid="classadvanced_search_1ae9e0253869871c6af23d804fdc78d184" kindref="member">advancedSearch::advancedSearch</ref>(QString<sp/>title,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent)<sp/>:</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>QMainWindow(parent),</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/><ref refid="namespace_ui" kindref="compound">Ui</ref>::SpesicficJobs)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/>Ui::SpesicficJobs)</highlight></codeline>
 <codeline lineno="38"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>winTitle<sp/>=<sp/>title;</highlight></codeline>

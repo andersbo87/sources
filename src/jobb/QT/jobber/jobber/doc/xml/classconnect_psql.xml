@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="classconnect_psql" kind="class" language="C++" prot="public">
     <compoundname>connectPsql</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QDialog</basecompoundref>
@@ -11,7 +11,8 @@
         <argsstring></argsstring>
         <name>p</name>
         <briefdescription>
-<para>p A PostgreSQL pointer </para>        </briefdescription>
+<para>p A PostgreSQL pointer </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -102,27 +103,31 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="classconnect_psql_1aee2b55cd64f5b2fac084eda4e6db0075" kindref="member">connectPsql::connectPsql</ref> Class constructor </para>        </briefdescription>
+<para><ref refid="classconnect_psql_1aee2b55cd64f5b2fac084eda4e6db0075" kindref="member">connectPsql::connectPsql</ref> Class constructor </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>windowTitle</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The title to be used in message boxes, etc. </para></parameterdescription>
+<para>The title to be used in message boxes, etc. </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="connectpsql.h" line="50" column="1" bodyfile="connectpsql.cpp" bodystart="35" bodyend="53"/>
+        <location file="connectpsql.h" line="50" column="1" bodyfile="connectpsql.cpp" bodystart="35" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classconnect_psql_1a05a9846086c8bf231df64427ad469fb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -135,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="connectpsql.h" line="52" column="1" bodyfile="connectpsql.cpp" bodystart="95" bodyend="98"/>
+        <location file="connectpsql.h" line="52" column="1" bodyfile="connectpsql.cpp" bodystart="114" bodyend="117"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -145,27 +150,42 @@
         <argsstring>()</argsstring>
         <name>accept</name>
         <briefdescription>
-<para>accept </para>        </briefdescription>
+<para>accept </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="connectpsql.h" line="59" column="1" bodyfile="connectpsql.cpp" bodystart="55" bodyend="69"/>
+        <location file="connectpsql.h" line="59" column="1" bodyfile="connectpsql.cpp" bodystart="57" bodyend="71"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classconnect_psql_1a6b11770e938266ffa436f9c2fce03b69" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void connectPsql::portTextChanged</definition>
+        <argsstring>()</argsstring>
+        <name>portTextChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="connectpsql.h" line="62" column="1" bodyfile="connectpsql.cpp" bodystart="73" bodyend="88"/>
+      </memberdef>
       <memberdef kind="slot" id="classconnect_psql_1af145352c56458911344fe23f5eb2f288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void connectPsql::userTextChanged</definition>
         <argsstring>()</argsstring>
         <name>userTextChanged</name>
         <briefdescription>
-<para>connectPsql::userTextChanged: Sets the new username </para>        </briefdescription>
+<para>connectPsql::userTextChanged: Sets the new username </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="connectpsql.h" line="62" column="1" bodyfile="connectpsql.cpp" bodystart="74" bodyend="78"/>
+        <location file="connectpsql.h" line="63" column="1" bodyfile="connectpsql.cpp" bodystart="93" bodyend="97"/>
       </memberdef>
       <memberdef kind="slot" id="classconnect_psql_1ae47dabdadcc79da377f58cfb662886a3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -173,12 +193,13 @@
         <argsstring>()</argsstring>
         <name>passwordTextChanged</name>
         <briefdescription>
-<para>connectPsql::passwordTextChanged: Sets the new password </para>        </briefdescription>
+<para>connectPsql::passwordTextChanged: Sets the new password </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="connectpsql.h" line="63" column="1" bodyfile="connectpsql.cpp" bodystart="83" bodyend="86"/>
+        <location file="connectpsql.h" line="64" column="1" bodyfile="connectpsql.cpp" bodystart="102" bodyend="105"/>
       </memberdef>
       <memberdef kind="slot" id="classconnect_psql_1a2cef2bfaacf41afa4f983b4b77947dd9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -186,16 +207,18 @@
         <argsstring>()</argsstring>
         <name>hostTextChanged</name>
         <briefdescription>
-<para>connectPsql::hostTextChanged: Sets the new host (server&apos;s IP address). </para>        </briefdescription>
+<para>connectPsql::hostTextChanged: Sets the new host (server&apos;s IP address). </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="connectpsql.h" line="64" column="1" bodyfile="connectpsql.cpp" bodystart="91" bodyend="94"/>
+        <location file="connectpsql.h" line="65" column="1" bodyfile="connectpsql.cpp" bodystart="110" bodyend="113"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="classconnect_psql" kindref="compound">connectPsql</ref> class. </para>    </briefdescription>
+<para>The <ref refid="classconnect_psql" kindref="compound">connectPsql</ref> class. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
@@ -227,7 +250,7 @@
         <link refid="classpsql"/>
       </node>
     </collaborationgraph>
-    <location file="connectpsql.h" line="41" column="1" bodyfile="connectpsql.h" bodystart="40" bodyend="65"/>
+    <location file="connectpsql.h" line="41" column="1" bodyfile="connectpsql.h" bodystart="40" bodyend="66"/>
     <listofallmembers>
       <member refid="classconnect_psql_1a8d623dff6677fe5e3906ac5d3b2b8d0e" prot="private" virt="non-virtual"><scope>connectPsql</scope><name>accept</name></member>
       <member refid="classconnect_psql_1aee2b55cd64f5b2fac084eda4e6db0075" prot="public" virt="non-virtual"><scope>connectPsql</scope><name>connectPsql</name></member>
@@ -236,6 +259,7 @@
       <member refid="classconnect_psql_1a5855dbe20b8e699563c0958462236bf2" prot="public" virt="non-virtual"><scope>connectPsql</scope><name>p</name></member>
       <member refid="classconnect_psql_1aa0a31bdfe1ba3f077db823b92a7b07d2" prot="private" virt="non-virtual"><scope>connectPsql</scope><name>password</name></member>
       <member refid="classconnect_psql_1ae47dabdadcc79da377f58cfb662886a3" prot="private" virt="non-virtual"><scope>connectPsql</scope><name>passwordTextChanged</name></member>
+      <member refid="classconnect_psql_1a6b11770e938266ffa436f9c2fce03b69" prot="private" virt="non-virtual"><scope>connectPsql</scope><name>portTextChanged</name></member>
       <member refid="classconnect_psql_1a36beec0f69b64ac6b5a02beedd801cf2" prot="private" virt="non-virtual"><scope>connectPsql</scope><name>ui</name></member>
       <member refid="classconnect_psql_1a612e60afe773f4a64d473c6be30130dd" prot="private" virt="non-virtual"><scope>connectPsql</scope><name>userName</name></member>
       <member refid="classconnect_psql_1af145352c56458911344fe23f5eb2f288" prot="private" virt="non-virtual"><scope>connectPsql</scope><name>userTextChanged</name></member>

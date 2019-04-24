@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="class_main_window" kind="class" language="C++" prot="public">
     <compoundname>MainWindow</compoundname>
     <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
@@ -11,7 +11,8 @@
         <argsstring></argsstring>
         <name>cp</name>
         <briefdescription>
-<para>cp A pointer to the <ref refid="classconnect_psql" kindref="compound">connectPsql</ref> class </para>        </briefdescription>
+<para>cp A pointer to the <ref refid="classconnect_psql" kindref="compound">connectPsql</ref> class </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
@@ -72,20 +73,23 @@
           <defval>0</defval>
         </param>
         <briefdescription>
-<para><ref refid="class_main_window" kindref="compound">MainWindow</ref> Class constructor. </para>        </briefdescription>
+<para><ref refid="class_main_window" kindref="compound">MainWindow</ref> Class constructor. </para>
+        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>parent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-</para>        </detaileddescription>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="52" column="1" bodyfile="mainwindow.cpp" bodystart="44" bodyend="69"/>
+        <location file="mainwindow.h" line="52" column="1" bodyfile="mainwindow.cpp" bodystart="44" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="class_main_window_1ae98d00a93bc118200eeef9f9bba1dba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -98,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="53" column="1" bodyfile="mainwindow.cpp" bodystart="249" bodyend="252"/>
+        <location file="mainwindow.h" line="53" column="1" bodyfile="mainwindow.cpp" bodystart="278" bodyend="281"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -116,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="59" column="1" bodyfile="mainwindow.cpp" bodystart="71" bodyend="74"/>
+        <location file="mainwindow.h" line="59" column="1" bodyfile="mainwindow.cpp" bodystart="72" bodyend="75"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -131,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="61" column="1" bodyfile="mainwindow.cpp" bodystart="239" bodyend="247"/>
+        <location file="mainwindow.h" line="61" column="1" bodyfile="mainwindow.cpp" bodystart="268" bodyend="276"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a7e3a94a9b34da2bfe862a9c8a0676225" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -144,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="62" column="1" bodyfile="mainwindow.cpp" bodystart="232" bodyend="236"/>
+        <location file="mainwindow.h" line="62" column="1" bodyfile="mainwindow.cpp" bodystart="261" bodyend="265"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1ad58600dc7c0d7f518a035d297fc60cf3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -157,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="63" column="1" bodyfile="mainwindow.cpp" bodystart="226" bodyend="230"/>
+        <location file="mainwindow.h" line="63" column="1" bodyfile="mainwindow.cpp" bodystart="255" bodyend="259"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1abf37dceec43fb1150909eec80702e8b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -170,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="64" column="1" bodyfile="mainwindow.cpp" bodystart="208" bodyend="212"/>
+        <location file="mainwindow.h" line="64" column="1" bodyfile="mainwindow.cpp" bodystart="237" bodyend="241"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a5201424858fc59c07b1fa99930047fd3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -183,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="65" column="1" bodyfile="mainwindow.cpp" bodystart="214" bodyend="218"/>
+        <location file="mainwindow.h" line="65" column="1" bodyfile="mainwindow.cpp" bodystart="243" bodyend="247"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a97575597609e5b060c1e7a84cec5a21e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -196,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="66" column="1" bodyfile="mainwindow.cpp" bodystart="220" bodyend="224"/>
+        <location file="mainwindow.h" line="66" column="1" bodyfile="mainwindow.cpp" bodystart="249" bodyend="253"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a5aff5255ffc83644d51e8a6af9500ea5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -209,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="67" column="1" bodyfile="mainwindow.cpp" bodystart="190" bodyend="194"/>
+        <location file="mainwindow.h" line="67" column="1" bodyfile="mainwindow.cpp" bodystart="219" bodyend="223"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a5a8f403d1782b2d23e4a8db31b043591" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -222,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="68" column="1" bodyfile="mainwindow.cpp" bodystart="202" bodyend="206"/>
+        <location file="mainwindow.h" line="68" column="1" bodyfile="mainwindow.cpp" bodystart="231" bodyend="235"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a56a8a0eada3795d65040da81a1988fa4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -230,12 +234,27 @@
         <argsstring>()</argsstring>
         <name>btn_SaveFile_Click</name>
         <briefdescription>
+<para>MainWindow::btn_SaveFile_Click Creates a SQL file with the existing database contents. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="69" column="1" bodyfile="mainwindow.cpp" bodystart="182" bodyend="188"/>
+        <location file="mainwindow.h" line="69" column="1" bodyfile="mainwindow.cpp" bodystart="211" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1ad0c53c75cc1432172502197ca4a4daa0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::btn_loadDB_Click</definition>
+        <argsstring>()</argsstring>
+        <name>btn_loadDB_Click</name>
+        <briefdescription>
+<para>MainWindow::btn_loadDB_Click Deletes the database and recreates it from a SQL file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="mainwindow.h" line="70" column="1" bodyfile="mainwindow.cpp" bodystart="186" bodyend="206"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a868885039ee32b7c941c003d6dfd6fc0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -248,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="70" column="1" bodyfile="mainwindow.cpp" bodystart="256" bodyend="260"/>
+        <location file="mainwindow.h" line="71" column="1" bodyfile="mainwindow.cpp" bodystart="285" bodyend="289"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a1bcf3e21d50efa640c1e8fa21eccc766" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -261,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="71" column="1" bodyfile="mainwindow.cpp" bodystart="196" bodyend="200"/>
+        <location file="mainwindow.h" line="72" column="1" bodyfile="mainwindow.cpp" bodystart="225" bodyend="229"/>
       </memberdef>
       <memberdef kind="slot" id="class_main_window_1a97355a1a2226460f8a005645df7aa3c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -274,11 +293,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="mainwindow.h" line="72" column="1" bodyfile="mainwindow.cpp" bodystart="76" bodyend="180"/>
+        <location file="mainwindow.h" line="73" column="1" bodyfile="mainwindow.cpp" bodystart="77" bodyend="181"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="class_main_window" kindref="compound">MainWindow</ref> class. </para>    </briefdescription>
+<para>The <ref refid="class_main_window" kindref="compound">MainWindow</ref> class. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
@@ -322,8 +342,9 @@
         <link refid="classpsql"/>
       </node>
     </collaborationgraph>
-    <location file="mainwindow.h" line="39" column="1" bodyfile="mainwindow.h" bodystart="38" bodyend="73"/>
+    <location file="mainwindow.h" line="39" column="1" bodyfile="mainwindow.h" bodystart="38" bodyend="74"/>
     <listofallmembers>
+      <member refid="class_main_window_1ad0c53c75cc1432172502197ca4a4daa0" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_loadDB_Click</name></member>
       <member refid="class_main_window_1ad58600dc7c0d7f518a035d297fc60cf3" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_NewCity_Click</name></member>
       <member refid="class_main_window_1a5aff5255ffc83644d51e8a6af9500ea5" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_NewCountry_Click</name></member>
       <member refid="class_main_window_1a2e3be5f32da15065bc69979a331fd05e" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>btn_newJob_Click</name></member>

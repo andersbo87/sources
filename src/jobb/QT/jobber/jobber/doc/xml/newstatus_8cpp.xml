@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="newstatus_8cpp" kind="file" language="C++">
     <compoundname>newstatus.cpp</compoundname>
     <includes refid="newstatus_8h" local="yes">newstatus.h</includes>
@@ -134,7 +134,7 @@
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><ref refid="class_new_status_1a5a09743191f617f006bc89e4b35984bf" kindref="member">NewStatus::NewStatus</ref>(QString<sp/>windowTitle,<sp/><ref refid="classpsql" kindref="compound">psql</ref><sp/>*pg,<sp/>QWidget<sp/>*parent)<sp/>:</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>QMainWindow(parent),</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/><ref refid="namespace_ui" kindref="compound">Ui</ref>::<ref refid="class_new_status" kindref="compound">NewStatus</ref>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>ui(new<sp/>Ui::<ref refid="class_new_status" kindref="compound">NewStatus</ref>)</highlight></codeline>
 <codeline lineno="38"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>p<sp/>=<sp/>pg;</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>ui-&gt;setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
