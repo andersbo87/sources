@@ -2,28 +2,28 @@
 /*By George Chiang (JK's JavaScript tutorial)
         http://www.javascriptkit.com
         Credit MUST stay intact for use*/
-        var dn
-        c1=new Image(); c1.src="/lauraingallswilder/images/c1.gif"
-        c2=new Image(); c2.src="/lauraingallswilder/images/c2.gif"
-        c3=new Image(); c3.src="/lauraingallswilder/images/c3.gif"
-        c4=new Image(); c4.src="/lauraingallswilder/images/c4.gif"
-        c5=new Image(); c5.src="/lauraingallswilder/images/c5.gif"
-        c6=new Image(); c6.src="/lauraingallswilder/images/c6.gif"
-        c7=new Image(); c7.src="/lauraingallswilder/images/c7.gif"
-        c8=new Image(); c8.src="/lauraingallswilder/images/c8.gif"
-        c9=new Image(); c9.src="/lauraingallswilder/images/c9.gif"
-        c0=new Image(); c0.src="/lauraingallswilder/images/c0.gif"
-        cb=new Image(); cb.src="/lauraingallswilder/images/cb.gif"
-        cam=new Image(); cam.src="/lauraingallswilder/images/cam.gif"
-        cpm=new Image(); cpm.src="/lauraingallswilder/images/cpm.gif"
-        colon=new Image(); colon.src="/lauraingallswilder/images/colon.gif"
+        var dn, imgPath = "./images/";
+        c1=new Image(); c1.src= imgPath + "c1.gif"
+        c2=new Image(); c2.src= imgPath + "c2.gif"
+        c3=new Image(); c3.src= imgPath + "c3.gif"
+        c4=new Image(); c4.src= imgPath + "c4.gif"
+        c5=new Image(); c5.src= imgPath + "c5.gif"
+        c6=new Image(); c6.src= imgPath + "c6.gif"
+        c7=new Image(); c7.src= imgPath + "c7.gif"
+        c8=new Image(); c8.src= imgPath + "c8.gif"
+        c9=new Image(); c9.src= imgPath + "c9.gif"
+        c0=new Image(); c0.src= imgPath + "c0.gif"
+        cb=new Image(); cb.src= imgPath + "cb.gif"
+        cam=new Image(); cam.src= imgPath + "cam.gif"
+        cpm=new Image(); cpm.src= imgPath + "cpm.gif"
+        colon=new Image(); colon.src= imgPath + "colon.gif"
         function extract(h,m,s,type)
         {
             if (!document.images)
                 return
             if (h<=9)
             {
-                document.images.a.src="/lauraingallswilder/images/c0.gif"
+                document.images.a.src= imgPath + "c0.gif"
                 document.images.b.src=eval("c"+h+".src")
             }
             else 
@@ -33,7 +33,7 @@
             }
             if (m<=9)
             {
-                document.images.d.src="/lauraingallswilder/images/c0.gif"
+                document.images.d.src= imgPath + "c0.gif"
                 document.images.e.src=eval("c"+m+".src")
             }
             else 
@@ -43,7 +43,7 @@
             }
             if (s<=9)
             {
-                document.g.src="/lauraingallswilder/images/c0.gif"
+                document.g.src= imgPath + "c0.gif"
                 document.images.h.src=eval("c"+s+".src")
             }
             else 

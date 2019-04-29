@@ -12,7 +12,6 @@
     <a href="books.php">Little House-bøkene</a><br />
     <a href="contact.php">Kontakt</a><br />
     <a href="tvseries.php">TV-serie</a><br />
-    <a href="tvminiseries.php">TV-miniserie</a>
     <br />
     <h1>Kontakt webmasteren</h1>
     <br />

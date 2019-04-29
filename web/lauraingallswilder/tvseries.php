@@ -1,10 +1,10 @@
 <html>
   <head>
     <title>"Little House on the Prairie" TV-serie</title>
-    <link rel="stylesheet" type="text/css" href="css/laura_main.css" />
-    <link rel="shortcut icon" href="images/lauraingallswilder/little_house_icon.ico" />
-    <script type="text/javascript" src="js/laura_main.js"></script>
-    <script type="text/javascript" src="js/klokke.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/laura_main.css" />
+    <link rel="shortcut icon" href="./images/lauraingallswilder/little_house_icon.ico" />
+    <script type="text/javascript" src="./js/laura_main.js"></script>
+    <script type="text/javascript" src="./js/klokke.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script type="text/javascript">
       function redirect(page)
@@ -85,7 +85,7 @@
       <table border="0">
 	<tr>
 	  <td colspan="2">
-	    <img src="images/laura-banner.jpg" />
+	    <img src="./images/laura-banner.jpg" />
 	    <br />
 	    <script type="text/javascript">
 	      var currentTime = new Date();
@@ -95,7 +95,7 @@
 	      document.write(day + "." + month + "." + year);
 	    </script>
 	    klokken 
-	    <img src="images/c0.gif" name="a"><img src="images/c0.gif" name="b"><img src="images/colon.gif" name="c"><img src="images/c0.gif" name="d"><img src="images/c0.gif" name="e"><img src="images/colon.gif" name="f"><img src="images/c0.gif" name="g"><img src="images/c0.gif" name="h">
+	    <img src="./images/c0.gif" name="a"><img src="./images/c0.gif" name="b"><img src="./images/colon.gif" name="c"><img src="./images/c0.gif" name="d"><img src="./images/c0.gif" name="e"><img src="./images/colon.gif" name="f"><img src="./images/c0.gif" name="g"><img src="./images/c0.gif" name="h">
 	  </td>
 	</tr>
 	<tr>
@@ -124,11 +124,6 @@
                        value="Little House-bøkene"
                        style="width: 200px"
                        onclick="window.location.href='books.php'" />
-                <br />
-                <input type="button"
-                       value="TV-miniserie"
-                       style="width: 200px"
-                       onclick="window.location.href='tvminiseries.php'" />
                 <br />
                 <input type="button"
                        value="TV-serie"

@@ -57,7 +57,6 @@
 	<a href="books.php">Little House-bøkene</a><br />
 	<a href="contact.php">Kontakt</a><br />
 	<a href="tvseries.php">TV-serie</a><br />
-	<a href="tvminiseries.php">TV-miniserie</a><br />
 	<br/>
 	<h1>Little House-bøkene</h1>
 	<br />
@@ -75,14 +74,12 @@
 	Du finner informasjon om de ulike bøkene ved å velge en
 	tittel fra listen under og klikke "Send."
 	<br />
-	<?php 
-	   $link = mysql_connect("localhost", "webuser", "wEb4321User!");
-	   if(!$link)
+	<?php
+	   $sql = new mysqli("localhost", "webuser", "wEb4321User!", "little_house");
+	   if($sql->connect_errno)
 	   {
-	      die("Could not connect: " . mysql_error());
+		echo "Kunne ikke koble til databasen: (" . $sql->connect_errno . "): " . $sql->connect_error;
 	   }
-	   $dbname = "little_house";
-	   mysql_select_db($dbname);
 	   echo "<form action='books.php' method='get'>\n";
 	   echo "<select name='book' onchange=redirect(this.value);>\n";
 	   echo "<option selected='selected'>Velg en boktittel</option>\n";
@@ -105,8 +102,8 @@
 	   }
 	   else
 	   {
-	      $result = mysql_query("SELECT * FROM tbl_books WHERE bookTitle='" . $chosen . "'") or die(mysql_error());
-	      $row = mysql_fetch_array($result);
+	      $result = $sql->query("SELECT * FROM tbl_books WHERE bookTitle='" . $chosen . "'");
+	      $row = $result->fetch_assoc();
 	      echo "<table border='0' id='bookData'>\n";
 	      echo "<tr>\n";
 	      echo "<td valign='center' colspan='2'>\n";
@@ -182,7 +179,6 @@
 	      echo "<br /><br />\n";
 	      echo $row["description"] . "\n";
 	   }
-	   mysql_close($link);
 	?>
   </body>
 </html>

@@ -52,7 +52,6 @@
     <a href="books.php">Little House-bøkene</a><br />
     <a href="contact.php">Kontakt</a><br />
     <a href="tvseries.php">TV-serie</a><br />
-    <a href="tvminiseries.php">TV-miniserie</a><br >
     <br />
     <h1>Byene Laura og familien har bodd i</h1>
     <br />
@@ -67,13 +66,11 @@
     <br />
     <br />
     <?php
-       $link = mysql_connect("localhost", "webuser", "wEb4321User!");
-       if(!$link)
+       $sql = new mysqli("localhost", "webuser", "wEb4321User!", "little_house");
+       if($sql->connect_errno)
        {
-          die("Kunne ikke koble til: " . mysql_error());
+		echo "Kunne ikke koble til databasen: (" . $sql->connect_errno . "): " . $sql->connect_error;
        }
-       $dbname = "little_house";
-       mysql_select_db($dbname);
        echo "<form action='towns.php' method='get'>\n";
        echo "<select name='town' onchange=redirect(this.value);>\n";
        echo "<option selected>Velg en by</option>\n";
@@ -95,13 +92,12 @@
        }
        else
        {
-          $result=mysql_query("SELECT * FROM tbl_town WHERE townName='" . $chosen . "'") or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result=$sql->query("SELECT * FROM tbl_town WHERE townName='" . $chosen . "'");
+          $row = $result->fetch_assoc();
           echo "<h2>" . $row["townName"] . "</h2>\n";
           echo "<br /><br />\n";
           echo $row["townInfo"] . "\n";
        }
-       mysql_close($link);
     ?>
   </body>
 </html>

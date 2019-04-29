@@ -1,10 +1,10 @@
 <html>
   <head>
     <title>Little House-bøkene</title>
-    <link rel="shortcut icon" href="images/lauraingallswilder/little_house_icon.ico" />
-    <link rel="stylesheet" type="text/css" href="css/laura_main.css" />
-    <script type="text/javascript" src="js/laura_main.js"></script>
-    <script type="text/javascript" src="js/laura_klokke.js"></script>
+    <link rel="shortcut icon" href="./images/lauraingallswilder/little_house_icon.ico" />
+    <link rel="stylesheet" type="text/css" href="./css/laura_main.css" />
+    <script type="text/javascript" src="./js/laura_main.js"></script>
+    <script type="text/javascript" src="./js/laura_klokke.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script type="text/javascript">
       function redirect(page)
@@ -52,15 +52,15 @@
       }
       function openLittleHouseWayside()
       {
-         var wayside = window.open("sources_images/little_house_wayside_replica.html","","scrollbars=1, location=1, status=1, height=300, width=300");
+         var wayside = window.open("./sources_images/little_house_wayside_replica.html","","scrollbars=1, location=1, status=1, height=300, width=300");
       }
       function openSurveyor()
       {
-        var surveior = window.open("sources_images/surveyors_house.html","","scrollbars=1, location=1, status=1, height=300. width=300");
+        var surveior = window.open("./sources_images/surveyors_house.html","","scrollbars=1, location=1, status=1, height=300. width=300");
       }
       function openTrainStuck()
       {
-         var trainStuck = window.open("sources_images/train_stuck_in_snow.html","","scrollbars=1, location=1, status=1, height=300, width=300");
+         var trainStuck = window.open("./sources_images/train_stuck_in_snow.html","","scrollbars=1, location=1, status=1, height=300, width=300");
       }
       function askUserConfirmation()
       {
@@ -100,7 +100,7 @@
 	     laster så inn en hel haug med bilder 
 	     som skal bli til en digital klokke 
 	    -->
-	  <img src="images/c0.gif" name="a"><img src="images/c0.gif" name="b"><img src="images/colon.gif" name="c"><img src="images/c0.gif" name="d"><img src="images/c0.gif" name="e"><img src="images/colon.gif" name="f"><img src="images/c0.gif" name="g"><img src="images/c0.gif" name="h">
+	  <img src="./images/c0.gif" name="a"><img src="./images/c0.gif" name="b"><img src="./images/colon.gif" name="c"><img src="./images/c0.gif" name="d"><img src="./images/c0.gif" name="e"><img src="./images/colon.gif" name="f"><img src="./images/c0.gif" name="g"><img src="./images/c0.gif" name="h">
 	</td>
       </tr>
       <tr>
@@ -129,11 +129,6 @@
 		       value="Little House-bøkene"
 		       style="width: 200px"
 		       onclick="window.location.href='books.php'" />
-		<br />
-		<input type="button"
-		       value="TV-miniserie"
-		       style="width: 200px"
-		       onclick="window.location.href='tvminiseries.php'" />
 		<br />
 		<input type="button"
 		       value="TV-serie"

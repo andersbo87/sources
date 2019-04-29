@@ -1,10 +1,10 @@
 <html>
   <head>
     <title>Byene som Laura og familien har bodd i</title>
-    <link rel="shortcut icon" href="/lauraingallswilder/images/lauraingallswilder/little_house_icon.ico" />
-    <link rel="stylesheet" type="text/css" href="/lauraingallswilder/css/laura_main.css" />
-    <script type="text/javascript" src="/lauraingallswilder/js/laura_main.js"></script>
-    <script type="text/javascript" src="/lauraingallswilder/js/laura_klokke.js"></script>
+    <link rel="shortcut icon" href="./images/lauraingallswilder/little_house_icon.ico" />
+    <link rel="stylesheet" type="text/css" href="./css/laura_main.css" />
+    <script type="text/javascript" src="./js/laura_main.js"></script>
+    <script type="text/javascript" src="./js/laura_klokke.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script type="text/javascript">
       function redirect(page)
@@ -57,15 +57,15 @@
       }
       function openMuseum()
       {
-         var museum = window.open("/lauraingallswilder/sources_images/walnut_grove_museum.html","","status=1\, scrollbars=1, location=1, height=300, width=300");
+         var museum = window.open("./sources_images/walnut_grove_museum.html","","status=1\, scrollbars=1, location=1, height=300, width=300");
       }
        function openLittleHouseWayside()
       {
-         var wayside = window.open("/lauraingallswilder/sources_images/little_house_wayside_replica.html","","scrollbars=1, location=1, status=1, height=300, width=300");
+         var wayside = window.open("./sources_images/little_house_wayside_replica.html","","scrollbars=1, location=1, status=1, height=300, width=300");
       }
       function openSurveyor()
       {
-         var surveyor = window.open("/lauraingallswilder/sources_images/surveyors_house.html","","scrollbars=1, location=1, status=1, height=300, width=300");
+         var surveyor = window.open("./sources_images/surveyors_house.html","","scrollbars=1, location=1, status=1, height=300, width=300");
       }
     </script>
   </head>
@@ -87,11 +87,11 @@
       <table border="0">
 	<tr>
 	  <td colspan="2">
-	    <img src="/lauraingallswilder/images/laura-banner.jpg" oncontextmenu="return true;">
+	    <img src="./images/laura-banner.jpg" oncontextmenu="return true;">
 	    <br />
-	    <script type="text/javascript" src="/lauraingallswilder/js/dateScript.js"></script>
+	    <script type="text/javascript" src="./js/dateScript.js"></script>
 	    klokken
-	    <img src="/lauraingallswilder/images/c0.gif" name="a"><img src="/lauraingallswilder/images/c0.gif" name="b"><img src="/lauraingallswilder/images/colon.gif" name="c"><img src="/lauraingallswilder/images/c0.gif" name="d"><img src="/lauraingallswilder/images/c0.gif" name="e"><img src="/lauraingallswilder/images/colon.gif" name="f"><img src="/lauraingallswilder/images/c0.gif" name="g"><img src="/lauraingallswilder/images/c0.gif" name="h">
+	    <img src="./images/c0.gif" name="a"><img src="./images/c0.gif" name="b"><img src="./images/colon.gif" name="c"><img src="./images/c0.gif" name="d"><img src="./images/c0.gif" name="e"><img src="./images/colon.gif" name="f"><img src="./images/c0.gif" name="g"><img src="./images/c0.gif" name="h">
 	  </td>
 	</tr>
 	<tr>
@@ -118,11 +118,6 @@
                      value="Little House-bøkene"
                      style="width: 200px"
                      onclick="window.location.href='books.php'" />
-              <br />
-              <input type="button"
-                     value="TV-miniserie"
-                     style="width: 200px"
-                     onclick="window.location.href='tvminiseries.php'" />
               <br />
               <input type="button"
                      value="TV-serie"

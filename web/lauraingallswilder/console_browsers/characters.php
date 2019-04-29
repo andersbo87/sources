@@ -44,7 +44,6 @@
     <a href="books.php">Little House-bøkene</a><br />
     <a href="contact.php">Kontakt</a><br />
     <a href="tvseries.php">TV-serie</a><br />
-    <a href="tvminiseries.php">TV-miniserie</a><br />
     <br />
     <h1>Familien Ingalls</h1>
     <br />
@@ -59,13 +58,11 @@
     <br />
     <br />
     <?php 
-       $link = mysql_connect("localhost", "webuser", "wEb4321User!");
-       if(!$link)
+       $sql = new mysqli("localhost", "webuser", "wEb4321User!", "little_house");
+       if($sql->connect_errno)
        {
-         die("Could not connect: " . mysql_error());
-       }
-       $dbname = "little_house";
-       mysql_select_db($dbname);
+	   echo "Kunne ikke koble til databasen: (" . $sql->connect_errno . "): " . $sql->connect_error;
+       }	
        echo "<form action='characters.php' method='get'>\n";
        echo "<select name='character' onchange=redirect(this.value);>\n";
        echo "<option selected>Velg en person</option>\n";
@@ -85,13 +82,13 @@
        }
        else
        {
-          $result = mysql_query("SELECT * FROM tbl_characters WHERE name='" . $chosen . "'") or die(mysql_error());
-          $row = mysql_fetch_array($result);
+          $result = $sql->query("SELECT * FROM tbl_characters WHERE name='" . $chosen . "'");
+          $row = $result->fetch_assoc();
           echo "<h2>" . $row["name"] . "</h2>\n";
           echo "<br /><br />\n";
           echo $row["biography"] . "\n";
        }
-       mysql_close($link);
+       //mysql_close($link);
     ?>
   </body>
 </html>

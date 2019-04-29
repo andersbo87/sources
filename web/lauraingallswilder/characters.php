@@ -6,17 +6,17 @@
        if($newstring == "Lynx")
        {
          //naviger til en konsollvennlig side
-         header('Location: /lauraingallswilder/console_browsers/characters.php');
+         header('Location: ./console_browsers/characters.php');
        }
        else if($newstring == "ELinks")
        {
-         header('Location: /lauraingallswilder/console_browsers/characters.php');
+         header('Location: ./console_browsers/characters.php');
        }
     ?>
-    <link rel="shortcut icon" href="images/lauraingallswilder/little_house_icon.ico" />
-    <link rel="stylesheet" type="text/css" href="css/laura_main.css" />
-    <script type="text/javascript" src="js/laura_main.js"></script>
-    <script type="text/javascript" src="js/laura_klokke.js"></script>
+    <link rel="shortcut icon" href="./images/lauraingallswilder/little_house_icon.ico" />
+    <link rel="stylesheet" type="text/css" href="./css/laura_main.css" />
+    <script type="text/javascript" src="./js/laura_main.js"></script>
+    <script type="text/javascript" src="./js/laura_klokke.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script type="text/javascript">
       function redirect(page)
@@ -60,35 +60,35 @@
       }
       function openCarrie()
       {
-        var open = window.open("/lauraingallswilder/sources_images/carrie_1.html","","location=1, status=1, width=200,height=200, scrollbars=1");
+        var open = window.open("./sources_images/carrie_1.html","","location=1, status=1, width=200,height=200, scrollbars=1");
       }
       function openGrace()
       {
-        var open=window.open("/lauraingallswilder/sources_images/grace_1.html","","location=1,status=1, width=200, height=200, scrollbars=1");
+        var open=window.open("./sources_images/grace_1.html","","location=1,status=1, width=200, height=200, scrollbars=1");
       }
       function openLittleHouseWayside()
       {
-         var wayside = window.open("/lauraingallswilder/sources_images/little_house_wayside_replica.html","","scrollbars=1, location=1, status=1, height=300, width=300");
+         var wayside = window.open("./sources_images/little_house_wayside_replica.html","","scrollbars=1, location=1, status=1, height=300, width=300");
       }
       function openLauraAlmanzo()
       {
-         var laura_almanzo = window.open("/lauraingallswilder/sources_images/laura_and_almanzo.html","","location=1, status=1, width=300, height=300, scrollbars=1");
+         var laura_almanzo = window.open("./sources_images/laura_and_almanzo.html","","location=1, status=1, width=300, height=300, scrollbars=1");
       }
       function openCarrieMaryLaura()
       {
-         var carrie_mary_laura = window.open("/lauraingallswilder/sources_images/carrie_mary_laura_1870.html","","location=1,status=1,height=300, width=300, scrollbars=1");
+         var carrie_mary_laura = window.open("./sources_images/carrie_mary_laura_1870.html","","location=1,status=1,height=300, width=300, scrollbars=1");
       }
       function openFamilyIngalls()
       {
-         var familyIngalls = window.open("/lauraingallswilder/sources_images/familien_ingalls_1894.html","","status=1, location=1, height=300, width=300, scrollbars=1");
+         var familyIngalls = window.open("./sources_images/familien_ingalls_1894.html","","status=1, location=1, height=300, width=300, scrollbars=1");
       }
       function openOldLaura()
       {
-         var grandma_laura = window.open("/lauraingallswilder/sources_images/laura_gammel.html","","status=1, location=1, height=300, width=300, scrollbars=1");
+         var grandma_laura = window.open("./sources_images/laura_gammel.html","","status=1, location=1, height=300, width=300, scrollbars=1");
       }
       function openMary()
       {
-         var openWin = window.open("/lauraingallswilder/sources_images/mary_1.html","","location=1, status=1, width=200, height=200, scrollbars=1");
+         var openWin = window.open("./sources_images/mary_1.html","","location=1, status=1, width=200, height=200, scrollbars=1");
       }
     </script>
   </head>
@@ -120,7 +120,7 @@
 	     laster så inn en hel haug med bilder 
 	     som skal bli til en digital klokke 
 	    -->
-	  <img src="images/c0.gif" name="a"><img src="images/c0.gif" name="b"><img src="images/colon.gif" name="c"><img src="images/c0.gif" name="d"><img src="images/c0.gif" name="e"><img src="images/colon.gif" name="f"><img src="images/c0.gif" name="g"><img src="images/c0.gif" name="h">
+	  <img src="./images/c0.gif" name="a"><img src="./images/c0.gif" name="b"><img src="./images/colon.gif" name="c"><img src="./images/c0.gif" name="d"><img src="./images/c0.gif" name="e"><img src="./images/colon.gif" name="f"><img src="./images/c0.gif" name="g"><img src="./images/c0.gif" name="h">
 	</td>
       </tr>
       <tr>
@@ -148,11 +148,6 @@
 		   value="Little House-bøkene"
 		   style="width: 200px"
 		   onclick="window.location.href='books.php'" />
-	    <br />
-	    <input type="button"
-		   value="TV-miniserie"
-		   style="width: 200px"
-		   onclick="window.location.href='tvminiseries.php'" />
 	    <br />
 	    <input type="button"
 		   value="TV-serie"

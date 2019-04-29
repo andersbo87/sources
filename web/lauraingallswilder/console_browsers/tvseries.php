@@ -60,7 +60,6 @@
     <a href="books.php">Little House-bøkene</a><br />
     <a href="contact.php">Kontakt</a><br />
     <a href="tvseries.php">TV-serie</a><br />
-    <a href="tvminiseries.php">TV-miniserie</a><br />
     <br />
     <h1>TV-serie</h1>
     <br />
@@ -68,19 +67,16 @@
     Denne siden inneholder informasjon om samtlige episoder<br />
     i Little House-tv-serien fra 1970- og 1980-tallet.<br />
     For å finne informasjonen om en gitt episode,<br />
-    velg først sesong fra listen til høyre for "Sesong".<br /> 
-    Når dette er gjort, åpner
-    du opp listen til høyre for teksten "Episode".<br />
+    velg først sesong fra listen til høyre for "Sesong" og klikk "Send sesong".<br /> 
+    Når dette er gjort, åpner du opp listen til høyre for teksten "Episode" og klikk "Send episode".<br />
     Velg hvilken episode du vil slå opp, og trykk på send
     en gang til.
     <?php
-       $link = mysql_connect("localhost", "webuser", "wEb4321User!");
-       if(!$link)
-       {
-          die('Could not connect: ' . mysql_error());
-       }
-       $dbname = "little_house";
-       mysql_select_db($dbname);
+	$sql = new mysqli("localhost", "webuser", "wEb4321User!", "little_house");
+	if($sql->connect_errno)
+	{
+	   echo "Kunne ikke koble til databasen: (" . $sql->connect_errno . "): " . $sql->connect_error;
+        }
        echo "<form action='tvseries.php' method='get'>\n";
        echo "Season: ";
        echo "<select name='season' onchange=redirect(this.value);>\n";
@@ -97,19 +93,19 @@
        echo "<option>9</option>\n";
        echo "<option>10</option>\n";
        echo "</select>\n";
+echo "<input type='submit' value='Send sesong' />\n";
        echo "<br />\n";
        echo "Episode: ";
        echo "<select name='episode'>\n";
        echo "<option selected='selected'> " . $_GET["episode"] . "</option>\n";
-       $qry = "SELECT episodeName FROM qry_episodes WHERE seasonID = " . $_GET["season"] . " ORDER BY episodeID";
-       $res = mysql_query($qry);
-       while($row=mysql_fetch_array($res))
-       {
-          $return[] = $row;
-          echo "<option>" . $row["episodeName"] . "</option>\n";
-       }
+       $result1 = $sql->query("SELECT episodeName FROM tbl_episodes WHERE seasonID = " . $_GET["season"] . " ORDER BY episodeID ASC");
+               while($row = $result1->fetch_assoc())
+	       {
+	         $return[] = $row;
+	         echo "<option>" . $row["episodeName"] . "</option>\n";
+	       }
        echo "</select>\n";
-       echo "<input type='submit' value='Send' />\n";
+       echo "<input type='submit' value='Send episode' />\n";
        echo "</form>\n";
        $chosen = $_GET["episode"];
        if($chosen == "Choose an episode title")
@@ -117,8 +113,8 @@
           echo "Please choose an episode from the above list";
        }
        
-       $result = mysql_query("SELECT * FROM qry_episodes WHERE episodeName=\"" . $chosen . "\"") or die(mysql_error());
-       $row = mysql_fetch_array($result);
+       $result = $sql->query("SELECT * FROM qry_episodes WHERE episodeName=\"" . $chosen . "\"") or die(mysql_error());
+       $row = $result->fetch_assoc();
        echo "<table border='0' id='filmData'>\n";
        echo "<tr>\n";
        echo "<td valign='top' width='200px'>\n";
@@ -161,7 +157,6 @@
        echo "</td>\n";
        echo "</tr>\n";
        echo "</table>\n";
-       mysql_close($link);
     ?>
   </body>
 </html>
