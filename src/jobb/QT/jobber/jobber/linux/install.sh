@@ -8,7 +8,8 @@ checkroot(){
 }
 if [ -e "/usr/lib/x86_64-linux-gnu/qt5/bin/qmake" ]
 then
-    /usr/lib/x86_64-linux-gnu/qt5/bin/qmake -o ../Makefile ../jobber.pro -spec linux-clang
+    # /usr/lib/x86_64-linux-gnu/qt5/bin/qmake -o ../Makefile ../jobber.pro -spec linux-clang
+    /usr/lib/x86_64-linux-gnu/qt5/bin/qmake -o ../Makefile ../jobber.pro
 else
     echo "Please install QT5 before running this script."
     exit 1
