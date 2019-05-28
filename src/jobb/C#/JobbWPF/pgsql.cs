@@ -51,6 +51,26 @@ namespace JobbWPF
             title = newTitle;
         }
 
+
+        public bool login()
+        {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=" + database + ";Pooling=false");
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand();
+                return true;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         /// <summary>
         /// Initializes the database
         /// </summary>

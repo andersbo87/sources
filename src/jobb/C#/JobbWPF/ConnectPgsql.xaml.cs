@@ -37,6 +37,7 @@ namespace JobbWPF
                     pg.SetPassword(pwbox.Password);
                     pg.SetServer(server.Text);
                     pg.SetUsername(username.Text);
+                    pg.login();
                     DialogResult = true;
                 }
                 catch(Exception e)
