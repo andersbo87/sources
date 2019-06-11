@@ -1247,6 +1247,39 @@ int psql::getStatusID(string name)
 }
 
 /**
+ * @brief psql::getCountryID Gets the ID of a given country
+ * @param name The name of the country in question
+ * @return The country ID
+ */
+int psql::getCountryID(string name)
+{
+    int res = 0;
+    string stmt;// = name.toStdString();
+    try
+    {
+        pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
+        pqxx::nontransaction N(C);
+        QString statement = "SELECT landid FROM land WHERE land = '";
+        ostringstream oss;
+        oss << stmt << statement.toStdString();
+        oss << stmt << name;
+        oss << stmt << "'";
+        pqxx::result R(N.exec(oss.str()));
+        for (pqxx::result::const_iterator c = R.begin(); c != R.end(); ++c) {
+            res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
+        }
+        oss.clear();
+        C.disconnect();
+        return res;
+    }
+    catch(std::exception &e)
+    {
+        setError(e.what());
+        throw;
+    }
+}
+
+/**
  * @brief psql::getCityID Gets the ID of a city based on its name
  * @param name The city name
  * @return The city ID

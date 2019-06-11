@@ -118,6 +118,7 @@ public:
     int getCityID(int applicationID);
     int getCityID(string name);
     int getCountryID(int cityID);
+    int getCountryID(string name);
     int getStatusID(int applicationID);
     int getStatusID(string name);
     QList<QString> fillList(const char *sqlSporring);
