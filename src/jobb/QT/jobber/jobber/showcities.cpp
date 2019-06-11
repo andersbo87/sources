@@ -431,7 +431,6 @@ void ShowCities::windowLoaded()
     try{
         getCities();
         getCountryIDs();
-        //getCity(1);
         ui->labelCountryName->setText(p->getCountryName(ui->comboBoxCountryID->currentText().toInt()));
         int countryID = ui->comboBoxCountryID->currentText().toInt();
         setCountryID(countryID);
