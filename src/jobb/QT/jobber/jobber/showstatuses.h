@@ -81,10 +81,6 @@ private:
     bool isNullOrWhitespace(QString string);
 
 private slots:
-    void buttonFirstClicked();
-    void buttonLastClicked();
-    void buttonNextClicked();
-    void buttonPreviousClicked();
     void comboboxStatusIDChanged();
     void lineEditStatusnameChanged();
     void btnSaveClicked();

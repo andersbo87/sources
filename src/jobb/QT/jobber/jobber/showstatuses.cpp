@@ -41,10 +41,6 @@ ShowStatuses::ShowStatuses(QString windowTitle, psql *pg, QWidget *parent) :
     winTitle = windowTitle;
     ui->setupUi(this);
     setFixedHeight(height());
-    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
-    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
-    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
-    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
     connect(ui->comboBoxStatusID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxStatusIDChanged()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(lineEditStatusnameChanged()));
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()), Qt::UniqueConnection);
@@ -143,7 +139,7 @@ void ShowStatuses::getStatuses()
 {
     try
     {
-        QList<QString> list = p->fillList("SELECT statusid FROM status ORDER BY statusid ASC");
+        QList<QString> list = p->fillList("SELECT status FROM status ORDER BY status ASC");
         int i = 0;
         QList<QString>::iterator iter = list.begin();
         if(list.count() == 0)
@@ -151,7 +147,7 @@ void ShowStatuses::getStatuses()
             QMessageBox msg;
             msg.setWindowTitle(windowTitle());
             msg.setIcon(msg.Warning);
-            msg.setText("Du har ikke lagt inn noen søknader ennå.");
+            msg.setText("Du har ikke lagt inn noen statuser ennå.");
             msg.exec();
             this->close();
         }
@@ -189,7 +185,6 @@ void ShowStatuses::windowLoaded()
     changed = false;
     statusIDchanged = false;
     getStatuses();
-    getStatus(1);
 }
 
 void ShowStatuses::showEvent(QShowEvent *)
@@ -336,16 +331,6 @@ void ShowStatuses::btnDeleteClicked()
             ui->comboBoxStatusID->removeItem(ui->comboBoxStatusID->currentIndex());
             lastID = lastID -1;
             setStatusID(ui->comboBoxStatusID->currentText().toInt());
-            if(ui->comboBoxStatusID->currentText().toInt() == lastID)
-            {
-                ui->btnNext->setEnabled(false);
-                ui->btnLast->setEnabled(false);
-            }
-            if(getStatusID() == 1)
-            {
-                ui->btnFirst->setEnabled(false);
-                ui->btnPrev->setEnabled(false);
-            }
         }
         else
         {
@@ -359,142 +344,13 @@ void ShowStatuses::btnDeleteClicked()
     }
 }
 
-void ShowStatuses::buttonFirstClicked()
-{
-    try
-    {
-        checkChanges();
-        getStatus(1);
-        ui->btnFirst->setEnabled(false);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(false);
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowStatuses::buttonLastClicked()
-{
-    try
-    {
-        checkChanges();
-        ui->comboBoxStatusID->setCurrentIndex(ui->comboBoxStatusID->count()-1);
-        getStatus(ui->comboBoxStatusID->currentText().toInt());
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
-        ui->btnPrev->setEnabled(true);
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowStatuses::buttonNextClicked()
-{
-    try
-    {
-        checkChanges();
-        int currStatus = getStatusID(), counter = 1;
-        while(QString::compare(p->getStatusName(currStatus + counter), "", Qt::CaseSensitive) == 0)
-        {
-            counter++;
-        }
-        getStatus(currStatus +counter);
-        ui->btnFirst->setEnabled(true);
-        ui->btnPrev->setEnabled(true);
-        if(currStatus +1 == lastID)
-        {
-            ui->btnLast->setEnabled(false);
-            ui->btnNext->setEnabled(false);
-        }
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowStatuses::buttonPreviousClicked()
-{
-    try
-    {
-        int counter =1;
-        checkChanges();
-        int currStatus = getStatusID();
-        while(QString::compare(p->getStatusName(currStatus - counter), "", Qt::CaseSensitive) == 0)
-        {
-            counter++;
-        }
-        getStatus(currStatus-counter);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        if(currStatus-1 == 1)
-        {
-            ui->btnFirst->setEnabled(false);
-            ui->btnPrev->setEnabled(false);
-        }
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
 void ShowStatuses::comboboxStatusIDChanged()
 {
-    int currID = ui->comboBoxStatusID->currentText().toInt();
-    // Get the first item and store that in a variable:
-    int firstItem = 1;
-    while(ui->comboBoxStatusID->findText(QString::number(firstItem)) == -1){
-        firstItem++;
-    }
+    int currID = p->getStatusID(ui->comboBoxStatusID->currentText().toStdString());
     checkChanges();
     statusIDchanged = true;
     getStatus(currID);
     statusIDchanged = false;
-    if(currID == firstItem)
-    {
-        ui->btnFirst->setEnabled(false);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(false);
-
-    }
-    else if(currID == lastID || ui->comboBoxStatusID->currentIndex() == ui->comboBoxStatusID->count()-1)
-    {
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
-        ui->btnPrev->setEnabled(true);
-    }
-    else
-    {
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(true);
-    }
 }
 
 void ShowStatuses::lineEditStatusnameChanged()
