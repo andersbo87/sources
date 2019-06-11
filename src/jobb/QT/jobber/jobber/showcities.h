@@ -78,10 +78,6 @@ private slots:
     void lineEditCityNameChanged();
     void buttonSaveClicked();
     void buttonDeleteClicked();
-    void btnFirstClicked();
-    void btnPrevClicked();
-    void btnNextClicked();
-    void btnLastClicked();
     void windowLoaded();
     void buildComboboxCityList();
 };
