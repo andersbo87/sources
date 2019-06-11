@@ -186,10 +186,10 @@ ShowStatuses::~ShowStatuses()
 // Private metoder
 void ShowStatuses::windowLoaded()
 {
-    getStatuses();
-    getStatus(1);
     changed = false;
     statusIDchanged = false;
+    getStatuses();
+    getStatus(1);
 }
 
 void ShowStatuses::showEvent(QShowEvent *)
