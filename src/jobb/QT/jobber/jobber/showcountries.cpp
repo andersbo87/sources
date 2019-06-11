@@ -41,10 +41,7 @@ ShowCountries::ShowCountries(QString windowTitle, psql *pg, QWidget *parent) :
     p = pg;
     winTitle = windowTitle;
     changed = false;
-    connect(ui->btnFirst, SIGNAL(clicked(bool)), this, SLOT(buttonFirstClicked()), Qt::UniqueConnection);
-    connect(ui->btnLast, SIGNAL(clicked(bool)), this, SLOT(buttonLastClicked()), Qt::UniqueConnection);
-    connect(ui->btnNext, SIGNAL(clicked(bool)), this, SLOT(buttonNextClicked()), Qt::UniqueConnection);
-    connect(ui->btnPrev, SIGNAL(clicked(bool)), this, SLOT(buttonPreviousClicked()), Qt::UniqueConnection);
+    buildingList = false;
     connect(ui->comboBoxLandID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxCountryIDChanged()));
     connect(ui->lineEditCountryName, SIGNAL(textChanged(QString)), this, SLOT(lineEditCountrynameChanged()));
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()), Qt::UniqueConnection);
@@ -82,7 +79,8 @@ void ShowCountries::setCountryID(int newID)
         countryID = newID;
     else
     {
-        throw invalid_argument("LandID må være > 0.");
+        if(!buildingList)
+            throw invalid_argument("LandID må være > 0.");
     }
 }
 
@@ -92,7 +90,7 @@ void ShowCountries::setCountryID(int newID)
  */
 void ShowCountries::setCountryName(QString newName)
 {
-    if(stringCheck::isNullOrWhitespace(newName))
+    if(stringCheck::isNullOrWhitespace(newName) && !buildingList)
         throw invalid_argument("Landnavnet kan ikke være tomt eller bare bestå av mellomrom.");
     countryName = newName;
 }
@@ -128,7 +126,7 @@ void ShowCountries::getCountries()
 {
     try
     {
-        QList<QString> list = p->fillList("SELECT landid FROM land ORDER BY landid ASC");
+        QList<QString> list = p->fillList("SELECT land FROM land ORDER BY land ASC");
         if(list.count() == 0)
         {
             QMessageBox msg;
@@ -182,12 +180,26 @@ void ShowCountries::setChanged(bool change)
     changed = change;
 }
 
+void ShowCountries::buildComboboxCountryList()
+{
+    buildingList = true;
+    if(ui->comboBoxLandID->count() >= 1)
+    {
+        for(int i = ui->comboBoxLandID->count(); i >= 0; i--)
+        {
+            ui->comboBoxLandID->removeItem(i);
+        }
+    }
+    getCountries();
+    buildingList = false;
+}
+
 /**
  * @brief ShowCountries::checkChanges Checks if there are unsaved changes.
  */
 void ShowCountries::checkChanges()
 {
-    if(isChanged())
+    if(isChanged() && !buildingList)
     {
         // Spør om endringer skal lagres.
         QMessageBox msg;
@@ -207,6 +219,7 @@ void ShowCountries::checkChanges()
                 msg2.setWindowTitle(winTitle);
                 msg2.setText("Landet ble oppdatert og har følgende verdier:\nLandid: " + QString::number(getCountryID()) + "\nLandnavn: " + getCountryName());
                 msg2.exec();
+                buildComboboxCountryList();
             }
         }
         else
@@ -244,16 +257,6 @@ void ShowCountries::btnDeleteClicked()
             ui->comboBoxLandID->removeItem(ui->comboBoxLandID->currentIndex());
             lastID = lastID -1;
             setCountryID(ui->comboBoxLandID->currentText().toInt());
-            if(ui->comboBoxLandID->currentText().toInt() == lastID)
-            {
-                ui->btnNext->setEnabled(false);
-                ui->btnLast->setEnabled(false);
-            }
-            if(getCountryID() == 1)
-            {
-                ui->btnFirst->setEnabled(false);
-                ui->btnPrev->setEnabled(false);
-            }
         }
         else
         {
@@ -276,6 +279,8 @@ void ShowCountries::btnSaveClicked()
         success.setIcon(success.Information);
         success.setText("Landet ble oppdatert og har følgende verdier:\nLandid: " + QString::number(getCountryID()) + "\nLandnavn: " + getCountryName());
         success.exec();
+        setChanged(false);
+        buildComboboxCountryList();
     }
     else
     {
@@ -288,141 +293,13 @@ void ShowCountries::btnSaveClicked()
     setChanged(false);
 }
 
-void ShowCountries::buttonFirstClicked()
-{
-    try
-    {
-        checkChanges();
-        getCountry(1);
-        ui->btnFirst->setEnabled(false);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(false);
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowCountries::buttonLastClicked()
-{
-    try
-    {
-        checkChanges();
-        ui->comboBoxLandID->setCurrentIndex(ui->comboBoxLandID->count()-1);
-        getCountry(ui->comboBoxLandID->currentText().toInt());
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
-        ui->btnPrev->setEnabled(true);
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowCountries::buttonNextClicked()
-{
-    try
-    {
-        checkChanges();
-        int currentCountry = getCountryID(), counter = 1;
-        while(QString::compare(p->getCountryName(currentCountry + counter), "", Qt::CaseSensitive) == 0)
-        {
-            counter++;
-        }
-        getCountry(currentCountry + counter);
-        ui->btnFirst->setEnabled(true);
-        ui->btnPrev->setEnabled(true);
-        if(currentCountry + 1 == lastID)
-        {
-            ui->btnLast->setEnabled(false);
-            ui->btnNext->setEnabled(false);
-        }
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
-void ShowCountries::buttonPreviousClicked()
-{
-    try
-    {
-        checkChanges();
-        int currentCountry = getCountryID(), counter = 1;
-        while(QString::compare(p->getCountryName(currentCountry - counter), "", Qt::CaseSensitive) == 0)
-        {
-            counter++;
-        }
-        getCountry(currentCountry - counter);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        if(currentCountry - 1 == 1)
-        {
-            ui->btnFirst->setEnabled(false);
-            ui->btnPrev->setEnabled(false);
-        }
-    }
-    catch(std::exception &e)
-    {
-        QMessageBox msg;
-        msg.setIcon(msg.Warning);
-        msg.setWindowTitle(winTitle);
-        msg.setText(e.what());
-        msg.exec();
-    }
-}
-
 void ShowCountries::comboboxCountryIDChanged()
 {
-    int currID = ui->comboBoxLandID->currentText().toInt();
-    // Get the first item and store that in a variable:
-    int firstItem = 1;
-    while(ui->comboBoxLandID->findText(QString::number(firstItem)) == -1){
-        firstItem++;
-    }
+    int currID = p->getCountryID(ui->comboBoxLandID->currentText().toStdString());
     checkChanges();
     countryIDchanged = true;
     getCountry(currID);
     countryIDchanged = false;
-    if(currID == firstItem)
-    {
-        ui->btnFirst->setEnabled(false);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(false);
-
-    }
-    else if(currID == lastID || ui->comboBoxLandID->currentIndex() == ui->comboBoxLandID->count()-1)
-    {
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(false);
-        ui->btnNext->setEnabled(false);
-        ui->btnPrev->setEnabled(true);
-    }
-    else
-    {
-        ui->btnFirst->setEnabled(true);
-        ui->btnLast->setEnabled(true);
-        ui->btnNext->setEnabled(true);
-        ui->btnPrev->setEnabled(true);
-    }
 }
 
 void ShowCountries::lineEditCountrynameChanged()
@@ -442,7 +319,6 @@ void ShowCountries::lineEditCountrynameChanged()
 void ShowCountries::windowLoaded()
 {
     getCountries();
-    getCountry(1);
     countryIDchanged = false;
     changed = false;
 }

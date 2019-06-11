@@ -54,7 +54,7 @@ public:
 
 private:
     // Private variabler for denne klassen:
-    bool changed, countryIDchanged;
+    bool changed, countryIDchanged, buildingList;
     int countryID, lastID, countries;
     psql *p;
     QString countryName, winTitle; //title = the title to be used as titles in QMessageBox.
@@ -64,15 +64,12 @@ private:
     void checkChanges();
     void closeEvent(QCloseEvent *event) override;
     void showEvent(QShowEvent *) override;
+    void buildComboboxCountryList();
     bool isChanged();
     void setChanged(bool change);
     bool isNullOrWhitespace(QString string);
 
 private slots:
-    void buttonFirstClicked();
-    void buttonLastClicked();
-    void buttonNextClicked();
-    void buttonPreviousClicked();
     void comboboxCountryIDChanged();
     void lineEditCountrynameChanged();
     void btnSaveClicked();
