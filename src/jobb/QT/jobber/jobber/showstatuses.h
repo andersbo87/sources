@@ -66,7 +66,7 @@ public:
 
 private:
     // Private variabler
-    bool changed, statusIDchanged;
+    bool changed, statusIDchanged, buildingList;
     int statusID, lastID, runs;
     psql *p;
     QString statusName, winTitle; // Tittelen som skal brukes på meldingsboksene.
@@ -76,6 +76,7 @@ private:
     void checkChanges();
     void closeEvent(QCloseEvent *event) override;
     void showEvent(QShowEvent *) override;
+    void buildComboboxStatusList();
     bool isChanged();
     void setChanged(bool change);
     bool isNullOrWhitespace(QString string);

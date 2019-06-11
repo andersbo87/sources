@@ -41,6 +41,7 @@ ShowStatuses::ShowStatuses(QString windowTitle, psql *pg, QWidget *parent) :
     winTitle = windowTitle;
     ui->setupUi(this);
     setFixedHeight(height());
+    buildingList = false;
     connect(ui->comboBoxStatusID, SIGNAL(currentTextChanged(QString)), this, SLOT(comboboxStatusIDChanged()));
     connect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(lineEditStatusnameChanged()));
     connect(ui->btnDelete, SIGNAL(clicked(bool)), this, SLOT(btnDeleteClicked()), Qt::UniqueConnection);
@@ -79,10 +80,12 @@ void ShowStatuses::setStatusID(int newID)
         statusID = newID;
     else
     {
-        string err = "StatusID må være > 0 og <= ";
-        ostringstream oss;
-        oss << err << statuses;
-        throw invalid_argument(oss.str());
+        if(!buildingList) {
+            string err = "StatusID må være > 0 og <= ";
+            ostringstream oss;
+            oss << err << statuses;
+            throw invalid_argument(oss.str());
+        }
     }
 }
 
@@ -92,7 +95,7 @@ void ShowStatuses::setStatusID(int newID)
  */
 void ShowStatuses::setStatusName(QString newName)
 {
-    if(stringCheck::isNullOrWhitespace(newName))
+    if(stringCheck::isNullOrWhitespace(newName) && !buildingList)
         throw invalid_argument("Vennligst oppgi det nye statusnavnet.");
     statusName = newName;
 }
@@ -241,6 +244,18 @@ bool ShowStatuses::isChanged()
     return changed;
 }
 
+void ShowStatuses::buildComboboxStatusList()
+{
+    buildingList = true;
+    if(ui->comboBoxStatusID->count() >= 1)
+    {
+        for(int i = ui->comboBoxStatusID->count(); i >= 0; i--)
+            ui->comboBoxStatusID->removeItem(i);
+    }
+    getStatuses();
+    buildingList = false;
+}
+
 /**
  * @brief ShowStatuses::setChanged Use this method once a change have been saved to the database or if the user is modifying some data.
  * @param change True if there have been one or more changes and false if the changes have been saved.
@@ -256,7 +271,7 @@ void ShowStatuses::setChanged(bool change)
  */
 void ShowStatuses::checkChanges()
 {
-    if(isChanged())
+    if(isChanged() && !buildingList)
     {
         QMessageBox msg;
         msg.setWindowTitle(winTitle);
@@ -274,6 +289,7 @@ void ShowStatuses::checkChanges()
                 success.setIcon(success.Information);
                 success.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
                 success.exec();
+                buildComboboxStatusList();
             }
             else
             {
@@ -298,6 +314,8 @@ void ShowStatuses::btnSaveClicked()
         msg.setIcon(msg.Information);
         msg.setText("Statusen ble oppdatert slik at den har følende verdier:\nStatusID: " + QString::number(getStatusID()) + "\nNavn: " + getStatusName());
         msg.exec();
+        setChanged(false);
+        buildComboboxStatusList();
     }
     else
     {
