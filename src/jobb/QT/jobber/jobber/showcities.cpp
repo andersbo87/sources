@@ -88,11 +88,14 @@ void ShowCities::setCityID(int newID)
         cityID = newID;
     else
     {
-        std::ostringstream oss;
-        string err = "StedID må være > 0 og <= ";
-        oss << err << cities;
-        oss << ". Du anga ID " << newID;
-        throw invalid_argument(oss.str());
+        if(!buildingList)
+        {
+            std::ostringstream oss;
+            string err = "StedID må være > 0 og <= ";
+            oss << err << cities;
+            oss << ". Du anga ID " << newID;
+            throw invalid_argument(oss.str());
+        }
     }
 }
 
@@ -114,19 +117,6 @@ void ShowCities::setCityName(QString newName)
 void ShowCities::setCountryID(int newID)
 {
     countryID = newID;
-    /*printf("newID: %d\n", newID);
-    if(newID > 0 && newID <= countries)
-        countryID = newID;
-    else
-    {
-        if(countries != 0)
-        {
-            ostringstream oss;
-            string err = "LandID må være > 0 og <= ";
-            oss << err << countries;
-            throw invalid_argument(oss.str());
-        }
-    }*/
 }
 
 /**
