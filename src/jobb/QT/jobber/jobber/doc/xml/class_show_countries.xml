@@ -30,6 +30,19 @@
         </inbodydescription>
         <location file="showcountries.h" line="57" column="1" bodyfile="showcountries.h" bodystart="57" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="class_show_countries_1ae41d82e6b4fd3b220121d91495b46f2e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ShowCountries::buildingList</definition>
+        <argsstring></argsstring>
+        <name>buildingList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="57" column="1" bodyfile="showcountries.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="class_show_countries_1a471a77ac81d0de3b57fb855946671637" prot="private" static="no" mutable="no">
         <type>int</type>
         <definition>int ShowCountries::countryID</definition>
@@ -174,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="44" column="1" bodyfile="showcountries.cpp" bodystart="34" bodyend="53"/>
+        <location file="showcountries.h" line="44" column="1" bodyfile="showcountries.cpp" bodystart="34" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a5711e1400ed3dd8b14bd71941b3bbe8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -187,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="45" column="1" bodyfile="showcountries.cpp" bodystart="495" bodyend="498"/>
+        <location file="showcountries.h" line="45" column="1" bodyfile="showcountries.cpp" bodystart="371" bodyend="374"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a93e4a320155473e2af80476f5a4648a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -201,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="48" column="1" bodyfile="showcountries.cpp" bodystart="127" bodyend="162"/>
+        <location file="showcountries.h" line="48" column="1" bodyfile="showcountries.cpp" bodystart="125" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a5f39325688b0e71fa613d5b33810ce02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -229,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="49" column="1" bodyfile="showcountries.cpp" bodystart="105" bodyend="122"/>
+        <location file="showcountries.h" line="49" column="1" bodyfile="showcountries.cpp" bodystart="103" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a02956713871e89645487500f3c9b77b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -246,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="50" column="1" bodyfile="showcountries.cpp" bodystart="60" bodyend="63"/>
+        <location file="showcountries.h" line="50" column="1" bodyfile="showcountries.cpp" bodystart="57" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1afc6d5f6817bd4c9388aef3d52d09d768" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -263,7 +276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="51" column="1" bodyfile="showcountries.cpp" bodystart="69" bodyend="72"/>
+        <location file="showcountries.h" line="51" column="1" bodyfile="showcountries.cpp" bodystart="66" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a751b9d3c6859102f48d3ecc254135906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -291,7 +304,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="52" column="1" bodyfile="showcountries.cpp" bodystart="79" bodyend="87"/>
+        <location file="showcountries.h" line="52" column="1" bodyfile="showcountries.cpp" bodystart="76" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1aefa9daeff484f4028ea5a280b280dd36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -319,7 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="53" column="1" bodyfile="showcountries.cpp" bodystart="93" bodyend="98"/>
+        <location file="showcountries.h" line="53" column="1" bodyfile="showcountries.cpp" bodystart="91" bodyend="96"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -335,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="64" column="1" bodyfile="showcountries.cpp" bodystart="188" bodyend="222"/>
+        <location file="showcountries.h" line="64" column="1" bodyfile="showcountries.cpp" bodystart="200" bodyend="235"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1aa9b1e4f6e836624b0cadca512035c176" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -352,7 +365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="65" column="1" bodyfile="showcountries.cpp" bodystart="455" bodyend="494"/>
+        <location file="showcountries.h" line="65" column="1" bodyfile="showcountries.cpp" bodystart="331" bodyend="370"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a5052803c523df8fddd5ad1b60279a390" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -368,7 +381,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="66" column="1" bodyfile="showcountries.cpp" bodystart="450" bodyend="453"/>
+        <location file="showcountries.h" line="66" column="1" bodyfile="showcountries.cpp" bodystart="326" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="function" id="class_show_countries_1a2b991f578bf595a56749d8bd8c9fb146" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShowCountries::buildComboboxCountryList</definition>
+        <argsstring>()</argsstring>
+        <name>buildComboboxCountryList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="showcountries.h" line="67" column="1" bodyfile="showcountries.cpp" bodystart="183" bodyend="195"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1aa85731fff2063eca9c9ac5114f129a95" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -385,7 +411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="67" column="1" bodyfile="showcountries.cpp" bodystart="170" bodyend="173"/>
+        <location file="showcountries.h" line="68" column="1" bodyfile="showcountries.cpp" bodystart="168" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1a26d776d09da9e922174c807e219e0a21" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -413,7 +439,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="68" column="1" bodyfile="showcountries.cpp" bodystart="179" bodyend="183"/>
+        <location file="showcountries.h" line="69" column="1" bodyfile="showcountries.cpp" bodystart="177" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="class_show_countries_1aa8c2793e59991094b3a3264206496c88" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -430,62 +456,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="69" column="1"/>
+        <location file="showcountries.h" line="70" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
-      <memberdef kind="slot" id="class_show_countries_1a62dfc724aaf31d8365444d2a3d695d5a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCountries::buttonFirstClicked</definition>
-        <argsstring>()</argsstring>
-        <name>buttonFirstClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcountries.h" line="72" column="1" bodyfile="showcountries.cpp" bodystart="291" bodyend="310"/>
-      </memberdef>
-      <memberdef kind="slot" id="class_show_countries_1aa569f08023a311da7ceeccdccf8cdb43" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCountries::buttonLastClicked</definition>
-        <argsstring>()</argsstring>
-        <name>buttonLastClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcountries.h" line="73" column="1" bodyfile="showcountries.cpp" bodystart="312" bodyend="332"/>
-      </memberdef>
-      <memberdef kind="slot" id="class_show_countries_1aecc16927cc7d5fb72ebd1f132c247bac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCountries::buttonNextClicked</definition>
-        <argsstring>()</argsstring>
-        <name>buttonNextClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcountries.h" line="74" column="1" bodyfile="showcountries.cpp" bodystart="334" bodyend="361"/>
-      </memberdef>
-      <memberdef kind="slot" id="class_show_countries_1a824fea849685302c29488fcded0c5c65" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCountries::buttonPreviousClicked</definition>
-        <argsstring>()</argsstring>
-        <name>buttonPreviousClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcountries.h" line="75" column="1" bodyfile="showcountries.cpp" bodystart="363" bodyend="390"/>
-      </memberdef>
       <memberdef kind="slot" id="class_show_countries_1a2dd8c9622c5001eb9d3fe70666797e42" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void ShowCountries::comboboxCountryIDChanged</definition>
@@ -497,7 +471,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="76" column="1" bodyfile="showcountries.cpp" bodystart="392" bodyend="426"/>
+        <location file="showcountries.h" line="73" column="1" bodyfile="showcountries.cpp" bodystart="296" bodyend="303"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_countries_1a3f6e1184b4cdb13635bc903418e076b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -510,7 +484,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="77" column="1" bodyfile="showcountries.cpp" bodystart="428" bodyend="440"/>
+        <location file="showcountries.h" line="74" column="1" bodyfile="showcountries.cpp" bodystart="305" bodyend="317"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_countries_1abd06adcfa6e0f5b56d4c1e1594704a64" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -523,7 +497,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="78" column="1" bodyfile="showcountries.cpp" bodystart="270" bodyend="289"/>
+        <location file="showcountries.h" line="75" column="1" bodyfile="showcountries.cpp" bodystart="273" bodyend="294"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_countries_1a77826fc9d3fc78447da6d2365df7686a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -536,7 +510,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="79" column="1" bodyfile="showcountries.cpp" bodystart="226" bodyend="268"/>
+        <location file="showcountries.h" line="76" column="1" bodyfile="showcountries.cpp" bodystart="239" bodyend="271"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_countries_1a5b352655f0b4673ef4ef7aac7e3204f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -549,7 +523,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcountries.h" line="80" column="1" bodyfile="showcountries.cpp" bodystart="442" bodyend="448"/>
+        <location file="showcountries.h" line="77" column="1" bodyfile="showcountries.cpp" bodystart="319" bodyend="324"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -578,14 +552,12 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="showcountries.h" line="39" column="1" bodyfile="showcountries.h" bodystart="38" bodyend="81"/>
+    <location file="showcountries.h" line="39" column="1" bodyfile="showcountries.h" bodystart="38" bodyend="78"/>
     <listofallmembers>
       <member refid="class_show_countries_1a77826fc9d3fc78447da6d2365df7686a" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>btnDeleteClicked</name></member>
       <member refid="class_show_countries_1abd06adcfa6e0f5b56d4c1e1594704a64" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>btnSaveClicked</name></member>
-      <member refid="class_show_countries_1a62dfc724aaf31d8365444d2a3d695d5a" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonFirstClicked</name></member>
-      <member refid="class_show_countries_1aa569f08023a311da7ceeccdccf8cdb43" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonLastClicked</name></member>
-      <member refid="class_show_countries_1aecc16927cc7d5fb72ebd1f132c247bac" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonNextClicked</name></member>
-      <member refid="class_show_countries_1a824fea849685302c29488fcded0c5c65" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buttonPreviousClicked</name></member>
+      <member refid="class_show_countries_1a2b991f578bf595a56749d8bd8c9fb146" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buildComboboxCountryList</name></member>
+      <member refid="class_show_countries_1ae41d82e6b4fd3b220121d91495b46f2e" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>buildingList</name></member>
       <member refid="class_show_countries_1aecdf2c418bd29719e892e66dc25941f8" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>changed</name></member>
       <member refid="class_show_countries_1abf2e5b62a29d2bfbf35e5e7015025b89" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>checkChanges</name></member>
       <member refid="class_show_countries_1aa9b1e4f6e836624b0cadca512035c176" prot="private" virt="non-virtual"><scope>ShowCountries</scope><name>closeEvent</name></member>

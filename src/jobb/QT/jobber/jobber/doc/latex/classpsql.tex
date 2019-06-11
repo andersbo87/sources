@@ -120,6 +120,8 @@ int \mbox{\hyperlink{classpsql_a0c33b3f48064ba75abaa4b0b58eb1ccd}{get\+City\+ID}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_af3462a12dc106e0ca8df4fa8fcf28436}{psql\+::get\+City\+ID}} Gets the ID of a city based on its name \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classpsql_a81d02dc0350ba11d90257914078ba432}{get\+Country\+ID}} (int city\+ID)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a81d02dc0350ba11d90257914078ba432}{psql\+::get\+Country\+ID}} Get the country ID of table sted based on given stedid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classpsql_a9a7069491b2a8d6c986339a13619ef6a}{get\+Country\+ID}} (string name)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a81d02dc0350ba11d90257914078ba432}{psql\+::get\+Country\+ID}} Gets the ID of a given country \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{get\+Status\+ID}} (int application\+ID)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classpsql_a9c02c92c09cb60c35d24375673b7df06}{psql\+::get\+Status\+ID}} Returns the status ID of the application based on the application ID provided by the user. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classpsql_a9d13aebcb6d151719769207238865e75}{get\+Status\+ID}} (string name)
@@ -659,7 +661,7 @@ the company name on success and \char`\"{}\+Error\char`\"{} on failure.
 \mbox{\Hypertarget{classpsql_a81d02dc0350ba11d90257914078ba432}\label{classpsql_a81d02dc0350ba11d90257914078ba432}} 
 \index{psql@{psql}!getCountryID@{getCountryID}}
 \index{getCountryID@{getCountryID}!psql@{psql}}
-\subsubsection{\texorpdfstring{getCountryID()}{getCountryID()}}
+\subsubsection{\texorpdfstring{getCountryID()}{getCountryID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily int psql\+::get\+Country\+ID (\begin{DoxyParamCaption}\item[{int}]{city\+ID }\end{DoxyParamCaption})}
 
 
@@ -673,6 +675,24 @@ the company name on success and \char`\"{}\+Error\char`\"{} on failure.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The country ID of the city in question. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classpsql_a9a7069491b2a8d6c986339a13619ef6a}\label{classpsql_a9a7069491b2a8d6c986339a13619ef6a}} 
+\index{psql@{psql}!getCountryID@{getCountryID}}
+\index{getCountryID@{getCountryID}!psql@{psql}}
+\subsubsection{\texorpdfstring{getCountryID()}{getCountryID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int psql\+::get\+Country\+ID (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classpsql_a81d02dc0350ba11d90257914078ba432}{psql\+::get\+Country\+ID}} Gets the ID of a given country 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the country in question \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The country ID 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classpsql_a5724e9992e6a5c98524ab73b98f4202d}\label{classpsql_a5724e9992e6a5c98524ab73b98f4202d}} 
 \index{psql@{psql}!getCountryName@{getCountryName}}

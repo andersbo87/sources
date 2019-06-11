@@ -1,4 +1,4 @@
-.TH "psql" 3 "Wed Apr 24 2019" "Jobber" \" -*- nroff -*-
+.TH "psql" 3 "Tue Jun 11 2019" "Jobber" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -228,6 +228,10 @@ psql \- The psql class\&.
 .RI "int \fBgetCountryID\fP (int cityID)"
 .br
 .RI "\fBpsql::getCountryID\fP Get the country ID of table sted based on given stedid\&. "
+.ti -1c
+.RI "int \fBgetCountryID\fP (string name)"
+.br
+.RI "\fBpsql::getCountryID\fP Gets the ID of a given country "
 .ti -1c
 .RI "int \fBgetStatusID\fP (int applicationID)"
 .br
@@ -744,6 +748,22 @@ the company name on success and 'Error' on failure\&.
 \fBReturns:\fP
 .RS 4
 The country ID of the city in question\&. 
+.RE
+.PP
+
+.SS "int psql::getCountryID (string name)"
+
+.PP
+\fBpsql::getCountryID\fP Gets the ID of a given country 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP The name of the country in question 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The country ID 
 .RE
 .PP
 

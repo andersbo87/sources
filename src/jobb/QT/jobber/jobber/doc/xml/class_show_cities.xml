@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="47" column="1" bodyfile="showcities.cpp" bodystart="644" bodyend="647"/>
+        <location file="showcities.h" line="47" column="1" bodyfile="showcities.cpp" bodystart="486" bodyend="489"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a8026675035c0bce6dab846262e1da0c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -281,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="48" column="1" bodyfile="showcities.cpp" bodystart="216" bodyend="252"/>
+        <location file="showcities.h" line="48" column="1" bodyfile="showcities.cpp" bodystart="208" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1af191eeab72b3bdd74f0e710face98292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -310,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="49" column="1" bodyfile="showcities.cpp" bodystart="146" bodyend="185"/>
+        <location file="showcities.h" line="49" column="1" bodyfile="showcities.cpp" bodystart="137" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1acd17480ad6a64e989e9aa0b07d30141b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -338,7 +338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="50" column="1" bodyfile="showcities.cpp" bodystart="85" bodyend="96"/>
+        <location file="showcities.h" line="50" column="1" bodyfile="showcities.cpp" bodystart="85" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1acadd6c1bdb26d30e796bab4b5b2acfd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -366,7 +366,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="51" column="1" bodyfile="showcities.cpp" bodystart="102" bodyend="107"/>
+        <location file="showcities.h" line="51" column="1" bodyfile="showcities.cpp" bodystart="106" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a853a958ebc2c0d42d872c237d431fe25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -394,7 +394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="52" column="1" bodyfile="showcities.cpp" bodystart="113" bodyend="129"/>
+        <location file="showcities.h" line="52" column="1" bodyfile="showcities.cpp" bodystart="117" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a6974ab22950cede9fb290490bcc8f3a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -422,7 +422,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="53" column="1" bodyfile="showcities.cpp" bodystart="135" bodyend="140"/>
+        <location file="showcities.h" line="53" column="1" bodyfile="showcities.cpp" bodystart="126" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1ac81b38d6862643619d07f82fe12b5c02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -453,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="55" column="1" bodyfile="showcities.cpp" bodystart="191" bodyend="211"/>
+        <location file="showcities.h" line="55" column="1" bodyfile="showcities.cpp" bodystart="183" bodyend="203"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a8f66380734928e926a732a0088c1d998" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -487,7 +487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="57" column="1" bodyfile="showcities.cpp" bodystart="269" bodyend="272"/>
+        <location file="showcities.h" line="57" column="1" bodyfile="showcities.cpp" bodystart="261" bodyend="264"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a93cf32e7ef19a182d0022c9c888392aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>QString</type>
@@ -519,7 +519,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="66" column="1" bodyfile="showcities.cpp" bodystart="274" bodyend="309"/>
+        <location file="showcities.h" line="66" column="1" bodyfile="showcities.cpp" bodystart="266" bodyend="301"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1aa16f8e2104a6424342285edc2d1e78b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -532,7 +532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="67" column="1" bodyfile="showcities.cpp" bodystart="254" bodyend="257"/>
+        <location file="showcities.h" line="67" column="1" bodyfile="showcities.cpp" bodystart="246" bodyend="249"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1ace0a3ca94beaf1301a27cddd417f31ad" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -549,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="68" column="1" bodyfile="showcities.cpp" bodystart="259" bodyend="263"/>
+        <location file="showcities.h" line="68" column="1" bodyfile="showcities.cpp" bodystart="251" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a99aacd915ba6e9a8bc9a6f117eb77c54" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -566,7 +566,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="69" column="1" bodyfile="showcities.cpp" bodystart="603" bodyend="642"/>
+        <location file="showcities.h" line="69" column="1" bodyfile="showcities.cpp" bodystart="445" bodyend="484"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a2b35f33f8cb6602b6c10c4e1cb0eed31" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -582,7 +582,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="70" column="1" bodyfile="showcities.cpp" bodystart="599" bodyend="602"/>
+        <location file="showcities.h" line="70" column="1" bodyfile="showcities.cpp" bodystart="441" bodyend="444"/>
       </memberdef>
       <memberdef kind="function" id="class_show_cities_1a7fd9c66875dee479b8e612e02c5149bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -612,7 +612,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="72" column="1" bodyfile="showcities.cpp" bodystart="483" bodyend="489"/>
+        <location file="showcities.h" line="72" column="1" bodyfile="showcities.cpp" bodystart="374" bodyend="380"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-slot">
@@ -627,7 +627,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="76" column="1" bodyfile="showcities.cpp" bodystart="505" bodyend="560"/>
+        <location file="showcities.h" line="76" column="1" bodyfile="showcities.cpp" bodystart="396" bodyend="403"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a912626f9b76404a4efca975ff72fe18d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -640,7 +640,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="77" column="1" bodyfile="showcities.cpp" bodystart="562" bodyend="575"/>
+        <location file="showcities.h" line="77" column="1" bodyfile="showcities.cpp" bodystart="405" bodyend="418"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -653,7 +653,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="78" column="1" bodyfile="showcities.cpp" bodystart="491" bodyend="503"/>
+        <location file="showcities.h" line="78" column="1" bodyfile="showcities.cpp" bodystart="382" bodyend="394"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a2c111d1f43cca0d08c3fd8d82ef44c5d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -666,7 +666,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="79" column="1" bodyfile="showcities.cpp" bodystart="459" bodyend="481"/>
+        <location file="showcities.h" line="79" column="1" bodyfile="showcities.cpp" bodystart="350" bodyend="372"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -679,59 +679,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="80" column="1" bodyfile="showcities.cpp" bodystart="311" bodyend="343"/>
-      </memberdef>
-      <memberdef kind="slot" id="class_show_cities_1a0405d6d081de28d55991d818c889dfe3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCities::btnFirstClicked</definition>
-        <argsstring>()</argsstring>
-        <name>btnFirstClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcities.h" line="81" column="1" bodyfile="showcities.cpp" bodystart="358" bodyend="377"/>
-      </memberdef>
-      <memberdef kind="slot" id="class_show_cities_1aecf18b573c5797a4b6712c5fa860adb2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCities::btnPrevClicked</definition>
-        <argsstring>()</argsstring>
-        <name>btnPrevClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcities.h" line="82" column="1" bodyfile="showcities.cpp" bodystart="379" bodyend="406"/>
-      </memberdef>
-      <memberdef kind="slot" id="class_show_cities_1ab37862ffb08f0b35676eff65dce2b3bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCities::btnNextClicked</definition>
-        <argsstring>()</argsstring>
-        <name>btnNextClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcities.h" line="83" column="1" bodyfile="showcities.cpp" bodystart="408" bodyend="435"/>
-      </memberdef>
-      <memberdef kind="slot" id="class_show_cities_1a37e388d95978727781325487d75845d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void ShowCities::btnLastClicked</definition>
-        <argsstring>()</argsstring>
-        <name>btnLastClicked</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="showcities.h" line="84" column="1" bodyfile="showcities.cpp" bodystart="437" bodyend="457"/>
+        <location file="showcities.h" line="80" column="1" bodyfile="showcities.cpp" bodystart="303" bodyend="335"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1a0c7cfcf4ddbfe1aba290e56228e565c5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -744,7 +692,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="85" column="1" bodyfile="showcities.cpp" bodystart="576" bodyend="597"/>
+        <location file="showcities.h" line="81" column="1" bodyfile="showcities.cpp" bodystart="419" bodyend="439"/>
       </memberdef>
       <memberdef kind="slot" id="class_show_cities_1afb40165a902c3597aaba5572de22eb17" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -757,7 +705,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="showcities.h" line="86" column="1" bodyfile="showcities.cpp" bodystart="345" bodyend="356"/>
+        <location file="showcities.h" line="82" column="1" bodyfile="showcities.cpp" bodystart="337" bodyend="348"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -787,12 +735,8 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="showcities.h" line="41" column="1" bodyfile="showcities.h" bodystart="40" bodyend="87"/>
+    <location file="showcities.h" line="41" column="1" bodyfile="showcities.h" bodystart="40" bodyend="83"/>
     <listofallmembers>
-      <member refid="class_show_cities_1a0405d6d081de28d55991d818c889dfe3" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnFirstClicked</name></member>
-      <member refid="class_show_cities_1a37e388d95978727781325487d75845d7" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnLastClicked</name></member>
-      <member refid="class_show_cities_1ab37862ffb08f0b35676eff65dce2b3bb" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnNextClicked</name></member>
-      <member refid="class_show_cities_1aecf18b573c5797a4b6712c5fa860adb2" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>btnPrevClicked</name></member>
       <member refid="class_show_cities_1afb40165a902c3597aaba5572de22eb17" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buildComboboxCityList</name></member>
       <member refid="class_show_cities_1ad5581443169c84ab1e51b2fe18a3d9e9" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buildingList</name></member>
       <member refid="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" prot="private" virt="non-virtual"><scope>ShowCities</scope><name>buttonDeleteClicked</name></member>

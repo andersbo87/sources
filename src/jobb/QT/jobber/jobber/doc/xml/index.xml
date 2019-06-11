@@ -235,6 +235,7 @@
     <member refid="classpsql_1af3462a12dc106e0ca8df4fa8fcf28436" kind="function"><name>getCityID</name></member>
     <member refid="classpsql_1a0c33b3f48064ba75abaa4b0b58eb1ccd" kind="function"><name>getCityID</name></member>
     <member refid="classpsql_1a81d02dc0350ba11d90257914078ba432" kind="function"><name>getCountryID</name></member>
+    <member refid="classpsql_1a9a7069491b2a8d6c986339a13619ef6a" kind="function"><name>getCountryID</name></member>
     <member refid="classpsql_1a9c02c92c09cb60c35d24375673b7df06" kind="function"><name>getStatusID</name></member>
     <member refid="classpsql_1a9d13aebcb6d151719769207238865e75" kind="function"><name>getStatusID</name></member>
     <member refid="classpsql_1a2ad41caea89dc5af0b55b12f6394fbf5" kind="function"><name>fillList</name></member>
@@ -301,16 +302,13 @@
     <member refid="class_show_cities_1a73e18e3ab1a7dbc5dd66216746196065" kind="slot"><name>lineEditCityNameChanged</name></member>
     <member refid="class_show_cities_1a2c111d1f43cca0d08c3fd8d82ef44c5d" kind="slot"><name>buttonSaveClicked</name></member>
     <member refid="class_show_cities_1ad08d2548f7f1d8a1f58d4b9155ec9bba" kind="slot"><name>buttonDeleteClicked</name></member>
-    <member refid="class_show_cities_1a0405d6d081de28d55991d818c889dfe3" kind="slot"><name>btnFirstClicked</name></member>
-    <member refid="class_show_cities_1aecf18b573c5797a4b6712c5fa860adb2" kind="slot"><name>btnPrevClicked</name></member>
-    <member refid="class_show_cities_1ab37862ffb08f0b35676eff65dce2b3bb" kind="slot"><name>btnNextClicked</name></member>
-    <member refid="class_show_cities_1a37e388d95978727781325487d75845d7" kind="slot"><name>btnLastClicked</name></member>
     <member refid="class_show_cities_1a0c7cfcf4ddbfe1aba290e56228e565c5" kind="slot"><name>windowLoaded</name></member>
     <member refid="class_show_cities_1afb40165a902c3597aaba5572de22eb17" kind="slot"><name>buildComboboxCityList</name></member>
   </compound>
   <compound refid="class_show_countries" kind="class"><name>ShowCountries</name>
     <member refid="class_show_countries_1aecdf2c418bd29719e892e66dc25941f8" kind="variable"><name>changed</name></member>
     <member refid="class_show_countries_1a2234e84db3d017de111195bf2f55a85c" kind="variable"><name>countryIDchanged</name></member>
+    <member refid="class_show_countries_1ae41d82e6b4fd3b220121d91495b46f2e" kind="variable"><name>buildingList</name></member>
     <member refid="class_show_countries_1a471a77ac81d0de3b57fb855946671637" kind="variable"><name>countryID</name></member>
     <member refid="class_show_countries_1afa51a7756fbb6f0ab079529b63196c3e" kind="variable"><name>lastID</name></member>
     <member refid="class_show_countries_1a6dcb86333584e2182dbfc3c492a54e02" kind="variable"><name>countries</name></member>
@@ -329,13 +327,10 @@
     <member refid="class_show_countries_1abf2e5b62a29d2bfbf35e5e7015025b89" kind="function"><name>checkChanges</name></member>
     <member refid="class_show_countries_1aa9b1e4f6e836624b0cadca512035c176" kind="function"><name>closeEvent</name></member>
     <member refid="class_show_countries_1a5052803c523df8fddd5ad1b60279a390" kind="function"><name>showEvent</name></member>
+    <member refid="class_show_countries_1a2b991f578bf595a56749d8bd8c9fb146" kind="function"><name>buildComboboxCountryList</name></member>
     <member refid="class_show_countries_1aa85731fff2063eca9c9ac5114f129a95" kind="function"><name>isChanged</name></member>
     <member refid="class_show_countries_1a26d776d09da9e922174c807e219e0a21" kind="function"><name>setChanged</name></member>
     <member refid="class_show_countries_1aa8c2793e59991094b3a3264206496c88" kind="function"><name>isNullOrWhitespace</name></member>
-    <member refid="class_show_countries_1a62dfc724aaf31d8365444d2a3d695d5a" kind="slot"><name>buttonFirstClicked</name></member>
-    <member refid="class_show_countries_1aa569f08023a311da7ceeccdccf8cdb43" kind="slot"><name>buttonLastClicked</name></member>
-    <member refid="class_show_countries_1aecc16927cc7d5fb72ebd1f132c247bac" kind="slot"><name>buttonNextClicked</name></member>
-    <member refid="class_show_countries_1a824fea849685302c29488fcded0c5c65" kind="slot"><name>buttonPreviousClicked</name></member>
     <member refid="class_show_countries_1a2dd8c9622c5001eb9d3fe70666797e42" kind="slot"><name>comboboxCountryIDChanged</name></member>
     <member refid="class_show_countries_1a3f6e1184b4cdb13635bc903418e076b1" kind="slot"><name>lineEditCountrynameChanged</name></member>
     <member refid="class_show_countries_1abd06adcfa6e0f5b56d4c1e1594704a64" kind="slot"><name>btnSaveClicked</name></member>
@@ -345,6 +340,7 @@
   <compound refid="class_show_statuses" kind="class"><name>ShowStatuses</name>
     <member refid="class_show_statuses_1ac9a512b4888bd3a1ff79912e5ed7902a" kind="variable"><name>changed</name></member>
     <member refid="class_show_statuses_1aff3fcb39458ceb440f88b7f90eadc2f4" kind="variable"><name>statusIDchanged</name></member>
+    <member refid="class_show_statuses_1a57c0632331af0a58da466bbe43ec4158" kind="variable"><name>buildingList</name></member>
     <member refid="class_show_statuses_1a700d3e9b79ea945285ad25b6b8fa1562" kind="variable"><name>statusID</name></member>
     <member refid="class_show_statuses_1af15870d0779608df66c153ac1a8d8f14" kind="variable"><name>lastID</name></member>
     <member refid="class_show_statuses_1a1805492343c0913ffa9f5b568ff851ef" kind="variable"><name>runs</name></member>
@@ -363,13 +359,10 @@
     <member refid="class_show_statuses_1af4d4cdbb64da923beb115c05ecee9445" kind="function"><name>checkChanges</name></member>
     <member refid="class_show_statuses_1acf87a151fb5a56dc0d91680b65c827c8" kind="function"><name>closeEvent</name></member>
     <member refid="class_show_statuses_1a615269e249975529cbe923b6174e7461" kind="function"><name>showEvent</name></member>
+    <member refid="class_show_statuses_1aa847a8abaf00e6f192dbed6b03f87184" kind="function"><name>buildComboboxStatusList</name></member>
     <member refid="class_show_statuses_1a8a9140a8901a6ea08846d0cc200f323b" kind="function"><name>isChanged</name></member>
     <member refid="class_show_statuses_1a4a24900daaab4a041f3033ec08291651" kind="function"><name>setChanged</name></member>
     <member refid="class_show_statuses_1a57628194fadd4e3fdef897da787057f2" kind="function"><name>isNullOrWhitespace</name></member>
-    <member refid="class_show_statuses_1a85d69d3a465132337946157f2671161d" kind="slot"><name>buttonFirstClicked</name></member>
-    <member refid="class_show_statuses_1ac84b0adaa0c641c80b2f6036340e68e6" kind="slot"><name>buttonLastClicked</name></member>
-    <member refid="class_show_statuses_1a98d4a302ecc0ffaf7587bdff080814fc" kind="slot"><name>buttonNextClicked</name></member>
-    <member refid="class_show_statuses_1aaffe0120b90c7987e215879dc5871ac7" kind="slot"><name>buttonPreviousClicked</name></member>
     <member refid="class_show_statuses_1a82212e067ccf0c9cc9b5dea143c38022" kind="slot"><name>comboboxStatusIDChanged</name></member>
     <member refid="class_show_statuses_1a47cf821f3890592236899364540cfbfc" kind="slot"><name>lineEditStatusnameChanged</name></member>
     <member refid="class_show_statuses_1a8e2bd4b8b57f543671ef907b8d6554b5" kind="slot"><name>btnSaveClicked</name></member>
