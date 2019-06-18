@@ -184,23 +184,48 @@ void MainWindow::windowLoaded()
  * @brief MainWindow::btn_loadDB_Click Deletes the database and recreates it from a SQL file
  */
 void MainWindow::btn_loadDB_Click(){
-    QMessageBox msg;
-    msg.setIcon(msg.Question);
-    msg.setText("Dette vil slette og gjenopprette databasen fra en SQL-fil. Vil du fortsette?");
-    msg.setWindowTitle(windowTitle());
-    msg.setStandardButtons(msg.Yes);
-    msg.addButton(msg.No);
-    msg.setDefaultButton(msg.Yes);
-    if(msg.exec() == QMessageBox::Yes)
+    QMessageBox question;
+    question.setIcon(question.Question);
+    question.setText("Dette vil slette og gjenopprette databasen fra en SQL-fil. Vil du fortsette?");
+    question.setWindowTitle(windowTitle());
+    question.setStandardButtons(question.Yes);
+    question.addButton(question.No);
+    question.setDefaultButton(question.Yes);
+    if(question.exec() == QMessageBox::Yes)
     {
         QString fileName = QFileDialog::getOpenFileName(this, tr("Åpne SQL-fil"), "", tr("SQL-filer (*.sql)"));
         if(!fileName.isEmpty()){
+            QMessageBox msg;
+            msg.setWindowTitle(windowTitle());
             QString rmdb = "PGPASSWORD=\"" + p->getPassword() + "\" dropdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
             QString mkdb = "PGPASSWORD=\"" + p->getPassword() + "\" createdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
             QString psql = "PGPASSWORD=\"" + p->getPassword() + "\" psql -h " + p->getHost() + " -U " + p->getUsername() + " jobber -f " + fileName;
-            system(rmdb.toStdString().c_str());
-            system(mkdb.toStdString().c_str());
-            system(psql.toStdString().c_str());
+            int psqlRes;
+            psqlRes = system(rmdb.toStdString().c_str());
+            if (psqlRes != 0) {
+                msg.setIcon(msg.Warning);
+                msg.setText("Noe gikk galt under sletting av databasen. Feilkode: " + QString::number(psqlRes));
+                msg.exec();
+                return;
+            }
+            psqlRes = system(mkdb.toStdString().c_str());
+            if (psqlRes != 0) {
+                msg.setIcon(msg.Warning);
+                msg.setText("Noe gikk galt under oppretting av databasen. Feilkode: " + QString::number(psqlRes));
+                msg.exec();
+                return;
+            }
+            psqlRes = system(psql.toStdString().c_str());
+            if(psqlRes != 0) {
+                msg.setIcon(msg.Warning);
+                msg.setText("Noe gikk galt da databasen ble gjenopprettet. Feilkode: " + QString::number(psqlRes));
+                msg.exec();
+            }
+            else {
+                msg.setIcon(msg.Information);
+                msg.setText("Databasen ble gjenopprettet med data fra " + fileName);
+                msg.exec();
+            }
         }
     }
 }
