@@ -51,20 +51,45 @@ connectPsql::connectPsql(QString windowTitle, QWidget *parent) :
     ui->lineEdit_Host->setFocusPolicy(Qt::StrongFocus);
     ui->lineEdit_Host->setFocus();
     this->setMinimumSize(400,185);
-    //this->setMaximumSize(400,185);
 }
 
 void connectPsql::accept()
 {
     if(p->connectDatabase())
     {
-        QDialog::accept();
+        QDialog::accept(); // Sets the state of the dialog box to accepted
     }
     else
     {
         QMessageBox msg;
         msg.setIcon(msg.Information);
         msg.setWindowTitle(winTitle);
+        if(QString::compare(p->getError(), "FATAL:  database \"jobber\" does not exist\n") == 0) {
+            msg.setText("Databasen finnes ikke. Vil du opprette den?");
+            msg.setStandardButtons(msg.Yes);
+            msg.addButton(msg.No);
+            msg.setDefaultButton(msg.Yes);
+            if(msg.exec() == QMessageBox::Yes) {
+                QString mkdb = "PGPASSWORD=\"" + p->getPassword() + "\" createdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
+                int psqlRes = system(mkdb.toStdString().c_str());
+                if (psqlRes != 0) {
+                    msg.setIcon(msg.Warning);
+                    msg.setText("Noe gikk galt under oppretting av databasen. Feilkode: " + QString::number(psqlRes));
+                    msg.exec();
+                    return;
+                }
+                if(p->connectDatabase()){
+                    qDebug("connectDatabase successful.");
+                    QDialog::accept(); // Sets the state of the dialog box to accepted
+                    return; // Stops execution of this method. Because the accepted state has been set, this dialog will close.
+                }
+                else {
+                    return; // Do nothing.
+                }
+            }
+            else
+                return; // Do nothing.
+        }
         msg.setText("Oppkoblingen til databasen mislyktes. Feilmelding: " + p->getError());
         msg.exec();
     }
