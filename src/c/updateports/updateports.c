@@ -2110,8 +2110,6 @@ int main(int argc, char ** argv)
   #ifdef SIGINFO
   signal(SIGINFO, sigInfo);
   #endif
-  fprintf(stdout, "Checking internet connection… ");
-  checkConnection("www.freebsd.org", 0);
   fprintf(stdout, "Checking operating system… ");
   printf("%s\n", getOS());
   int opt;
@@ -2122,6 +2120,8 @@ int main(int argc, char ** argv)
     }
     else{
       syslog(LOG_NOTICE, "Running updateports on NetBSD.\n");
+      fprintf(stdout, "Checking internet connection… ");
+      checkConnection("www.freebsd.org", 0);
       updatePkgsrc();
       return 0;
     }
@@ -2133,6 +2133,8 @@ int main(int argc, char ** argv)
     }
     else{
       syslog(LOG_NOTICE, "Running updateports on OpenBSD.\n");
+      fprintf(stdout, "Checking internet connection… ");
+      checkConnection("www.freebsd.org", 0);
       updateOpenBSD();
       return 0;
     }
@@ -2147,6 +2149,8 @@ int main(int argc, char ** argv)
     }
     else
     {
+      fprintf(stdout, "Checking internet connection… ");
+      checkConnection("www.freebsd.org", 0);
       updateBaseSystem();
     }
   }
@@ -2157,6 +2161,8 @@ int main(int argc, char ** argv)
       return 1;
     }
     else{
+      fprintf(stdout, "Checking internet connection… ");
+      checkConnection("www.freebsd.org", 0);
       updateSunOS();
     }
   }
@@ -2230,6 +2236,8 @@ int main(int argc, char ** argv)
       fprintf(stderr, "The -i flag can only be used with the Portmaster or Portupgrade utility.\n");
       exitApp(2);
     }
+    fprintf(stdout, "Checking internet connection… ");
+    checkConnection("www.freebsd.org", 0);
     int retVal = updateFreeBSD();
     if(retVal != 0)
     {
@@ -2255,6 +2263,8 @@ int main(int argc, char ** argv)
 	return 1;
       }
     }
+    fprintf(stdout, "Checking internet connection… ");
+    checkConnection("www.freebsd.org", 0);
     updateBaseSystem();
     int retVal = updateDarwin();
     if(retVal != 0)
