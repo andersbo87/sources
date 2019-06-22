@@ -11,9 +11,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = pgadmin4
 TEMPLATE = app
-TARGETS = runPgAdminServer
 TARGET.path += /usr/local/bin
 TARGET.files += pgadmin4
+TARGET.files += pgadminServer.sh
+INSTALLS += TARGET
 QMAKE_CLEAN += pgadmin4
 
 # The following define makes your compiler emit warnings if you use
