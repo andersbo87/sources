@@ -4,8 +4,8 @@
   "description": "Første versjon av YelpCamp.",
   "main": "index.js",
   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Anders Bolt-Evensen",
   "license": "BSD-3-Clause",
@@ -15,6 +15,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "lodash": "^4.17.14",
     "method-override": "^3.0.0",
     "mongoose": "^5.2.16",
     "passport": "^0.4.0",
