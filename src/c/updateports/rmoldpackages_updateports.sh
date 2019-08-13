@@ -12,7 +12,7 @@ removeOld(){
     then
 	continue
     else
-	/usr/bin/printf "Please answer y or n."
+	/usr/bin/printf "Please answer y or n.\n"
 	removeOld
     fi
 }
