@@ -237,7 +237,20 @@ void MainWindow::btn_SaveFile_Click(){
     QString fileName = QFileDialog::getSaveFileName(this, tr("Lagre SQL-fil"), "", tr("SQL-filer (*.sql)"));
     if(!fileName.isEmpty()){
         QString cmd = "PGPASSWORD=\"" + p->getPassword() + "\" pg_dump -h " + p->getHost() + " -U " + p->getUsername() + " jobber > " + fileName;
-        system(cmd.toStdString().c_str());
+        int saveRes;
+        saveRes = system(cmd.toStdString().c_str());
+        QMessageBox msg;
+        msg.setWindowTitle(progName);
+        if(saveRes == 0) {
+            msg.setIcon(msg.Information);
+            msg.setText("Databasen skal nå ha blitt lagret.");
+            msg.exec();
+        }
+        else {
+            msg.setIcon(msg.Warning);
+            msg.setText("Kunne ikke lagre databasen. Feilkode: " + QString::number(saveRes));
+            msg.exec();
+        }
     }
 }
 
