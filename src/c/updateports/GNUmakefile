@@ -27,6 +27,11 @@ endif
 endif
 endif
 install: updateports
+ifeq ($(UNAME_S), FreeBSD)
+	install -o root -g wheel updateports /usr/local/sbin/updateports
+	install -o root -g wheel rmoldpackages_updateports.sh /usr/local/sbin/rmoldpackages_updateports
+	install -o root -g wheel updateports.8 /usr/local/man/man8/updateports.8
+endif
 ifneq ($(UNAME_S), Linux)
 	mkdir -p /usr/local/sbin/
 ifeq ($(UNAME_S), SunOS)
@@ -54,6 +59,9 @@ clean:
 	rm -f updateports
 uninstall:
 	rm -f /usr/local/sbin/updateports
+ifeq ($(UNAME_S), FreeBSD)
+	rm -f /usr/local/sbin/rmoldpackages_updateports
+	rm -f /usr/local/man/man8/updateports.8
 ifeq ($(UNAME_S), SunOS)
 	rm -f /usr/share/man/man8/updateports.8
 else
@@ -69,6 +77,10 @@ endif
 endif
 deinstall:
 	rm -f /usr/local/sbin/updateports
+ifeq ($(UNAME_S), FreeBSD)
+	rm -f /usr/local/sbin/rmoldpackages_updateports
+	rm -f /usr/local/man/man8/updateports.8
+endif
 ifeq ($(UNAME_S), SunOS) 
 	rm -f /usr/share/man/man8/updateports.8
 else
