@@ -75,6 +75,7 @@ else
 endif
 endif
 endif
+endif
 deinstall:
 	rm -f /usr/local/sbin/updateports
 ifeq ($(UNAME_S), FreeBSD)
