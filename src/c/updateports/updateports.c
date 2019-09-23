@@ -433,8 +433,21 @@ void listUpdates()
       askReboot();
     exitApp(0); // Velger å ikke ta denne kodesnutten i en else, siden brukeren kan svare nei på spørsmål om omstart. 
   }
+  else if(Search_in_File("/.availUpdates.txt", "       1") == 0) {
+    fprintf(stdout, "The following port will be updated:\n");
+  }
+  else {
+    // Teller antall oppdateringer:
+    FILE *updFile;
+    updFile = fopen("/.availUpdates.txt", "r");
+    int availableUpdates;
+    // Lagrer antall oppdateringer i en variabel.
+    // Merk at fscanf() krever at verdien legges i en PEKER til variabelen
+    // istedenfor selve variabelen.
+    fscanf(updFile, "%d", &availableUpdates);
+    fprintf(stdout, "The following %d ports will be updated:\n", availableUpdates);
+  }
   removeFile("/.availUpdates.txt");
-  fprintf(stdout, "The following ports will be updated:\n");
   int res = system("rmoldpackages_updateports");
   if(res != 0)
     exitApp(res);
