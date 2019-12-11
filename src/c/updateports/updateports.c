@@ -2004,7 +2004,7 @@ void updateLinux()
     exit(-1);
   }
   printf("\033]0;Removing old and unused software using /usr/bin/apt autoremove -y\007");
-  printf("Removing old and unused softare by running /usr/bin/apt autoremove -y\n");
+  printf("Removing old and unused software by running /usr/bin/apt autoremove -y\n");
   int aptautoremove = fork();
   if(aptautoremove == 0){
     char *aptautorm[4];
