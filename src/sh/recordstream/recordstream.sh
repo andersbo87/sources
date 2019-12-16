@@ -151,13 +151,13 @@ askuser()
     done
 }    
 
-if [ "$ls_exists" != "" -a "$sl_exists" == "" ]
+if [ "$ls_exists" != "" -a "$sl_exists" = "" ]
 then
-    lstream
+    lstream $1 $2 $3
     exit 0
 elif [ "$sl_exists" != "" -a "$ls_exists" = "" ]
 then
-    slink
+    slink $1 $2 $3
     exit 0
 elif [ "$ls_exists" != "" -a "$sl_exists" != "" ]
 then
