@@ -1,0 +1,10 @@
+all:
+
+install:
+	install -g wheel -o root -m 755 odt-search.sh /usr/local/bin/odt-search
+
+deinstall:
+	rm /usr/local/bin/odt-search
+
+uninstall:
+	rm /usr/local/bin/odt-search
