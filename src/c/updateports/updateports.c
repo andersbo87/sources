@@ -325,7 +325,7 @@ void askUpdateTool()
     // Ask the user which tool he'd like to use...
     printf("Both utilities are installed.\n");
     printf("Both /usr/local/sbin/portmaster and /usr/local/sbin/portupgrade seem to be installed. Which of those tools would you like to use?\n");
-    printf("Type 'pm' for portmaster or 'pu' for portupgrade: ");
+    printf("Type 'pm' for portmaster, 'pu' for portupgrade, or 'pk' to use the 'pkg' package tool: ");
     char *ut; // ut = utility
     size_t ut_linecap = 0;
     ut = (char *)malloc(ut_linecap +1);
@@ -360,6 +360,10 @@ void askUpdateTool()
       {
 	printf("Will use Portupgrade.\n");
 	appToRun = "/usr/local/sbin/portupgrade";
+      }
+      else if(strcmp("pk", ut) == 0) {
+	printf("Will use pkg.\n");
+	appToRun = "/usr/sbin/pkg";
       }
       else
       {
