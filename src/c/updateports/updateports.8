@@ -34,7 +34,11 @@ is an interactive tool (except for Linux and SunOS) which might ask several ques
 .Pp
 If the user is running FreeBSD and does not use any of the options below,
 .Nm
-uses the FreeBSD version of pkg(8) when updating ports.
+uses the FreeBSD version of pkg(8) when updating ports. HOWEVER, if both Portmaster(8) and Portupgrade(8) are installed, and the user did not use any of the options below,
+.Nm
+asks which tool (pkg(8), portmaster(8) or portupgrade(8))
+.Nm
+should use during the update process.
 .Pp
 .Sh OPTIONS
 Depending on the operating system, one or more of the following options may be used:
