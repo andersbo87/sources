@@ -1273,6 +1273,7 @@ void askReboot()
   }
   else if(strncmp("n", ans, 1) == 0 || strncmp("N", ans, 1) == 0)
   {
+    printf("\033]0;\007");
     return;
   }
   else
