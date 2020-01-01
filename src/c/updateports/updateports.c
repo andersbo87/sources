@@ -2294,5 +2294,6 @@ int main(int argc, char ** argv)
       syslog(LOG_NOTICE, "updateports is now complete.\n");
     }
   }
+  printf("\033]0;\007"); // just in case
   return 0;
 }
