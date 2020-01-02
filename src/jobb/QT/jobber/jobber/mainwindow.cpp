@@ -236,7 +236,7 @@ void MainWindow::btn_loadDB_Click(){
 void MainWindow::btn_SaveFile_Click(){
     QString fileName = QFileDialog::getSaveFileName(this, tr("Lagre SQL-fil"), "", tr("SQL-filer (*.sql)"));
     if(!fileName.isEmpty()){
-        QString cmd = "PGPASSWORD=\"" + p->getPassword() + "\" pg_dump -h " + p->getHost() + " -U " + p->getUsername() + " jobber > " + fileName;
+        QString cmd = "PGPASSWORD=\"" + p->getPassword() + "\" pg_dump -h " + p->getHost() + " -U " + p->getUsername() + " -p " + QString::number(p->getPort()) + " jobber > " + fileName;
         int saveRes;
         saveRes = system(cmd.toStdString().c_str());
         QMessageBox msg;

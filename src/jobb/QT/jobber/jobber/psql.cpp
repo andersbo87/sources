@@ -67,6 +67,15 @@ QString psql::getUsername()
 }
 
 /**
+ * @brief psql::getPort Gets the port number to use when connecting to the database
+ * @return The port number. 5432 is standard, 5433 is also common.
+ */
+int psql::getPort()
+{
+    return port;
+}
+
+/**
  * @brief psql::getPassword: Gets the user password
  * @return The user's password
  */

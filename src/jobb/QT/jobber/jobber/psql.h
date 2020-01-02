@@ -45,6 +45,7 @@ public:
     QString getUsername();
     QString getPassword();
     QString getHost();
+    int getPort();
     // Funksjoner som angir parametere for å koble til databasen:
     void setHost(QString newHost);
     void setPassword(QString newPassword);
