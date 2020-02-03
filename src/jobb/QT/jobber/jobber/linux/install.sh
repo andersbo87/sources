@@ -6,6 +6,7 @@ checkroot(){
 	exit 1
     fi
 }
+HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
 if [ -e "/usr/lib/x86_64-linux-gnu/qt5/bin/qmake" ]
 then
     # /usr/lib/x86_64-linux-gnu/qt5/bin/qmake -o ../Makefile ../jobber.pro -spec linux-clang
@@ -20,6 +21,7 @@ then
     checkroot
     make -C ../ uninstall
     rm ../Makefile
+    rm -rf $HDIR/.config/jobber/
 elif [ "$1" == "compile" ]
 then
     make -C ../
@@ -32,11 +34,11 @@ else
     make -C ../
     make -C ../ install clean
     rm -f install ../Makefile
-    HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
+    
     if [ ! -d $HDIR/.config/jobber ]
     then
 	mkdir $HDIR/.config/jobber
-	less /var/db/postgres/data12/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
-	chown -R `echo ${SUDO_USER:-${USER}}`:`echo ${SUDO_USER:-${USER}}` $HDIR/.config/jobber
+	less /etc/postgresql/12/main/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+	chown -R `echo ${SUDO_USER:-${USER}}` $HDIR/.config/jobber
     fi
 fi

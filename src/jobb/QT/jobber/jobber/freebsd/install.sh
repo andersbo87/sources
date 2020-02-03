@@ -21,6 +21,8 @@ then
     checkroot
     make -C ../ uninstall clean
     rm ../Makefile
+    HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
+    rm -rf $HDIR/.config/jobber/
 elif [ "$1" == "compile" ]
 then
     make -C ../
@@ -34,8 +36,6 @@ else
     make -C ../ install clean
     rm -f install
     rm ../Makefile
-
-    HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
     if [ ! -d $HDIR/.config/jobber ]
     then
 	mkdir $HDIR/.config/jobber
