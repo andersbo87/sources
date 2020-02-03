@@ -8,7 +8,7 @@ checkroot(){
 	exit 1
     fi
 }
-
+HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
 if [ -e /usr/local/lib/qt5/bin/qmake ]
 then
     /usr/local/lib/qt5/bin/qmake -spec freebsd-clang -o ../Makefile ../jobber.pro
@@ -21,7 +21,6 @@ then
     checkroot
     make -C ../ uninstall clean
     rm ../Makefile
-    HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
     rm -rf $HDIR/.config/jobber/
 elif [ "$1" == "compile" ]
 then
