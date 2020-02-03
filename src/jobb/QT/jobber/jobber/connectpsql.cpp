@@ -47,7 +47,28 @@ connectPsql::connectPsql(QString windowTitle, QWidget *parent) :
     connect(ui->lineEdit_Host, SIGNAL(textChanged(QString)), this, SLOT(hostTextChanged()));
     connect(ui->lineEdit_Password, SIGNAL(textChanged(QString)), this, SLOT(passwordTextChanged()));
     connect(ui->lineEdit_Port, SIGNAL(textChanged(QString)), this, SLOT(portTextChanged()));
-    ui->lineEdit_Port->setText("5432");
+    QFile file(QDir::homePath() + "/.config/jobber/jobber.conf");
+    if(!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::warning(0, "Feil", QDir::homePath() + "/.config/jobber/jobber.config: " + file.errorString());
+    }
+
+    QTextStream in (&file);
+    while(!in.atEnd()){
+        QString line = in.readLine();
+        if(line.startsWith("#"))
+            ui->lineEdit_Port->setText("5432"); // Setting 5432 as default
+        else {
+            string src = line.toStdString();
+            string tgt = "";
+            for(char c : src) {
+                if(std::isdigit(c)) tgt +=c;
+            }
+            line = QString::fromStdString(tgt);
+            ui->lineEdit_Port->setText(line);
+        }
+    }
+
+    //ui->lineEdit_Port->setText("5432");
     ui->lineEdit_Host->setFocusPolicy(Qt::StrongFocus);
     ui->lineEdit_Host->setFocus();
     this->setMinimumSize(400,185);
