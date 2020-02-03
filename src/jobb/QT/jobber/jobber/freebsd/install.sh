@@ -34,4 +34,12 @@ else
     make -C ../ install clean
     rm -f install
     rm ../Makefile
+
+    HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
+    if [ ! -d $HDIR/.config/jobber ]
+    then
+	mkdir $HDIR/.config/jobber
+	less /var/db/postgres/data12/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+	chown -R `echo ${SUDO_USER:-${USER}}`:`echo ${SUDO_USER:-${USER}}` $HDIR/.config/jobber
+    fi
 fi
