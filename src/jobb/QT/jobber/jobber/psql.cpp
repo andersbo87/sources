@@ -53,7 +53,7 @@ QString psql::getError()
  */
 void psql::setError(QString msg)
 {
-    qDebug("Noe har gått galt og et unntak har blitt kastet. Feilmelding: %s", msg.toStdString().c_str());
+    qDebug("Noe har gått galt: %s", msg.toStdString().c_str());
     errMsg = msg;
 }
 
