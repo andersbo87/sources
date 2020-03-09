@@ -6,6 +6,9 @@ checkroot(){
 	exit 1
     fi
 }
+
+# Let's fetch the home directory of the user running the command using "sudo".
+# This does not work if run using the "su" command.
 HDIR=`eval echo "~${SUDO_USER:-${USER}}"`
 if [ -e "/usr/lib/x86_64-linux-gnu/qt5/bin/qmake" ]
 then
@@ -35,10 +38,23 @@ else
     make -C ../ install clean
     rm -f install ../Makefile
     
-    if [ ! -d $HDIR/.config/jobber ]
+    # Create a settings file which stores information about
+    # which port to connect to. (Normally it's 5432).
+    # In the process, let's check which version is installed.
+    # If multiple versions are installed, let's use the newest one.
+    mkdir -p $HDIR/.config/jobber
+    if [ -d /etc/postresql/13/ ]
     then
-	mkdir $HDIR/.config/jobber
+	less /etc/postgresql/13/main/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+    elif [ -d /etc/postgresql/12/ ]
+    then
 	less /etc/postgresql/12/main/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
-	chown -R `echo ${SUDO_USER:-${USER}}` $HDIR/.config/jobber
+    elif [ -d /etc/postgresql/11/ ]
+    then
+	less /etc/postgresql/11/main/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+    elif [ -d /etc/postgresql/10/ ]
+    then
+	    less /etc/postgresql/10/main/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
     fi
+    chown -R `echo ${SUDO_USER:-${USER}}` $HDIR/.config/jobber
 fi
