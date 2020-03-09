@@ -35,10 +35,22 @@ else
     make -C ../ install clean
     rm -f install
     rm ../Makefile
-    if [ ! -d $HDIR/.config/jobber ]
-    then
-	mkdir $HDIR/.config/jobber
-	less /var/db/postgres/data12/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+    #if [ ! -d $HDIR/.config/jobber ]
+    #then
+	mkdir -p $HDIR/.config/jobber
+	if [ -d /var/db/postgres/data13 ]
+	then
+	  less /var/db/postgres/data13/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+	elif [ -d /var/db/postgres/data12 ]
+	then
+	  less /var/db/postgres/data12/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+        elif [ -d /var/db/postgres/data11 ]
+	then
+	  less /var/db/postgres/data11/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+	elif [ -d /var/db/postgres/data10 ]
+	then
+	  less /var/db/postgres/data10/postgresql.conf | grep "port = " > $HDIR/.config/jobber/jobber.conf
+	fi
 	chown -R `echo ${SUDO_USER:-${USER}}`:`echo ${SUDO_USER:-${USER}}` $HDIR/.config/jobber
-    fi
+    #fi
 fi
