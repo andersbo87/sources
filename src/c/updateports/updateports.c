@@ -477,6 +477,7 @@ int updateFreeBSD()
     res = runPortsnap();
     if(res != 0)
       return res;
+    listUpdates();
     if(softupdate == 0)
       askToReadUPDATINGfile();
   }
@@ -486,6 +487,7 @@ int updateFreeBSD()
     runPortsnap();
     if(res != 0)
       return res;
+    listUpdates();
     if(softupdate == 0)
       askToReadUPDATINGfile();
   }
@@ -915,7 +917,7 @@ void askToReadUPDATINGfile()
       askToReadUPDATINGfile();
     }
     else if(strncmp("n", updateAction, 1) == 0 || strncmp("N", updateAction, 1) == 0){
-      listUpdates();
+      //listUpdates();
       return;
     }
     else
@@ -925,7 +927,7 @@ void askToReadUPDATINGfile()
     }
   }
   else if(strncmp("n", readUPDATINGfile, 1) == 0 || strncmp("N", readUPDATINGfile, 1) == 0){
-    listUpdates();
+    //listUpdates();
     return;
   }
   else
