@@ -917,7 +917,6 @@ void askToReadUPDATINGfile()
       askToReadUPDATINGfile();
     }
     else if(strncmp("n", updateAction, 1) == 0 || strncmp("N", updateAction, 1) == 0){
-      //listUpdates();
       return;
     }
     else
@@ -927,7 +926,6 @@ void askToReadUPDATINGfile()
     }
   }
   else if(strncmp("n", readUPDATINGfile, 1) == 0 || strncmp("N", readUPDATINGfile, 1) == 0){
-    //listUpdates();
     return;
   }
   else
