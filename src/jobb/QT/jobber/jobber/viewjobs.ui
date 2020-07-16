@@ -265,7 +265,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Her kan du se informasjon om søknadene som er registrert i databasen. Felt markert med * må fylles ut</string>
+     <string>Her kan du se informasjon om søknadene som er registrert i databasen. Ved redigering må felt markert med * fylles ut.</string>
     </property>
     <property name="scaledContents">
      <bool>false</bool>
