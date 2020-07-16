@@ -88,13 +88,21 @@ void ViewJobs::setChanged(bool change)
 
 void ViewJobs::motivationTextChanged()
 {
-    setMotivation(ui->textEditMotivation->toPlainText());
-    if(!soknadIDChanged)
+    QString oldMotivation = p->getMotivation(ui->comboBoxApplicationID->currentText().toInt());
+    int res = QString::compare(oldMotivation, ui->textEditMotivation->toPlainText());
+    if(res != 0)
     {
-        setChanged(canSave());
+        setMotivation(ui->textEditMotivation->toPlainText());
+        if(!soknadIDChanged)
+        {
+            setChanged(canSave());
+        }
+        else
+        {
+            setChanged(false);
+        }
     }
-    else
-    {
+    else{
         setChanged(false);
     }
 }
@@ -103,9 +111,12 @@ void ViewJobs::comboBoxStatusIDChanged()
 {
     try
     {
-        setStatusID(p->getStatusID(ui->comboBoxStatusID->currentText().toStdString()));
-        if(!soknadIDChanged)
-            setChanged(canSave());
+        QString res = p->getStatusName(p->getStatusID(ui->comboBoxApplicationID->currentText().toInt()));
+        if(QString::compare(res, ui->comboBoxStatusID->currentText()) != 0){
+            setStatusID(p->getStatusID(ui->comboBoxStatusID->currentText().toStdString()));
+            if(!soknadIDChanged)
+               setChanged(canSave());
+        }
     }
     catch(invalid_argument ia)
     {
@@ -119,9 +130,17 @@ void ViewJobs::comboBoxCityIDChanged()
 {
     try
     {
-        setCityID(p->getCityID(ui->comboBoxTownID->currentText().toStdString()));
-        if(!soknadIDChanged)
-            setChanged(canSave());
+        // La oss sjekke om den nye verdien er lik den gamle
+        QString res = p->getCityName(p->getCityID(ui->comboBoxApplicationID->currentText().toInt()));
+        if (QString::compare(ui->comboBoxTownID->currentText(), res) != 0){
+            setCityID(p->getCityID(ui->comboBoxTownID->currentText().toStdString()));
+            if(!soknadIDChanged)
+                setChanged(canSave());
+        }
+        else {
+            // "Angre" endringene
+            setChanged(false);
+        }
     }
     catch(invalid_argument ia)
     {
