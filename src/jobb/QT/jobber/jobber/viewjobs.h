@@ -75,7 +75,7 @@ private:
     psql *p;
     QString jobTitle, company, date, winTitle, motivation; // jobTitle: the title of the job. title: The name to be used in messageboxes
     int statusid, cityid, applicationid, lastid, cities, statuses;
-    bool changed, soknadIDChanged;
+    bool changed, soknadIDChanged, dateChanged, motivationChanged, companyChanged, statusChanged, titleChanged, cityChanged;
     void checkChanges();
     bool isNullOrWhitespace(QString string);
     bool canSave();

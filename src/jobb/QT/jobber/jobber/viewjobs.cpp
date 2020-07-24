@@ -73,8 +73,11 @@ ViewJobs::~ViewJobs()
  */
 bool ViewJobs::isChanged()
 {
+    changed = motivationChanged || titleChanged || companyChanged || cityChanged || dateChanged || titleChanged || statusChanged;
     return changed;
 }
+
+
 
 /**
  * @brief ViewJobs::setChanged Sets the changed variable to true if there are unsaved changes, and false if those changes have been saved.
@@ -82,6 +85,7 @@ bool ViewJobs::isChanged()
  */
 void ViewJobs::setChanged(bool change)
 {
+    change = titleChanged || companyChanged || cityChanged || statusChanged || dateChanged || statusChanged || motivationChanged;
     ui->btnSave->setEnabled(change);
     changed = change;
 }
@@ -95,15 +99,18 @@ void ViewJobs::motivationTextChanged()
         setMotivation(ui->textEditMotivation->toPlainText());
         if(!soknadIDChanged)
         {
+            motivationChanged = true;
             setChanged(canSave());
         }
         else
         {
-            setChanged(false);
+            motivationChanged = false;
+            setChanged(motivationChanged);
         }
     }
     else{
-        setChanged(false);
+        motivationChanged = false;
+        setChanged(motivationChanged);
     }
 }
 
@@ -114,14 +121,21 @@ void ViewJobs::comboBoxStatusIDChanged()
         QString res = p->getStatusName(p->getStatusID(ui->comboBoxApplicationID->currentText().toInt()));
         if(QString::compare(res, ui->comboBoxStatusID->currentText()) != 0){
             setStatusID(p->getStatusID(ui->comboBoxStatusID->currentText().toStdString()));
-            if(!soknadIDChanged)
-               setChanged(canSave());
+            if(!soknadIDChanged) {
+                statusChanged = true;
+                setChanged(canSave());
+            }
+        }
+        else{
+            statusChanged = false;
+            setChanged(statusChanged);
         }
     }
     catch(invalid_argument ia)
     {
         // La oss skrive feilen ut til konsollen.
         qDebug("En feil har oppstått: %s\n", ia.what());
+        statusChanged = false;
         setChanged(false);
     }
 }
@@ -134,11 +148,14 @@ void ViewJobs::comboBoxCityIDChanged()
         QString res = p->getCityName(p->getCityID(ui->comboBoxApplicationID->currentText().toInt()));
         if (QString::compare(ui->comboBoxTownID->currentText(), res) != 0){
             setCityID(p->getCityID(ui->comboBoxTownID->currentText().toStdString()));
-            if(!soknadIDChanged)
+            if(!soknadIDChanged){
+                cityChanged = true;
                 setChanged(canSave());
+            }
         }
         else {
             // "Angre" endringene
+            cityChanged = false;
             setChanged(false);
         }
     }
@@ -152,43 +169,68 @@ void ViewJobs::comboBoxCityIDChanged()
 
 void ViewJobs::lineEditDealineChanged()
 {
-    try
+    QString oldDate = p->getDate(ui->comboBoxApplicationID->currentText().toInt());
+    int res = QString::compare(oldDate, ui->lineEditDeadline->text());
+    if(res != 0)
     {
-        setDate(ui->lineEditDeadline->text());
-        if(!soknadIDChanged)
-            setChanged(canSave());
+        try
+        {
+            setDate(ui->lineEditDeadline->text());
+            if(!soknadIDChanged)
+                setChanged(canSave());
+        }
+        catch(invalid_argument)
+        {
+            dateChanged = false;
+            setChanged(dateChanged);
+        }
     }
-    catch(invalid_argument)
-    {
-        setChanged(false);
+    else {
+        dateChanged = false;
+        setChanged(dateChanged);
     }
 }
 
 void ViewJobs::lineEditCompanyChanged()
 {
-    try
+    QString oldCompany = p->getCompany(ui->comboBoxApplicationID->currentText().toUInt());
+    int res = QString::compare(oldCompany, ui->lineEditCompany->text());
+    if(res != 0)
     {
-        setCompany(ui->lineEditCompany->text());
-        if(!soknadIDChanged)
-            setChanged(canSave());
-    }
-    catch(invalid_argument)
-    {
-        setChanged(false);
+        try
+        {
+            setCompany(ui->lineEditCompany->text());
+            if(!soknadIDChanged)
+                setChanged(canSave());
+        }
+        catch(invalid_argument)
+        {
+            setChanged(false);
+        }
     }
 }
 
 void ViewJobs::lineEditTitleChanged()
 {
-    try
+    QString oldTitle = p->getTitle(ui->comboBoxApplicationID->currentText().toUInt());
+    int res = QString::compare(oldTitle, ui->lineEditTitle->text());
+    if(res != 0)
     {
-        setTitle(ui->lineEditTitle->text());
-        if(!soknadIDChanged)
-            setChanged(canSave());
+        try
+        {
+            setTitle(ui->lineEditTitle->text());
+            if(!soknadIDChanged){
+                titleChanged = true;
+                setChanged(canSave());
+            }
+        }
+        catch(invalid_argument)
+        {
+            setChanged(titleChanged = false);
+        }
     }
-    catch(invalid_argument)
-    {
-        setChanged(false);
+    else {
+        setChanged(titleChanged = false);
     }
 }
 
@@ -216,6 +258,12 @@ void ViewJobs::windowLoaded()
     getApplication(1);
     setChanged(false); // Just to be sure the systems doesn't think we've made any changes.
     soknadIDChanged = false;
+    titleChanged = false;
+    companyChanged = false;
+    cityChanged = false;
+    statusChanged = false;
+    dateChanged = false;
+    motivationChanged = false;
 }
 
 /**
@@ -272,6 +320,7 @@ void ViewJobs::closeEvent(QCloseEvent *event)
 
 void ViewJobs::checkChanges()
 {
+    qDebug("Checking changes…\n");
     if(isChanged())
     {
         // Spør om endringer skal lagres.
@@ -302,6 +351,12 @@ void ViewJobs::checkChanges()
             }
         }
         setChanged(false);
+        titleChanged = false;
+        companyChanged = false;
+        cityChanged = false;
+        dateChanged = false;
+        statusChanged = false;
+        motivationChanged = false;
     }
 }
 
@@ -774,6 +829,12 @@ void ViewJobs::getApplication(int appID)
             setStatusID(p->getStatusID(appID));
             setDate(ui->lineEditDeadline->text());
             setMotivation(ui->textEditMotivation->toPlainText());
+            titleChanged = false;
+            companyChanged = false;
+            cityChanged = false;
+            dateChanged = false;
+            statusChanged = false;
+            motivationChanged = false;
         }
         else { // If the desired ID does not exist, increase by one and try again.
             appID++;
