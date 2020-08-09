@@ -320,7 +320,6 @@ void ViewJobs::closeEvent(QCloseEvent *event)
 
 void ViewJobs::checkChanges()
 {
-    qDebug("Checking changes…\n");
     if(isChanged())
     {
         // Spør om endringer skal lagres.
@@ -370,6 +369,13 @@ void ViewJobs::buttonSaveClicked()
         msg2.setText("Oppdateringen ble lagret med følgende verdier:\nID: " + QString::number(getApplicationID()) + "\nTittel: " + getTitle() + "\nBedrift: " + getCompany() + "\nStedid: " + QString::number(getCityID()) + "\nStatusid: " + QString::number(getStatusID()) + "\nSøknadsfrist: " + getDate() + "\nMotivasjon: " + getMotivation());
         msg2.exec();
         setChanged(false);
+        titleChanged = false;
+        companyChanged = false;
+        cityChanged = false;
+        dateChanged = false;
+        statusChanged = false;
+        motivationChanged = false;
+        ui->btnSave->setEnabled(false);
     }
     else
     {
