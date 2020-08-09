@@ -167,7 +167,7 @@ bool psql::insertApplication(QString title, QString company, int cityID, int sta
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -199,7 +199,7 @@ bool psql::insertCity(QString cityName, int countryID)
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -228,7 +228,7 @@ bool psql::insertCountry(QString countryName)
         pqxx::work wk(conn);
         wk.exec(oss.str());
         wk.commit();
-        conn.disconnect();
+        conn.close();
         return true;
     }
     catch(std::exception &e)
@@ -257,7 +257,7 @@ bool psql::insertStatus(QString statusName)
         pqxx::work wk(conn);
         wk.exec(oss.str());
         wk.commit();
-        conn.disconnect();
+        conn.close();
         return true;
     }
     catch(std::exception &e)
@@ -309,7 +309,7 @@ bool psql::updateApplication(QString title, QString company, int cityID, int sta
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(exception &e){
@@ -344,7 +344,7 @@ bool psql::updateCity(QString oldCityName, QString newCityName, int countryID)
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(exception &e){
@@ -374,7 +374,7 @@ bool psql::updateCountry(QString countryName, int countryID)
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(exception &e){
@@ -404,7 +404,7 @@ bool psql::updateStatus(QString statusname, int statusID)
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(exception &e){
@@ -435,7 +435,7 @@ bool psql::deleteApplication(int applicationID)
         pqxx::work wk(conn);
         wk.exec(oss.str());
         wk.commit();
-        conn.disconnect();
+        conn.close();
         return true;
     }
     catch(std::exception &e)
@@ -463,7 +463,7 @@ bool psql::deleteCity(int cityID)
         pqxx::work wk(conn);
         wk.exec(oss.str());
         wk.commit();
-        conn.disconnect();
+        conn.close();
         return true;
     }
     catch(std::exception &e)
@@ -491,7 +491,7 @@ bool psql::deleteCountry(int countryID)
         pqxx::work wk(conn);
         wk.exec(oss.str());
         wk.commit();
-        conn.disconnect();
+        conn.close();
         return true;
     }
     catch(std::exception &e)
@@ -519,7 +519,7 @@ bool psql::deleteStatus(int statusID)
         pqxx::work wk(conn);
         wk.exec(oss.str());
         wk.commit();
-        conn.disconnect();
+        conn.close();
         return true;
     }
     catch(std::exception &e)
@@ -542,7 +542,7 @@ bool psql::connectDatabase()
         pqxx::connection C("dbname = jobber user = " + username.toStdString() + " password = " + password.toStdString() + " hostaddr = " + host.toStdString() + " port = " + QString::number(port).toStdString());
         if(C.is_open())
         {
-            //C.disconnect();
+            //C.close();
             return true;
         }
         else
@@ -608,7 +608,7 @@ QList<QString> psql::getSpecificJobNames(string jobTitle, string companyName, st
                 i++;
             }
         }
-        conn.disconnect();
+        conn.close();
         return list;
     }
     catch(std::exception &e)
@@ -667,7 +667,7 @@ QList<QString> psql::getSpecificCompanyNames(string jobTitle, string companyName
                 i++;
             }
         }
-        conn.disconnect();
+        conn.close();
         return list;
     }
     catch(std::exception &e)
@@ -727,7 +727,7 @@ QList<QString> psql::getSpecificDeadlines(string jobTitle, string companyName, s
                 i++;
             }
         }
-        conn.disconnect();
+        conn.close();
         return list;
     }
     catch(std::exception &e)
@@ -786,7 +786,7 @@ QList<QString> psql::getSpecificCityNames(string jobTitle, string companyName, s
                 i++;
             }
         }
-        conn.disconnect();
+        conn.close();
         return list;
     }
     catch(std::exception &e)
@@ -846,7 +846,7 @@ QList<QString> psql::getSpecificStatuses(string jobTitle, string companyName, st
                 i++;
             }
         }
-        conn.disconnect();
+        conn.close();
         return list;
     }
     catch(std::exception &e)
@@ -906,7 +906,7 @@ QList<int> psql::getSpecificApplicationIDs(string jobTitle, string companyName, 
                 i++;
             }
         }
-        conn.disconnect();
+        conn.close();
         return list;
     }
     catch(std::exception &e)
@@ -966,7 +966,7 @@ QList<QString> psql::getSpecificMotivations(string jobTitle, string companyName,
                 i++;
             }
         }
-        conn.disconnect();
+        conn.close();
         return list;
     }
     catch(std::exception &e)
@@ -1000,7 +1000,7 @@ double psql::countTotalApplications()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1030,7 +1030,7 @@ double psql::countRegisteredApplications()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1060,7 +1060,7 @@ double psql::countSentApplications()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1090,7 +1090,7 @@ double psql::countInterviews()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1120,7 +1120,7 @@ double psql::countDeclinedApplications()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1150,7 +1150,7 @@ double psql::countDeclinedAfterInterview()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1180,7 +1180,7 @@ double psql::countWrittenButNotSent()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1210,7 +1210,7 @@ double psql::countAccepted()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception e)
@@ -1245,7 +1245,7 @@ int psql::getStatusID(string name)
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1278,7 +1278,7 @@ int psql::getCountryID(string name)
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1311,7 +1311,7 @@ int psql::getCityID(string name)
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1411,7 +1411,7 @@ QList<QString> psql::fillList(const char *sqlSporring)
                 i++;
             }
         }
-        C.disconnect();
+        C.close();
         return list;
     }
     catch(std::exception &e)
@@ -1441,7 +1441,7 @@ QString psql::getStatusName(int s)
             res = QString::fromUtf8(c[0].as<string>().c_str());
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1475,7 +1475,7 @@ QString psql::getMotivation(int applicationID)
             }
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1506,7 +1506,7 @@ QString psql::getTitle(int applicationID)
             res = QString::fromUtf8(c[0].as<string>().c_str());
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1536,7 +1536,7 @@ QString psql::getCompany(int applicationID)
             res = QString::fromUtf8(c[0].as<string>().c_str());
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1567,7 +1567,7 @@ int psql::getCityID(int applicationID)
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1598,7 +1598,7 @@ int psql::getCountryID(int cityID)
             res = QString::fromUtf8(ci[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        conn.disconnect();
+        conn.close();
         return res;
     }
     catch(std::exception &e)
@@ -1628,7 +1628,7 @@ int psql::getStatusID(int applicationID)
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1658,7 +1658,7 @@ QString psql::getDate(int applicationID)
             res = QString::fromUtf8(c[0].as<string>().c_str());
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1689,7 +1689,7 @@ QString psql::getCountryName(int countryID)
             res = QString::fromUtf8(c[0].as<string>().c_str());
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1719,7 +1719,7 @@ QString psql::getCityName(int cityNumber)
             res = QString::fromUtf8(c[0].as<string>().c_str());
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return res;
     }
     catch(std::exception &e)
@@ -1748,7 +1748,7 @@ bool psql::tableApplicationExists()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception e)
@@ -1776,7 +1776,7 @@ bool psql::tableCountryExists()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception e)
@@ -1804,7 +1804,7 @@ bool psql::tableStatusExists()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception e)
@@ -1832,7 +1832,7 @@ bool psql::tableTownExists()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception e)
@@ -1860,7 +1860,7 @@ bool psql::viewApplicationExists()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception e)
@@ -1888,7 +1888,7 @@ bool psql::viewTownExists()
             res = QString::fromUtf8(c[0].as<string>().c_str()).toInt();
         }
         oss.clear();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception e)
@@ -1916,7 +1916,7 @@ bool psql::createTableApplication()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return createProcedureNewApplicationID() && createProcedureUpdateApplication();
     }
     catch(std::exception &e)
@@ -1944,7 +1944,7 @@ bool psql::createTableCountry()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return createProcedureNewCountryID();
     }
     catch(std::exception &e)
@@ -1972,7 +1972,7 @@ bool psql::createTableStatus()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2000,7 +2000,7 @@ bool psql::createTableTown()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return createProcedureNewTownID();
     }
     catch(std::exception &e)
@@ -2027,7 +2027,7 @@ bool psql::createViewApplication()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2054,7 +2054,7 @@ bool psql::createViewTowns()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2081,7 +2081,7 @@ bool psql::createSequenceApplicationIDSeq()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2108,7 +2108,7 @@ bool psql::createSequenceCountryIDSeq()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2135,7 +2135,7 @@ bool psql::createSequenceStatusIDSeq()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2162,7 +2162,7 @@ bool psql::createSequenceTownIDSeq()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2189,7 +2189,7 @@ bool psql::createFunctionEmptyText()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2216,7 +2216,7 @@ bool psql::createProcedureNewApplicationID()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return createTriggerNewApplicationID();
     }
     catch(std::exception &e)
@@ -2381,7 +2381,7 @@ bool psql::createProcedureUpdateApplication()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return createTriggerUpdateApplication();
     }
     catch(std::exception &e)
@@ -2408,7 +2408,7 @@ bool psql::createProcedureNewCountryID()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return createTriggerNewCountryID();
     }
     catch(std::exception &e)
@@ -2435,7 +2435,7 @@ bool psql::createProcedureNewTownID()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return createTriggerNewTownID();
     }
     catch(std::exception &e)
@@ -2462,7 +2462,7 @@ bool psql::createTriggerNewApplicationID()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2489,7 +2489,7 @@ bool psql::createTriggerUpdateApplication()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2516,7 +2516,7 @@ bool psql::createTriggerNewCountryID()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
@@ -2543,7 +2543,7 @@ bool psql::createTriggerNewTownID()
         pqxx::work W(C);
         W.exec(oss.str());
         W.commit();
-        C.disconnect();
+        C.close();
         return true;
     }
     catch(std::exception &e)
