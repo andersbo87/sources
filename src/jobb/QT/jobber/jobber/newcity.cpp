@@ -131,7 +131,7 @@ void NewCity::lineEditCityNameChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument)
+    catch(invalid_argument&)
     {
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();

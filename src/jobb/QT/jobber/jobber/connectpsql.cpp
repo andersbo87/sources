@@ -124,7 +124,7 @@ void connectPsql::portTextChanged()
            p->setPort(ui->lineEdit_Port->text().toInt());
        }
     }
-    catch (std::exception) {
+    catch (std::exception&) {
         QMessageBox msg;
         msg.setIcon(QMessageBox::Warning);
         msg.setWindowTitle(winTitle);

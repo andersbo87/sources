@@ -131,7 +131,7 @@ void ViewJobs::comboBoxStatusIDChanged()
             setChanged(statusChanged);
         }
     }
-    catch(invalid_argument ia)
+    catch(invalid_argument &ia)
     {
         // La oss skrive feilen ut til konsollen.
         qDebug("En feil har oppstått: %s\n", ia.what());
@@ -159,7 +159,7 @@ void ViewJobs::comboBoxCityIDChanged()
             setChanged(false);
         }
     }
-    catch(invalid_argument ia)
+    catch(invalid_argument &ia)
     {
         // La oss bare ignorere feilen og evt sette changed til false. Brukeren kan ikke gjøre noe feil uansett...
         qDebug("En feil har oppstått: %s\n", ia.what());
@@ -179,7 +179,7 @@ void ViewJobs::lineEditDealineChanged()
             if(!soknadIDChanged)
                 setChanged(canSave());
         }
-        catch(invalid_argument)
+        catch(invalid_argument&)
         {
             dateChanged = false;
             setChanged(dateChanged);
@@ -203,7 +203,7 @@ void ViewJobs::lineEditCompanyChanged()
             if(!soknadIDChanged)
                 setChanged(canSave());
         }
-        catch(invalid_argument)
+        catch(invalid_argument&)
         {
             setChanged(false);
         }
@@ -224,7 +224,7 @@ void ViewJobs::lineEditTitleChanged()
                 setChanged(canSave());
             }
         }
-        catch(invalid_argument)
+        catch(invalid_argument&)
         {
             setChanged(titleChanged = false);
         }
@@ -847,7 +847,7 @@ void ViewJobs::getApplication(int appID)
             getApplication(appID);
         }
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument &iaex)
     {
         QMessageBox msg;
         msg.setIcon(msg.Warning);

@@ -168,7 +168,7 @@ void NewJob::titleTextChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument &iaex)
     {
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
@@ -183,7 +183,7 @@ void NewJob::motivationTextChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument &iaex)
     {
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
@@ -201,7 +201,7 @@ void NewJob::companyTextChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument &iaex)
     {
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
@@ -237,7 +237,7 @@ void NewJob::dateChanged()
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument &iaex)
     {
         ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(canSave());
         changed = canSave();

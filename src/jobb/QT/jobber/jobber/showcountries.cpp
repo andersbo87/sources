@@ -310,7 +310,7 @@ void ShowCountries::lineEditCountrynameChanged()
         if(!countryIDchanged)
             setChanged(true);
     }
-    catch(invalid_argument)
+    catch(invalid_argument&)
     {
         setChanged(false);
     }

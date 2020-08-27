@@ -1003,7 +1003,7 @@ double psql::countTotalApplications()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1033,7 +1033,7 @@ double psql::countRegisteredApplications()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1063,7 +1063,7 @@ double psql::countSentApplications()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1093,7 +1093,7 @@ double psql::countInterviews()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1123,7 +1123,7 @@ double psql::countDeclinedApplications()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1153,7 +1153,7 @@ double psql::countDeclinedAfterInterview()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1183,7 +1183,7 @@ double psql::countWrittenButNotSent()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1213,7 +1213,7 @@ double psql::countAccepted()
         C.close();
         return res;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         setError(e.what());
         throw;
@@ -1751,7 +1751,7 @@ bool psql::tableApplicationExists()
         C.close();
         return true;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         return false;
     }
@@ -1779,7 +1779,7 @@ bool psql::tableCountryExists()
         C.close();
         return true;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         return false;
     }
@@ -1807,7 +1807,7 @@ bool psql::tableStatusExists()
         C.close();
         return true;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         return false;
     }
@@ -1835,7 +1835,7 @@ bool psql::tableTownExists()
         C.close();
         return true;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         return false;
     }
@@ -1863,7 +1863,7 @@ bool psql::viewApplicationExists()
         C.close();
         return true;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         return false;
     }
@@ -1891,7 +1891,7 @@ bool psql::viewTownExists()
         C.close();
         return true;
     }
-    catch(std::exception e)
+    catch(std::exception &e)
     {
         return false;
     }

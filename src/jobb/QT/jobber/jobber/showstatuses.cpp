@@ -114,7 +114,7 @@ void ShowStatuses::getStatus(int statusID)
         setStatusID(statusID);
         setStatusName(ui->lineEdit->text());
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument &iaex)
     {
         if(runs > 1){
             QMessageBox msg;
@@ -379,7 +379,7 @@ void ShowStatuses::lineEditStatusnameChanged()
         if(!statusIDchanged)
             setChanged(true);
     }
-    catch(invalid_argument)
+    catch(invalid_argument&)
     {
         setChanged(false);
     }

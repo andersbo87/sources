@@ -155,7 +155,7 @@ void ShowCities::getCity(int cityID)
             getCity(cityID);
         }
     }
-    catch(invalid_argument iaex)
+    catch(invalid_argument &iaex)
     {
         if(runs > 1){
             QMessageBox msg;
@@ -387,7 +387,7 @@ void ShowCities::lineEditCityNameChanged()
         if(!cityIDchanged)
             setChanged(canSave());
     }
-    catch(invalid_argument)
+    catch(invalid_argument&)
     {
         setChanged(false);
     }
@@ -411,7 +411,7 @@ void ShowCities::comboboxCountryIDChanged()
         if(!cityIDchanged)
             setChanged(canSave());
     }
-    catch(invalid_argument)
+    catch(invalid_argument&)
     {
         setChanged(false);
     }
@@ -428,7 +428,7 @@ void ShowCities::windowLoaded()
         setChanged(false);
         cityIDchanged = false;
     }
-    catch(QException qe)
+    catch(QException &qe)
     {
         QMessageBox qm;
         qm.setIcon(qm.Warning);
