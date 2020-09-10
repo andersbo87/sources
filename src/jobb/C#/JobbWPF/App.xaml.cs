@@ -4,7 +4,12 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Interop;
+using System.Windows.Media.Animation;
+using System.Diagnostics;
 
 namespace JobbWPF
 {
@@ -14,6 +19,8 @@ namespace JobbWPF
     public partial class App : Application
     {
         public static MainWindow mw;
+        
+
         [STAThread]
         public static void Main()
         {
@@ -21,6 +28,16 @@ namespace JobbWPF
             {
                 var application = new App();
                 mw = new JobbWPF.MainWindow("Jobber");
+                const string settingsFile = @"settings.conf";
+                if(File.Exists(settingsFile))
+                {
+                    // Read the file
+                    string content = File.ReadAllText(settingsFile);
+                    if (string.Compare(content, "softwareAcceleration: true") == 0)
+                    {
+                        RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
+                    }
+                }
                 application.InitializeComponent();
                 application.Run(mw);
             }
