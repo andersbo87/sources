@@ -42,7 +42,21 @@ namespace JobbWPF
                 }
                 catch(Exception e)
                 {
-                    MessageBox.Show("Kan ikke koble til databasen. Feilmelding: " + e.Message, "Jobber", MessageBoxButton.OK, MessageBoxImage.Error);
+                    int res = string.Compare(e.Message, "3D000: database \"jobber\" does not exist");
+                    if (res == 0) {
+                        if(!pg.createDatabase())
+                        {
+                            MessageBox.Show("Kan ikke opprette databasen. Feilmelding: " + pg.getError());
+                        }
+                        else
+                        {
+                            DialogResult = true;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kan ikke koble til databasen. Feilmelding: " + e.Message, "Jobber", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
