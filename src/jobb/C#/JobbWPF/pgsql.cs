@@ -104,6 +104,35 @@ namespace JobbWPF
             }
         }*/
 
+        /**
+         * <summary>
+         * Creates the database
+         * </summary> 
+         */
+        public bool createDatabase()
+        {
+            NpgsqlConnection conn = new NpgsqlConnection("Host=" + server + ";Username=" + username + ";Password=" + password + ";Database=postgres;Pooling=false");
+            try
+            {
+                conn.Open();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "CREATE DATABASE jobber";
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch(NpgsqlException ne)
+            {
+                setError(ne.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+        }
+
         // Metoder som sjekker om tabellene finnes i databasen.
         // Det skal være fire tabeller: Søknad, sted, land og status
         // i tillegg til ett "view" som kobler sammen de fire tabellene
