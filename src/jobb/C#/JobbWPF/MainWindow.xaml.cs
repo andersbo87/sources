@@ -23,6 +23,7 @@ namespace JobbWPF
     {
         // Oppretter pekere til de ulike klassene:
         private pgsql psql;
+        private MainWindow mw;
         private NewApplication na;
         private NewCountry nc;
         private NewStatus ns;
@@ -33,6 +34,7 @@ namespace JobbWPF
         private ViewStatuses vs;
         private ViewTowns vt;
         private Statistics st;
+        private Settings settings;
         string title;
         internal pgsql ps { get => psql; set => psql = value; }
 
@@ -62,7 +64,6 @@ namespace JobbWPF
             {
                 if (!psql.tableCountryExists())
                 {
-                    MessageBox.Show("Tabellen med oversikt over registrerte land finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!psql.createTableCountries())
                     {
                         MessageBox.Show("Kunne ikke opprette tabellen land: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -79,7 +80,6 @@ namespace JobbWPF
                 }
                 if (!psql.tableTownExists())
                 {
-                    MessageBox.Show("Tabellen med oversikt over registrerte steder finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!psql.createTableTowns())
                     {
                         MessageBox.Show("Kunne ikke opprette tabellen sted: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -96,7 +96,6 @@ namespace JobbWPF
                 }
                 if (!psql.tableStatusExists())
                 {
-                    MessageBox.Show("Tabellen med oversikt over registrerte statuser finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!psql.createTableStatuses())
                     {
                         MessageBox.Show("Kunne ikke opprette tabellen status: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -105,7 +104,6 @@ namespace JobbWPF
                 }
                 if (!psql.tableApplicationExists())
                 {
-                    MessageBox.Show("Tabellen med oversikt over registrerte søknader finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!psql.createTableApplications())
                     {
                         MessageBox.Show("Kunne ikke opprette tabellen søknad: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -127,7 +125,6 @@ namespace JobbWPF
                 }
                 if (!psql.viewApplicationExists())
                 {
-                    MessageBox.Show("'Viewet' med oversikt over registrerte søknader finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!psql.createViewApplications())
                     {
                         MessageBox.Show("Kunne ikke opprette 'viewet' søknad: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -136,7 +133,6 @@ namespace JobbWPF
                 }
                 if (!psql.viewTownExists())
                 {
-                    MessageBox.Show("'Viewet' med oversikt over registrerte steder finnes ikke. Den vil nå bli opprettet.", title, MessageBoxButton.OK, MessageBoxImage.Information);
                     if (!psql.createViewTown())
                     {
                         MessageBox.Show("Kunne ikke opprette 'viewet' sted: " + psql.getError(), title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -386,6 +382,12 @@ namespace JobbWPF
             {
                 MessageBox.Show(ex.Message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
+        }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            settings = new Settings();
+            settings.Show();
         }
     }
 }

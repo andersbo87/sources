@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JobbWPF"
         mc:Ignorable="d"
-        Title="Jobber" Height="197.018" Width="234.419" ResizeMode="CanMinimize" Loaded="formLoaded">
+        Title="Jobber" Height="219.393" Width="234.419" ResizeMode="CanMinimize" Loaded="formLoaded">
     <Grid>
         <Button Content="Legg til jobb" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" Name="btn_NewApplication" Click="newApplication_Click" />
         <Button Content="Legg til land" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="90" Name="btn_NewCountry" Click="btn_NewCountry_Click"/>
@@ -19,5 +19,6 @@
         <Button Content="Avansert søk" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="90" Name="btn_ViewSpecificApplications" Click="btn_ViewSpecificApplications_Click"/>
         <Button Content="Lagre SQL-fil" HorizontalAlignment="Left" Margin="105,110,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.723,0.502" Name="btn_SaveFile" Click="btn_SaveFile_Click"/>
         <Button Content="Åpne SQL-fil" HorizontalAlignment="Left" Margin="105, 135,0,0" VerticalAlignment="Top" Width="90" Name="btn_openSQLFile" Click="btn_openSQLFile_Click" />
+        <Button x:Name="btnSettings" Content="Alternativer" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="90" Click="BtnSettings_Click"/>
     </Grid>
 </Window>
