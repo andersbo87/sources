@@ -160,6 +160,7 @@ void ctrl_c(int sig_num)
   signal(SIGINT, ctrl_c);
   fprintf(stdout, "Quitting...\n");
   sigint = 1;
+  printf("\033]0;\007");
   exitApp(sig_num);
 }
 
@@ -1918,6 +1919,7 @@ void updateLinuxYum()
     printf("\033]0;\007");
     exit(-1);
   }
+  printf("\033]0;\007");
 }
 
 void updateLinux()
