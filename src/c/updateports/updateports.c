@@ -60,6 +60,7 @@ int askUpdateFreeBSD();
 void askToReadUPDATINGfile();
 char *remove_substring(char *str, char *str2);
 char *getOS();
+void updateLinuxApt();
 void updateLinux();
 int updateBaseSystem();
 int cleanOldDistfiles();
@@ -160,7 +161,6 @@ void ctrl_c(int sig_num)
   signal(SIGINT, ctrl_c);
   fprintf(stdout, "Quitting...\n");
   sigint = 1;
-  printf("\033]0;Quitting\007");
   exitApp(sig_num);
 }
 
@@ -1923,24 +1923,9 @@ void updateLinuxYum()
   printf("\033]0;\007");
 }
 
-void updateLinux()
+void updateLinuxApt()
 {
-  // Check if the user uses OpenSuse
-  system("hostnamectl | grep \"Operating System:\" | cut -c 21- | cut -d \" \" -f1 > /.LinuxDistro.txt");
-  if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
-	fprintf(stdout, "openSUSE\n");
-	updateLinuxZypper();
-	removeFile("/.LinuxDistro.txt");
-	return;
-  }
-  else if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
-    fprintf(stdout, "CentOS\n");
-    updateLinuxYum();
-    removeFile("/.LinuxDistro.txt");
-    return;
-  }
-  removeFile("/.LinuxDistro.txt");
-  // This assumes that the user uses apt-get.
+     // This assumes that the user uses apt-get.
   int status = 0;
   printf("\033]0;Updating package information by running /usr/bin/apt update\007");
   printf("Updating package information by running /usr/bin/apt update\n");
@@ -2038,6 +2023,28 @@ void updateLinux()
     exit(-1);
   }
   printf("\033]0;\007");
+}
+
+void updateLinux()
+{
+  // Check if the user uses OpenSuse
+  system("hostnamectl | grep \"Operating System:\" | cut -c 21- | cut -d \" \" -f1 > /.LinuxDistro.txt");
+  if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
+	fprintf(stdout, "openSUSE\n");
+	updateLinuxZypper();
+	removeFile("/.LinuxDistro.txt");
+	return;
+  }
+  else if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
+    fprintf(stdout, "CentOS\n");
+    updateLinuxYum();
+    removeFile("/.LinuxDistro.txt");
+    return;
+  }
+  else {
+    updateLinuxApt();
+  }
+  removeFile("/.LinuxDistro.txt");
 }
 
 /*
