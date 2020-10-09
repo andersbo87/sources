@@ -1851,6 +1851,7 @@ void updateLinuxZypper()
     printf("\033]0;\007");
     exit(-1);
   }
+  printf("\033]0;\007");
 }
 
 void updateLinuxYum()
