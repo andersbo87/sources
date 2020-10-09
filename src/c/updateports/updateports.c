@@ -2028,7 +2028,7 @@ void updateLinuxApt()
 void updateLinux()
 {
   // Check if the user uses OpenSuse
-  system("hostnamectl | grep \"Operating System:\" | cut -c 21- | cut -d \" \" -f1 > /.LinuxDistro.txt");
+  // system("lsb_release -a | grep \"Distributor ID:\" | cut -c 17- | cut -d \" \" -f1 > /.LinuxDistro.txt");
   if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
 	fprintf(stdout, "openSUSE\n");
 	updateLinuxZypper();
