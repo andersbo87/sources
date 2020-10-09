@@ -160,7 +160,7 @@ void ctrl_c(int sig_num)
   signal(SIGINT, ctrl_c);
   fprintf(stdout, "Quitting...\n");
   sigint = 1;
-  printf("\033]0;\007");
+  printf("\033]0;Quitting\007");
   exitApp(sig_num);
 }
 
