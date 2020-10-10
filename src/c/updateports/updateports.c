@@ -2029,37 +2029,24 @@ void updateLinux()
 {
   // Check if the user uses OpenSuse
   int res = system("lsb_release -a | grep \"Distributor ID:\" | cut -c 17- | cut -d \" \" -f1 > /.LinuxDistro.txt");
-  if(res == 0) {
-    if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
-	fprintf(stdout, "openSUSE\n");
-	updateLinuxZypper();
-	removeFile("/.LinuxDistro.txt");
-	return;
-    }
-    else if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
-      fprintf(stdout, "CentOS\n");
-      updateLinuxYum();
-      removeFile("/.LinuxDistro.txt");
-      return;
-    }
-    else {
-      updateLinuxApt();
-    }
+  if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
+    fprintf(stdout, "openSUSE\n");
+    updateLinuxZypper();
+    removeFile("/.LinuxDistro.txt");
+    return;
+  }
+  else if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
+    fprintf(stdout, "CentOS\n");
+    updateLinuxYum();
+    removeFile("/.LinuxDistro.txt");
+    return;
+  }
+  else {
+    updateLinuxApt();
+  }
   removeFile("/.LinuxDistro.txt");
-  }
-  else 
-  {
-    int res2 = system("cat /etc/redhat-release | cut -c 17- | cut -d \" \" -f1 > /.LinuxDistro.txt");
-    if(res2 == 0) {
-      if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
-	fprintf(stdout, "CentOS\n");
-	updateLinuxYum();
-	removeFile("/.LinuxDistro.txt");
-	return;
-      }
-    }
-  }
 }
+
 
 /*
 * Oppdateringsprosessen her foregår ved at /usr/ports/infrastructures/bin/out-of-date kjøres.
