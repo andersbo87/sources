@@ -2,6 +2,7 @@ UNAME_S = $(shell uname)
 DOT = $(shell cc --version 2>/dev/null)
 FILE=/usr/bin/xdotool
 ALTFILE=/usr/local/bin/xdotool
+RELFILE=/usr/bin/lsb_release
 updateports:
 ifneq ($(UNAME_S), SunOS)
 ifeq ($(shell test -e $(FILE) && echo -n yes), yes)
@@ -11,6 +12,14 @@ else ifeq ($(shell test -e $(ALTFILE) && echo -n yes), yes)
 else
 	FILE_EXISTS=0
 	$(error File $(ALTFILE) or $(FILE) does not exist)
+endif
+ifeq ($(UNAME_S), Linux)
+ifeq ($(shell test -e $(RELFILE) && echo -n yes), yes)
+	@echo Found lsb_release
+else
+	FILE_EXISTS=0
+	$(error File $(RELFILE) does not exist. Please install it.)
+endif
 endif
 endif
 ifdef DOT
