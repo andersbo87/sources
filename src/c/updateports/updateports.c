@@ -2029,6 +2029,7 @@ void updateLinux()
 {
   // Check if the user uses OpenSuse
   int res = system("lsb_release -a 2>/dev/null | grep \"Distributor ID:\" | cut -c 17- | cut -d \" \" -f1 > /.LinuxDistro.txt");
+  fprintf(stdout, "Checking Linux version: ");
   if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
     fprintf(stdout, "openSUSE\n");
     removeFile("/.LinuxDistro.txt");
