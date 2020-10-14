@@ -1294,8 +1294,8 @@ int Search_in_File(char *fname, char *str)
   
   if((fp=fopen(fname, "r")) == NULL) 
     {
-      printf("There is something wrong!\n");
-      return(-1);
+      fprintf(stderr, "There is something wrong! %s: %s\n", fname, strerror(errno));
+      exitApp(errno);
     }
   
   while(fgets(temp, 512, fp) != NULL) {
