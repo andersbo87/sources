@@ -2042,10 +2042,10 @@ void updateLinux()
     updateLinuxYum();
     return;
   }
-  else if(Search_in_File("./LinuxDistro.txt", "Ubuntu") == 0) {
+  else if(Search_in_File("/.LinuxDistro.txt", "Ubuntu") == 0) {
     fprintf(stdout, "Ubuntu");
-    updateLinuxApt();
     removeFile("/.LinuxDistro.txt");
+    updateLinuxApt();
     return;
   }
 }
