@@ -2043,7 +2043,7 @@ void updateLinux()
     return;
   }
   else if(Search_in_File("/.LinuxDistro.txt", "Ubuntu") == 0) {
-    fprintf(stdout, "Ubuntu");
+    fprintf(stdout, "Ubuntu\n");
     removeFile("/.LinuxDistro.txt");
     updateLinuxApt();
     return;
