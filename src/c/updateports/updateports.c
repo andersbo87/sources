@@ -2044,8 +2044,8 @@ void updateLinux()
   }
   else if(Search_in_File("./LinuxDistro.txt", "Ubuntu") == 0) {
     fprintf(stdout, "Ubuntu");
-    removeFile("/.LinuxDistro.txt");   
     updateLinuxApt();
+    removeFile("/.LinuxDistro.txt");
     return;
   }
 }
