@@ -2031,20 +2031,22 @@ void updateLinux()
   int res = system("lsb_release -a | grep \"Distributor ID:\" | cut -c 17- | cut -d \" \" -f1 > /.LinuxDistro.txt");
   if(Search_in_File("/.LinuxDistro.txt", "openSUSE") == 0) {
     fprintf(stdout, "openSUSE\n");
-    updateLinuxZypper();
     removeFile("/.LinuxDistro.txt");
+    updateLinuxZypper();
     return;
   }
   else if(Search_in_File("/.LinuxDistro.txt", "CentOS") == 0) {
     fprintf(stdout, "CentOS\n");
-    updateLinuxYum();
     removeFile("/.LinuxDistro.txt");
+    updateLinuxYum();
     return;
   }
-  else {
+  else if(Search_in_File("./LinuxDistro.txt", "Ubuntu") == 0) {
+    fprintf(stdout, "Ubuntu");
+    removeFile("/.LinuxDistro.txt");   
     updateLinuxApt();
+    return;
   }
-  removeFile("/.LinuxDistro.txt");
 }
 
 
