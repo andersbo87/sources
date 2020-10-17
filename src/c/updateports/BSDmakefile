@@ -7,7 +7,7 @@ updateports:
 .if exists(/usr/local/bin/xdotool)
 	cc --std=c11 -o updateports updateports.c
 .else
-.error File does /usr/local/bin/xdotool or /usr/bin/xdotool does not exist
+.error The file /usr/local/bin/xdotool or /usr/bin/xdotool does not exist
 .endif
 .endif
 
