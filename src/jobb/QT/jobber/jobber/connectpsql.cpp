@@ -91,7 +91,7 @@ void connectPsql::accept()
             msg.addButton(msg.No);
             msg.setDefaultButton(msg.Yes);
             if(msg.exec() == QMessageBox::Yes) {
-                QString mkdb = "PGPASSWORD=\"" + p->getPassword() + "\" createdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
+	        QString mkdb = "PGPASSWORD=\"" + p->getPassword() + "\" createdb -h " + p->getHost() + " -p " + QString::number(p->getPort()) + " -U " + p->getUsername() + " jobber";
                 int psqlRes = system(mkdb.toStdString().c_str());
                 if (psqlRes != 0) {
                     msg.setIcon(msg.Warning);

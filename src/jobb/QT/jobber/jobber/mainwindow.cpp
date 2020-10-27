@@ -184,6 +184,8 @@ void MainWindow::windowLoaded()
  * @brief MainWindow::btn_loadDB_Click Deletes the database and recreates it from a SQL file
  */
 void MainWindow::btn_loadDB_Click(){
+    const int port = p->getPort();
+  
     QMessageBox question;
     question.setIcon(question.Question);
     question.setText("Dette vil slette og gjenopprette databasen fra en SQL-fil. Vil du fortsette?");
@@ -197,9 +199,9 @@ void MainWindow::btn_loadDB_Click(){
         if(!fileName.isEmpty()){
             QMessageBox msg;
             msg.setWindowTitle(windowTitle());
-            QString rmdb = "PGPASSWORD=\"" + p->getPassword() + "\" dropdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
-            QString mkdb = "PGPASSWORD=\"" + p->getPassword() + "\" createdb -h " + p->getHost() + " -U " + p->getUsername() + " jobber";
-            QString psql = "PGPASSWORD=\"" + p->getPassword() + "\" psql -h " + p->getHost() + " -U " + p->getUsername() + " jobber -f " + fileName;
+	    QString rmdb = "PGPASSWORD=\"" + p->getPassword() + "\" dropdb -h " + p->getHost() + " -p " + QString::number(port) + " -U " + p->getUsername() + " jobber";
+            QString mkdb = "PGPASSWORD=\"" + p->getPassword() + "\" createdb -h " + p->getHost() + " -p " + QString::number(port) + " -U " + p->getUsername() + " jobber";
+            QString psql = "PGPASSWORD=\"" + p->getPassword() + "\" psql -h " + p->getHost() + " -p " + QString::number(port) + " -U " + p->getUsername() + " jobber -f " + fileName;
             int psqlRes;
             psqlRes = system(rmdb.toStdString().c_str());
             if (psqlRes != 0) {
